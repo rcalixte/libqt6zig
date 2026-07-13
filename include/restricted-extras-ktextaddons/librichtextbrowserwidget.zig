@@ -260,7 +260,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -312,7 +312,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn ToHtml(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextCustomEditor__RichTextBrowserWidget_ToHtml(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.ToHtml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.ToHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -344,7 +344,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn ToPlainText(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextCustomEditor__RichTextBrowserWidget_ToPlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.ToPlainText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.ToPlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -416,7 +416,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -438,7 +438,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1813,7 +1813,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn StyleSheet(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1831,7 +1831,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn WindowTitle(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1894,7 +1894,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn WindowIconText(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1930,7 +1930,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn WindowRole(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1966,7 +1966,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn WindowFilePath(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2040,7 +2040,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn ToolTip(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2102,7 +2102,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn StatusTip(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2138,7 +2138,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn WhatsThis(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2156,7 +2156,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn AccessibleName(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2192,7 +2192,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn AccessibleDescription(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3042,7 +3042,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn SaveGeometry(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("textcustomeditor__richtextbrowserwidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -3578,7 +3578,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn Actions(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("textcustomeditor__richtextbrowserwidget.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4393,7 +4393,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn ObjectName(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__richtextbrowserwidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4570,7 +4570,7 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
     pub fn Children(self: TextCustomEditor__RichTextBrowserWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("textcustomeditor__richtextbrowserwidget.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4831,10 +4831,10 @@ pub const TextCustomEditor__RichTextBrowserWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("textcustomeditor__richtextbrowserwidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textcustomeditor__richtextbrowserwidget.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextCustomEditor__RichTextBrowserWidget.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

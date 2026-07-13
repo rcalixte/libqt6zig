@@ -67,7 +67,7 @@ pub const KNotifyConfig = extern struct {
     pub fn ApplicationName(self: KNotifyConfig, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNotifyConfig_ApplicationName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knotifyconfig.ApplicationName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNotifyConfig.ApplicationName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -83,7 +83,7 @@ pub const KNotifyConfig = extern struct {
     pub fn EventId(self: KNotifyConfig, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNotifyConfig_EventId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knotifyconfig.EventId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNotifyConfig.EventId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -115,7 +115,7 @@ pub const KNotifyConfig = extern struct {
         };
         var _str = qtc.KNotifyConfig_ReadGlobalEntry(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knotifyconfig.ReadGlobalEntry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNotifyConfig.ReadGlobalEntry: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -137,7 +137,7 @@ pub const KNotifyConfig = extern struct {
         };
         var _str = qtc.KNotifyConfig_ReadEntry(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knotifyconfig.ReadEntry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNotifyConfig.ReadEntry: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -159,7 +159,7 @@ pub const KNotifyConfig = extern struct {
         };
         var _str = qtc.KNotifyConfig_ReadPathEntry(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knotifyconfig.ReadPathEntry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNotifyConfig.ReadPathEntry: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

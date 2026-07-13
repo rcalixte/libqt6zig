@@ -14,8 +14,8 @@ QStringMatcher* QStringMatcher_new2(const libqt_string pattern) {
     return new QStringMatcher(pattern_QString);
 }
 
-QStringMatcher* QStringMatcher_new3(const QChar* uc, ptrdiff_t lenVal) {
-    return new QStringMatcher(uc, (qsizetype)(lenVal));
+QStringMatcher* QStringMatcher_new3(const QChar* uc, ptrdiff_t len) {
+    return new QStringMatcher(uc, (qsizetype)(len));
 }
 
 QStringMatcher* QStringMatcher_new4(libqt_string pattern) {
@@ -32,8 +32,8 @@ QStringMatcher* QStringMatcher_new6(const libqt_string pattern, int cs) {
     return new QStringMatcher(pattern_QString, static_cast<Qt::CaseSensitivity>(cs));
 }
 
-QStringMatcher* QStringMatcher_new7(const QChar* uc, ptrdiff_t lenVal, int cs) {
-    return new QStringMatcher(uc, (qsizetype)(lenVal), static_cast<Qt::CaseSensitivity>(cs));
+QStringMatcher* QStringMatcher_new7(const QChar* uc, ptrdiff_t len, int cs) {
+    return new QStringMatcher(uc, (qsizetype)(len), static_cast<Qt::CaseSensitivity>(cs));
 }
 
 QStringMatcher* QStringMatcher_new8(libqt_string pattern, int cs) {

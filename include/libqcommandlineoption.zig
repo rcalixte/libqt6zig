@@ -36,7 +36,7 @@ pub const QCommandLineOption = extern struct {
     /// ` names: []const []const u8 `
     ///
     pub fn New2(allocator: std.mem.Allocator, names: []const []const u8) QCommandLineOption {
-        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.New2: Memory allocation failed");
+        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("QCommandLineOption.New2: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i|
             names_arr[i] = .{
@@ -81,7 +81,7 @@ pub const QCommandLineOption = extern struct {
     /// ` description: []const u8 `
     ///
     pub fn New4(allocator: std.mem.Allocator, names: []const []const u8, description: []const u8) QCommandLineOption {
-        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.New4: Memory allocation failed");
+        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("QCommandLineOption.New4: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i|
             names_arr[i] = .{
@@ -181,7 +181,7 @@ pub const QCommandLineOption = extern struct {
     /// ` valueName: []const u8 `
     ///
     pub fn New8(allocator: std.mem.Allocator, names: []const []const u8, description: []const u8, valueName: []const u8) QCommandLineOption {
-        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.New8: Memory allocation failed");
+        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("QCommandLineOption.New8: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i|
             names_arr[i] = .{
@@ -218,7 +218,7 @@ pub const QCommandLineOption = extern struct {
     /// ` defaultValue: []const u8 `
     ///
     pub fn New9(allocator: std.mem.Allocator, names: []const []const u8, description: []const u8, valueName: []const u8, defaultValue: []const u8) QCommandLineOption {
-        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("qcommandlineoption.New9: Memory allocation failed");
+        const names_arr = allocator.alloc(qtc.libqt_string, names.len) catch @panic("QCommandLineOption.New9: Memory allocation failed");
         defer allocator.free(names_arr);
         for (names, 0..names.len) |item, i|
             names_arr[i] = .{
@@ -286,10 +286,10 @@ pub const QCommandLineOption = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineoption.Names: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCommandLineOption.Names: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcommandlineoption.Names: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCommandLineOption.Names: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -323,7 +323,7 @@ pub const QCommandLineOption = extern struct {
     pub fn ValueName(self: QCommandLineOption, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCommandLineOption_ValueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineoption.ValueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommandLineOption.ValueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -355,7 +355,7 @@ pub const QCommandLineOption = extern struct {
     pub fn Description(self: QCommandLineOption, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCommandLineOption_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineoption.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommandLineOption.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -387,7 +387,7 @@ pub const QCommandLineOption = extern struct {
     /// ` defaultValues: []const []const u8 `
     ///
     pub fn SetDefaultValues(self: QCommandLineOption, allocator: std.mem.Allocator, defaultValues: []const []const u8) void {
-        const defaultValues_arr = allocator.alloc(qtc.libqt_string, defaultValues.len) catch @panic("qcommandlineoption.SetDefaultValues: Memory allocation failed");
+        const defaultValues_arr = allocator.alloc(qtc.libqt_string, defaultValues.len) catch @panic("QCommandLineOption.SetDefaultValues: Memory allocation failed");
         defer allocator.free(defaultValues_arr);
         for (defaultValues, 0..defaultValues.len) |item, i|
             defaultValues_arr[i] = .{
@@ -417,10 +417,10 @@ pub const QCommandLineOption = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineoption.DefaultValues: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCommandLineOption.DefaultValues: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcommandlineoption.DefaultValues: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCommandLineOption.DefaultValues: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

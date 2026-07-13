@@ -98,19 +98,19 @@ void Konsole__Emulation_SendString(Konsole__Emulation* self, const char* string,
     self->sendString(string, static_cast<int>(length));
 }
 
-void Konsole__Emulation_ReceiveData(Konsole__Emulation* self, const char* buffer, int lenVal) {
-    self->receiveData(buffer, static_cast<int>(lenVal));
+void Konsole__Emulation_ReceiveData(Konsole__Emulation* self, const char* buffer, int len) {
+    self->receiveData(buffer, static_cast<int>(len));
 }
 
-void Konsole__Emulation_SendData(Konsole__Emulation* self, const char* data, int lenVal) {
-    self->sendData(data, static_cast<int>(lenVal));
+void Konsole__Emulation_SendData(Konsole__Emulation* self, const char* data, int len) {
+    self->sendData(data, static_cast<int>(len));
 }
 
 void Konsole__Emulation_Connect_SendData(Konsole__Emulation* self, intptr_t slot) {
     void (*slotFunc)(Konsole__Emulation*, const char*, int) = reinterpret_cast<void (*)(Konsole__Emulation*, const char*, int)>(slot);
-    Konsole::Emulation::connect(self, &Konsole::Emulation::sendData, [self, slotFunc](const char* data, int lenVal) {
+    Konsole::Emulation::connect(self, &Konsole::Emulation::sendData, [self, slotFunc](const char* data, int len) {
         const char* sigval1 = (const char*)data;
-        int sigval2 = lenVal;
+        int sigval2 = len;
         slotFunc(self, sigval1, sigval2);
     });
 }

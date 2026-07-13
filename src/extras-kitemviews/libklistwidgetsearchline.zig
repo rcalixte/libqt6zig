@@ -256,7 +256,7 @@ pub const KListWidgetSearchLine = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -491,7 +491,7 @@ pub const KListWidgetSearchLine = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -513,7 +513,7 @@ pub const KListWidgetSearchLine = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -531,7 +531,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn Text(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -549,7 +549,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn DisplayText(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_DisplayText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.DisplayText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.DisplayText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -567,7 +567,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn PlaceholderText(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.PlaceholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1024,7 +1024,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn SelectedText(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.SelectedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.SelectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1158,7 +1158,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn InputMask(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_InputMask(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.InputMask: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.InputMask: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3023,7 +3023,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn StyleSheet(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3041,7 +3041,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn WindowTitle(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3104,7 +3104,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn WindowIconText(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3140,7 +3140,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn WindowRole(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3176,7 +3176,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn WindowFilePath(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3250,7 +3250,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn ToolTip(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3312,7 +3312,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn StatusTip(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3348,7 +3348,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn WhatsThis(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3366,7 +3366,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn AccessibleName(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3402,7 +3402,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn AccessibleDescription(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4252,7 +4252,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn SaveGeometry(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("klistwidgetsearchline.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KListWidgetSearchLine.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -4773,7 +4773,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn Actions(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("klistwidgetsearchline.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KListWidgetSearchLine.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5570,7 +5570,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn ObjectName(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klistwidgetsearchline.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListWidgetSearchLine.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5747,7 +5747,7 @@ pub const KListWidgetSearchLine = extern struct {
     pub fn Children(self: KListWidgetSearchLine, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("klistwidgetsearchline.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KListWidgetSearchLine.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6008,10 +6008,10 @@ pub const KListWidgetSearchLine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("klistwidgetsearchline.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KListWidgetSearchLine.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("klistwidgetsearchline.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KListWidgetSearchLine.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

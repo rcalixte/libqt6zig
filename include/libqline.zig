@@ -580,10 +580,10 @@ pub const QLineF = extern struct {
     ///
     /// ` self: QLineF `
     ///
-    /// ` lenVal: f64 `
+    /// ` len: f64 `
     ///
-    pub fn SetLength(self: QLineF, lenVal: f64) void {
-        qtc.QLineF_SetLength(@ptrCast(self.ptr), @bitCast(lenVal));
+    pub fn SetLength(self: QLineF, len: f64) void {
+        qtc.QLineF_SetLength(@ptrCast(self.ptr), @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlinef.html#angle)

@@ -115,7 +115,7 @@ pub const Attica__Provider = extern struct {
     pub fn AdditionalAgentInformation(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_AdditionalAgentInformation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__provider.AdditionalAgentInformation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.AdditionalAgentInformation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -141,7 +141,7 @@ pub const Attica__Provider = extern struct {
     pub fn Name(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__provider.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -177,7 +177,7 @@ pub const Attica__Provider = extern struct {
     pub fn PersonServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_PersonServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__provider.PersonServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.PersonServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -203,7 +203,7 @@ pub const Attica__Provider = extern struct {
     pub fn FriendServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_FriendServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__provider.FriendServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.FriendServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -229,7 +229,7 @@ pub const Attica__Provider = extern struct {
     pub fn MessageServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_MessageServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__provider.MessageServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.MessageServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -255,7 +255,7 @@ pub const Attica__Provider = extern struct {
     pub fn AchievementServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_AchievementServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__provider.AchievementServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.AchievementServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -281,7 +281,7 @@ pub const Attica__Provider = extern struct {
     pub fn ActivityServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_ActivityServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__provider.ActivityServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.ActivityServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -307,7 +307,7 @@ pub const Attica__Provider = extern struct {
     pub fn ContentServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_ContentServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__provider.ContentServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.ContentServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -333,7 +333,7 @@ pub const Attica__Provider = extern struct {
     pub fn FanServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_FanServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__provider.FanServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.FanServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -359,7 +359,7 @@ pub const Attica__Provider = extern struct {
     pub fn ForumServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_ForumServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__provider.ForumServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.ForumServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -385,7 +385,7 @@ pub const Attica__Provider = extern struct {
     pub fn KnowledgebaseServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_KnowledgebaseServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__provider.KnowledgebaseServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.KnowledgebaseServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -411,7 +411,7 @@ pub const Attica__Provider = extern struct {
     pub fn CommentServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_CommentServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__provider.CommentServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.CommentServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1167,7 +1167,7 @@ pub const Attica__Provider = extern struct {
     pub fn GetRegisterAccountUrl(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_GetRegisterAccountUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__provider.GetRegisterAccountUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.GetRegisterAccountUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

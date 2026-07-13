@@ -21,7 +21,7 @@ typedef struct QChar QChar;
 
 KCharsets* KCharsets_Charsets();
 QChar* KCharsets_FromEntity(libqt_string str);
-QChar* KCharsets_FromEntity2(libqt_string str, int* lenVal);
+QChar* KCharsets_FromEntity2(libqt_string str, int* len);
 libqt_string KCharsets_ToEntity(const QChar* ch);
 libqt_string KCharsets_ResolveEntities(const libqt_string text);
 libqt_list /* of libqt_string */ KCharsets_AvailableEncodingNames(const KCharsets* self);

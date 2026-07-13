@@ -219,7 +219,7 @@ pub const QTemporaryFile = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporaryfile.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -267,7 +267,7 @@ pub const QTemporaryFile = extern struct {
     pub fn FileName(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTemporaryFile_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporaryfile.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -303,7 +303,7 @@ pub const QTemporaryFile = extern struct {
     pub fn SuperFileName(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTemporaryFile_SuperFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporaryfile.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -319,7 +319,7 @@ pub const QTemporaryFile = extern struct {
     pub fn FileTemplate(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTemporaryFile_FileTemplate(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporaryfile.FileTemplate: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.FileTemplate: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -440,7 +440,7 @@ pub const QTemporaryFile = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporaryfile.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -462,7 +462,7 @@ pub const QTemporaryFile = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporaryfile.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -502,7 +502,7 @@ pub const QTemporaryFile = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QFile_EncodeName(fileName_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtemporaryfile.EncodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.EncodeName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -524,7 +524,7 @@ pub const QTemporaryFile = extern struct {
         };
         var _str = qtc.QFile_DecodeName(localFileName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporaryfile.DecodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.DecodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -543,7 +543,7 @@ pub const QTemporaryFile = extern struct {
         const localFileName_Cstring = localFileName.ptr;
         var _str = qtc.QFile_DecodeName2(localFileName_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporaryfile.DecodeName2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.DecodeName2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -589,7 +589,7 @@ pub const QTemporaryFile = extern struct {
     pub fn SymLinkTarget(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFile_SymLinkTarget(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporaryfile.SymLinkTarget: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.SymLinkTarget: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -611,7 +611,7 @@ pub const QTemporaryFile = extern struct {
         };
         var _str = qtc.QFile_SymLinkTarget2(fileName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporaryfile.SymLinkTarget2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.SymLinkTarget2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1181,7 +1181,7 @@ pub const QTemporaryFile = extern struct {
     pub fn Read2(self: QTemporaryFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtemporaryfile.Read2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1199,7 +1199,7 @@ pub const QTemporaryFile = extern struct {
     pub fn ReadAll(self: QTemporaryFile, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtemporaryfile.ReadAll: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1234,7 +1234,7 @@ pub const QTemporaryFile = extern struct {
     pub fn ReadLine2(self: QTemporaryFile, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtemporaryfile.ReadLine2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1297,11 +1297,11 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn Write(self: QTemporaryFile, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn Write(self: QTemporaryFile, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// Inherited from QIODevice
@@ -1369,7 +1369,7 @@ pub const QTemporaryFile = extern struct {
     pub fn Peek2(self: QTemporaryFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtemporaryfile.Peek2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1444,7 +1444,7 @@ pub const QTemporaryFile = extern struct {
     pub fn ErrorString(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporaryfile.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1628,7 +1628,7 @@ pub const QTemporaryFile = extern struct {
     pub fn ReadLine1(self: QTemporaryFile, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtemporaryfile.ReadLine1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTemporaryFile.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1646,7 +1646,7 @@ pub const QTemporaryFile = extern struct {
     pub fn ObjectName(self: QTemporaryFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtemporaryfile.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTemporaryFile.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1823,7 +1823,7 @@ pub const QTemporaryFile = extern struct {
     pub fn Children(self: QTemporaryFile, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qtemporaryfile.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTemporaryFile.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2099,10 +2099,10 @@ pub const QTemporaryFile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtemporaryfile.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTemporaryFile.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtemporaryfile.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTemporaryFile.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2924,11 +2924,11 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn WriteData(self: QTemporaryFile, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn WriteData(self: QTemporaryFile, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QTemporaryFile_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        return qtc.QTemporaryFile_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// ### DEPRECATED: Use `SuperWriteData` instead
@@ -2947,11 +2947,11 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn SuperWriteData(self: QTemporaryFile, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn SuperWriteData(self: QTemporaryFile, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QTemporaryFile_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        return qtc.QTemporaryFile_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// Inherited from QFileDevice
@@ -2964,7 +2964,7 @@ pub const QTemporaryFile = extern struct {
     ///
     /// ` self: QTemporaryFile`
     ///
-    /// ` callback: *const fn (self: QTemporaryFile, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QTemporaryFile, data: [*:0]const u8, len: i64) callconv(.c) i64 `
     ///
     pub fn OnWriteData(self: QTemporaryFile, callback: *const fn (QTemporaryFile, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QTemporaryFile_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

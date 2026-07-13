@@ -287,7 +287,7 @@ pub const QTextDocument = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocument.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -478,7 +478,7 @@ pub const QTextDocument = extern struct {
     pub fn MetaInformation(self: QTextDocument, allocator: std.mem.Allocator, info: i32) []const u8 {
         var _str = qtc.QTextDocument_MetaInformation(@ptrCast(self.ptr), @bitCast(info));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.MetaInformation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocument.MetaInformation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -494,7 +494,7 @@ pub const QTextDocument = extern struct {
     pub fn ToHtml(self: QTextDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextDocument_ToHtml(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToHtml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocument.ToHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -526,7 +526,7 @@ pub const QTextDocument = extern struct {
     pub fn ToMarkdown(self: QTextDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextDocument_ToMarkdown(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToMarkdown: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocument.ToMarkdown: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -558,7 +558,7 @@ pub const QTextDocument = extern struct {
     pub fn ToRawText(self: QTextDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextDocument_ToRawText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToRawText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocument.ToRawText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -574,7 +574,7 @@ pub const QTextDocument = extern struct {
     pub fn ToPlainText(self: QTextDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextDocument_ToPlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToPlainText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocument.ToPlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1005,7 +1005,7 @@ pub const QTextDocument = extern struct {
     pub fn AllFormats(self: QTextDocument, allocator: std.mem.Allocator) []QTextFormat {
         const _arr: qtc.libqt_list = qtc.QTextDocument_AllFormats(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextFormat, _arr.len) catch @panic("qtextdocument.AllFormats: Memory allocation failed");
+        const _ret = allocator.alloc(QTextFormat, _arr.len) catch @panic("QTextDocument.AllFormats: Memory allocation failed");
         const _data: [*]QtC.QTextFormat = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1236,7 +1236,7 @@ pub const QTextDocument = extern struct {
     pub fn DefaultStyleSheet(self: QTextDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextDocument_DefaultStyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.DefaultStyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocument.DefaultStyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1767,7 +1767,7 @@ pub const QTextDocument = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocument.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1789,7 +1789,7 @@ pub const QTextDocument = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocument.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1820,7 +1820,7 @@ pub const QTextDocument = extern struct {
     pub fn ToMarkdown1(self: QTextDocument, allocator: std.mem.Allocator, features: i32) []const u8 {
         var _str = qtc.QTextDocument_ToMarkdown1(@ptrCast(self.ptr), @bitCast(features));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ToMarkdown1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocument.ToMarkdown1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2005,7 +2005,7 @@ pub const QTextDocument = extern struct {
     pub fn ObjectName(self: QTextDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocument.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocument.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2182,7 +2182,7 @@ pub const QTextDocument = extern struct {
     pub fn Children(self: QTextDocument, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qtextdocument.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTextDocument.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2458,10 +2458,10 @@ pub const QTextDocument = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtextdocument.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTextDocument.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtextdocument.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTextDocument.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

@@ -240,7 +240,7 @@ pub const QGraphicsProxyWidget = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsproxywidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsProxyWidget.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1849,7 +1849,7 @@ pub const QGraphicsProxyWidget = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsproxywidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsProxyWidget.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1871,7 +1871,7 @@ pub const QGraphicsProxyWidget = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsproxywidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsProxyWidget.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2354,7 +2354,7 @@ pub const QGraphicsProxyWidget = extern struct {
     pub fn WindowTitle(self: QGraphicsProxyWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGraphicsWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsproxywidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsProxyWidget.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2574,7 +2574,7 @@ pub const QGraphicsProxyWidget = extern struct {
     pub fn Actions(self: QGraphicsProxyWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QGraphicsWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qgraphicsproxywidget.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QGraphicsProxyWidget.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3107,7 +3107,7 @@ pub const QGraphicsProxyWidget = extern struct {
     pub fn ObjectName(self: QGraphicsProxyWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsproxywidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsProxyWidget.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3284,7 +3284,7 @@ pub const QGraphicsProxyWidget = extern struct {
     pub fn Children(self: QGraphicsProxyWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qgraphicsproxywidget.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsProxyWidget.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3560,10 +3560,10 @@ pub const QGraphicsProxyWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qgraphicsproxywidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsProxyWidget.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qgraphicsproxywidget.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGraphicsProxyWidget.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3987,7 +3987,7 @@ pub const QGraphicsProxyWidget = extern struct {
     pub fn ChildItems(self: QGraphicsProxyWidget, allocator: std.mem.Allocator) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_ChildItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("qgraphicsproxywidget.ChildItems: Memory allocation failed");
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsProxyWidget.ChildItems: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4210,7 +4210,7 @@ pub const QGraphicsProxyWidget = extern struct {
     pub fn ToolTip(self: QGraphicsProxyWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGraphicsItem_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsproxywidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsProxyWidget.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5088,7 +5088,7 @@ pub const QGraphicsProxyWidget = extern struct {
     pub fn Transformations(self: QGraphicsProxyWidget, allocator: std.mem.Allocator) []QGraphicsTransform {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_Transformations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsTransform, _arr.len) catch @panic("qgraphicsproxywidget.Transformations: Memory allocation failed");
+        const _ret = allocator.alloc(QGraphicsTransform, _arr.len) catch @panic("QGraphicsProxyWidget.Transformations: Memory allocation failed");
         const _data: [*]QtC.QGraphicsTransform = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5258,7 +5258,7 @@ pub const QGraphicsProxyWidget = extern struct {
     pub fn CollidingItems(self: QGraphicsProxyWidget, allocator: std.mem.Allocator) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("qgraphicsproxywidget.CollidingItems: Memory allocation failed");
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsProxyWidget.CollidingItems: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6242,7 +6242,7 @@ pub const QGraphicsProxyWidget = extern struct {
     pub fn CollidingItems1(self: QGraphicsProxyWidget, allocator: std.mem.Allocator, mode: i32) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self.ptr), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("qgraphicsproxywidget.CollidingItems1: Memory allocation failed");
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QGraphicsProxyWidget.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

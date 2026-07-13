@@ -501,23 +501,23 @@ void KProcess_OnReadData(KProcess* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-long long KProcess_WriteData(KProcess* self, const char* data, long long lenVal) {
+long long KProcess_WriteData(KProcess* self, const char* data, long long len) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
-        return static_cast<long long>(vkprocess->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vkprocess->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualKProcess*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualKProcess*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 
 // Base class handler implementation
-long long KProcess_SuperWriteData(KProcess* self, const char* data, long long lenVal) {
+long long KProcess_SuperWriteData(KProcess* self, const char* data, long long len) {
     auto* vkprocess = dynamic_cast<VirtualKProcess*>(self);
     if (vkprocess && vkprocess->isVirtualKProcess) {
         vkprocess->setKProcess_WriteData_IsBase(true);
-        return static_cast<long long>(vkprocess->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vkprocess->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualKProcess*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualKProcess*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 

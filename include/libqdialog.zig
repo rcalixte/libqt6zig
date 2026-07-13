@@ -247,7 +247,7 @@ pub const QDialog = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1051,7 +1051,7 @@ pub const QDialog = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1073,7 +1073,7 @@ pub const QDialog = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2448,7 +2448,7 @@ pub const QDialog = extern struct {
     pub fn StyleSheet(self: QDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2466,7 +2466,7 @@ pub const QDialog = extern struct {
     pub fn WindowTitle(self: QDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2529,7 +2529,7 @@ pub const QDialog = extern struct {
     pub fn WindowIconText(self: QDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2565,7 +2565,7 @@ pub const QDialog = extern struct {
     pub fn WindowRole(self: QDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2601,7 +2601,7 @@ pub const QDialog = extern struct {
     pub fn WindowFilePath(self: QDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2675,7 +2675,7 @@ pub const QDialog = extern struct {
     pub fn ToolTip(self: QDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2737,7 +2737,7 @@ pub const QDialog = extern struct {
     pub fn StatusTip(self: QDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2773,7 +2773,7 @@ pub const QDialog = extern struct {
     pub fn WhatsThis(self: QDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2791,7 +2791,7 @@ pub const QDialog = extern struct {
     pub fn AccessibleName(self: QDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2827,7 +2827,7 @@ pub const QDialog = extern struct {
     pub fn AccessibleDescription(self: QDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3677,7 +3677,7 @@ pub const QDialog = extern struct {
     pub fn SaveGeometry(self: QDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -4213,7 +4213,7 @@ pub const QDialog = extern struct {
     pub fn Actions(self: QDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qdialog.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QDialog.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5028,7 +5028,7 @@ pub const QDialog = extern struct {
     pub fn ObjectName(self: QDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDialog.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5205,7 +5205,7 @@ pub const QDialog = extern struct {
     pub fn Children(self: QDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qdialog.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDialog.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5466,10 +5466,10 @@ pub const QDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDialog.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qdialog.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDialog.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

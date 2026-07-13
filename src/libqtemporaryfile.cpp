@@ -509,23 +509,23 @@ void QTemporaryFile_OnReadData(QTemporaryFile* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-long long QTemporaryFile_WriteData(QTemporaryFile* self, const char* data, long long lenVal) {
+long long QTemporaryFile_WriteData(QTemporaryFile* self, const char* data, long long len) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
-        return static_cast<long long>(vqtemporaryfile->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqtemporaryfile->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualQTemporaryFile*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualQTemporaryFile*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 
 // Base class handler implementation
-long long QTemporaryFile_SuperWriteData(QTemporaryFile* self, const char* data, long long lenVal) {
+long long QTemporaryFile_SuperWriteData(QTemporaryFile* self, const char* data, long long len) {
     auto* vqtemporaryfile = dynamic_cast<VirtualQTemporaryFile*>(self);
     if (vqtemporaryfile && vqtemporaryfile->isVirtualQTemporaryFile) {
         vqtemporaryfile->setQTemporaryFile_WriteData_IsBase(true);
-        return static_cast<long long>(vqtemporaryfile->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqtemporaryfile->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualQTemporaryFile*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualQTemporaryFile*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 

@@ -433,7 +433,7 @@ pub const QMessageBox = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -507,7 +507,7 @@ pub const QMessageBox = extern struct {
     pub fn Buttons(self: QMessageBox, allocator: std.mem.Allocator) []QAbstractButton {
         const _arr: qtc.libqt_list = qtc.QMessageBox_Buttons(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractButton, _arr.len) catch @panic("qmessagebox.Buttons: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractButton, _arr.len) catch @panic("QMessageBox.Buttons: Memory allocation failed");
         const _data: [*]QtC.QAbstractButton = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -677,7 +677,7 @@ pub const QMessageBox = extern struct {
     pub fn Text(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QMessageBox_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1357,7 +1357,7 @@ pub const QMessageBox = extern struct {
     pub fn ButtonText(self: QMessageBox, allocator: std.mem.Allocator, button: i32) []const u8 {
         var _str = qtc.QMessageBox_ButtonText(@ptrCast(self.ptr), @bitCast(button));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.ButtonText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.ButtonText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1391,7 +1391,7 @@ pub const QMessageBox = extern struct {
     pub fn InformativeText(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QMessageBox_InformativeText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.InformativeText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.InformativeText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1423,7 +1423,7 @@ pub const QMessageBox = extern struct {
     pub fn DetailedText(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QMessageBox_DetailedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.DetailedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.DetailedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1798,7 +1798,7 @@ pub const QMessageBox = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1820,7 +1820,7 @@ pub const QMessageBox = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4437,7 +4437,7 @@ pub const QMessageBox = extern struct {
     pub fn StyleSheet(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4455,7 +4455,7 @@ pub const QMessageBox = extern struct {
     pub fn WindowTitle(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4518,7 +4518,7 @@ pub const QMessageBox = extern struct {
     pub fn WindowIconText(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4554,7 +4554,7 @@ pub const QMessageBox = extern struct {
     pub fn WindowRole(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4590,7 +4590,7 @@ pub const QMessageBox = extern struct {
     pub fn WindowFilePath(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4664,7 +4664,7 @@ pub const QMessageBox = extern struct {
     pub fn ToolTip(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4726,7 +4726,7 @@ pub const QMessageBox = extern struct {
     pub fn StatusTip(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4762,7 +4762,7 @@ pub const QMessageBox = extern struct {
     pub fn WhatsThis(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4780,7 +4780,7 @@ pub const QMessageBox = extern struct {
     pub fn AccessibleName(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4816,7 +4816,7 @@ pub const QMessageBox = extern struct {
     pub fn AccessibleDescription(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5666,7 +5666,7 @@ pub const QMessageBox = extern struct {
     pub fn SaveGeometry(self: QMessageBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmessagebox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMessageBox.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -6202,7 +6202,7 @@ pub const QMessageBox = extern struct {
     pub fn Actions(self: QMessageBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qmessagebox.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QMessageBox.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7017,7 +7017,7 @@ pub const QMessageBox = extern struct {
     pub fn ObjectName(self: QMessageBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmessagebox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMessageBox.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7194,7 +7194,7 @@ pub const QMessageBox = extern struct {
     pub fn Children(self: QMessageBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qmessagebox.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QMessageBox.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7455,10 +7455,10 @@ pub const QMessageBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qmessagebox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QMessageBox.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qmessagebox.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QMessageBox.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

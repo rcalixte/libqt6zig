@@ -94,7 +94,7 @@ pub const QPlaceContentRequest = extern struct {
     pub fn PlaceId(self: QPlaceContentRequest, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceContentRequest_PlaceId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacecontentrequest.PlaceId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContentRequest.PlaceId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

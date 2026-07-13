@@ -268,7 +268,7 @@ pub const KProtocolManager = extern struct {
         comptime _ = @TypeOf(url)._is_QUrl;
         var _str = qtc.KProtocolManager_DefaultMimetype(@ptrCast(url.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kprotocolmanager.DefaultMimetype: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolManager.DefaultMimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -320,10 +320,10 @@ pub const KProtocolManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kprotocolmanager.Listing: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProtocolManager.Listing: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kprotocolmanager.Listing: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KProtocolManager.Listing: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -356,7 +356,7 @@ pub const KProtocolManager = extern struct {
         };
         var _str = qtc.KProtocolManager_ProtocolForArchiveMimetype(mimeType_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kprotocolmanager.ProtocolForArchiveMimetype: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolManager.ProtocolForArchiveMimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -379,7 +379,7 @@ pub const KProtocolManager = extern struct {
         comptime _ = @TypeOf(url)._is_QUrl;
         var _str = qtc.KProtocolManager_CharsetFor(@ptrCast(url.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kprotocolmanager.CharsetFor: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolManager.CharsetFor: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

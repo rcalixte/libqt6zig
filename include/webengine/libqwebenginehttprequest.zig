@@ -82,9 +82,9 @@ pub const QWebEngineHttpRequest = extern struct {
     pub fn PostRequest(allocator: std.mem.Allocator, url: anytype, postData: ArrayMap_constu8_constu8) QWebEngineHttpRequest {
         comptime _ = @TypeOf(url)._is_QUrl;
         const postData_count = postData.count();
-        const postData_keys = allocator.alloc(qtc.libqt_string, postData_count) catch @panic("qwebenginehttprequest.PostRequest: Memory allocation failed");
+        const postData_keys = allocator.alloc(qtc.libqt_string, postData_count) catch @panic("QWebEngineHttpRequest.PostRequest: Memory allocation failed");
         defer allocator.free(postData_keys);
-        const postData_values = allocator.alloc(qtc.libqt_string, postData_count) catch @panic("qwebenginehttprequest.PostRequest: Memory allocation failed");
+        const postData_values = allocator.alloc(qtc.libqt_string, postData_count) catch @panic("QWebEngineHttpRequest.PostRequest: Memory allocation failed");
         defer allocator.free(postData_values);
         var i: usize = 0;
         var postData_it = postData.iterator();
@@ -207,7 +207,7 @@ pub const QWebEngineHttpRequest = extern struct {
     pub fn PostData(self: QWebEngineHttpRequest, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWebEngineHttpRequest_PostData(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwebenginehttprequest.PostData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineHttpRequest.PostData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -260,10 +260,10 @@ pub const QWebEngineHttpRequest = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qwebenginehttprequest.Headers: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineHttpRequest.Headers: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qwebenginehttprequest.Headers: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebEngineHttpRequest.Headers: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -287,7 +287,7 @@ pub const QWebEngineHttpRequest = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QWebEngineHttpRequest_Header(@ptrCast(self.ptr), headerName_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwebenginehttprequest.Header: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineHttpRequest.Header: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

@@ -21,7 +21,7 @@ pub const KNSCore__TagsFilterChecker = extern struct {
     /// ` tagFilter: []const []const u8 `
     ///
     pub fn New(allocator: std.mem.Allocator, tagFilter: []const []const u8) KNSCore__TagsFilterChecker {
-        const tagFilter_arr = allocator.alloc(qtc.libqt_string, tagFilter.len) catch @panic("knscore__tagsfilterchecker.New: Memory allocation failed");
+        const tagFilter_arr = allocator.alloc(qtc.libqt_string, tagFilter.len) catch @panic("KNSCore__TagsFilterChecker.New: Memory allocation failed");
         defer allocator.free(tagFilter_arr);
         for (tagFilter, 0..tagFilter.len) |item, i|
             tagFilter_arr[i] = .{
@@ -46,7 +46,7 @@ pub const KNSCore__TagsFilterChecker = extern struct {
     /// ` tags: []const []const u8 `
     ///
     pub fn FilterAccepts(self: KNSCore__TagsFilterChecker, allocator: std.mem.Allocator, tags: []const []const u8) bool {
-        const tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("knscore__tagsfilterchecker.FilterAccepts: Memory allocation failed");
+        const tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("KNSCore__TagsFilterChecker.FilterAccepts: Memory allocation failed");
         defer allocator.free(tags_arr);
         for (tags, 0..tags.len) |item, i|
             tags_arr[i] = .{

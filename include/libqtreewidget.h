@@ -88,7 +88,7 @@ QTreeWidgetItem* QTreeWidgetItem_new16(QTreeWidgetItem* parent, const libqt_list
 QTreeWidgetItem* QTreeWidgetItem_new17(QTreeWidgetItem* parent, QTreeWidgetItem* after, int typeVal);
 QTreeWidgetItem* QTreeWidgetItem_Clone(const QTreeWidgetItem* self);
 QTreeWidget* QTreeWidgetItem_TreeWidget(const QTreeWidgetItem* self);
-void QTreeWidgetItem_SetSelected(QTreeWidgetItem* self, bool selectVal);
+void QTreeWidgetItem_SetSelected(QTreeWidgetItem* self, bool select);
 bool QTreeWidgetItem_IsSelected(const QTreeWidgetItem* self);
 void QTreeWidgetItem_SetHidden(QTreeWidgetItem* self, bool hide);
 bool QTreeWidgetItem_IsHidden(const QTreeWidgetItem* self);

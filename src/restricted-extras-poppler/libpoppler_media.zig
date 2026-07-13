@@ -34,7 +34,7 @@ pub const Poppler__MediaRendition = extern struct {
     pub fn ContentType(self: Poppler__MediaRendition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__MediaRendition_ContentType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__mediarendition.ContentType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MediaRendition.ContentType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -50,7 +50,7 @@ pub const Poppler__MediaRendition = extern struct {
     pub fn FileName(self: Poppler__MediaRendition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__MediaRendition_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__mediarendition.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MediaRendition.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -76,7 +76,7 @@ pub const Poppler__MediaRendition = extern struct {
     pub fn Data(self: Poppler__MediaRendition, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.Poppler__MediaRendition_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("poppler__mediarendition.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__MediaRendition.Data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

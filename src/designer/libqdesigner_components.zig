@@ -104,7 +104,7 @@ pub const QDesignerComponents = extern struct {
     /// ` parent: QObject `
     ///
     pub fn CreateFormEditorWithPluginPaths(allocator: std.mem.Allocator, pluginPaths: []const []const u8, parent: anytype) QDesignerFormEditorInterface {
-        const pluginPaths_arr = allocator.alloc(qtc.libqt_string, pluginPaths.len) catch @panic("qdesignercomponents.CreateFormEditorWithPluginPaths: Memory allocation failed");
+        const pluginPaths_arr = allocator.alloc(qtc.libqt_string, pluginPaths.len) catch @panic("QDesignerComponents.CreateFormEditorWithPluginPaths: Memory allocation failed");
         defer allocator.free(pluginPaths_arr);
         for (pluginPaths, 0..pluginPaths.len) |item, i|
             pluginPaths_arr[i] = .{
@@ -231,10 +231,10 @@ pub const QDesignerComponents = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qdesignercomponents.DefaultPluginPaths: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDesignerComponents.DefaultPluginPaths: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qdesignercomponents.DefaultPluginPaths: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerComponents.DefaultPluginPaths: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

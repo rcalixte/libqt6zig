@@ -26,7 +26,7 @@ pub const QDesignerCustomWidgetInterface = extern struct {
     pub fn Name(self: QDesignerCustomWidgetInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerCustomWidgetInterface_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignercustomwidgetinterface.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerCustomWidgetInterface.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -42,7 +42,7 @@ pub const QDesignerCustomWidgetInterface = extern struct {
     pub fn Group(self: QDesignerCustomWidgetInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerCustomWidgetInterface_Group(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignercustomwidgetinterface.Group: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerCustomWidgetInterface.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -58,7 +58,7 @@ pub const QDesignerCustomWidgetInterface = extern struct {
     pub fn ToolTip(self: QDesignerCustomWidgetInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerCustomWidgetInterface_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignercustomwidgetinterface.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerCustomWidgetInterface.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -74,7 +74,7 @@ pub const QDesignerCustomWidgetInterface = extern struct {
     pub fn WhatsThis(self: QDesignerCustomWidgetInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerCustomWidgetInterface_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignercustomwidgetinterface.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerCustomWidgetInterface.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -90,7 +90,7 @@ pub const QDesignerCustomWidgetInterface = extern struct {
     pub fn IncludeFile(self: QDesignerCustomWidgetInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerCustomWidgetInterface_IncludeFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignercustomwidgetinterface.IncludeFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerCustomWidgetInterface.IncludeFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -162,7 +162,7 @@ pub const QDesignerCustomWidgetInterface = extern struct {
     pub fn DomXml(self: QDesignerCustomWidgetInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerCustomWidgetInterface_DomXml(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignercustomwidgetinterface.DomXml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerCustomWidgetInterface.DomXml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -178,7 +178,7 @@ pub const QDesignerCustomWidgetInterface = extern struct {
     pub fn CodeTemplate(self: QDesignerCustomWidgetInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerCustomWidgetInterface_CodeTemplate(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignercustomwidgetinterface.CodeTemplate: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerCustomWidgetInterface.CodeTemplate: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -234,7 +234,7 @@ pub const QDesignerCustomWidgetCollectionInterface = extern struct {
     pub fn CustomWidgets(self: QDesignerCustomWidgetCollectionInterface, allocator: std.mem.Allocator) []QDesignerCustomWidgetInterface {
         const _arr: qtc.libqt_list = qtc.QDesignerCustomWidgetCollectionInterface_CustomWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDesignerCustomWidgetInterface, _arr.len) catch @panic("qdesignercustomwidgetcollectioninterface.CustomWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QDesignerCustomWidgetInterface, _arr.len) catch @panic("QDesignerCustomWidgetCollectionInterface.CustomWidgets: Memory allocation failed");
         const _data: [*]QtC.QDesignerCustomWidgetInterface = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

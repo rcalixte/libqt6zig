@@ -217,7 +217,7 @@ pub const QKeySequence = extern struct {
     pub fn ToString(self: QKeySequence, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeySequence_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeysequence.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeySequence.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -251,7 +251,7 @@ pub const QKeySequence = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QKeySequence_ListFromString(str_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("qkeysequence.ListFromString: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("QKeySequence.ListFromString: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -273,7 +273,7 @@ pub const QKeySequence = extern struct {
         };
         var _str = qtc.QKeySequence_ListToString(list_list);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeysequence.ListToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeySequence.ListToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -320,7 +320,7 @@ pub const QKeySequence = extern struct {
     pub fn KeyBindings(allocator: std.mem.Allocator, key: i32) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.QKeySequence_KeyBindings(@bitCast(key));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("qkeysequence.KeyBindings: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("QKeySequence.KeyBindings: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -476,7 +476,7 @@ pub const QKeySequence = extern struct {
     pub fn ToString1(self: QKeySequence, allocator: std.mem.Allocator, format: i32) []const u8 {
         var _str = qtc.QKeySequence_ToString1(@ptrCast(self.ptr), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeysequence.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeySequence.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -514,7 +514,7 @@ pub const QKeySequence = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QKeySequence_ListFromString2(str_str, @bitCast(format));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("qkeysequence.ListFromString2: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("QKeySequence.ListFromString2: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -538,7 +538,7 @@ pub const QKeySequence = extern struct {
         };
         var _str = qtc.QKeySequence_ListToString2(list_list, @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeysequence.ListToString2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeySequence.ListToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

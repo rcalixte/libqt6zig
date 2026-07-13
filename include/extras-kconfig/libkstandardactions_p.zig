@@ -64,7 +64,7 @@ pub const KStandardActions__RawStringData = extern struct {
     pub fn ToString(self: KStandardActions__RawStringData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KStandardActions__RawStringData_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardactions__rawstringdata.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStandardActions__RawStringData.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -254,10 +254,10 @@ pub const KStandardActions = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kstandardactions.InternalStdNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KStandardActions.InternalStdNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kstandardactions.InternalStdNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KStandardActions.InternalStdNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

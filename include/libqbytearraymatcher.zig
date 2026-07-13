@@ -118,11 +118,11 @@ pub const QByteArrayMatcher = extern struct {
     ///
     /// ` str: [:0]const u8 `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
-    pub fn IndexIn(self: QByteArrayMatcher, str: [:0]const u8, lenVal: isize) isize {
+    pub fn IndexIn(self: QByteArrayMatcher, str: [:0]const u8, len: isize) isize {
         const str_Cstring = str.ptr;
-        return qtc.QByteArrayMatcher_IndexIn(@ptrCast(self.ptr), str_Cstring, @bitCast(lenVal));
+        return qtc.QByteArrayMatcher_IndexIn(@ptrCast(self.ptr), str_Cstring, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearraymatcher.html#indexIn)
@@ -152,7 +152,7 @@ pub const QByteArrayMatcher = extern struct {
     pub fn Pattern(self: QByteArrayMatcher, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QByteArrayMatcher_Pattern(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbytearraymatcher.Pattern: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QByteArrayMatcher.Pattern: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -165,13 +165,13 @@ pub const QByteArrayMatcher = extern struct {
     ///
     /// ` str: [:0]const u8 `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
     /// ` from: isize `
     ///
-    pub fn IndexIn3(self: QByteArrayMatcher, str: [:0]const u8, lenVal: isize, from: isize) isize {
+    pub fn IndexIn3(self: QByteArrayMatcher, str: [:0]const u8, len: isize, from: isize) isize {
         const str_Cstring = str.ptr;
-        return qtc.QByteArrayMatcher_IndexIn3(@ptrCast(self.ptr), str_Cstring, @bitCast(lenVal), @bitCast(from));
+        return qtc.QByteArrayMatcher_IndexIn3(@ptrCast(self.ptr), str_Cstring, @bitCast(len), @bitCast(from));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearraymatcher.html#indexIn)

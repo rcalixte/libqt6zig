@@ -34,7 +34,7 @@ pub const KBookmarkOwner = extern struct {
     pub fn CurrentTitle(self: KBookmarkOwner, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KBookmarkOwner_CurrentTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner.CurrentTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBookmarkOwner.CurrentTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -70,7 +70,7 @@ pub const KBookmarkOwner = extern struct {
     pub fn SuperCurrentTitle(self: KBookmarkOwner, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KBookmarkOwner_SuperCurrentTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner.CurrentTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBookmarkOwner.CurrentTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -128,7 +128,7 @@ pub const KBookmarkOwner = extern struct {
     pub fn CurrentIcon(self: KBookmarkOwner, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KBookmarkOwner_CurrentIcon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner.CurrentIcon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBookmarkOwner.CurrentIcon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -164,7 +164,7 @@ pub const KBookmarkOwner = extern struct {
     pub fn SuperCurrentIcon(self: KBookmarkOwner, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KBookmarkOwner_SuperCurrentIcon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner.CurrentIcon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBookmarkOwner.CurrentIcon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -220,7 +220,7 @@ pub const KBookmarkOwner = extern struct {
     pub fn CurrentBookmarkList(self: KBookmarkOwner, allocator: std.mem.Allocator) []KBookmarkOwner__FutureBookmark {
         const _arr: qtc.libqt_list = qtc.KBookmarkOwner_CurrentBookmarkList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KBookmarkOwner__FutureBookmark, _arr.len) catch @panic("kbookmarkowner.CurrentBookmarkList: Memory allocation failed");
+        const _ret = allocator.alloc(KBookmarkOwner__FutureBookmark, _arr.len) catch @panic("KBookmarkOwner.CurrentBookmarkList: Memory allocation failed");
         const _data: [*]QtC.KBookmarkOwner__FutureBookmark = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -264,7 +264,7 @@ pub const KBookmarkOwner = extern struct {
     pub fn SuperCurrentBookmarkList(self: KBookmarkOwner, allocator: std.mem.Allocator) []KBookmarkOwner__FutureBookmark {
         const _arr: qtc.libqt_list = qtc.KBookmarkOwner_SuperCurrentBookmarkList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KBookmarkOwner__FutureBookmark, _arr.len) catch @panic("kbookmarkowner.CurrentBookmarkList: Memory allocation failed");
+        const _ret = allocator.alloc(KBookmarkOwner__FutureBookmark, _arr.len) catch @panic("KBookmarkOwner.CurrentBookmarkList: Memory allocation failed");
         const _data: [*]QtC.KBookmarkOwner__FutureBookmark = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -592,7 +592,7 @@ pub const KBookmarkOwner__FutureBookmark = extern struct {
     pub fn Title(self: KBookmarkOwner__FutureBookmark, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KBookmarkOwner__FutureBookmark_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner__futurebookmark.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBookmarkOwner__FutureBookmark.Title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -618,7 +618,7 @@ pub const KBookmarkOwner__FutureBookmark = extern struct {
     pub fn Icon(self: KBookmarkOwner__FutureBookmark, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KBookmarkOwner__FutureBookmark_Icon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kbookmarkowner__futurebookmark.Icon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBookmarkOwner__FutureBookmark.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

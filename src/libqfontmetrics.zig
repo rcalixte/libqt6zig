@@ -461,7 +461,7 @@ pub const QFontMetrics = extern struct {
         };
         var _str = qtc.QFontMetrics_ElidedText(@ptrCast(self.ptr), text_str, @bitCast(mode), @bitCast(width));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontmetrics.ElidedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontMetrics.ElidedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -550,14 +550,14 @@ pub const QFontMetrics = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    /// ` lenVal: i32 `
+    /// ` len: i32 `
     ///
-    pub fn HorizontalAdvance22(self: QFontMetrics, param1: []const u8, lenVal: i32) i32 {
+    pub fn HorizontalAdvance22(self: QFontMetrics, param1: []const u8, len: i32) i32 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        return qtc.QFontMetrics_HorizontalAdvance22(@ptrCast(self.ptr), param1_str, @bitCast(lenVal));
+        return qtc.QFontMetrics_HorizontalAdvance22(@ptrCast(self.ptr), param1_str, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontmetrics.html#boundingRect)
@@ -731,7 +731,7 @@ pub const QFontMetrics = extern struct {
         };
         var _str = qtc.QFontMetrics_ElidedText4(@ptrCast(self.ptr), text_str, @bitCast(mode), @bitCast(width), @bitCast(flags));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontmetrics.ElidedText4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontMetrics.ElidedText4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1201,7 +1201,7 @@ pub const QFontMetricsF = extern struct {
         };
         var _str = qtc.QFontMetricsF_ElidedText(@ptrCast(self.ptr), text_str, @bitCast(mode), @bitCast(width));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontmetricsf.ElidedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontMetricsF.ElidedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1413,7 +1413,7 @@ pub const QFontMetricsF = extern struct {
         };
         var _str = qtc.QFontMetricsF_ElidedText4(@ptrCast(self.ptr), text_str, @bitCast(mode), @bitCast(width), @bitCast(flags));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontmetricsf.ElidedText4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontMetricsF.ElidedText4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

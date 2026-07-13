@@ -86,7 +86,7 @@ void QAbstractSocket_Connect_ProxyAuthenticationRequired(QAbstractSocket* self, 
 long long QAbstractSocket_ReadData(QAbstractSocket* self, char* data, long long maxlen);
 long long QAbstractSocket_ReadLineData(QAbstractSocket* self, char* data, long long maxlen);
 long long QAbstractSocket_SkipData(QAbstractSocket* self, long long maxSize);
-long long QAbstractSocket_WriteData(QAbstractSocket* self, const char* data, long long lenVal);
+long long QAbstractSocket_WriteData(QAbstractSocket* self, const char* data, long long len);
 bool QAbstractSocket_Bind1(QAbstractSocket* self, uint16_t port);
 bool QAbstractSocket_Bind22(QAbstractSocket* self, uint16_t port, int mode);
 void QAbstractSocket_ConnectToHost3(QAbstractSocket* self, const QHostAddress* address, uint16_t port, int mode);
@@ -137,7 +137,7 @@ long long QAbstractSocket_SuperReadLineData(QAbstractSocket* self, char* data, l
 void QAbstractSocket_OnSkipData(QAbstractSocket* self, intptr_t slot);
 long long QAbstractSocket_SuperSkipData(QAbstractSocket* self, long long maxSize);
 void QAbstractSocket_OnWriteData(QAbstractSocket* self, intptr_t slot);
-long long QAbstractSocket_SuperWriteData(QAbstractSocket* self, const char* data, long long lenVal);
+long long QAbstractSocket_SuperWriteData(QAbstractSocket* self, const char* data, long long len);
 bool QAbstractSocket_Open(QAbstractSocket* self, int mode);
 void QAbstractSocket_OnOpen(QAbstractSocket* self, intptr_t slot);
 bool QAbstractSocket_SuperOpen(QAbstractSocket* self, int mode);

@@ -224,7 +224,7 @@ pub const QWaveDecoder = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwavedecoder.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWaveDecoder.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -625,7 +625,7 @@ pub const QWaveDecoder = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwavedecoder.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWaveDecoder.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -647,7 +647,7 @@ pub const QWaveDecoder = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwavedecoder.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWaveDecoder.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -838,7 +838,7 @@ pub const QWaveDecoder = extern struct {
     pub fn Read2(self: QWaveDecoder, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwavedecoder.Read2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWaveDecoder.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -856,7 +856,7 @@ pub const QWaveDecoder = extern struct {
     pub fn ReadAll(self: QWaveDecoder, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwavedecoder.ReadAll: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWaveDecoder.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -891,7 +891,7 @@ pub const QWaveDecoder = extern struct {
     pub fn ReadLine2(self: QWaveDecoder, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwavedecoder.ReadLine2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWaveDecoder.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -954,11 +954,11 @@ pub const QWaveDecoder = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn Write(self: QWaveDecoder, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn Write(self: QWaveDecoder, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// Inherited from QIODevice
@@ -1026,7 +1026,7 @@ pub const QWaveDecoder = extern struct {
     pub fn Peek2(self: QWaveDecoder, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwavedecoder.Peek2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWaveDecoder.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1101,7 +1101,7 @@ pub const QWaveDecoder = extern struct {
     pub fn ErrorString(self: QWaveDecoder, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwavedecoder.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWaveDecoder.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1285,7 +1285,7 @@ pub const QWaveDecoder = extern struct {
     pub fn ReadLine1(self: QWaveDecoder, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwavedecoder.ReadLine1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWaveDecoder.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1303,7 +1303,7 @@ pub const QWaveDecoder = extern struct {
     pub fn ObjectName(self: QWaveDecoder, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwavedecoder.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWaveDecoder.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1480,7 +1480,7 @@ pub const QWaveDecoder = extern struct {
     pub fn Children(self: QWaveDecoder, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qwavedecoder.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWaveDecoder.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1756,10 +1756,10 @@ pub const QWaveDecoder = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qwavedecoder.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWaveDecoder.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qwavedecoder.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWaveDecoder.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

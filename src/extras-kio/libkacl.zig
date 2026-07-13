@@ -267,10 +267,10 @@ pub const KACL = extern struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(Struct_constu8_u16, _arr.len) catch @panic("kacl.AllUserPermissions: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_constu8_u16, _arr.len) catch @panic("KACL.AllUserPermissions: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
-            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("kacl.AllUserPermissions: Memory allocation failed");
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("KACL.AllUserPermissions: Memory allocation failed");
             @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
             _ret[i] = Struct_constu8_u16{
                 .first = _first_slice,
@@ -334,10 +334,10 @@ pub const KACL = extern struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(Struct_constu8_u16, _arr.len) catch @panic("kacl.AllGroupPermissions: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_constu8_u16, _arr.len) catch @panic("KACL.AllGroupPermissions: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
-            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("kacl.AllGroupPermissions: Memory allocation failed");
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("KACL.AllGroupPermissions: Memory allocation failed");
             @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
             _ret[i] = Struct_constu8_u16{
                 .first = _first_slice,
@@ -374,7 +374,7 @@ pub const KACL = extern struct {
     pub fn AsString(self: KACL, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KACL_AsString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kacl.AsString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KACL.AsString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

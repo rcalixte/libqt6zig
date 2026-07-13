@@ -179,7 +179,7 @@ pub const QGeoCircle = extern struct {
     pub fn ToString(self: QGeoCircle, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoCircle_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeocircle.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCircle.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

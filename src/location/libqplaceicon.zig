@@ -104,7 +104,7 @@ pub const QPlaceIcon = extern struct {
     pub fn Parameters(self: QPlaceIcon, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QPlaceIcon_Parameters(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qplaceicon.Parameters: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QPlaceIcon.Parameters: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -118,7 +118,7 @@ pub const QPlaceIcon = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qplaceicon.Parameters: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QPlaceIcon.Parameters: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
@@ -138,9 +138,9 @@ pub const QPlaceIcon = extern struct {
     ///
     pub fn SetParameters(self: QPlaceIcon, allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant) void {
         const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qplaceicon.SetParameters: Memory allocation failed");
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QPlaceIcon.SetParameters: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("qplaceicon.SetParameters: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QPlaceIcon.SetParameters: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();

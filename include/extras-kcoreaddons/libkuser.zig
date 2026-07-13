@@ -146,7 +146,7 @@ pub const KUser = extern struct {
     pub fn LoginName(self: KUser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUser_LoginName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kuser.LoginName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUser.LoginName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -162,7 +162,7 @@ pub const KUser = extern struct {
     pub fn HomeDir(self: KUser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUser_HomeDir(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kuser.HomeDir: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUser.HomeDir: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -178,7 +178,7 @@ pub const KUser = extern struct {
     pub fn FaceIconPath(self: KUser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUser_FaceIconPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kuser.FaceIconPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUser.FaceIconPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -194,7 +194,7 @@ pub const KUser = extern struct {
     pub fn Shell(self: KUser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUser_Shell(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kuser.Shell: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUser.Shell: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -210,7 +210,7 @@ pub const KUser = extern struct {
     pub fn Groups(self: KUser, allocator: std.mem.Allocator) []KUserGroup {
         const _arr: qtc.libqt_list = qtc.KUser_Groups(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("kuser.Groups: Memory allocation failed");
+        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("KUser.Groups: Memory allocation failed");
         const _data: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -233,10 +233,10 @@ pub const KUser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kuser.GroupNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUser.GroupNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kuser.GroupNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUser.GroupNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -264,7 +264,7 @@ pub const KUser = extern struct {
     pub fn AllUsers(allocator: std.mem.Allocator) []KUser {
         const _arr: qtc.libqt_list = qtc.KUser_AllUsers();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("kuser.AllUsers: Memory allocation failed");
+        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("KUser.AllUsers: Memory allocation failed");
         const _data: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -285,10 +285,10 @@ pub const KUser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kuser.AllUserNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUser.AllUserNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kuser.AllUserNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUser.AllUserNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -308,7 +308,7 @@ pub const KUser = extern struct {
     pub fn Groups1(self: KUser, allocator: std.mem.Allocator, maxCount: u32) []KUserGroup {
         const _arr: qtc.libqt_list = qtc.KUser_Groups1(@ptrCast(self.ptr), @bitCast(maxCount));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("kuser.Groups1: Memory allocation failed");
+        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("KUser.Groups1: Memory allocation failed");
         const _data: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -333,10 +333,10 @@ pub const KUser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kuser.GroupNames1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUser.GroupNames1: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kuser.GroupNames1: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUser.GroupNames1: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -354,7 +354,7 @@ pub const KUser = extern struct {
     pub fn AllUsers1(allocator: std.mem.Allocator, maxCount: u32) []KUser {
         const _arr: qtc.libqt_list = qtc.KUser_AllUsers1(@bitCast(maxCount));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("kuser.AllUsers1: Memory allocation failed");
+        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("KUser.AllUsers1: Memory allocation failed");
         const _data: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -377,10 +377,10 @@ pub const KUser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kuser.AllUserNames1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUser.AllUserNames1: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kuser.AllUserNames1: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUser.AllUserNames1: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -536,7 +536,7 @@ pub const KUserGroup = extern struct {
     pub fn Name(self: KUserGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUserGroup_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kusergroup.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUserGroup.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -552,7 +552,7 @@ pub const KUserGroup = extern struct {
     pub fn Users(self: KUserGroup, allocator: std.mem.Allocator) []KUser {
         const _arr: qtc.libqt_list = qtc.KUserGroup_Users(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("kusergroup.Users: Memory allocation failed");
+        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("KUserGroup.Users: Memory allocation failed");
         const _data: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -575,10 +575,10 @@ pub const KUserGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kusergroup.UserNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUserGroup.UserNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kusergroup.UserNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUserGroup.UserNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -594,7 +594,7 @@ pub const KUserGroup = extern struct {
     pub fn AllGroups(allocator: std.mem.Allocator) []KUserGroup {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroups();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("kusergroup.AllGroups: Memory allocation failed");
+        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("KUserGroup.AllGroups: Memory allocation failed");
         const _data: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -615,10 +615,10 @@ pub const KUserGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kusergroup.AllGroupNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUserGroup.AllGroupNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kusergroup.AllGroupNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUserGroup.AllGroupNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -638,7 +638,7 @@ pub const KUserGroup = extern struct {
     pub fn Users1(self: KUserGroup, allocator: std.mem.Allocator, maxCount: u32) []KUser {
         const _arr: qtc.libqt_list = qtc.KUserGroup_Users1(@ptrCast(self.ptr), @bitCast(maxCount));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("kusergroup.Users1: Memory allocation failed");
+        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("KUserGroup.Users1: Memory allocation failed");
         const _data: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -663,10 +663,10 @@ pub const KUserGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kusergroup.UserNames1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUserGroup.UserNames1: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kusergroup.UserNames1: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUserGroup.UserNames1: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -684,7 +684,7 @@ pub const KUserGroup = extern struct {
     pub fn AllGroups1(allocator: std.mem.Allocator, maxCount: u32) []KUserGroup {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroups1(@bitCast(maxCount));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("kusergroup.AllGroups1: Memory allocation failed");
+        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("KUserGroup.AllGroups1: Memory allocation failed");
         const _data: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -707,10 +707,10 @@ pub const KUserGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kusergroup.AllGroupNames1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUserGroup.AllGroupNames1: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kusergroup.AllGroupNames1: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUserGroup.AllGroupNames1: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

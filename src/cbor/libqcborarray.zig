@@ -575,7 +575,7 @@ pub const QCborArray = extern struct {
     /// ` list: []const []const u8 `
     ///
     pub fn FromStringList(allocator: std.mem.Allocator, list: []const []const u8) QCborArray {
-        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qcborarray.FromStringList: Memory allocation failed");
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("QCborArray.FromStringList: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i|
             list_arr[i] = .{
@@ -625,7 +625,7 @@ pub const QCborArray = extern struct {
     pub fn ToVariantList(self: QCborArray, allocator: std.mem.Allocator) []QVariant {
         const _arr: qtc.libqt_list = qtc.QCborArray_ToVariantList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("qcborarray.ToVariantList: Memory allocation failed");
+        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QCborArray.ToVariantList: Memory allocation failed");
         const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

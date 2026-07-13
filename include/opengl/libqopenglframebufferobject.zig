@@ -306,7 +306,7 @@ pub const QOpenGLFramebufferObject = extern struct {
     pub fn Textures(self: QOpenGLFramebufferObject, allocator: std.mem.Allocator) []u32 {
         const _arr: qtc.libqt_list = qtc.QOpenGLFramebufferObject_Textures(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u32, _arr.len) catch @panic("qopenglframebufferobject.Textures: Memory allocation failed");
+        const _ret = allocator.alloc(u32, _arr.len) catch @panic("QOpenGLFramebufferObject.Textures: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -355,7 +355,7 @@ pub const QOpenGLFramebufferObject = extern struct {
     pub fn Sizes(self: QOpenGLFramebufferObject, allocator: std.mem.Allocator) []QSize {
         const _arr: qtc.libqt_list = qtc.QOpenGLFramebufferObject_Sizes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("qopenglframebufferobject.Sizes: Memory allocation failed");
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QOpenGLFramebufferObject.Sizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

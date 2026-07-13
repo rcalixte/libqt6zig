@@ -70,7 +70,7 @@ pub const QDesignerTaskMenuExtension = extern struct {
     pub fn TaskActions(self: QDesignerTaskMenuExtension, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QDesignerTaskMenuExtension_TaskActions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qdesignertaskmenuextension.TaskActions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QDesignerTaskMenuExtension.TaskActions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -114,7 +114,7 @@ pub const QDesignerTaskMenuExtension = extern struct {
     pub fn SuperTaskActions(self: QDesignerTaskMenuExtension, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QDesignerTaskMenuExtension_SuperTaskActions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qdesignertaskmenuextension.TaskActions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QDesignerTaskMenuExtension.TaskActions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

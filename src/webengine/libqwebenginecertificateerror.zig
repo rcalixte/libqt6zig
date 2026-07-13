@@ -84,7 +84,7 @@ pub const QWebEngineCertificateError = extern struct {
     pub fn Description(self: QWebEngineCertificateError, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineCertificateError_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginecertificateerror.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineCertificateError.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -140,7 +140,7 @@ pub const QWebEngineCertificateError = extern struct {
     pub fn CertificateChain(self: QWebEngineCertificateError, allocator: std.mem.Allocator) []QSslCertificate {
         const _arr: qtc.libqt_list = qtc.QWebEngineCertificateError_CertificateChain(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qwebenginecertificateerror.CertificateChain: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("QWebEngineCertificateError.CertificateChain: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

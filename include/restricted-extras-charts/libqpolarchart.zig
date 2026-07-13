@@ -251,7 +251,7 @@ pub const QPolarChart = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpolarchart.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPolarChart.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -282,7 +282,7 @@ pub const QPolarChart = extern struct {
     pub fn Axes(self: QPolarChart, allocator: std.mem.Allocator) []QAbstractAxis {
         const _arr: qtc.libqt_list = qtc.QPolarChart_Axes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("qpolarchart.Axes: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("QPolarChart.Axes: Memory allocation failed");
         const _data: [*]QtC.QAbstractAxis = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -319,7 +319,7 @@ pub const QPolarChart = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpolarchart.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPolarChart.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -341,7 +341,7 @@ pub const QPolarChart = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpolarchart.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPolarChart.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -359,7 +359,7 @@ pub const QPolarChart = extern struct {
     pub fn Axes1(self: QPolarChart, allocator: std.mem.Allocator, polarOrientation: i32) []QAbstractAxis {
         const _arr: qtc.libqt_list = qtc.QPolarChart_Axes1(@ptrCast(self.ptr), @bitCast(polarOrientation));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("qpolarchart.Axes1: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("QPolarChart.Axes1: Memory allocation failed");
         const _data: [*]QtC.QAbstractAxis = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -382,7 +382,7 @@ pub const QPolarChart = extern struct {
         comptime _ = @TypeOf(series)._is_QAbstractSeries;
         const _arr: qtc.libqt_list = qtc.QPolarChart_Axes2(@ptrCast(self.ptr), @bitCast(polarOrientation), @ptrCast(series.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("qpolarchart.Axes2: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("QPolarChart.Axes2: Memory allocation failed");
         const _data: [*]QtC.QAbstractAxis = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -444,7 +444,7 @@ pub const QPolarChart = extern struct {
     pub fn Series(self: QPolarChart, allocator: std.mem.Allocator) []QAbstractSeries {
         const _arr: qtc.libqt_list = qtc.QChart_Series(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractSeries, _arr.len) catch @panic("qpolarchart.Series: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractSeries, _arr.len) catch @panic("QPolarChart.Series: Memory allocation failed");
         const _data: [*]QtC.QAbstractSeries = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -593,7 +593,7 @@ pub const QPolarChart = extern struct {
     pub fn Title(self: QPolarChart, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QChart_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpolarchart.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPolarChart.Title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1850,7 +1850,7 @@ pub const QPolarChart = extern struct {
     pub fn WindowTitle(self: QPolarChart, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGraphicsWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpolarchart.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPolarChart.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2070,7 +2070,7 @@ pub const QPolarChart = extern struct {
     pub fn Actions(self: QPolarChart, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QGraphicsWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qpolarchart.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QPolarChart.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2603,7 +2603,7 @@ pub const QPolarChart = extern struct {
     pub fn ObjectName(self: QPolarChart, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpolarchart.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPolarChart.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2780,7 +2780,7 @@ pub const QPolarChart = extern struct {
     pub fn Children(self: QPolarChart, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qpolarchart.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPolarChart.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3056,10 +3056,10 @@ pub const QPolarChart = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qpolarchart.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPolarChart.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qpolarchart.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPolarChart.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3483,7 +3483,7 @@ pub const QPolarChart = extern struct {
     pub fn ChildItems(self: QPolarChart, allocator: std.mem.Allocator) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_ChildItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("qpolarchart.ChildItems: Memory allocation failed");
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QPolarChart.ChildItems: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3706,7 +3706,7 @@ pub const QPolarChart = extern struct {
     pub fn ToolTip(self: QPolarChart, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGraphicsItem_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpolarchart.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPolarChart.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4584,7 +4584,7 @@ pub const QPolarChart = extern struct {
     pub fn Transformations(self: QPolarChart, allocator: std.mem.Allocator) []QGraphicsTransform {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_Transformations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsTransform, _arr.len) catch @panic("qpolarchart.Transformations: Memory allocation failed");
+        const _ret = allocator.alloc(QGraphicsTransform, _arr.len) catch @panic("QPolarChart.Transformations: Memory allocation failed");
         const _data: [*]QtC.QGraphicsTransform = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4754,7 +4754,7 @@ pub const QPolarChart = extern struct {
     pub fn CollidingItems(self: QPolarChart, allocator: std.mem.Allocator) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("qpolarchart.CollidingItems: Memory allocation failed");
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QPolarChart.CollidingItems: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5722,7 +5722,7 @@ pub const QPolarChart = extern struct {
     pub fn CollidingItems1(self: QPolarChart, allocator: std.mem.Allocator, mode: i32) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self.ptr), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("qpolarchart.CollidingItems1: Memory allocation failed");
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QPolarChart.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

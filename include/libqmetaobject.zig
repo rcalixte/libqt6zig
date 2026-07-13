@@ -96,7 +96,7 @@ pub const QMetaMethod = extern struct {
     pub fn MethodSignature(self: QMetaMethod, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QMetaMethod_MethodSignature(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetamethod.MethodSignature: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMetaMethod.MethodSignature: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -112,7 +112,7 @@ pub const QMetaMethod = extern struct {
     pub fn Name(self: QMetaMethod, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QMetaMethod_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetamethod.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMetaMethod.Name: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -210,10 +210,10 @@ pub const QMetaMethod = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qmetamethod.ParameterTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QMetaMethod.ParameterTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qmetamethod.ParameterTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QMetaMethod.ParameterTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -233,7 +233,7 @@ pub const QMetaMethod = extern struct {
     pub fn ParameterTypeName(self: QMetaMethod, allocator: std.mem.Allocator, index: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QMetaMethod_ParameterTypeName(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetamethod.ParameterTypeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMetaMethod.ParameterTypeName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -254,10 +254,10 @@ pub const QMetaMethod = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qmetamethod.ParameterNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QMetaMethod.ParameterNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qmetamethod.ParameterNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QMetaMethod.ParameterNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2542,7 +2542,7 @@ pub const QMetaEnum = extern struct {
     pub fn ValueToKeys(self: QMetaEnum, allocator: std.mem.Allocator, value: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QMetaEnum_ValueToKeys(@ptrCast(self.ptr), @bitCast(value));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetaenum.ValueToKeys: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMetaEnum.ValueToKeys: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

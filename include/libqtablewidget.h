@@ -95,7 +95,7 @@ QTableWidgetItem* QTableWidgetItem_Clone(const QTableWidgetItem* self);
 QTableWidget* QTableWidgetItem_TableWidget(const QTableWidgetItem* self);
 int QTableWidgetItem_Row(const QTableWidgetItem* self);
 int QTableWidgetItem_Column(const QTableWidgetItem* self);
-void QTableWidgetItem_SetSelected(QTableWidgetItem* self, bool selectVal);
+void QTableWidgetItem_SetSelected(QTableWidgetItem* self, bool select);
 bool QTableWidgetItem_IsSelected(const QTableWidgetItem* self);
 int QTableWidgetItem_Flags(const QTableWidgetItem* self);
 void QTableWidgetItem_SetFlags(QTableWidgetItem* self, int flags);
@@ -188,7 +188,7 @@ bool QTableWidget_IsPersistentEditorOpen(const QTableWidget* self, QTableWidgetI
 QWidget* QTableWidget_CellWidget(const QTableWidget* self, int row, int column);
 void QTableWidget_SetCellWidget(QTableWidget* self, int row, int column, QWidget* widget);
 void QTableWidget_RemoveCellWidget(QTableWidget* self, int row, int column);
-void QTableWidget_SetRangeSelected(QTableWidget* self, const QTableWidgetSelectionRange* range, bool selectVal);
+void QTableWidget_SetRangeSelected(QTableWidget* self, const QTableWidgetSelectionRange* range, bool select);
 libqt_list /* of QTableWidgetSelectionRange* */ QTableWidget_SelectedRanges(const QTableWidget* self);
 libqt_list /* of QTableWidgetItem* */ QTableWidget_SelectedItems(const QTableWidget* self);
 libqt_list /* of QTableWidgetItem* */ QTableWidget_FindItems(const QTableWidget* self, const libqt_string text, int flags);

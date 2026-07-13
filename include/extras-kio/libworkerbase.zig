@@ -81,7 +81,7 @@ pub const KIO__WorkerResult = extern struct {
     pub fn ErrorString(self: KIO__WorkerResult, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIO__WorkerResult_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__workerresult.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__WorkerResult.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -481,9 +481,9 @@ pub const KIO__WorkerBase = extern struct {
     ///
     pub fn SslError(self: KIO__WorkerBase, allocator: std.mem.Allocator, sslData: ArrayMap_constu8_QVariant) i32 {
         const sslData_count = sslData.count();
-        const sslData_keys = allocator.alloc(qtc.libqt_string, sslData_count) catch @panic("kio__workerbase.SslError: Memory allocation failed");
+        const sslData_keys = allocator.alloc(qtc.libqt_string, sslData_count) catch @panic("KIO__WorkerBase.SslError: Memory allocation failed");
         defer allocator.free(sslData_keys);
-        const sslData_values = allocator.alloc(QtC.QVariant, sslData_count) catch @panic("kio__workerbase.SslError: Memory allocation failed");
+        const sslData_values = allocator.alloc(QtC.QVariant, sslData_count) catch @panic("KIO__WorkerBase.SslError: Memory allocation failed");
         defer allocator.free(sslData_values);
         var i: usize = 0;
         var sslData_it = sslData.iterator();
@@ -558,7 +558,7 @@ pub const KIO__WorkerBase = extern struct {
         };
         var _str = qtc.KIO__WorkerBase_MetaData(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__workerbase.MetaData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__WorkerBase.MetaData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -584,7 +584,7 @@ pub const KIO__WorkerBase = extern struct {
     pub fn MapConfig(self: KIO__WorkerBase, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.KIO__WorkerBase_MapConfig(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kio__workerbase.MapConfig: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KIO__WorkerBase.MapConfig: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -598,7 +598,7 @@ pub const KIO__WorkerBase = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kio__workerbase.MapConfig: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KIO__WorkerBase.MapConfig: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
@@ -659,7 +659,7 @@ pub const KIO__WorkerBase = extern struct {
         };
         var _str = qtc.KIO__WorkerBase_ConfigValue3(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__workerbase.ConfigValue3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__WorkerBase.ConfigValue3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2587,7 +2587,7 @@ pub const KIO__WorkerBase = extern struct {
         };
         var _str = qtc.KIO__WorkerBase_ConfigValue22(@ptrCast(self.ptr), key_str, defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__workerbase.ConfigValue22: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__WorkerBase.ConfigValue22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2693,7 +2693,7 @@ pub const KIO = extern struct {
         };
         var _str = qtc.KIO_UnsupportedActionErrorString(protocol_str, @bitCast(cmd));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.UnsupportedActionErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO.UnsupportedActionErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

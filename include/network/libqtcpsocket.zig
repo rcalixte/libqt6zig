@@ -189,7 +189,7 @@ pub const QTcpSocket = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtcpsocket.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTcpSocket.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -221,7 +221,7 @@ pub const QTcpSocket = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtcpsocket.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTcpSocket.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -243,7 +243,7 @@ pub const QTcpSocket = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtcpsocket.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTcpSocket.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -398,7 +398,7 @@ pub const QTcpSocket = extern struct {
     pub fn PeerName(self: QTcpSocket, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractSocket_PeerName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtcpsocket.PeerName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTcpSocket.PeerName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -527,7 +527,7 @@ pub const QTcpSocket = extern struct {
     pub fn ProtocolTag(self: QTcpSocket, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractSocket_ProtocolTag(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtcpsocket.ProtocolTag: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTcpSocket.ProtocolTag: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -951,7 +951,7 @@ pub const QTcpSocket = extern struct {
     pub fn Read2(self: QTcpSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtcpsocket.Read2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTcpSocket.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -969,7 +969,7 @@ pub const QTcpSocket = extern struct {
     pub fn ReadAll(self: QTcpSocket, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtcpsocket.ReadAll: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTcpSocket.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1004,7 +1004,7 @@ pub const QTcpSocket = extern struct {
     pub fn ReadLine2(self: QTcpSocket, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtcpsocket.ReadLine2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTcpSocket.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1067,11 +1067,11 @@ pub const QTcpSocket = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn Write(self: QTcpSocket, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn Write(self: QTcpSocket, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// Inherited from QIODevice
@@ -1139,7 +1139,7 @@ pub const QTcpSocket = extern struct {
     pub fn Peek2(self: QTcpSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtcpsocket.Peek2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTcpSocket.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1214,7 +1214,7 @@ pub const QTcpSocket = extern struct {
     pub fn ErrorString(self: QTcpSocket, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtcpsocket.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTcpSocket.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1398,7 +1398,7 @@ pub const QTcpSocket = extern struct {
     pub fn ReadLine1(self: QTcpSocket, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtcpsocket.ReadLine1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTcpSocket.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1416,7 +1416,7 @@ pub const QTcpSocket = extern struct {
     pub fn ObjectName(self: QTcpSocket, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtcpsocket.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTcpSocket.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1593,7 +1593,7 @@ pub const QTcpSocket = extern struct {
     pub fn Children(self: QTcpSocket, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qtcpsocket.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTcpSocket.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1869,10 +1869,10 @@ pub const QTcpSocket = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtcpsocket.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTcpSocket.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtcpsocket.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTcpSocket.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3192,11 +3192,11 @@ pub const QTcpSocket = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn WriteData(self: QTcpSocket, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn WriteData(self: QTcpSocket, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QTcpSocket_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        return qtc.QTcpSocket_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// ### DEPRECATED: Use `SuperWriteData` instead
@@ -3215,11 +3215,11 @@ pub const QTcpSocket = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn SuperWriteData(self: QTcpSocket, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn SuperWriteData(self: QTcpSocket, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QTcpSocket_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        return qtc.QTcpSocket_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// Inherited from QAbstractSocket
@@ -3232,7 +3232,7 @@ pub const QTcpSocket = extern struct {
     ///
     /// ` self: QTcpSocket`
     ///
-    /// ` callback: *const fn (self: QTcpSocket, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QTcpSocket, data: [*:0]const u8, len: i64) callconv(.c) i64 `
     ///
     pub fn OnWriteData(self: QTcpSocket, callback: *const fn (QTcpSocket, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QTcpSocket_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));

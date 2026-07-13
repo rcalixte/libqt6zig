@@ -45,10 +45,10 @@ pub const QFormBuilder = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qformbuilder.PluginPaths: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFormBuilder.PluginPaths: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qformbuilder.PluginPaths: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFormBuilder.PluginPaths: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -92,7 +92,7 @@ pub const QFormBuilder = extern struct {
     /// ` pluginPaths: []const []const u8 `
     ///
     pub fn SetPluginPath(self: QFormBuilder, allocator: std.mem.Allocator, pluginPaths: []const []const u8) void {
-        const pluginPaths_arr = allocator.alloc(qtc.libqt_string, pluginPaths.len) catch @panic("qformbuilder.SetPluginPath: Memory allocation failed");
+        const pluginPaths_arr = allocator.alloc(qtc.libqt_string, pluginPaths.len) catch @panic("QFormBuilder.SetPluginPath: Memory allocation failed");
         defer allocator.free(pluginPaths_arr);
         for (pluginPaths, 0..pluginPaths.len) |item, i|
             pluginPaths_arr[i] = .{
@@ -117,7 +117,7 @@ pub const QFormBuilder = extern struct {
     pub fn CustomWidgets(self: QFormBuilder, allocator: std.mem.Allocator) []QDesignerCustomWidgetInterface {
         const _arr: qtc.libqt_list = qtc.QFormBuilder_CustomWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDesignerCustomWidgetInterface, _arr.len) catch @panic("qformbuilder.CustomWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QDesignerCustomWidgetInterface, _arr.len) catch @panic("QFormBuilder.CustomWidgets: Memory allocation failed");
         const _data: [*]QtC.QDesignerCustomWidgetInterface = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -402,7 +402,7 @@ pub const QFormBuilder = extern struct {
     pub fn ErrorString(self: QFormBuilder, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractFormBuilder_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qformbuilder.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFormBuilder.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

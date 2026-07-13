@@ -26,10 +26,10 @@ pub const KRuntimePlatform = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kruntimeplatform.RuntimePlatform: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KRuntimePlatform.RuntimePlatform: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kruntimeplatform.RuntimePlatform: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KRuntimePlatform.RuntimePlatform: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

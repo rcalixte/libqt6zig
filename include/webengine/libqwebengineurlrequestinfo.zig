@@ -85,7 +85,7 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     pub fn RequestMethod(self: QWebEngineUrlRequestInfo, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWebEngineUrlRequestInfo_RequestMethod(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwebengineurlrequestinfo.RequestMethod: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineUrlRequestInfo.RequestMethod: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -168,7 +168,7 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     pub fn HttpHeaders(self: QWebEngineUrlRequestInfo, allocator: std.mem.Allocator) Map_u8_u8 {
         const _map: qtc.libqt_map = qtc.QWebEngineUrlRequestInfo_HttpHeaders(@ptrCast(self.ptr));
         var _ret: Map_u8_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qwebengineurlrequestinfo.HttpHeaders: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QWebEngineUrlRequestInfo.HttpHeaders: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -184,10 +184,10 @@ pub const QWebEngineUrlRequestInfo = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qwebengineurlrequestinfo.HttpHeaders: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QWebEngineUrlRequestInfo.HttpHeaders: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("qwebengineurlrequestinfo.HttpHeaders: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QWebEngineUrlRequestInfo.HttpHeaders: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }

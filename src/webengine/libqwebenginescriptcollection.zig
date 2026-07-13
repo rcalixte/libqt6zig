@@ -63,7 +63,7 @@ pub const QWebEngineScriptCollection = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QWebEngineScriptCollection_Find(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWebEngineScript, _arr.len) catch @panic("qwebenginescriptcollection.Find: Memory allocation failed");
+        const _ret = allocator.alloc(QWebEngineScript, _arr.len) catch @panic("QWebEngineScriptCollection.Find: Memory allocation failed");
         const _data: [*]QtC.QWebEngineScript = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -133,7 +133,7 @@ pub const QWebEngineScriptCollection = extern struct {
     pub fn ToList(self: QWebEngineScriptCollection, allocator: std.mem.Allocator) []QWebEngineScript {
         const _arr: qtc.libqt_list = qtc.QWebEngineScriptCollection_ToList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWebEngineScript, _arr.len) catch @panic("qwebenginescriptcollection.ToList: Memory allocation failed");
+        const _ret = allocator.alloc(QWebEngineScript, _arr.len) catch @panic("QWebEngineScriptCollection.ToList: Memory allocation failed");
         const _data: [*]QtC.QWebEngineScript = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

@@ -461,19 +461,19 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual qint64 writeData(const char* data, qint64 lenVal) override {
+    virtual qint64 writeData(const char* data, qint64 len) override {
         if (kautosavefile_writedata_isbase) {
             kautosavefile_writedata_isbase = false;
-            return KAutoSaveFile::writeData(data, lenVal);
+            return KAutoSaveFile::writeData(data, len);
         }
         auto writedata_cb = kautosavefile_writedata_callback;
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
-            long long cbval2 = static_cast<long long>(lenVal);
+            long long cbval2 = static_cast<long long>(len);
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
-        return KAutoSaveFile::writeData(data, lenVal);
+        return KAutoSaveFile::writeData(data, len);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -811,8 +811,8 @@ class VirtualKAutoSaveFile final : public KAutoSaveFile {
     // Friend functions
     friend long long KAutoSaveFile_ReadData(KAutoSaveFile* self, char* data, long long maxlen);
     friend long long KAutoSaveFile_SuperReadData(KAutoSaveFile* self, char* data, long long maxlen);
-    friend long long KAutoSaveFile_WriteData(KAutoSaveFile* self, const char* data, long long lenVal);
-    friend long long KAutoSaveFile_SuperWriteData(KAutoSaveFile* self, const char* data, long long lenVal);
+    friend long long KAutoSaveFile_WriteData(KAutoSaveFile* self, const char* data, long long len);
+    friend long long KAutoSaveFile_SuperWriteData(KAutoSaveFile* self, const char* data, long long len);
     friend long long KAutoSaveFile_ReadLineData(KAutoSaveFile* self, char* data, long long maxlen);
     friend long long KAutoSaveFile_SuperReadLineData(KAutoSaveFile* self, char* data, long long maxlen);
     friend long long KAutoSaveFile_SkipData(KAutoSaveFile* self, long long maxSize);

@@ -656,19 +656,19 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual qint64 writeData(const char* data, qint64 lenVal) override {
+    virtual qint64 writeData(const char* data, qint64 len) override {
         if (qabstractsocket_writedata_isbase) {
             qabstractsocket_writedata_isbase = false;
-            return QAbstractSocket::writeData(data, lenVal);
+            return QAbstractSocket::writeData(data, len);
         }
         auto writedata_cb = qabstractsocket_writedata_callback;
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
-            long long cbval2 = static_cast<long long>(lenVal);
+            long long cbval2 = static_cast<long long>(len);
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
-        return QAbstractSocket::writeData(data, lenVal);
+        return QAbstractSocket::writeData(data, len);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1117,8 +1117,8 @@ class VirtualQAbstractSocket final : public QAbstractSocket {
     friend long long QAbstractSocket_SuperReadLineData(QAbstractSocket* self, char* data, long long maxlen);
     friend long long QAbstractSocket_SkipData(QAbstractSocket* self, long long maxSize);
     friend long long QAbstractSocket_SuperSkipData(QAbstractSocket* self, long long maxSize);
-    friend long long QAbstractSocket_WriteData(QAbstractSocket* self, const char* data, long long lenVal);
-    friend long long QAbstractSocket_SuperWriteData(QAbstractSocket* self, const char* data, long long lenVal);
+    friend long long QAbstractSocket_WriteData(QAbstractSocket* self, const char* data, long long len);
+    friend long long QAbstractSocket_SuperWriteData(QAbstractSocket* self, const char* data, long long len);
     friend void QAbstractSocket_TimerEvent(QAbstractSocket* self, QTimerEvent* event);
     friend void QAbstractSocket_SuperTimerEvent(QAbstractSocket* self, QTimerEvent* event);
     friend void QAbstractSocket_ChildEvent(QAbstractSocket* self, QChildEvent* event);

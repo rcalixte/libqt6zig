@@ -82,7 +82,7 @@ pub const QsciStyledText = extern struct {
     pub fn Text(self: QsciStyledText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QsciStyledText_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qscistyledtext.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciStyledText.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

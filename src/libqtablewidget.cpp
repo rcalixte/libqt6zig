@@ -158,8 +158,8 @@ int QTableWidgetItem_Column(const QTableWidgetItem* self) {
     return self->column();
 }
 
-void QTableWidgetItem_SetSelected(QTableWidgetItem* self, bool selectVal) {
-    self->setSelected(selectVal);
+void QTableWidgetItem_SetSelected(QTableWidgetItem* self, bool select) {
+    self->setSelected(select);
 }
 
 bool QTableWidgetItem_IsSelected(const QTableWidgetItem* self) {
@@ -651,8 +651,8 @@ void QTableWidget_RemoveCellWidget(QTableWidget* self, int row, int column) {
     self->removeCellWidget(static_cast<int>(row), static_cast<int>(column));
 }
 
-void QTableWidget_SetRangeSelected(QTableWidget* self, const QTableWidgetSelectionRange* range, bool selectVal) {
-    self->setRangeSelected(*range, selectVal);
+void QTableWidget_SetRangeSelected(QTableWidget* self, const QTableWidgetSelectionRange* range, bool select) {
+    self->setRangeSelected(*range, select);
 }
 
 libqt_list /* of QTableWidgetSelectionRange* */ QTableWidget_SelectedRanges(const QTableWidget* self) {

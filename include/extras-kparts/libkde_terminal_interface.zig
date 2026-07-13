@@ -30,7 +30,7 @@ pub const TerminalInterface = extern struct {
             .len = program.len,
             .data = program.ptr,
         };
-        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("terminalinterface.StartProgram: Memory allocation failed");
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("TerminalInterface.StartProgram: Memory allocation failed");
         defer allocator.free(args_arr);
         for (args, 0..args.len) |item, i|
             args_arr[i] = .{
@@ -107,7 +107,7 @@ pub const TerminalInterface = extern struct {
     pub fn ForegroundProcessName(self: TerminalInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TerminalInterface_ForegroundProcessName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("terminalinterface.ForegroundProcessName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TerminalInterface.ForegroundProcessName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -123,7 +123,7 @@ pub const TerminalInterface = extern struct {
     pub fn CurrentWorkingDirectory(self: TerminalInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TerminalInterface_CurrentWorkingDirectory(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("terminalinterface.CurrentWorkingDirectory: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TerminalInterface.CurrentWorkingDirectory: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -144,10 +144,10 @@ pub const TerminalInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("terminalinterface.AvailableProfiles: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TerminalInterface.AvailableProfiles: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("terminalinterface.AvailableProfiles: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TerminalInterface.AvailableProfiles: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -165,7 +165,7 @@ pub const TerminalInterface = extern struct {
     pub fn CurrentProfileName(self: TerminalInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TerminalInterface_CurrentProfileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("terminalinterface.CurrentProfileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TerminalInterface.CurrentProfileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

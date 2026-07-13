@@ -211,7 +211,7 @@ pub const QWebSocketServer = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebsocketserver.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -479,7 +479,7 @@ pub const QWebSocketServer = extern struct {
     pub fn ErrorString(self: QWebSocketServer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebSocketServer_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebsocketserver.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -531,7 +531,7 @@ pub const QWebSocketServer = extern struct {
     pub fn ServerName(self: QWebSocketServer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebSocketServer_ServerName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebsocketserver.ServerName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.ServerName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -547,7 +547,7 @@ pub const QWebSocketServer = extern struct {
     /// ` protocols: []const []const u8 `
     ///
     pub fn SetSupportedSubprotocols(self: QWebSocketServer, allocator: std.mem.Allocator, protocols: []const []const u8) void {
-        const protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("qwebsocketserver.SetSupportedSubprotocols: Memory allocation failed");
+        const protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("QWebSocketServer.SetSupportedSubprotocols: Memory allocation failed");
         defer allocator.free(protocols_arr);
         for (protocols, 0..protocols.len) |item, i|
             protocols_arr[i] = .{
@@ -577,10 +577,10 @@ pub const QWebSocketServer = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qwebsocketserver.SupportedSubprotocols: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QWebSocketServer.SupportedSubprotocols: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qwebsocketserver.SupportedSubprotocols: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebSocketServer.SupportedSubprotocols: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -648,7 +648,7 @@ pub const QWebSocketServer = extern struct {
     pub fn SupportedVersions(self: QWebSocketServer, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QWebSocketServer_SupportedVersions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qwebsocketserver.SupportedVersions: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QWebSocketServer.SupportedVersions: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -966,7 +966,7 @@ pub const QWebSocketServer = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebsocketserver.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -988,7 +988,7 @@ pub const QWebSocketServer = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebsocketserver.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1034,7 +1034,7 @@ pub const QWebSocketServer = extern struct {
     pub fn ObjectName(self: QWebSocketServer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebsocketserver.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebSocketServer.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1211,7 +1211,7 @@ pub const QWebSocketServer = extern struct {
     pub fn Children(self: QWebSocketServer, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qwebsocketserver.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWebSocketServer.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1487,10 +1487,10 @@ pub const QWebSocketServer = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qwebsocketserver.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebSocketServer.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qwebsocketserver.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebSocketServer.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

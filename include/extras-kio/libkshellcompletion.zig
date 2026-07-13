@@ -175,7 +175,7 @@ pub const KShellCompletion = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -197,7 +197,7 @@ pub const KShellCompletion = extern struct {
         };
         var _str = qtc.KShellCompletion_MakeCompletion(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.MakeCompletion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.MakeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -239,7 +239,7 @@ pub const KShellCompletion = extern struct {
         };
         var _str = qtc.KShellCompletion_SuperMakeCompletion(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.MakeCompletion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.MakeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -255,7 +255,7 @@ pub const KShellCompletion = extern struct {
     /// ` matches: []const []const u8 `
     ///
     pub fn PostProcessMatches(self: KShellCompletion, allocator: std.mem.Allocator, matches: []const []const u8) void {
-        const matches_arr = allocator.alloc(qtc.libqt_string, matches.len) catch @panic("kshellcompletion.PostProcessMatches: Memory allocation failed");
+        const matches_arr = allocator.alloc(qtc.libqt_string, matches.len) catch @panic("KShellCompletion.PostProcessMatches: Memory allocation failed");
         defer allocator.free(matches_arr);
         for (matches, 0..matches.len) |item, i|
             matches_arr[i] = .{
@@ -300,7 +300,7 @@ pub const KShellCompletion = extern struct {
     /// ` matches: []const []const u8 `
     ///
     pub fn SuperPostProcessMatches(self: KShellCompletion, allocator: std.mem.Allocator, matches: []const []const u8) void {
-        const matches_arr = allocator.alloc(qtc.libqt_string, matches.len) catch @panic("kshellcompletion.PostProcessMatches: Memory allocation failed");
+        const matches_arr = allocator.alloc(qtc.libqt_string, matches.len) catch @panic("KShellCompletion.PostProcessMatches: Memory allocation failed");
         defer allocator.free(matches_arr);
         for (matches, 0..matches.len) |item, i|
             matches_arr[i] = .{
@@ -375,7 +375,7 @@ pub const KShellCompletion = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -397,7 +397,7 @@ pub const KShellCompletion = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -421,7 +421,7 @@ pub const KShellCompletion = extern struct {
         };
         var _str = qtc.KUrlCompletion_ReplacedPath(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.ReplacedPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.ReplacedPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -445,7 +445,7 @@ pub const KShellCompletion = extern struct {
         };
         var _str = qtc.KUrlCompletion_ReplacedPath2(text_str, replaceHome);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.ReplacedPath2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.ReplacedPath2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -463,7 +463,7 @@ pub const KShellCompletion = extern struct {
     /// ` mimeTypes: []const []const u8 `
     ///
     pub fn SetMimeTypeFilters(self: KShellCompletion, allocator: std.mem.Allocator, mimeTypes: []const []const u8) void {
-        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kshellcompletion.SetMimeTypeFilters: Memory allocation failed");
+        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("KShellCompletion.SetMimeTypeFilters: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
         for (mimeTypes, 0..mimeTypes.len) |item, i|
             mimeTypes_arr[i] = .{
@@ -495,10 +495,10 @@ pub const KShellCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kshellcompletion.MimeTypeFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.MimeTypeFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kshellcompletion.MimeTypeFilters: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KShellCompletion.MimeTypeFilters: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -526,7 +526,7 @@ pub const KShellCompletion = extern struct {
         };
         var _str = qtc.KUrlCompletion_ReplacedPath3(text_str, replaceHome, replaceEnv);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.ReplacedPath3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.ReplacedPath3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -555,10 +555,10 @@ pub const KShellCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kshellcompletion.SubstringCompletion: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.SubstringCompletion: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kshellcompletion.SubstringCompletion: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KShellCompletion.SubstringCompletion: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -583,10 +583,10 @@ pub const KShellCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kshellcompletion.Items: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.Items: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kshellcompletion.Items: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KShellCompletion.Items: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -679,10 +679,10 @@ pub const KShellCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kshellcompletion.AllMatches: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.AllMatches: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kshellcompletion.AllMatches: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KShellCompletion.AllMatches: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -713,10 +713,10 @@ pub const KShellCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kshellcompletion.AllMatches2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShellCompletion.AllMatches2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kshellcompletion.AllMatches2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KShellCompletion.AllMatches2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -790,7 +790,7 @@ pub const KShellCompletion = extern struct {
     pub fn PreviousMatch(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCompletion_PreviousMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.PreviousMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.PreviousMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -808,7 +808,7 @@ pub const KShellCompletion = extern struct {
     pub fn NextMatch(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCompletion_NextMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.NextMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.NextMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -826,7 +826,7 @@ pub const KShellCompletion = extern struct {
     /// ` items: []const []const u8 `
     ///
     pub fn InsertItems(self: KShellCompletion, allocator: std.mem.Allocator, items: []const []const u8) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kshellcompletion.InsertItems: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KShellCompletion.InsertItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i|
             items_arr[i] = .{
@@ -941,7 +941,7 @@ pub const KShellCompletion = extern struct {
     /// ` matchlist: []const []const u8 `
     ///
     pub fn Matches(self: KShellCompletion, allocator: std.mem.Allocator, matchlist: []const []const u8) void {
-        const matchlist_arr = allocator.alloc(qtc.libqt_string, matchlist.len) catch @panic("kshellcompletion.Matches: Memory allocation failed");
+        const matchlist_arr = allocator.alloc(qtc.libqt_string, matchlist.len) catch @panic("KShellCompletion.Matches: Memory allocation failed");
         defer allocator.free(matchlist_arr);
         for (matchlist, 0..matchlist.len) |item, i|
             matchlist_arr[i] = .{
@@ -1008,7 +1008,7 @@ pub const KShellCompletion = extern struct {
     pub fn ObjectName(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1185,7 +1185,7 @@ pub const KShellCompletion = extern struct {
     pub fn Children(self: KShellCompletion, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kshellcompletion.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KShellCompletion.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1461,10 +1461,10 @@ pub const KShellCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kshellcompletion.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KShellCompletion.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kshellcompletion.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KShellCompletion.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2287,7 +2287,7 @@ pub const KShellCompletion = extern struct {
     pub fn LastMatch(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KShellCompletion_LastMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.LastMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.LastMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2311,7 +2311,7 @@ pub const KShellCompletion = extern struct {
     pub fn SuperLastMatch(self: KShellCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KShellCompletion_SuperLastMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshellcompletion.LastMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShellCompletion.LastMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2555,7 +2555,7 @@ pub const KShellCompletion = extern struct {
     /// ` itemList: []const []const u8 `
     ///
     pub fn SetItems(self: KShellCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
-        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("kshellcompletion.SetItems: Memory allocation failed");
+        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("KShellCompletion.SetItems: Memory allocation failed");
         defer allocator.free(itemList_arr);
         for (itemList, 0..itemList.len) |item, i|
             itemList_arr[i] = .{
@@ -2588,7 +2588,7 @@ pub const KShellCompletion = extern struct {
     /// ` itemList: []const []const u8 `
     ///
     pub fn SuperSetItems(self: KShellCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
-        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("kshellcompletion.SetItems: Memory allocation failed");
+        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("KShellCompletion.SetItems: Memory allocation failed");
         defer allocator.free(itemList_arr);
         for (itemList, 0..itemList.len) |item, i|
             itemList_arr[i] = .{

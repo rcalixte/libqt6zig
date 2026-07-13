@@ -241,7 +241,7 @@ pub const Accounts__Manager = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__manager.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Manager.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -269,7 +269,7 @@ pub const Accounts__Manager = extern struct {
     pub fn AccountList(self: Accounts__Manager, allocator: std.mem.Allocator) []u32 {
         const _arr: qtc.libqt_list = qtc.Accounts__Manager_AccountList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u32, _arr.len) catch @panic("accounts__manager.AccountList: Memory allocation failed");
+        const _ret = allocator.alloc(u32, _arr.len) catch @panic("Accounts__Manager.AccountList: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -286,7 +286,7 @@ pub const Accounts__Manager = extern struct {
     pub fn AccountListEnabled(self: Accounts__Manager, allocator: std.mem.Allocator) []u32 {
         const _arr: qtc.libqt_list = qtc.Accounts__Manager_AccountListEnabled(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u32, _arr.len) catch @panic("accounts__manager.AccountListEnabled: Memory allocation failed");
+        const _ret = allocator.alloc(u32, _arr.len) catch @panic("Accounts__Manager.AccountListEnabled: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -335,7 +335,7 @@ pub const Accounts__Manager = extern struct {
     pub fn ServiceList(self: Accounts__Manager, allocator: std.mem.Allocator) []Accounts__Service {
         const _arr: qtc.libqt_list = qtc.Accounts__Manager_ServiceList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Accounts__Service, _arr.len) catch @panic("accounts__manager.ServiceList: Memory allocation failed");
+        const _ret = allocator.alloc(Accounts__Service, _arr.len) catch @panic("Accounts__Manager.ServiceList: Memory allocation failed");
         const _data: [*]QtC.Accounts__Service = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -356,7 +356,7 @@ pub const Accounts__Manager = extern struct {
         comptime _ = @TypeOf(application)._is_Accounts__Application;
         const _arr: qtc.libqt_list = qtc.Accounts__Manager_ServiceList2(@ptrCast(self.ptr), @ptrCast(application.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Accounts__Service, _arr.len) catch @panic("accounts__manager.ServiceList2: Memory allocation failed");
+        const _ret = allocator.alloc(Accounts__Service, _arr.len) catch @panic("Accounts__Manager.ServiceList2: Memory allocation failed");
         const _data: [*]QtC.Accounts__Service = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -390,7 +390,7 @@ pub const Accounts__Manager = extern struct {
     pub fn ProviderList(self: Accounts__Manager, allocator: std.mem.Allocator) []Accounts__Provider {
         const _arr: qtc.libqt_list = qtc.Accounts__Manager_ProviderList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Accounts__Provider, _arr.len) catch @panic("accounts__manager.ProviderList: Memory allocation failed");
+        const _ret = allocator.alloc(Accounts__Provider, _arr.len) catch @panic("Accounts__Manager.ProviderList: Memory allocation failed");
         const _data: [*]QtC.Accounts__Provider = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -443,7 +443,7 @@ pub const Accounts__Manager = extern struct {
         comptime _ = @TypeOf(service)._is_Accounts__Service;
         const _arr: qtc.libqt_list = qtc.Accounts__Manager_ApplicationList(@ptrCast(self.ptr), @ptrCast(service.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Accounts__Application, _arr.len) catch @panic("accounts__manager.ApplicationList: Memory allocation failed");
+        const _ret = allocator.alloc(Accounts__Application, _arr.len) catch @panic("Accounts__Manager.ApplicationList: Memory allocation failed");
         const _data: [*]QtC.Accounts__Application = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -461,7 +461,7 @@ pub const Accounts__Manager = extern struct {
     pub fn ServiceType2(self: Accounts__Manager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Manager_ServiceType2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__manager.ServiceType2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Manager.ServiceType2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -645,7 +645,7 @@ pub const Accounts__Manager = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__manager.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Manager.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -667,7 +667,7 @@ pub const Accounts__Manager = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__manager.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Manager.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -689,7 +689,7 @@ pub const Accounts__Manager = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.Accounts__Manager_AccountList1(@ptrCast(self.ptr), serviceType_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u32, _arr.len) catch @panic("accounts__manager.AccountList1: Memory allocation failed");
+        const _ret = allocator.alloc(u32, _arr.len) catch @panic("Accounts__Manager.AccountList1: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -712,7 +712,7 @@ pub const Accounts__Manager = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.Accounts__Manager_AccountListEnabled1(@ptrCast(self.ptr), serviceType_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u32, _arr.len) catch @panic("accounts__manager.AccountListEnabled1: Memory allocation failed");
+        const _ret = allocator.alloc(u32, _arr.len) catch @panic("Accounts__Manager.AccountListEnabled1: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -735,7 +735,7 @@ pub const Accounts__Manager = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.Accounts__Manager_ServiceList1(@ptrCast(self.ptr), serviceType_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Accounts__Service, _arr.len) catch @panic("accounts__manager.ServiceList1: Memory allocation failed");
+        const _ret = allocator.alloc(Accounts__Service, _arr.len) catch @panic("Accounts__Manager.ServiceList1: Memory allocation failed");
         const _data: [*]QtC.Accounts__Service = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -755,7 +755,7 @@ pub const Accounts__Manager = extern struct {
     pub fn ObjectName(self: Accounts__Manager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__manager.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Manager.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -932,7 +932,7 @@ pub const Accounts__Manager = extern struct {
     pub fn Children(self: Accounts__Manager, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("accounts__manager.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Accounts__Manager.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1208,10 +1208,10 @@ pub const Accounts__Manager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("accounts__manager.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Accounts__Manager.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("accounts__manager.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Accounts__Manager.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

@@ -199,11 +199,11 @@ pub const QCborStreamWriter = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
-    pub fn AppendByteString(self: QCborStreamWriter, data: [:0]const u8, lenVal: isize) void {
+    pub fn AppendByteString(self: QCborStreamWriter, data: [:0]const u8, len: isize) void {
         const data_Cstring = data.ptr;
-        qtc.QCborStreamWriter_AppendByteString(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        qtc.QCborStreamWriter_AppendByteString(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#appendTextString)
@@ -214,11 +214,11 @@ pub const QCborStreamWriter = extern struct {
     ///
     /// ` utf8: [:0]const u8 `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
-    pub fn AppendTextString(self: QCborStreamWriter, utf8: [:0]const u8, lenVal: isize) void {
+    pub fn AppendTextString(self: QCborStreamWriter, utf8: [:0]const u8, len: isize) void {
         const utf8_Cstring = utf8.ptr;
-        qtc.QCborStreamWriter_AppendTextString(@ptrCast(self.ptr), utf8_Cstring, @bitCast(lenVal));
+        qtc.QCborStreamWriter_AppendTextString(@ptrCast(self.ptr), utf8_Cstring, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamwriter.html#append)

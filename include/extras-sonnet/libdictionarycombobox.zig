@@ -244,7 +244,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -270,7 +270,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn CurrentDictionaryName(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Sonnet__DictionaryComboBox_CurrentDictionaryName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.CurrentDictionaryName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.CurrentDictionaryName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -286,7 +286,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn CurrentDictionary(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Sonnet__DictionaryComboBox_CurrentDictionary(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.CurrentDictionary: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.CurrentDictionary: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -426,7 +426,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -448,7 +448,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -746,7 +746,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn PlaceholderText(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.PlaceholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -975,7 +975,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn CurrentText(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.CurrentText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.CurrentText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1007,7 +1007,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn ItemText(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QComboBox_ItemText(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.ItemText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.ItemText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1092,7 +1092,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     /// ` texts: []const []const u8 `
     ///
     pub fn AddItems(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("sonnet__dictionarycombobox.AddItems: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("Sonnet__DictionaryComboBox.AddItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i|
             texts_arr[i] = .{
@@ -1164,7 +1164,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     /// ` texts: []const []const u8 `
     ///
     pub fn InsertItems(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("sonnet__dictionarycombobox.InsertItems: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("Sonnet__DictionaryComboBox.InsertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i|
             texts_arr[i] = .{
@@ -3159,7 +3159,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn StyleSheet(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3177,7 +3177,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn WindowTitle(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3240,7 +3240,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn WindowIconText(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3276,7 +3276,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn WindowRole(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3312,7 +3312,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn WindowFilePath(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3386,7 +3386,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn ToolTip(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3448,7 +3448,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn StatusTip(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3484,7 +3484,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn WhatsThis(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3502,7 +3502,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn AccessibleName(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3538,7 +3538,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn AccessibleDescription(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4388,7 +4388,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn SaveGeometry(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("sonnet__dictionarycombobox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Sonnet__DictionaryComboBox.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -4924,7 +4924,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn Actions(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("sonnet__dictionarycombobox.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("Sonnet__DictionaryComboBox.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5739,7 +5739,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn ObjectName(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__dictionarycombobox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__DictionaryComboBox.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5916,7 +5916,7 @@ pub const Sonnet__DictionaryComboBox = extern struct {
     pub fn Children(self: Sonnet__DictionaryComboBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("sonnet__dictionarycombobox.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Sonnet__DictionaryComboBox.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6177,10 +6177,10 @@ pub const Sonnet__DictionaryComboBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("sonnet__dictionarycombobox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Sonnet__DictionaryComboBox.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("sonnet__dictionarycombobox.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Sonnet__DictionaryComboBox.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

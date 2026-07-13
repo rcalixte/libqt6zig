@@ -65,7 +65,7 @@ pub const QLowEnergyDescriptor = extern struct {
     pub fn Value(self: QLowEnergyDescriptor, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QLowEnergyDescriptor_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qlowenergydescriptor.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QLowEnergyDescriptor.Value: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -91,7 +91,7 @@ pub const QLowEnergyDescriptor = extern struct {
     pub fn Name(self: QLowEnergyDescriptor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLowEnergyDescriptor_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlowenergydescriptor.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLowEnergyDescriptor.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

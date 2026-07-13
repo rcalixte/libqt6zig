@@ -55,7 +55,7 @@ pub const KIO__UDSEntry = extern struct {
     pub fn StringValue(self: KIO__UDSEntry, allocator: std.mem.Allocator, field: u32) []const u8 {
         var _str = qtc.KIO__UDSEntry_StringValue(@ptrCast(self.ptr), @bitCast(field));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__udsentry.StringValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__UDSEntry.StringValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -169,7 +169,7 @@ pub const KIO__UDSEntry = extern struct {
     pub fn Fields(self: KIO__UDSEntry, allocator: std.mem.Allocator) []u32 {
         const _arr: qtc.libqt_list = qtc.KIO__UDSEntry_Fields(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u32, _arr.len) catch @panic("kio__udsentry.Fields: Memory allocation failed");
+        const _ret = allocator.alloc(u32, _arr.len) catch @panic("KIO__UDSEntry.Fields: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;

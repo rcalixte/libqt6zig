@@ -69,7 +69,7 @@ pub const Attica__RemoteAccount = extern struct {
     pub fn Id(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__RemoteAccount_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__remoteaccount.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -101,7 +101,7 @@ pub const Attica__RemoteAccount = extern struct {
     pub fn Type(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__RemoteAccount_Type(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__remoteaccount.Type: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.Type: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -133,7 +133,7 @@ pub const Attica__RemoteAccount = extern struct {
     pub fn RemoteServiceId(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__RemoteAccount_RemoteServiceId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__remoteaccount.RemoteServiceId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.RemoteServiceId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -165,7 +165,7 @@ pub const Attica__RemoteAccount = extern struct {
     pub fn Data(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__RemoteAccount_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__remoteaccount.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.Data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -197,7 +197,7 @@ pub const Attica__RemoteAccount = extern struct {
     pub fn Login(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__RemoteAccount_Login(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__remoteaccount.Login: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.Login: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -229,7 +229,7 @@ pub const Attica__RemoteAccount = extern struct {
     pub fn Password(self: Attica__RemoteAccount, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__RemoteAccount_Password(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__remoteaccount.Password: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__RemoteAccount.Password: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

@@ -175,8 +175,8 @@ QTreeWidget* QTreeWidgetItem_TreeWidget(const QTreeWidgetItem* self) {
     return self->treeWidget();
 }
 
-void QTreeWidgetItem_SetSelected(QTreeWidgetItem* self, bool selectVal) {
-    self->setSelected(selectVal);
+void QTreeWidgetItem_SetSelected(QTreeWidgetItem* self, bool select) {
+    self->setSelected(select);
 }
 
 bool QTreeWidgetItem_IsSelected(const QTreeWidgetItem* self) {

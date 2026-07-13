@@ -513,7 +513,7 @@ pub const QGradient = extern struct {
         const _arr: qtc.libqt_list = qtc.QGradient_Stops(@ptrCast(self.ptr));
         const _data: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("qgradient.Stops: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("QGradient.Stops: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -840,7 +840,7 @@ pub const QLinearGradient = extern struct {
         const _arr: qtc.libqt_list = qtc.QGradient_Stops(@ptrCast(self.ptr));
         const _data: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("qlineargradient.Stops: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("QLinearGradient.Stops: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -1314,7 +1314,7 @@ pub const QRadialGradient = extern struct {
         const _arr: qtc.libqt_list = qtc.QGradient_Stops(@ptrCast(self.ptr));
         const _data: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("qradialgradient.Stops: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("QRadialGradient.Stops: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -1635,7 +1635,7 @@ pub const QConicalGradient = extern struct {
         const _arr: qtc.libqt_list = qtc.QGradient_Stops(@ptrCast(self.ptr));
         const _data: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("qconicalgradient.Stops: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("QConicalGradient.Stops: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }

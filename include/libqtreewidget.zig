@@ -109,7 +109,7 @@ pub const QTreeWidgetItem = extern struct {
     /// ` strings: []const []const u8 `
     ///
     pub fn New2(allocator: std.mem.Allocator, strings: []const []const u8) QTreeWidgetItem {
-        const strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qtreewidgetitem.New2: Memory allocation failed");
+        const strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("QTreeWidgetItem.New2: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i|
             strings_arr[i] = .{
@@ -146,7 +146,7 @@ pub const QTreeWidgetItem = extern struct {
     ///
     pub fn New4(allocator: std.mem.Allocator, treeview: anytype, strings: []const []const u8) QTreeWidgetItem {
         comptime _ = @TypeOf(treeview)._is_QTreeWidget;
-        const strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qtreewidgetitem.New4: Memory allocation failed");
+        const strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("QTreeWidgetItem.New4: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i|
             strings_arr[i] = .{
@@ -197,7 +197,7 @@ pub const QTreeWidgetItem = extern struct {
     ///
     pub fn New7(allocator: std.mem.Allocator, parent: anytype, strings: []const []const u8) QTreeWidgetItem {
         comptime _ = @TypeOf(parent)._is_QTreeWidgetItem;
-        const strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qtreewidgetitem.New7: Memory allocation failed");
+        const strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("QTreeWidgetItem.New7: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i|
             strings_arr[i] = .{
@@ -257,7 +257,7 @@ pub const QTreeWidgetItem = extern struct {
     /// ` typeVal: i32 `
     ///
     pub fn New11(allocator: std.mem.Allocator, strings: []const []const u8, typeVal: i32) QTreeWidgetItem {
-        const strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qtreewidgetitem.New11: Memory allocation failed");
+        const strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("QTreeWidgetItem.New11: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i|
             strings_arr[i] = .{
@@ -298,7 +298,7 @@ pub const QTreeWidgetItem = extern struct {
     ///
     pub fn New13(allocator: std.mem.Allocator, treeview: anytype, strings: []const []const u8, typeVal: i32) QTreeWidgetItem {
         comptime _ = @TypeOf(treeview)._is_QTreeWidget;
-        const strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qtreewidgetitem.New13: Memory allocation failed");
+        const strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("QTreeWidgetItem.New13: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i|
             strings_arr[i] = .{
@@ -355,7 +355,7 @@ pub const QTreeWidgetItem = extern struct {
     ///
     pub fn New16(allocator: std.mem.Allocator, parent: anytype, strings: []const []const u8, typeVal: i32) QTreeWidgetItem {
         comptime _ = @TypeOf(parent)._is_QTreeWidgetItem;
-        const strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("qtreewidgetitem.New16: Memory allocation failed");
+        const strings_arr = allocator.alloc(qtc.libqt_string, strings.len) catch @panic("QTreeWidgetItem.New16: Memory allocation failed");
         defer allocator.free(strings_arr);
         for (strings, 0..strings.len) |item, i|
             strings_arr[i] = .{
@@ -441,10 +441,10 @@ pub const QTreeWidgetItem = extern struct {
     ///
     /// ` self: QTreeWidgetItem `
     ///
-    /// ` selectVal: bool `
+    /// ` select: bool `
     ///
-    pub fn SetSelected(self: QTreeWidgetItem, selectVal: bool) void {
-        qtc.QTreeWidgetItem_SetSelected(@ptrCast(self.ptr), selectVal);
+    pub fn SetSelected(self: QTreeWidgetItem, select: bool) void {
+        qtc.QTreeWidgetItem_SetSelected(@ptrCast(self.ptr), select);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitem.html#isSelected)
@@ -610,7 +610,7 @@ pub const QTreeWidgetItem = extern struct {
     pub fn Text(self: QTreeWidgetItem, allocator: std.mem.Allocator, column: i32) []const u8 {
         var _str = qtc.QTreeWidgetItem_Text(@ptrCast(self.ptr), @bitCast(column));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidgetitem.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidgetItem.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -673,7 +673,7 @@ pub const QTreeWidgetItem = extern struct {
     pub fn StatusTip(self: QTreeWidgetItem, allocator: std.mem.Allocator, column: i32) []const u8 {
         var _str = qtc.QTreeWidgetItem_StatusTip(@ptrCast(self.ptr), @bitCast(column));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidgetitem.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidgetItem.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -709,7 +709,7 @@ pub const QTreeWidgetItem = extern struct {
     pub fn ToolTip(self: QTreeWidgetItem, allocator: std.mem.Allocator, column: i32) []const u8 {
         var _str = qtc.QTreeWidgetItem_ToolTip(@ptrCast(self.ptr), @bitCast(column));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidgetitem.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidgetItem.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -745,7 +745,7 @@ pub const QTreeWidgetItem = extern struct {
     pub fn WhatsThis(self: QTreeWidgetItem, allocator: std.mem.Allocator, column: i32) []const u8 {
         var _str = qtc.QTreeWidgetItem_WhatsThis(@ptrCast(self.ptr), @bitCast(column));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidgetitem.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidgetItem.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1368,7 +1368,7 @@ pub const QTreeWidgetItem = extern struct {
     pub fn TakeChildren(self: QTreeWidgetItem, allocator: std.mem.Allocator) []QTreeWidgetItem {
         const _arr: qtc.libqt_list = qtc.QTreeWidgetItem_TakeChildren(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTreeWidgetItem, _arr.len) catch @panic("qtreewidgetitem.TakeChildren: Memory allocation failed");
+        const _ret = allocator.alloc(QTreeWidgetItem, _arr.len) catch @panic("QTreeWidgetItem.TakeChildren: Memory allocation failed");
         const _data: [*]QtC.QTreeWidgetItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1628,7 +1628,7 @@ pub const QTreeWidget = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1808,7 +1808,7 @@ pub const QTreeWidget = extern struct {
     /// ` labels: []const []const u8 `
     ///
     pub fn SetHeaderLabels(self: QTreeWidget, allocator: std.mem.Allocator, labels: []const []const u8) void {
-        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qtreewidget.SetHeaderLabels: Memory allocation failed");
+        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("QTreeWidget.SetHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i|
             labels_arr[i] = .{
@@ -2078,7 +2078,7 @@ pub const QTreeWidget = extern struct {
     pub fn SelectedItems(self: QTreeWidget, allocator: std.mem.Allocator) []QTreeWidgetItem {
         const _arr: qtc.libqt_list = qtc.QTreeWidget_SelectedItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTreeWidgetItem, _arr.len) catch @panic("qtreewidget.SelectedItems: Memory allocation failed");
+        const _ret = allocator.alloc(QTreeWidgetItem, _arr.len) catch @panic("QTreeWidget.SelectedItems: Memory allocation failed");
         const _data: [*]QtC.QTreeWidgetItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2104,7 +2104,7 @@ pub const QTreeWidget = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QTreeWidget_FindItems(@ptrCast(self.ptr), text_str, @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTreeWidgetItem, _arr.len) catch @panic("qtreewidget.FindItems: Memory allocation failed");
+        const _ret = allocator.alloc(QTreeWidgetItem, _arr.len) catch @panic("QTreeWidget.FindItems: Memory allocation failed");
         const _data: [*]QtC.QTreeWidgetItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2582,10 +2582,10 @@ pub const QTreeWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qtreewidget.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTreeWidget.MimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtreewidget.MimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTreeWidget.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2630,10 +2630,10 @@ pub const QTreeWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qtreewidget.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTreeWidget.MimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtreewidget.MimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTreeWidget.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2861,7 +2861,7 @@ pub const QTreeWidget = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2883,7 +2883,7 @@ pub const QTreeWidget = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2969,7 +2969,7 @@ pub const QTreeWidget = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QTreeWidget_FindItems3(@ptrCast(self.ptr), text_str, @bitCast(flags), @bitCast(column));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTreeWidgetItem, _arr.len) catch @panic("qtreewidget.FindItems3: Memory allocation failed");
+        const _ret = allocator.alloc(QTreeWidgetItem, _arr.len) catch @panic("QTreeWidget.FindItems3: Memory allocation failed");
         const _data: [*]QtC.QTreeWidgetItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4974,7 +4974,7 @@ pub const QTreeWidget = extern struct {
     pub fn ScrollBarWidgets(self: QTreeWidget, allocator: std.mem.Allocator, alignment: i32) []QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("qtreewidget.ScrollBarWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QTreeWidget.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6597,7 +6597,7 @@ pub const QTreeWidget = extern struct {
     pub fn StyleSheet(self: QTreeWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6615,7 +6615,7 @@ pub const QTreeWidget = extern struct {
     pub fn WindowTitle(self: QTreeWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6678,7 +6678,7 @@ pub const QTreeWidget = extern struct {
     pub fn WindowIconText(self: QTreeWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6714,7 +6714,7 @@ pub const QTreeWidget = extern struct {
     pub fn WindowRole(self: QTreeWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6750,7 +6750,7 @@ pub const QTreeWidget = extern struct {
     pub fn WindowFilePath(self: QTreeWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6824,7 +6824,7 @@ pub const QTreeWidget = extern struct {
     pub fn ToolTip(self: QTreeWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6886,7 +6886,7 @@ pub const QTreeWidget = extern struct {
     pub fn StatusTip(self: QTreeWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6922,7 +6922,7 @@ pub const QTreeWidget = extern struct {
     pub fn WhatsThis(self: QTreeWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6940,7 +6940,7 @@ pub const QTreeWidget = extern struct {
     pub fn AccessibleName(self: QTreeWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6976,7 +6976,7 @@ pub const QTreeWidget = extern struct {
     pub fn AccessibleDescription(self: QTreeWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7814,7 +7814,7 @@ pub const QTreeWidget = extern struct {
     pub fn SaveGeometry(self: QTreeWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtreewidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTreeWidget.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -8350,7 +8350,7 @@ pub const QTreeWidget = extern struct {
     pub fn Actions(self: QTreeWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qtreewidget.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QTreeWidget.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -9165,7 +9165,7 @@ pub const QTreeWidget = extern struct {
     pub fn ObjectName(self: QTreeWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtreewidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTreeWidget.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -9342,7 +9342,7 @@ pub const QTreeWidget = extern struct {
     pub fn Children(self: QTreeWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qtreewidget.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTreeWidget.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -9603,10 +9603,10 @@ pub const QTreeWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtreewidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTreeWidget.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtreewidget.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTreeWidget.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -11075,7 +11075,7 @@ pub const QTreeWidget = extern struct {
     pub fn SelectedIndexes(self: QTreeWidget, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QTreeWidget_SelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qtreewidget.SelectedIndexes: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QTreeWidget.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -11101,7 +11101,7 @@ pub const QTreeWidget = extern struct {
     pub fn SuperSelectedIndexes(self: QTreeWidget, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QTreeWidget_SuperSelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qtreewidget.SelectedIndexes: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QTreeWidget.SelectedIndexes: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

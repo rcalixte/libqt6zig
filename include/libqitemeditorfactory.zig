@@ -37,7 +37,7 @@ pub const QItemEditorCreatorBase = extern struct {
     pub fn ValuePropertyName(self: QItemEditorCreatorBase, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QItemEditorCreatorBase_ValuePropertyName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qitemeditorcreatorbase.ValuePropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QItemEditorCreatorBase.ValuePropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -162,7 +162,7 @@ pub const QItemEditorFactory = extern struct {
     pub fn ValuePropertyName(self: QItemEditorFactory, allocator: std.mem.Allocator, userType: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_ValuePropertyName(@ptrCast(self.ptr), @bitCast(userType));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qitemeditorfactory.ValuePropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QItemEditorFactory.ValuePropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -200,7 +200,7 @@ pub const QItemEditorFactory = extern struct {
     pub fn SuperValuePropertyName(self: QItemEditorFactory, allocator: std.mem.Allocator, userType: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QItemEditorFactory_SuperValuePropertyName(@ptrCast(self.ptr), @bitCast(userType));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qitemeditorfactory.ValuePropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QItemEditorFactory.ValuePropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

@@ -117,7 +117,7 @@ pub const SignOn__Error = extern struct {
     pub fn Message(self: SignOn__Error, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.SignOn__Error_Message(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__error.Message: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("SignOn__Error.Message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

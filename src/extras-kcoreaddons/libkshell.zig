@@ -37,10 +37,10 @@ pub const KShell = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kshell.SplitArgs: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KShell.SplitArgs: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kshell.SplitArgs: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KShell.SplitArgs: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -56,7 +56,7 @@ pub const KShell = extern struct {
     /// ` args: []const []const u8 `
     ///
     pub fn JoinArgs(allocator: std.mem.Allocator, args: []const []const u8) []const u8 {
-        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("kshell.JoinArgs: Memory allocation failed");
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("KShell.JoinArgs: Memory allocation failed");
         defer allocator.free(args_arr);
         for (args, 0..args.len) |item, i|
             args_arr[i] = .{
@@ -69,7 +69,7 @@ pub const KShell = extern struct {
         };
         var _str = qtc.KShell_JoinArgs(args_list);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshell.JoinArgs: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShell.JoinArgs: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -89,7 +89,7 @@ pub const KShell = extern struct {
         };
         var _str = qtc.KShell_QuoteArg(arg_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshell.QuoteArg: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShell.QuoteArg: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -109,7 +109,7 @@ pub const KShell = extern struct {
         };
         var _str = qtc.KShell_TildeExpand(path_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshell.TildeExpand: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShell.TildeExpand: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -129,7 +129,7 @@ pub const KShell = extern struct {
         };
         var _str = qtc.KShell_TildeCollapse(path_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kshell.TildeCollapse: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KShell.TildeCollapse: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

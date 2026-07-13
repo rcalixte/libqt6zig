@@ -188,7 +188,7 @@ pub const KIO__WidgetsAskUserActionHandler = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__widgetsaskuseractionhandler.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__WidgetsAskUserActionHandler.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -587,9 +587,9 @@ pub const KIO__WidgetsAskUserActionHandler = extern struct {
     ///
     pub fn AskIgnoreSslErrors(self: KIO__WidgetsAskUserActionHandler, allocator: std.mem.Allocator, sslErrorData: ArrayMap_constu8_QVariant, parent: anytype) void {
         const sslErrorData_count = sslErrorData.count();
-        const sslErrorData_keys = allocator.alloc(qtc.libqt_string, sslErrorData_count) catch @panic("kio__widgetsaskuseractionhandler.AskIgnoreSslErrors: Memory allocation failed");
+        const sslErrorData_keys = allocator.alloc(qtc.libqt_string, sslErrorData_count) catch @panic("KIO__WidgetsAskUserActionHandler.AskIgnoreSslErrors: Memory allocation failed");
         defer allocator.free(sslErrorData_keys);
-        const sslErrorData_values = allocator.alloc(QtC.QVariant, sslErrorData_count) catch @panic("kio__widgetsaskuseractionhandler.AskIgnoreSslErrors: Memory allocation failed");
+        const sslErrorData_values = allocator.alloc(QtC.QVariant, sslErrorData_count) catch @panic("KIO__WidgetsAskUserActionHandler.AskIgnoreSslErrors: Memory allocation failed");
         defer allocator.free(sslErrorData_values);
         var i: usize = 0;
         var sslErrorData_it = sslErrorData.iterator();
@@ -644,9 +644,9 @@ pub const KIO__WidgetsAskUserActionHandler = extern struct {
     ///
     pub fn SuperAskIgnoreSslErrors(self: KIO__WidgetsAskUserActionHandler, allocator: std.mem.Allocator, sslErrorData: ArrayMap_constu8_QVariant, parent: anytype) void {
         const sslErrorData_count = sslErrorData.count();
-        const sslErrorData_keys = allocator.alloc(qtc.libqt_string, sslErrorData_count) catch @panic("kio__widgetsaskuseractionhandler.AskIgnoreSslErrors: Memory allocation failed");
+        const sslErrorData_keys = allocator.alloc(qtc.libqt_string, sslErrorData_count) catch @panic("KIO__WidgetsAskUserActionHandler.AskIgnoreSslErrors: Memory allocation failed");
         defer allocator.free(sslErrorData_keys);
-        const sslErrorData_values = allocator.alloc(QtC.QVariant, sslErrorData_count) catch @panic("kio__widgetsaskuseractionhandler.AskIgnoreSslErrors: Memory allocation failed");
+        const sslErrorData_values = allocator.alloc(QtC.QVariant, sslErrorData_count) catch @panic("KIO__WidgetsAskUserActionHandler.AskIgnoreSslErrors: Memory allocation failed");
         defer allocator.free(sslErrorData_values);
         var i: usize = 0;
         var sslErrorData_it = sslErrorData.iterator();
@@ -695,7 +695,7 @@ pub const KIO__WidgetsAskUserActionHandler = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__widgetsaskuseractionhandler.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__WidgetsAskUserActionHandler.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -717,7 +717,7 @@ pub const KIO__WidgetsAskUserActionHandler = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__widgetsaskuseractionhandler.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__WidgetsAskUserActionHandler.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -895,7 +895,7 @@ pub const KIO__WidgetsAskUserActionHandler = extern struct {
     pub fn ObjectName(self: KIO__WidgetsAskUserActionHandler, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__widgetsaskuseractionhandler.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__WidgetsAskUserActionHandler.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1072,7 +1072,7 @@ pub const KIO__WidgetsAskUserActionHandler = extern struct {
     pub fn Children(self: KIO__WidgetsAskUserActionHandler, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kio__widgetsaskuseractionhandler.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KIO__WidgetsAskUserActionHandler.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1348,10 +1348,10 @@ pub const KIO__WidgetsAskUserActionHandler = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kio__widgetsaskuseractionhandler.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIO__WidgetsAskUserActionHandler.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio__widgetsaskuseractionhandler.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIO__WidgetsAskUserActionHandler.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

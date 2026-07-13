@@ -105,7 +105,7 @@ pub const QAudioDevice = extern struct {
     pub fn Id(self: QAudioDevice, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QAudioDevice_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qaudiodevice.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QAudioDevice.Id: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -121,7 +121,7 @@ pub const QAudioDevice = extern struct {
     pub fn Description(self: QAudioDevice, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAudioDevice_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaudiodevice.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAudioDevice.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -228,7 +228,7 @@ pub const QAudioDevice = extern struct {
     pub fn SupportedSampleFormats(self: QAudioDevice, allocator: std.mem.Allocator) []u16 {
         const _arr: qtc.libqt_list = qtc.QAudioDevice_SupportedSampleFormats(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u16, _arr.len) catch @panic("qaudiodevice.SupportedSampleFormats: Memory allocation failed");
+        const _ret = allocator.alloc(u16, _arr.len) catch @panic("QAudioDevice.SupportedSampleFormats: Memory allocation failed");
         const _data: [*]u16 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;

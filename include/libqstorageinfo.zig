@@ -108,7 +108,7 @@ pub const QStorageInfo = extern struct {
     pub fn RootPath(self: QStorageInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStorageInfo_RootPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstorageinfo.RootPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStorageInfo.RootPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -124,7 +124,7 @@ pub const QStorageInfo = extern struct {
     pub fn Device(self: QStorageInfo, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QStorageInfo_Device(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstorageinfo.Device: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QStorageInfo.Device: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -140,7 +140,7 @@ pub const QStorageInfo = extern struct {
     pub fn Subvolume(self: QStorageInfo, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QStorageInfo_Subvolume(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstorageinfo.Subvolume: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QStorageInfo.Subvolume: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -156,7 +156,7 @@ pub const QStorageInfo = extern struct {
     pub fn FileSystemType(self: QStorageInfo, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QStorageInfo_FileSystemType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qstorageinfo.FileSystemType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QStorageInfo.FileSystemType: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -172,7 +172,7 @@ pub const QStorageInfo = extern struct {
     pub fn Name(self: QStorageInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStorageInfo_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstorageinfo.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStorageInfo.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -188,7 +188,7 @@ pub const QStorageInfo = extern struct {
     pub fn DisplayName(self: QStorageInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStorageInfo_DisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstorageinfo.DisplayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStorageInfo.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -292,7 +292,7 @@ pub const QStorageInfo = extern struct {
     pub fn MountedVolumes(allocator: std.mem.Allocator) []QStorageInfo {
         const _arr: qtc.libqt_list = qtc.QStorageInfo_MountedVolumes();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QStorageInfo, _arr.len) catch @panic("qstorageinfo.MountedVolumes: Memory allocation failed");
+        const _ret = allocator.alloc(QStorageInfo, _arr.len) catch @panic("QStorageInfo.MountedVolumes: Memory allocation failed");
         const _data: [*]QtC.QStorageInfo = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

@@ -246,7 +246,7 @@ pub const QFontComboBox = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -386,7 +386,7 @@ pub const QFontComboBox = extern struct {
     pub fn SampleTextForSystem(self: QFontComboBox, allocator: std.mem.Allocator, writingSystem: i32) []const u8 {
         var _str = qtc.QFontComboBox_SampleTextForSystem(@ptrCast(self.ptr), @bitCast(writingSystem));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.SampleTextForSystem: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.SampleTextForSystem: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -430,7 +430,7 @@ pub const QFontComboBox = extern struct {
         };
         var _str = qtc.QFontComboBox_SampleTextForFont(@ptrCast(self.ptr), fontFamily_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.SampleTextForFont: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.SampleTextForFont: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -573,7 +573,7 @@ pub const QFontComboBox = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -595,7 +595,7 @@ pub const QFontComboBox = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -893,7 +893,7 @@ pub const QFontComboBox = extern struct {
     pub fn PlaceholderText(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.PlaceholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1122,7 +1122,7 @@ pub const QFontComboBox = extern struct {
     pub fn CurrentText(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.CurrentText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.CurrentText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1154,7 +1154,7 @@ pub const QFontComboBox = extern struct {
     pub fn ItemText(self: QFontComboBox, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QComboBox_ItemText(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.ItemText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.ItemText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1239,7 +1239,7 @@ pub const QFontComboBox = extern struct {
     /// ` texts: []const []const u8 `
     ///
     pub fn AddItems(self: QFontComboBox, allocator: std.mem.Allocator, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("qfontcombobox.AddItems: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("QFontComboBox.AddItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i|
             texts_arr[i] = .{
@@ -1311,7 +1311,7 @@ pub const QFontComboBox = extern struct {
     /// ` texts: []const []const u8 `
     ///
     pub fn InsertItems(self: QFontComboBox, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("qfontcombobox.InsertItems: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("QFontComboBox.InsertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i|
             texts_arr[i] = .{
@@ -3306,7 +3306,7 @@ pub const QFontComboBox = extern struct {
     pub fn StyleSheet(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3324,7 +3324,7 @@ pub const QFontComboBox = extern struct {
     pub fn WindowTitle(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3387,7 +3387,7 @@ pub const QFontComboBox = extern struct {
     pub fn WindowIconText(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3423,7 +3423,7 @@ pub const QFontComboBox = extern struct {
     pub fn WindowRole(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3459,7 +3459,7 @@ pub const QFontComboBox = extern struct {
     pub fn WindowFilePath(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3533,7 +3533,7 @@ pub const QFontComboBox = extern struct {
     pub fn ToolTip(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3595,7 +3595,7 @@ pub const QFontComboBox = extern struct {
     pub fn StatusTip(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3631,7 +3631,7 @@ pub const QFontComboBox = extern struct {
     pub fn WhatsThis(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3649,7 +3649,7 @@ pub const QFontComboBox = extern struct {
     pub fn AccessibleName(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3685,7 +3685,7 @@ pub const QFontComboBox = extern struct {
     pub fn AccessibleDescription(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4535,7 +4535,7 @@ pub const QFontComboBox = extern struct {
     pub fn SaveGeometry(self: QFontComboBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfontcombobox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QFontComboBox.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -5071,7 +5071,7 @@ pub const QFontComboBox = extern struct {
     pub fn Actions(self: QFontComboBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qfontcombobox.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QFontComboBox.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5886,7 +5886,7 @@ pub const QFontComboBox = extern struct {
     pub fn ObjectName(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontcombobox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6063,7 +6063,7 @@ pub const QFontComboBox = extern struct {
     pub fn Children(self: QFontComboBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qfontcombobox.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QFontComboBox.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6324,10 +6324,10 @@ pub const QFontComboBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qfontcombobox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QFontComboBox.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfontcombobox.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFontComboBox.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

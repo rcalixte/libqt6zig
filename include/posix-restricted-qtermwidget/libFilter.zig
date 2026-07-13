@@ -156,7 +156,7 @@ pub const Konsole__Filter = extern struct {
     pub fn Buffer(self: Konsole__Filter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__Filter_Buffer(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__filter.Buffer: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Filter.Buffer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -192,7 +192,7 @@ pub const Konsole__Filter = extern struct {
     pub fn SuperBuffer(self: Konsole__Filter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__Filter_SuperBuffer(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__filter.Buffer: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Filter.Buffer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -263,7 +263,7 @@ pub const Konsole__Filter = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__filter.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Filter.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -281,7 +281,7 @@ pub const Konsole__Filter = extern struct {
     pub fn ObjectName(self: Konsole__Filter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__filter.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Filter.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -458,7 +458,7 @@ pub const Konsole__Filter = extern struct {
     pub fn Children(self: Konsole__Filter, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("konsole__filter.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Konsole__Filter.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -734,10 +734,10 @@ pub const Konsole__Filter = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("konsole__filter.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Konsole__Filter.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("konsole__filter.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Konsole__Filter.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -850,7 +850,7 @@ pub const Konsole__Filter = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__filter.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Filter.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -874,7 +874,7 @@ pub const Konsole__Filter = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__filter.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Filter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2043,7 +2043,7 @@ pub const Konsole__RegExpFilter = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__regexpfilter.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__RegExpFilter.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2061,7 +2061,7 @@ pub const Konsole__RegExpFilter = extern struct {
     pub fn ObjectName(self: Konsole__RegExpFilter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__regexpfilter.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__RegExpFilter.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2238,7 +2238,7 @@ pub const Konsole__RegExpFilter = extern struct {
     pub fn Children(self: Konsole__RegExpFilter, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("konsole__regexpfilter.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Konsole__RegExpFilter.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2514,10 +2514,10 @@ pub const Konsole__RegExpFilter = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("konsole__regexpfilter.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Konsole__RegExpFilter.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("konsole__regexpfilter.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Konsole__RegExpFilter.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2630,7 +2630,7 @@ pub const Konsole__RegExpFilter = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__regexpfilter.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__RegExpFilter.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2654,7 +2654,7 @@ pub const Konsole__RegExpFilter = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__regexpfilter.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__RegExpFilter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3478,7 +3478,7 @@ pub const Konsole__RegExpFilter = extern struct {
     pub fn Buffer(self: Konsole__RegExpFilter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__RegExpFilter_Buffer(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__regexpfilter.Buffer: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__RegExpFilter.Buffer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3502,7 +3502,7 @@ pub const Konsole__RegExpFilter = extern struct {
     pub fn SuperBuffer(self: Konsole__RegExpFilter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__RegExpFilter_SuperBuffer(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__regexpfilter.Buffer: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__RegExpFilter.Buffer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3975,7 +3975,7 @@ pub const Konsole__UrlFilter = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__urlfilter.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__UrlFilter.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4078,7 +4078,7 @@ pub const Konsole__UrlFilter = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__urlfilter.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__UrlFilter.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4100,7 +4100,7 @@ pub const Konsole__UrlFilter = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__urlfilter.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__UrlFilter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4173,7 +4173,7 @@ pub const Konsole__UrlFilter = extern struct {
     pub fn ObjectName(self: Konsole__UrlFilter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__urlfilter.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__UrlFilter.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4350,7 +4350,7 @@ pub const Konsole__UrlFilter = extern struct {
     pub fn Children(self: Konsole__UrlFilter, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("konsole__urlfilter.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Konsole__UrlFilter.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4626,10 +4626,10 @@ pub const Konsole__UrlFilter = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("konsole__urlfilter.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Konsole__UrlFilter.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("konsole__urlfilter.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Konsole__UrlFilter.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -5430,7 +5430,7 @@ pub const Konsole__UrlFilter = extern struct {
     pub fn Buffer(self: Konsole__UrlFilter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__UrlFilter_Buffer(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__urlfilter.Buffer: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__UrlFilter.Buffer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5454,7 +5454,7 @@ pub const Konsole__UrlFilter = extern struct {
     pub fn SuperBuffer(self: Konsole__UrlFilter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__UrlFilter_SuperBuffer(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__urlfilter.Buffer: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__UrlFilter.Buffer: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5930,7 +5930,7 @@ pub const Konsole__FilterObject = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__filterobject.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__FilterObject.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6002,7 +6002,7 @@ pub const Konsole__FilterObject = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__filterobject.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__FilterObject.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6024,7 +6024,7 @@ pub const Konsole__FilterObject = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__filterobject.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__FilterObject.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6042,7 +6042,7 @@ pub const Konsole__FilterObject = extern struct {
     pub fn ObjectName(self: Konsole__FilterObject, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__filterobject.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__FilterObject.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6219,7 +6219,7 @@ pub const Konsole__FilterObject = extern struct {
     pub fn Children(self: Konsole__FilterObject, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("konsole__filterobject.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Konsole__FilterObject.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6495,10 +6495,10 @@ pub const Konsole__FilterObject = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("konsole__filterobject.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Konsole__FilterObject.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("konsole__filterobject.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Konsole__FilterObject.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -7532,7 +7532,7 @@ pub const Konsole__FilterChain = extern struct {
     pub fn HotSpots(self: Konsole__FilterChain, allocator: std.mem.Allocator) []Konsole__Filter__HotSpot {
         const _arr: qtc.libqt_list = qtc.Konsole__FilterChain_HotSpots(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Konsole__Filter__HotSpot, _arr.len) catch @panic("konsole__filterchain.HotSpots: Memory allocation failed");
+        const _ret = allocator.alloc(Konsole__Filter__HotSpot, _arr.len) catch @panic("Konsole__FilterChain.HotSpots: Memory allocation failed");
         const _data: [*]QtC.Konsole__Filter__HotSpot = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7705,7 +7705,7 @@ pub const Konsole__TerminalImageFilterChain = extern struct {
     pub fn HotSpots(self: Konsole__TerminalImageFilterChain, allocator: std.mem.Allocator) []Konsole__Filter__HotSpot {
         const _arr: qtc.libqt_list = qtc.Konsole__FilterChain_HotSpots(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Konsole__Filter__HotSpot, _arr.len) catch @panic("konsole__terminalimagefilterchain.HotSpots: Memory allocation failed");
+        const _ret = allocator.alloc(Konsole__Filter__HotSpot, _arr.len) catch @panic("Konsole__TerminalImageFilterChain.HotSpots: Memory allocation failed");
         const _data: [*]QtC.Konsole__Filter__HotSpot = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7896,7 +7896,7 @@ pub const Konsole__Filter__HotSpot = extern struct {
     pub fn Actions(self: Konsole__Filter__HotSpot, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.Konsole__Filter__HotSpot_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("konsole__filter__hotspot.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("Konsole__Filter__HotSpot.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7940,7 +7940,7 @@ pub const Konsole__Filter__HotSpot = extern struct {
     pub fn SuperActions(self: Konsole__Filter__HotSpot, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.Konsole__Filter__HotSpot_SuperActions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("konsole__filter__hotspot.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("Konsole__Filter__HotSpot.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -8107,7 +8107,7 @@ pub const Konsole__RegExpFilter__HotSpot = extern struct {
     /// ` texts: []const []const u8 `
     ///
     pub fn SetCapturedTexts(self: Konsole__RegExpFilter__HotSpot, allocator: std.mem.Allocator, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("konsole__regexpfilter__hotspot.SetCapturedTexts: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("Konsole__RegExpFilter__HotSpot.SetCapturedTexts: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i|
             texts_arr[i] = .{
@@ -8137,10 +8137,10 @@ pub const Konsole__RegExpFilter__HotSpot = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("konsole__regexpfilter__hotspot.CapturedTexts: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Konsole__RegExpFilter__HotSpot.CapturedTexts: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("konsole__regexpfilter__hotspot.CapturedTexts: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Konsole__RegExpFilter__HotSpot.CapturedTexts: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -8226,7 +8226,7 @@ pub const Konsole__RegExpFilter__HotSpot = extern struct {
     pub fn Actions(self: Konsole__RegExpFilter__HotSpot, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.Konsole__RegExpFilter__HotSpot_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("konsole__regexpfilter__hotspot.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("Konsole__RegExpFilter__HotSpot.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -8252,7 +8252,7 @@ pub const Konsole__RegExpFilter__HotSpot = extern struct {
     pub fn SuperActions(self: Konsole__RegExpFilter__HotSpot, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.Konsole__RegExpFilter__HotSpot_SuperActions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("konsole__regexpfilter__hotspot.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("Konsole__RegExpFilter__HotSpot.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -8397,7 +8397,7 @@ pub const Konsole__UrlFilter__HotSpot = extern struct {
     pub fn Actions(self: Konsole__UrlFilter__HotSpot, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.Konsole__UrlFilter__HotSpot_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("konsole__urlfilter__hotspot.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("Konsole__UrlFilter__HotSpot.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -8441,7 +8441,7 @@ pub const Konsole__UrlFilter__HotSpot = extern struct {
     pub fn SuperActions(self: Konsole__UrlFilter__HotSpot, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.Konsole__UrlFilter__HotSpot_SuperActions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("konsole__urlfilter__hotspot.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("Konsole__UrlFilter__HotSpot.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -8513,7 +8513,7 @@ pub const Konsole__UrlFilter__HotSpot = extern struct {
     /// ` texts: []const []const u8 `
     ///
     pub fn SetCapturedTexts(self: Konsole__UrlFilter__HotSpot, allocator: std.mem.Allocator, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("konsole__urlfilter__hotspot.SetCapturedTexts: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("Konsole__UrlFilter__HotSpot.SetCapturedTexts: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i|
             texts_arr[i] = .{
@@ -8545,10 +8545,10 @@ pub const Konsole__UrlFilter__HotSpot = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("konsole__urlfilter__hotspot.CapturedTexts: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Konsole__UrlFilter__HotSpot.CapturedTexts: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("konsole__urlfilter__hotspot.CapturedTexts: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Konsole__UrlFilter__HotSpot.CapturedTexts: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

@@ -194,7 +194,7 @@ pub const KPlotPoint = extern struct {
     pub fn Label(self: KPlotPoint, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPlotPoint_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kplotpoint.Label: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotPoint.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

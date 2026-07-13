@@ -31,7 +31,7 @@ pub const KEMailSettings = extern struct {
         const sourceText_Cstring = sourceText.ptr;
         var _str = qtc.QObject_Tr(sourceText_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailsettings.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEMailSettings.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -52,10 +52,10 @@ pub const KEMailSettings = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kemailsettings.Profiles: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KEMailSettings.Profiles: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kemailsettings.Profiles: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KEMailSettings.Profiles: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -89,7 +89,7 @@ pub const KEMailSettings = extern struct {
     pub fn DefaultProfileName(self: KEMailSettings, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KEMailSettings_DefaultProfileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailsettings.DefaultProfileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEMailSettings.DefaultProfileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -123,7 +123,7 @@ pub const KEMailSettings = extern struct {
     pub fn GetSetting(self: KEMailSettings, allocator: std.mem.Allocator, s: i32) []const u8 {
         var _str = qtc.KEMailSettings_GetSetting(@ptrCast(self.ptr), @bitCast(s));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailsettings.GetSetting: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEMailSettings.GetSetting: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -161,7 +161,7 @@ pub const KEMailSettings = extern struct {
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailsettings.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEMailSettings.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -183,7 +183,7 @@ pub const KEMailSettings = extern struct {
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kemailsettings.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEMailSettings.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

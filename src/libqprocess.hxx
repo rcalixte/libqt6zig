@@ -352,19 +352,19 @@ class VirtualQProcess final : public QProcess {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual qint64 writeData(const char* data, qint64 lenVal) override {
+    virtual qint64 writeData(const char* data, qint64 len) override {
         if (qprocess_writedata_isbase) {
             qprocess_writedata_isbase = false;
-            return QProcess::writeData(data, lenVal);
+            return QProcess::writeData(data, len);
         }
         auto writedata_cb = qprocess_writedata_callback;
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
-            long long cbval2 = static_cast<long long>(lenVal);
+            long long cbval2 = static_cast<long long>(len);
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
-        return QProcess::writeData(data, lenVal);
+        return QProcess::writeData(data, len);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -731,8 +731,8 @@ class VirtualQProcess final : public QProcess {
     // Friend functions
     friend long long QProcess_ReadData(QProcess* self, char* data, long long maxlen);
     friend long long QProcess_SuperReadData(QProcess* self, char* data, long long maxlen);
-    friend long long QProcess_WriteData(QProcess* self, const char* data, long long lenVal);
-    friend long long QProcess_SuperWriteData(QProcess* self, const char* data, long long lenVal);
+    friend long long QProcess_WriteData(QProcess* self, const char* data, long long len);
+    friend long long QProcess_SuperWriteData(QProcess* self, const char* data, long long len);
     friend long long QProcess_ReadLineData(QProcess* self, char* data, long long maxlen);
     friend long long QProcess_SuperReadLineData(QProcess* self, char* data, long long maxlen);
     friend long long QProcess_SkipData(QProcess* self, long long maxSize);

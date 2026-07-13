@@ -34,7 +34,7 @@ pub const KTextToHTML = extern struct {
         };
         var _str = qtc.KTextToHTML_ConvertToHtml(plainText_str, @ptrCast(options), @bitCast(maxUrlLen), @bitCast(maxAddressLen));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexttohtml.ConvertToHtml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextToHTML.ConvertToHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

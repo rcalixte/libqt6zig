@@ -324,19 +324,19 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual qint64 writeData(const char* data, qint64 lenVal) override {
+    virtual qint64 writeData(const char* data, qint64 len) override {
         if (kcompressiondevice_writedata_isbase) {
             kcompressiondevice_writedata_isbase = false;
-            return KCompressionDevice::writeData(data, lenVal);
+            return KCompressionDevice::writeData(data, len);
         }
         auto writedata_cb = kcompressiondevice_writedata_callback;
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
-            long long cbval2 = static_cast<long long>(lenVal);
+            long long cbval2 = static_cast<long long>(len);
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
-        return KCompressionDevice::writeData(data, lenVal);
+        return KCompressionDevice::writeData(data, len);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -730,8 +730,8 @@ class VirtualKCompressionDevice final : public KCompressionDevice {
     // Friend functions
     friend long long KCompressionDevice_ReadData(KCompressionDevice* self, char* data, long long maxlen);
     friend long long KCompressionDevice_SuperReadData(KCompressionDevice* self, char* data, long long maxlen);
-    friend long long KCompressionDevice_WriteData(KCompressionDevice* self, const char* data, long long lenVal);
-    friend long long KCompressionDevice_SuperWriteData(KCompressionDevice* self, const char* data, long long lenVal);
+    friend long long KCompressionDevice_WriteData(KCompressionDevice* self, const char* data, long long len);
+    friend long long KCompressionDevice_SuperWriteData(KCompressionDevice* self, const char* data, long long len);
     friend long long KCompressionDevice_ReadLineData(KCompressionDevice* self, char* data, long long maxlen);
     friend long long KCompressionDevice_SuperReadLineData(KCompressionDevice* self, char* data, long long maxlen);
     friend long long KCompressionDevice_SkipData(KCompressionDevice* self, long long maxSize);

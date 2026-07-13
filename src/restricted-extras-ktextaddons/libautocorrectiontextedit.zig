@@ -256,7 +256,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -361,7 +361,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -383,7 +383,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -446,7 +446,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn PlaceholderText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.PlaceholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -559,7 +559,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn FontFamily(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_FontFamily(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.FontFamily: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.FontFamily: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -781,7 +781,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn DocumentTitle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_DocumentTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.DocumentTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.DocumentTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -944,7 +944,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn ToPlainText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_ToPlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.ToPlainText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ToPlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -962,7 +962,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn ToHtml(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_ToHtml(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.ToHtml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ToHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -980,7 +980,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn ToMarkdown(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_ToMarkdown(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.ToMarkdown: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ToMarkdown: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1082,7 +1082,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
         comptime _ = @TypeOf(pos)._is_QPoint;
         var _str = qtc.QTextEdit_AnchorAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.AnchorAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.AnchorAt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1222,7 +1222,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn ExtraSelections(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []QTextEdit__ExtraSelection {
         const _arr: qtc.libqt_list = qtc.QTextEdit_ExtraSelections(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextEdit__ExtraSelection, _arr.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.ExtraSelections: Memory allocation failed");
+        const _ret = allocator.alloc(QTextEdit__ExtraSelection, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ExtraSelections: Memory allocation failed");
         const _data: [*]QtC.QTextEdit__ExtraSelection = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1915,7 +1915,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn ToMarkdown1(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator, features: i32) []const u8 {
         var _str = qtc.QTextEdit_ToMarkdown1(@ptrCast(self.ptr), @bitCast(features));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.ToMarkdown1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ToMarkdown1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2137,7 +2137,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn ScrollBarWidgets(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator, alignment: i32) []QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.ScrollBarWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3760,7 +3760,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn StyleSheet(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3778,7 +3778,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn WindowTitle(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3841,7 +3841,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn WindowIconText(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3877,7 +3877,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn WindowRole(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3913,7 +3913,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn WindowFilePath(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3987,7 +3987,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn ToolTip(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4049,7 +4049,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn StatusTip(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4085,7 +4085,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn WhatsThis(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4103,7 +4103,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn AccessibleName(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4139,7 +4139,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn AccessibleDescription(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4989,7 +4989,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn SaveGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -5525,7 +5525,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn Actions(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6328,7 +6328,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn ObjectName(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6505,7 +6505,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
     pub fn Children(self: TextAutoCorrectionWidgets__AutoCorrectionTextEdit, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6766,10 +6766,10 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionTextEdit = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textautocorrectionwidgets__autocorrectiontextedit.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionTextEdit.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

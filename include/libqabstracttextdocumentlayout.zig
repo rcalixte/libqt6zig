@@ -187,7 +187,7 @@ pub const QAbstractTextDocumentLayout = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracttextdocumentlayout.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractTextDocumentLayout.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -308,7 +308,7 @@ pub const QAbstractTextDocumentLayout = extern struct {
         comptime _ = @TypeOf(pos)._is_QPointF;
         var _str = qtc.QAbstractTextDocumentLayout_AnchorAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracttextdocumentlayout.AnchorAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractTextDocumentLayout.AnchorAt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -327,7 +327,7 @@ pub const QAbstractTextDocumentLayout = extern struct {
         comptime _ = @TypeOf(pos)._is_QPointF;
         var _str = qtc.QAbstractTextDocumentLayout_ImageAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracttextdocumentlayout.ImageAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractTextDocumentLayout.ImageAt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1041,7 +1041,7 @@ pub const QAbstractTextDocumentLayout = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracttextdocumentlayout.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractTextDocumentLayout.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1063,7 +1063,7 @@ pub const QAbstractTextDocumentLayout = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracttextdocumentlayout.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractTextDocumentLayout.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1121,7 +1121,7 @@ pub const QAbstractTextDocumentLayout = extern struct {
     pub fn ObjectName(self: QAbstractTextDocumentLayout, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracttextdocumentlayout.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractTextDocumentLayout.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1298,7 +1298,7 @@ pub const QAbstractTextDocumentLayout = extern struct {
     pub fn Children(self: QAbstractTextDocumentLayout, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qabstracttextdocumentlayout.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractTextDocumentLayout.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1574,10 +1574,10 @@ pub const QAbstractTextDocumentLayout = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qabstracttextdocumentlayout.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractTextDocumentLayout.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qabstracttextdocumentlayout.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QAbstractTextDocumentLayout.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2787,7 +2787,7 @@ pub const QAbstractTextDocumentLayout__PaintContext = extern struct {
     pub fn Selections(self: QAbstractTextDocumentLayout__PaintContext, allocator: std.mem.Allocator) []QAbstractTextDocumentLayout__Selection {
         const selections_arr: qtc.libqt_list = qtc.QAbstractTextDocumentLayout__PaintContext_Selections(@ptrCast(self.ptr));
         defer qtc.libqt_free(selections_arr.data);
-        const selections_ret = allocator.alloc(QAbstractTextDocumentLayout__Selection, selections_arr.len) catch @panic("qabstracttextdocumentlayout__paintcontext.Selections: Memory allocation failed");
+        const selections_ret = allocator.alloc(QAbstractTextDocumentLayout__Selection, selections_arr.len) catch @panic("QAbstractTextDocumentLayout__PaintContext.Selections: Memory allocation failed");
         const selections_data: [*]QtC.QAbstractTextDocumentLayout__Selection = @ptrCast(@alignCast(selections_arr.data));
         for (0..selections_arr.len) |ii|
             selections_ret[ii] = .{ .ptr = selections_data[ii] };

@@ -94,7 +94,7 @@ pub const KDesktopFile = extern struct {
         };
         var _str = qtc.KDesktopFile_LocateLocal(path_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.LocateLocal: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.LocateLocal: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -120,7 +120,7 @@ pub const KDesktopFile = extern struct {
     pub fn ReadType(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -136,7 +136,7 @@ pub const KDesktopFile = extern struct {
     pub fn ReadIcon(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadIcon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadIcon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadIcon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -152,7 +152,7 @@ pub const KDesktopFile = extern struct {
     pub fn ReadName(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -168,7 +168,7 @@ pub const KDesktopFile = extern struct {
     pub fn ReadComment(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadComment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadComment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadComment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -184,7 +184,7 @@ pub const KDesktopFile = extern struct {
     pub fn ReadGenericName(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadGenericName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadGenericName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadGenericName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -200,7 +200,7 @@ pub const KDesktopFile = extern struct {
     pub fn ReadPath(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -216,7 +216,7 @@ pub const KDesktopFile = extern struct {
     pub fn ReadUrl(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -237,10 +237,10 @@ pub const KDesktopFile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kdesktopfile.ReadActions: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.ReadActions: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kdesktopfile.ReadActions: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDesktopFile.ReadActions: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -263,10 +263,10 @@ pub const KDesktopFile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kdesktopfile.ReadMimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.ReadMimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kdesktopfile.ReadMimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDesktopFile.ReadMimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -372,7 +372,7 @@ pub const KDesktopFile = extern struct {
     pub fn ReadDocPath(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_ReadDocPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.ReadDocPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.ReadDocPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -414,7 +414,7 @@ pub const KDesktopFile = extern struct {
     pub fn FileName(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFile_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -430,7 +430,7 @@ pub const KDesktopFile = extern struct {
     pub fn Actions(self: KDesktopFile, allocator: std.mem.Allocator) []KDesktopFileAction {
         const _arr: qtc.libqt_list = qtc.KDesktopFile_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KDesktopFileAction, _arr.len) catch @panic("kdesktopfile.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(KDesktopFileAction, _arr.len) catch @panic("KDesktopFile.Actions: Memory allocation failed");
         const _data: [*]QtC.KDesktopFileAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -466,7 +466,7 @@ pub const KDesktopFile = extern struct {
     pub fn Name(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -562,7 +562,7 @@ pub const KDesktopFile = extern struct {
     /// ` sources: []const []const u8 `
     ///
     pub fn AddConfigSources(self: KDesktopFile, allocator: std.mem.Allocator, sources: []const []const u8) void {
-        const sources_arr = allocator.alloc(qtc.libqt_string, sources.len) catch @panic("kdesktopfile.AddConfigSources: Memory allocation failed");
+        const sources_arr = allocator.alloc(qtc.libqt_string, sources.len) catch @panic("KDesktopFile.AddConfigSources: Memory allocation failed");
         defer allocator.free(sources_arr);
         for (sources, 0..sources.len) |item, i|
             sources_arr[i] = .{
@@ -594,10 +594,10 @@ pub const KDesktopFile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kdesktopfile.AdditionalConfigSources: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.AdditionalConfigSources: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kdesktopfile.AdditionalConfigSources: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDesktopFile.AdditionalConfigSources: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -617,7 +617,7 @@ pub const KDesktopFile = extern struct {
     pub fn Locale(self: KDesktopFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_Locale(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.Locale: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.Locale: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -679,7 +679,7 @@ pub const KDesktopFile = extern struct {
     pub fn EntryMap(self: KDesktopFile, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kdesktopfile.EntryMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KDesktopFile.EntryMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -695,10 +695,10 @@ pub const KDesktopFile = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kdesktopfile.EntryMap: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KDesktopFile.EntryMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kdesktopfile.EntryMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KDesktopFile.EntryMap: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
@@ -732,7 +732,7 @@ pub const KDesktopFile = extern struct {
     pub fn MainConfigName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_MainConfigName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfile.MainConfigName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFile.MainConfigName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -777,7 +777,7 @@ pub const KDesktopFile = extern struct {
         };
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap1(@ptrCast(self.ptr), aGroup_str);
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kdesktopfile.EntryMap1: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KDesktopFile.EntryMap1: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -793,10 +793,10 @@ pub const KDesktopFile = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kdesktopfile.EntryMap1: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KDesktopFile.EntryMap1: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kdesktopfile.EntryMap1: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KDesktopFile.EntryMap1: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
@@ -1133,10 +1133,10 @@ pub const KDesktopFile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kdesktopfile.GroupList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.GroupList: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kdesktopfile.GroupList: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDesktopFile.GroupList: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1167,10 +1167,10 @@ pub const KDesktopFile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kdesktopfile.GroupList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDesktopFile.GroupList: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kdesktopfile.GroupList: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDesktopFile.GroupList: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

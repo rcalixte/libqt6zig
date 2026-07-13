@@ -100,9 +100,9 @@ long long QTcpSocket_SuperReadLineData(QTcpSocket* self, char* data, long long m
 long long QTcpSocket_SkipData(QTcpSocket* self, long long maxSize);
 void QTcpSocket_OnSkipData(QTcpSocket* self, intptr_t slot);
 long long QTcpSocket_SuperSkipData(QTcpSocket* self, long long maxSize);
-long long QTcpSocket_WriteData(QTcpSocket* self, const char* data, long long lenVal);
+long long QTcpSocket_WriteData(QTcpSocket* self, const char* data, long long len);
 void QTcpSocket_OnWriteData(QTcpSocket* self, intptr_t slot);
-long long QTcpSocket_SuperWriteData(QTcpSocket* self, const char* data, long long lenVal);
+long long QTcpSocket_SuperWriteData(QTcpSocket* self, const char* data, long long len);
 bool QTcpSocket_Open(QTcpSocket* self, int mode);
 void QTcpSocket_OnOpen(QTcpSocket* self, intptr_t slot);
 bool QTcpSocket_SuperOpen(QTcpSocket* self, int mode);

@@ -180,7 +180,7 @@ pub const TextGrammarCheck__GrammalecteGenerateConfigOptionJob = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textgrammarcheck__grammalectegenerateconfigoptionjob.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteGenerateConfigOptionJob.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -216,7 +216,7 @@ pub const TextGrammarCheck__GrammalecteGenerateConfigOptionJob = extern struct {
     pub fn PythonPath(self: TextGrammarCheck__GrammalecteGenerateConfigOptionJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextGrammarCheck__GrammalecteGenerateConfigOptionJob_PythonPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textgrammarcheck__grammalectegenerateconfigoptionjob.PythonPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteGenerateConfigOptionJob.PythonPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -248,7 +248,7 @@ pub const TextGrammarCheck__GrammalecteGenerateConfigOptionJob = extern struct {
     pub fn GrammarlecteCliPath(self: TextGrammarCheck__GrammalecteGenerateConfigOptionJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextGrammarCheck__GrammalecteGenerateConfigOptionJob_GrammarlecteCliPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textgrammarcheck__grammalectegenerateconfigoptionjob.GrammarlecteCliPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteGenerateConfigOptionJob.GrammarlecteCliPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -334,7 +334,7 @@ pub const TextGrammarCheck__GrammalecteGenerateConfigOptionJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textgrammarcheck__grammalectegenerateconfigoptionjob.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteGenerateConfigOptionJob.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -356,7 +356,7 @@ pub const TextGrammarCheck__GrammalecteGenerateConfigOptionJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textgrammarcheck__grammalectegenerateconfigoptionjob.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteGenerateConfigOptionJob.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -374,7 +374,7 @@ pub const TextGrammarCheck__GrammalecteGenerateConfigOptionJob = extern struct {
     pub fn ObjectName(self: TextGrammarCheck__GrammalecteGenerateConfigOptionJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textgrammarcheck__grammalectegenerateconfigoptionjob.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteGenerateConfigOptionJob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -551,7 +551,7 @@ pub const TextGrammarCheck__GrammalecteGenerateConfigOptionJob = extern struct {
     pub fn Children(self: TextGrammarCheck__GrammalecteGenerateConfigOptionJob, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("textgrammarcheck__grammalectegenerateconfigoptionjob.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextGrammarCheck__GrammalecteGenerateConfigOptionJob.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -827,10 +827,10 @@ pub const TextGrammarCheck__GrammalecteGenerateConfigOptionJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("textgrammarcheck__grammalectegenerateconfigoptionjob.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextGrammarCheck__GrammalecteGenerateConfigOptionJob.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textgrammarcheck__grammalectegenerateconfigoptionjob.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextGrammarCheck__GrammalecteGenerateConfigOptionJob.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1786,7 +1786,7 @@ pub const TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option = extern 
     pub fn OptionName(self: TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option, allocator: std.mem.Allocator) []const u8 {
         var optionName_str = qtc.TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_OptionName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&optionName_str);
-        const optionName_ret = allocator.alloc(u8, optionName_str.len) catch @panic("textgrammarcheck__grammalectegenerateconfigoptionjob__option.OptionName: Memory allocation failed");
+        const optionName_ret = allocator.alloc(u8, optionName_str.len) catch @panic("TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option.OptionName: Memory allocation failed");
         @memcpy(optionName_ret, optionName_str.data[0..optionName_str.len]);
         return optionName_ret;
     }
@@ -1816,7 +1816,7 @@ pub const TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option = extern 
     pub fn Description(self: TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option, allocator: std.mem.Allocator) []const u8 {
         var description_str = qtc.TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&description_str);
-        const description_ret = allocator.alloc(u8, description_str.len) catch @panic("textgrammarcheck__grammalectegenerateconfigoptionjob__option.Description: Memory allocation failed");
+        const description_ret = allocator.alloc(u8, description_str.len) catch @panic("TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option.Description: Memory allocation failed");
         @memcpy(description_ret, description_str.data[0..description_str.len]);
         return description_ret;
     }

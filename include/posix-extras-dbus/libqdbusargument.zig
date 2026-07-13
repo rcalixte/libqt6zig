@@ -249,7 +249,7 @@ pub const QDBusArgument = extern struct {
     /// ` arg: []const []const u8 `
     ///
     pub fn OperatorShiftLeft15(self: QDBusArgument, allocator: std.mem.Allocator, arg: []const []const u8) QDBusArgument {
-        const arg_arr = allocator.alloc(qtc.libqt_string, arg.len) catch @panic("qdbusargument.OperatorShiftLeft15: Memory allocation failed");
+        const arg_arr = allocator.alloc(qtc.libqt_string, arg.len) catch @panic("QDBusArgument.OperatorShiftLeft15: Memory allocation failed");
         defer allocator.free(arg_arr);
         for (arg, 0..arg.len) |item, i|
             arg_arr[i] = .{
@@ -418,7 +418,7 @@ pub const QDBusArgument = extern struct {
     pub fn CurrentSignature(self: QDBusArgument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDBusArgument_CurrentSignature(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusargument.CurrentSignature: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusArgument.CurrentSignature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -624,7 +624,7 @@ pub const QDBusArgument = extern struct {
     /// ` arg: []const []const u8 `
     ///
     pub fn OperatorShiftRight15(self: QDBusArgument, allocator: std.mem.Allocator, arg: []const []const u8) QDBusArgument {
-        const arg_arr = allocator.alloc(qtc.libqt_string, arg.len) catch @panic("qdbusargument.OperatorShiftRight15: Memory allocation failed");
+        const arg_arr = allocator.alloc(qtc.libqt_string, arg.len) catch @panic("QDBusArgument.OperatorShiftRight15: Memory allocation failed");
         defer allocator.free(arg_arr);
         for (arg, 0..arg.len) |item, i|
             arg_arr[i] = .{

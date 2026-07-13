@@ -1002,8 +1002,8 @@ void QsciScintilla_ResetSelectionForegroundColor(QsciScintilla* self) {
     self->resetSelectionForegroundColor();
 }
 
-void QsciScintilla_SelectAll(QsciScintilla* self, bool selectVal) {
-    self->selectAll(selectVal);
+void QsciScintilla_SelectAll(QsciScintilla* self, bool select) {
+    self->selectAll(select);
 }
 
 void QsciScintilla_SelectToMatchingBrace(QsciScintilla* self) {
@@ -2115,13 +2115,13 @@ void QsciScintilla_OnResetSelectionForegroundColor(QsciScintilla* self, intptr_t
 }
 
 // Base class handler implementation
-void QsciScintilla_SuperSelectAll(QsciScintilla* self, bool selectVal) {
+void QsciScintilla_SuperSelectAll(QsciScintilla* self, bool select) {
     auto* vqsciscintilla = dynamic_cast<VirtualQsciScintilla*>(self);
     if (vqsciscintilla && vqsciscintilla->isVirtualQsciScintilla) {
         vqsciscintilla->setQsciScintilla_SelectAll_IsBase(true);
-        vqsciscintilla->selectAll(selectVal);
+        vqsciscintilla->selectAll(select);
     } else {
-        self->QsciScintilla::selectAll(selectVal);
+        self->QsciScintilla::selectAll(select);
     }
 }
 

@@ -108,7 +108,7 @@ pub const QSqlRelation = extern struct {
     pub fn TableName(self: QSqlRelation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlRelation_TableName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelation.TableName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRelation.TableName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -124,7 +124,7 @@ pub const QSqlRelation = extern struct {
     pub fn IndexColumn(self: QSqlRelation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlRelation_IndexColumn(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelation.IndexColumn: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRelation.IndexColumn: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -140,7 +140,7 @@ pub const QSqlRelation = extern struct {
     pub fn DisplayColumn(self: QSqlRelation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlRelation_DisplayColumn(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelation.DisplayColumn: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRelation.DisplayColumn: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -356,7 +356,7 @@ pub const QSqlRelationalTableModel = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRelationalTableModel.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -828,7 +828,7 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn SelectStatement(self: QSqlRelationalTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlRelationalTableModel_SelectStatement(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.SelectStatement: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRelationalTableModel.SelectStatement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -864,7 +864,7 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn SuperSelectStatement(self: QSqlRelationalTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlRelationalTableModel_SuperSelectStatement(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.SelectStatement: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRelationalTableModel.SelectStatement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -976,7 +976,7 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn OrderByClause(self: QSqlRelationalTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlRelationalTableModel_OrderByClause(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.OrderByClause: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRelationalTableModel.OrderByClause: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1012,7 +1012,7 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn SuperOrderByClause(self: QSqlRelationalTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlRelationalTableModel_SuperOrderByClause(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.OrderByClause: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRelationalTableModel.OrderByClause: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1032,7 +1032,7 @@ pub const QSqlRelationalTableModel = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRelationalTableModel.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1054,7 +1054,7 @@ pub const QSqlRelationalTableModel = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRelationalTableModel.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1072,7 +1072,7 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn TableName(self: QSqlRelationalTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlTableModel_TableName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.TableName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRelationalTableModel.TableName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1201,7 +1201,7 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn Filter(self: QSqlRelationalTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlTableModel_Filter(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.Filter: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRelationalTableModel.Filter: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2101,7 +2101,7 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn ObjectName(self: QSqlRelationalTableModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrelationaltablemodel.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRelationalTableModel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2278,7 +2278,7 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn Children(self: QSqlRelationalTableModel, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qsqlrelationaltablemodel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QSqlRelationalTableModel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2554,10 +2554,10 @@ pub const QSqlRelationalTableModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsqlrelationaltablemodel.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSqlRelationalTableModel.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsqlrelationaltablemodel.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSqlRelationalTableModel.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3986,7 +3986,7 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn RoleNames(self: QSqlRelationalTableModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QSqlRelationalTableModel_RoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qsqlrelationaltablemodel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSqlRelationalTableModel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -4001,7 +4001,7 @@ pub const QSqlRelationalTableModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("qsqlrelationaltablemodel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QSqlRelationalTableModel.RoleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
@@ -4027,7 +4027,7 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn SuperRoleNames(self: QSqlRelationalTableModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QSqlRelationalTableModel_SuperRoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qsqlrelationaltablemodel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSqlRelationalTableModel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -4042,7 +4042,7 @@ pub const QSqlRelationalTableModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("qsqlrelationaltablemodel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QSqlRelationalTableModel.RoleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
@@ -4335,7 +4335,7 @@ pub const QSqlRelationalTableModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.QSqlRelationalTableModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qsqlrelationaltablemodel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSqlRelationalTableModel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -4373,7 +4373,7 @@ pub const QSqlRelationalTableModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.QSqlRelationalTableModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qsqlrelationaltablemodel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSqlRelationalTableModel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -4428,9 +4428,9 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn SetItemData(self: QSqlRelationalTableModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("qsqlrelationaltablemodel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("QSqlRelationalTableModel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("qsqlrelationaltablemodel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("QSqlRelationalTableModel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -4470,9 +4470,9 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn SuperSetItemData(self: QSqlRelationalTableModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("qsqlrelationaltablemodel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("QSqlRelationalTableModel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("qsqlrelationaltablemodel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("QSqlRelationalTableModel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -4525,10 +4525,10 @@ pub const QSqlRelationalTableModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsqlrelationaltablemodel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSqlRelationalTableModel.MimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsqlrelationaltablemodel.MimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSqlRelationalTableModel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -4559,10 +4559,10 @@ pub const QSqlRelationalTableModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsqlrelationaltablemodel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSqlRelationalTableModel.MimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsqlrelationaltablemodel.MimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSqlRelationalTableModel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -5058,7 +5058,7 @@ pub const QSqlRelationalTableModel = extern struct {
         comptime _ = @TypeOf(value)._is_QVariant;
         const _arr: qtc.libqt_list = qtc.QSqlRelationalTableModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qsqlrelationaltablemodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QSqlRelationalTableModel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5096,7 +5096,7 @@ pub const QSqlRelationalTableModel = extern struct {
         comptime _ = @TypeOf(value)._is_QVariant;
         const _arr: qtc.libqt_list = qtc.QSqlRelationalTableModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qsqlrelationaltablemodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QSqlRelationalTableModel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6950,7 +6950,7 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn PersistentIndexList(self: QSqlRelationalTableModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QSqlRelationalTableModel_PersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qsqlrelationaltablemodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QSqlRelationalTableModel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6976,7 +6976,7 @@ pub const QSqlRelationalTableModel = extern struct {
     pub fn SuperPersistentIndexList(self: QSqlRelationalTableModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QSqlRelationalTableModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qsqlrelationaltablemodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QSqlRelationalTableModel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

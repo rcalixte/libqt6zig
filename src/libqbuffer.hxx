@@ -396,19 +396,19 @@ class VirtualQBuffer final : public QBuffer {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual qint64 writeData(const char* data, qint64 lenVal) override {
+    virtual qint64 writeData(const char* data, qint64 len) override {
         if (qbuffer_writedata_isbase) {
             qbuffer_writedata_isbase = false;
-            return QBuffer::writeData(data, lenVal);
+            return QBuffer::writeData(data, len);
         }
         auto writedata_cb = qbuffer_writedata_callback;
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
-            long long cbval2 = static_cast<long long>(lenVal);
+            long long cbval2 = static_cast<long long>(len);
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
-        return QBuffer::writeData(data, lenVal);
+        return QBuffer::writeData(data, len);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -714,8 +714,8 @@ class VirtualQBuffer final : public QBuffer {
     friend void QBuffer_SuperDisconnectNotify(QBuffer* self, const QMetaMethod* param1);
     friend long long QBuffer_ReadData(QBuffer* self, char* data, long long maxlen);
     friend long long QBuffer_SuperReadData(QBuffer* self, char* data, long long maxlen);
-    friend long long QBuffer_WriteData(QBuffer* self, const char* data, long long lenVal);
-    friend long long QBuffer_SuperWriteData(QBuffer* self, const char* data, long long lenVal);
+    friend long long QBuffer_WriteData(QBuffer* self, const char* data, long long len);
+    friend long long QBuffer_SuperWriteData(QBuffer* self, const char* data, long long len);
     friend long long QBuffer_ReadLineData(QBuffer* self, char* data, long long maxlen);
     friend long long QBuffer_SuperReadLineData(QBuffer* self, char* data, long long maxlen);
     friend long long QBuffer_SkipData(QBuffer* self, long long maxSize);

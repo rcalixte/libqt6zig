@@ -163,7 +163,7 @@ pub const QNativeIpcKey = extern struct {
     pub fn NativeKey(self: QNativeIpcKey, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QNativeIpcKey_NativeKey(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qnativeipckey.NativeKey: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNativeIpcKey.NativeKey: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -195,7 +195,7 @@ pub const QNativeIpcKey = extern struct {
     pub fn ToString(self: QNativeIpcKey, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QNativeIpcKey_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qnativeipckey.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNativeIpcKey.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

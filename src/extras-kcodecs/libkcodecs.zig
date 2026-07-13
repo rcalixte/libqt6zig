@@ -30,7 +30,7 @@ pub const KCodecs = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.KCodecs_QuotedPrintableEncode(in_str, useCRLF);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs.QuotedPrintableEncode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.QuotedPrintableEncode: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -72,7 +72,7 @@ pub const KCodecs = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.KCodecs_QuotedPrintableDecode(in_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs.QuotedPrintableDecode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.QuotedPrintableDecode: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -112,7 +112,7 @@ pub const KCodecs = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.KCodecs_Uudecode(in_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs.Uudecode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.Uudecode: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -152,7 +152,7 @@ pub const KCodecs = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.KCodecs_Base64Encode(in_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs.Base64Encode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.Base64Encode: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -194,7 +194,7 @@ pub const KCodecs = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.KCodecs_Base64Decode(in_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs.Base64Decode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.Base64Decode: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -234,7 +234,7 @@ pub const KCodecs = extern struct {
         };
         var _str = qtc.KCodecs_DecodeRFC2047String(text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcodecs.DecodeRFC2047String: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecs.DecodeRFC2047String: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -260,7 +260,7 @@ pub const KCodecs = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.KCodecs_EncodeRFC2047String(src_str, charset_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs.EncodeRFC2047String: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.EncodeRFC2047String: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -280,7 +280,7 @@ pub const KCodecs = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.KCodecs_Base45Decode(in_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs.Base45Decode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs.Base45Decode: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -427,7 +427,7 @@ pub const KCodecs__Codec = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Encode2(@ptrCast(self.ptr), src_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs__codec.Encode2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs__Codec.Encode2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -449,7 +449,7 @@ pub const KCodecs__Codec = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Decode2(@ptrCast(self.ptr), src_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs__codec.Decode2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs__Codec.Decode2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -484,7 +484,7 @@ pub const KCodecs__Codec = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Encode22(@ptrCast(self.ptr), src_str, @bitCast(newline));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs__codec.Encode22: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs__Codec.Encode22: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -508,7 +508,7 @@ pub const KCodecs__Codec = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.KCodecs__Codec_Decode22(@ptrCast(self.ptr), src_str, @bitCast(newline));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kcodecs__codec.Decode22: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KCodecs__Codec.Decode22: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

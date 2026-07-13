@@ -382,7 +382,7 @@ pub const QDate = extern struct {
     pub fn ToString(self: QDate, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDate_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdate.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDate.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -404,7 +404,7 @@ pub const QDate = extern struct {
         };
         var _str = qtc.QDate_ToString2(@ptrCast(self.ptr), format_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdate.ToString2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDate.ToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -429,7 +429,7 @@ pub const QDate = extern struct {
         comptime _ = @TypeOf(cal)._is_QCalendar;
         var _str = qtc.QDate_ToString3(@ptrCast(self.ptr), format_str, @ptrCast(cal.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdate.ToString3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDate.ToString3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -451,7 +451,7 @@ pub const QDate = extern struct {
         };
         var _str = qtc.QDate_ToString4(@ptrCast(self.ptr), format_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdate.ToString4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDate.ToString4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -476,7 +476,7 @@ pub const QDate = extern struct {
         comptime _ = @TypeOf(cal)._is_QCalendar;
         var _str = qtc.QDate_ToString5(@ptrCast(self.ptr), format_str, @ptrCast(cal.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdate.ToString5: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDate.ToString5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -946,7 +946,7 @@ pub const QDate = extern struct {
     pub fn ToString1(self: QDate, allocator: std.mem.Allocator, format: i32) []const u8 {
         var _str = qtc.QDate_ToString1(@ptrCast(self.ptr), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdate.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDate.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1252,7 +1252,7 @@ pub const QTime = extern struct {
     pub fn ToString(self: QTime, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTime_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtime.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTime.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1274,7 +1274,7 @@ pub const QTime = extern struct {
         };
         var _str = qtc.QTime_ToString2(@ptrCast(self.ptr), format_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtime.ToString2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTime.ToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1296,7 +1296,7 @@ pub const QTime = extern struct {
         };
         var _str = qtc.QTime_ToString3(@ptrCast(self.ptr), format_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtime.ToString3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTime.ToString3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1508,7 +1508,7 @@ pub const QTime = extern struct {
     pub fn ToString1(self: QTime, allocator: std.mem.Allocator, f: i32) []const u8 {
         var _str = qtc.QTime_ToString1(@ptrCast(self.ptr), @bitCast(f));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtime.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTime.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1844,7 +1844,7 @@ pub const QDateTime = extern struct {
     pub fn TimeZoneAbbreviation(self: QDateTime, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDateTime_TimeZoneAbbreviation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.TimeZoneAbbreviation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTime.TimeZoneAbbreviation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1977,7 +1977,7 @@ pub const QDateTime = extern struct {
     pub fn ToString(self: QDateTime, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDateTime_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTime.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1999,7 +1999,7 @@ pub const QDateTime = extern struct {
         };
         var _str = qtc.QDateTime_ToString2(@ptrCast(self.ptr), format_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.ToString2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTime.ToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2024,7 +2024,7 @@ pub const QDateTime = extern struct {
         comptime _ = @TypeOf(cal)._is_QCalendar;
         var _str = qtc.QDateTime_ToString3(@ptrCast(self.ptr), format_str, @ptrCast(cal.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.ToString3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTime.ToString3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2046,7 +2046,7 @@ pub const QDateTime = extern struct {
         };
         var _str = qtc.QDateTime_ToString4(@ptrCast(self.ptr), format_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.ToString4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTime.ToString4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2071,7 +2071,7 @@ pub const QDateTime = extern struct {
         comptime _ = @TypeOf(cal)._is_QCalendar;
         var _str = qtc.QDateTime_ToString5(@ptrCast(self.ptr), format_str, @ptrCast(cal.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.ToString5: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTime.ToString5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2663,7 +2663,7 @@ pub const QDateTime = extern struct {
     pub fn ToString1(self: QDateTime, allocator: std.mem.Allocator, format: i32) []const u8 {
         var _str = qtc.QDateTime_ToString1(@ptrCast(self.ptr), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdatetime.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDateTime.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

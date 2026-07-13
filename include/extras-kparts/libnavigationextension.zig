@@ -185,7 +185,7 @@ pub const KParts__NavigationExtension = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__navigationextension.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -411,7 +411,7 @@ pub const KParts__NavigationExtension = extern struct {
         const name_Cstring = name.ptr;
         var _str = qtc.KParts__NavigationExtension_ActionText(@ptrCast(self.ptr), name_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__navigationextension.ActionText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.ActionText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -425,7 +425,7 @@ pub const KParts__NavigationExtension = extern struct {
     pub fn ActionSlotMap(allocator: std.mem.Allocator) ArrayMap_u8_u8 {
         const _map: qtc.libqt_map = qtc.KParts__NavigationExtension_ActionSlotMap().?.*;
         var _ret: ArrayMap_u8_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kparts__navigationextension.ActionSlotMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KParts__NavigationExtension.ActionSlotMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -441,10 +441,10 @@ pub const KParts__NavigationExtension = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kparts__navigationextension.ActionSlotMap: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KParts__NavigationExtension.ActionSlotMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kparts__navigationextension.ActionSlotMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KParts__NavigationExtension.ActionSlotMap: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
@@ -785,7 +785,7 @@ pub const KParts__NavigationExtension = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__navigationextension.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -807,7 +807,7 @@ pub const KParts__NavigationExtension = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__navigationextension.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -891,9 +891,9 @@ pub const KParts__NavigationExtension = extern struct {
         comptime _ = @TypeOf(items)._is_KFileItemList;
         comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
         const actionGroups_count = actionGroups.count();
-        const actionGroups_keys = allocator.alloc(qtc.libqt_string, actionGroups_count) catch @panic("kparts__navigationextension.PopupMenu5: Memory allocation failed");
+        const actionGroups_keys = allocator.alloc(qtc.libqt_string, actionGroups_count) catch @panic("KParts__NavigationExtension.PopupMenu5: Memory allocation failed");
         defer allocator.free(actionGroups_keys);
-        const actionGroups_values = allocator.alloc(qtc.libqt_list, actionGroups_count) catch @panic("kparts__navigationextension.PopupMenu5: Memory allocation failed");
+        const actionGroups_values = allocator.alloc(qtc.libqt_list, actionGroups_count) catch @panic("KParts__NavigationExtension.PopupMenu5: Memory allocation failed");
         defer allocator.free(actionGroups_values);
         var i: usize = 0;
         var actionGroups_it = actionGroups.iterator();
@@ -1004,9 +1004,9 @@ pub const KParts__NavigationExtension = extern struct {
         comptime _ = @TypeOf(url)._is_QUrl;
         comptime _ = @TypeOf(arguments)._is_KParts__OpenUrlArguments;
         const actionGroups_count = actionGroups.count();
-        const actionGroups_keys = allocator.alloc(qtc.libqt_string, actionGroups_count) catch @panic("kparts__navigationextension.PopupMenu6: Memory allocation failed");
+        const actionGroups_keys = allocator.alloc(qtc.libqt_string, actionGroups_count) catch @panic("KParts__NavigationExtension.PopupMenu6: Memory allocation failed");
         defer allocator.free(actionGroups_keys);
-        const actionGroups_values = allocator.alloc(qtc.libqt_list, actionGroups_count) catch @panic("kparts__navigationextension.PopupMenu6: Memory allocation failed");
+        const actionGroups_values = allocator.alloc(qtc.libqt_list, actionGroups_count) catch @panic("KParts__NavigationExtension.PopupMenu6: Memory allocation failed");
         defer allocator.free(actionGroups_values);
         var i: usize = 0;
         var actionGroups_it = actionGroups.iterator();
@@ -1043,7 +1043,7 @@ pub const KParts__NavigationExtension = extern struct {
     pub fn ObjectName(self: KParts__NavigationExtension, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__navigationextension.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__NavigationExtension.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1220,7 +1220,7 @@ pub const KParts__NavigationExtension = extern struct {
     pub fn Children(self: KParts__NavigationExtension, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kparts__navigationextension.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KParts__NavigationExtension.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1496,10 +1496,10 @@ pub const KParts__NavigationExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kparts__navigationextension.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KParts__NavigationExtension.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kparts__navigationextension.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KParts__NavigationExtension.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

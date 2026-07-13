@@ -71,7 +71,7 @@ pub const Attica__Message = extern struct {
     pub fn Id(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Message_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__message.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -103,7 +103,7 @@ pub const Attica__Message = extern struct {
     pub fn From(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Message_From(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__message.From: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.From: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -135,7 +135,7 @@ pub const Attica__Message = extern struct {
     pub fn To(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Message_To(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__message.To: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.To: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -216,7 +216,7 @@ pub const Attica__Message = extern struct {
     pub fn Subject(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Message_Subject(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__message.Subject: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.Subject: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -248,7 +248,7 @@ pub const Attica__Message = extern struct {
     pub fn Body(self: Attica__Message, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Message_Body(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__message.Body: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Message.Body: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

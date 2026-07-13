@@ -176,7 +176,7 @@ pub const QsciAbstractAPIs = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciabstractapis.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciAbstractAPIs.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -204,7 +204,7 @@ pub const QsciAbstractAPIs = extern struct {
     /// ` list: []const []const u8 `
     ///
     pub fn UpdateAutoCompletionList(self: QsciAbstractAPIs, allocator: std.mem.Allocator, context: []const []const u8, list: []const []const u8) void {
-        const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("qsciabstractapis.UpdateAutoCompletionList: Memory allocation failed");
+        const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("QsciAbstractAPIs.UpdateAutoCompletionList: Memory allocation failed");
         defer allocator.free(context_arr);
         for (context, 0..context.len) |item, i|
             context_arr[i] = .{
@@ -215,7 +215,7 @@ pub const QsciAbstractAPIs = extern struct {
             .len = context.len,
             .data = context_arr.ptr,
         };
-        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qsciabstractapis.UpdateAutoCompletionList: Memory allocation failed");
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("QsciAbstractAPIs.UpdateAutoCompletionList: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i|
             list_arr[i] = .{
@@ -262,7 +262,7 @@ pub const QsciAbstractAPIs = extern struct {
     /// ` list: []const []const u8 `
     ///
     pub fn SuperUpdateAutoCompletionList(self: QsciAbstractAPIs, allocator: std.mem.Allocator, context: []const []const u8, list: []const []const u8) void {
-        const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("qsciabstractapis.UpdateAutoCompletionList: Memory allocation failed");
+        const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("QsciAbstractAPIs.UpdateAutoCompletionList: Memory allocation failed");
         defer allocator.free(context_arr);
         for (context, 0..context.len) |item, i|
             context_arr[i] = .{
@@ -273,7 +273,7 @@ pub const QsciAbstractAPIs = extern struct {
             .len = context.len,
             .data = context_arr.ptr,
         };
-        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qsciabstractapis.UpdateAutoCompletionList: Memory allocation failed");
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("QsciAbstractAPIs.UpdateAutoCompletionList: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i|
             list_arr[i] = .{
@@ -356,7 +356,7 @@ pub const QsciAbstractAPIs = extern struct {
     /// ` shifts: []i32 `
     ///
     pub fn CallTips(self: QsciAbstractAPIs, allocator: std.mem.Allocator, context: []const []const u8, commas: i32, style: i32, shifts: []i32) []const []const u8 {
-        const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("qsciabstractapis.CallTips: Memory allocation failed");
+        const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("QsciAbstractAPIs.CallTips: Memory allocation failed");
         defer allocator.free(context_arr);
         for (context, 0..context.len) |item, i|
             context_arr[i] = .{
@@ -378,10 +378,10 @@ pub const QsciAbstractAPIs = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsciabstractapis.CallTips: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QsciAbstractAPIs.CallTips: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsciabstractapis.CallTips: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QsciAbstractAPIs.CallTips: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -427,7 +427,7 @@ pub const QsciAbstractAPIs = extern struct {
     /// ` shifts: []i32 `
     ///
     pub fn SuperCallTips(self: QsciAbstractAPIs, allocator: std.mem.Allocator, context: []const []const u8, commas: i32, style: i32, shifts: []i32) []const []const u8 {
-        const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("qsciabstractapis.CallTips: Memory allocation failed");
+        const context_arr = allocator.alloc(qtc.libqt_string, context.len) catch @panic("QsciAbstractAPIs.CallTips: Memory allocation failed");
         defer allocator.free(context_arr);
         for (context, 0..context.len) |item, i|
             context_arr[i] = .{
@@ -449,10 +449,10 @@ pub const QsciAbstractAPIs = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsciabstractapis.CallTips: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QsciAbstractAPIs.CallTips: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsciabstractapis.CallTips: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QsciAbstractAPIs.CallTips: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -474,7 +474,7 @@ pub const QsciAbstractAPIs = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciabstractapis.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciAbstractAPIs.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -496,7 +496,7 @@ pub const QsciAbstractAPIs = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciabstractapis.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciAbstractAPIs.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -514,7 +514,7 @@ pub const QsciAbstractAPIs = extern struct {
     pub fn ObjectName(self: QsciAbstractAPIs, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciabstractapis.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciAbstractAPIs.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -691,7 +691,7 @@ pub const QsciAbstractAPIs = extern struct {
     pub fn Children(self: QsciAbstractAPIs, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qsciabstractapis.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QsciAbstractAPIs.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -967,10 +967,10 @@ pub const QsciAbstractAPIs = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsciabstractapis.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QsciAbstractAPIs.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsciabstractapis.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QsciAbstractAPIs.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

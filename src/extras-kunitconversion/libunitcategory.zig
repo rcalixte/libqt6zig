@@ -116,7 +116,7 @@ pub const KUnitConversion__UnitCategory = extern struct {
     pub fn Name(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUnitConversion__UnitCategory_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unitcategory.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UnitCategory.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -132,7 +132,7 @@ pub const KUnitConversion__UnitCategory = extern struct {
     pub fn Description(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUnitConversion__UnitCategory_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__unitcategory.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UnitCategory.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -202,7 +202,7 @@ pub const KUnitConversion__UnitCategory = extern struct {
     pub fn Units(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []KUnitConversion__Unit {
         const _arr: qtc.libqt_list = qtc.KUnitConversion__UnitCategory_Units(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUnitConversion__Unit, _arr.len) catch @panic("kunitconversion__unitcategory.Units: Memory allocation failed");
+        const _ret = allocator.alloc(KUnitConversion__Unit, _arr.len) catch @panic("KUnitConversion__UnitCategory.Units: Memory allocation failed");
         const _data: [*]QtC.KUnitConversion__Unit = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -220,7 +220,7 @@ pub const KUnitConversion__UnitCategory = extern struct {
     pub fn MostCommonUnits(self: KUnitConversion__UnitCategory, allocator: std.mem.Allocator) []KUnitConversion__Unit {
         const _arr: qtc.libqt_list = qtc.KUnitConversion__UnitCategory_MostCommonUnits(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUnitConversion__Unit, _arr.len) catch @panic("kunitconversion__unitcategory.MostCommonUnits: Memory allocation failed");
+        const _ret = allocator.alloc(KUnitConversion__Unit, _arr.len) catch @panic("KUnitConversion__UnitCategory.MostCommonUnits: Memory allocation failed");
         const _data: [*]QtC.KUnitConversion__Unit = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -243,10 +243,10 @@ pub const KUnitConversion__UnitCategory = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kunitconversion__unitcategory.AllUnits: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUnitConversion__UnitCategory.AllUnits: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kunitconversion__unitcategory.AllUnits: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUnitConversion__UnitCategory.AllUnits: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -421,7 +421,7 @@ pub const KUnitConversion__UpdateJob = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__updatejob.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UpdateJob.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -463,7 +463,7 @@ pub const KUnitConversion__UpdateJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__updatejob.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UpdateJob.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -485,7 +485,7 @@ pub const KUnitConversion__UpdateJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__updatejob.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UpdateJob.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -536,7 +536,7 @@ pub const KUnitConversion__UpdateJob = extern struct {
     pub fn ObjectName(self: KUnitConversion__UpdateJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__updatejob.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__UpdateJob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -713,7 +713,7 @@ pub const KUnitConversion__UpdateJob = extern struct {
     pub fn Children(self: KUnitConversion__UpdateJob, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kunitconversion__updatejob.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUnitConversion__UpdateJob.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -989,10 +989,10 @@ pub const KUnitConversion__UpdateJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kunitconversion__updatejob.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUnitConversion__UpdateJob.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kunitconversion__updatejob.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUnitConversion__UpdateJob.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

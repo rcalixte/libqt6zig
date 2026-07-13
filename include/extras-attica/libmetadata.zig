@@ -103,7 +103,7 @@ pub const Attica__Metadata = extern struct {
     pub fn StatusString(self: Attica__Metadata, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Metadata_StatusString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__metadata.StatusString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Metadata.StatusString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -135,7 +135,7 @@ pub const Attica__Metadata = extern struct {
     pub fn Message(self: Attica__Metadata, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Metadata_Message(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__metadata.Message: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Metadata.Message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -211,7 +211,7 @@ pub const Attica__Metadata = extern struct {
     pub fn ResultingId(self: Attica__Metadata, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Metadata_ResultingId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__metadata.ResultingId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Metadata.ResultingId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -250,13 +250,13 @@ pub const Attica__Metadata = extern struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(Struct_u8_u8, _arr.len) catch @panic("attica__metadata.Headers: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_u8_u8, _arr.len) catch @panic("Attica__Metadata.Headers: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
-            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("attica__metadata.Headers: Memory allocation failed");
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("Attica__Metadata.Headers: Memory allocation failed");
             @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
             const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
-            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("attica__metadata.Headers: Memory allocation failed");
+            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("Attica__Metadata.Headers: Memory allocation failed");
             @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
             _ret[i] = Struct_u8_u8{
                 .first = _first_slice,
@@ -277,9 +277,9 @@ pub const Attica__Metadata = extern struct {
     /// ` headers: []Struct_u8_u8 `
     ///
     pub fn SetHeaders(self: Attica__Metadata, allocator: std.mem.Allocator, headers: []Struct_u8_u8) void {
-        const headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("attica__metadata.SetHeaders: Memory allocation failed");
+        const headers_pairs = allocator.alloc(qtc.libqt_pair, headers.len) catch @panic("Attica__Metadata.SetHeaders: Memory allocation failed");
         defer allocator.free(headers_pairs);
-        const headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("attica__metadata.SetHeaders: Memory allocation failed");
+        const headers_str = allocator.alloc(qtc.libqt_string, headers.len * 2) catch @panic("Attica__Metadata.SetHeaders: Memory allocation failed");
         defer allocator.free(headers_str);
         for (headers, 0..) |headers_item, i| {
             headers_str[i * 2] = qtc.libqt_string{

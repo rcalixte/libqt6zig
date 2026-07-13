@@ -77,7 +77,7 @@ pub const QFontDatabase = extern struct {
     pub fn StandardSizes(allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_StandardSizes();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qfontdatabase.StandardSizes: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.StandardSizes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -96,7 +96,7 @@ pub const QFontDatabase = extern struct {
     pub fn WritingSystems(allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QFontDatabase_WritingSystems();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qfontdatabase.WritingSystems: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.WritingSystems: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -121,7 +121,7 @@ pub const QFontDatabase = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QFontDatabase_WritingSystems2(family_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qfontdatabase.WritingSystems2: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.WritingSystems2: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -141,10 +141,10 @@ pub const QFontDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfontdatabase.Families: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.Families: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfontdatabase.Families: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFontDatabase.Families: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -171,10 +171,10 @@ pub const QFontDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfontdatabase.Styles: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.Styles: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfontdatabase.Styles: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFontDatabase.Styles: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -196,7 +196,7 @@ pub const QFontDatabase = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QFontDatabase_PointSizes(family_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qfontdatabase.PointSizes: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.PointSizes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -223,7 +223,7 @@ pub const QFontDatabase = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QFontDatabase_SmoothSizes(family_str, style_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qfontdatabase.SmoothSizes: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.SmoothSizes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -241,7 +241,7 @@ pub const QFontDatabase = extern struct {
         comptime _ = @TypeOf(font)._is_QFont;
         var _str = qtc.QFontDatabase_StyleString(@ptrCast(font.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdatabase.StyleString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontDatabase.StyleString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -258,7 +258,7 @@ pub const QFontDatabase = extern struct {
         comptime _ = @TypeOf(fontInfo)._is_QFontInfo;
         var _str = qtc.QFontDatabase_StyleString2(@ptrCast(fontInfo.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdatabase.StyleString2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontDatabase.StyleString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -440,7 +440,7 @@ pub const QFontDatabase = extern struct {
     pub fn WritingSystemName(allocator: std.mem.Allocator, writingSystem: i32) []const u8 {
         var _str = qtc.QFontDatabase_WritingSystemName(@bitCast(writingSystem));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdatabase.WritingSystemName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontDatabase.WritingSystemName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -456,7 +456,7 @@ pub const QFontDatabase = extern struct {
     pub fn WritingSystemSample(allocator: std.mem.Allocator, writingSystem: i32) []const u8 {
         var _str = qtc.QFontDatabase_WritingSystemSample(@bitCast(writingSystem));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontdatabase.WritingSystemSample: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontDatabase.WritingSystemSample: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -505,10 +505,10 @@ pub const QFontDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfontdatabase.ApplicationFontFamilies: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.ApplicationFontFamilies: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfontdatabase.ApplicationFontFamilies: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFontDatabase.ApplicationFontFamilies: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -574,7 +574,7 @@ pub const QFontDatabase = extern struct {
     /// ` familyNames: []const []const u8 `
     ///
     pub fn SetApplicationFallbackFontFamilies(allocator: std.mem.Allocator, param1: i32, familyNames: []const []const u8) void {
-        const familyNames_arr = allocator.alloc(qtc.libqt_string, familyNames.len) catch @panic("qfontdatabase.SetApplicationFallbackFontFamilies: Memory allocation failed");
+        const familyNames_arr = allocator.alloc(qtc.libqt_string, familyNames.len) catch @panic("QFontDatabase.SetApplicationFallbackFontFamilies: Memory allocation failed");
         defer allocator.free(familyNames_arr);
         for (familyNames, 0..familyNames.len) |item, i|
             familyNames_arr[i] = .{
@@ -604,10 +604,10 @@ pub const QFontDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfontdatabase.ApplicationFallbackFontFamilies: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.ApplicationFallbackFontFamilies: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfontdatabase.ApplicationFallbackFontFamilies: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFontDatabase.ApplicationFallbackFontFamilies: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -640,10 +640,10 @@ pub const QFontDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfontdatabase.Families1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFontDatabase.Families1: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfontdatabase.Families1: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFontDatabase.Families1: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -671,7 +671,7 @@ pub const QFontDatabase = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QFontDatabase_PointSizes2(family_str, style_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qfontdatabase.PointSizes2: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QFontDatabase.PointSizes2: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;

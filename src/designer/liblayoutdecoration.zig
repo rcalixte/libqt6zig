@@ -39,7 +39,7 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
         comptime _ = @TypeOf(layout)._is_QLayout;
         const _arr: qtc.libqt_list = qtc.QDesignerLayoutDecorationExtension_Widgets(@ptrCast(self.ptr), @ptrCast(layout.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("qdesignerlayoutdecorationextension.Widgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QDesignerLayoutDecorationExtension.Widgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -86,7 +86,7 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
         comptime _ = @TypeOf(layout)._is_QLayout;
         const _arr: qtc.libqt_list = qtc.QDesignerLayoutDecorationExtension_SuperWidgets(@ptrCast(self.ptr), @ptrCast(layout.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("qdesignerlayoutdecorationextension.Widgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QDesignerLayoutDecorationExtension.Widgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

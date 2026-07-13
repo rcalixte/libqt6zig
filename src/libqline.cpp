@@ -198,8 +198,8 @@ double QLineF_Length(const QLineF* self) {
     return static_cast<double>(self->length());
 }
 
-void QLineF_SetLength(QLineF* self, double lenVal) {
-    self->setLength(static_cast<qreal>(lenVal));
+void QLineF_SetLength(QLineF* self, double len) {
+    self->setLength(static_cast<qreal>(len));
 }
 
 double QLineF_Angle(const QLineF* self) {

@@ -75,7 +75,7 @@ pub const QWebEngineUrlRequestJob = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineurlrequestjob.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineUrlRequestJob.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -101,7 +101,7 @@ pub const QWebEngineUrlRequestJob = extern struct {
     pub fn RequestMethod(self: QWebEngineUrlRequestJob, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWebEngineUrlRequestJob_RequestMethod(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qwebengineurlrequestjob.RequestMethod: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineUrlRequestJob.RequestMethod: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -127,7 +127,7 @@ pub const QWebEngineUrlRequestJob = extern struct {
     pub fn RequestHeaders(self: QWebEngineUrlRequestJob, allocator: std.mem.Allocator) ArrayMap_u8_u8 {
         const _map: qtc.libqt_map = qtc.QWebEngineUrlRequestJob_RequestHeaders(@ptrCast(self.ptr));
         var _ret: ArrayMap_u8_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qwebengineurlrequestjob.RequestHeaders: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QWebEngineUrlRequestJob.RequestHeaders: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -143,10 +143,10 @@ pub const QWebEngineUrlRequestJob = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qwebengineurlrequestjob.RequestHeaders: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QWebEngineUrlRequestJob.RequestHeaders: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("qwebengineurlrequestjob.RequestHeaders: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QWebEngineUrlRequestJob.RequestHeaders: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
@@ -219,11 +219,11 @@ pub const QWebEngineUrlRequestJob = extern struct {
     ///
     pub fn SetAdditionalResponseHeaders(self: QWebEngineUrlRequestJob, allocator: std.mem.Allocator, additionalResponseHeaders: ArrayMap_u8_Sliceu8) void {
         const additionalResponseHeaders_count = additionalResponseHeaders.count();
-        const additionalResponseHeaders_keys = allocator.alloc(qtc.libqt_string, additionalResponseHeaders_count) catch @panic("qwebengineurlrequestjob.SetAdditionalResponseHeaders: Memory allocation failed");
+        const additionalResponseHeaders_keys = allocator.alloc(qtc.libqt_string, additionalResponseHeaders_count) catch @panic("QWebEngineUrlRequestJob.SetAdditionalResponseHeaders: Memory allocation failed");
         defer allocator.free(additionalResponseHeaders_keys);
-        const additionalResponseHeaders_values = allocator.alloc(qtc.libqt_list, additionalResponseHeaders_count) catch @panic("qwebengineurlrequestjob.SetAdditionalResponseHeaders: Memory allocation failed");
+        const additionalResponseHeaders_values = allocator.alloc(qtc.libqt_list, additionalResponseHeaders_count) catch @panic("QWebEngineUrlRequestJob.SetAdditionalResponseHeaders: Memory allocation failed");
         defer allocator.free(additionalResponseHeaders_values);
-        const additionalResponseHeaders_inners = allocator.alloc([]qtc.libqt_string, additionalResponseHeaders_count) catch @panic("qwebengineurlrequestjob.SetAdditionalResponseHeaders: Memory allocation failed");
+        const additionalResponseHeaders_inners = allocator.alloc([]qtc.libqt_string, additionalResponseHeaders_count) catch @panic("QWebEngineUrlRequestJob.SetAdditionalResponseHeaders: Memory allocation failed");
         defer {
             for (additionalResponseHeaders_inners) |additionalResponseHeaders_inner|
                 allocator.free(additionalResponseHeaders_inner);
@@ -238,7 +238,7 @@ pub const QWebEngineUrlRequestJob = extern struct {
                 .data = additionalResponseHeaders_key.ptr,
             };
             additionalResponseHeaders_values[i].len = it_entry.value_ptr.*.len;
-            const additionalResponseHeaders_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("qwebengineurlrequestjob.SetAdditionalResponseHeaders: Memory allocation failed");
+            const additionalResponseHeaders_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("QWebEngineUrlRequestJob.SetAdditionalResponseHeaders: Memory allocation failed");
             additionalResponseHeaders_inners[i] = additionalResponseHeaders_val;
             for (it_entry.value_ptr.*, 0..) |value, j|
                 additionalResponseHeaders_val[j] = qtc.libqt_string{
@@ -270,7 +270,7 @@ pub const QWebEngineUrlRequestJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineurlrequestjob.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineUrlRequestJob.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -292,7 +292,7 @@ pub const QWebEngineUrlRequestJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineurlrequestjob.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineUrlRequestJob.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -343,7 +343,7 @@ pub const QWebEngineUrlRequestJob = extern struct {
     pub fn ObjectName(self: QWebEngineUrlRequestJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineurlrequestjob.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineUrlRequestJob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -520,7 +520,7 @@ pub const QWebEngineUrlRequestJob = extern struct {
     pub fn Children(self: QWebEngineUrlRequestJob, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qwebengineurlrequestjob.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWebEngineUrlRequestJob.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -796,10 +796,10 @@ pub const QWebEngineUrlRequestJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qwebengineurlrequestjob.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineUrlRequestJob.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qwebengineurlrequestjob.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebEngineUrlRequestJob.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

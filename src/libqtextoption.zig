@@ -208,7 +208,7 @@ pub const QTextOption = extern struct {
     pub fn TabArray(self: QTextOption, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.QTextOption_TabArray(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qtextoption.TabArray: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QTextOption.TabArray: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -241,7 +241,7 @@ pub const QTextOption = extern struct {
     pub fn Tabs(self: QTextOption, allocator: std.mem.Allocator) []QTextOption__Tab {
         const _arr: qtc.libqt_list = qtc.QTextOption_Tabs(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextOption__Tab, _arr.len) catch @panic("qtextoption.Tabs: Memory allocation failed");
+        const _ret = allocator.alloc(QTextOption__Tab, _arr.len) catch @panic("QTextOption.Tabs: Memory allocation failed");
         const _data: [*]QtC.QTextOption__Tab = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

@@ -30,7 +30,7 @@ void KWordWrap_DrawText(const KWordWrap* self, QPainter* painter, int x, int y);
 void KWordWrap_OperatorAssign(KWordWrap* self, const KWordWrap* other);
 void KWordWrap_DrawFadeoutText(QPainter* p, int x, int y, int maxW, const libqt_string t);
 void KWordWrap_DrawTruncateText(QPainter* p, int x, int y, int maxW, const libqt_string t);
-KWordWrap* KWordWrap_FormatText5(QFontMetrics* fm, const QRect* r, int flags, const libqt_string str, int lenVal);
+KWordWrap* KWordWrap_FormatText5(QFontMetrics* fm, const QRect* r, int flags, const libqt_string str, int len);
 libqt_string KWordWrap_TruncatedString1(const KWordWrap* self, bool dots);
 void KWordWrap_DrawText4(const KWordWrap* self, QPainter* painter, int x, int y, int flags);
 void KWordWrap_Delete(KWordWrap* self);

@@ -49,7 +49,7 @@ pub const Sonnet__GuessLanguage = extern struct {
         };
         var _str = qtc.Sonnet__GuessLanguage_Identify(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__guesslanguage.Identify: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__GuessLanguage.Identify: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -71,7 +71,7 @@ pub const Sonnet__GuessLanguage = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("sonnet__guesslanguage.Identify2: Memory allocation failed");
+        const suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("Sonnet__GuessLanguage.Identify2: Memory allocation failed");
         defer allocator.free(suggestions_arr);
         for (suggestions, 0..suggestions.len) |item, i|
             suggestions_arr[i] = .{
@@ -84,7 +84,7 @@ pub const Sonnet__GuessLanguage = extern struct {
         };
         var _str = qtc.Sonnet__GuessLanguage_Identify2(@ptrCast(self.ptr), text_str, suggestions_list);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("sonnet__guesslanguage.Identify2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__GuessLanguage.Identify2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

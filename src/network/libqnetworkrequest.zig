@@ -201,10 +201,10 @@ pub const QNetworkRequest = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qnetworkrequest.RawHeaderList: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QNetworkRequest.RawHeaderList: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qnetworkrequest.RawHeaderList: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QNetworkRequest.RawHeaderList: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -224,7 +224,7 @@ pub const QNetworkRequest = extern struct {
     pub fn RawHeader(self: QNetworkRequest, allocator: std.mem.Allocator, headerName: []const u8) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QNetworkRequest_RawHeader(@ptrCast(self.ptr), headerName.ptr);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkrequest.RawHeader: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkRequest.RawHeader: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -383,7 +383,7 @@ pub const QNetworkRequest = extern struct {
     pub fn PeerVerifyName(self: QNetworkRequest, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QNetworkRequest_PeerVerifyName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkrequest.PeerVerifyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkRequest.PeerVerifyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

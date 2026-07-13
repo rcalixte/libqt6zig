@@ -88,7 +88,7 @@ pub const QXmlStreamAttribute = extern struct {
     pub fn NamespaceUri(self: QXmlStreamAttribute, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamAttribute_NamespaceUri(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattribute.NamespaceUri: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamAttribute.NamespaceUri: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -104,7 +104,7 @@ pub const QXmlStreamAttribute = extern struct {
     pub fn Name(self: QXmlStreamAttribute, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamAttribute_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattribute.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamAttribute.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -120,7 +120,7 @@ pub const QXmlStreamAttribute = extern struct {
     pub fn QualifiedName(self: QXmlStreamAttribute, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamAttribute_QualifiedName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattribute.QualifiedName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamAttribute.QualifiedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -136,7 +136,7 @@ pub const QXmlStreamAttribute = extern struct {
     pub fn Prefix(self: QXmlStreamAttribute, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamAttribute_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattribute.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamAttribute.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -152,7 +152,7 @@ pub const QXmlStreamAttribute = extern struct {
     pub fn Value(self: QXmlStreamAttribute, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamAttribute_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattribute.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamAttribute.Value: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -217,7 +217,7 @@ pub const QXmlStreamAttributes = extern struct {
     pub fn Value(self: QXmlStreamAttributes, allocator: std.mem.Allocator, namespaceUri: []const u8, name: []const u8) []const u8 {
         var _str = qtc.QXmlStreamAttributes_Value(@ptrCast(self.ptr), namespaceUri.ptr, name.ptr);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattributes.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamAttributes.Value: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -235,7 +235,7 @@ pub const QXmlStreamAttributes = extern struct {
     pub fn Value2(self: QXmlStreamAttributes, allocator: std.mem.Allocator, qualifiedName: []const u8) []const u8 {
         var _str = qtc.QXmlStreamAttributes_Value2(@ptrCast(self.ptr), qualifiedName.ptr);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamattributes.Value2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamAttributes.Value2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -391,7 +391,7 @@ pub const QXmlStreamNamespaceDeclaration = extern struct {
     pub fn Prefix(self: QXmlStreamNamespaceDeclaration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamNamespaceDeclaration_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamnamespacedeclaration.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamNamespaceDeclaration.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -407,7 +407,7 @@ pub const QXmlStreamNamespaceDeclaration = extern struct {
     pub fn NamespaceUri(self: QXmlStreamNamespaceDeclaration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamNamespaceDeclaration_NamespaceUri(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamnamespacedeclaration.NamespaceUri: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamNamespaceDeclaration.NamespaceUri: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -467,7 +467,7 @@ pub const QXmlStreamNotationDeclaration = extern struct {
     pub fn Name(self: QXmlStreamNotationDeclaration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamNotationDeclaration_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamnotationdeclaration.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamNotationDeclaration.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -483,7 +483,7 @@ pub const QXmlStreamNotationDeclaration = extern struct {
     pub fn SystemId(self: QXmlStreamNotationDeclaration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamNotationDeclaration_SystemId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamnotationdeclaration.SystemId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamNotationDeclaration.SystemId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -499,7 +499,7 @@ pub const QXmlStreamNotationDeclaration = extern struct {
     pub fn PublicId(self: QXmlStreamNotationDeclaration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamNotationDeclaration_PublicId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamnotationdeclaration.PublicId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamNotationDeclaration.PublicId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -559,7 +559,7 @@ pub const QXmlStreamEntityDeclaration = extern struct {
     pub fn Name(self: QXmlStreamEntityDeclaration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamEntityDeclaration_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentitydeclaration.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamEntityDeclaration.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -575,7 +575,7 @@ pub const QXmlStreamEntityDeclaration = extern struct {
     pub fn NotationName(self: QXmlStreamEntityDeclaration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamEntityDeclaration_NotationName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentitydeclaration.NotationName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamEntityDeclaration.NotationName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -591,7 +591,7 @@ pub const QXmlStreamEntityDeclaration = extern struct {
     pub fn SystemId(self: QXmlStreamEntityDeclaration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamEntityDeclaration_SystemId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentitydeclaration.SystemId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamEntityDeclaration.SystemId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -607,7 +607,7 @@ pub const QXmlStreamEntityDeclaration = extern struct {
     pub fn PublicId(self: QXmlStreamEntityDeclaration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamEntityDeclaration_PublicId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentitydeclaration.PublicId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamEntityDeclaration.PublicId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -623,7 +623,7 @@ pub const QXmlStreamEntityDeclaration = extern struct {
     pub fn Value(self: QXmlStreamEntityDeclaration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamEntityDeclaration_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentitydeclaration.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamEntityDeclaration.Value: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -684,7 +684,7 @@ pub const QXmlStreamEntityResolver = extern struct {
         };
         var _str = qtc.QXmlStreamEntityResolver_ResolveEntity(@ptrCast(self.ptr), publicId_str, systemId_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentityresolver.ResolveEntity: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamEntityResolver.ResolveEntity: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -732,7 +732,7 @@ pub const QXmlStreamEntityResolver = extern struct {
         };
         var _str = qtc.QXmlStreamEntityResolver_SuperResolveEntity(@ptrCast(self.ptr), publicId_str, systemId_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentityresolver.ResolveEntity: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamEntityResolver.ResolveEntity: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -754,7 +754,7 @@ pub const QXmlStreamEntityResolver = extern struct {
         };
         var _str = qtc.QXmlStreamEntityResolver_ResolveUndeclaredEntity(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentityresolver.ResolveUndeclaredEntity: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamEntityResolver.ResolveUndeclaredEntity: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -796,7 +796,7 @@ pub const QXmlStreamEntityResolver = extern struct {
         };
         var _str = qtc.QXmlStreamEntityResolver_SuperResolveUndeclaredEntity(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamentityresolver.ResolveUndeclaredEntity: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamEntityResolver.ResolveUndeclaredEntity: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -969,7 +969,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn TokenString(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_TokenString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.TokenString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.TokenString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1137,7 +1137,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn DocumentVersion(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_DocumentVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.DocumentVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.DocumentVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1153,7 +1153,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn DocumentEncoding(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_DocumentEncoding(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.DocumentEncoding: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.DocumentEncoding: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1209,7 +1209,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn ReadElementText(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_ReadElementText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.ReadElementText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.ReadElementText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1225,7 +1225,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn Name(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1241,7 +1241,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn NamespaceUri(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_NamespaceUri(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.NamespaceUri: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.NamespaceUri: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1257,7 +1257,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn QualifiedName(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_QualifiedName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.QualifiedName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.QualifiedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1273,7 +1273,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn Prefix(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1289,7 +1289,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn ProcessingInstructionTarget(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_ProcessingInstructionTarget(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.ProcessingInstructionTarget: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.ProcessingInstructionTarget: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1305,7 +1305,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn ProcessingInstructionData(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_ProcessingInstructionData(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.ProcessingInstructionData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.ProcessingInstructionData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1321,7 +1321,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn Text(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1337,7 +1337,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn NamespaceDeclarations(self: QXmlStreamReader, allocator: std.mem.Allocator) []QXmlStreamNamespaceDeclaration {
         const _arr: qtc.libqt_list = qtc.QXmlStreamReader_NamespaceDeclarations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QXmlStreamNamespaceDeclaration, _arr.len) catch @panic("qxmlstreamreader.NamespaceDeclarations: Memory allocation failed");
+        const _ret = allocator.alloc(QXmlStreamNamespaceDeclaration, _arr.len) catch @panic("QXmlStreamReader.NamespaceDeclarations: Memory allocation failed");
         const _data: [*]QtC.QXmlStreamNamespaceDeclaration = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1384,7 +1384,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn NotationDeclarations(self: QXmlStreamReader, allocator: std.mem.Allocator) []QXmlStreamNotationDeclaration {
         const _arr: qtc.libqt_list = qtc.QXmlStreamReader_NotationDeclarations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QXmlStreamNotationDeclaration, _arr.len) catch @panic("qxmlstreamreader.NotationDeclarations: Memory allocation failed");
+        const _ret = allocator.alloc(QXmlStreamNotationDeclaration, _arr.len) catch @panic("QXmlStreamReader.NotationDeclarations: Memory allocation failed");
         const _data: [*]QtC.QXmlStreamNotationDeclaration = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1402,7 +1402,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn EntityDeclarations(self: QXmlStreamReader, allocator: std.mem.Allocator) []QXmlStreamEntityDeclaration {
         const _arr: qtc.libqt_list = qtc.QXmlStreamReader_EntityDeclarations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QXmlStreamEntityDeclaration, _arr.len) catch @panic("qxmlstreamreader.EntityDeclarations: Memory allocation failed");
+        const _ret = allocator.alloc(QXmlStreamEntityDeclaration, _arr.len) catch @panic("QXmlStreamReader.EntityDeclarations: Memory allocation failed");
         const _data: [*]QtC.QXmlStreamEntityDeclaration = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1420,7 +1420,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn DtdName(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_DtdName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.DtdName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.DtdName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1436,7 +1436,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn DtdPublicId(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_DtdPublicId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.DtdPublicId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.DtdPublicId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1452,7 +1452,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn DtdSystemId(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_DtdSystemId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.DtdSystemId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.DtdSystemId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1500,7 +1500,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn ErrorString(self: QXmlStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXmlStreamReader_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1565,7 +1565,7 @@ pub const QXmlStreamReader = extern struct {
     pub fn ReadElementText1(self: QXmlStreamReader, allocator: std.mem.Allocator, behaviour: i32) []const u8 {
         var _str = qtc.QXmlStreamReader_ReadElementText1(@ptrCast(self.ptr), @bitCast(behaviour));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxmlstreamreader.ReadElementText1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamReader.ReadElementText1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

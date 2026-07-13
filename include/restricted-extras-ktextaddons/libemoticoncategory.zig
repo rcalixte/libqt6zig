@@ -40,7 +40,7 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
     pub fn Name(self: TextEmoticonsCore__EmoticonCategory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__EmoticonCategory_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textemoticonscore__emoticoncategory.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__EmoticonCategory.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -72,7 +72,7 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
     pub fn Category(self: TextEmoticonsCore__EmoticonCategory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__EmoticonCategory_Category(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textemoticonscore__emoticoncategory.Category: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__EmoticonCategory.Category: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -104,7 +104,7 @@ pub const TextEmoticonsCore__EmoticonCategory = extern struct {
     pub fn I18nName(self: TextEmoticonsCore__EmoticonCategory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__EmoticonCategory_I18nName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textemoticonscore__emoticoncategory.I18nName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__EmoticonCategory.I18nName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

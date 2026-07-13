@@ -220,7 +220,7 @@ pub const KTextEditor__CodeCompletionModelControllerInterface = extern struct {
         comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
         var _str = qtc.KTextEditor__CodeCompletionModelControllerInterface_FilterString(@ptrCast(self.ptr), @ptrCast(view.ptr), @ptrCast(range.ptr), @ptrCast(position.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__codecompletionmodelcontrollerinterface.FilterString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__CodeCompletionModelControllerInterface.FilterString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -265,7 +265,7 @@ pub const KTextEditor__CodeCompletionModelControllerInterface = extern struct {
         comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
         var _str = qtc.KTextEditor__CodeCompletionModelControllerInterface_SuperFilterString(@ptrCast(self.ptr), @ptrCast(view.ptr), @ptrCast(range.ptr), @ptrCast(position.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__codecompletionmodelcontrollerinterface.FilterString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__CodeCompletionModelControllerInterface.FilterString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

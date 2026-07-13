@@ -88,7 +88,7 @@ pub const QTextDocumentFragment = extern struct {
     pub fn ToPlainText(self: QTextDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextDocumentFragment_ToPlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocumentfragment.ToPlainText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocumentFragment.ToPlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -104,7 +104,7 @@ pub const QTextDocumentFragment = extern struct {
     pub fn ToRawText(self: QTextDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextDocumentFragment_ToRawText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocumentfragment.ToRawText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocumentFragment.ToRawText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -120,7 +120,7 @@ pub const QTextDocumentFragment = extern struct {
     pub fn ToHtml(self: QTextDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextDocumentFragment_ToHtml(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocumentfragment.ToHtml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocumentFragment.ToHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -136,7 +136,7 @@ pub const QTextDocumentFragment = extern struct {
     pub fn ToMarkdown(self: QTextDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextDocumentFragment_ToMarkdown(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocumentfragment.ToMarkdown: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocumentFragment.ToMarkdown: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -196,7 +196,7 @@ pub const QTextDocumentFragment = extern struct {
     pub fn ToMarkdown1(self: QTextDocumentFragment, allocator: std.mem.Allocator, features: i32) []const u8 {
         var _str = qtc.QTextDocumentFragment_ToMarkdown1(@ptrCast(self.ptr), @bitCast(features));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextdocumentfragment.ToMarkdown1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextDocumentFragment.ToMarkdown1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

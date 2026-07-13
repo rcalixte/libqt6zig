@@ -113,7 +113,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn Language(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_Language(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.Language: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.Language: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -129,7 +129,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn Language2(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionWidgets__AutoCorrectionLanguage_Language2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.Language2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.Language2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -164,7 +164,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -462,7 +462,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn PlaceholderText(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.PlaceholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -691,7 +691,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn CurrentText(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.CurrentText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.CurrentText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -723,7 +723,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn ItemText(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QComboBox_ItemText(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.ItemText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.ItemText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -808,7 +808,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     /// ` texts: []const []const u8 `
     ///
     pub fn AddItems(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.AddItems: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.AddItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i|
             texts_arr[i] = .{
@@ -880,7 +880,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     /// ` texts: []const []const u8 `
     ///
     pub fn InsertItems(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.InsertItems: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.InsertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i|
             texts_arr[i] = .{
@@ -1323,7 +1323,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1347,7 +1347,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2921,7 +2921,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn StyleSheet(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2939,7 +2939,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn WindowTitle(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3002,7 +3002,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn WindowIconText(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3038,7 +3038,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn WindowRole(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3074,7 +3074,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn WindowFilePath(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3148,7 +3148,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn ToolTip(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3210,7 +3210,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn StatusTip(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3246,7 +3246,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn WhatsThis(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3264,7 +3264,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn AccessibleName(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3300,7 +3300,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn AccessibleDescription(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4150,7 +4150,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn SaveGeometry(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -4686,7 +4686,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn Actions(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5501,7 +5501,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn ObjectName(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5678,7 +5678,7 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
     pub fn Children(self: TextAutoCorrectionWidgets__AutoCorrectionLanguage, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5939,10 +5939,10 @@ pub const TextAutoCorrectionWidgets__AutoCorrectionLanguage = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textautocorrectionwidgets__autocorrectionlanguage.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextAutoCorrectionWidgets__AutoCorrectionLanguage.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

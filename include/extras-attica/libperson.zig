@@ -72,7 +72,7 @@ pub const Attica__Person = extern struct {
     pub fn Id(self: Attica__Person, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Person_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Person.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -104,7 +104,7 @@ pub const Attica__Person = extern struct {
     pub fn FirstName(self: Attica__Person, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Person_FirstName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.FirstName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Person.FirstName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -136,7 +136,7 @@ pub const Attica__Person = extern struct {
     pub fn LastName(self: Attica__Person, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Person_LastName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.LastName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Person.LastName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -191,7 +191,7 @@ pub const Attica__Person = extern struct {
     pub fn Country(self: Attica__Person, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Person_Country(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.Country: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Person.Country: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -290,7 +290,7 @@ pub const Attica__Person = extern struct {
     pub fn Homepage(self: Attica__Person, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Person_Homepage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.Homepage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Person.Homepage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -322,7 +322,7 @@ pub const Attica__Person = extern struct {
     pub fn City(self: Attica__Person, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Person_City(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.City: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Person.City: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -366,7 +366,7 @@ pub const Attica__Person = extern struct {
         };
         var _str = qtc.Attica__Person_ExtendedAttribute(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__person.ExtendedAttribute: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Person.ExtendedAttribute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -382,7 +382,7 @@ pub const Attica__Person = extern struct {
     pub fn ExtendedAttributes(self: Attica__Person, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.Attica__Person_ExtendedAttributes(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("attica__person.ExtendedAttributes: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("Attica__Person.ExtendedAttributes: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -398,10 +398,10 @@ pub const Attica__Person = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("attica__person.ExtendedAttributes: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("Attica__Person.ExtendedAttributes: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("attica__person.ExtendedAttributes: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("Attica__Person.ExtendedAttributes: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }

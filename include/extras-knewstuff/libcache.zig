@@ -72,7 +72,7 @@ pub const KNSCore__Cache = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__cache.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Cache.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -104,7 +104,7 @@ pub const KNSCore__Cache = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KNSCore__Cache_RegistryForProvider(@ptrCast(self.ptr), providerId_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KNSCore__Entry, _arr.len) catch @panic("knscore__cache.RegistryForProvider: Memory allocation failed");
+        const _ret = allocator.alloc(KNSCore__Entry, _arr.len) catch @panic("KNSCore__Cache.RegistryForProvider: Memory allocation failed");
         const _data: [*]QtC.KNSCore__Entry = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -122,7 +122,7 @@ pub const KNSCore__Cache = extern struct {
     pub fn Registry(self: KNSCore__Cache, allocator: std.mem.Allocator) []KNSCore__Entry {
         const _arr: qtc.libqt_list = qtc.KNSCore__Cache_Registry(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KNSCore__Entry, _arr.len) catch @panic("knscore__cache.Registry: Memory allocation failed");
+        const _ret = allocator.alloc(KNSCore__Entry, _arr.len) catch @panic("KNSCore__Cache.Registry: Memory allocation failed");
         const _data: [*]QtC.KNSCore__Entry = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -172,7 +172,7 @@ pub const KNSCore__Cache = extern struct {
         comptime _ = @TypeOf(param1)._is_KNSCore__Provider__SearchRequest;
         const _arr: qtc.libqt_list = qtc.KNSCore__Cache_RequestFromCache(@ptrCast(self.ptr), @ptrCast(param1.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KNSCore__Entry, _arr.len) catch @panic("knscore__cache.RequestFromCache: Memory allocation failed");
+        const _ret = allocator.alloc(KNSCore__Entry, _arr.len) catch @panic("KNSCore__Cache.RequestFromCache: Memory allocation failed");
         const _data: [*]QtC.KNSCore__Entry = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -246,7 +246,7 @@ pub const KNSCore__Cache = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__cache.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Cache.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -268,7 +268,7 @@ pub const KNSCore__Cache = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__cache.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Cache.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -319,7 +319,7 @@ pub const KNSCore__Cache = extern struct {
     pub fn ObjectName(self: KNSCore__Cache, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__cache.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Cache.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -496,7 +496,7 @@ pub const KNSCore__Cache = extern struct {
     pub fn Children(self: KNSCore__Cache, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("knscore__cache.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KNSCore__Cache.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -772,10 +772,10 @@ pub const KNSCore__Cache = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("knscore__cache.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KNSCore__Cache.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("knscore__cache.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KNSCore__Cache.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

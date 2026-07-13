@@ -71,10 +71,10 @@ pub const QWebSocketHandshakeOptions = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qwebsockethandshakeoptions.Subprotocols: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QWebSocketHandshakeOptions.Subprotocols: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qwebsockethandshakeoptions.Subprotocols: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebSocketHandshakeOptions.Subprotocols: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -92,7 +92,7 @@ pub const QWebSocketHandshakeOptions = extern struct {
     /// ` protocols: []const []const u8 `
     ///
     pub fn SetSubprotocols(self: QWebSocketHandshakeOptions, allocator: std.mem.Allocator, protocols: []const []const u8) void {
-        const protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("qwebsockethandshakeoptions.SetSubprotocols: Memory allocation failed");
+        const protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("QWebSocketHandshakeOptions.SetSubprotocols: Memory allocation failed");
         defer allocator.free(protocols_arr);
         for (protocols, 0..protocols.len) |item, i|
             protocols_arr[i] = .{

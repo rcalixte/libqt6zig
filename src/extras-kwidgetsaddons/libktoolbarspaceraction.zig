@@ -183,7 +183,7 @@ pub const KToolBarSpacerAction = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBarSpacerAction.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -249,7 +249,7 @@ pub const KToolBarSpacerAction = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBarSpacerAction.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -271,7 +271,7 @@ pub const KToolBarSpacerAction = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBarSpacerAction.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -346,7 +346,7 @@ pub const KToolBarSpacerAction = extern struct {
     pub fn AssociatedObjects(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QAction_AssociatedObjects(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("ktoolbarspaceraction.AssociatedObjects: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KToolBarSpacerAction.AssociatedObjects: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -438,7 +438,7 @@ pub const KToolBarSpacerAction = extern struct {
     pub fn Text(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBarSpacerAction.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -474,7 +474,7 @@ pub const KToolBarSpacerAction = extern struct {
     pub fn IconText(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_IconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.IconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBarSpacerAction.IconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -510,7 +510,7 @@ pub const KToolBarSpacerAction = extern struct {
     pub fn ToolTip(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBarSpacerAction.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -546,7 +546,7 @@ pub const KToolBarSpacerAction = extern struct {
     pub fn StatusTip(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBarSpacerAction.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -582,7 +582,7 @@ pub const KToolBarSpacerAction = extern struct {
     pub fn WhatsThis(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBarSpacerAction.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -715,7 +715,7 @@ pub const KToolBarSpacerAction = extern struct {
     pub fn Shortcuts(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.QAction_Shortcuts(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("ktoolbarspaceraction.Shortcuts: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KToolBarSpacerAction.Shortcuts: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1350,7 +1350,7 @@ pub const KToolBarSpacerAction = extern struct {
     pub fn ObjectName(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktoolbarspaceraction.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KToolBarSpacerAction.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1527,7 +1527,7 @@ pub const KToolBarSpacerAction = extern struct {
     pub fn Children(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("ktoolbarspaceraction.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KToolBarSpacerAction.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1803,10 +1803,10 @@ pub const KToolBarSpacerAction = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ktoolbarspaceraction.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KToolBarSpacerAction.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ktoolbarspaceraction.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KToolBarSpacerAction.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2559,7 +2559,7 @@ pub const KToolBarSpacerAction = extern struct {
     pub fn CreatedWidgets(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.KToolBarSpacerAction_CreatedWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("ktoolbarspaceraction.CreatedWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KToolBarSpacerAction.CreatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2585,7 +2585,7 @@ pub const KToolBarSpacerAction = extern struct {
     pub fn SuperCreatedWidgets(self: KToolBarSpacerAction, allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.KToolBarSpacerAction_SuperCreatedWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("ktoolbarspaceraction.CreatedWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KToolBarSpacerAction.CreatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

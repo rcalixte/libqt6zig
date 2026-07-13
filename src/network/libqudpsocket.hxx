@@ -657,19 +657,19 @@ class VirtualQUdpSocket final : public QUdpSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual qint64 writeData(const char* data, qint64 lenVal) override {
+    virtual qint64 writeData(const char* data, qint64 len) override {
         if (qudpsocket_writedata_isbase) {
             qudpsocket_writedata_isbase = false;
-            return QUdpSocket::writeData(data, lenVal);
+            return QUdpSocket::writeData(data, len);
         }
         auto writedata_cb = qudpsocket_writedata_callback;
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
-            long long cbval2 = static_cast<long long>(lenVal);
+            long long cbval2 = static_cast<long long>(len);
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
-        return QUdpSocket::writeData(data, lenVal);
+        return QUdpSocket::writeData(data, len);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1118,8 +1118,8 @@ class VirtualQUdpSocket final : public QUdpSocket {
     friend long long QUdpSocket_SuperReadLineData(QUdpSocket* self, char* data, long long maxlen);
     friend long long QUdpSocket_SkipData(QUdpSocket* self, long long maxSize);
     friend long long QUdpSocket_SuperSkipData(QUdpSocket* self, long long maxSize);
-    friend long long QUdpSocket_WriteData(QUdpSocket* self, const char* data, long long lenVal);
-    friend long long QUdpSocket_SuperWriteData(QUdpSocket* self, const char* data, long long lenVal);
+    friend long long QUdpSocket_WriteData(QUdpSocket* self, const char* data, long long len);
+    friend long long QUdpSocket_SuperWriteData(QUdpSocket* self, const char* data, long long len);
     friend void QUdpSocket_TimerEvent(QUdpSocket* self, QTimerEvent* event);
     friend void QUdpSocket_SuperTimerEvent(QUdpSocket* self, QTimerEvent* event);
     friend void QUdpSocket_ChildEvent(QUdpSocket* self, QChildEvent* event);

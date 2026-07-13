@@ -1680,11 +1680,11 @@ pub const QOpenGLFunctions = extern struct {
     /// ` length: []const i32 `
     ///
     pub fn GlShaderSource(self: QOpenGLFunctions, allocator: std.mem.Allocator, shader: u32, count: i32, string: []const [:0]const u8, length: []const i32) void {
-        const string_chararr = allocator.alloc([*c]const u8, string.len) catch @panic("qopenglfunctions.GlShaderSource: Memory allocation failed");
+        const string_chararr = allocator.alloc([*:0]const u8, string.len) catch @panic("QOpenGLFunctions.GlShaderSource: Memory allocation failed");
         defer allocator.free(string_chararr);
         for (string, 0..string.len) |str, i|
             string_chararr[i] = @ptrCast(str.ptr);
-        qtc.QOpenGLFunctions_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), string_chararr.ptr, length.ptr);
+        qtc.QOpenGLFunctions_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), @ptrCast(string_chararr), length.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions.html#glStencilFuncSeparate)

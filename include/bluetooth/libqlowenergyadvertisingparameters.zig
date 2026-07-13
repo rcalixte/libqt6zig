@@ -100,7 +100,7 @@ pub const QLowEnergyAdvertisingParameters = extern struct {
     pub fn WhiteList(self: QLowEnergyAdvertisingParameters, allocator: std.mem.Allocator) []QLowEnergyAdvertisingParameters__AddressInfo {
         const _arr: qtc.libqt_list = qtc.QLowEnergyAdvertisingParameters_WhiteList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLowEnergyAdvertisingParameters__AddressInfo, _arr.len) catch @panic("qlowenergyadvertisingparameters.WhiteList: Memory allocation failed");
+        const _ret = allocator.alloc(QLowEnergyAdvertisingParameters__AddressInfo, _arr.len) catch @panic("QLowEnergyAdvertisingParameters.WhiteList: Memory allocation failed");
         const _data: [*]QtC.QLowEnergyAdvertisingParameters__AddressInfo = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

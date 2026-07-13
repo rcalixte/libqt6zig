@@ -352,19 +352,19 @@ class VirtualKProcess final : public KProcess {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual qint64 writeData(const char* data, qint64 lenVal) override {
+    virtual qint64 writeData(const char* data, qint64 len) override {
         if (kprocess_writedata_isbase) {
             kprocess_writedata_isbase = false;
-            return KProcess::writeData(data, lenVal);
+            return KProcess::writeData(data, len);
         }
         auto writedata_cb = kprocess_writedata_callback;
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
-            long long cbval2 = static_cast<long long>(lenVal);
+            long long cbval2 = static_cast<long long>(len);
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
-        return KProcess::writeData(data, lenVal);
+        return KProcess::writeData(data, len);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -731,8 +731,8 @@ class VirtualKProcess final : public KProcess {
     // Friend functions
     friend long long KProcess_ReadData(KProcess* self, char* data, long long maxlen);
     friend long long KProcess_SuperReadData(KProcess* self, char* data, long long maxlen);
-    friend long long KProcess_WriteData(KProcess* self, const char* data, long long lenVal);
-    friend long long KProcess_SuperWriteData(KProcess* self, const char* data, long long lenVal);
+    friend long long KProcess_WriteData(KProcess* self, const char* data, long long len);
+    friend long long KProcess_SuperWriteData(KProcess* self, const char* data, long long len);
     friend long long KProcess_ReadLineData(KProcess* self, char* data, long long maxlen);
     friend long long KProcess_SuperReadLineData(KProcess* self, char* data, long long maxlen);
     friend long long KProcess_SkipData(KProcess* self, long long maxSize);

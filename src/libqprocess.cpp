@@ -548,10 +548,10 @@ long long QProcess_ReadData(QProcess* self, char* data, long long maxlen) {
     return {};
 }
 
-long long QProcess_WriteData(QProcess* self, const char* data, long long lenVal) {
+long long QProcess_WriteData(QProcess* self, const char* data, long long len) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
-        return static_cast<long long>(vqprocess->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqprocess->writeData(data, static_cast<qint64>(len)));
     }
     return {};
 }
@@ -871,13 +871,13 @@ void QProcess_OnReadData(QProcess* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QProcess_SuperWriteData(QProcess* self, const char* data, long long lenVal) {
+long long QProcess_SuperWriteData(QProcess* self, const char* data, long long len) {
     auto* vqprocess = dynamic_cast<VirtualQProcess*>(self);
     if (vqprocess && vqprocess->isVirtualQProcess) {
         vqprocess->setQProcess_WriteData_IsBase(true);
-        return static_cast<long long>(vqprocess->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqprocess->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualQProcess*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualQProcess*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 

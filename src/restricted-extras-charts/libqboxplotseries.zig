@@ -187,7 +187,7 @@ pub const QBoxPlotSeries = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qboxplotseries.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBoxPlotSeries.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -283,7 +283,7 @@ pub const QBoxPlotSeries = extern struct {
     pub fn BoxSets(self: QBoxPlotSeries, allocator: std.mem.Allocator) []QBoxSet {
         const _arr: qtc.libqt_list = qtc.QBoxPlotSeries_BoxSets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QBoxSet, _arr.len) catch @panic("qboxplotseries.BoxSets: Memory allocation failed");
+        const _ret = allocator.alloc(QBoxSet, _arr.len) catch @panic("QBoxPlotSeries.BoxSets: Memory allocation failed");
         const _data: [*]QtC.QBoxSet = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -746,7 +746,7 @@ pub const QBoxPlotSeries = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qboxplotseries.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBoxPlotSeries.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -768,7 +768,7 @@ pub const QBoxPlotSeries = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qboxplotseries.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBoxPlotSeries.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -804,7 +804,7 @@ pub const QBoxPlotSeries = extern struct {
     pub fn Name(self: QBoxPlotSeries, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractSeries_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qboxplotseries.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBoxPlotSeries.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -938,7 +938,7 @@ pub const QBoxPlotSeries = extern struct {
     pub fn AttachedAxes(self: QBoxPlotSeries, allocator: std.mem.Allocator) []QAbstractAxis {
         const _arr: qtc.libqt_list = qtc.QAbstractSeries_AttachedAxes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("qboxplotseries.AttachedAxes: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("QBoxPlotSeries.AttachedAxes: Memory allocation failed");
         const _data: [*]QtC.QAbstractAxis = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1114,7 +1114,7 @@ pub const QBoxPlotSeries = extern struct {
     pub fn ObjectName(self: QBoxPlotSeries, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qboxplotseries.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBoxPlotSeries.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1291,7 +1291,7 @@ pub const QBoxPlotSeries = extern struct {
     pub fn Children(self: QBoxPlotSeries, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qboxplotseries.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QBoxPlotSeries.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1567,10 +1567,10 @@ pub const QBoxPlotSeries = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qboxplotseries.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QBoxPlotSeries.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qboxplotseries.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QBoxPlotSeries.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

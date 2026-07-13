@@ -96,7 +96,7 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     pub fn InputUrl(self: KFileMetaData__ExtractionResult, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__ExtractionResult_InputUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__extractionresult.InputUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__ExtractionResult.InputUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -112,7 +112,7 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     pub fn InputMimetype(self: KFileMetaData__ExtractionResult, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__ExtractionResult_InputMimetype(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__extractionresult.InputMimetype: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__ExtractionResult.InputMimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -292,7 +292,7 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     pub fn ImageData(self: KFileMetaData__ExtractionResult, allocator: std.mem.Allocator) ArrayMap_i32_u8 {
         const _map: qtc.libqt_map = qtc.KFileMetaData__ExtractionResult_ImageData(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kfilemetadata__extractionresult.ImageData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KFileMetaData__ExtractionResult.ImageData: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -307,7 +307,7 @@ pub const KFileMetaData__ExtractionResult = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kfilemetadata__extractionresult.ImageData: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KFileMetaData__ExtractionResult.ImageData: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }

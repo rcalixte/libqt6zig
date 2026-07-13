@@ -64,7 +64,7 @@ pub const Accounts__Application = extern struct {
     pub fn Name(self: Accounts__Application, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Application_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__application.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Application.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -80,7 +80,7 @@ pub const Accounts__Application = extern struct {
     pub fn DisplayName(self: Accounts__Application, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Application_DisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__application.DisplayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Application.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -96,7 +96,7 @@ pub const Accounts__Application = extern struct {
     pub fn Description(self: Accounts__Application, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Application_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__application.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Application.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -112,7 +112,7 @@ pub const Accounts__Application = extern struct {
     pub fn IconName(self: Accounts__Application, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Application_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__application.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Application.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -128,7 +128,7 @@ pub const Accounts__Application = extern struct {
     pub fn DesktopFilePath(self: Accounts__Application, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Application_DesktopFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__application.DesktopFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Application.DesktopFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -144,7 +144,7 @@ pub const Accounts__Application = extern struct {
     pub fn TrCatalog(self: Accounts__Application, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Application_TrCatalog(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__application.TrCatalog: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Application.TrCatalog: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -176,7 +176,7 @@ pub const Accounts__Application = extern struct {
         comptime _ = @TypeOf(service)._is_Accounts__Service;
         var _str = qtc.Accounts__Application_ServiceUsage(@ptrCast(self.ptr), @ptrCast(service.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__application.ServiceUsage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Application.ServiceUsage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

@@ -117,7 +117,7 @@ pub const KService = extern struct {
     pub fn Exec(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_Exec(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.Exec: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.Exec: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -133,7 +133,7 @@ pub const KService = extern struct {
     pub fn Icon(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_Icon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.Icon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -159,7 +159,7 @@ pub const KService = extern struct {
     pub fn TerminalOptions(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_TerminalOptions(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.TerminalOptions: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.TerminalOptions: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -195,7 +195,7 @@ pub const KService = extern struct {
     pub fn Username(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_Username(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.Username: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.Username: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -211,7 +211,7 @@ pub const KService = extern struct {
     pub fn DesktopEntryName(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_DesktopEntryName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.DesktopEntryName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.DesktopEntryName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -227,7 +227,7 @@ pub const KService = extern struct {
     pub fn MenuId(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_MenuId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.MenuId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.MenuId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -243,7 +243,7 @@ pub const KService = extern struct {
     pub fn StorageId(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_StorageId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.StorageId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.StorageId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -259,7 +259,7 @@ pub const KService = extern struct {
     pub fn WorkingDirectory(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_WorkingDirectory(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.WorkingDirectory: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.WorkingDirectory: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -275,7 +275,7 @@ pub const KService = extern struct {
     pub fn Comment(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_Comment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.Comment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.Comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -291,7 +291,7 @@ pub const KService = extern struct {
     pub fn GenericName(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_GenericName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.GenericName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.GenericName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -307,7 +307,7 @@ pub const KService = extern struct {
     pub fn UntranslatedGenericName(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_UntranslatedGenericName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.UntranslatedGenericName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.UntranslatedGenericName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -323,7 +323,7 @@ pub const KService = extern struct {
     pub fn UntranslatedName(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_UntranslatedName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.UntranslatedName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.UntranslatedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -344,10 +344,10 @@ pub const KService = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kservice.Keywords: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.Keywords: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kservice.Keywords: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KService.Keywords: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -370,10 +370,10 @@ pub const KService = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kservice.Categories: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.Categories: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kservice.Categories: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KService.Categories: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -396,10 +396,10 @@ pub const KService = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kservice.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.MimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kservice.MimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KService.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -422,10 +422,10 @@ pub const KService = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kservice.SchemeHandlers: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.SchemeHandlers: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kservice.SchemeHandlers: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KService.SchemeHandlers: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -448,10 +448,10 @@ pub const KService = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kservice.SupportedProtocols: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KService.SupportedProtocols: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kservice.SupportedProtocols: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KService.SupportedProtocols: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -485,7 +485,7 @@ pub const KService = extern struct {
     pub fn Actions(self: KService, allocator: std.mem.Allocator) []KServiceAction {
         const _arr: qtc.libqt_list = qtc.KService_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KServiceAction, _arr.len) catch @panic("kservice.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(KServiceAction, _arr.len) catch @panic("KService.Actions: Memory allocation failed");
         const _data: [*]QtC.KServiceAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -543,7 +543,7 @@ pub const KService = extern struct {
     pub fn DocPath(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_DocPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.DocPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.DocPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -559,7 +559,7 @@ pub const KService = extern struct {
     pub fn LocateLocal(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_LocateLocal(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.LocateLocal: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.LocateLocal: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -657,7 +657,7 @@ pub const KService = extern struct {
         };
         var _str = qtc.KService_NewServicePath(showInMenu, suggestedName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.NewServicePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.NewServicePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -673,7 +673,7 @@ pub const KService = extern struct {
     pub fn AliasFor(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KService_AliasFor(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.AliasFor: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.AliasFor: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -731,7 +731,7 @@ pub const KService = extern struct {
     pub fn Name(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSycocaEntry_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -749,7 +749,7 @@ pub const KService = extern struct {
     pub fn EntryPath(self: KService, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSycocaEntry_EntryPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kservice.EntryPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KService.EntryPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

@@ -173,7 +173,7 @@ pub const Konsole__Emulation = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__emulation.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Emulation.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -275,7 +275,7 @@ pub const Konsole__Emulation = extern struct {
     pub fn KeyBindings(self: Konsole__Emulation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Konsole__Emulation_KeyBindings(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__emulation.KeyBindings: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Emulation.KeyBindings: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -644,11 +644,11 @@ pub const Konsole__Emulation = extern struct {
     ///
     /// ` buffer: [:0]const u8 `
     ///
-    /// ` lenVal: i32 `
+    /// ` len: i32 `
     ///
-    pub fn ReceiveData(self: Konsole__Emulation, buffer: [:0]const u8, lenVal: i32) void {
+    pub fn ReceiveData(self: Konsole__Emulation, buffer: [:0]const u8, len: i32) void {
         const buffer_Cstring = buffer.ptr;
-        qtc.Konsole__Emulation_ReceiveData(@ptrCast(self.ptr), buffer_Cstring, @bitCast(lenVal));
+        qtc.Konsole__Emulation_ReceiveData(@ptrCast(self.ptr), buffer_Cstring, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -659,11 +659,11 @@ pub const Konsole__Emulation = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i32 `
+    /// ` len: i32 `
     ///
-    pub fn SendData(self: Konsole__Emulation, data: [:0]const u8, lenVal: i32) void {
+    pub fn SendData(self: Konsole__Emulation, data: [:0]const u8, len: i32) void {
         const data_Cstring = data.ptr;
-        qtc.Konsole__Emulation_SendData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        qtc.Konsole__Emulation_SendData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)
@@ -672,7 +672,7 @@ pub const Konsole__Emulation = extern struct {
     ///
     /// ` self: Konsole__Emulation `
     ///
-    /// ` callback: *const fn (self: Konsole__Emulation, data: [*:0]const u8, lenVal: i32) callconv(.c) void `
+    /// ` callback: *const fn (self: Konsole__Emulation, data: [*:0]const u8, len: i32) callconv(.c) void `
     ///
     pub fn OnSendData(self: Konsole__Emulation, callback: *const fn (Konsole__Emulation, [*:0]const u8, i32) callconv(.c) void) void {
         qtc.Konsole__Emulation_Connect_SendData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -1324,7 +1324,7 @@ pub const Konsole__Emulation = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__emulation.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Emulation.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1346,7 +1346,7 @@ pub const Konsole__Emulation = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__emulation.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Emulation.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1364,7 +1364,7 @@ pub const Konsole__Emulation = extern struct {
     pub fn ObjectName(self: Konsole__Emulation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("konsole__emulation.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Konsole__Emulation.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1541,7 +1541,7 @@ pub const Konsole__Emulation = extern struct {
     pub fn Children(self: Konsole__Emulation, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("konsole__emulation.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Konsole__Emulation.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1817,10 +1817,10 @@ pub const Konsole__Emulation = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("konsole__emulation.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Konsole__Emulation.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("konsole__emulation.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Konsole__Emulation.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

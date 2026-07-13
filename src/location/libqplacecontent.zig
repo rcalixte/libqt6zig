@@ -134,7 +134,7 @@ pub const QPlaceContent = extern struct {
     pub fn DataTags(self: QPlaceContent, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QPlaceContent_DataTags(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qplacecontent.DataTags: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QPlaceContent.DataTags: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -224,7 +224,7 @@ pub const QPlaceContent = extern struct {
     pub fn Attribution(self: QPlaceContent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceContent_Attribution(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacecontent.Attribution: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContent.Attribution: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

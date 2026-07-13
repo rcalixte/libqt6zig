@@ -84,7 +84,7 @@ pub const KIconTheme = extern struct {
     pub fn Name(self: KIconTheme, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconTheme_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicontheme.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconTheme.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -100,7 +100,7 @@ pub const KIconTheme = extern struct {
     pub fn InternalName(self: KIconTheme, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconTheme_InternalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicontheme.InternalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconTheme.InternalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -116,7 +116,7 @@ pub const KIconTheme = extern struct {
     pub fn Description(self: KIconTheme, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconTheme_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicontheme.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconTheme.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -132,7 +132,7 @@ pub const KIconTheme = extern struct {
     pub fn Example(self: KIconTheme, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconTheme_Example(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicontheme.Example: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconTheme.Example: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -148,7 +148,7 @@ pub const KIconTheme = extern struct {
     pub fn Screenshot(self: KIconTheme, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconTheme_Screenshot(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicontheme.Screenshot: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconTheme.Screenshot: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -164,7 +164,7 @@ pub const KIconTheme = extern struct {
     pub fn Dir(self: KIconTheme, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconTheme_Dir(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicontheme.Dir: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconTheme.Dir: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -185,10 +185,10 @@ pub const KIconTheme = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kicontheme.Inherits: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconTheme.Inherits: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kicontheme.Inherits: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconTheme.Inherits: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -250,7 +250,7 @@ pub const KIconTheme = extern struct {
     pub fn QuerySizes(self: KIconTheme, allocator: std.mem.Allocator, group: i32) []i32 {
         const _arr: qtc.libqt_list = qtc.KIconTheme_QuerySizes(@ptrCast(self.ptr), @bitCast(group));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("kicontheme.QuerySizes: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KIconTheme.QuerySizes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -272,10 +272,10 @@ pub const KIconTheme = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kicontheme.QueryIcons: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconTheme.QueryIcons: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kicontheme.QueryIcons: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconTheme.QueryIcons: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -300,10 +300,10 @@ pub const KIconTheme = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kicontheme.QueryIcons2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconTheme.QueryIcons2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kicontheme.QueryIcons2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconTheme.QueryIcons2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -328,10 +328,10 @@ pub const KIconTheme = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kicontheme.QueryIconsByContext: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconTheme.QueryIconsByContext: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kicontheme.QueryIconsByContext: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconTheme.QueryIconsByContext: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -359,7 +359,7 @@ pub const KIconTheme = extern struct {
         };
         var _str = qtc.KIconTheme_IconPath(@ptrCast(self.ptr), name_str, @bitCast(size), @bitCast(match));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicontheme.IconPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconTheme.IconPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -387,7 +387,7 @@ pub const KIconTheme = extern struct {
         };
         var _str = qtc.KIconTheme_IconPath2(@ptrCast(self.ptr), name_str, @bitCast(size), @bitCast(match), @bitCast(scale));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicontheme.IconPath2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconTheme.IconPath2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -413,7 +413,7 @@ pub const KIconTheme = extern struct {
         };
         var _str = qtc.KIconTheme_IconPathByName(@ptrCast(self.ptr), name_str, @bitCast(size), @bitCast(match));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicontheme.IconPathByName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconTheme.IconPathByName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -441,7 +441,7 @@ pub const KIconTheme = extern struct {
         };
         var _str = qtc.KIconTheme_IconPathByName2(@ptrCast(self.ptr), name_str, @bitCast(size), @bitCast(match), @bitCast(scale));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicontheme.IconPathByName2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconTheme.IconPathByName2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -482,10 +482,10 @@ pub const KIconTheme = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kicontheme.List: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconTheme.List: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kicontheme.List: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconTheme.List: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -501,7 +501,7 @@ pub const KIconTheme = extern struct {
     pub fn Current(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconTheme_Current();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicontheme.Current: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconTheme.Current: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -535,7 +535,7 @@ pub const KIconTheme = extern struct {
     pub fn DefaultThemeName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconTheme_DefaultThemeName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicontheme.DefaultThemeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconTheme.DefaultThemeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -566,10 +566,10 @@ pub const KIconTheme = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kicontheme.QueryIcons22: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconTheme.QueryIcons22: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kicontheme.QueryIcons22: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconTheme.QueryIcons22: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -596,10 +596,10 @@ pub const KIconTheme = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kicontheme.QueryIconsByContext2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconTheme.QueryIconsByContext2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kicontheme.QueryIconsByContext2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconTheme.QueryIconsByContext2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

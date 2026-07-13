@@ -90,10 +90,10 @@ long long KCompressionDevice_ReadData(KCompressionDevice* self, char* data, long
     return {};
 }
 
-long long KCompressionDevice_WriteData(KCompressionDevice* self, const char* data, long long lenVal) {
+long long KCompressionDevice_WriteData(KCompressionDevice* self, const char* data, long long len) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
-        return static_cast<long long>(vkcompressiondevice->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vkcompressiondevice->writeData(data, static_cast<qint64>(len)));
     }
     return {};
 }
@@ -251,13 +251,13 @@ void KCompressionDevice_OnReadData(KCompressionDevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long KCompressionDevice_SuperWriteData(KCompressionDevice* self, const char* data, long long lenVal) {
+long long KCompressionDevice_SuperWriteData(KCompressionDevice* self, const char* data, long long len) {
     auto* vkcompressiondevice = dynamic_cast<VirtualKCompressionDevice*>(self);
     if (vkcompressiondevice && vkcompressiondevice->isVirtualKCompressionDevice) {
         vkcompressiondevice->setKCompressionDevice_WriteData_IsBase(true);
-        return static_cast<long long>(vkcompressiondevice->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vkcompressiondevice->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualKCompressionDevice*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualKCompressionDevice*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 

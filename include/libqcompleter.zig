@@ -57,7 +57,7 @@ pub const QCompleter = extern struct {
     /// ` completions: []const []const u8 `
     ///
     pub fn New3(allocator: std.mem.Allocator, completions: []const []const u8) QCompleter {
-        const completions_arr = allocator.alloc(qtc.libqt_string, completions.len) catch @panic("qcompleter.New3: Memory allocation failed");
+        const completions_arr = allocator.alloc(qtc.libqt_string, completions.len) catch @panic("QCompleter.New3: Memory allocation failed");
         defer allocator.free(completions_arr);
         for (completions, 0..completions.len) |item, i|
             completions_arr[i] = .{
@@ -107,7 +107,7 @@ pub const QCompleter = extern struct {
     /// ` parent: QObject `
     ///
     pub fn New6(allocator: std.mem.Allocator, completions: []const []const u8, parent: anytype) QCompleter {
-        const completions_arr = allocator.alloc(qtc.libqt_string, completions.len) catch @panic("qcompleter.New6: Memory allocation failed");
+        const completions_arr = allocator.alloc(qtc.libqt_string, completions.len) catch @panic("QCompleter.New6: Memory allocation failed");
         defer allocator.free(completions_arr);
         for (completions, 0..completions.len) |item, i|
             completions_arr[i] = .{
@@ -260,7 +260,7 @@ pub const QCompleter = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcompleter.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCompleter.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -567,7 +567,7 @@ pub const QCompleter = extern struct {
     pub fn CurrentCompletion(self: QCompleter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCompleter_CurrentCompletion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcompleter.CurrentCompletion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCompleter.CurrentCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -593,7 +593,7 @@ pub const QCompleter = extern struct {
     pub fn CompletionPrefix(self: QCompleter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCompleter_CompletionPrefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcompleter.CompletionPrefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCompleter.CompletionPrefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -650,7 +650,7 @@ pub const QCompleter = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         var _str = qtc.QCompleter_PathFromIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcompleter.PathFromIndex: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCompleter.PathFromIndex: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -689,7 +689,7 @@ pub const QCompleter = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         var _str = qtc.QCompleter_SuperPathFromIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcompleter.PathFromIndex: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCompleter.PathFromIndex: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -716,10 +716,10 @@ pub const QCompleter = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcompleter.SplitPath: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCompleter.SplitPath: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcompleter.SplitPath: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCompleter.SplitPath: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -770,10 +770,10 @@ pub const QCompleter = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcompleter.SplitPath: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCompleter.SplitPath: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcompleter.SplitPath: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCompleter.SplitPath: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -951,7 +951,7 @@ pub const QCompleter = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcompleter.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCompleter.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -973,7 +973,7 @@ pub const QCompleter = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcompleter.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCompleter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1004,7 +1004,7 @@ pub const QCompleter = extern struct {
     pub fn ObjectName(self: QCompleter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcompleter.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCompleter.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1181,7 +1181,7 @@ pub const QCompleter = extern struct {
     pub fn Children(self: QCompleter, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcompleter.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCompleter.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1457,10 +1457,10 @@ pub const QCompleter = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcompleter.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCompleter.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcompleter.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCompleter.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

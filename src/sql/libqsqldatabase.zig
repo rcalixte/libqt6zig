@@ -177,10 +177,10 @@ pub const QSqlDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsqldatabase.Tables: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSqlDatabase.Tables: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsqldatabase.Tables: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSqlDatabase.Tables: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -376,7 +376,7 @@ pub const QSqlDatabase = extern struct {
     pub fn DatabaseName(self: QSqlDatabase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlDatabase_DatabaseName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldatabase.DatabaseName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlDatabase.DatabaseName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -392,7 +392,7 @@ pub const QSqlDatabase = extern struct {
     pub fn UserName(self: QSqlDatabase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlDatabase_UserName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldatabase.UserName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlDatabase.UserName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -408,7 +408,7 @@ pub const QSqlDatabase = extern struct {
     pub fn Password(self: QSqlDatabase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlDatabase_Password(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldatabase.Password: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlDatabase.Password: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -424,7 +424,7 @@ pub const QSqlDatabase = extern struct {
     pub fn HostName(self: QSqlDatabase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlDatabase_HostName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldatabase.HostName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlDatabase.HostName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -440,7 +440,7 @@ pub const QSqlDatabase = extern struct {
     pub fn DriverName(self: QSqlDatabase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlDatabase_DriverName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldatabase.DriverName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlDatabase.DriverName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -466,7 +466,7 @@ pub const QSqlDatabase = extern struct {
     pub fn ConnectOptions(self: QSqlDatabase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlDatabase_ConnectOptions(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldatabase.ConnectOptions: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlDatabase.ConnectOptions: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -482,7 +482,7 @@ pub const QSqlDatabase = extern struct {
     pub fn ConnectionName(self: QSqlDatabase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSqlDatabase_ConnectionName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqldatabase.ConnectionName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlDatabase.ConnectionName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -648,10 +648,10 @@ pub const QSqlDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsqldatabase.Drivers: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSqlDatabase.Drivers: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsqldatabase.Drivers: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSqlDatabase.Drivers: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -672,10 +672,10 @@ pub const QSqlDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsqldatabase.ConnectionNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSqlDatabase.ConnectionNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsqldatabase.ConnectionNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSqlDatabase.ConnectionNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -731,10 +731,10 @@ pub const QSqlDatabase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsqldatabase.Tables1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSqlDatabase.Tables1: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsqldatabase.Tables1: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSqlDatabase.Tables1: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

@@ -61,9 +61,9 @@ pub const QGeoServiceProvider = extern struct {
             .data = providerName.ptr,
         };
         const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeoserviceprovider.New2: Memory allocation failed");
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QGeoServiceProvider.New2: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("qgeoserviceprovider.New2: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QGeoServiceProvider.New2: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
@@ -101,9 +101,9 @@ pub const QGeoServiceProvider = extern struct {
             .data = providerName.ptr,
         };
         const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeoserviceprovider.New3: Memory allocation failed");
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QGeoServiceProvider.New3: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("qgeoserviceprovider.New3: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QGeoServiceProvider.New3: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
@@ -261,7 +261,7 @@ pub const QGeoServiceProvider = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoserviceprovider.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoServiceProvider.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -280,10 +280,10 @@ pub const QGeoServiceProvider = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qgeoserviceprovider.AvailableServiceProviders: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QGeoServiceProvider.AvailableServiceProviders: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qgeoserviceprovider.AvailableServiceProviders: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGeoServiceProvider.AvailableServiceProviders: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -415,7 +415,7 @@ pub const QGeoServiceProvider = extern struct {
     pub fn ErrorString(self: QGeoServiceProvider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoServiceProvider_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoserviceprovider.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoServiceProvider.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -445,7 +445,7 @@ pub const QGeoServiceProvider = extern struct {
     pub fn MappingErrorString(self: QGeoServiceProvider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoServiceProvider_MappingErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoserviceprovider.MappingErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoServiceProvider.MappingErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -475,7 +475,7 @@ pub const QGeoServiceProvider = extern struct {
     pub fn GeocodingErrorString(self: QGeoServiceProvider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoServiceProvider_GeocodingErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoserviceprovider.GeocodingErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoServiceProvider.GeocodingErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -505,7 +505,7 @@ pub const QGeoServiceProvider = extern struct {
     pub fn RoutingErrorString(self: QGeoServiceProvider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoServiceProvider_RoutingErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoserviceprovider.RoutingErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoServiceProvider.RoutingErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -535,7 +535,7 @@ pub const QGeoServiceProvider = extern struct {
     pub fn PlacesErrorString(self: QGeoServiceProvider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoServiceProvider_PlacesErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoserviceprovider.PlacesErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoServiceProvider.PlacesErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -565,7 +565,7 @@ pub const QGeoServiceProvider = extern struct {
     pub fn NavigationErrorString(self: QGeoServiceProvider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoServiceProvider_NavigationErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoserviceprovider.NavigationErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoServiceProvider.NavigationErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -582,9 +582,9 @@ pub const QGeoServiceProvider = extern struct {
     ///
     pub fn SetParameters(self: QGeoServiceProvider, allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant) void {
         const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeoserviceprovider.SetParameters: Memory allocation failed");
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QGeoServiceProvider.SetParameters: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("qgeoserviceprovider.SetParameters: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QGeoServiceProvider.SetParameters: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
@@ -644,7 +644,7 @@ pub const QGeoServiceProvider = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoserviceprovider.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoServiceProvider.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -666,7 +666,7 @@ pub const QGeoServiceProvider = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoserviceprovider.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoServiceProvider.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -684,7 +684,7 @@ pub const QGeoServiceProvider = extern struct {
     pub fn ObjectName(self: QGeoServiceProvider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoserviceprovider.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoServiceProvider.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -861,7 +861,7 @@ pub const QGeoServiceProvider = extern struct {
     pub fn Children(self: QGeoServiceProvider, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qgeoserviceprovider.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGeoServiceProvider.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1137,10 +1137,10 @@ pub const QGeoServiceProvider = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qgeoserviceprovider.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGeoServiceProvider.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qgeoserviceprovider.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGeoServiceProvider.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

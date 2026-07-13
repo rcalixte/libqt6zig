@@ -72,7 +72,7 @@ pub const QWebEngineNotification = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginenotification.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineNotification.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -121,7 +121,7 @@ pub const QWebEngineNotification = extern struct {
     pub fn Title(self: QWebEngineNotification, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineNotification_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginenotification.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineNotification.Title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -137,7 +137,7 @@ pub const QWebEngineNotification = extern struct {
     pub fn Message(self: QWebEngineNotification, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineNotification_Message(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginenotification.Message: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineNotification.Message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -153,7 +153,7 @@ pub const QWebEngineNotification = extern struct {
     pub fn Tag(self: QWebEngineNotification, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineNotification_Tag(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginenotification.Tag: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineNotification.Tag: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -169,7 +169,7 @@ pub const QWebEngineNotification = extern struct {
     pub fn Language(self: QWebEngineNotification, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineNotification_Language(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginenotification.Language: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineNotification.Language: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -255,7 +255,7 @@ pub const QWebEngineNotification = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginenotification.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineNotification.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -277,7 +277,7 @@ pub const QWebEngineNotification = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginenotification.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineNotification.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -328,7 +328,7 @@ pub const QWebEngineNotification = extern struct {
     pub fn ObjectName(self: QWebEngineNotification, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginenotification.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineNotification.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -505,7 +505,7 @@ pub const QWebEngineNotification = extern struct {
     pub fn Children(self: QWebEngineNotification, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qwebenginenotification.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWebEngineNotification.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -781,10 +781,10 @@ pub const QWebEngineNotification = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qwebenginenotification.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineNotification.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qwebenginenotification.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebEngineNotification.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

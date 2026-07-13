@@ -326,7 +326,7 @@ pub const QJsonValue = extern struct {
     pub fn ToString(self: QJsonValue, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QJsonValue_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qjsonvalue.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValue.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -348,7 +348,7 @@ pub const QJsonValue = extern struct {
         };
         var _str = qtc.QJsonValue_ToString2(@ptrCast(self.ptr), defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qjsonvalue.ToString2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValue.ToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -711,7 +711,7 @@ pub const QJsonValueConstRef = extern struct {
     pub fn ToString(self: QJsonValueConstRef, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QJsonValueConstRef_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qjsonvalueconstref.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValueConstRef.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -845,7 +845,7 @@ pub const QJsonValueConstRef = extern struct {
         };
         var _str = qtc.QJsonValueConstRef_ToString1(@ptrCast(self.ptr), defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qjsonvalueconstref.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValueConstRef.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1107,7 +1107,7 @@ pub const QJsonValueRef = extern struct {
     pub fn ToString(self: QJsonValueRef, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QJsonValueRef_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qjsonvalueref.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValueRef.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1241,7 +1241,7 @@ pub const QJsonValueRef = extern struct {
         };
         var _str = qtc.QJsonValueRef_ToString1(@ptrCast(self.ptr), defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qjsonvalueref.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonValueRef.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

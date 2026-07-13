@@ -215,10 +215,10 @@ pub const KConfigLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kconfigloader.GroupList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfigLoader.GroupList: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kconfigloader.GroupList: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KConfigLoader.GroupList: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -279,7 +279,7 @@ pub const KConfigLoader = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigloader.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -343,7 +343,7 @@ pub const KConfigLoader = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigloader.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -367,7 +367,7 @@ pub const KConfigLoader = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigloader.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -559,7 +559,7 @@ pub const KConfigLoader = extern struct {
     pub fn CurrentGroup(self: KConfigLoader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCoreConfigSkeleton_CurrentGroup(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigloader.CurrentGroup: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.CurrentGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -958,7 +958,7 @@ pub const KConfigLoader = extern struct {
             .len = name.len,
             .data = name.ptr,
         };
-        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kconfigloader.AddItemStringList: Memory allocation failed");
+        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("KConfigLoader.AddItemStringList: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i|
             reference_arr[i] = .{
@@ -1033,7 +1033,7 @@ pub const KConfigLoader = extern struct {
     pub fn Items(self: KConfigLoader, allocator: std.mem.Allocator) []KConfigSkeletonItem {
         const _arr: qtc.libqt_list = qtc.KCoreConfigSkeleton_Items(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KConfigSkeletonItem, _arr.len) catch @panic("kconfigloader.Items: Memory allocation failed");
+        const _ret = allocator.alloc(KConfigSkeletonItem, _arr.len) catch @panic("KConfigLoader.Items: Memory allocation failed");
         const _data: [*]QtC.KConfigSkeletonItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2098,7 +2098,7 @@ pub const KConfigLoader = extern struct {
             .len = name.len,
             .data = name.ptr,
         };
-        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kconfigloader.AddItemStringList3: Memory allocation failed");
+        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("KConfigLoader.AddItemStringList3: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i|
             reference_arr[i] = .{
@@ -2109,7 +2109,7 @@ pub const KConfigLoader = extern struct {
             .len = reference.len,
             .data = reference_arr.ptr,
         };
-        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kconfigloader.AddItemStringList3: Memory allocation failed");
+        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("KConfigLoader.AddItemStringList3: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
         for (defaultValue, 0..defaultValue.len) |item, i|
             defaultValue_arr[i] = .{
@@ -2146,7 +2146,7 @@ pub const KConfigLoader = extern struct {
             .len = name.len,
             .data = name.ptr,
         };
-        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("kconfigloader.AddItemStringList4: Memory allocation failed");
+        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("KConfigLoader.AddItemStringList4: Memory allocation failed");
         defer allocator.free(reference_arr);
         for (reference, 0..reference.len) |item, i|
             reference_arr[i] = .{
@@ -2157,7 +2157,7 @@ pub const KConfigLoader = extern struct {
             .len = reference.len,
             .data = reference_arr.ptr,
         };
-        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kconfigloader.AddItemStringList4: Memory allocation failed");
+        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("KConfigLoader.AddItemStringList4: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
         for (defaultValue, 0..defaultValue.len) |item, i|
             defaultValue_arr[i] = .{
@@ -2254,7 +2254,7 @@ pub const KConfigLoader = extern struct {
     pub fn ObjectName(self: KConfigLoader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfigloader.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2431,7 +2431,7 @@ pub const KConfigLoader = extern struct {
     pub fn Children(self: KConfigLoader, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kconfigloader.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KConfigLoader.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2692,10 +2692,10 @@ pub const KConfigLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kconfigloader.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KConfigLoader.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kconfigloader.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KConfigLoader.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

@@ -29,7 +29,7 @@ pub const KLibexec = extern struct {
         };
         var _str = qtc.KLibexec_PathFromAddress(relativePath_str, @ptrCast(address));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klibexec.PathFromAddress: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLibexec.PathFromAddress: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -54,10 +54,10 @@ pub const KLibexec = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("klibexec.PathCandidates: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KLibexec.PathCandidates: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("klibexec.PathCandidates: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KLibexec.PathCandidates: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -79,7 +79,7 @@ pub const KLibexec = extern struct {
         };
         var _str = qtc.KLibexec_Path(relativePath_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klibexec.Path: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLibexec.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -104,10 +104,10 @@ pub const KLibexec = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("klibexec.KdeFrameworksPaths: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KLibexec.KdeFrameworksPaths: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("klibexec.KdeFrameworksPaths: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KLibexec.KdeFrameworksPaths: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

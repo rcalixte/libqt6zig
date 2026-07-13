@@ -223,7 +223,7 @@ pub const QGeoCoordinate = extern struct {
     pub fn ToString(self: QGeoCoordinate, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoCoordinate_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeocoordinate.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCoordinate.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -257,7 +257,7 @@ pub const QGeoCoordinate = extern struct {
     pub fn ToString1(self: QGeoCoordinate, allocator: std.mem.Allocator, format: i32) []const u8 {
         var _str = qtc.QGeoCoordinate_ToString1(@ptrCast(self.ptr), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeocoordinate.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCoordinate.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

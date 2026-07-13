@@ -265,7 +265,7 @@ pub const KFileItem = extern struct {
     pub fn PermissionsString(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_PermissionsString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.PermissionsString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.PermissionsString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -341,7 +341,7 @@ pub const KFileItem = extern struct {
     pub fn User(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_User(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.User: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.User: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -357,7 +357,7 @@ pub const KFileItem = extern struct {
     pub fn Group(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_Group(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Group: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -453,7 +453,7 @@ pub const KFileItem = extern struct {
     pub fn LinkDest(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_LinkDest(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.LinkDest: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.LinkDest: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -479,7 +479,7 @@ pub const KFileItem = extern struct {
     pub fn LocalPath(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_LocalPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.LocalPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.LocalPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -527,7 +527,7 @@ pub const KFileItem = extern struct {
     pub fn TimeString(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_TimeString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.TimeString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.TimeString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -553,7 +553,7 @@ pub const KFileItem = extern struct {
     pub fn Text(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -569,7 +569,7 @@ pub const KFileItem = extern struct {
     pub fn Name(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -585,7 +585,7 @@ pub const KFileItem = extern struct {
     pub fn Mimetype(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_Mimetype(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Mimetype: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Mimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -641,7 +641,7 @@ pub const KFileItem = extern struct {
     pub fn MimeComment(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_MimeComment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.MimeComment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.MimeComment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -657,7 +657,7 @@ pub const KFileItem = extern struct {
     pub fn IconName(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -678,10 +678,10 @@ pub const KFileItem = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kfileitem.Overlays: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFileItem.Overlays: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kfileitem.Overlays: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KFileItem.Overlays: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -699,7 +699,7 @@ pub const KFileItem = extern struct {
     pub fn Comment(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_Comment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Comment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -715,7 +715,7 @@ pub const KFileItem = extern struct {
     pub fn GetStatusBarInfo(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_GetStatusBarInfo(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.GetStatusBarInfo: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.GetStatusBarInfo: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -751,7 +751,7 @@ pub const KFileItem = extern struct {
     pub fn Suffix(self: KFileItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileItem_Suffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Suffix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Suffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -894,7 +894,7 @@ pub const KFileItem = extern struct {
     pub fn TimeString1(self: KFileItem, allocator: std.mem.Allocator, which: i32) []const u8 {
         var _str = qtc.KFileItem_TimeString1(@ptrCast(self.ptr), @bitCast(which));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.TimeString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.TimeString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -912,7 +912,7 @@ pub const KFileItem = extern struct {
     pub fn Name1(self: KFileItem, allocator: std.mem.Allocator, lowerCase: bool) []const u8 {
         var _str = qtc.KFileItem_Name1(@ptrCast(self.ptr), lowerCase);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitem.Name1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItem.Name1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1018,7 +1018,7 @@ pub const KFileItemList = extern struct {
     pub fn UrlList(self: KFileItemList, allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.KFileItemList_UrlList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("kfileitemlist.UrlList: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KFileItemList.UrlList: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1036,7 +1036,7 @@ pub const KFileItemList = extern struct {
     pub fn TargetUrlList(self: KFileItemList, allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.KFileItemList_TargetUrlList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("kfileitemlist.TargetUrlList: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KFileItemList.TargetUrlList: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

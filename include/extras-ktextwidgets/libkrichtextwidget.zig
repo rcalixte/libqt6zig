@@ -286,7 +286,7 @@ pub const KRichTextWidget = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -302,7 +302,7 @@ pub const KRichTextWidget = extern struct {
     pub fn CreateActions(self: KRichTextWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.KRichTextWidget_CreateActions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("krichtextwidget.CreateActions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KRichTextWidget.CreateActions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -346,7 +346,7 @@ pub const KRichTextWidget = extern struct {
     pub fn SuperCreateActions(self: KRichTextWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.KRichTextWidget_SuperCreateActions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("krichtextwidget.CreateActions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KRichTextWidget.CreateActions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -462,7 +462,7 @@ pub const KRichTextWidget = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -484,7 +484,7 @@ pub const KRichTextWidget = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -530,7 +530,7 @@ pub const KRichTextWidget = extern struct {
     pub fn TextOrHtml(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KRichTextEdit_TextOrHtml(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.TextOrHtml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.TextOrHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -566,7 +566,7 @@ pub const KRichTextWidget = extern struct {
     pub fn CurrentLinkText(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KRichTextEdit_CurrentLinkText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.CurrentLinkText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.CurrentLinkText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -584,7 +584,7 @@ pub const KRichTextWidget = extern struct {
     pub fn CurrentLinkUrl(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KRichTextEdit_CurrentLinkUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.CurrentLinkUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.CurrentLinkUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -944,7 +944,7 @@ pub const KRichTextWidget = extern struct {
     pub fn ToCleanHtml(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KRichTextEdit_ToCleanHtml(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.ToCleanHtml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.ToCleanHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1101,7 +1101,7 @@ pub const KRichTextWidget = extern struct {
     pub fn SpellCheckingLanguage(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEdit_SpellCheckingLanguage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.SpellCheckingLanguage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.SpellCheckingLanguage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1514,7 +1514,7 @@ pub const KRichTextWidget = extern struct {
     pub fn PlaceholderText(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.PlaceholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1613,7 +1613,7 @@ pub const KRichTextWidget = extern struct {
     pub fn FontFamily(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_FontFamily(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.FontFamily: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.FontFamily: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1835,7 +1835,7 @@ pub const KRichTextWidget = extern struct {
     pub fn DocumentTitle(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_DocumentTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.DocumentTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.DocumentTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1998,7 +1998,7 @@ pub const KRichTextWidget = extern struct {
     pub fn ToPlainText(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_ToPlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.ToPlainText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.ToPlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2016,7 +2016,7 @@ pub const KRichTextWidget = extern struct {
     pub fn ToHtml(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_ToHtml(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.ToHtml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.ToHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2034,7 +2034,7 @@ pub const KRichTextWidget = extern struct {
     pub fn ToMarkdown(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_ToMarkdown(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.ToMarkdown: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.ToMarkdown: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2136,7 +2136,7 @@ pub const KRichTextWidget = extern struct {
         comptime _ = @TypeOf(pos)._is_QPoint;
         var _str = qtc.QTextEdit_AnchorAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.AnchorAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.AnchorAt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2276,7 +2276,7 @@ pub const KRichTextWidget = extern struct {
     pub fn ExtraSelections(self: KRichTextWidget, allocator: std.mem.Allocator) []QTextEdit__ExtraSelection {
         const _arr: qtc.libqt_list = qtc.QTextEdit_ExtraSelections(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextEdit__ExtraSelection, _arr.len) catch @panic("krichtextwidget.ExtraSelections: Memory allocation failed");
+        const _ret = allocator.alloc(QTextEdit__ExtraSelection, _arr.len) catch @panic("KRichTextWidget.ExtraSelections: Memory allocation failed");
         const _data: [*]QtC.QTextEdit__ExtraSelection = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2936,7 +2936,7 @@ pub const KRichTextWidget = extern struct {
     pub fn ToMarkdown1(self: KRichTextWidget, allocator: std.mem.Allocator, features: i32) []const u8 {
         var _str = qtc.QTextEdit_ToMarkdown1(@ptrCast(self.ptr), @bitCast(features));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.ToMarkdown1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.ToMarkdown1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3158,7 +3158,7 @@ pub const KRichTextWidget = extern struct {
     pub fn ScrollBarWidgets(self: KRichTextWidget, allocator: std.mem.Allocator, alignment: i32) []QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("krichtextwidget.ScrollBarWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KRichTextWidget.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4766,7 +4766,7 @@ pub const KRichTextWidget = extern struct {
     pub fn StyleSheet(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4784,7 +4784,7 @@ pub const KRichTextWidget = extern struct {
     pub fn WindowTitle(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4847,7 +4847,7 @@ pub const KRichTextWidget = extern struct {
     pub fn WindowIconText(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4883,7 +4883,7 @@ pub const KRichTextWidget = extern struct {
     pub fn WindowRole(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4919,7 +4919,7 @@ pub const KRichTextWidget = extern struct {
     pub fn WindowFilePath(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4993,7 +4993,7 @@ pub const KRichTextWidget = extern struct {
     pub fn ToolTip(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5055,7 +5055,7 @@ pub const KRichTextWidget = extern struct {
     pub fn StatusTip(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5091,7 +5091,7 @@ pub const KRichTextWidget = extern struct {
     pub fn WhatsThis(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5109,7 +5109,7 @@ pub const KRichTextWidget = extern struct {
     pub fn AccessibleName(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5145,7 +5145,7 @@ pub const KRichTextWidget = extern struct {
     pub fn AccessibleDescription(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5995,7 +5995,7 @@ pub const KRichTextWidget = extern struct {
     pub fn SaveGeometry(self: KRichTextWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("krichtextwidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KRichTextWidget.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -6531,7 +6531,7 @@ pub const KRichTextWidget = extern struct {
     pub fn Actions(self: KRichTextWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("krichtextwidget.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KRichTextWidget.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7334,7 +7334,7 @@ pub const KRichTextWidget = extern struct {
     pub fn ObjectName(self: KRichTextWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krichtextwidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRichTextWidget.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7511,7 +7511,7 @@ pub const KRichTextWidget = extern struct {
     pub fn Children(self: KRichTextWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("krichtextwidget.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KRichTextWidget.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7772,10 +7772,10 @@ pub const KRichTextWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("krichtextwidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KRichTextWidget.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("krichtextwidget.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KRichTextWidget.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

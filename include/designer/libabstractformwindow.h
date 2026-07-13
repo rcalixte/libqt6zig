@@ -83,7 +83,7 @@ void QDesignerFormWindowInterface_UnmanageWidget(QDesignerFormWindowInterface* s
 void QDesignerFormWindowInterface_SetFeatures(QDesignerFormWindowInterface* self, int f);
 void QDesignerFormWindowInterface_SetDirty(QDesignerFormWindowInterface* self, bool dirty);
 void QDesignerFormWindowInterface_ClearSelection(QDesignerFormWindowInterface* self, bool changePropertyDisplay);
-void QDesignerFormWindowInterface_SelectWidget(QDesignerFormWindowInterface* self, QWidget* w, bool selectVal);
+void QDesignerFormWindowInterface_SelectWidget(QDesignerFormWindowInterface* self, QWidget* w, bool select);
 void QDesignerFormWindowInterface_SetGrid(QDesignerFormWindowInterface* self, const QPoint* grid);
 void QDesignerFormWindowInterface_SetFileName(QDesignerFormWindowInterface* self, const libqt_string fileName);
 bool QDesignerFormWindowInterface_SetContents2(QDesignerFormWindowInterface* self, const libqt_string contents);

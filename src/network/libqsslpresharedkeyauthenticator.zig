@@ -66,7 +66,7 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     pub fn IdentityHint(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_IdentityHint(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslpresharedkeyauthenticator.IdentityHint: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslPreSharedKeyAuthenticator.IdentityHint: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -98,7 +98,7 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     pub fn Identity(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_Identity(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslpresharedkeyauthenticator.Identity: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslPreSharedKeyAuthenticator.Identity: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -140,7 +140,7 @@ pub const QSslPreSharedKeyAuthenticator = extern struct {
     pub fn PreSharedKey(self: QSslPreSharedKeyAuthenticator, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSslPreSharedKeyAuthenticator_PreSharedKey(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslpresharedkeyauthenticator.PreSharedKey: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslPreSharedKeyAuthenticator.PreSharedKey: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

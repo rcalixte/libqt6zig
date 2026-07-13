@@ -290,19 +290,19 @@ class VirtualQSaveFile final : public QSaveFile {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual qint64 writeData(const char* data, qint64 lenVal) override {
+    virtual qint64 writeData(const char* data, qint64 len) override {
         if (qsavefile_writedata_isbase) {
             qsavefile_writedata_isbase = false;
-            return QSaveFile::writeData(data, lenVal);
+            return QSaveFile::writeData(data, len);
         }
         auto writedata_cb = qsavefile_writedata_callback;
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
-            long long cbval2 = static_cast<long long>(lenVal);
+            long long cbval2 = static_cast<long long>(len);
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
-        return QSaveFile::writeData(data, lenVal);
+        return QSaveFile::writeData(data, len);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -769,8 +769,8 @@ class VirtualQSaveFile final : public QSaveFile {
     }
 
     // Friend functions
-    friend long long QSaveFile_WriteData(QSaveFile* self, const char* data, long long lenVal);
-    friend long long QSaveFile_SuperWriteData(QSaveFile* self, const char* data, long long lenVal);
+    friend long long QSaveFile_WriteData(QSaveFile* self, const char* data, long long len);
+    friend long long QSaveFile_SuperWriteData(QSaveFile* self, const char* data, long long len);
     friend long long QSaveFile_ReadData(QSaveFile* self, char* data, long long maxlen);
     friend long long QSaveFile_SuperReadData(QSaveFile* self, char* data, long long maxlen);
     friend long long QSaveFile_ReadLineData(QSaveFile* self, char* data, long long maxlen);

@@ -180,8 +180,8 @@ bool QPixmap_Load(QPixmap* self, const libqt_string fileName) {
     return self->load(fileName_QString);
 }
 
-bool QPixmap_LoadFromData(QPixmap* self, const unsigned char* buf, unsigned int lenVal) {
-    return self->loadFromData(static_cast<const uchar*>(buf), static_cast<uint>(lenVal));
+bool QPixmap_LoadFromData(QPixmap* self, const unsigned char* buf, unsigned int len) {
+    return self->loadFromData(static_cast<const uchar*>(buf), static_cast<uint>(len));
 }
 
 bool QPixmap_LoadFromData2(QPixmap* self, const libqt_string data) {
@@ -308,12 +308,12 @@ bool QPixmap_Load3(QPixmap* self, const libqt_string fileName, const char* forma
     return self->load(fileName_QString, format, static_cast<Qt::ImageConversionFlags>(flags));
 }
 
-bool QPixmap_LoadFromData3(QPixmap* self, const unsigned char* buf, unsigned int lenVal, const char* format) {
-    return self->loadFromData(static_cast<const uchar*>(buf), static_cast<uint>(lenVal), format);
+bool QPixmap_LoadFromData3(QPixmap* self, const unsigned char* buf, unsigned int len, const char* format) {
+    return self->loadFromData(static_cast<const uchar*>(buf), static_cast<uint>(len), format);
 }
 
-bool QPixmap_LoadFromData4(QPixmap* self, const unsigned char* buf, unsigned int lenVal, const char* format, int flags) {
-    return self->loadFromData(static_cast<const uchar*>(buf), static_cast<uint>(lenVal), format, static_cast<Qt::ImageConversionFlags>(flags));
+bool QPixmap_LoadFromData4(QPixmap* self, const unsigned char* buf, unsigned int len, const char* format, int flags) {
+    return self->loadFromData(static_cast<const uchar*>(buf), static_cast<uint>(len), format, static_cast<Qt::ImageConversionFlags>(flags));
 }
 
 bool QPixmap_LoadFromData22(QPixmap* self, const libqt_string data, const char* format) {

@@ -288,7 +288,7 @@ pub const KUrlComboBox = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -317,7 +317,7 @@ pub const KUrlComboBox = extern struct {
     /// ` urls: []const []const u8 `
     ///
     pub fn SetUrls(self: KUrlComboBox, allocator: std.mem.Allocator, urls: []const []const u8) void {
-        const urls_arr = allocator.alloc(qtc.libqt_string, urls.len) catch @panic("kurlcombobox.SetUrls: Memory allocation failed");
+        const urls_arr = allocator.alloc(qtc.libqt_string, urls.len) catch @panic("KUrlComboBox.SetUrls: Memory allocation failed");
         defer allocator.free(urls_arr);
         for (urls, 0..urls.len) |item, i|
             urls_arr[i] = .{
@@ -344,7 +344,7 @@ pub const KUrlComboBox = extern struct {
     /// ` remove: kurlcombobox_enums.OverLoadResolving `
     ///
     pub fn SetUrls2(self: KUrlComboBox, allocator: std.mem.Allocator, urls: []const []const u8, remove: i32) void {
-        const urls_arr = allocator.alloc(qtc.libqt_string, urls.len) catch @panic("kurlcombobox.SetUrls2: Memory allocation failed");
+        const urls_arr = allocator.alloc(qtc.libqt_string, urls.len) catch @panic("KUrlComboBox.SetUrls2: Memory allocation failed");
         defer allocator.free(urls_arr);
         for (urls, 0..urls.len) |item, i|
             urls_arr[i] = .{
@@ -374,10 +374,10 @@ pub const KUrlComboBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlcombobox.Urls: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlComboBox.Urls: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlcombobox.Urls: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlComboBox.Urls: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -640,7 +640,7 @@ pub const KUrlComboBox = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -662,7 +662,7 @@ pub const KUrlComboBox = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1525,7 +1525,7 @@ pub const KUrlComboBox = extern struct {
     pub fn PlaceholderText(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.PlaceholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1725,7 +1725,7 @@ pub const KUrlComboBox = extern struct {
     pub fn CurrentText(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.CurrentText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.CurrentText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1757,7 +1757,7 @@ pub const KUrlComboBox = extern struct {
     pub fn ItemText(self: KUrlComboBox, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QComboBox_ItemText(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.ItemText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.ItemText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1842,7 +1842,7 @@ pub const KUrlComboBox = extern struct {
     /// ` texts: []const []const u8 `
     ///
     pub fn AddItems(self: KUrlComboBox, allocator: std.mem.Allocator, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("kurlcombobox.AddItems: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KUrlComboBox.AddItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i|
             texts_arr[i] = .{
@@ -1914,7 +1914,7 @@ pub const KUrlComboBox = extern struct {
     /// ` texts: []const []const u8 `
     ///
     pub fn InsertItems(self: KUrlComboBox, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("kurlcombobox.InsertItems: Memory allocation failed");
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KUrlComboBox.InsertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
         for (texts, 0..texts.len) |item, i|
             texts_arr[i] = .{
@@ -3909,7 +3909,7 @@ pub const KUrlComboBox = extern struct {
     pub fn StyleSheet(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3927,7 +3927,7 @@ pub const KUrlComboBox = extern struct {
     pub fn WindowTitle(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3990,7 +3990,7 @@ pub const KUrlComboBox = extern struct {
     pub fn WindowIconText(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4026,7 +4026,7 @@ pub const KUrlComboBox = extern struct {
     pub fn WindowRole(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4062,7 +4062,7 @@ pub const KUrlComboBox = extern struct {
     pub fn WindowFilePath(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4136,7 +4136,7 @@ pub const KUrlComboBox = extern struct {
     pub fn ToolTip(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4198,7 +4198,7 @@ pub const KUrlComboBox = extern struct {
     pub fn StatusTip(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4234,7 +4234,7 @@ pub const KUrlComboBox = extern struct {
     pub fn WhatsThis(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4252,7 +4252,7 @@ pub const KUrlComboBox = extern struct {
     pub fn AccessibleName(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4288,7 +4288,7 @@ pub const KUrlComboBox = extern struct {
     pub fn AccessibleDescription(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5138,7 +5138,7 @@ pub const KUrlComboBox = extern struct {
     pub fn SaveGeometry(self: KUrlComboBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kurlcombobox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KUrlComboBox.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -5674,7 +5674,7 @@ pub const KUrlComboBox = extern struct {
     pub fn Actions(self: KUrlComboBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kurlcombobox.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KUrlComboBox.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6489,7 +6489,7 @@ pub const KUrlComboBox = extern struct {
     pub fn ObjectName(self: KUrlComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcombobox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboBox.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6666,7 +6666,7 @@ pub const KUrlComboBox = extern struct {
     pub fn Children(self: KUrlComboBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kurlcombobox.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUrlComboBox.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6927,10 +6927,10 @@ pub const KUrlComboBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kurlcombobox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUrlComboBox.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlcombobox.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlComboBox.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -7525,7 +7525,7 @@ pub const KUrlComboBox = extern struct {
     pub fn KeyBinding(self: KUrlComboBox, allocator: std.mem.Allocator, item: i32) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self.ptr), @bitCast(item));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("kurlcombobox.KeyBinding: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KUrlComboBox.KeyBinding: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7803,7 +7803,7 @@ pub const KUrlComboBox = extern struct {
     /// ` autoSuggest: bool `
     ///
     pub fn SetCompletedItems(self: KUrlComboBox, allocator: std.mem.Allocator, items: []const []const u8, autoSuggest: bool) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kurlcombobox.SetCompletedItems: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KUrlComboBox.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i|
             items_arr[i] = .{
@@ -7838,7 +7838,7 @@ pub const KUrlComboBox = extern struct {
     /// ` autoSuggest: bool `
     ///
     pub fn SuperSetCompletedItems(self: KUrlComboBox, allocator: std.mem.Allocator, items: []const []const u8, autoSuggest: bool) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kurlcombobox.SetCompletedItems: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KUrlComboBox.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i|
             items_arr[i] = .{
@@ -11171,7 +11171,7 @@ pub const KUrlComboBox = extern struct {
     pub fn KeyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
         const _map: qtc.libqt_map = qtc.KUrlComboBox_KeyBindingMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kurlcombobox.KeyBindingMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KUrlComboBox.KeyBindingMap: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -11186,7 +11186,7 @@ pub const KUrlComboBox = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("kurlcombobox.KeyBindingMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KUrlComboBox.KeyBindingMap: Memory allocation failed");
             const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
             for (0.._value.len) |ii|
                 _value_slice[ii] = .{ .ptr = _value_data[ii] };
@@ -11218,7 +11218,7 @@ pub const KUrlComboBox = extern struct {
     pub fn SuperKeyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
         const _map: qtc.libqt_map = qtc.KUrlComboBox_SuperKeyBindingMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kurlcombobox.KeyBindingMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KUrlComboBox.KeyBindingMap: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -11233,7 +11233,7 @@ pub const KUrlComboBox = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("kurlcombobox.KeyBindingMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KUrlComboBox.KeyBindingMap: Memory allocation failed");
             const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
             for (0.._value.len) |ii|
                 _value_slice[ii] = .{ .ptr = _value_data[ii] };
@@ -11278,9 +11278,9 @@ pub const KUrlComboBox = extern struct {
     ///
     pub fn SetKeyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator, keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
         const keyBindingMap_count = keyBindingMap.count();
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("kurlcombobox.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KUrlComboBox.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("kurlcombobox.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KUrlComboBox.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
         var i: usize = 0;
         var keyBindingMap_it = keyBindingMap.iterator();
@@ -11321,9 +11321,9 @@ pub const KUrlComboBox = extern struct {
     ///
     pub fn SuperSetKeyBindingMap(self: KUrlComboBox, allocator: std.mem.Allocator, keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
         const keyBindingMap_count = keyBindingMap.count();
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("kurlcombobox.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KUrlComboBox.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("kurlcombobox.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KUrlComboBox.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
         var i: usize = 0;
         var keyBindingMap_it = keyBindingMap.iterator();

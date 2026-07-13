@@ -68,7 +68,7 @@ pub const KIconLoader = extern struct {
             .len = appname.len,
             .data = appname.ptr,
         };
-        const extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("kiconloader.New3: Memory allocation failed");
+        const extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("KIconLoader.New3: Memory allocation failed");
         defer allocator.free(extraSearchPaths_arr);
         for (extraSearchPaths, 0..extraSearchPaths.len) |item, i|
             extraSearchPaths_arr[i] = .{
@@ -99,7 +99,7 @@ pub const KIconLoader = extern struct {
             .len = appname.len,
             .data = appname.ptr,
         };
-        const extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("kiconloader.New4: Memory allocation failed");
+        const extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("KIconLoader.New4: Memory allocation failed");
         defer allocator.free(extraSearchPaths_arr);
         for (extraSearchPaths, 0..extraSearchPaths.len) |item, i|
             extraSearchPaths_arr[i] = .{
@@ -252,7 +252,7 @@ pub const KIconLoader = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconloader.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -334,7 +334,7 @@ pub const KIconLoader = extern struct {
         };
         var _str = qtc.KIconLoader_IconPath(@ptrCast(self.ptr), name_str, @bitCast(group_or_size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconloader.IconPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.IconPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -362,7 +362,7 @@ pub const KIconLoader = extern struct {
         };
         var _str = qtc.KIconLoader_IconPath2(@ptrCast(self.ptr), name_str, @bitCast(group_or_size), canReturnNull, @bitCast(scale));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconloader.IconPath2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.IconPath2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -404,7 +404,7 @@ pub const KIconLoader = extern struct {
         };
         var _str = qtc.KIconLoader_MoviePath(@ptrCast(self.ptr), name_str, @bitCast(group));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconloader.MoviePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.MoviePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -433,10 +433,10 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kiconloader.LoadAnimated: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.LoadAnimated: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kiconloader.LoadAnimated: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.LoadAnimated: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -459,10 +459,10 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kiconloader.QueryIcons: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.QueryIcons: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kiconloader.QueryIcons: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.QueryIcons: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -487,10 +487,10 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kiconloader.QueryIcons2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.QueryIcons2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kiconloader.QueryIcons2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.QueryIcons2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -515,10 +515,10 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kiconloader.QueryIconsByContext: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.QueryIconsByContext: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kiconloader.QueryIconsByContext: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.QueryIconsByContext: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -559,10 +559,10 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kiconloader.QueryIconsByDir: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.QueryIconsByDir: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kiconloader.QueryIconsByDir: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.QueryIconsByDir: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -585,10 +585,10 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kiconloader.SearchPaths: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.SearchPaths: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kiconloader.SearchPaths: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.SearchPaths: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -664,7 +664,7 @@ pub const KIconLoader = extern struct {
     /// ` group: kiconloader_enums.Group `
     ///
     pub fn DrawOverlays(self: KIconLoader, allocator: std.mem.Allocator, overlays: []const []const u8, pixmap: anytype, group: i32) void {
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconloader.DrawOverlays: Memory allocation failed");
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.DrawOverlays: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i|
             overlays_arr[i] = .{
@@ -819,7 +819,7 @@ pub const KIconLoader = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconloader.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -841,7 +841,7 @@ pub const KIconLoader = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconloader.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -933,7 +933,7 @@ pub const KIconLoader = extern struct {
             .len = name.len,
             .data = name.ptr,
         };
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconloader.LoadIcon5: Memory allocation failed");
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.LoadIcon5: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i|
             overlays_arr[i] = .{
@@ -1012,7 +1012,7 @@ pub const KIconLoader = extern struct {
             .len = iconName.len,
             .data = iconName.ptr,
         };
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconloader.LoadMimeTypeIcon5: Memory allocation failed");
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.LoadMimeTypeIcon5: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i|
             overlays_arr[i] = .{
@@ -1047,7 +1047,7 @@ pub const KIconLoader = extern struct {
         };
         var _str = qtc.KIconLoader_IconPath3(@ptrCast(self.ptr), name_str, @bitCast(group_or_size), canReturnNull);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconloader.IconPath3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.IconPath3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1116,7 +1116,7 @@ pub const KIconLoader = extern struct {
         };
         var _str = qtc.KIconLoader_MoviePath3(@ptrCast(self.ptr), name_str, @bitCast(group), @bitCast(size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconloader.MoviePath3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.MoviePath3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1147,10 +1147,10 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kiconloader.LoadAnimated3: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.LoadAnimated3: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kiconloader.LoadAnimated3: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.LoadAnimated3: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1177,10 +1177,10 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kiconloader.QueryIcons22: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.QueryIcons22: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kiconloader.QueryIcons22: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.QueryIcons22: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1207,10 +1207,10 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kiconloader.QueryIconsByContext2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIconLoader.QueryIconsByContext2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kiconloader.QueryIconsByContext2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.QueryIconsByContext2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1234,7 +1234,7 @@ pub const KIconLoader = extern struct {
             .len = appname.len,
             .data = appname.ptr,
         };
-        const extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("kiconloader.Reconfigure2: Memory allocation failed");
+        const extraSearchPaths_arr = allocator.alloc(qtc.libqt_string, extraSearchPaths.len) catch @panic("KIconLoader.Reconfigure2: Memory allocation failed");
         defer allocator.free(extraSearchPaths_arr);
         for (extraSearchPaths, 0..extraSearchPaths.len) |item, i|
             extraSearchPaths_arr[i] = .{
@@ -1265,7 +1265,7 @@ pub const KIconLoader = extern struct {
     /// ` state: i32 `
     ///
     pub fn DrawOverlays4(self: KIconLoader, allocator: std.mem.Allocator, overlays: []const []const u8, pixmap: anytype, group: i32, state: i32) void {
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconloader.DrawOverlays4: Memory allocation failed");
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconLoader.DrawOverlays4: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i|
             overlays_arr[i] = .{
@@ -1293,7 +1293,7 @@ pub const KIconLoader = extern struct {
     pub fn ObjectName(self: KIconLoader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconloader.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconLoader.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1470,7 +1470,7 @@ pub const KIconLoader = extern struct {
     pub fn Children(self: KIconLoader, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kiconloader.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KIconLoader.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1746,10 +1746,10 @@ pub const KIconLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kiconloader.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIconLoader.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kiconloader.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconLoader.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2734,7 +2734,7 @@ pub const KDE = extern struct {
             .len = iconName.len,
             .data = iconName.ptr,
         };
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kde.Icon3: Memory allocation failed");
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KDE.Icon3: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i|
             overlays_arr[i] = .{

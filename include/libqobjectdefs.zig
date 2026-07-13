@@ -491,7 +491,7 @@ pub const QMetaObject = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QMetaObject_Tr(@ptrCast(self.ptr), s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmetaobject.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMetaObject.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -797,7 +797,7 @@ pub const QMetaObject = extern struct {
         const method_Cstring = method.ptr;
         var _bytearray: qtc.libqt_string = qtc.QMetaObject_NormalizedSignature(method_Cstring);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetaobject.NormalizedSignature: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMetaObject.NormalizedSignature: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -814,7 +814,7 @@ pub const QMetaObject = extern struct {
         const typeVal_Cstring = typeVal.ptr;
         var _bytearray: qtc.libqt_string = qtc.QMetaObject_NormalizedType(typeVal_Cstring);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qmetaobject.NormalizedType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QMetaObject.NormalizedType: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1094,7 +1094,7 @@ pub const QMetaObject = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QMetaObject_Tr3(@ptrCast(self.ptr), s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmetaobject.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMetaObject.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

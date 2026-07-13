@@ -173,7 +173,7 @@ pub const KUnitConversion__Converter = extern struct {
     pub fn Categories(self: KUnitConversion__Converter, allocator: std.mem.Allocator) []KUnitConversion__UnitCategory {
         const _arr: qtc.libqt_list = qtc.KUnitConversion__Converter_Categories(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUnitConversion__UnitCategory, _arr.len) catch @panic("kunitconversion__converter.Categories: Memory allocation failed");
+        const _ret = allocator.alloc(KUnitConversion__UnitCategory, _arr.len) catch @panic("KUnitConversion__Converter.Categories: Memory allocation failed");
         const _data: [*]QtC.KUnitConversion__UnitCategory = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

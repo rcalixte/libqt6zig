@@ -139,7 +139,7 @@ pub const KConfig = extern struct {
     pub fn Name(self: KConfig, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfig.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfig.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -367,7 +367,7 @@ pub const KConfig = extern struct {
     /// ` sources: []const []const u8 `
     ///
     pub fn AddConfigSources(self: KConfig, allocator: std.mem.Allocator, sources: []const []const u8) void {
-        const sources_arr = allocator.alloc(qtc.libqt_string, sources.len) catch @panic("kconfig.AddConfigSources: Memory allocation failed");
+        const sources_arr = allocator.alloc(qtc.libqt_string, sources.len) catch @panic("KConfig.AddConfigSources: Memory allocation failed");
         defer allocator.free(sources_arr);
         for (sources, 0..sources.len) |item, i|
             sources_arr[i] = .{
@@ -397,10 +397,10 @@ pub const KConfig = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kconfig.AdditionalConfigSources: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfig.AdditionalConfigSources: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kconfig.AdditionalConfigSources: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KConfig.AdditionalConfigSources: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -418,7 +418,7 @@ pub const KConfig = extern struct {
     pub fn Locale(self: KConfig, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_Locale(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfig.Locale: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfig.Locale: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -517,10 +517,10 @@ pub const KConfig = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kconfig.GroupList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfig.GroupList: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kconfig.GroupList: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KConfig.GroupList: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -565,10 +565,10 @@ pub const KConfig = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kconfig.GroupList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfig.GroupList: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kconfig.GroupList: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KConfig.GroupList: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -586,7 +586,7 @@ pub const KConfig = extern struct {
     pub fn EntryMap(self: KConfig, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kconfig.EntryMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KConfig.EntryMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -602,10 +602,10 @@ pub const KConfig = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kconfig.EntryMap: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KConfig.EntryMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kconfig.EntryMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KConfig.EntryMap: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
@@ -635,7 +635,7 @@ pub const KConfig = extern struct {
     pub fn MainConfigName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_MainConfigName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kconfig.MainConfigName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfig.MainConfigName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -992,7 +992,7 @@ pub const KConfig = extern struct {
         };
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap1(@ptrCast(self.ptr), aGroup_str);
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kconfig.EntryMap1: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KConfig.EntryMap1: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -1008,10 +1008,10 @@ pub const KConfig = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kconfig.EntryMap1: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KConfig.EntryMap1: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kconfig.EntryMap1: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KConfig.EntryMap1: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }

@@ -15,9 +15,9 @@ QChar* KCharsets_FromEntity(libqt_string str) {
     return new QChar(KCharsets::fromEntity(str_QString));
 }
 
-QChar* KCharsets_FromEntity2(libqt_string str, int* lenVal) {
+QChar* KCharsets_FromEntity2(libqt_string str, int* len) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    return new QChar(KCharsets::fromEntity(str_QString, static_cast<int&>(*lenVal)));
+    return new QChar(KCharsets::fromEntity(str_QString, static_cast<int&>(*len)));
 }
 
 libqt_string KCharsets_ToEntity(const QChar* ch) {

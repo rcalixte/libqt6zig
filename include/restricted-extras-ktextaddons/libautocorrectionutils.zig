@@ -109,7 +109,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes = exter
     pub fn ToString(self: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectioncore__autocorrectionutils__typographicquotes.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -186,7 +186,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
         };
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_LibreofficeFile(lang_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectioncore__autocorrectionutils.LibreofficeFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.LibreofficeFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -205,10 +205,10 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("textautocorrectioncore__autocorrectionutils.LibreOfficeAutoCorrectionPath: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.LibreOfficeAutoCorrectionPath: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textautocorrectioncore__autocorrectionutils.LibreOfficeAutoCorrectionPath: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.LibreOfficeAutoCorrectionPath: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -229,10 +229,10 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("textautocorrectioncore__autocorrectionutils.SearchAutoCorrectLibreOfficeFiles: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.SearchAutoCorrectLibreOfficeFiles: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textautocorrectioncore__autocorrectionutils.SearchAutoCorrectLibreOfficeFiles: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.SearchAutoCorrectLibreOfficeFiles: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -248,7 +248,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
     /// ` langs: []const []const u8 `
     ///
     pub fn AutoCorrectLibreOfficeLanguageToString(allocator: std.mem.Allocator, langs: []const []const u8) []const []const u8 {
-        const langs_arr = allocator.alloc(qtc.libqt_string, langs.len) catch @panic("textautocorrectioncore__autocorrectionutils.AutoCorrectLibreOfficeLanguageToString: Memory allocation failed");
+        const langs_arr = allocator.alloc(qtc.libqt_string, langs.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.AutoCorrectLibreOfficeLanguageToString: Memory allocation failed");
         defer allocator.free(langs_arr);
         for (langs, 0..langs.len) |item, i|
             langs_arr[i] = .{
@@ -266,10 +266,10 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("textautocorrectioncore__autocorrectionutils.AutoCorrectLibreOfficeLanguageToString: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.AutoCorrectLibreOfficeLanguageToString: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textautocorrectioncore__autocorrectionutils.AutoCorrectLibreOfficeLanguageToString: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.AutoCorrectLibreOfficeLanguageToString: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -285,7 +285,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
     pub fn LibreOfficeWritableLocalAutoCorrectionPath(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_LibreOfficeWritableLocalAutoCorrectionPath();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectioncore__autocorrectionutils.LibreOfficeWritableLocalAutoCorrectionPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.LibreOfficeWritableLocalAutoCorrectionPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -317,7 +317,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
         };
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_ContainsAutoCorrectionFile(lang_str, customSystemPath_str, customWritablePath_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectioncore__autocorrectionutils.ContainsAutoCorrectionFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.ContainsAutoCorrectionFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -331,7 +331,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
     pub fn LibreOfficeSystemPath(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_LibreOfficeSystemPath();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectioncore__autocorrectionutils.LibreOfficeSystemPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.LibreOfficeSystemPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -345,7 +345,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
     pub fn LibreOfficeLocalPath(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionUtils_LibreOfficeLocalPath();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectioncore__autocorrectionutils.LibreOfficeLocalPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.LibreOfficeLocalPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -370,10 +370,10 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("textautocorrectioncore__autocorrectionutils.WordsFromSentence: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.WordsFromSentence: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textautocorrectioncore__autocorrectionutils.WordsFromSentence: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionUtils.WordsFromSentence: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

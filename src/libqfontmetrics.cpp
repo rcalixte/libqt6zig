@@ -187,9 +187,9 @@ bool QFontMetrics_OperatorNotEqual(const QFontMetrics* self, const QFontMetrics*
     return (*self != *other);
 }
 
-int QFontMetrics_HorizontalAdvance22(const QFontMetrics* self, const libqt_string param1, int lenVal) {
+int QFontMetrics_HorizontalAdvance22(const QFontMetrics* self, const libqt_string param1, int len) {
     QString param1_QString = QString::fromUtf8(param1.data, param1.len);
-    return self->horizontalAdvance(param1_QString, static_cast<int>(lenVal));
+    return self->horizontalAdvance(param1_QString, static_cast<int>(len));
 }
 
 QRect* QFontMetrics_BoundingRect42(const QFontMetrics* self, const QRect* r, int flags, const libqt_string text, int tabstops) {

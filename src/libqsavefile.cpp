@@ -80,10 +80,10 @@ bool QSaveFile_DirectWriteFallback(const QSaveFile* self) {
     return self->directWriteFallback();
 }
 
-long long QSaveFile_WriteData(QSaveFile* self, const char* data, long long lenVal) {
+long long QSaveFile_WriteData(QSaveFile* self, const char* data, long long len) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
-        return static_cast<long long>(vqsavefile->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqsavefile->writeData(data, static_cast<qint64>(len)));
     }
     return {};
 }
@@ -200,13 +200,13 @@ void QSaveFile_OnOpen(QSaveFile* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QSaveFile_SuperWriteData(QSaveFile* self, const char* data, long long lenVal) {
+long long QSaveFile_SuperWriteData(QSaveFile* self, const char* data, long long len) {
     auto* vqsavefile = dynamic_cast<VirtualQSaveFile*>(self);
     if (vqsavefile && vqsavefile->isVirtualQSaveFile) {
         vqsavefile->setQSaveFile_WriteData_IsBase(true);
-        return static_cast<long long>(vqsavefile->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqsavefile->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualQSaveFile*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualQSaveFile*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 

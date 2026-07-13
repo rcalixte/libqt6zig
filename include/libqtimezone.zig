@@ -299,7 +299,7 @@ pub const QTimeZone = extern struct {
     pub fn Id(self: QTimeZone, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QTimeZone_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtimezone.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTimeZone.Id: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -343,7 +343,7 @@ pub const QTimeZone = extern struct {
     pub fn Comment(self: QTimeZone, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTimeZone_Comment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimezone.Comment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeZone.Comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -362,7 +362,7 @@ pub const QTimeZone = extern struct {
         comptime _ = @TypeOf(atDateTime)._is_QDateTime;
         var _str = qtc.QTimeZone_DisplayName(@ptrCast(self.ptr), @ptrCast(atDateTime.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimezone.DisplayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeZone.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -380,7 +380,7 @@ pub const QTimeZone = extern struct {
     pub fn DisplayName2(self: QTimeZone, allocator: std.mem.Allocator, timeType: i32) []const u8 {
         var _str = qtc.QTimeZone_DisplayName2(@ptrCast(self.ptr), @bitCast(timeType));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimezone.DisplayName2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeZone.DisplayName2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -399,7 +399,7 @@ pub const QTimeZone = extern struct {
         comptime _ = @TypeOf(atDateTime)._is_QDateTime;
         var _str = qtc.QTimeZone_Abbreviation(@ptrCast(self.ptr), @ptrCast(atDateTime.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimezone.Abbreviation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeZone.Abbreviation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -532,7 +532,7 @@ pub const QTimeZone = extern struct {
         comptime _ = @TypeOf(toDateTime)._is_QDateTime;
         const _arr: qtc.libqt_list = qtc.QTimeZone_Transitions(@ptrCast(self.ptr), @ptrCast(fromDateTime.ptr), @ptrCast(toDateTime.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTimeZone__OffsetData, _arr.len) catch @panic("qtimezone.Transitions: Memory allocation failed");
+        const _ret = allocator.alloc(QTimeZone__OffsetData, _arr.len) catch @panic("QTimeZone.Transitions: Memory allocation failed");
         const _data: [*]QtC.QTimeZone__OffsetData = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -548,7 +548,7 @@ pub const QTimeZone = extern struct {
     pub fn SystemTimeZoneId(allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QTimeZone_SystemTimeZoneId();
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtimezone.SystemTimeZoneId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTimeZone.SystemTimeZoneId: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -593,10 +593,10 @@ pub const QTimeZone = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtimezone.AvailableTimeZoneIds: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTimeZone.AvailableTimeZoneIds: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtimezone.AvailableTimeZoneIds: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTimeZone.AvailableTimeZoneIds: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -619,10 +619,10 @@ pub const QTimeZone = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtimezone.AvailableTimeZoneIds2: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTimeZone.AvailableTimeZoneIds2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtimezone.AvailableTimeZoneIds2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTimeZone.AvailableTimeZoneIds2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -645,10 +645,10 @@ pub const QTimeZone = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtimezone.AvailableTimeZoneIds3: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTimeZone.AvailableTimeZoneIds3: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtimezone.AvailableTimeZoneIds3: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTimeZone.AvailableTimeZoneIds3: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -670,7 +670,7 @@ pub const QTimeZone = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QTimeZone_IanaIdToWindowsId(ianaId_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtimezone.IanaIdToWindowsId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTimeZone.IanaIdToWindowsId: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -690,7 +690,7 @@ pub const QTimeZone = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QTimeZone_WindowsIdToDefaultIanaId(windowsId_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtimezone.WindowsIdToDefaultIanaId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTimeZone.WindowsIdToDefaultIanaId: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -712,7 +712,7 @@ pub const QTimeZone = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QTimeZone_WindowsIdToDefaultIanaId2(windowsId_str, @bitCast(territory));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qtimezone.WindowsIdToDefaultIanaId2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QTimeZone.WindowsIdToDefaultIanaId2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -737,10 +737,10 @@ pub const QTimeZone = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtimezone.WindowsIdToIanaIds: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTimeZone.WindowsIdToIanaIds: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtimezone.WindowsIdToIanaIds: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTimeZone.WindowsIdToIanaIds: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -769,10 +769,10 @@ pub const QTimeZone = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtimezone.WindowsIdToIanaIds2: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTimeZone.WindowsIdToIanaIds2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtimezone.WindowsIdToIanaIds2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTimeZone.WindowsIdToIanaIds2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -795,7 +795,7 @@ pub const QTimeZone = extern struct {
         comptime _ = @TypeOf(atDateTime)._is_QDateTime;
         var _str = qtc.QTimeZone_DisplayName22(@ptrCast(self.ptr), @ptrCast(atDateTime.ptr), @bitCast(nameType));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimezone.DisplayName22: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeZone.DisplayName22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -819,7 +819,7 @@ pub const QTimeZone = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QTimeZone_DisplayName3(@ptrCast(self.ptr), @ptrCast(atDateTime.ptr), @bitCast(nameType), @ptrCast(locale.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimezone.DisplayName3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeZone.DisplayName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -839,7 +839,7 @@ pub const QTimeZone = extern struct {
     pub fn DisplayName23(self: QTimeZone, allocator: std.mem.Allocator, timeType: i32, nameType: i32) []const u8 {
         var _str = qtc.QTimeZone_DisplayName23(@ptrCast(self.ptr), @bitCast(timeType), @bitCast(nameType));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimezone.DisplayName23: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeZone.DisplayName23: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -862,7 +862,7 @@ pub const QTimeZone = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QTimeZone_DisplayName32(@ptrCast(self.ptr), @bitCast(timeType), @bitCast(nameType), @ptrCast(locale.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtimezone.DisplayName32: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTimeZone.DisplayName32: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -922,7 +922,7 @@ pub const QTimeZone__OffsetData = extern struct {
     pub fn Abbreviation(self: QTimeZone__OffsetData, allocator: std.mem.Allocator) []const u8 {
         var abbreviation_str = qtc.QTimeZone__OffsetData_Abbreviation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&abbreviation_str);
-        const abbreviation_ret = allocator.alloc(u8, abbreviation_str.len) catch @panic("qtimezone__offsetdata.Abbreviation: Memory allocation failed");
+        const abbreviation_ret = allocator.alloc(u8, abbreviation_str.len) catch @panic("QTimeZone__OffsetData.Abbreviation: Memory allocation failed");
         @memcpy(abbreviation_ret, abbreviation_str.data[0..abbreviation_str.len]);
         return abbreviation_ret;
     }

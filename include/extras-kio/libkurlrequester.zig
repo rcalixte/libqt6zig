@@ -282,7 +282,7 @@ pub const KUrlRequester = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -318,7 +318,7 @@ pub const KUrlRequester = extern struct {
     pub fn Text(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUrlRequester_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -386,7 +386,7 @@ pub const KUrlRequester = extern struct {
     /// ` filters: []const []const u8 `
     ///
     pub fn SetNameFilters(self: KUrlRequester, allocator: std.mem.Allocator, filters: []const []const u8) void {
-        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurlrequester.SetNameFilters: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUrlRequester.SetNameFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i|
             filters_arr[i] = .{
@@ -432,10 +432,10 @@ pub const KUrlRequester = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlrequester.NameFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlRequester.NameFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlrequester.NameFilters: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlRequester.NameFilters: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -453,7 +453,7 @@ pub const KUrlRequester = extern struct {
     /// ` mimeTypes: []const []const u8 `
     ///
     pub fn SetMimeTypeFilters(self: KUrlRequester, allocator: std.mem.Allocator, mimeTypes: []const []const u8) void {
-        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kurlrequester.SetMimeTypeFilters: Memory allocation failed");
+        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("KUrlRequester.SetMimeTypeFilters: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
         for (mimeTypes, 0..mimeTypes.len) |item, i|
             mimeTypes_arr[i] = .{
@@ -483,10 +483,10 @@ pub const KUrlRequester = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlrequester.MimeTypeFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlRequester.MimeTypeFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlrequester.MimeTypeFilters: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlRequester.MimeTypeFilters: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -594,7 +594,7 @@ pub const KUrlRequester = extern struct {
     pub fn PlaceholderText(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUrlRequester_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.PlaceholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -940,7 +940,7 @@ pub const KUrlRequester = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -962,7 +962,7 @@ pub const KUrlRequester = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2337,7 +2337,7 @@ pub const KUrlRequester = extern struct {
     pub fn StyleSheet(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2355,7 +2355,7 @@ pub const KUrlRequester = extern struct {
     pub fn WindowTitle(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2418,7 +2418,7 @@ pub const KUrlRequester = extern struct {
     pub fn WindowIconText(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2454,7 +2454,7 @@ pub const KUrlRequester = extern struct {
     pub fn WindowRole(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2490,7 +2490,7 @@ pub const KUrlRequester = extern struct {
     pub fn WindowFilePath(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2564,7 +2564,7 @@ pub const KUrlRequester = extern struct {
     pub fn ToolTip(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2626,7 +2626,7 @@ pub const KUrlRequester = extern struct {
     pub fn StatusTip(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2662,7 +2662,7 @@ pub const KUrlRequester = extern struct {
     pub fn WhatsThis(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2680,7 +2680,7 @@ pub const KUrlRequester = extern struct {
     pub fn AccessibleName(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2716,7 +2716,7 @@ pub const KUrlRequester = extern struct {
     pub fn AccessibleDescription(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3566,7 +3566,7 @@ pub const KUrlRequester = extern struct {
     pub fn SaveGeometry(self: KUrlRequester, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kurlrequester.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KUrlRequester.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -4102,7 +4102,7 @@ pub const KUrlRequester = extern struct {
     pub fn Actions(self: KUrlRequester, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kurlrequester.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KUrlRequester.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4917,7 +4917,7 @@ pub const KUrlRequester = extern struct {
     pub fn ObjectName(self: KUrlRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlrequester.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlRequester.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5094,7 +5094,7 @@ pub const KUrlRequester = extern struct {
     pub fn Children(self: KUrlRequester, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kurlrequester.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUrlRequester.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5355,10 +5355,10 @@ pub const KUrlRequester = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kurlrequester.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUrlRequester.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlrequester.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlRequester.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -8918,7 +8918,7 @@ pub const KUrlComboRequester = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8938,7 +8938,7 @@ pub const KUrlComboRequester = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8960,7 +8960,7 @@ pub const KUrlComboRequester = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -9002,7 +9002,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn Text(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUrlRequester_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -9080,7 +9080,7 @@ pub const KUrlComboRequester = extern struct {
     /// ` filters: []const []const u8 `
     ///
     pub fn SetNameFilters(self: KUrlComboRequester, allocator: std.mem.Allocator, filters: []const []const u8) void {
-        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("kurlcomborequester.SetNameFilters: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("KUrlComboRequester.SetNameFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i|
             filters_arr[i] = .{
@@ -9130,10 +9130,10 @@ pub const KUrlComboRequester = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlcomborequester.NameFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlComboRequester.NameFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlcomborequester.NameFilters: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlComboRequester.NameFilters: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -9153,7 +9153,7 @@ pub const KUrlComboRequester = extern struct {
     /// ` mimeTypes: []const []const u8 `
     ///
     pub fn SetMimeTypeFilters(self: KUrlComboRequester, allocator: std.mem.Allocator, mimeTypes: []const []const u8) void {
-        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kurlcomborequester.SetMimeTypeFilters: Memory allocation failed");
+        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("KUrlComboRequester.SetMimeTypeFilters: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
         for (mimeTypes, 0..mimeTypes.len) |item, i|
             mimeTypes_arr[i] = .{
@@ -9185,10 +9185,10 @@ pub const KUrlComboRequester = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlcomborequester.MimeTypeFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlComboRequester.MimeTypeFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlcomborequester.MimeTypeFilters: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlComboRequester.MimeTypeFilters: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -9268,7 +9268,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn PlaceholderText(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUrlRequester_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.PlaceholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10905,7 +10905,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn StyleSheet(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10923,7 +10923,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn WindowTitle(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10986,7 +10986,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn WindowIconText(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11022,7 +11022,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn WindowRole(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11058,7 +11058,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn WindowFilePath(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11132,7 +11132,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn ToolTip(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11194,7 +11194,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn StatusTip(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11230,7 +11230,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn WhatsThis(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11248,7 +11248,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn AccessibleName(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11284,7 +11284,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn AccessibleDescription(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -12134,7 +12134,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn SaveGeometry(self: KUrlComboRequester, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kurlcomborequester.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KUrlComboRequester.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -12670,7 +12670,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn Actions(self: KUrlComboRequester, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kurlcomborequester.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KUrlComboRequester.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -13485,7 +13485,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn ObjectName(self: KUrlComboRequester, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcomborequester.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlComboRequester.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -13662,7 +13662,7 @@ pub const KUrlComboRequester = extern struct {
     pub fn Children(self: KUrlComboRequester, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kurlcomborequester.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUrlComboRequester.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -13923,10 +13923,10 @@ pub const KUrlComboRequester = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kurlcomborequester.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUrlComboRequester.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlcomborequester.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlComboRequester.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

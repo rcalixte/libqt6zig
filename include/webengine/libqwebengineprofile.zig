@@ -225,7 +225,7 @@ pub const QWebEngineProfile = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineProfile.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -241,7 +241,7 @@ pub const QWebEngineProfile = extern struct {
     pub fn StorageName(self: QWebEngineProfile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineProfile_StorageName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.StorageName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineProfile.StorageName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -267,7 +267,7 @@ pub const QWebEngineProfile = extern struct {
     pub fn PersistentStoragePath(self: QWebEngineProfile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineProfile_PersistentStoragePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.PersistentStoragePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineProfile.PersistentStoragePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -299,7 +299,7 @@ pub const QWebEngineProfile = extern struct {
     pub fn CachePath(self: QWebEngineProfile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineProfile_CachePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.CachePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineProfile.CachePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -331,7 +331,7 @@ pub const QWebEngineProfile = extern struct {
     pub fn HttpUserAgent(self: QWebEngineProfile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineProfile_HttpUserAgent(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.HttpUserAgent: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineProfile.HttpUserAgent: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -405,7 +405,7 @@ pub const QWebEngineProfile = extern struct {
     pub fn HttpAcceptLanguage(self: QWebEngineProfile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineProfile_HttpAcceptLanguage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.HttpAcceptLanguage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineProfile.HttpAcceptLanguage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -671,7 +671,7 @@ pub const QWebEngineProfile = extern struct {
     /// ` languages: []const []const u8 `
     ///
     pub fn SetSpellCheckLanguages(self: QWebEngineProfile, allocator: std.mem.Allocator, languages: []const []const u8) void {
-        const languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("qwebengineprofile.SetSpellCheckLanguages: Memory allocation failed");
+        const languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("QWebEngineProfile.SetSpellCheckLanguages: Memory allocation failed");
         defer allocator.free(languages_arr);
         for (languages, 0..languages.len) |item, i|
             languages_arr[i] = .{
@@ -701,10 +701,10 @@ pub const QWebEngineProfile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qwebengineprofile.SpellCheckLanguages: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QWebEngineProfile.SpellCheckLanguages: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qwebengineprofile.SpellCheckLanguages: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebEngineProfile.SpellCheckLanguages: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -744,7 +744,7 @@ pub const QWebEngineProfile = extern struct {
     pub fn DownloadPath(self: QWebEngineProfile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineProfile_DownloadPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.DownloadPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineProfile.DownloadPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -869,7 +869,7 @@ pub const QWebEngineProfile = extern struct {
     pub fn ListAllPermissions(self: QWebEngineProfile, allocator: std.mem.Allocator) []QWebEnginePermission {
         const _arr: qtc.libqt_list = qtc.QWebEngineProfile_ListAllPermissions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWebEnginePermission, _arr.len) catch @panic("qwebengineprofile.ListAllPermissions: Memory allocation failed");
+        const _ret = allocator.alloc(QWebEnginePermission, _arr.len) catch @panic("QWebEngineProfile.ListAllPermissions: Memory allocation failed");
         const _data: [*]QtC.QWebEnginePermission = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -890,7 +890,7 @@ pub const QWebEngineProfile = extern struct {
         comptime _ = @TypeOf(securityOrigin)._is_QUrl;
         const _arr: qtc.libqt_list = qtc.QWebEngineProfile_ListPermissionsForOrigin(@ptrCast(self.ptr), @ptrCast(securityOrigin.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWebEnginePermission, _arr.len) catch @panic("qwebengineprofile.ListPermissionsForOrigin: Memory allocation failed");
+        const _ret = allocator.alloc(QWebEnginePermission, _arr.len) catch @panic("QWebEngineProfile.ListPermissionsForOrigin: Memory allocation failed");
         const _data: [*]QtC.QWebEnginePermission = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -910,7 +910,7 @@ pub const QWebEngineProfile = extern struct {
     pub fn ListPermissionsForPermissionType(self: QWebEngineProfile, allocator: std.mem.Allocator, permissionType: u8) []QWebEnginePermission {
         const _arr: qtc.libqt_list = qtc.QWebEngineProfile_ListPermissionsForPermissionType(@ptrCast(self.ptr), @bitCast(permissionType));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWebEnginePermission, _arr.len) catch @panic("qwebengineprofile.ListPermissionsForPermissionType: Memory allocation failed");
+        const _ret = allocator.alloc(QWebEnginePermission, _arr.len) catch @panic("QWebEngineProfile.ListPermissionsForPermissionType: Memory allocation failed");
         const _data: [*]QtC.QWebEnginePermission = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -985,7 +985,7 @@ pub const QWebEngineProfile = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineProfile.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1007,7 +1007,7 @@ pub const QWebEngineProfile = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineProfile.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1025,7 +1025,7 @@ pub const QWebEngineProfile = extern struct {
     pub fn ObjectName(self: QWebEngineProfile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineprofile.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineProfile.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1202,7 +1202,7 @@ pub const QWebEngineProfile = extern struct {
     pub fn Children(self: QWebEngineProfile, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qwebengineprofile.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWebEngineProfile.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1478,10 +1478,10 @@ pub const QWebEngineProfile = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qwebengineprofile.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineProfile.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qwebengineprofile.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebEngineProfile.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

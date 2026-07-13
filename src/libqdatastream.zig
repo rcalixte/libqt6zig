@@ -498,11 +498,11 @@ pub const QDataStream = extern struct {
     ///
     /// ` param1: [:0]u8 `
     ///
-    /// ` lenVal: *u32 `
+    /// ` len: *u32 `
     ///
-    pub fn ReadBytes(self: QDataStream, param1: [:0]u8, lenVal: *u32) QDataStream {
+    pub fn ReadBytes(self: QDataStream, param1: [:0]u8, len: *u32) QDataStream {
         const param1_Cstring = param1.ptr;
-        return .{ .ptr = qtc.QDataStream_ReadBytes(@ptrCast(self.ptr), param1_Cstring, @ptrCast(lenVal)) };
+        return .{ .ptr = qtc.QDataStream_ReadBytes(@ptrCast(self.ptr), param1_Cstring, @ptrCast(len)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#readBytes)
@@ -513,11 +513,11 @@ pub const QDataStream = extern struct {
     ///
     /// ` param1: [:0]u8 `
     ///
-    /// ` lenVal: *i64 `
+    /// ` len: *i64 `
     ///
-    pub fn ReadBytes2(self: QDataStream, param1: [:0]u8, lenVal: *i64) QDataStream {
+    pub fn ReadBytes2(self: QDataStream, param1: [:0]u8, len: *i64) QDataStream {
         const param1_Cstring = param1.ptr;
-        return .{ .ptr = qtc.QDataStream_ReadBytes2(@ptrCast(self.ptr), param1_Cstring, @ptrCast(lenVal)) };
+        return .{ .ptr = qtc.QDataStream_ReadBytes2(@ptrCast(self.ptr), param1_Cstring, @ptrCast(len)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#readRawData)
@@ -528,11 +528,11 @@ pub const QDataStream = extern struct {
     ///
     /// ` param1: [:0]u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn ReadRawData(self: QDataStream, param1: [:0]u8, lenVal: i64) i64 {
+    pub fn ReadRawData(self: QDataStream, param1: [:0]u8, len: i64) i64 {
         const param1_Cstring = param1.ptr;
-        return qtc.QDataStream_ReadRawData(@ptrCast(self.ptr), param1_Cstring, @bitCast(lenVal));
+        return qtc.QDataStream_ReadRawData(@ptrCast(self.ptr), param1_Cstring, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#writeBytes)
@@ -543,11 +543,11 @@ pub const QDataStream = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn WriteBytes(self: QDataStream, param1: [:0]const u8, lenVal: i64) void {
+    pub fn WriteBytes(self: QDataStream, param1: [:0]const u8, len: i64) void {
         const param1_Cstring = param1.ptr;
-        qtc.QDataStream_WriteBytes(@ptrCast(self.ptr), param1_Cstring, @bitCast(lenVal));
+        qtc.QDataStream_WriteBytes(@ptrCast(self.ptr), param1_Cstring, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#writeRawData)
@@ -558,11 +558,11 @@ pub const QDataStream = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn WriteRawData(self: QDataStream, param1: [:0]const u8, lenVal: i64) i64 {
+    pub fn WriteRawData(self: QDataStream, param1: [:0]const u8, len: i64) i64 {
         const param1_Cstring = param1.ptr;
-        return qtc.QDataStream_WriteRawData(@ptrCast(self.ptr), param1_Cstring, @bitCast(lenVal));
+        return qtc.QDataStream_WriteRawData(@ptrCast(self.ptr), param1_Cstring, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#skipRawData)
@@ -571,10 +571,10 @@ pub const QDataStream = extern struct {
     ///
     /// ` self: QDataStream `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn SkipRawData(self: QDataStream, lenVal: i64) i64 {
-        return qtc.QDataStream_SkipRawData(@ptrCast(self.ptr), @bitCast(lenVal));
+    pub fn SkipRawData(self: QDataStream, len: i64) i64 {
+        return qtc.QDataStream_SkipRawData(@ptrCast(self.ptr), @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdatastream.html#startTransaction)

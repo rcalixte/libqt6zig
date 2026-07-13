@@ -276,7 +276,7 @@ pub const QCalendar = extern struct {
     pub fn Name(self: QCalendar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCalendar_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -367,7 +367,7 @@ pub const QCalendar = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_MonthName(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(month));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.MonthName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.MonthName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -388,7 +388,7 @@ pub const QCalendar = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_StandaloneMonthName(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(month));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.StandaloneMonthName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.StandaloneMonthName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -409,7 +409,7 @@ pub const QCalendar = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_WeekDayName(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(day));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.WeekDayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.WeekDayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -430,7 +430,7 @@ pub const QCalendar = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_StandaloneWeekDayName(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(day));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.StandaloneWeekDayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.StandaloneWeekDayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -464,7 +464,7 @@ pub const QCalendar = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_DateTimeToString(@ptrCast(self.ptr), format_str, @ptrCast(datetime.ptr), @ptrCast(dateOnly.ptr), @ptrCast(timeOnly.ptr), @ptrCast(locale.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.DateTimeToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.DateTimeToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -483,10 +483,10 @@ pub const QCalendar = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcalendar.AvailableCalendars: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCalendar.AvailableCalendars: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcalendar.AvailableCalendars: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCalendar.AvailableCalendars: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -525,7 +525,7 @@ pub const QCalendar = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_MonthName3(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(month), @bitCast(year));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.MonthName3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.MonthName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -550,7 +550,7 @@ pub const QCalendar = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_MonthName4(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(month), @bitCast(year), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.MonthName4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.MonthName4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -573,7 +573,7 @@ pub const QCalendar = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_StandaloneMonthName3(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(month), @bitCast(year));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.StandaloneMonthName3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.StandaloneMonthName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -598,7 +598,7 @@ pub const QCalendar = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_StandaloneMonthName4(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(month), @bitCast(year), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.StandaloneMonthName4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.StandaloneMonthName4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -621,7 +621,7 @@ pub const QCalendar = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_WeekDayName3(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(day), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.WeekDayName3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.WeekDayName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -644,7 +644,7 @@ pub const QCalendar = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_StandaloneWeekDayName3(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(day), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcalendar.StandaloneWeekDayName3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.StandaloneWeekDayName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

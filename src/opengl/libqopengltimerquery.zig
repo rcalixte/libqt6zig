@@ -180,7 +180,7 @@ pub const QOpenGLTimerQuery = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengltimerquery.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLTimerQuery.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -300,7 +300,7 @@ pub const QOpenGLTimerQuery = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengltimerquery.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLTimerQuery.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -322,7 +322,7 @@ pub const QOpenGLTimerQuery = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengltimerquery.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLTimerQuery.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -340,7 +340,7 @@ pub const QOpenGLTimerQuery = extern struct {
     pub fn ObjectName(self: QOpenGLTimerQuery, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengltimerquery.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLTimerQuery.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -517,7 +517,7 @@ pub const QOpenGLTimerQuery = extern struct {
     pub fn Children(self: QOpenGLTimerQuery, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qopengltimerquery.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QOpenGLTimerQuery.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -793,10 +793,10 @@ pub const QOpenGLTimerQuery = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qopengltimerquery.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLTimerQuery.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qopengltimerquery.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QOpenGLTimerQuery.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1883,7 +1883,7 @@ pub const QOpenGLTimeMonitor = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengltimemonitor.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLTimeMonitor.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1951,7 +1951,7 @@ pub const QOpenGLTimeMonitor = extern struct {
     pub fn ObjectIds(self: QOpenGLTimeMonitor, allocator: std.mem.Allocator) []u32 {
         const _arr: qtc.libqt_list = qtc.QOpenGLTimeMonitor_ObjectIds(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u32, _arr.len) catch @panic("qopengltimemonitor.ObjectIds: Memory allocation failed");
+        const _ret = allocator.alloc(u32, _arr.len) catch @panic("QOpenGLTimeMonitor.ObjectIds: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1988,7 +1988,7 @@ pub const QOpenGLTimeMonitor = extern struct {
     pub fn WaitForSamples(self: QOpenGLTimeMonitor, allocator: std.mem.Allocator) []u64 {
         const _arr: qtc.libqt_list = qtc.QOpenGLTimeMonitor_WaitForSamples(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u64, _arr.len) catch @panic("qopengltimemonitor.WaitForSamples: Memory allocation failed");
+        const _ret = allocator.alloc(u64, _arr.len) catch @panic("QOpenGLTimeMonitor.WaitForSamples: Memory allocation failed");
         const _data: [*]u64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -2005,7 +2005,7 @@ pub const QOpenGLTimeMonitor = extern struct {
     pub fn WaitForIntervals(self: QOpenGLTimeMonitor, allocator: std.mem.Allocator) []u64 {
         const _arr: qtc.libqt_list = qtc.QOpenGLTimeMonitor_WaitForIntervals(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u64, _arr.len) catch @panic("qopengltimemonitor.WaitForIntervals: Memory allocation failed");
+        const _ret = allocator.alloc(u64, _arr.len) catch @panic("QOpenGLTimeMonitor.WaitForIntervals: Memory allocation failed");
         const _data: [*]u64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -2036,7 +2036,7 @@ pub const QOpenGLTimeMonitor = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengltimemonitor.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLTimeMonitor.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2058,7 +2058,7 @@ pub const QOpenGLTimeMonitor = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengltimemonitor.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLTimeMonitor.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2076,7 +2076,7 @@ pub const QOpenGLTimeMonitor = extern struct {
     pub fn ObjectName(self: QOpenGLTimeMonitor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengltimemonitor.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLTimeMonitor.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2253,7 +2253,7 @@ pub const QOpenGLTimeMonitor = extern struct {
     pub fn Children(self: QOpenGLTimeMonitor, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qopengltimemonitor.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QOpenGLTimeMonitor.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2529,10 +2529,10 @@ pub const QOpenGLTimeMonitor = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qopengltimemonitor.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLTimeMonitor.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qopengltimemonitor.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QOpenGLTimeMonitor.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

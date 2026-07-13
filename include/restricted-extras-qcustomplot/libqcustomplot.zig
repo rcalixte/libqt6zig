@@ -5809,7 +5809,7 @@ pub const QCPLayer = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayer.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayer.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5835,7 +5835,7 @@ pub const QCPLayer = extern struct {
     pub fn Name(self: QCPLayer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPLayer_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayer.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayer.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5861,7 +5861,7 @@ pub const QCPLayer = extern struct {
     pub fn Children(self: QCPLayer, allocator: std.mem.Allocator) []QCPLayerable {
         const _arr: qtc.libqt_list = qtc.QCPLayer_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayerable, _arr.len) catch @panic("qcplayer.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayerable, _arr.len) catch @panic("QCPLayer.Children: Memory allocation failed");
         const _data: [*]QtC.QCPLayerable = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6123,7 +6123,7 @@ pub const QCPLayer = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayer.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayer.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6145,7 +6145,7 @@ pub const QCPLayer = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayer.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayer.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6163,7 +6163,7 @@ pub const QCPLayer = extern struct {
     pub fn ObjectName(self: QCPLayer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayer.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayer.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6596,10 +6596,10 @@ pub const QCPLayer = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcplayer.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPLayer.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcplayer.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPLayer.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -7717,7 +7717,7 @@ pub const QCPLayerable = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayerable.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayerable.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8713,7 +8713,7 @@ pub const QCPLayerable = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayerable.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayerable.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8735,7 +8735,7 @@ pub const QCPLayerable = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayerable.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayerable.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8753,7 +8753,7 @@ pub const QCPLayerable = extern struct {
     pub fn ObjectName(self: QCPLayerable, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayerable.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayerable.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8930,7 +8930,7 @@ pub const QCPLayerable = extern struct {
     pub fn Children(self: QCPLayerable, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcplayerable.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPLayerable.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -9206,10 +9206,10 @@ pub const QCPLayerable = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcplayerable.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPLayerable.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcplayerable.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPLayerable.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -10947,7 +10947,7 @@ pub const QCPDataSelection = extern struct {
     pub fn DataRanges(self: QCPDataSelection, allocator: std.mem.Allocator) []QCPDataRange {
         const _arr: qtc.libqt_list = qtc.QCPDataSelection_DataRanges(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPDataRange, _arr.len) catch @panic("qcpdataselection.DataRanges: Memory allocation failed");
+        const _ret = allocator.alloc(QCPDataRange, _arr.len) catch @panic("QCPDataSelection.DataRanges: Memory allocation failed");
         const _data: [*]QtC.QCPDataRange = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -11276,7 +11276,7 @@ pub const QCPSelectionRect = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpselectionrect.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPSelectionRect.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11770,7 +11770,7 @@ pub const QCPSelectionRect = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpselectionrect.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPSelectionRect.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11792,7 +11792,7 @@ pub const QCPSelectionRect = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpselectionrect.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPSelectionRect.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11972,7 +11972,7 @@ pub const QCPSelectionRect = extern struct {
     pub fn ObjectName(self: QCPSelectionRect, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpselectionrect.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPSelectionRect.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -12149,7 +12149,7 @@ pub const QCPSelectionRect = extern struct {
     pub fn Children(self: QCPSelectionRect, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpselectionrect.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPSelectionRect.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -12425,10 +12425,10 @@ pub const QCPSelectionRect = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpselectionrect.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPSelectionRect.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpselectionrect.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPSelectionRect.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -14375,7 +14375,7 @@ pub const QCPMarginGroup = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpmargingroup.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPMarginGroup.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -14393,7 +14393,7 @@ pub const QCPMarginGroup = extern struct {
     pub fn Elements(self: QCPMarginGroup, allocator: std.mem.Allocator, side: i32) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPMarginGroup_Elements(@ptrCast(self.ptr), @bitCast(side));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcpmargingroup.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPMarginGroup.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -14579,7 +14579,7 @@ pub const QCPMarginGroup = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpmargingroup.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPMarginGroup.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -14601,7 +14601,7 @@ pub const QCPMarginGroup = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpmargingroup.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPMarginGroup.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -14619,7 +14619,7 @@ pub const QCPMarginGroup = extern struct {
     pub fn ObjectName(self: QCPMarginGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpmargingroup.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPMarginGroup.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -14796,7 +14796,7 @@ pub const QCPMarginGroup = extern struct {
     pub fn Children(self: QCPMarginGroup, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpmargingroup.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPMarginGroup.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -15072,10 +15072,10 @@ pub const QCPMarginGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpmargingroup.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPMarginGroup.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpmargingroup.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPMarginGroup.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -16163,7 +16163,7 @@ pub const QCPLayoutElement = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayoutelement.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayoutElement.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -16293,7 +16293,7 @@ pub const QCPLayoutElement = extern struct {
     pub fn MarginGroups(self: QCPLayoutElement, allocator: std.mem.Allocator) Map_i32_QCPMarginGroup {
         const _map: qtc.libqt_map = qtc.QCPLayoutElement_MarginGroups(@ptrCast(self.ptr));
         var _ret: Map_i32_QCPMarginGroup = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcplayoutelement.MarginGroups: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPLayoutElement.MarginGroups: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -16582,7 +16582,7 @@ pub const QCPLayoutElement = extern struct {
     pub fn Elements(self: QCPLayoutElement, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPLayoutElement_Elements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcplayoutelement.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPLayoutElement.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -16628,7 +16628,7 @@ pub const QCPLayoutElement = extern struct {
     pub fn SuperElements(self: QCPLayoutElement, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPLayoutElement_SuperElements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcplayoutelement.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPLayoutElement.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -16928,7 +16928,7 @@ pub const QCPLayoutElement = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayoutelement.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayoutElement.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -16950,7 +16950,7 @@ pub const QCPLayoutElement = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayoutelement.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayoutElement.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -17130,7 +17130,7 @@ pub const QCPLayoutElement = extern struct {
     pub fn ObjectName(self: QCPLayoutElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayoutelement.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayoutElement.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -17307,7 +17307,7 @@ pub const QCPLayoutElement = extern struct {
     pub fn Children(self: QCPLayoutElement, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcplayoutelement.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPLayoutElement.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -17583,10 +17583,10 @@ pub const QCPLayoutElement = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcplayoutelement.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPLayoutElement.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcplayoutelement.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPLayoutElement.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -19412,7 +19412,7 @@ pub const QCPLayout = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayout.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayout.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -19474,7 +19474,7 @@ pub const QCPLayout = extern struct {
     pub fn Elements(self: QCPLayout, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPLayout_Elements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcplayout.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPLayout.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -19520,7 +19520,7 @@ pub const QCPLayout = extern struct {
     pub fn SuperElements(self: QCPLayout, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPLayout_SuperElements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcplayout.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPLayout.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -19979,7 +19979,7 @@ pub const QCPLayout = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPLayout_GetSectionSizes(@ptrCast(self.ptr), maxSizes_list, minSizes_list, stretchFactors_list, @bitCast(totalSize));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qcplayout.GetSectionSizes: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QCPLayout.GetSectionSizes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -20042,7 +20042,7 @@ pub const QCPLayout = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPLayout_SuperGetSectionSizes(@ptrCast(self.ptr), maxSizes_list, minSizes_list, stretchFactors_list, @bitCast(totalSize));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qcplayout.GetSectionSizes: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QCPLayout.GetSectionSizes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -20063,7 +20063,7 @@ pub const QCPLayout = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayout.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayout.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -20085,7 +20085,7 @@ pub const QCPLayout = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayout.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayout.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -20237,7 +20237,7 @@ pub const QCPLayout = extern struct {
     pub fn MarginGroups(self: QCPLayout, allocator: std.mem.Allocator) Map_i32_QCPMarginGroup {
         const _map: qtc.libqt_map = qtc.QCPLayoutElement_MarginGroups(@ptrCast(self.ptr));
         var _ret: Map_i32_QCPMarginGroup = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcplayout.MarginGroups: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPLayout.MarginGroups: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -20580,7 +20580,7 @@ pub const QCPLayout = extern struct {
     pub fn ObjectName(self: QCPLayout, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayout.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayout.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -20757,7 +20757,7 @@ pub const QCPLayout = extern struct {
     pub fn Children(self: QCPLayout, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcplayout.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPLayout.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -21033,10 +21033,10 @@ pub const QCPLayout = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcplayout.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPLayout.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcplayout.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPLayout.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -23289,7 +23289,7 @@ pub const QCPLayoutGrid = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayoutgrid.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayoutGrid.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -23325,7 +23325,7 @@ pub const QCPLayoutGrid = extern struct {
     pub fn ColumnStretchFactors(self: QCPLayoutGrid, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.QCPLayoutGrid_ColumnStretchFactors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcplayoutgrid.ColumnStretchFactors: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPLayoutGrid.ColumnStretchFactors: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -23342,7 +23342,7 @@ pub const QCPLayoutGrid = extern struct {
     pub fn RowStretchFactors(self: QCPLayoutGrid, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.QCPLayoutGrid_RowStretchFactors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcplayoutgrid.RowStretchFactors: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPLayoutGrid.RowStretchFactors: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -23727,7 +23727,7 @@ pub const QCPLayoutGrid = extern struct {
     pub fn Elements(self: QCPLayoutGrid, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPLayoutGrid_Elements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcplayoutgrid.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPLayoutGrid.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -23773,7 +23773,7 @@ pub const QCPLayoutGrid = extern struct {
     pub fn SuperElements(self: QCPLayoutGrid, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPLayoutGrid_SuperElements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcplayoutgrid.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPLayoutGrid.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -24173,7 +24173,7 @@ pub const QCPLayoutGrid = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayoutgrid.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayoutGrid.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -24195,7 +24195,7 @@ pub const QCPLayoutGrid = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayoutgrid.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayoutGrid.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -24402,7 +24402,7 @@ pub const QCPLayoutGrid = extern struct {
     pub fn MarginGroups(self: QCPLayoutGrid, allocator: std.mem.Allocator) Map_i32_QCPMarginGroup {
         const _map: qtc.libqt_map = qtc.QCPLayoutElement_MarginGroups(@ptrCast(self.ptr));
         var _ret: Map_i32_QCPMarginGroup = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcplayoutgrid.MarginGroups: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPLayoutGrid.MarginGroups: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -24745,7 +24745,7 @@ pub const QCPLayoutGrid = extern struct {
     pub fn ObjectName(self: QCPLayoutGrid, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayoutgrid.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayoutGrid.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -24922,7 +24922,7 @@ pub const QCPLayoutGrid = extern struct {
     pub fn Children(self: QCPLayoutGrid, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcplayoutgrid.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPLayoutGrid.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -25198,10 +25198,10 @@ pub const QCPLayoutGrid = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcplayoutgrid.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPLayoutGrid.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcplayoutgrid.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPLayoutGrid.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -26974,7 +26974,7 @@ pub const QCPLayoutGrid = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPLayoutGrid_GetSectionSizes(@ptrCast(self.ptr), maxSizes_list, minSizes_list, stretchFactors_list, @bitCast(totalSize));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qcplayoutgrid.GetSectionSizes: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QCPLayoutGrid.GetSectionSizes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -27019,7 +27019,7 @@ pub const QCPLayoutGrid = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPLayoutGrid_SuperGetSectionSizes(@ptrCast(self.ptr), maxSizes_list, minSizes_list, stretchFactors_list, @bitCast(totalSize));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qcplayoutgrid.GetSectionSizes: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QCPLayoutGrid.GetSectionSizes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -27670,7 +27670,7 @@ pub const QCPLayoutInset = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayoutinset.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayoutInset.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -28118,7 +28118,7 @@ pub const QCPLayoutInset = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayoutinset.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayoutInset.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -28140,7 +28140,7 @@ pub const QCPLayoutInset = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayoutinset.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayoutInset.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -28333,7 +28333,7 @@ pub const QCPLayoutInset = extern struct {
     pub fn MarginGroups(self: QCPLayoutInset, allocator: std.mem.Allocator) Map_i32_QCPMarginGroup {
         const _map: qtc.libqt_map = qtc.QCPLayoutElement_MarginGroups(@ptrCast(self.ptr));
         var _ret: Map_i32_QCPMarginGroup = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcplayoutinset.MarginGroups: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPLayoutInset.MarginGroups: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -28676,7 +28676,7 @@ pub const QCPLayoutInset = extern struct {
     pub fn ObjectName(self: QCPLayoutInset, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplayoutinset.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLayoutInset.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -28853,7 +28853,7 @@ pub const QCPLayoutInset = extern struct {
     pub fn Children(self: QCPLayoutInset, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcplayoutinset.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPLayoutInset.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -29129,10 +29129,10 @@ pub const QCPLayoutInset = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcplayoutinset.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPLayoutInset.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcplayoutinset.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPLayoutInset.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -29501,7 +29501,7 @@ pub const QCPLayoutInset = extern struct {
     pub fn Elements(self: QCPLayoutInset, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPLayoutInset_Elements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcplayoutinset.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPLayoutInset.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -29529,7 +29529,7 @@ pub const QCPLayoutInset = extern struct {
     pub fn SuperElements(self: QCPLayoutInset, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPLayoutInset_SuperElements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcplayoutinset.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPLayoutInset.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -31015,7 +31015,7 @@ pub const QCPLayoutInset = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPLayoutInset_GetSectionSizes(@ptrCast(self.ptr), maxSizes_list, minSizes_list, stretchFactors_list, @bitCast(totalSize));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qcplayoutinset.GetSectionSizes: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QCPLayoutInset.GetSectionSizes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -31060,7 +31060,7 @@ pub const QCPLayoutInset = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPLayoutInset_SuperGetSectionSizes(@ptrCast(self.ptr), maxSizes_list, minSizes_list, stretchFactors_list, @bitCast(totalSize));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qcplayoutinset.GetSectionSizes: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QCPLayoutInset.GetSectionSizes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -31964,7 +31964,7 @@ pub const QCPAxisTicker = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxisticker.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTicker.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -32032,7 +32032,7 @@ pub const QCPAxisTicker = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxisticker.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTicker.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -32157,7 +32157,7 @@ pub const QCPAxisTicker = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTicker_GetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxisticker.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTicker.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -32203,7 +32203,7 @@ pub const QCPAxisTicker = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTicker_SuperGetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxisticker.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTicker.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -32224,7 +32224,7 @@ pub const QCPAxisTicker = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTicker_CreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxisticker.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTicker.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -32272,7 +32272,7 @@ pub const QCPAxisTicker = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTicker_SuperCreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxisticker.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTicker.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -32297,7 +32297,7 @@ pub const QCPAxisTicker = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTicker_CreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxisticker.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTicker.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -32348,7 +32348,7 @@ pub const QCPAxisTicker = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTicker_SuperCreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxisticker.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTicker.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -32384,10 +32384,10 @@ pub const QCPAxisTicker = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxisticker.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTicker.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxisticker.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTicker.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -32446,10 +32446,10 @@ pub const QCPAxisTicker = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxisticker.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTicker.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxisticker.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTicker.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -32755,7 +32755,7 @@ pub const QCPAxisTickerDateTime = extern struct {
     pub fn DateTimeFormat(self: QCPAxisTickerDateTime, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPAxisTickerDateTime_DateTimeFormat(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerdatetime.DateTimeFormat: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerDateTime.DateTimeFormat: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -32993,7 +32993,7 @@ pub const QCPAxisTickerDateTime = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTickerDateTime_GetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerdatetime.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerDateTime.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -33039,7 +33039,7 @@ pub const QCPAxisTickerDateTime = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTickerDateTime_SuperGetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerdatetime.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerDateTime.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -33060,7 +33060,7 @@ pub const QCPAxisTickerDateTime = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerDateTime_CreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerdatetime.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerDateTime.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -33108,7 +33108,7 @@ pub const QCPAxisTickerDateTime = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerDateTime_SuperCreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerdatetime.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerDateTime.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -33233,7 +33233,7 @@ pub const QCPAxisTickerDateTime = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxistickerdatetime.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTickerDateTime.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -33289,7 +33289,7 @@ pub const QCPAxisTickerDateTime = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxistickerdatetime.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTickerDateTime.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -33342,7 +33342,7 @@ pub const QCPAxisTickerDateTime = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerDateTime_CreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerdatetime.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerDateTime.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -33375,7 +33375,7 @@ pub const QCPAxisTickerDateTime = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerDateTime_SuperCreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerdatetime.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerDateTime.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -33437,10 +33437,10 @@ pub const QCPAxisTickerDateTime = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxistickerdatetime.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTickerDateTime.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxistickerdatetime.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTickerDateTime.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -33485,10 +33485,10 @@ pub const QCPAxisTickerDateTime = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxistickerdatetime.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTickerDateTime.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxistickerdatetime.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTickerDateTime.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -33796,7 +33796,7 @@ pub const QCPAxisTickerTime = extern struct {
     pub fn TimeFormat(self: QCPAxisTickerTime, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPAxisTickerTime_TimeFormat(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickertime.TimeFormat: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerTime.TimeFormat: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -33954,7 +33954,7 @@ pub const QCPAxisTickerTime = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTickerTime_GetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickertime.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerTime.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -34000,7 +34000,7 @@ pub const QCPAxisTickerTime = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTickerTime_SuperGetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickertime.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerTime.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -34185,7 +34185,7 @@ pub const QCPAxisTickerTime = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxistickertime.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTickerTime.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -34241,7 +34241,7 @@ pub const QCPAxisTickerTime = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxistickertime.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTickerTime.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -34291,7 +34291,7 @@ pub const QCPAxisTickerTime = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerTime_CreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickertime.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerTime.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -34321,7 +34321,7 @@ pub const QCPAxisTickerTime = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerTime_SuperCreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickertime.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerTime.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -34372,7 +34372,7 @@ pub const QCPAxisTickerTime = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerTime_CreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickertime.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerTime.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -34405,7 +34405,7 @@ pub const QCPAxisTickerTime = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerTime_SuperCreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickertime.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerTime.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -34467,10 +34467,10 @@ pub const QCPAxisTickerTime = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxistickertime.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTickerTime.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxistickertime.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTickerTime.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -34515,10 +34515,10 @@ pub const QCPAxisTickerTime = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxistickertime.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTickerTime.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxistickertime.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTickerTime.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -35029,7 +35029,7 @@ pub const QCPAxisTickerFixed = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxistickerfixed.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTickerFixed.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -35085,7 +35085,7 @@ pub const QCPAxisTickerFixed = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxistickerfixed.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTickerFixed.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -35192,7 +35192,7 @@ pub const QCPAxisTickerFixed = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTickerFixed_GetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerfixed.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerFixed.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -35226,7 +35226,7 @@ pub const QCPAxisTickerFixed = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTickerFixed_SuperGetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerfixed.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerFixed.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -35267,7 +35267,7 @@ pub const QCPAxisTickerFixed = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerFixed_CreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerfixed.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerFixed.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -35297,7 +35297,7 @@ pub const QCPAxisTickerFixed = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerFixed_SuperCreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerfixed.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerFixed.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -35348,7 +35348,7 @@ pub const QCPAxisTickerFixed = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerFixed_CreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerfixed.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerFixed.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -35381,7 +35381,7 @@ pub const QCPAxisTickerFixed = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerFixed_SuperCreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerfixed.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerFixed.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -35443,10 +35443,10 @@ pub const QCPAxisTickerFixed = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxistickerfixed.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTickerFixed.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxistickerfixed.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTickerFixed.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -35491,10 +35491,10 @@ pub const QCPAxisTickerFixed = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxistickerfixed.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTickerFixed.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxistickerfixed.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTickerFixed.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -35802,7 +35802,7 @@ pub const QCPAxisTickerText = extern struct {
     pub fn Ticks(self: QCPAxisTickerText, allocator: std.mem.Allocator) ArrayMap_f64_constu8 {
         const _map: qtc.libqt_map = qtc.QCPAxisTickerText_Ticks(@ptrCast(self.ptr));
         var _ret: ArrayMap_f64_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcpaxistickertext.Ticks: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPAxisTickerText.Ticks: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -35817,7 +35817,7 @@ pub const QCPAxisTickerText = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("qcpaxistickertext.Ticks: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QCPAxisTickerText.Ticks: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
@@ -35846,9 +35846,9 @@ pub const QCPAxisTickerText = extern struct {
     ///
     pub fn SetTicks(self: QCPAxisTickerText, allocator: std.mem.Allocator, ticks: ArrayMap_f64_constu8) void {
         const ticks_count = ticks.count();
-        const ticks_keys = allocator.alloc(f64, ticks_count) catch @panic("qcpaxistickertext.SetTicks: Memory allocation failed");
+        const ticks_keys = allocator.alloc(f64, ticks_count) catch @panic("QCPAxisTickerText.SetTicks: Memory allocation failed");
         defer allocator.free(ticks_keys);
-        const ticks_values = allocator.alloc(qtc.libqt_string, ticks_count) catch @panic("qcpaxistickertext.SetTicks: Memory allocation failed");
+        const ticks_values = allocator.alloc(qtc.libqt_string, ticks_count) catch @panic("QCPAxisTickerText.SetTicks: Memory allocation failed");
         defer allocator.free(ticks_values);
         var i: usize = 0;
         var ticks_it = ticks.iterator();
@@ -35886,7 +35886,7 @@ pub const QCPAxisTickerText = extern struct {
             .len = positions.len,
             .data = positions.ptr,
         };
-        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qcpaxistickertext.SetTicks2: Memory allocation failed");
+        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("QCPAxisTickerText.SetTicks2: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i|
             labels_arr[i] = .{
@@ -35952,9 +35952,9 @@ pub const QCPAxisTickerText = extern struct {
     ///
     pub fn AddTicks(self: QCPAxisTickerText, allocator: std.mem.Allocator, ticks: ArrayMap_f64_constu8) void {
         const ticks_count = ticks.count();
-        const ticks_keys = allocator.alloc(f64, ticks_count) catch @panic("qcpaxistickertext.AddTicks: Memory allocation failed");
+        const ticks_keys = allocator.alloc(f64, ticks_count) catch @panic("QCPAxisTickerText.AddTicks: Memory allocation failed");
         defer allocator.free(ticks_keys);
-        const ticks_values = allocator.alloc(qtc.libqt_string, ticks_count) catch @panic("qcpaxistickertext.AddTicks: Memory allocation failed");
+        const ticks_values = allocator.alloc(qtc.libqt_string, ticks_count) catch @panic("QCPAxisTickerText.AddTicks: Memory allocation failed");
         defer allocator.free(ticks_values);
         var i: usize = 0;
         var ticks_it = ticks.iterator();
@@ -35992,7 +35992,7 @@ pub const QCPAxisTickerText = extern struct {
             .len = positions.len,
             .data = positions.ptr,
         };
-        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qcpaxistickertext.AddTicks2: Memory allocation failed");
+        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("QCPAxisTickerText.AddTicks2: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i|
             labels_arr[i] = .{
@@ -36117,7 +36117,7 @@ pub const QCPAxisTickerText = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTickerText_GetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickertext.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerText.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -36163,7 +36163,7 @@ pub const QCPAxisTickerText = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTickerText_SuperGetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickertext.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerText.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -36184,7 +36184,7 @@ pub const QCPAxisTickerText = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerText_CreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickertext.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerText.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -36232,7 +36232,7 @@ pub const QCPAxisTickerText = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerText_SuperCreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickertext.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerText.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -36358,7 +36358,7 @@ pub const QCPAxisTickerText = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxistickertext.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTickerText.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -36414,7 +36414,7 @@ pub const QCPAxisTickerText = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxistickertext.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTickerText.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -36467,7 +36467,7 @@ pub const QCPAxisTickerText = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerText_CreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickertext.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerText.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -36500,7 +36500,7 @@ pub const QCPAxisTickerText = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerText_SuperCreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickertext.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerText.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -36562,10 +36562,10 @@ pub const QCPAxisTickerText = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxistickertext.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTickerText.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxistickertext.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTickerText.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -36610,10 +36610,10 @@ pub const QCPAxisTickerText = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxistickertext.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTickerText.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxistickertext.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTickerText.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -36921,7 +36921,7 @@ pub const QCPAxisTickerPi = extern struct {
     pub fn PiSymbol(self: QCPAxisTickerPi, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPAxisTickerPi_PiSymbol(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerpi.PiSymbol: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerPi.PiSymbol: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -37123,7 +37123,7 @@ pub const QCPAxisTickerPi = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTickerPi_GetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerpi.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerPi.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -37169,7 +37169,7 @@ pub const QCPAxisTickerPi = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTickerPi_SuperGetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerpi.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerPi.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -37237,7 +37237,7 @@ pub const QCPAxisTickerPi = extern struct {
     pub fn FractionToString(self: QCPAxisTickerPi, allocator: std.mem.Allocator, numerator: i32, denominator: i32) []const u8 {
         var _str = qtc.QCPAxisTickerPi_FractionToString(@ptrCast(self.ptr), @bitCast(numerator), @bitCast(denominator));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerpi.FractionToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerPi.FractionToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -37277,7 +37277,7 @@ pub const QCPAxisTickerPi = extern struct {
     pub fn SuperFractionToString(self: QCPAxisTickerPi, allocator: std.mem.Allocator, numerator: i32, denominator: i32) []const u8 {
         var _str = qtc.QCPAxisTickerPi_SuperFractionToString(@ptrCast(self.ptr), @bitCast(numerator), @bitCast(denominator));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerpi.FractionToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerPi.FractionToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -37297,7 +37297,7 @@ pub const QCPAxisTickerPi = extern struct {
     pub fn UnicodeFraction(self: QCPAxisTickerPi, allocator: std.mem.Allocator, numerator: i32, denominator: i32) []const u8 {
         var _str = qtc.QCPAxisTickerPi_UnicodeFraction(@ptrCast(self.ptr), @bitCast(numerator), @bitCast(denominator));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerpi.UnicodeFraction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerPi.UnicodeFraction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -37337,7 +37337,7 @@ pub const QCPAxisTickerPi = extern struct {
     pub fn SuperUnicodeFraction(self: QCPAxisTickerPi, allocator: std.mem.Allocator, numerator: i32, denominator: i32) []const u8 {
         var _str = qtc.QCPAxisTickerPi_SuperUnicodeFraction(@ptrCast(self.ptr), @bitCast(numerator), @bitCast(denominator));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerpi.UnicodeFraction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerPi.UnicodeFraction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -37355,7 +37355,7 @@ pub const QCPAxisTickerPi = extern struct {
     pub fn UnicodeSuperscript(self: QCPAxisTickerPi, allocator: std.mem.Allocator, number: i32) []const u8 {
         var _str = qtc.QCPAxisTickerPi_UnicodeSuperscript(@ptrCast(self.ptr), @bitCast(number));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerpi.UnicodeSuperscript: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerPi.UnicodeSuperscript: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -37393,7 +37393,7 @@ pub const QCPAxisTickerPi = extern struct {
     pub fn SuperUnicodeSuperscript(self: QCPAxisTickerPi, allocator: std.mem.Allocator, number: i32) []const u8 {
         var _str = qtc.QCPAxisTickerPi_SuperUnicodeSuperscript(@ptrCast(self.ptr), @bitCast(number));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerpi.UnicodeSuperscript: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerPi.UnicodeSuperscript: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -37411,7 +37411,7 @@ pub const QCPAxisTickerPi = extern struct {
     pub fn UnicodeSubscript(self: QCPAxisTickerPi, allocator: std.mem.Allocator, number: i32) []const u8 {
         var _str = qtc.QCPAxisTickerPi_UnicodeSubscript(@ptrCast(self.ptr), @bitCast(number));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerpi.UnicodeSubscript: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerPi.UnicodeSubscript: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -37449,7 +37449,7 @@ pub const QCPAxisTickerPi = extern struct {
     pub fn SuperUnicodeSubscript(self: QCPAxisTickerPi, allocator: std.mem.Allocator, number: i32) []const u8 {
         var _str = qtc.QCPAxisTickerPi_SuperUnicodeSubscript(@ptrCast(self.ptr), @bitCast(number));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerpi.UnicodeSubscript: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerPi.UnicodeSubscript: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -37574,7 +37574,7 @@ pub const QCPAxisTickerPi = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxistickerpi.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTickerPi.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -37630,7 +37630,7 @@ pub const QCPAxisTickerPi = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxistickerpi.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTickerPi.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -37680,7 +37680,7 @@ pub const QCPAxisTickerPi = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerPi_CreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerpi.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerPi.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -37710,7 +37710,7 @@ pub const QCPAxisTickerPi = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerPi_SuperCreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerpi.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerPi.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -37761,7 +37761,7 @@ pub const QCPAxisTickerPi = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerPi_CreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerpi.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerPi.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -37794,7 +37794,7 @@ pub const QCPAxisTickerPi = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerPi_SuperCreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerpi.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerPi.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -37856,10 +37856,10 @@ pub const QCPAxisTickerPi = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxistickerpi.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTickerPi.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxistickerpi.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTickerPi.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -37904,10 +37904,10 @@ pub const QCPAxisTickerPi = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxistickerpi.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTickerPi.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxistickerpi.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTickerPi.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -38308,7 +38308,7 @@ pub const QCPAxisTickerLog = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerLog_CreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerlog.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerLog.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -38356,7 +38356,7 @@ pub const QCPAxisTickerLog = extern struct {
         comptime _ = @TypeOf(range)._is_QCPRange;
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerLog_SuperCreateTickVector(@ptrCast(self.ptr), @bitCast(tickStep), @ptrCast(range.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerlog.CreateTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerLog.CreateTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -38482,7 +38482,7 @@ pub const QCPAxisTickerLog = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxistickerlog.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTickerLog.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -38538,7 +38538,7 @@ pub const QCPAxisTickerLog = extern struct {
             .len = subTicks.len,
             .data = subTicks.ptr,
         };
-        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("qcpaxistickerlog.Generate: Memory allocation failed");
+        const tickLabels_arr = allocator.alloc(qtc.libqt_string, tickLabels.len) catch @panic("QCPAxisTickerLog.Generate: Memory allocation failed");
         defer allocator.free(tickLabels_arr);
         for (tickLabels, 0..tickLabels.len) |item, i|
             tickLabels_arr[i] = .{
@@ -38647,7 +38647,7 @@ pub const QCPAxisTickerLog = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTickerLog_GetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerlog.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerLog.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -38681,7 +38681,7 @@ pub const QCPAxisTickerLog = extern struct {
         comptime _ = @TypeOf(formatChar)._is_QChar;
         var _str = qtc.QCPAxisTickerLog_SuperGetTickLabel(@ptrCast(self.ptr), @bitCast(tick), @ptrCast(locale.ptr), @ptrCast(formatChar.ptr), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxistickerlog.GetTickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisTickerLog.GetTickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -38725,7 +38725,7 @@ pub const QCPAxisTickerLog = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerLog_CreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerlog.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerLog.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -38758,7 +38758,7 @@ pub const QCPAxisTickerLog = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPAxisTickerLog_SuperCreateSubTickVector(@ptrCast(self.ptr), @bitCast(subTickCount), ticks_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxistickerlog.CreateSubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxisTickerLog.CreateSubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -38820,10 +38820,10 @@ pub const QCPAxisTickerLog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxistickerlog.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTickerLog.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxistickerlog.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTickerLog.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -38868,10 +38868,10 @@ pub const QCPAxisTickerLog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxistickerlog.CreateLabelVector: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxisTickerLog.CreateLabelVector: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxistickerlog.CreateLabelVector: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisTickerLog.CreateLabelVector: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -39312,7 +39312,7 @@ pub const QCPGrid = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpgrid.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPGrid.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -39651,7 +39651,7 @@ pub const QCPGrid = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpgrid.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPGrid.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -39673,7 +39673,7 @@ pub const QCPGrid = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpgrid.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPGrid.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -39853,7 +39853,7 @@ pub const QCPGrid = extern struct {
     pub fn ObjectName(self: QCPGrid, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpgrid.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPGrid.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -40030,7 +40030,7 @@ pub const QCPGrid = extern struct {
     pub fn Children(self: QCPGrid, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpgrid.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPGrid.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -40306,10 +40306,10 @@ pub const QCPGrid = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpgrid.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPGrid.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpgrid.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPGrid.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -42259,7 +42259,7 @@ pub const QCPAxis = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxis.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxis.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -42407,7 +42407,7 @@ pub const QCPAxis = extern struct {
     pub fn NumberFormat(self: QCPAxis, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPAxis_NumberFormat(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxis.NumberFormat: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxis.NumberFormat: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -42433,7 +42433,7 @@ pub const QCPAxis = extern struct {
     pub fn TickVector(self: QCPAxis, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.QCPAxis_TickVector(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcpaxis.TickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPAxis.TickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -42455,10 +42455,10 @@ pub const QCPAxis = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcpaxis.TickVectorLabels: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPAxis.TickVectorLabels: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxis.TickVectorLabels: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxis.TickVectorLabels: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -42576,7 +42576,7 @@ pub const QCPAxis = extern struct {
     pub fn Label(self: QCPAxis, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPAxis_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxis.Label: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxis.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -43479,7 +43479,7 @@ pub const QCPAxis = extern struct {
     pub fn Plottables(self: QCPAxis, allocator: std.mem.Allocator) []QCPAbstractPlottable {
         const _arr: qtc.libqt_list = qtc.QCPAxis_Plottables(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAbstractPlottable, _arr.len) catch @panic("qcpaxis.Plottables: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAbstractPlottable, _arr.len) catch @panic("QCPAxis.Plottables: Memory allocation failed");
         const _data: [*]QtC.QCPAbstractPlottable = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -43497,7 +43497,7 @@ pub const QCPAxis = extern struct {
     pub fn Graphs(self: QCPAxis, allocator: std.mem.Allocator) []QCPGraph {
         const _arr: qtc.libqt_list = qtc.QCPAxis_Graphs(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPGraph, _arr.len) catch @panic("qcpaxis.Graphs: Memory allocation failed");
+        const _ret = allocator.alloc(QCPGraph, _arr.len) catch @panic("QCPAxis.Graphs: Memory allocation failed");
         const _data: [*]QtC.QCPGraph = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -43515,7 +43515,7 @@ pub const QCPAxis = extern struct {
     pub fn Items(self: QCPAxis, allocator: std.mem.Allocator) []QCPAbstractItem {
         const _arr: qtc.libqt_list = qtc.QCPAxis_Items(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAbstractItem, _arr.len) catch @panic("qcpaxis.Items: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAbstractItem, _arr.len) catch @panic("QCPAxis.Items: Memory allocation failed");
         const _data: [*]QtC.QCPAbstractItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -44464,7 +44464,7 @@ pub const QCPAxis = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxis.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxis.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -44486,7 +44486,7 @@ pub const QCPAxis = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxis.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxis.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -44721,7 +44721,7 @@ pub const QCPAxis = extern struct {
     pub fn ObjectName(self: QCPAxis, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxis.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxis.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -44898,7 +44898,7 @@ pub const QCPAxis = extern struct {
     pub fn Children(self: QCPAxis, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpaxis.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPAxis.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -45174,10 +45174,10 @@ pub const QCPAxis = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpaxis.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPAxis.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxis.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxis.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -47392,7 +47392,7 @@ pub const QCPAbstractPlottable = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpabstractplottable.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAbstractPlottable.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -47408,7 +47408,7 @@ pub const QCPAbstractPlottable = extern struct {
     pub fn Name(self: QCPAbstractPlottable, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPAbstractPlottable_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpabstractplottable.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAbstractPlottable.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -48474,7 +48474,7 @@ pub const QCPAbstractPlottable = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpabstractplottable.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAbstractPlottable.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -48496,7 +48496,7 @@ pub const QCPAbstractPlottable = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpabstractplottable.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAbstractPlottable.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -48726,7 +48726,7 @@ pub const QCPAbstractPlottable = extern struct {
     pub fn ObjectName(self: QCPAbstractPlottable, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpabstractplottable.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAbstractPlottable.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -48903,7 +48903,7 @@ pub const QCPAbstractPlottable = extern struct {
     pub fn Children(self: QCPAbstractPlottable, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpabstractplottable.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPAbstractPlottable.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -49179,10 +49179,10 @@ pub const QCPAbstractPlottable = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpabstractplottable.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPAbstractPlottable.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpabstractplottable.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAbstractPlottable.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -50742,7 +50742,7 @@ pub const QCPItemAnchor = extern struct {
     pub fn Name(self: QCPItemAnchor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPItemAnchor_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemanchor.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemAnchor.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -51477,7 +51477,7 @@ pub const QCPItemPosition = extern struct {
     pub fn Name(self: QCPItemPosition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPItemAnchor_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemposition.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemPosition.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -51876,7 +51876,7 @@ pub const QCPAbstractItem = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpabstractitem.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAbstractItem.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -52037,7 +52037,7 @@ pub const QCPAbstractItem = extern struct {
     pub fn Positions(self: QCPAbstractItem, allocator: std.mem.Allocator) []QCPItemPosition {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Positions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("qcpabstractitem.Positions: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("QCPAbstractItem.Positions: Memory allocation failed");
         const _data: [*]QtC.QCPItemPosition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -52055,7 +52055,7 @@ pub const QCPAbstractItem = extern struct {
     pub fn Anchors(self: QCPAbstractItem, allocator: std.mem.Allocator) []QCPItemAnchor {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Anchors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("qcpabstractitem.Anchors: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("QCPAbstractItem.Anchors: Memory allocation failed");
         const _data: [*]QtC.QCPItemAnchor = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -52669,7 +52669,7 @@ pub const QCPAbstractItem = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpabstractitem.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAbstractItem.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -52691,7 +52691,7 @@ pub const QCPAbstractItem = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpabstractitem.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAbstractItem.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -52871,7 +52871,7 @@ pub const QCPAbstractItem = extern struct {
     pub fn ObjectName(self: QCPAbstractItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpabstractitem.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAbstractItem.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -53048,7 +53048,7 @@ pub const QCPAbstractItem = extern struct {
     pub fn Children(self: QCPAbstractItem, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpabstractitem.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPAbstractItem.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -53324,10 +53324,10 @@ pub const QCPAbstractItem = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpabstractitem.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPAbstractItem.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpabstractitem.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAbstractItem.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -54992,7 +54992,7 @@ pub const QCustomPlot = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -55544,7 +55544,7 @@ pub const QCustomPlot = extern struct {
     pub fn SelectedPlottables(self: QCustomPlot, allocator: std.mem.Allocator) []QCPAbstractPlottable {
         const _arr: qtc.libqt_list = qtc.QCustomPlot_SelectedPlottables(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAbstractPlottable, _arr.len) catch @panic("qcustomplot.SelectedPlottables: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAbstractPlottable, _arr.len) catch @panic("QCustomPlot.SelectedPlottables: Memory allocation failed");
         const _data: [*]QtC.QCPAbstractPlottable = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -55665,7 +55665,7 @@ pub const QCustomPlot = extern struct {
     pub fn SelectedGraphs(self: QCustomPlot, allocator: std.mem.Allocator) []QCPGraph {
         const _arr: qtc.libqt_list = qtc.QCustomPlot_SelectedGraphs(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPGraph, _arr.len) catch @panic("qcustomplot.SelectedGraphs: Memory allocation failed");
+        const _ret = allocator.alloc(QCPGraph, _arr.len) catch @panic("QCustomPlot.SelectedGraphs: Memory allocation failed");
         const _data: [*]QtC.QCPGraph = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -55750,7 +55750,7 @@ pub const QCustomPlot = extern struct {
     pub fn SelectedItems(self: QCustomPlot, allocator: std.mem.Allocator) []QCPAbstractItem {
         const _arr: qtc.libqt_list = qtc.QCustomPlot_SelectedItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAbstractItem, _arr.len) catch @panic("qcustomplot.SelectedItems: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAbstractItem, _arr.len) catch @panic("QCustomPlot.SelectedItems: Memory allocation failed");
         const _data: [*]QtC.QCPAbstractItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -55936,7 +55936,7 @@ pub const QCustomPlot = extern struct {
     pub fn AxisRects(self: QCustomPlot, allocator: std.mem.Allocator) []QCPAxisRect {
         const _arr: qtc.libqt_list = qtc.QCustomPlot_AxisRects(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAxisRect, _arr.len) catch @panic("qcustomplot.AxisRects: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAxisRect, _arr.len) catch @panic("QCustomPlot.AxisRects: Memory allocation failed");
         const _data: [*]QtC.QCPAxisRect = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -55990,7 +55990,7 @@ pub const QCustomPlot = extern struct {
     pub fn SelectedAxes(self: QCustomPlot, allocator: std.mem.Allocator) []QCPAxis {
         const _arr: qtc.libqt_list = qtc.QCustomPlot_SelectedAxes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAxis, _arr.len) catch @panic("qcustomplot.SelectedAxes: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAxis, _arr.len) catch @panic("QCustomPlot.SelectedAxes: Memory allocation failed");
         const _data: [*]QtC.QCPAxis = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -56008,7 +56008,7 @@ pub const QCustomPlot = extern struct {
     pub fn SelectedLegends(self: QCustomPlot, allocator: std.mem.Allocator) []QCPLegend {
         const _arr: qtc.libqt_list = qtc.QCustomPlot_SelectedLegends(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLegend, _arr.len) catch @panic("qcustomplot.SelectedLegends: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLegend, _arr.len) catch @panic("QCustomPlot.SelectedLegends: Memory allocation failed");
         const _data: [*]QtC.QCPLegend = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -57701,7 +57701,7 @@ pub const QCustomPlot = extern struct {
         comptime _ = @TypeOf(pos)._is_QPointF;
         const _arr: qtc.libqt_list = qtc.QCustomPlot_LayerableListAt(@ptrCast(self.ptr), @ptrCast(pos.ptr), onlySelectable);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayerable, _arr.len) catch @panic("qcustomplot.LayerableListAt: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayerable, _arr.len) catch @panic("QCustomPlot.LayerableListAt: Memory allocation failed");
         const _data: [*]QtC.QCPLayerable = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -57750,7 +57750,7 @@ pub const QCustomPlot = extern struct {
         comptime _ = @TypeOf(pos)._is_QPointF;
         const _arr: qtc.libqt_list = qtc.QCustomPlot_SuperLayerableListAt(@ptrCast(self.ptr), @ptrCast(pos.ptr), onlySelectable);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayerable, _arr.len) catch @panic("qcustomplot.LayerableListAt: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayerable, _arr.len) catch @panic("QCustomPlot.LayerableListAt: Memory allocation failed");
         const _data: [*]QtC.QCPLayerable = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -58018,7 +58018,7 @@ pub const QCustomPlot = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -58040,7 +58040,7 @@ pub const QCustomPlot = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -59061,7 +59061,7 @@ pub const QCustomPlot = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCustomPlot_LayerableListAt3(@ptrCast(self.ptr), @ptrCast(pos.ptr), onlySelectable, selectionDetails_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayerable, _arr.len) catch @panic("qcustomplot.LayerableListAt3: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayerable, _arr.len) catch @panic("QCustomPlot.LayerableListAt3: Memory allocation failed");
         const _data: [*]QtC.QCPLayerable = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -59116,7 +59116,7 @@ pub const QCustomPlot = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCustomPlot_SuperLayerableListAt3(@ptrCast(self.ptr), @ptrCast(pos.ptr), onlySelectable, selectionDetails_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayerable, _arr.len) catch @panic("qcustomplot.LayerableListAt3: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayerable, _arr.len) catch @panic("QCustomPlot.LayerableListAt3: Memory allocation failed");
         const _data: [*]QtC.QCPLayerable = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -60493,7 +60493,7 @@ pub const QCustomPlot = extern struct {
     pub fn StyleSheet(self: QCustomPlot, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -60511,7 +60511,7 @@ pub const QCustomPlot = extern struct {
     pub fn WindowTitle(self: QCustomPlot, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -60574,7 +60574,7 @@ pub const QCustomPlot = extern struct {
     pub fn WindowIconText(self: QCustomPlot, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -60610,7 +60610,7 @@ pub const QCustomPlot = extern struct {
     pub fn WindowRole(self: QCustomPlot, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -60646,7 +60646,7 @@ pub const QCustomPlot = extern struct {
     pub fn WindowFilePath(self: QCustomPlot, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -60720,7 +60720,7 @@ pub const QCustomPlot = extern struct {
     pub fn ToolTip(self: QCustomPlot, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -60782,7 +60782,7 @@ pub const QCustomPlot = extern struct {
     pub fn StatusTip(self: QCustomPlot, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -60818,7 +60818,7 @@ pub const QCustomPlot = extern struct {
     pub fn WhatsThis(self: QCustomPlot, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -60836,7 +60836,7 @@ pub const QCustomPlot = extern struct {
     pub fn AccessibleName(self: QCustomPlot, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -60872,7 +60872,7 @@ pub const QCustomPlot = extern struct {
     pub fn AccessibleDescription(self: QCustomPlot, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -61722,7 +61722,7 @@ pub const QCustomPlot = extern struct {
     pub fn SaveGeometry(self: QCustomPlot, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcustomplot.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCustomPlot.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -62258,7 +62258,7 @@ pub const QCustomPlot = extern struct {
     pub fn Actions(self: QCustomPlot, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qcustomplot.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QCustomPlot.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -63073,7 +63073,7 @@ pub const QCustomPlot = extern struct {
     pub fn ObjectName(self: QCustomPlot, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcustomplot.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCustomPlot.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -63250,7 +63250,7 @@ pub const QCustomPlot = extern struct {
     pub fn Children(self: QCustomPlot, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcustomplot.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCustomPlot.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -63511,10 +63511,10 @@ pub const QCustomPlot = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcustomplot.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCustomPlot.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcustomplot.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCustomPlot.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -66788,7 +66788,7 @@ pub const QCPColorGradient = extern struct {
     pub fn ColorStops(self: QCPColorGradient, allocator: std.mem.Allocator) ArrayMap_f64_QColor {
         const _map: qtc.libqt_map = qtc.QCPColorGradient_ColorStops(@ptrCast(self.ptr));
         var _ret: ArrayMap_f64_QColor = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcpcolorgradient.ColorStops: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPColorGradient.ColorStops: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -66876,9 +66876,9 @@ pub const QCPColorGradient = extern struct {
     ///
     pub fn SetColorStops(self: QCPColorGradient, allocator: std.mem.Allocator, colorStops: ArrayMap_f64_QColor) void {
         const colorStops_count = colorStops.count();
-        const colorStops_keys = allocator.alloc(f64, colorStops_count) catch @panic("qcpcolorgradient.SetColorStops: Memory allocation failed");
+        const colorStops_keys = allocator.alloc(f64, colorStops_count) catch @panic("QCPColorGradient.SetColorStops: Memory allocation failed");
         defer allocator.free(colorStops_keys);
-        const colorStops_values = allocator.alloc(QtC.QColor, colorStops_count) catch @panic("qcpcolorgradient.SetColorStops: Memory allocation failed");
+        const colorStops_values = allocator.alloc(QtC.QColor, colorStops_count) catch @panic("QCPColorGradient.SetColorStops: Memory allocation failed");
         defer allocator.free(colorStops_values);
         var i: usize = 0;
         var colorStops_it = colorStops.iterator();
@@ -68030,7 +68030,7 @@ pub const QCPAxisRect = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxisrect.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisRect.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -68144,7 +68144,7 @@ pub const QCPAxisRect = extern struct {
     pub fn RangeDragAxes(self: QCPAxisRect, allocator: std.mem.Allocator, orientation: i32) []QCPAxis {
         const _arr: qtc.libqt_list = qtc.QCPAxisRect_RangeDragAxes(@ptrCast(self.ptr), @bitCast(orientation));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAxis, _arr.len) catch @panic("qcpaxisrect.RangeDragAxes: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAxis, _arr.len) catch @panic("QCPAxisRect.RangeDragAxes: Memory allocation failed");
         const _data: [*]QtC.QCPAxis = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -68164,7 +68164,7 @@ pub const QCPAxisRect = extern struct {
     pub fn RangeZoomAxes(self: QCPAxisRect, allocator: std.mem.Allocator, orientation: i32) []QCPAxis {
         const _arr: qtc.libqt_list = qtc.QCPAxisRect_RangeZoomAxes(@ptrCast(self.ptr), @bitCast(orientation));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAxis, _arr.len) catch @panic("qcpaxisrect.RangeZoomAxes: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAxis, _arr.len) catch @panic("QCPAxisRect.RangeZoomAxes: Memory allocation failed");
         const _data: [*]QtC.QCPAxis = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -68443,7 +68443,7 @@ pub const QCPAxisRect = extern struct {
     pub fn Axes(self: QCPAxisRect, allocator: std.mem.Allocator, types: i32) []QCPAxis {
         const _arr: qtc.libqt_list = qtc.QCPAxisRect_Axes(@ptrCast(self.ptr), @bitCast(types));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAxis, _arr.len) catch @panic("qcpaxisrect.Axes: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAxis, _arr.len) catch @panic("QCPAxisRect.Axes: Memory allocation failed");
         const _data: [*]QtC.QCPAxis = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -68461,7 +68461,7 @@ pub const QCPAxisRect = extern struct {
     pub fn Axes2(self: QCPAxisRect, allocator: std.mem.Allocator) []QCPAxis {
         const _arr: qtc.libqt_list = qtc.QCPAxisRect_Axes2(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAxis, _arr.len) catch @panic("qcpaxisrect.Axes2: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAxis, _arr.len) catch @panic("QCPAxisRect.Axes2: Memory allocation failed");
         const _data: [*]QtC.QCPAxis = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -68493,7 +68493,7 @@ pub const QCPAxisRect = extern struct {
     pub fn AddAxes(self: QCPAxisRect, allocator: std.mem.Allocator, types: i32) []QCPAxis {
         const _arr: qtc.libqt_list = qtc.QCPAxisRect_AddAxes(@ptrCast(self.ptr), @bitCast(types));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAxis, _arr.len) catch @panic("qcpaxisrect.AddAxes: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAxis, _arr.len) catch @panic("QCPAxisRect.AddAxes: Memory allocation failed");
         const _data: [*]QtC.QCPAxis = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -68576,7 +68576,7 @@ pub const QCPAxisRect = extern struct {
     pub fn Plottables(self: QCPAxisRect, allocator: std.mem.Allocator) []QCPAbstractPlottable {
         const _arr: qtc.libqt_list = qtc.QCPAxisRect_Plottables(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAbstractPlottable, _arr.len) catch @panic("qcpaxisrect.Plottables: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAbstractPlottable, _arr.len) catch @panic("QCPAxisRect.Plottables: Memory allocation failed");
         const _data: [*]QtC.QCPAbstractPlottable = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -68594,7 +68594,7 @@ pub const QCPAxisRect = extern struct {
     pub fn Graphs(self: QCPAxisRect, allocator: std.mem.Allocator) []QCPGraph {
         const _arr: qtc.libqt_list = qtc.QCPAxisRect_Graphs(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPGraph, _arr.len) catch @panic("qcpaxisrect.Graphs: Memory allocation failed");
+        const _ret = allocator.alloc(QCPGraph, _arr.len) catch @panic("QCPAxisRect.Graphs: Memory allocation failed");
         const _data: [*]QtC.QCPGraph = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -68612,7 +68612,7 @@ pub const QCPAxisRect = extern struct {
     pub fn Items(self: QCPAxisRect, allocator: std.mem.Allocator) []QCPAbstractItem {
         const _arr: qtc.libqt_list = qtc.QCPAxisRect_Items(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAbstractItem, _arr.len) catch @panic("qcpaxisrect.Items: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAbstractItem, _arr.len) catch @panic("QCPAxisRect.Items: Memory allocation failed");
         const _data: [*]QtC.QCPAbstractItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -68796,7 +68796,7 @@ pub const QCPAxisRect = extern struct {
     pub fn Elements(self: QCPAxisRect, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPAxisRect_Elements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcpaxisrect.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPAxisRect.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -68842,7 +68842,7 @@ pub const QCPAxisRect = extern struct {
     pub fn SuperElements(self: QCPAxisRect, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPAxisRect_SuperElements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcpaxisrect.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPAxisRect.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -69332,7 +69332,7 @@ pub const QCPAxisRect = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxisrect.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisRect.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -69354,7 +69354,7 @@ pub const QCPAxisRect = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxisrect.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisRect.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -69564,7 +69564,7 @@ pub const QCPAxisRect = extern struct {
     pub fn MarginGroups(self: QCPAxisRect, allocator: std.mem.Allocator) Map_i32_QCPMarginGroup {
         const _map: qtc.libqt_map = qtc.QCPLayoutElement_MarginGroups(@ptrCast(self.ptr));
         var _ret: Map_i32_QCPMarginGroup = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcpaxisrect.MarginGroups: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPAxisRect.MarginGroups: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -69907,7 +69907,7 @@ pub const QCPAxisRect = extern struct {
     pub fn ObjectName(self: QCPAxisRect, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpaxisrect.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAxisRect.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -70084,7 +70084,7 @@ pub const QCPAxisRect = extern struct {
     pub fn Children(self: QCPAxisRect, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpaxisrect.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPAxisRect.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -70360,10 +70360,10 @@ pub const QCPAxisRect = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpaxisrect.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPAxisRect.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpaxisrect.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAxisRect.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -72178,7 +72178,7 @@ pub const QCPAbstractLegendItem = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpabstractlegenditem.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAbstractLegendItem.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -72734,7 +72734,7 @@ pub const QCPAbstractLegendItem = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpabstractlegenditem.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAbstractLegendItem.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -72756,7 +72756,7 @@ pub const QCPAbstractLegendItem = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpabstractlegenditem.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAbstractLegendItem.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -72908,7 +72908,7 @@ pub const QCPAbstractLegendItem = extern struct {
     pub fn MarginGroups(self: QCPAbstractLegendItem, allocator: std.mem.Allocator) Map_i32_QCPMarginGroup {
         const _map: qtc.libqt_map = qtc.QCPLayoutElement_MarginGroups(@ptrCast(self.ptr));
         var _ret: Map_i32_QCPMarginGroup = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcpabstractlegenditem.MarginGroups: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPAbstractLegendItem.MarginGroups: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -73251,7 +73251,7 @@ pub const QCPAbstractLegendItem = extern struct {
     pub fn ObjectName(self: QCPAbstractLegendItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpabstractlegenditem.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPAbstractLegendItem.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -73428,7 +73428,7 @@ pub const QCPAbstractLegendItem = extern struct {
     pub fn Children(self: QCPAbstractLegendItem, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpabstractlegenditem.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPAbstractLegendItem.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -73704,10 +73704,10 @@ pub const QCPAbstractLegendItem = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpabstractlegenditem.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPAbstractLegendItem.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpabstractlegenditem.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPAbstractLegendItem.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -74176,7 +74176,7 @@ pub const QCPAbstractLegendItem = extern struct {
     pub fn Elements(self: QCPAbstractLegendItem, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPAbstractLegendItem_Elements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcpabstractlegenditem.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPAbstractLegendItem.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -74204,7 +74204,7 @@ pub const QCPAbstractLegendItem = extern struct {
     pub fn SuperElements(self: QCPAbstractLegendItem, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPAbstractLegendItem_SuperElements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcpabstractlegenditem.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPAbstractLegendItem.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -75696,7 +75696,7 @@ pub const QCPPlottableLegendItem = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpplottablelegenditem.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPlottableLegendItem.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -75940,7 +75940,7 @@ pub const QCPPlottableLegendItem = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpplottablelegenditem.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPlottableLegendItem.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -75962,7 +75962,7 @@ pub const QCPPlottableLegendItem = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpplottablelegenditem.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPlottableLegendItem.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -76342,7 +76342,7 @@ pub const QCPPlottableLegendItem = extern struct {
     pub fn MarginGroups(self: QCPPlottableLegendItem, allocator: std.mem.Allocator) Map_i32_QCPMarginGroup {
         const _map: qtc.libqt_map = qtc.QCPLayoutElement_MarginGroups(@ptrCast(self.ptr));
         var _ret: Map_i32_QCPMarginGroup = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcpplottablelegenditem.MarginGroups: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPPlottableLegendItem.MarginGroups: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -76685,7 +76685,7 @@ pub const QCPPlottableLegendItem = extern struct {
     pub fn ObjectName(self: QCPPlottableLegendItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpplottablelegenditem.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPlottableLegendItem.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -76862,7 +76862,7 @@ pub const QCPPlottableLegendItem = extern struct {
     pub fn Children(self: QCPPlottableLegendItem, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpplottablelegenditem.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPPlottableLegendItem.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -77138,10 +77138,10 @@ pub const QCPPlottableLegendItem = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpplottablelegenditem.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPPlottableLegendItem.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpplottablelegenditem.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPPlottableLegendItem.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -77904,7 +77904,7 @@ pub const QCPPlottableLegendItem = extern struct {
     pub fn Elements(self: QCPPlottableLegendItem, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPPlottableLegendItem_Elements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcpplottablelegenditem.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPPlottableLegendItem.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -77932,7 +77932,7 @@ pub const QCPPlottableLegendItem = extern struct {
     pub fn SuperElements(self: QCPPlottableLegendItem, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPPlottableLegendItem_SuperElements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcpplottablelegenditem.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPPlottableLegendItem.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -79417,7 +79417,7 @@ pub const QCPLegend = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplegend.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLegend.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -79939,7 +79939,7 @@ pub const QCPLegend = extern struct {
     pub fn SelectedItems(self: QCPLegend, allocator: std.mem.Allocator) []QCPAbstractLegendItem {
         const _arr: qtc.libqt_list = qtc.QCPLegend_SelectedItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPAbstractLegendItem, _arr.len) catch @panic("qcplegend.SelectedItems: Memory allocation failed");
+        const _ret = allocator.alloc(QCPAbstractLegendItem, _arr.len) catch @panic("QCPLegend.SelectedItems: Memory allocation failed");
         const _data: [*]QtC.QCPAbstractLegendItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -80383,7 +80383,7 @@ pub const QCPLegend = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplegend.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLegend.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -80405,7 +80405,7 @@ pub const QCPLegend = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplegend.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLegend.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -80447,7 +80447,7 @@ pub const QCPLegend = extern struct {
     pub fn ColumnStretchFactors(self: QCPLegend, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.QCPLayoutGrid_ColumnStretchFactors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcplegend.ColumnStretchFactors: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPLegend.ColumnStretchFactors: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -80466,7 +80466,7 @@ pub const QCPLegend = extern struct {
     pub fn RowStretchFactors(self: QCPLegend, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.QCPLayoutGrid_RowStretchFactors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcplegend.RowStretchFactors: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPLegend.RowStretchFactors: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -80996,7 +80996,7 @@ pub const QCPLegend = extern struct {
     pub fn MarginGroups(self: QCPLegend, allocator: std.mem.Allocator) Map_i32_QCPMarginGroup {
         const _map: qtc.libqt_map = qtc.QCPLayoutElement_MarginGroups(@ptrCast(self.ptr));
         var _ret: Map_i32_QCPMarginGroup = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcplegend.MarginGroups: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPLegend.MarginGroups: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -81339,7 +81339,7 @@ pub const QCPLegend = extern struct {
     pub fn ObjectName(self: QCPLegend, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcplegend.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPLegend.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -81516,7 +81516,7 @@ pub const QCPLegend = extern struct {
     pub fn Children(self: QCPLegend, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcplegend.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPLegend.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -81792,10 +81792,10 @@ pub const QCPLegend = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcplegend.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPLegend.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcplegend.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPLegend.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -82366,7 +82366,7 @@ pub const QCPLegend = extern struct {
     pub fn Elements(self: QCPLegend, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPLegend_Elements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcplegend.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPLegend.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -82394,7 +82394,7 @@ pub const QCPLegend = extern struct {
     pub fn SuperElements(self: QCPLegend, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPLegend_SuperElements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcplegend.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPLegend.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -83786,7 +83786,7 @@ pub const QCPLegend = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPLegend_GetSectionSizes(@ptrCast(self.ptr), maxSizes_list, minSizes_list, stretchFactors_list, @bitCast(totalSize));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qcplegend.GetSectionSizes: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QCPLegend.GetSectionSizes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -83831,7 +83831,7 @@ pub const QCPLegend = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPLegend_SuperGetSectionSizes(@ptrCast(self.ptr), maxSizes_list, minSizes_list, stretchFactors_list, @bitCast(totalSize));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qcplegend.GetSectionSizes: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QCPLegend.GetSectionSizes: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -84567,7 +84567,7 @@ pub const QCPTextElement = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcptextelement.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPTextElement.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -84583,7 +84583,7 @@ pub const QCPTextElement = extern struct {
     pub fn Text(self: QCPTextElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPTextElement_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcptextelement.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPTextElement.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -85451,7 +85451,7 @@ pub const QCPTextElement = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcptextelement.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPTextElement.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -85473,7 +85473,7 @@ pub const QCPTextElement = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcptextelement.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPTextElement.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -85625,7 +85625,7 @@ pub const QCPTextElement = extern struct {
     pub fn MarginGroups(self: QCPTextElement, allocator: std.mem.Allocator) Map_i32_QCPMarginGroup {
         const _map: qtc.libqt_map = qtc.QCPLayoutElement_MarginGroups(@ptrCast(self.ptr));
         var _ret: Map_i32_QCPMarginGroup = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcptextelement.MarginGroups: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPTextElement.MarginGroups: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -85968,7 +85968,7 @@ pub const QCPTextElement = extern struct {
     pub fn ObjectName(self: QCPTextElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcptextelement.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPTextElement.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -86145,7 +86145,7 @@ pub const QCPTextElement = extern struct {
     pub fn Children(self: QCPTextElement, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcptextelement.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPTextElement.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -86421,10 +86421,10 @@ pub const QCPTextElement = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcptextelement.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPTextElement.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcptextelement.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPTextElement.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -86793,7 +86793,7 @@ pub const QCPTextElement = extern struct {
     pub fn Elements(self: QCPTextElement, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPTextElement_Elements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcptextelement.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPTextElement.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -86821,7 +86821,7 @@ pub const QCPTextElement = extern struct {
     pub fn SuperElements(self: QCPTextElement, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPTextElement_SuperElements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcptextelement.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPTextElement.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -88235,7 +88235,7 @@ pub const QCPColorScale = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcolorscale.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPColorScale.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -88309,7 +88309,7 @@ pub const QCPColorScale = extern struct {
     pub fn Label(self: QCPColorScale, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPColorScale_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcolorscale.Label: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPColorScale.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -88457,7 +88457,7 @@ pub const QCPColorScale = extern struct {
     pub fn ColorMaps(self: QCPColorScale, allocator: std.mem.Allocator) []QCPColorMap {
         const _arr: qtc.libqt_list = qtc.QCPColorScale_ColorMaps(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPColorMap, _arr.len) catch @panic("qcpcolorscale.ColorMaps: Memory allocation failed");
+        const _ret = allocator.alloc(QCPColorMap, _arr.len) catch @panic("QCPColorScale.ColorMaps: Memory allocation failed");
         const _data: [*]QtC.QCPColorMap = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -88857,7 +88857,7 @@ pub const QCPColorScale = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcolorscale.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPColorScale.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -88879,7 +88879,7 @@ pub const QCPColorScale = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcolorscale.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPColorScale.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -89031,7 +89031,7 @@ pub const QCPColorScale = extern struct {
     pub fn MarginGroups(self: QCPColorScale, allocator: std.mem.Allocator) Map_i32_QCPMarginGroup {
         const _map: qtc.libqt_map = qtc.QCPLayoutElement_MarginGroups(@ptrCast(self.ptr));
         var _ret: Map_i32_QCPMarginGroup = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcpcolorscale.MarginGroups: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPColorScale.MarginGroups: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -89374,7 +89374,7 @@ pub const QCPColorScale = extern struct {
     pub fn ObjectName(self: QCPColorScale, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcolorscale.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPColorScale.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -89551,7 +89551,7 @@ pub const QCPColorScale = extern struct {
     pub fn Children(self: QCPColorScale, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpcolorscale.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPColorScale.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -89827,10 +89827,10 @@ pub const QCPColorScale = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpcolorscale.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPColorScale.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpcolorscale.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPColorScale.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -90247,7 +90247,7 @@ pub const QCPColorScale = extern struct {
     pub fn Elements(self: QCPColorScale, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPColorScale_Elements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcpcolorscale.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPColorScale.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -90275,7 +90275,7 @@ pub const QCPColorScale = extern struct {
     pub fn SuperElements(self: QCPColorScale, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPColorScale_SuperElements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcpcolorscale.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPColorScale.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -92081,7 +92081,7 @@ pub const QCPGraph = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpgraph.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPGraph.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -92891,7 +92891,7 @@ pub const QCPGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPGraph_DataToLines(@ptrCast(self.ptr), data_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcpgraph.DataToLines: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPGraph.DataToLines: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -92941,7 +92941,7 @@ pub const QCPGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPGraph_SuperDataToLines(@ptrCast(self.ptr), data_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcpgraph.DataToLines: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPGraph.DataToLines: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -92965,7 +92965,7 @@ pub const QCPGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPGraph_DataToStepLeftLines(@ptrCast(self.ptr), data_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcpgraph.DataToStepLeftLines: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPGraph.DataToStepLeftLines: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -93015,7 +93015,7 @@ pub const QCPGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPGraph_SuperDataToStepLeftLines(@ptrCast(self.ptr), data_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcpgraph.DataToStepLeftLines: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPGraph.DataToStepLeftLines: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -93039,7 +93039,7 @@ pub const QCPGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPGraph_DataToStepRightLines(@ptrCast(self.ptr), data_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcpgraph.DataToStepRightLines: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPGraph.DataToStepRightLines: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -93089,7 +93089,7 @@ pub const QCPGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPGraph_SuperDataToStepRightLines(@ptrCast(self.ptr), data_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcpgraph.DataToStepRightLines: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPGraph.DataToStepRightLines: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -93113,7 +93113,7 @@ pub const QCPGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPGraph_DataToStepCenterLines(@ptrCast(self.ptr), data_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcpgraph.DataToStepCenterLines: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPGraph.DataToStepCenterLines: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -93163,7 +93163,7 @@ pub const QCPGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPGraph_SuperDataToStepCenterLines(@ptrCast(self.ptr), data_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcpgraph.DataToStepCenterLines: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPGraph.DataToStepCenterLines: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -93187,7 +93187,7 @@ pub const QCPGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPGraph_DataToImpulseLines(@ptrCast(self.ptr), data_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcpgraph.DataToImpulseLines: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPGraph.DataToImpulseLines: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -93237,7 +93237,7 @@ pub const QCPGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPGraph_SuperDataToImpulseLines(@ptrCast(self.ptr), data_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcpgraph.DataToImpulseLines: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPGraph.DataToImpulseLines: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -93263,7 +93263,7 @@ pub const QCPGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPGraph_GetNonNanSegments(@ptrCast(self.ptr), lineData_list, @bitCast(keyOrientation));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPDataRange, _arr.len) catch @panic("qcpgraph.GetNonNanSegments: Memory allocation failed");
+        const _ret = allocator.alloc(QCPDataRange, _arr.len) catch @panic("QCPGraph.GetNonNanSegments: Memory allocation failed");
         const _data: [*]QtC.QCPDataRange = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -93315,7 +93315,7 @@ pub const QCPGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPGraph_SuperGetNonNanSegments(@ptrCast(self.ptr), lineData_list, @bitCast(keyOrientation));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPDataRange, _arr.len) catch @panic("qcpgraph.GetNonNanSegments: Memory allocation failed");
+        const _ret = allocator.alloc(QCPDataRange, _arr.len) catch @panic("QCPGraph.GetNonNanSegments: Memory allocation failed");
         const _data: [*]QtC.QCPDataRange = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -93358,7 +93358,7 @@ pub const QCPGraph = extern struct {
         const _arr: qtc.libqt_list = qtc.QCPGraph_GetOverlappingSegments(@ptrCast(self.ptr), thisSegments_list, thisData_list, otherSegments_list, otherData_list);
         const _data: [*]Struct_QCPDataRange_QCPDataRange = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_QCPDataRange_QCPDataRange, _arr.len) catch @panic("qcpgraph.GetOverlappingSegments: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_QCPDataRange_QCPDataRange, _arr.len) catch @panic("QCPGraph.GetOverlappingSegments: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -93425,7 +93425,7 @@ pub const QCPGraph = extern struct {
         const _arr: qtc.libqt_list = qtc.QCPGraph_SuperGetOverlappingSegments(@ptrCast(self.ptr), thisSegments_list, thisData_list, otherSegments_list, otherData_list);
         const _data: [*]Struct_QCPDataRange_QCPDataRange = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_QCPDataRange_QCPDataRange, _arr.len) catch @panic("qcpgraph.GetOverlappingSegments: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_QCPDataRange_QCPDataRange, _arr.len) catch @panic("QCPGraph.GetOverlappingSegments: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -93777,7 +93777,7 @@ pub const QCPGraph = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpgraph.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPGraph.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -93799,7 +93799,7 @@ pub const QCPGraph = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpgraph.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPGraph.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -93880,7 +93880,7 @@ pub const QCPGraph = extern struct {
     pub fn Name(self: QCPGraph, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPAbstractPlottable_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpgraph.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPGraph.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -94600,7 +94600,7 @@ pub const QCPGraph = extern struct {
     pub fn ObjectName(self: QCPGraph, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpgraph.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPGraph.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -94777,7 +94777,7 @@ pub const QCPGraph = extern struct {
     pub fn Children(self: QCPGraph, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpgraph.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPGraph.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -95053,10 +95053,10 @@ pub const QCPGraph = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpgraph.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPGraph.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpgraph.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPGraph.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -97915,7 +97915,7 @@ pub const QCPCurve = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcurve.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPCurve.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -98800,7 +98800,7 @@ pub const QCPCurve = extern struct {
     pub fn GetOptimizedCornerPoints(self: QCPCurve, allocator: std.mem.Allocator, prevRegion: i32, currentRegion: i32, prevKey: f64, prevValue: f64, key: f64, value: f64, keyMin: f64, valueMax: f64, keyMax: f64, valueMin: f64) []QPointF {
         const _arr: qtc.libqt_list = qtc.QCPCurve_GetOptimizedCornerPoints(@ptrCast(self.ptr), @bitCast(prevRegion), @bitCast(currentRegion), @bitCast(prevKey), @bitCast(prevValue), @bitCast(key), @bitCast(value), @bitCast(keyMin), @bitCast(valueMax), @bitCast(keyMax), @bitCast(valueMin));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcpcurve.GetOptimizedCornerPoints: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPCurve.GetOptimizedCornerPoints: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -98864,7 +98864,7 @@ pub const QCPCurve = extern struct {
     pub fn SuperGetOptimizedCornerPoints(self: QCPCurve, allocator: std.mem.Allocator, prevRegion: i32, currentRegion: i32, prevKey: f64, prevValue: f64, key: f64, value: f64, keyMin: f64, valueMax: f64, keyMax: f64, valueMin: f64) []QPointF {
         const _arr: qtc.libqt_list = qtc.QCPCurve_SuperGetOptimizedCornerPoints(@ptrCast(self.ptr), @bitCast(prevRegion), @bitCast(currentRegion), @bitCast(prevKey), @bitCast(prevValue), @bitCast(key), @bitCast(value), @bitCast(keyMin), @bitCast(valueMax), @bitCast(keyMax), @bitCast(valueMin));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcpcurve.GetOptimizedCornerPoints: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPCurve.GetOptimizedCornerPoints: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -99106,7 +99106,7 @@ pub const QCPCurve = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcurve.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPCurve.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -99128,7 +99128,7 @@ pub const QCPCurve = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcurve.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPCurve.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -99221,7 +99221,7 @@ pub const QCPCurve = extern struct {
     pub fn Name(self: QCPCurve, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPAbstractPlottable_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcurve.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPCurve.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -99941,7 +99941,7 @@ pub const QCPCurve = extern struct {
     pub fn ObjectName(self: QCPCurve, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcurve.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPCurve.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -100118,7 +100118,7 @@ pub const QCPCurve = extern struct {
     pub fn Children(self: QCPCurve, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpcurve.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPCurve.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -100394,10 +100394,10 @@ pub const QCPCurve = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpcurve.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPCurve.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpcurve.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPCurve.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -103022,7 +103022,7 @@ pub const QCPBarsGroup = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpbarsgroup.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPBarsGroup.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -103086,7 +103086,7 @@ pub const QCPBarsGroup = extern struct {
     pub fn Bars(self: QCPBarsGroup, allocator: std.mem.Allocator) []QCPBars {
         const _arr: qtc.libqt_list = qtc.QCPBarsGroup_Bars(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPBars, _arr.len) catch @panic("qcpbarsgroup.Bars: Memory allocation failed");
+        const _ret = allocator.alloc(QCPBars, _arr.len) catch @panic("QCPBarsGroup.Bars: Memory allocation failed");
         const _data: [*]QtC.QCPBars = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -103396,7 +103396,7 @@ pub const QCPBarsGroup = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpbarsgroup.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPBarsGroup.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -103418,7 +103418,7 @@ pub const QCPBarsGroup = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpbarsgroup.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPBarsGroup.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -103436,7 +103436,7 @@ pub const QCPBarsGroup = extern struct {
     pub fn ObjectName(self: QCPBarsGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpbarsgroup.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPBarsGroup.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -103613,7 +103613,7 @@ pub const QCPBarsGroup = extern struct {
     pub fn Children(self: QCPBarsGroup, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpbarsgroup.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPBarsGroup.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -103889,10 +103889,10 @@ pub const QCPBarsGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpbarsgroup.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPBarsGroup.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpbarsgroup.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPBarsGroup.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -105183,7 +105183,7 @@ pub const QCPBars = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpbars.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPBars.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -105982,7 +105982,7 @@ pub const QCPBars = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpbars.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPBars.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -106004,7 +106004,7 @@ pub const QCPBars = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpbars.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPBars.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -106085,7 +106085,7 @@ pub const QCPBars = extern struct {
     pub fn Name(self: QCPBars, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPAbstractPlottable_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpbars.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPBars.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -106805,7 +106805,7 @@ pub const QCPBars = extern struct {
     pub fn ObjectName(self: QCPBars, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpbars.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPBars.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -106982,7 +106982,7 @@ pub const QCPBars = extern struct {
     pub fn Children(self: QCPBars, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpbars.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPBars.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -107258,10 +107258,10 @@ pub const QCPBars = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpbars.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPBars.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpbars.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPBars.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -109884,7 +109884,7 @@ pub const QCPStatisticalBoxData = extern struct {
     pub fn Outliers(self: QCPStatisticalBoxData, allocator: std.mem.Allocator) []f64 {
         const outliers_arr: qtc.libqt_list = qtc.QCPStatisticalBoxData_Outliers(@ptrCast(self.ptr));
         defer qtc.libqt_free(outliers_arr.data);
-        const outliers_ret = allocator.alloc(f64, outliers_arr.len) catch @panic("qcpstatisticalboxdata.Outliers: Memory allocation failed");
+        const outliers_ret = allocator.alloc(f64, outliers_arr.len) catch @panic("QCPStatisticalBoxData.Outliers: Memory allocation failed");
         const outliers_data: [*]f64 = @ptrCast(@alignCast(outliers_arr.data));
         @memcpy(outliers_ret, outliers_data[0..outliers_arr.len]);
         return outliers_ret;
@@ -110091,7 +110091,7 @@ pub const QCPStatisticalBox = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpstatisticalbox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPStatisticalBox.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -110695,7 +110695,7 @@ pub const QCPStatisticalBox = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpstatisticalbox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPStatisticalBox.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -110717,7 +110717,7 @@ pub const QCPStatisticalBox = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpstatisticalbox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPStatisticalBox.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -110874,7 +110874,7 @@ pub const QCPStatisticalBox = extern struct {
     pub fn Name(self: QCPStatisticalBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPAbstractPlottable_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpstatisticalbox.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPStatisticalBox.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -111594,7 +111594,7 @@ pub const QCPStatisticalBox = extern struct {
     pub fn ObjectName(self: QCPStatisticalBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpstatisticalbox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPStatisticalBox.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -111771,7 +111771,7 @@ pub const QCPStatisticalBox = extern struct {
     pub fn Children(self: QCPStatisticalBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpstatisticalbox.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPStatisticalBox.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -112047,10 +112047,10 @@ pub const QCPStatisticalBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpstatisticalbox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPStatisticalBox.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpstatisticalbox.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPStatisticalBox.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -115009,7 +115009,7 @@ pub const QCPColorMap = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcolormap.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPColorMap.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -115585,7 +115585,7 @@ pub const QCPColorMap = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcolormap.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPColorMap.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -115607,7 +115607,7 @@ pub const QCPColorMap = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcolormap.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPColorMap.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -115679,7 +115679,7 @@ pub const QCPColorMap = extern struct {
     pub fn Name(self: QCPColorMap, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPAbstractPlottable_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcolormap.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPColorMap.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -116399,7 +116399,7 @@ pub const QCPColorMap = extern struct {
     pub fn ObjectName(self: QCPColorMap, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpcolormap.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPColorMap.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -116576,7 +116576,7 @@ pub const QCPColorMap = extern struct {
     pub fn Children(self: QCPColorMap, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpcolormap.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPColorMap.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -116852,10 +116852,10 @@ pub const QCPColorMap = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpcolormap.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPColorMap.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpcolormap.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPColorMap.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -119230,7 +119230,7 @@ pub const QCPFinancial = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpfinancial.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPFinancial.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -119898,7 +119898,7 @@ pub const QCPFinancial = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpfinancial.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPFinancial.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -119920,7 +119920,7 @@ pub const QCPFinancial = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpfinancial.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPFinancial.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -120037,7 +120037,7 @@ pub const QCPFinancial = extern struct {
     pub fn Name(self: QCPFinancial, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPAbstractPlottable_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpfinancial.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPFinancial.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -120757,7 +120757,7 @@ pub const QCPFinancial = extern struct {
     pub fn ObjectName(self: QCPFinancial, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpfinancial.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPFinancial.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -120934,7 +120934,7 @@ pub const QCPFinancial = extern struct {
     pub fn Children(self: QCPFinancial, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpfinancial.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPFinancial.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -121210,10 +121210,10 @@ pub const QCPFinancial = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpfinancial.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPFinancial.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpfinancial.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPFinancial.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -123940,7 +123940,7 @@ pub const QCPErrorBars = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcperrorbars.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPErrorBars.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -125067,7 +125067,7 @@ pub const QCPErrorBars = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcperrorbars.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPErrorBars.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -125089,7 +125089,7 @@ pub const QCPErrorBars = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcperrorbars.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPErrorBars.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -125107,7 +125107,7 @@ pub const QCPErrorBars = extern struct {
     pub fn Name(self: QCPErrorBars, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPAbstractPlottable_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcperrorbars.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPErrorBars.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -125827,7 +125827,7 @@ pub const QCPErrorBars = extern struct {
     pub fn ObjectName(self: QCPErrorBars, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcperrorbars.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPErrorBars.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -126004,7 +126004,7 @@ pub const QCPErrorBars = extern struct {
     pub fn Children(self: QCPErrorBars, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcperrorbars.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPErrorBars.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -126280,10 +126280,10 @@ pub const QCPErrorBars = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcperrorbars.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPErrorBars.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcperrorbars.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPErrorBars.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -128345,7 +128345,7 @@ pub const QCPItemStraightLine = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemstraightline.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemStraightLine.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -128635,7 +128635,7 @@ pub const QCPItemStraightLine = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemstraightline.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemStraightLine.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -128657,7 +128657,7 @@ pub const QCPItemStraightLine = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemstraightline.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemStraightLine.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -128780,7 +128780,7 @@ pub const QCPItemStraightLine = extern struct {
     pub fn Positions(self: QCPItemStraightLine, allocator: std.mem.Allocator) []QCPItemPosition {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Positions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("qcpitemstraightline.Positions: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("QCPItemStraightLine.Positions: Memory allocation failed");
         const _data: [*]QtC.QCPItemPosition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -128800,7 +128800,7 @@ pub const QCPItemStraightLine = extern struct {
     pub fn Anchors(self: QCPItemStraightLine, allocator: std.mem.Allocator) []QCPItemAnchor {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Anchors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("qcpitemstraightline.Anchors: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("QCPItemStraightLine.Anchors: Memory allocation failed");
         const _data: [*]QtC.QCPItemAnchor = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -129092,7 +129092,7 @@ pub const QCPItemStraightLine = extern struct {
     pub fn ObjectName(self: QCPItemStraightLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemstraightline.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemStraightLine.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -129269,7 +129269,7 @@ pub const QCPItemStraightLine = extern struct {
     pub fn Children(self: QCPItemStraightLine, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpitemstraightline.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPItemStraightLine.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -129545,10 +129545,10 @@ pub const QCPItemStraightLine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpitemstraightline.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPItemStraightLine.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpitemstraightline.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPItemStraightLine.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -131729,7 +131729,7 @@ pub const QCPItemLine = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemline.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemLine.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -132065,7 +132065,7 @@ pub const QCPItemLine = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemline.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemLine.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -132087,7 +132087,7 @@ pub const QCPItemLine = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemline.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemLine.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -132210,7 +132210,7 @@ pub const QCPItemLine = extern struct {
     pub fn Positions(self: QCPItemLine, allocator: std.mem.Allocator) []QCPItemPosition {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Positions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("qcpitemline.Positions: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("QCPItemLine.Positions: Memory allocation failed");
         const _data: [*]QtC.QCPItemPosition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -132230,7 +132230,7 @@ pub const QCPItemLine = extern struct {
     pub fn Anchors(self: QCPItemLine, allocator: std.mem.Allocator) []QCPItemAnchor {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Anchors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("qcpitemline.Anchors: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("QCPItemLine.Anchors: Memory allocation failed");
         const _data: [*]QtC.QCPItemAnchor = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -132522,7 +132522,7 @@ pub const QCPItemLine = extern struct {
     pub fn ObjectName(self: QCPItemLine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemline.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemLine.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -132699,7 +132699,7 @@ pub const QCPItemLine = extern struct {
     pub fn Children(self: QCPItemLine, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpitemline.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPItemLine.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -132975,10 +132975,10 @@ pub const QCPItemLine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpitemline.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPItemLine.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpitemline.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPItemLine.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -135159,7 +135159,7 @@ pub const QCPItemCurve = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemcurve.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemCurve.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -135455,7 +135455,7 @@ pub const QCPItemCurve = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemcurve.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemCurve.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -135477,7 +135477,7 @@ pub const QCPItemCurve = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemcurve.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemCurve.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -135600,7 +135600,7 @@ pub const QCPItemCurve = extern struct {
     pub fn Positions(self: QCPItemCurve, allocator: std.mem.Allocator) []QCPItemPosition {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Positions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("qcpitemcurve.Positions: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("QCPItemCurve.Positions: Memory allocation failed");
         const _data: [*]QtC.QCPItemPosition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -135620,7 +135620,7 @@ pub const QCPItemCurve = extern struct {
     pub fn Anchors(self: QCPItemCurve, allocator: std.mem.Allocator) []QCPItemAnchor {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Anchors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("qcpitemcurve.Anchors: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("QCPItemCurve.Anchors: Memory allocation failed");
         const _data: [*]QtC.QCPItemAnchor = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -135912,7 +135912,7 @@ pub const QCPItemCurve = extern struct {
     pub fn ObjectName(self: QCPItemCurve, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemcurve.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemCurve.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -136089,7 +136089,7 @@ pub const QCPItemCurve = extern struct {
     pub fn Children(self: QCPItemCurve, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpitemcurve.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPItemCurve.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -136365,10 +136365,10 @@ pub const QCPItemCurve = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpitemcurve.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPItemCurve.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpitemcurve.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPItemCurve.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -138549,7 +138549,7 @@ pub const QCPItemRect = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemrect.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemRect.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -138973,7 +138973,7 @@ pub const QCPItemRect = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemrect.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemRect.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -138995,7 +138995,7 @@ pub const QCPItemRect = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemrect.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemRect.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -139118,7 +139118,7 @@ pub const QCPItemRect = extern struct {
     pub fn Positions(self: QCPItemRect, allocator: std.mem.Allocator) []QCPItemPosition {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Positions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("qcpitemrect.Positions: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("QCPItemRect.Positions: Memory allocation failed");
         const _data: [*]QtC.QCPItemPosition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -139138,7 +139138,7 @@ pub const QCPItemRect = extern struct {
     pub fn Anchors(self: QCPItemRect, allocator: std.mem.Allocator) []QCPItemAnchor {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Anchors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("qcpitemrect.Anchors: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("QCPItemRect.Anchors: Memory allocation failed");
         const _data: [*]QtC.QCPItemAnchor = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -139430,7 +139430,7 @@ pub const QCPItemRect = extern struct {
     pub fn ObjectName(self: QCPItemRect, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemrect.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemRect.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -139607,7 +139607,7 @@ pub const QCPItemRect = extern struct {
     pub fn Children(self: QCPItemRect, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpitemrect.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPItemRect.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -139883,10 +139883,10 @@ pub const QCPItemRect = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpitemrect.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPItemRect.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpitemrect.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPItemRect.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -142013,7 +142013,7 @@ pub const QCPItemText = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemtext.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemText.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -142109,7 +142109,7 @@ pub const QCPItemText = extern struct {
     pub fn Text(self: QCPItemText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPItemText_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemtext.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemText.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -142810,7 +142810,7 @@ pub const QCPItemText = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemtext.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemText.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -142832,7 +142832,7 @@ pub const QCPItemText = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemtext.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemText.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -142955,7 +142955,7 @@ pub const QCPItemText = extern struct {
     pub fn Positions(self: QCPItemText, allocator: std.mem.Allocator) []QCPItemPosition {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Positions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("qcpitemtext.Positions: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("QCPItemText.Positions: Memory allocation failed");
         const _data: [*]QtC.QCPItemPosition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -142975,7 +142975,7 @@ pub const QCPItemText = extern struct {
     pub fn Anchors(self: QCPItemText, allocator: std.mem.Allocator) []QCPItemAnchor {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Anchors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("qcpitemtext.Anchors: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("QCPItemText.Anchors: Memory allocation failed");
         const _data: [*]QtC.QCPItemAnchor = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -143249,7 +143249,7 @@ pub const QCPItemText = extern struct {
     pub fn ObjectName(self: QCPItemText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemtext.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemText.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -143426,7 +143426,7 @@ pub const QCPItemText = extern struct {
     pub fn Children(self: QCPItemText, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpitemtext.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPItemText.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -143702,10 +143702,10 @@ pub const QCPItemText = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpitemtext.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPItemText.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpitemtext.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPItemText.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -145832,7 +145832,7 @@ pub const QCPItemEllipse = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemellipse.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemEllipse.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -146286,7 +146286,7 @@ pub const QCPItemEllipse = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemellipse.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemEllipse.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -146308,7 +146308,7 @@ pub const QCPItemEllipse = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemellipse.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemEllipse.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -146431,7 +146431,7 @@ pub const QCPItemEllipse = extern struct {
     pub fn Positions(self: QCPItemEllipse, allocator: std.mem.Allocator) []QCPItemPosition {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Positions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("qcpitemellipse.Positions: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("QCPItemEllipse.Positions: Memory allocation failed");
         const _data: [*]QtC.QCPItemPosition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -146451,7 +146451,7 @@ pub const QCPItemEllipse = extern struct {
     pub fn Anchors(self: QCPItemEllipse, allocator: std.mem.Allocator) []QCPItemAnchor {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Anchors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("qcpitemellipse.Anchors: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("QCPItemEllipse.Anchors: Memory allocation failed");
         const _data: [*]QtC.QCPItemAnchor = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -146743,7 +146743,7 @@ pub const QCPItemEllipse = extern struct {
     pub fn ObjectName(self: QCPItemEllipse, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemellipse.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemEllipse.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -146920,7 +146920,7 @@ pub const QCPItemEllipse = extern struct {
     pub fn Children(self: QCPItemEllipse, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpitemellipse.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPItemEllipse.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -147196,10 +147196,10 @@ pub const QCPItemEllipse = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpitemellipse.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPItemEllipse.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpitemellipse.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPItemEllipse.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -149326,7 +149326,7 @@ pub const QCPItemPixmap = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitempixmap.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemPixmap.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -149817,7 +149817,7 @@ pub const QCPItemPixmap = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitempixmap.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemPixmap.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -149839,7 +149839,7 @@ pub const QCPItemPixmap = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitempixmap.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemPixmap.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -150238,7 +150238,7 @@ pub const QCPItemPixmap = extern struct {
     pub fn Positions(self: QCPItemPixmap, allocator: std.mem.Allocator) []QCPItemPosition {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Positions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("qcpitempixmap.Positions: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("QCPItemPixmap.Positions: Memory allocation failed");
         const _data: [*]QtC.QCPItemPosition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -150258,7 +150258,7 @@ pub const QCPItemPixmap = extern struct {
     pub fn Anchors(self: QCPItemPixmap, allocator: std.mem.Allocator) []QCPItemAnchor {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Anchors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("qcpitempixmap.Anchors: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("QCPItemPixmap.Anchors: Memory allocation failed");
         const _data: [*]QtC.QCPItemAnchor = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -150550,7 +150550,7 @@ pub const QCPItemPixmap = extern struct {
     pub fn ObjectName(self: QCPItemPixmap, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitempixmap.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemPixmap.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -150727,7 +150727,7 @@ pub const QCPItemPixmap = extern struct {
     pub fn Children(self: QCPItemPixmap, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpitempixmap.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPItemPixmap.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -151003,10 +151003,10 @@ pub const QCPItemPixmap = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpitempixmap.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPItemPixmap.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpitempixmap.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPItemPixmap.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -153133,7 +153133,7 @@ pub const QCPItemTracer = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemtracer.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemTracer.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -153566,7 +153566,7 @@ pub const QCPItemTracer = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemtracer.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemTracer.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -153588,7 +153588,7 @@ pub const QCPItemTracer = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemtracer.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemTracer.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -153711,7 +153711,7 @@ pub const QCPItemTracer = extern struct {
     pub fn Positions(self: QCPItemTracer, allocator: std.mem.Allocator) []QCPItemPosition {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Positions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("qcpitemtracer.Positions: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("QCPItemTracer.Positions: Memory allocation failed");
         const _data: [*]QtC.QCPItemPosition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -153731,7 +153731,7 @@ pub const QCPItemTracer = extern struct {
     pub fn Anchors(self: QCPItemTracer, allocator: std.mem.Allocator) []QCPItemAnchor {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Anchors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("qcpitemtracer.Anchors: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("QCPItemTracer.Anchors: Memory allocation failed");
         const _data: [*]QtC.QCPItemAnchor = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -154005,7 +154005,7 @@ pub const QCPItemTracer = extern struct {
     pub fn ObjectName(self: QCPItemTracer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitemtracer.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemTracer.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -154182,7 +154182,7 @@ pub const QCPItemTracer = extern struct {
     pub fn Children(self: QCPItemTracer, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpitemtracer.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPItemTracer.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -154458,10 +154458,10 @@ pub const QCPItemTracer = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpitemtracer.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPItemTracer.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpitemtracer.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPItemTracer.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -156642,7 +156642,7 @@ pub const QCPItemBracket = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitembracket.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemBracket.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -156976,7 +156976,7 @@ pub const QCPItemBracket = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitembracket.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemBracket.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -156998,7 +156998,7 @@ pub const QCPItemBracket = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitembracket.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemBracket.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -157121,7 +157121,7 @@ pub const QCPItemBracket = extern struct {
     pub fn Positions(self: QCPItemBracket, allocator: std.mem.Allocator) []QCPItemPosition {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Positions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("qcpitembracket.Positions: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemPosition, _arr.len) catch @panic("QCPItemBracket.Positions: Memory allocation failed");
         const _data: [*]QtC.QCPItemPosition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -157141,7 +157141,7 @@ pub const QCPItemBracket = extern struct {
     pub fn Anchors(self: QCPItemBracket, allocator: std.mem.Allocator) []QCPItemAnchor {
         const _arr: qtc.libqt_list = qtc.QCPAbstractItem_Anchors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("qcpitembracket.Anchors: Memory allocation failed");
+        const _ret = allocator.alloc(QCPItemAnchor, _arr.len) catch @panic("QCPItemBracket.Anchors: Memory allocation failed");
         const _data: [*]QtC.QCPItemAnchor = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -157433,7 +157433,7 @@ pub const QCPItemBracket = extern struct {
     pub fn ObjectName(self: QCPItemBracket, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcpitembracket.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPItemBracket.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -157610,7 +157610,7 @@ pub const QCPItemBracket = extern struct {
     pub fn Children(self: QCPItemBracket, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcpitembracket.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPItemBracket.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -157886,10 +157886,10 @@ pub const QCPItemBracket = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcpitembracket.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPItemBracket.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcpitembracket.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPItemBracket.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -160015,7 +160015,7 @@ pub const QCPPolarAxisRadial = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolaraxisradial.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarAxisRadial.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -160203,7 +160203,7 @@ pub const QCPPolarAxisRadial = extern struct {
     pub fn NumberFormat(self: QCPPolarAxisRadial, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPPolarAxisRadial_NumberFormat(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolaraxisradial.NumberFormat: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarAxisRadial.NumberFormat: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -160229,7 +160229,7 @@ pub const QCPPolarAxisRadial = extern struct {
     pub fn TickVector(self: QCPPolarAxisRadial, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.QCPPolarAxisRadial_TickVector(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcppolaraxisradial.TickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPPolarAxisRadial.TickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -160246,7 +160246,7 @@ pub const QCPPolarAxisRadial = extern struct {
     pub fn SubTickVector(self: QCPPolarAxisRadial, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.QCPPolarAxisRadial_SubTickVector(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcppolaraxisradial.SubTickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPPolarAxisRadial.SubTickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -160268,10 +160268,10 @@ pub const QCPPolarAxisRadial = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcppolaraxisradial.TickVectorLabels: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPPolarAxisRadial.TickVectorLabels: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcppolaraxisradial.TickVectorLabels: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPPolarAxisRadial.TickVectorLabels: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -160389,7 +160389,7 @@ pub const QCPPolarAxisRadial = extern struct {
     pub fn Label(self: QCPPolarAxisRadial, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPPolarAxisRadial_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolaraxisradial.Label: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarAxisRadial.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -162145,7 +162145,7 @@ pub const QCPPolarAxisRadial = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolaraxisradial.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarAxisRadial.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -162167,7 +162167,7 @@ pub const QCPPolarAxisRadial = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolaraxisradial.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarAxisRadial.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -162387,7 +162387,7 @@ pub const QCPPolarAxisRadial = extern struct {
     pub fn ObjectName(self: QCPPolarAxisRadial, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolaraxisradial.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarAxisRadial.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -162564,7 +162564,7 @@ pub const QCPPolarAxisRadial = extern struct {
     pub fn Children(self: QCPPolarAxisRadial, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcppolaraxisradial.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPPolarAxisRadial.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -162840,10 +162840,10 @@ pub const QCPPolarAxisRadial = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcppolaraxisradial.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPPolarAxisRadial.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcppolaraxisradial.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPPolarAxisRadial.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -164318,7 +164318,7 @@ pub const QCPPolarAxisAngular = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolaraxisangular.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarAxisAngular.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -164512,7 +164512,7 @@ pub const QCPPolarAxisAngular = extern struct {
     pub fn NumberFormat(self: QCPPolarAxisAngular, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPPolarAxisAngular_NumberFormat(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolaraxisangular.NumberFormat: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarAxisAngular.NumberFormat: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -164538,7 +164538,7 @@ pub const QCPPolarAxisAngular = extern struct {
     pub fn TickVector(self: QCPPolarAxisAngular, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.QCPPolarAxisAngular_TickVector(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qcppolaraxisangular.TickVector: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QCPPolarAxisAngular.TickVector: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -164560,10 +164560,10 @@ pub const QCPPolarAxisAngular = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcppolaraxisangular.TickVectorLabels: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCPPolarAxisAngular.TickVectorLabels: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcppolaraxisangular.TickVectorLabels: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPPolarAxisAngular.TickVectorLabels: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -164681,7 +164681,7 @@ pub const QCPPolarAxisAngular = extern struct {
     pub fn Label(self: QCPPolarAxisAngular, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPPolarAxisAngular_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolaraxisangular.Label: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarAxisAngular.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -165515,7 +165515,7 @@ pub const QCPPolarAxisAngular = extern struct {
     pub fn Elements(self: QCPPolarAxisAngular, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPPolarAxisAngular_Elements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcppolaraxisangular.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPPolarAxisAngular.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -165561,7 +165561,7 @@ pub const QCPPolarAxisAngular = extern struct {
     pub fn SuperElements(self: QCPPolarAxisAngular, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPPolarAxisAngular_SuperElements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcppolaraxisangular.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPPolarAxisAngular.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -165612,7 +165612,7 @@ pub const QCPPolarAxisAngular = extern struct {
     pub fn RadialAxes(self: QCPPolarAxisAngular, allocator: std.mem.Allocator) []QCPPolarAxisRadial {
         const _arr: qtc.libqt_list = qtc.QCPPolarAxisAngular_RadialAxes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPPolarAxisRadial, _arr.len) catch @panic("qcppolaraxisangular.RadialAxes: Memory allocation failed");
+        const _ret = allocator.alloc(QCPPolarAxisRadial, _arr.len) catch @panic("QCPPolarAxisAngular.RadialAxes: Memory allocation failed");
         const _data: [*]QtC.QCPPolarAxisRadial = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -166758,7 +166758,7 @@ pub const QCPPolarAxisAngular = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolaraxisangular.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarAxisAngular.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -166780,7 +166780,7 @@ pub const QCPPolarAxisAngular = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolaraxisangular.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarAxisAngular.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -167014,7 +167014,7 @@ pub const QCPPolarAxisAngular = extern struct {
     pub fn MarginGroups(self: QCPPolarAxisAngular, allocator: std.mem.Allocator) Map_i32_QCPMarginGroup {
         const _map: qtc.libqt_map = qtc.QCPLayoutElement_MarginGroups(@ptrCast(self.ptr));
         var _ret: Map_i32_QCPMarginGroup = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcppolaraxisangular.MarginGroups: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPPolarAxisAngular.MarginGroups: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -167357,7 +167357,7 @@ pub const QCPPolarAxisAngular = extern struct {
     pub fn ObjectName(self: QCPPolarAxisAngular, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolaraxisangular.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarAxisAngular.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -167534,7 +167534,7 @@ pub const QCPPolarAxisAngular = extern struct {
     pub fn Children(self: QCPPolarAxisAngular, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcppolaraxisangular.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPPolarAxisAngular.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -167810,10 +167810,10 @@ pub const QCPPolarAxisAngular = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcppolaraxisangular.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPPolarAxisAngular.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcppolaraxisangular.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPPolarAxisAngular.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -169607,7 +169607,7 @@ pub const QCPPolarGrid = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolargrid.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarGrid.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -170097,7 +170097,7 @@ pub const QCPPolarGrid = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolargrid.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarGrid.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -170119,7 +170119,7 @@ pub const QCPPolarGrid = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolargrid.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarGrid.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -170375,7 +170375,7 @@ pub const QCPPolarGrid = extern struct {
     pub fn ObjectName(self: QCPPolarGrid, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolargrid.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarGrid.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -170552,7 +170552,7 @@ pub const QCPPolarGrid = extern struct {
     pub fn Children(self: QCPPolarGrid, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcppolargrid.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPPolarGrid.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -170828,10 +170828,10 @@ pub const QCPPolarGrid = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcppolargrid.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPPolarGrid.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcppolargrid.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPPolarGrid.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -172784,7 +172784,7 @@ pub const QCPPolarLegendItem = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolarlegenditem.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarLegendItem.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -173028,7 +173028,7 @@ pub const QCPPolarLegendItem = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolarlegenditem.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarLegendItem.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -173050,7 +173050,7 @@ pub const QCPPolarLegendItem = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolarlegenditem.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarLegendItem.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -173430,7 +173430,7 @@ pub const QCPPolarLegendItem = extern struct {
     pub fn MarginGroups(self: QCPPolarLegendItem, allocator: std.mem.Allocator) Map_i32_QCPMarginGroup {
         const _map: qtc.libqt_map = qtc.QCPLayoutElement_MarginGroups(@ptrCast(self.ptr));
         var _ret: Map_i32_QCPMarginGroup = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcppolarlegenditem.MarginGroups: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCPPolarLegendItem.MarginGroups: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -173773,7 +173773,7 @@ pub const QCPPolarLegendItem = extern struct {
     pub fn ObjectName(self: QCPPolarLegendItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolarlegenditem.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarLegendItem.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -173950,7 +173950,7 @@ pub const QCPPolarLegendItem = extern struct {
     pub fn Children(self: QCPPolarLegendItem, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcppolarlegenditem.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPPolarLegendItem.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -174226,10 +174226,10 @@ pub const QCPPolarLegendItem = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcppolarlegenditem.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPPolarLegendItem.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcppolarlegenditem.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPPolarLegendItem.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -174992,7 +174992,7 @@ pub const QCPPolarLegendItem = extern struct {
     pub fn Elements(self: QCPPolarLegendItem, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPPolarLegendItem_Elements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcppolarlegenditem.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPPolarLegendItem.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -175020,7 +175020,7 @@ pub const QCPPolarLegendItem = extern struct {
     pub fn SuperElements(self: QCPPolarLegendItem, allocator: std.mem.Allocator, recursive: bool) []QCPLayoutElement {
         const _arr: qtc.libqt_list = qtc.QCPPolarLegendItem_SuperElements(@ptrCast(self.ptr), recursive);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("qcppolarlegenditem.Elements: Memory allocation failed");
+        const _ret = allocator.alloc(QCPLayoutElement, _arr.len) catch @panic("QCPPolarLegendItem.Elements: Memory allocation failed");
         const _data: [*]QtC.QCPLayoutElement = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -176510,7 +176510,7 @@ pub const QCPPolarGraph = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolargraph.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarGraph.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -176526,7 +176526,7 @@ pub const QCPPolarGraph = extern struct {
     pub fn Name(self: QCPPolarGraph, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCPPolarGraph_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolargraph.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarGraph.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -178158,7 +178158,7 @@ pub const QCPPolarGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPPolarGraph_DataToLines(@ptrCast(self.ptr), data_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcppolargraph.DataToLines: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPPolarGraph.DataToLines: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -178208,7 +178208,7 @@ pub const QCPPolarGraph = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QCPPolarGraph_SuperDataToLines(@ptrCast(self.ptr), data_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qcppolargraph.DataToLines: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QCPPolarGraph.DataToLines: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -178230,7 +178230,7 @@ pub const QCPPolarGraph = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolargraph.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarGraph.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -178252,7 +178252,7 @@ pub const QCPPolarGraph = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolargraph.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarGraph.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -178530,7 +178530,7 @@ pub const QCPPolarGraph = extern struct {
     pub fn ObjectName(self: QCPPolarGraph, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcppolargraph.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCPPolarGraph.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -178707,7 +178707,7 @@ pub const QCPPolarGraph = extern struct {
     pub fn Children(self: QCPPolarGraph, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcppolargraph.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCPPolarGraph.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -178983,10 +178983,10 @@ pub const QCPPolarGraph = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcppolargraph.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCPPolarGraph.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcppolargraph.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCPPolarGraph.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

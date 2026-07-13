@@ -120,7 +120,7 @@ pub const QPdfLink = extern struct {
     pub fn ContextBefore(self: QPdfLink, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPdfLink_ContextBefore(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpdflink.ContextBefore: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfLink.ContextBefore: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -136,7 +136,7 @@ pub const QPdfLink = extern struct {
     pub fn ContextAfter(self: QPdfLink, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPdfLink_ContextAfter(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpdflink.ContextAfter: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfLink.ContextAfter: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -152,7 +152,7 @@ pub const QPdfLink = extern struct {
     pub fn Rectangles(self: QPdfLink, allocator: std.mem.Allocator) []QRectF {
         const _arr: qtc.libqt_list = qtc.QPdfLink_Rectangles(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QRectF, _arr.len) catch @panic("qpdflink.Rectangles: Memory allocation failed");
+        const _ret = allocator.alloc(QRectF, _arr.len) catch @panic("QPdfLink.Rectangles: Memory allocation failed");
         const _data: [*]QtC.QRectF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -170,7 +170,7 @@ pub const QPdfLink = extern struct {
     pub fn ToString(self: QPdfLink, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPdfLink_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qpdflink.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfLink.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

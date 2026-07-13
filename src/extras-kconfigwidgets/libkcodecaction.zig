@@ -278,7 +278,7 @@ pub const KCodecAction = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcodecaction.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecAction.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -294,7 +294,7 @@ pub const KCodecAction = extern struct {
     pub fn CurrentCodecName(self: KCodecAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCodecAction_CurrentCodecName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcodecaction.CurrentCodecName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecAction.CurrentCodecName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -426,7 +426,7 @@ pub const KCodecAction = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcodecaction.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecAction.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -448,7 +448,7 @@ pub const KCodecAction = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcodecaction.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecAction.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -562,7 +562,7 @@ pub const KCodecAction = extern struct {
     pub fn CurrentText(self: KCodecAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSelectAction_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcodecaction.CurrentText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecAction.CurrentText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -580,7 +580,7 @@ pub const KCodecAction = extern struct {
     pub fn Actions(self: KCodecAction, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.KSelectAction_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kcodecaction.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KCodecAction.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -733,7 +733,7 @@ pub const KCodecAction = extern struct {
     /// ` lst: []const []const u8 `
     ///
     pub fn SetItems(self: KCodecAction, allocator: std.mem.Allocator, lst: []const []const u8) void {
-        const lst_arr = allocator.alloc(qtc.libqt_string, lst.len) catch @panic("kcodecaction.SetItems: Memory allocation failed");
+        const lst_arr = allocator.alloc(qtc.libqt_string, lst.len) catch @panic("KCodecAction.SetItems: Memory allocation failed");
         defer allocator.free(lst_arr);
         for (lst, 0..lst.len) |item, i|
             lst_arr[i] = .{
@@ -765,10 +765,10 @@ pub const KCodecAction = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kcodecaction.Items: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KCodecAction.Items: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kcodecaction.Items: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCodecAction.Items: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1110,7 +1110,7 @@ pub const KCodecAction = extern struct {
     pub fn AssociatedObjects(self: KCodecAction, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QAction_AssociatedObjects(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kcodecaction.AssociatedObjects: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KCodecAction.AssociatedObjects: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1202,7 +1202,7 @@ pub const KCodecAction = extern struct {
     pub fn Text(self: KCodecAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcodecaction.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecAction.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1238,7 +1238,7 @@ pub const KCodecAction = extern struct {
     pub fn IconText(self: KCodecAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_IconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcodecaction.IconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecAction.IconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1274,7 +1274,7 @@ pub const KCodecAction = extern struct {
     pub fn ToolTip(self: KCodecAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcodecaction.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecAction.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1310,7 +1310,7 @@ pub const KCodecAction = extern struct {
     pub fn StatusTip(self: KCodecAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcodecaction.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecAction.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1346,7 +1346,7 @@ pub const KCodecAction = extern struct {
     pub fn WhatsThis(self: KCodecAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcodecaction.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecAction.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1479,7 +1479,7 @@ pub const KCodecAction = extern struct {
     pub fn Shortcuts(self: KCodecAction, allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.QAction_Shortcuts(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("kcodecaction.Shortcuts: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KCodecAction.Shortcuts: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2114,7 +2114,7 @@ pub const KCodecAction = extern struct {
     pub fn ObjectName(self: KCodecAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcodecaction.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCodecAction.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2291,7 +2291,7 @@ pub const KCodecAction = extern struct {
     pub fn Children(self: KCodecAction, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kcodecaction.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KCodecAction.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2567,10 +2567,10 @@ pub const KCodecAction = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kcodecaction.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KCodecAction.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kcodecaction.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KCodecAction.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3543,7 +3543,7 @@ pub const KCodecAction = extern struct {
     pub fn CreatedWidgets(self: KCodecAction, allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.KCodecAction_CreatedWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("kcodecaction.CreatedWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KCodecAction.CreatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3569,7 +3569,7 @@ pub const KCodecAction = extern struct {
     pub fn SuperCreatedWidgets(self: KCodecAction, allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.KCodecAction_SuperCreatedWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("kcodecaction.CreatedWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KCodecAction.CreatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

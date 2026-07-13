@@ -590,23 +590,23 @@ void QFile_OnReadData(QFile* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-long long QFile_WriteData(QFile* self, const char* data, long long lenVal) {
+long long QFile_WriteData(QFile* self, const char* data, long long len) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
-        return static_cast<long long>(vqfile->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqfile->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualQFile*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualQFile*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 
 // Base class handler implementation
-long long QFile_SuperWriteData(QFile* self, const char* data, long long lenVal) {
+long long QFile_SuperWriteData(QFile* self, const char* data, long long len) {
     auto* vqfile = dynamic_cast<VirtualQFile*>(self);
     if (vqfile && vqfile->isVirtualQFile) {
         vqfile->setQFile_WriteData_IsBase(true);
-        return static_cast<long long>(vqfile->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqfile->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualQFile*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualQFile*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 

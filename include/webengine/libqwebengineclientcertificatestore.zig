@@ -41,7 +41,7 @@ pub const QWebEngineClientCertificateStore = extern struct {
     pub fn Certificates(self: QWebEngineClientCertificateStore, allocator: std.mem.Allocator) []QSslCertificate {
         const _arr: qtc.libqt_list = qtc.QWebEngineClientCertificateStore_Certificates(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qwebengineclientcertificatestore.Certificates: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("QWebEngineClientCertificateStore.Certificates: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

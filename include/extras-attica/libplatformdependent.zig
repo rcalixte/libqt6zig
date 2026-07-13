@@ -28,7 +28,7 @@ pub const Attica__PlatformDependent = extern struct {
     pub fn GetDefaultProviderFiles(self: Attica__PlatformDependent, allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.Attica__PlatformDependent_GetDefaultProviderFiles(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("attica__platformdependent.GetDefaultProviderFiles: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("Attica__PlatformDependent.GetDefaultProviderFiles: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

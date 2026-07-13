@@ -23,10 +23,10 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` seedBuffer: *const u32 `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
-    pub fn New2(seedBuffer: *const u32, lenVal: isize) QRandomGenerator {
-        return .{ .ptr = qtc.QRandomGenerator_new2(@ptrCast(seedBuffer), @bitCast(lenVal)) };
+    pub fn New2(seedBuffer: *const u32, len: isize) QRandomGenerator {
+        return .{ .ptr = qtc.QRandomGenerator_new2(@ptrCast(seedBuffer), @bitCast(len)) };
     }
 
     /// New3 constructs a new QRandomGenerator object.
@@ -405,10 +405,10 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` seedBuffer: *const u32 `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
-    pub fn New2(seedBuffer: *const u32, lenVal: isize) QRandomGenerator64 {
-        return .{ .ptr = qtc.QRandomGenerator64_new2(@ptrCast(seedBuffer), @bitCast(lenVal)) };
+    pub fn New2(seedBuffer: *const u32, len: isize) QRandomGenerator64 {
+        return .{ .ptr = qtc.QRandomGenerator64_new2(@ptrCast(seedBuffer), @bitCast(len)) };
     }
 
     /// New3 constructs a new QRandomGenerator64 object.

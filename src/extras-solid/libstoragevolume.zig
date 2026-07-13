@@ -73,7 +73,7 @@ pub const Solid__StorageVolume = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storagevolume.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageVolume.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -123,7 +123,7 @@ pub const Solid__StorageVolume = extern struct {
     pub fn FsType(self: Solid__StorageVolume, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__StorageVolume_FsType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storagevolume.FsType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageVolume.FsType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -139,7 +139,7 @@ pub const Solid__StorageVolume = extern struct {
     pub fn Label(self: Solid__StorageVolume, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__StorageVolume_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storagevolume.Label: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageVolume.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -155,7 +155,7 @@ pub const Solid__StorageVolume = extern struct {
     pub fn Uuid(self: Solid__StorageVolume, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__StorageVolume_Uuid(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storagevolume.Uuid: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageVolume.Uuid: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -185,7 +185,7 @@ pub const Solid__StorageVolume = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storagevolume.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageVolume.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -207,7 +207,7 @@ pub const Solid__StorageVolume = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storagevolume.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageVolume.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -237,7 +237,7 @@ pub const Solid__StorageVolume = extern struct {
     pub fn TypeToString(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
         var _str = qtc.Solid__DeviceInterface_TypeToString(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storagevolume.TypeToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageVolume.TypeToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -275,7 +275,7 @@ pub const Solid__StorageVolume = extern struct {
     pub fn TypeDescription(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
         var _str = qtc.Solid__DeviceInterface_TypeDescription(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storagevolume.TypeDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageVolume.TypeDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -326,7 +326,7 @@ pub const Solid__StorageVolume = extern struct {
     pub fn ObjectName(self: Solid__StorageVolume, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storagevolume.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageVolume.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -503,7 +503,7 @@ pub const Solid__StorageVolume = extern struct {
     pub fn Children(self: Solid__StorageVolume, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("solid__storagevolume.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Solid__StorageVolume.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -779,10 +779,10 @@ pub const Solid__StorageVolume = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("solid__storagevolume.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Solid__StorageVolume.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("solid__storagevolume.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Solid__StorageVolume.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

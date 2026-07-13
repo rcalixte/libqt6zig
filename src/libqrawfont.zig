@@ -181,7 +181,7 @@ pub const QRawFont = extern struct {
     pub fn FamilyName(self: QRawFont, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QRawFont_FamilyName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qrawfont.FamilyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRawFont.FamilyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -197,7 +197,7 @@ pub const QRawFont = extern struct {
     pub fn StyleName(self: QRawFont, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QRawFont_StyleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qrawfont.StyleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRawFont.StyleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -243,7 +243,7 @@ pub const QRawFont = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QRawFont_GlyphIndexesForString(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u32, _arr.len) catch @panic("qrawfont.GlyphIndexesForString: Memory allocation failed");
+        const _ret = allocator.alloc(u32, _arr.len) catch @panic("QRawFont.GlyphIndexesForString: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -266,7 +266,7 @@ pub const QRawFont = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QRawFont_AdvancesForGlyphIndexes(@ptrCast(self.ptr), glyphIndexes_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qrawfont.AdvancesForGlyphIndexes: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QRawFont.AdvancesForGlyphIndexes: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -292,7 +292,7 @@ pub const QRawFont = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QRawFont_AdvancesForGlyphIndexes2(@ptrCast(self.ptr), glyphIndexes_list, @bitCast(layoutFlags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qrawfont.AdvancesForGlyphIndexes2: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QRawFont.AdvancesForGlyphIndexes2: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -606,7 +606,7 @@ pub const QRawFont = extern struct {
     pub fn SupportedWritingSystems(self: QRawFont, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QRawFont_SupportedWritingSystems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qrawfont.SupportedWritingSystems: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QRawFont.SupportedWritingSystems: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -626,7 +626,7 @@ pub const QRawFont = extern struct {
         const tagName_Cstring = tagName.ptr;
         var _bytearray: qtc.libqt_string = qtc.QRawFont_FontTable(@ptrCast(self.ptr), tagName_Cstring);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qrawfont.FontTable: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QRawFont.FontTable: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -645,7 +645,7 @@ pub const QRawFont = extern struct {
         comptime _ = @TypeOf(tag)._is_QFont__Tag;
         var _bytearray: qtc.libqt_string = qtc.QRawFont_FontTable2(@ptrCast(self.ptr), @ptrCast(tag.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qrawfont.FontTable2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QRawFont.FontTable2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

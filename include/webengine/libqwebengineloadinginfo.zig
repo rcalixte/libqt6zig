@@ -84,7 +84,7 @@ pub const QWebEngineLoadingInfo = extern struct {
     pub fn ErrorString(self: QWebEngineLoadingInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineLoadingInfo_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebengineloadinginfo.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineLoadingInfo.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -124,7 +124,7 @@ pub const QWebEngineLoadingInfo = extern struct {
     pub fn ResponseHeaders(self: QWebEngineLoadingInfo, allocator: std.mem.Allocator) ArrayMap_u8_Sliceu8 {
         const _map: qtc.libqt_map = qtc.QWebEngineLoadingInfo_ResponseHeaders(@ptrCast(self.ptr));
         var _ret: ArrayMap_u8_Sliceu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qwebengineloadinginfo.ResponseHeaders: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QWebEngineLoadingInfo.ResponseHeaders: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
@@ -144,13 +144,13 @@ pub const QWebEngineLoadingInfo = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qwebengineloadinginfo.ResponseHeaders: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QWebEngineLoadingInfo.ResponseHeaders: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value.data));
-            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("qwebengineloadinginfo.ResponseHeaders: Memory allocation failed");
+            const _value_slice = allocator.alloc([]u8, _value.len) catch @panic("QWebEngineLoadingInfo.ResponseHeaders: Memory allocation failed");
             for (0.._value.len) |j| {
-                const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("qwebengineloadinginfo.ResponseHeaders: Memory allocation failed");
+                const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("QWebEngineLoadingInfo.ResponseHeaders: Memory allocation failed");
                 @memcpy(_vslice, _value_strings[j].data);
                 _value_slice[j] = _vslice;
             }

@@ -110,7 +110,7 @@ pub const QGlyphRun = extern struct {
     pub fn GlyphIndexes(self: QGlyphRun, allocator: std.mem.Allocator) []u32 {
         const _arr: qtc.libqt_list = qtc.QGlyphRun_GlyphIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u32, _arr.len) catch @panic("qglyphrun.GlyphIndexes: Memory allocation failed");
+        const _ret = allocator.alloc(u32, _arr.len) catch @panic("QGlyphRun.GlyphIndexes: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -143,7 +143,7 @@ pub const QGlyphRun = extern struct {
     pub fn Positions(self: QGlyphRun, allocator: std.mem.Allocator) []QPointF {
         const _arr: qtc.libqt_list = qtc.QGlyphRun_Positions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qglyphrun.Positions: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QGlyphRun.Positions: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -362,7 +362,7 @@ pub const QGlyphRun = extern struct {
     pub fn StringIndexes(self: QGlyphRun, allocator: std.mem.Allocator) []isize {
         const _arr: qtc.libqt_list = qtc.QGlyphRun_StringIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(isize, _arr.len) catch @panic("qglyphrun.StringIndexes: Memory allocation failed");
+        const _ret = allocator.alloc(isize, _arr.len) catch @panic("QGlyphRun.StringIndexes: Memory allocation failed");
         const _data: [*]isize = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -411,7 +411,7 @@ pub const QGlyphRun = extern struct {
     pub fn SourceString(self: QGlyphRun, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGlyphRun_SourceString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qglyphrun.SourceString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGlyphRun.SourceString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

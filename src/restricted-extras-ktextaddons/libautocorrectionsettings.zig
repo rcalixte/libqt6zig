@@ -408,7 +408,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     pub fn SetUpperCaseExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator, exceptions: Set_constu8) void {
         const exceptions_count = exceptions.count();
-        const exceptions_arr = allocator.alloc(qtc.libqt_string, exceptions_count) catch @panic("textautocorrectioncore__autocorrectionsettings.SetUpperCaseExceptions: Memory allocation failed");
+        const exceptions_arr = allocator.alloc(qtc.libqt_string, exceptions_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SetUpperCaseExceptions: Memory allocation failed");
         defer allocator.free(exceptions_arr);
         var exceptions_it = exceptions.keyIterator();
         var exceptions_i: usize = 0;
@@ -437,7 +437,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     pub fn SetTwoUpperLetterExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator, exceptions: Set_constu8) void {
         const exceptions_count = exceptions.count();
-        const exceptions_arr = allocator.alloc(qtc.libqt_string, exceptions_count) catch @panic("textautocorrectioncore__autocorrectionsettings.SetTwoUpperLetterExceptions: Memory allocation failed");
+        const exceptions_arr = allocator.alloc(qtc.libqt_string, exceptions_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SetTwoUpperLetterExceptions: Memory allocation failed");
         defer allocator.free(exceptions_arr);
         var exceptions_it = exceptions.keyIterator();
         var exceptions_i: usize = 0;
@@ -465,7 +465,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     pub fn UpperCaseExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_UpperCaseExceptions(@ptrCast(self.ptr));
         var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("textautocorrectioncore__autocorrectionsettings.UpperCaseExceptions: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.UpperCaseExceptions: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
@@ -483,7 +483,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     pub fn TwoUpperLetterExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_TwoUpperLetterExceptions(@ptrCast(self.ptr));
         var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("textautocorrectioncore__autocorrectionsettings.TwoUpperLetterExceptions: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.TwoUpperLetterExceptions: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
@@ -517,7 +517,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     pub fn Language(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_Language(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectioncore__autocorrectionsettings.Language: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.Language: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -544,9 +544,9 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     pub fn SetAutocorrectEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator, entries: Map_constu8_constu8) void {
         const entries_count = entries.count();
-        const entries_keys = allocator.alloc(qtc.libqt_string, entries_count) catch @panic("textautocorrectioncore__autocorrectionsettings.SetAutocorrectEntries: Memory allocation failed");
+        const entries_keys = allocator.alloc(qtc.libqt_string, entries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SetAutocorrectEntries: Memory allocation failed");
         defer allocator.free(entries_keys);
-        const entries_values = allocator.alloc(qtc.libqt_string, entries_count) catch @panic("textautocorrectioncore__autocorrectionsettings.SetAutocorrectEntries: Memory allocation failed");
+        const entries_values = allocator.alloc(qtc.libqt_string, entries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SetAutocorrectEntries: Memory allocation failed");
         defer allocator.free(entries_values);
         var i: usize = 0;
         var entries_it = entries.iterator();
@@ -581,7 +581,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     pub fn AutocorrectEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_AutocorrectEntries(@ptrCast(self.ptr));
         var _ret: Map_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("textautocorrectioncore__autocorrectionsettings.AutocorrectEntries: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.AutocorrectEntries: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -597,10 +597,10 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("textautocorrectioncore__autocorrectionsettings.AutocorrectEntries: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.AutocorrectEntries: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("textautocorrectioncore__autocorrectionsettings.AutocorrectEntries: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.AutocorrectEntries: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
@@ -663,7 +663,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     pub fn SuperScriptEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SuperScriptEntries(@ptrCast(self.ptr));
         var _ret: Map_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("textautocorrectioncore__autocorrectionsettings.SuperScriptEntries: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SuperScriptEntries: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -679,10 +679,10 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("textautocorrectioncore__autocorrectionsettings.SuperScriptEntries: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SuperScriptEntries: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("textautocorrectioncore__autocorrectionsettings.SuperScriptEntries: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SuperScriptEntries: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
@@ -701,9 +701,9 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     pub fn SetSuperScriptEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator, newSuperScriptEntries: Map_constu8_constu8) void {
         const newSuperScriptEntries_count = newSuperScriptEntries.count();
-        const newSuperScriptEntries_keys = allocator.alloc(qtc.libqt_string, newSuperScriptEntries_count) catch @panic("textautocorrectioncore__autocorrectionsettings.SetSuperScriptEntries: Memory allocation failed");
+        const newSuperScriptEntries_keys = allocator.alloc(qtc.libqt_string, newSuperScriptEntries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SetSuperScriptEntries: Memory allocation failed");
         defer allocator.free(newSuperScriptEntries_keys);
-        const newSuperScriptEntries_values = allocator.alloc(qtc.libqt_string, newSuperScriptEntries_count) catch @panic("textautocorrectioncore__autocorrectionsettings.SetSuperScriptEntries: Memory allocation failed");
+        const newSuperScriptEntries_values = allocator.alloc(qtc.libqt_string, newSuperScriptEntries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SetSuperScriptEntries: Memory allocation failed");
         defer allocator.free(newSuperScriptEntries_values);
         var i: usize = 0;
         var newSuperScriptEntries_it = newSuperScriptEntries.iterator();
@@ -829,7 +829,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     pub fn CustomWritablePath(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_CustomWritablePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectioncore__autocorrectionsettings.CustomWritablePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.CustomWritablePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -861,7 +861,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     pub fn CustomSystemPath(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_CustomSystemPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textautocorrectioncore__autocorrectionsettings.CustomSystemPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.CustomSystemPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

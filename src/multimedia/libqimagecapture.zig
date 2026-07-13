@@ -186,7 +186,7 @@ pub const QImageCapture = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagecapture.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageCapture.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -236,7 +236,7 @@ pub const QImageCapture = extern struct {
     pub fn ErrorString(self: QImageCapture, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QImageCapture_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagecapture.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageCapture.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -290,7 +290,7 @@ pub const QImageCapture = extern struct {
     pub fn SupportedFormats(allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QImageCapture_SupportedFormats();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qimagecapture.SupportedFormats: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QImageCapture.SupportedFormats: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -307,7 +307,7 @@ pub const QImageCapture = extern struct {
     pub fn FileFormatName(allocator: std.mem.Allocator, c: i32) []const u8 {
         var _str = qtc.QImageCapture_FileFormatName(@bitCast(c));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagecapture.FileFormatName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageCapture.FileFormatName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -323,7 +323,7 @@ pub const QImageCapture = extern struct {
     pub fn FileFormatDescription(allocator: std.mem.Allocator, c: i32) []const u8 {
         var _str = qtc.QImageCapture_FileFormatDescription(@bitCast(c));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagecapture.FileFormatDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageCapture.FileFormatDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -763,7 +763,7 @@ pub const QImageCapture = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagecapture.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageCapture.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -785,7 +785,7 @@ pub const QImageCapture = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagecapture.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageCapture.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -819,7 +819,7 @@ pub const QImageCapture = extern struct {
     pub fn ObjectName(self: QImageCapture, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagecapture.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageCapture.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -996,7 +996,7 @@ pub const QImageCapture = extern struct {
     pub fn Children(self: QImageCapture, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qimagecapture.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QImageCapture.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1272,10 +1272,10 @@ pub const QImageCapture = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qimagecapture.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QImageCapture.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qimagecapture.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QImageCapture.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

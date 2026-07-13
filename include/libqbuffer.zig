@@ -183,7 +183,7 @@ pub const QBuffer = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbuffer.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -199,7 +199,7 @@ pub const QBuffer = extern struct {
     pub fn Buffer(self: QBuffer, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QBuffer_Buffer(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbuffer.Buffer: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.Buffer: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -215,7 +215,7 @@ pub const QBuffer = extern struct {
     pub fn Buffer2(self: QBuffer, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QBuffer_Buffer2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbuffer.Buffer2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.Buffer2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -244,11 +244,11 @@ pub const QBuffer = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
-    pub fn SetData2(self: QBuffer, data: [:0]const u8, lenVal: isize) void {
+    pub fn SetData2(self: QBuffer, data: [:0]const u8, len: isize) void {
         const data_Cstring = data.ptr;
-        qtc.QBuffer_SetData2(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        qtc.QBuffer_SetData2(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#data)
@@ -262,7 +262,7 @@ pub const QBuffer = extern struct {
     pub fn Data(self: QBuffer, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QBuffer_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbuffer.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.Data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -705,11 +705,11 @@ pub const QBuffer = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn WriteData(self: QBuffer, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn WriteData(self: QBuffer, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QBuffer_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        return qtc.QBuffer_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#writeData)
@@ -720,7 +720,7 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` callback: *const fn (self: QBuffer, data: [*:0]const u8, lenVal: i64) callconv(.c) i64 `
+    /// ` callback: *const fn (self: QBuffer, data: [*:0]const u8, len: i64) callconv(.c) i64 `
     ///
     pub fn OnWriteData(self: QBuffer, callback: *const fn (QBuffer, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QBuffer_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -740,11 +740,11 @@ pub const QBuffer = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn SuperWriteData(self: QBuffer, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn SuperWriteData(self: QBuffer, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QBuffer_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        return qtc.QBuffer_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -762,7 +762,7 @@ pub const QBuffer = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbuffer.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -784,7 +784,7 @@ pub const QBuffer = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbuffer.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -975,7 +975,7 @@ pub const QBuffer = extern struct {
     pub fn Read2(self: QBuffer, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbuffer.Read2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -993,7 +993,7 @@ pub const QBuffer = extern struct {
     pub fn ReadAll(self: QBuffer, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbuffer.ReadAll: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1028,7 +1028,7 @@ pub const QBuffer = extern struct {
     pub fn ReadLine2(self: QBuffer, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbuffer.ReadLine2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1091,11 +1091,11 @@ pub const QBuffer = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn Write(self: QBuffer, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn Write(self: QBuffer, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// Inherited from QIODevice
@@ -1163,7 +1163,7 @@ pub const QBuffer = extern struct {
     pub fn Peek2(self: QBuffer, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbuffer.Peek2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1238,7 +1238,7 @@ pub const QBuffer = extern struct {
     pub fn ErrorString(self: QBuffer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbuffer.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1422,7 +1422,7 @@ pub const QBuffer = extern struct {
     pub fn ReadLine1(self: QBuffer, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qbuffer.ReadLine1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1440,7 +1440,7 @@ pub const QBuffer = extern struct {
     pub fn ObjectName(self: QBuffer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbuffer.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1617,7 +1617,7 @@ pub const QBuffer = extern struct {
     pub fn Children(self: QBuffer, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qbuffer.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QBuffer.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1893,10 +1893,10 @@ pub const QBuffer = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qbuffer.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QBuffer.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qbuffer.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QBuffer.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

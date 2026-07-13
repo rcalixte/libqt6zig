@@ -29,7 +29,7 @@ pub const QDesignerLanguageExtension = extern struct {
     pub fn Name(self: QDesignerLanguageExtension, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerLanguageExtension_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerlanguageextension.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerLanguageExtension.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -109,7 +109,7 @@ pub const QDesignerLanguageExtension = extern struct {
         comptime _ = @TypeOf(object)._is_QObject;
         var _str = qtc.QDesignerLanguageExtension_ClassNameOf(@ptrCast(self.ptr), @ptrCast(object.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerlanguageextension.ClassNameOf: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerLanguageExtension.ClassNameOf: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -147,7 +147,7 @@ pub const QDesignerLanguageExtension = extern struct {
     pub fn WidgetBoxContents(self: QDesignerLanguageExtension, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerLanguageExtension_WidgetBoxContents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerlanguageextension.WidgetBoxContents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerLanguageExtension.WidgetBoxContents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -163,7 +163,7 @@ pub const QDesignerLanguageExtension = extern struct {
     pub fn UiExtension(self: QDesignerLanguageExtension, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerLanguageExtension_UiExtension(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerlanguageextension.UiExtension: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerLanguageExtension.UiExtension: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

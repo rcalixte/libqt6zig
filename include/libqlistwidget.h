@@ -81,7 +81,7 @@ QListWidgetItem* QListWidgetItem_new9(const QIcon* icon, const libqt_string text
 QListWidgetItem* QListWidgetItem_new10(const QIcon* icon, const libqt_string text, QListWidget* listview, int typeVal);
 QListWidgetItem* QListWidgetItem_Clone(const QListWidgetItem* self);
 QListWidget* QListWidgetItem_ListWidget(const QListWidgetItem* self);
-void QListWidgetItem_SetSelected(QListWidgetItem* self, bool selectVal);
+void QListWidgetItem_SetSelected(QListWidgetItem* self, bool select);
 bool QListWidgetItem_IsSelected(const QListWidgetItem* self);
 void QListWidgetItem_SetHidden(QListWidgetItem* self, bool hide);
 bool QListWidgetItem_IsHidden(const QListWidgetItem* self);

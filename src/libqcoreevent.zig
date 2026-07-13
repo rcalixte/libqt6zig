@@ -879,7 +879,7 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     pub fn PropertyName(self: QDynamicPropertyChangeEvent, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QDynamicPropertyChangeEvent_PropertyName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdynamicpropertychangeevent.PropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDynamicPropertyChangeEvent.PropertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

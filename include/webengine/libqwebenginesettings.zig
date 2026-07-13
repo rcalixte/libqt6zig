@@ -44,7 +44,7 @@ pub const QWebEngineSettings = extern struct {
     pub fn FontFamily(self: QWebEngineSettings, allocator: std.mem.Allocator, which: i32) []const u8 {
         var _str = qtc.QWebEngineSettings_FontFamily(@ptrCast(self.ptr), @bitCast(which));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginesettings.FontFamily: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineSettings.FontFamily: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -164,7 +164,7 @@ pub const QWebEngineSettings = extern struct {
     pub fn DefaultTextEncoding(self: QWebEngineSettings, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineSettings_DefaultTextEncoding(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginesettings.DefaultTextEncoding: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineSettings.DefaultTextEncoding: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

@@ -73,7 +73,7 @@ pub const QWebEngineDownloadRequest = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginedownloadrequest.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineDownloadRequest.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -143,7 +143,7 @@ pub const QWebEngineDownloadRequest = extern struct {
     pub fn MimeType(self: QWebEngineDownloadRequest, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineDownloadRequest_MimeType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginedownloadrequest.MimeType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineDownloadRequest.MimeType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -219,7 +219,7 @@ pub const QWebEngineDownloadRequest = extern struct {
     pub fn InterruptReasonString(self: QWebEngineDownloadRequest, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineDownloadRequest_InterruptReasonString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginedownloadrequest.InterruptReasonString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineDownloadRequest.InterruptReasonString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -245,7 +245,7 @@ pub const QWebEngineDownloadRequest = extern struct {
     pub fn SuggestedFileName(self: QWebEngineDownloadRequest, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineDownloadRequest_SuggestedFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginedownloadrequest.SuggestedFileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineDownloadRequest.SuggestedFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -261,7 +261,7 @@ pub const QWebEngineDownloadRequest = extern struct {
     pub fn DownloadDirectory(self: QWebEngineDownloadRequest, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineDownloadRequest_DownloadDirectory(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginedownloadrequest.DownloadDirectory: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineDownloadRequest.DownloadDirectory: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -293,7 +293,7 @@ pub const QWebEngineDownloadRequest = extern struct {
     pub fn DownloadFileName(self: QWebEngineDownloadRequest, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineDownloadRequest_DownloadFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginedownloadrequest.DownloadFileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineDownloadRequest.DownloadFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -579,7 +579,7 @@ pub const QWebEngineDownloadRequest = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginedownloadrequest.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineDownloadRequest.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -601,7 +601,7 @@ pub const QWebEngineDownloadRequest = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginedownloadrequest.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineDownloadRequest.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -652,7 +652,7 @@ pub const QWebEngineDownloadRequest = extern struct {
     pub fn ObjectName(self: QWebEngineDownloadRequest, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwebenginedownloadrequest.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineDownloadRequest.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -829,7 +829,7 @@ pub const QWebEngineDownloadRequest = extern struct {
     pub fn Children(self: QWebEngineDownloadRequest, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qwebenginedownloadrequest.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWebEngineDownloadRequest.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1105,10 +1105,10 @@ pub const QWebEngineDownloadRequest = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qwebenginedownloadrequest.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineDownloadRequest.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qwebenginedownloadrequest.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebEngineDownloadRequest.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

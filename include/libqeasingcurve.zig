@@ -182,7 +182,7 @@ pub const QEasingCurve = extern struct {
     pub fn ToCubicSpline(self: QEasingCurve, allocator: std.mem.Allocator) []QPointF {
         const _arr: qtc.libqt_list = qtc.QEasingCurve_ToCubicSpline(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qeasingcurve.ToCubicSpline: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QEasingCurve.ToCubicSpline: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

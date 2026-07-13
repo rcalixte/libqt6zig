@@ -2428,7 +2428,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn StyleSheet(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2446,7 +2446,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn WindowTitle(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2509,7 +2509,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn WindowIconText(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2545,7 +2545,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn WindowRole(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2581,7 +2581,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn WindowFilePath(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2655,7 +2655,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn ToolTip(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2717,7 +2717,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn StatusTip(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2753,7 +2753,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn WhatsThis(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2771,7 +2771,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn AccessibleName(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2807,7 +2807,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn AccessibleDescription(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3657,7 +3657,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn SaveGeometry(self: KEncodingFileDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kencodingfiledialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KEncodingFileDialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -4219,7 +4219,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn Actions(self: KEncodingFileDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kencodingfiledialog.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KEncodingFileDialog.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5060,7 +5060,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn ObjectName(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingfiledialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5237,7 +5237,7 @@ pub const KEncodingFileDialog = extern struct {
     pub fn Children(self: KEncodingFileDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kencodingfiledialog.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KEncodingFileDialog.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5498,10 +5498,10 @@ pub const KEncodingFileDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kencodingfiledialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KEncodingFileDialog.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kencodingfiledialog.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KEncodingFileDialog.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -6009,10 +6009,10 @@ pub const KEncodingFileDialog__Result = extern struct {
                 qtc.libqt_string_free(@ptrCast(&fileNames_str[i]));
             qtc.libqt_free(fileNames_arr.data);
         }
-        const fileNames_ret = allocator.alloc([]const u8, fileNames_arr.len) catch @panic("kencodingfiledialog__result.FileNames: Memory allocation failed");
+        const fileNames_ret = allocator.alloc([]const u8, fileNames_arr.len) catch @panic("KEncodingFileDialog__Result.FileNames: Memory allocation failed");
         for (0..fileNames_arr.len) |i| {
             const fileNames_data = fileNames_str[i];
-            const fileNames_buf = allocator.alloc(u8, fileNames_data.len) catch @panic("kencodingfiledialog__result.FileNames: Memory allocation failed");
+            const fileNames_buf = allocator.alloc(u8, fileNames_data.len) catch @panic("KEncodingFileDialog__Result.FileNames: Memory allocation failed");
             @memcpy(fileNames_buf, fileNames_data.data[0..fileNames_data.len]);
             fileNames_ret[i] = fileNames_buf;
         }
@@ -6030,7 +6030,7 @@ pub const KEncodingFileDialog__Result = extern struct {
     /// ` fileNames: []const []const u8 `
     ///
     pub fn SetFileNames(self: KEncodingFileDialog__Result, allocator: std.mem.Allocator, fileNames: []const []const u8) void {
-        const fileNames_arr = allocator.alloc(qtc.libqt_string, fileNames.len) catch @panic("kencodingfiledialog__result.SetFileNames: Memory allocation failed");
+        const fileNames_arr = allocator.alloc(qtc.libqt_string, fileNames.len) catch @panic("KEncodingFileDialog__Result.SetFileNames: Memory allocation failed");
         defer allocator.free(fileNames_arr);
         for (fileNames, 0..fileNames.len) |item, i|
             fileNames_arr[i] = .{
@@ -6055,7 +6055,7 @@ pub const KEncodingFileDialog__Result = extern struct {
     pub fn URLs(self: KEncodingFileDialog__Result, allocator: std.mem.Allocator) []QUrl {
         const URLs_arr: qtc.libqt_list = qtc.KEncodingFileDialog__Result_URLs(@ptrCast(self.ptr));
         defer qtc.libqt_free(URLs_arr.data);
-        const URLs_ret = allocator.alloc(QUrl, URLs_arr.len) catch @panic("kencodingfiledialog__result.URLs: Memory allocation failed");
+        const URLs_ret = allocator.alloc(QUrl, URLs_arr.len) catch @panic("KEncodingFileDialog__Result.URLs: Memory allocation failed");
         const URLs_data: [*]QtC.QUrl = @ptrCast(@alignCast(URLs_arr.data));
         for (0..URLs_arr.len) |ii|
             URLs_ret[ii] = .{ .ptr = URLs_data[ii] };
@@ -6089,7 +6089,7 @@ pub const KEncodingFileDialog__Result = extern struct {
     pub fn Encoding(self: KEncodingFileDialog__Result, allocator: std.mem.Allocator) []const u8 {
         var encoding_str = qtc.KEncodingFileDialog__Result_Encoding(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&encoding_str);
-        const encoding_ret = allocator.alloc(u8, encoding_str.len) catch @panic("kencodingfiledialog__result.Encoding: Memory allocation failed");
+        const encoding_ret = allocator.alloc(u8, encoding_str.len) catch @panic("KEncodingFileDialog__Result.Encoding: Memory allocation failed");
         @memcpy(encoding_ret, encoding_str.data[0..encoding_str.len]);
         return encoding_ret;
     }

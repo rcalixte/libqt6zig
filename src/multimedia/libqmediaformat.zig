@@ -184,7 +184,7 @@ pub const QMediaFormat = extern struct {
     pub fn SupportedFileFormats(self: QMediaFormat, allocator: std.mem.Allocator, m: i32) []i32 {
         const _arr: qtc.libqt_list = qtc.QMediaFormat_SupportedFileFormats(@ptrCast(self.ptr), @bitCast(m));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qmediaformat.SupportedFileFormats: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QMediaFormat.SupportedFileFormats: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -207,7 +207,7 @@ pub const QMediaFormat = extern struct {
     pub fn SupportedVideoCodecs(self: QMediaFormat, allocator: std.mem.Allocator, m: i32) []i32 {
         const _arr: qtc.libqt_list = qtc.QMediaFormat_SupportedVideoCodecs(@ptrCast(self.ptr), @bitCast(m));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qmediaformat.SupportedVideoCodecs: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QMediaFormat.SupportedVideoCodecs: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -230,7 +230,7 @@ pub const QMediaFormat = extern struct {
     pub fn SupportedAudioCodecs(self: QMediaFormat, allocator: std.mem.Allocator, m: i32) []i32 {
         const _arr: qtc.libqt_list = qtc.QMediaFormat_SupportedAudioCodecs(@ptrCast(self.ptr), @bitCast(m));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qmediaformat.SupportedAudioCodecs: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QMediaFormat.SupportedAudioCodecs: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -247,7 +247,7 @@ pub const QMediaFormat = extern struct {
     pub fn FileFormatName(allocator: std.mem.Allocator, fileFormat: i32) []const u8 {
         var _str = qtc.QMediaFormat_FileFormatName(@bitCast(fileFormat));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmediaformat.FileFormatName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaFormat.FileFormatName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -263,7 +263,7 @@ pub const QMediaFormat = extern struct {
     pub fn AudioCodecName(allocator: std.mem.Allocator, codec: i32) []const u8 {
         var _str = qtc.QMediaFormat_AudioCodecName(@bitCast(codec));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmediaformat.AudioCodecName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaFormat.AudioCodecName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -279,7 +279,7 @@ pub const QMediaFormat = extern struct {
     pub fn VideoCodecName(allocator: std.mem.Allocator, codec: i32) []const u8 {
         var _str = qtc.QMediaFormat_VideoCodecName(@bitCast(codec));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmediaformat.VideoCodecName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaFormat.VideoCodecName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -295,7 +295,7 @@ pub const QMediaFormat = extern struct {
     pub fn FileFormatDescription(allocator: std.mem.Allocator, fileFormat: i32) []const u8 {
         var _str = qtc.QMediaFormat_FileFormatDescription(@bitCast(fileFormat));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmediaformat.FileFormatDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaFormat.FileFormatDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -311,7 +311,7 @@ pub const QMediaFormat = extern struct {
     pub fn AudioCodecDescription(allocator: std.mem.Allocator, codec: i32) []const u8 {
         var _str = qtc.QMediaFormat_AudioCodecDescription(@bitCast(codec));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmediaformat.AudioCodecDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaFormat.AudioCodecDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -327,7 +327,7 @@ pub const QMediaFormat = extern struct {
     pub fn VideoCodecDescription(allocator: std.mem.Allocator, codec: i32) []const u8 {
         var _str = qtc.QMediaFormat_VideoCodecDescription(@bitCast(codec));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmediaformat.VideoCodecDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaFormat.VideoCodecDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

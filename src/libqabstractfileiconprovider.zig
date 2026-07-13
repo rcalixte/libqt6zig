@@ -129,7 +129,7 @@ pub const QAbstractFileIconProvider = extern struct {
         comptime _ = @TypeOf(param1)._is_QFileInfo;
         var _str = qtc.QAbstractFileIconProvider_Type(@ptrCast(self.ptr), @ptrCast(param1.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractfileiconprovider.Type: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractFileIconProvider.Type: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -168,7 +168,7 @@ pub const QAbstractFileIconProvider = extern struct {
         comptime _ = @TypeOf(param1)._is_QFileInfo;
         var _str = qtc.QAbstractFileIconProvider_SuperType(@ptrCast(self.ptr), @ptrCast(param1.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstractfileiconprovider.Type: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractFileIconProvider.Type: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

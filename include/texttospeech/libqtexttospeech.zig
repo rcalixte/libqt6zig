@@ -65,9 +65,9 @@ pub const QTextToSpeech = extern struct {
             .data = engine.ptr,
         };
         const params_count = params.count();
-        const params_keys = allocator.alloc(qtc.libqt_string, params_count) catch @panic("qtexttospeech.New3: Memory allocation failed");
+        const params_keys = allocator.alloc(qtc.libqt_string, params_count) catch @panic("QTextToSpeech.New3: Memory allocation failed");
         defer allocator.free(params_keys);
-        const params_values = allocator.alloc(QtC.QVariant, params_count) catch @panic("qtexttospeech.New3: Memory allocation failed");
+        const params_values = allocator.alloc(QtC.QVariant, params_count) catch @panic("QTextToSpeech.New3: Memory allocation failed");
         defer allocator.free(params_values);
         var i: usize = 0;
         var params_it = params.iterator();
@@ -133,9 +133,9 @@ pub const QTextToSpeech = extern struct {
             .data = engine.ptr,
         };
         const params_count = params.count();
-        const params_keys = allocator.alloc(qtc.libqt_string, params_count) catch @panic("qtexttospeech.New6: Memory allocation failed");
+        const params_keys = allocator.alloc(qtc.libqt_string, params_count) catch @panic("QTextToSpeech.New6: Memory allocation failed");
         defer allocator.free(params_keys);
-        const params_values = allocator.alloc(QtC.QVariant, params_count) catch @panic("qtexttospeech.New6: Memory allocation failed");
+        const params_values = allocator.alloc(QtC.QVariant, params_count) catch @panic("QTextToSpeech.New6: Memory allocation failed");
         defer allocator.free(params_values);
         var i: usize = 0;
         var params_it = params.iterator();
@@ -294,7 +294,7 @@ pub const QTextToSpeech = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttospeech.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeech.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -326,7 +326,7 @@ pub const QTextToSpeech = extern struct {
     pub fn Engine(self: QTextToSpeech, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextToSpeech_Engine(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttospeech.Engine: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeech.Engine: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -384,7 +384,7 @@ pub const QTextToSpeech = extern struct {
     pub fn ErrorString(self: QTextToSpeech, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextToSpeech_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttospeech.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeech.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -400,7 +400,7 @@ pub const QTextToSpeech = extern struct {
     pub fn AvailableLocales(self: QTextToSpeech, allocator: std.mem.Allocator) []QLocale {
         const _arr: qtc.libqt_list = qtc.QTextToSpeech_AvailableLocales(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("qtexttospeech.AvailableLocales: Memory allocation failed");
+        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("QTextToSpeech.AvailableLocales: Memory allocation failed");
         const _data: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -438,7 +438,7 @@ pub const QTextToSpeech = extern struct {
     pub fn AvailableVoices(self: QTextToSpeech, allocator: std.mem.Allocator) []QVoice {
         const _arr: qtc.libqt_list = qtc.QTextToSpeech_AvailableVoices(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVoice, _arr.len) catch @panic("qtexttospeech.AvailableVoices: Memory allocation failed");
+        const _ret = allocator.alloc(QVoice, _arr.len) catch @panic("QTextToSpeech.AvailableVoices: Memory allocation failed");
         const _data: [*]QtC.QVoice = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -489,10 +489,10 @@ pub const QTextToSpeech = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qtexttospeech.AvailableEngines: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QTextToSpeech.AvailableEngines: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtexttospeech.AvailableEngines: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTextToSpeech.AvailableEngines: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -899,7 +899,7 @@ pub const QTextToSpeech = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         const _arr: qtc.libqt_list = qtc.QTextToSpeech_AllVoices(@ptrCast(self.ptr), @ptrCast(locale.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVoice, _arr.len) catch @panic("qtexttospeech.AllVoices: Memory allocation failed");
+        const _ret = allocator.alloc(QVoice, _arr.len) catch @panic("QTextToSpeech.AllVoices: Memory allocation failed");
         const _data: [*]QtC.QVoice = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -946,7 +946,7 @@ pub const QTextToSpeech = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         const _arr: qtc.libqt_list = qtc.QTextToSpeech_SuperAllVoices(@ptrCast(self.ptr), @ptrCast(locale.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVoice, _arr.len) catch @panic("qtexttospeech.AllVoices: Memory allocation failed");
+        const _ret = allocator.alloc(QVoice, _arr.len) catch @panic("QTextToSpeech.AllVoices: Memory allocation failed");
         const _data: [*]QtC.QVoice = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -968,7 +968,7 @@ pub const QTextToSpeech = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttospeech.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeech.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -990,7 +990,7 @@ pub const QTextToSpeech = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttospeech.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeech.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1013,9 +1013,9 @@ pub const QTextToSpeech = extern struct {
             .data = engine.ptr,
         };
         const params_count = params.count();
-        const params_keys = allocator.alloc(qtc.libqt_string, params_count) catch @panic("qtexttospeech.SetEngine2: Memory allocation failed");
+        const params_keys = allocator.alloc(qtc.libqt_string, params_count) catch @panic("QTextToSpeech.SetEngine2: Memory allocation failed");
         defer allocator.free(params_keys);
-        const params_values = allocator.alloc(QtC.QVariant, params_count) catch @panic("qtexttospeech.SetEngine2: Memory allocation failed");
+        const params_values = allocator.alloc(QtC.QVariant, params_count) catch @panic("QTextToSpeech.SetEngine2: Memory allocation failed");
         defer allocator.free(params_values);
         var i: usize = 0;
         var params_it = params.iterator();
@@ -1072,7 +1072,7 @@ pub const QTextToSpeech = extern struct {
     pub fn ObjectName(self: QTextToSpeech, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtexttospeech.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextToSpeech.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1249,7 +1249,7 @@ pub const QTextToSpeech = extern struct {
     pub fn Children(self: QTextToSpeech, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qtexttospeech.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QTextToSpeech.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1525,10 +1525,10 @@ pub const QTextToSpeech = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qtexttospeech.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QTextToSpeech.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qtexttospeech.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QTextToSpeech.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

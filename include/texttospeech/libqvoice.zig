@@ -69,7 +69,7 @@ pub const QVoice = extern struct {
     pub fn Name(self: QVoice, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QVoice_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qvoice.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVoice.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -137,7 +137,7 @@ pub const QVoice = extern struct {
     pub fn GenderName(allocator: std.mem.Allocator, gender: i32) []const u8 {
         var _str = qtc.QVoice_GenderName(@bitCast(gender));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qvoice.GenderName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVoice.GenderName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -153,7 +153,7 @@ pub const QVoice = extern struct {
     pub fn AgeName(allocator: std.mem.Allocator, age: i32) []const u8 {
         var _str = qtc.QVoice_AgeName(@bitCast(age));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qvoice.AgeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVoice.AgeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

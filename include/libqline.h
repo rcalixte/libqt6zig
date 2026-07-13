@@ -70,7 +70,7 @@ double QLineF_Y2(const QLineF* self);
 double QLineF_Dx(const QLineF* self);
 double QLineF_Dy(const QLineF* self);
 double QLineF_Length(const QLineF* self);
-void QLineF_SetLength(QLineF* self, double lenVal);
+void QLineF_SetLength(QLineF* self, double len);
 double QLineF_Angle(const QLineF* self);
 void QLineF_SetAngle(QLineF* self, double angle);
 double QLineF_AngleTo(const QLineF* self, const QLineF* l);

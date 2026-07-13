@@ -27,7 +27,7 @@ pub const QString = extern struct {
         };
         var _str = qtc.QString_FromLatin1(ba_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.FromLatin1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.FromLatin1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -46,7 +46,7 @@ pub const QString = extern struct {
         const str_Cstring = str.ptr;
         var _str = qtc.QString_FromLatin12(str_Cstring, @bitCast(size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.FromLatin12: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.FromLatin12: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -66,7 +66,7 @@ pub const QString = extern struct {
         };
         var _str = qtc.QString_FromUtf8(utf8_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.FromUtf8: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.FromUtf8: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -85,7 +85,7 @@ pub const QString = extern struct {
         const utf8_Cstring = utf8.ptr;
         var _str = qtc.QString_FromUtf82(utf8_Cstring, @bitCast(size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.FromUtf82: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.FromUtf82: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -105,7 +105,7 @@ pub const QString = extern struct {
         };
         var _str = qtc.QString_FromLocal8Bit(ba_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.FromLocal8Bit: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.FromLocal8Bit: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -124,7 +124,7 @@ pub const QString = extern struct {
         const str_Cstring = str.ptr;
         var _str = qtc.QString_FromLocal8Bit2(str_Cstring, @bitCast(size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.FromLocal8Bit2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.FromLocal8Bit2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -143,7 +143,7 @@ pub const QString = extern struct {
         comptime _ = @TypeOf(param1)._is_QChar;
         var _str = qtc.QString_FromRawData(@ptrCast(param1.ptr), @bitCast(size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.FromRawData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.FromRawData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -159,7 +159,7 @@ pub const QString = extern struct {
     pub fn FromUtf162(allocator: std.mem.Allocator, str: *const u16) []const u8 {
         var _str = qtc.QString_FromUtf162(@ptrCast(str));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.FromUtf162: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.FromUtf162: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -175,7 +175,7 @@ pub const QString = extern struct {
     pub fn FromUcs42(allocator: std.mem.Allocator, str: *const u32) []const u8 {
         var _str = qtc.QString_FromUcs42(@ptrCast(str));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.FromUcs42: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.FromUcs42: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -331,7 +331,7 @@ pub const QString = extern struct {
     pub fn Number(allocator: std.mem.Allocator, param1: i32) []const u8 {
         var _str = qtc.QString_Number(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -347,7 +347,7 @@ pub const QString = extern struct {
     pub fn Number2(allocator: std.mem.Allocator, param1: u32) []const u8 {
         var _str = qtc.QString_Number2(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -363,7 +363,7 @@ pub const QString = extern struct {
     pub fn Number3(allocator: std.mem.Allocator, param1: isize) []const u8 {
         var _str = qtc.QString_Number3(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -379,7 +379,7 @@ pub const QString = extern struct {
     pub fn Number4(allocator: std.mem.Allocator, param1: usize) []const u8 {
         var _str = qtc.QString_Number4(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -395,7 +395,7 @@ pub const QString = extern struct {
     pub fn Number5(allocator: std.mem.Allocator, param1: isize) []const u8 {
         var _str = qtc.QString_Number5(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number5: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -411,7 +411,7 @@ pub const QString = extern struct {
     pub fn Number6(allocator: std.mem.Allocator, param1: usize) []const u8 {
         var _str = qtc.QString_Number6(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number6: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -427,7 +427,7 @@ pub const QString = extern struct {
     pub fn Number7(allocator: std.mem.Allocator, param1: f64) []const u8 {
         var _str = qtc.QString_Number7(@bitCast(param1));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number7: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -445,7 +445,7 @@ pub const QString = extern struct {
     pub fn FromUtf1623(allocator: std.mem.Allocator, str: *const u16, size: isize) []const u8 {
         var _str = qtc.QString_FromUtf1623(@ptrCast(str), @bitCast(size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.FromUtf1623: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.FromUtf1623: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -463,7 +463,7 @@ pub const QString = extern struct {
     pub fn FromUcs423(allocator: std.mem.Allocator, str: *const u32, size: isize) []const u8 {
         var _str = qtc.QString_FromUcs423(@ptrCast(str), @bitCast(size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.FromUcs423: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.FromUcs423: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -591,7 +591,7 @@ pub const QString = extern struct {
     pub fn Number22(allocator: std.mem.Allocator, param1: i32, base: i32) []const u8 {
         var _str = qtc.QString_Number22(@bitCast(param1), @bitCast(base));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number22: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -609,7 +609,7 @@ pub const QString = extern struct {
     pub fn Number23(allocator: std.mem.Allocator, param1: u32, base: i32) []const u8 {
         var _str = qtc.QString_Number23(@bitCast(param1), @bitCast(base));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number23: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number23: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -627,7 +627,7 @@ pub const QString = extern struct {
     pub fn Number24(allocator: std.mem.Allocator, param1: isize, base: i32) []const u8 {
         var _str = qtc.QString_Number24(@bitCast(param1), @bitCast(base));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number24: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number24: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -645,7 +645,7 @@ pub const QString = extern struct {
     pub fn Number25(allocator: std.mem.Allocator, param1: usize, base: i32) []const u8 {
         var _str = qtc.QString_Number25(@bitCast(param1), @bitCast(base));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number25: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number25: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -663,7 +663,7 @@ pub const QString = extern struct {
     pub fn Number26(allocator: std.mem.Allocator, param1: isize, base: i32) []const u8 {
         var _str = qtc.QString_Number26(@bitCast(param1), @bitCast(base));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number26: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number26: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -681,7 +681,7 @@ pub const QString = extern struct {
     pub fn Number27(allocator: std.mem.Allocator, param1: usize, base: i32) []const u8 {
         var _str = qtc.QString_Number27(@bitCast(param1), @bitCast(base));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number27: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number27: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -699,7 +699,7 @@ pub const QString = extern struct {
     pub fn Number28(allocator: std.mem.Allocator, param1: f64, format: u8) []const u8 {
         var _str = qtc.QString_Number28(@bitCast(param1), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number28: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number28: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -719,7 +719,7 @@ pub const QString = extern struct {
     pub fn Number32(allocator: std.mem.Allocator, param1: f64, format: u8, precision: i32) []const u8 {
         var _str = qtc.QString_Number32(@bitCast(param1), @bitCast(format), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstring.Number32: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QString.Number32: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

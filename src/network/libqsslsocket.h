@@ -130,7 +130,7 @@ void QSslSocket_HandshakeInterruptedOnError(QSslSocket* self, const QSslError* e
 void QSslSocket_Connect_HandshakeInterruptedOnError(QSslSocket* self, intptr_t slot);
 long long QSslSocket_ReadData(QSslSocket* self, char* data, long long maxlen);
 long long QSslSocket_SkipData(QSslSocket* self, long long maxSize);
-long long QSslSocket_WriteData(QSslSocket* self, const char* data, long long lenVal);
+long long QSslSocket_WriteData(QSslSocket* self, const char* data, long long len);
 void QSslSocket_ConnectToHostEncrypted3(QSslSocket* self, const libqt_string hostName, uint16_t port, int mode);
 void QSslSocket_ConnectToHostEncrypted4(QSslSocket* self, const libqt_string hostName, uint16_t port, int mode, int protocol);
 void QSslSocket_ConnectToHostEncrypted42(QSslSocket* self, const libqt_string hostName, uint16_t port, const libqt_string sslPeerName, int mode);
@@ -189,7 +189,7 @@ long long QSslSocket_SuperReadData(QSslSocket* self, char* data, long long maxle
 void QSslSocket_OnSkipData(QSslSocket* self, intptr_t slot);
 long long QSslSocket_SuperSkipData(QSslSocket* self, long long maxSize);
 void QSslSocket_OnWriteData(QSslSocket* self, intptr_t slot);
-long long QSslSocket_SuperWriteData(QSslSocket* self, const char* data, long long lenVal);
+long long QSslSocket_SuperWriteData(QSslSocket* self, const char* data, long long len);
 bool QSslSocket_Bind(QSslSocket* self, const QHostAddress* address, uint16_t port, int mode);
 void QSslSocket_OnBind(QSslSocket* self, intptr_t slot);
 bool QSslSocket_SuperBind(QSslSocket* self, const QHostAddress* address, uint16_t port, int mode);

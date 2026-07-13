@@ -181,7 +181,7 @@ pub const QPen = extern struct {
     pub fn DashPattern(self: QPen, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.QPen_DashPattern(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("qpen.DashPattern: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("QPen.DashPattern: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;

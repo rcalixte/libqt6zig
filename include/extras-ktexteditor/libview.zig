@@ -130,7 +130,7 @@ pub const KTextEditor__View = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -170,7 +170,7 @@ pub const KTextEditor__View = extern struct {
     pub fn ViewModeHuman(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__View_ViewModeHuman(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.ViewModeHuman: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.ViewModeHuman: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -212,7 +212,7 @@ pub const KTextEditor__View = extern struct {
     pub fn ViewInputModeHuman(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__View_ViewInputModeHuman(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.ViewInputModeHuman: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.ViewInputModeHuman: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -479,7 +479,7 @@ pub const KTextEditor__View = extern struct {
     pub fn CursorPositions(self: KTextEditor__View, allocator: std.mem.Allocator) []KTextEditor__Cursor {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_CursorPositions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KTextEditor__Cursor, _arr.len) catch @panic("ktexteditor__view.CursorPositions: Memory allocation failed");
+        const _ret = allocator.alloc(KTextEditor__Cursor, _arr.len) catch @panic("KTextEditor__View.CursorPositions: Memory allocation failed");
         const _data: [*]QtC.KTextEditor__Cursor = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -723,7 +723,7 @@ pub const KTextEditor__View = extern struct {
     pub fn SelectionRanges(self: KTextEditor__View, allocator: std.mem.Allocator) []KTextEditor__Range {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_SelectionRanges(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KTextEditor__Range, _arr.len) catch @panic("ktexteditor__view.SelectionRanges: Memory allocation failed");
+        const _ret = allocator.alloc(KTextEditor__Range, _arr.len) catch @panic("KTextEditor__View.SelectionRanges: Memory allocation failed");
         const _data: [*]QtC.KTextEditor__Range = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -741,7 +741,7 @@ pub const KTextEditor__View = extern struct {
     pub fn SelectionText(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KTextEditor__View_SelectionText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.SelectionText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.SelectionText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1042,7 +1042,7 @@ pub const KTextEditor__View = extern struct {
     pub fn ReadSessionConfig(self: KTextEditor__View, allocator: std.mem.Allocator, config: anytype, flags: Set_constu8) void {
         comptime _ = @TypeOf(config)._is_KConfigGroup;
         const flags_count = flags.count();
-        const flags_arr = allocator.alloc(qtc.libqt_string, flags_count) catch @panic("ktexteditor__view.ReadSessionConfig: Memory allocation failed");
+        const flags_arr = allocator.alloc(qtc.libqt_string, flags_count) catch @panic("KTextEditor__View.ReadSessionConfig: Memory allocation failed");
         defer allocator.free(flags_arr);
         var flags_it = flags.keyIterator();
         var flags_i: usize = 0;
@@ -1074,7 +1074,7 @@ pub const KTextEditor__View = extern struct {
     pub fn WriteSessionConfig(self: KTextEditor__View, allocator: std.mem.Allocator, config: anytype, flags: Set_constu8) void {
         comptime _ = @TypeOf(config)._is_KConfigGroup;
         const flags_count = flags.count();
-        const flags_arr = allocator.alloc(qtc.libqt_string, flags_count) catch @panic("ktexteditor__view.WriteSessionConfig: Memory allocation failed");
+        const flags_arr = allocator.alloc(qtc.libqt_string, flags_count) catch @panic("KTextEditor__View.WriteSessionConfig: Memory allocation failed");
         defer allocator.free(flags_arr);
         var flags_it = flags.keyIterator();
         var flags_i: usize = 0;
@@ -1104,7 +1104,7 @@ pub const KTextEditor__View = extern struct {
     pub fn LineAttributes(self: KTextEditor__View, allocator: std.mem.Allocator, line: i32) []KTextEditor__AttributeBlock {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_LineAttributes(@ptrCast(self.ptr), @bitCast(line));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KTextEditor__AttributeBlock, _arr.len) catch @panic("ktexteditor__view.LineAttributes: Memory allocation failed");
+        const _ret = allocator.alloc(KTextEditor__AttributeBlock, _arr.len) catch @panic("KTextEditor__View.LineAttributes: Memory allocation failed");
         const _data: [*]QtC.KTextEditor__AttributeBlock = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1152,10 +1152,10 @@ pub const KTextEditor__View = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ktexteditor__view.ConfigKeys: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KTextEditor__View.ConfigKeys: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ktexteditor__view.ConfigKeys: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTextEditor__View.ConfigKeys: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1571,7 +1571,7 @@ pub const KTextEditor__View = extern struct {
     pub fn CodeCompletionModels(self: KTextEditor__View, allocator: std.mem.Allocator) []KTextEditor__CodeCompletionModel {
         const _arr: qtc.libqt_list = qtc.KTextEditor__View_CodeCompletionModels(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KTextEditor__CodeCompletionModel, _arr.len) catch @panic("ktexteditor__view.CodeCompletionModels: Memory allocation failed");
+        const _ret = allocator.alloc(KTextEditor__CodeCompletionModel, _arr.len) catch @panic("KTextEditor__View.CodeCompletionModels: Memory allocation failed");
         const _data: [*]QtC.KTextEditor__CodeCompletionModel = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1603,7 +1603,7 @@ pub const KTextEditor__View = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1625,7 +1625,7 @@ pub const KTextEditor__View = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3061,7 +3061,7 @@ pub const KTextEditor__View = extern struct {
     pub fn StyleSheet(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3079,7 +3079,7 @@ pub const KTextEditor__View = extern struct {
     pub fn WindowTitle(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3142,7 +3142,7 @@ pub const KTextEditor__View = extern struct {
     pub fn WindowIconText(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3178,7 +3178,7 @@ pub const KTextEditor__View = extern struct {
     pub fn WindowRole(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3214,7 +3214,7 @@ pub const KTextEditor__View = extern struct {
     pub fn WindowFilePath(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3288,7 +3288,7 @@ pub const KTextEditor__View = extern struct {
     pub fn ToolTip(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3350,7 +3350,7 @@ pub const KTextEditor__View = extern struct {
     pub fn StatusTip(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3386,7 +3386,7 @@ pub const KTextEditor__View = extern struct {
     pub fn WhatsThis(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3404,7 +3404,7 @@ pub const KTextEditor__View = extern struct {
     pub fn AccessibleName(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3440,7 +3440,7 @@ pub const KTextEditor__View = extern struct {
     pub fn AccessibleDescription(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4304,7 +4304,7 @@ pub const KTextEditor__View = extern struct {
     pub fn SaveGeometry(self: KTextEditor__View, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("ktexteditor__view.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KTextEditor__View.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -4890,7 +4890,7 @@ pub const KTextEditor__View = extern struct {
     pub fn Actions(self: KTextEditor__View, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("ktexteditor__view.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KTextEditor__View.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5749,7 +5749,7 @@ pub const KTextEditor__View = extern struct {
     pub fn ObjectName(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5926,7 +5926,7 @@ pub const KTextEditor__View = extern struct {
     pub fn Children(self: KTextEditor__View, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("ktexteditor__view.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KTextEditor__View.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6187,10 +6187,10 @@ pub const KTextEditor__View = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ktexteditor__view.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KTextEditor__View.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ktexteditor__view.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTextEditor__View.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -6702,7 +6702,7 @@ pub const KTextEditor__View = extern struct {
     pub fn ComponentName(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXMLGUIClient_ComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.ComponentName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6732,7 +6732,7 @@ pub const KTextEditor__View = extern struct {
     pub fn XmlFile(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXMLGUIClient_XmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.XmlFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6750,7 +6750,7 @@ pub const KTextEditor__View = extern struct {
     pub fn LocalXMLFile(self: KTextEditor__View, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXMLGUIClient_LocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.LocalXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6864,7 +6864,7 @@ pub const KTextEditor__View = extern struct {
     pub fn ChildClients(self: KTextEditor__View, allocator: std.mem.Allocator) []KXMLGUIClient {
         const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("ktexteditor__view.ChildClients: Memory allocation failed");
+        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("KTextEditor__View.ChildClients: Memory allocation failed");
         const _data: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6965,7 +6965,7 @@ pub const KTextEditor__View = extern struct {
     /// ` doc: []const u8 `
     ///
     pub fn FindMostRecentXMLFile(allocator: std.mem.Allocator, files: []const []const u8, doc: []const u8) []const u8 {
-        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("ktexteditor__view.FindMostRecentXMLFile: Memory allocation failed");
+        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("KTextEditor__View.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i|
             files_arr[i] = .{
@@ -6982,7 +6982,7 @@ pub const KTextEditor__View = extern struct {
         };
         var _str = qtc.KXMLGUIClient_FindMostRecentXMLFile(files_list, doc_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.FindMostRecentXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.FindMostRecentXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7136,7 +7136,7 @@ pub const KTextEditor__View = extern struct {
         };
         var _str = qtc.KXMLGUIClient_FindVersionNumber(xml_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__view.FindVersionNumber: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__View.FindVersionNumber: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

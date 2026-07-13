@@ -94,7 +94,7 @@ pub const Attica__DownloadItem = extern struct {
     pub fn MimeType(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadItem_MimeType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaditem.MimeType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.MimeType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -126,7 +126,7 @@ pub const Attica__DownloadItem = extern struct {
     pub fn PackageName(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadItem_PackageName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaditem.PackageName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.PackageName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -158,7 +158,7 @@ pub const Attica__DownloadItem = extern struct {
     pub fn PackageRepository(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadItem_PackageRepository(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaditem.PackageRepository: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.PackageRepository: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -190,7 +190,7 @@ pub const Attica__DownloadItem = extern struct {
     pub fn GpgFingerprint(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadItem_GpgFingerprint(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaditem.GpgFingerprint: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.GpgFingerprint: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -222,7 +222,7 @@ pub const Attica__DownloadItem = extern struct {
     pub fn GpgSignature(self: Attica__DownloadItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadItem_GpgSignature(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaditem.GpgSignature: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadItem.GpgSignature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

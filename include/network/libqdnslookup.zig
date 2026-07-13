@@ -81,7 +81,7 @@ pub const QDnsDomainNameRecord = extern struct {
     pub fn Name(self: QDnsDomainNameRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsDomainNameRecord_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnsdomainnamerecord.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsDomainNameRecord.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -107,7 +107,7 @@ pub const QDnsDomainNameRecord = extern struct {
     pub fn Value(self: QDnsDomainNameRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsDomainNameRecord_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnsdomainnamerecord.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsDomainNameRecord.Value: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -193,7 +193,7 @@ pub const QDnsHostAddressRecord = extern struct {
     pub fn Name(self: QDnsHostAddressRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsHostAddressRecord_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnshostaddressrecord.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsHostAddressRecord.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -299,7 +299,7 @@ pub const QDnsMailExchangeRecord = extern struct {
     pub fn Exchange(self: QDnsMailExchangeRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsMailExchangeRecord_Exchange(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnsmailexchangerecord.Exchange: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsMailExchangeRecord.Exchange: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -315,7 +315,7 @@ pub const QDnsMailExchangeRecord = extern struct {
     pub fn Name(self: QDnsMailExchangeRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsMailExchangeRecord_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnsmailexchangerecord.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsMailExchangeRecord.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -421,7 +421,7 @@ pub const QDnsServiceRecord = extern struct {
     pub fn Name(self: QDnsServiceRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsServiceRecord_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnsservicerecord.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsServiceRecord.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -457,7 +457,7 @@ pub const QDnsServiceRecord = extern struct {
     pub fn Target(self: QDnsServiceRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsServiceRecord_Target(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnsservicerecord.Target: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsServiceRecord.Target: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -563,7 +563,7 @@ pub const QDnsTextRecord = extern struct {
     pub fn Name(self: QDnsTextRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsTextRecord_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnstextrecord.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsTextRecord.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -594,10 +594,10 @@ pub const QDnsTextRecord = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdnstextrecord.Values: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDnsTextRecord.Values: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qdnstextrecord.Values: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDnsTextRecord.Values: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -685,7 +685,7 @@ pub const QDnsTlsAssociationRecord = extern struct {
     pub fn Name(self: QDnsTlsAssociationRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsTlsAssociationRecord_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnstlsassociationrecord.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsTlsAssociationRecord.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -753,7 +753,7 @@ pub const QDnsTlsAssociationRecord = extern struct {
     pub fn Value(self: QDnsTlsAssociationRecord, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QDnsTlsAssociationRecord_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdnstlsassociationrecord.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDnsTlsAssociationRecord.Value: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1132,7 +1132,7 @@ pub const QDnsLookup = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnslookup.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1172,7 +1172,7 @@ pub const QDnsLookup = extern struct {
     pub fn ErrorString(self: QDnsLookup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsLookup_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnslookup.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1198,7 +1198,7 @@ pub const QDnsLookup = extern struct {
     pub fn Name(self: QDnsLookup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsLookup_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnslookup.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1357,7 +1357,7 @@ pub const QDnsLookup = extern struct {
     pub fn CanonicalNameRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsDomainNameRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_CanonicalNameRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsDomainNameRecord, _arr.len) catch @panic("qdnslookup.CanonicalNameRecords: Memory allocation failed");
+        const _ret = allocator.alloc(QDnsDomainNameRecord, _arr.len) catch @panic("QDnsLookup.CanonicalNameRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsDomainNameRecord = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1375,7 +1375,7 @@ pub const QDnsLookup = extern struct {
     pub fn HostAddressRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsHostAddressRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_HostAddressRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsHostAddressRecord, _arr.len) catch @panic("qdnslookup.HostAddressRecords: Memory allocation failed");
+        const _ret = allocator.alloc(QDnsHostAddressRecord, _arr.len) catch @panic("QDnsLookup.HostAddressRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsHostAddressRecord = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1393,7 +1393,7 @@ pub const QDnsLookup = extern struct {
     pub fn MailExchangeRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsMailExchangeRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_MailExchangeRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsMailExchangeRecord, _arr.len) catch @panic("qdnslookup.MailExchangeRecords: Memory allocation failed");
+        const _ret = allocator.alloc(QDnsMailExchangeRecord, _arr.len) catch @panic("QDnsLookup.MailExchangeRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsMailExchangeRecord = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1411,7 +1411,7 @@ pub const QDnsLookup = extern struct {
     pub fn NameServerRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsDomainNameRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_NameServerRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsDomainNameRecord, _arr.len) catch @panic("qdnslookup.NameServerRecords: Memory allocation failed");
+        const _ret = allocator.alloc(QDnsDomainNameRecord, _arr.len) catch @panic("QDnsLookup.NameServerRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsDomainNameRecord = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1429,7 +1429,7 @@ pub const QDnsLookup = extern struct {
     pub fn PointerRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsDomainNameRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_PointerRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsDomainNameRecord, _arr.len) catch @panic("qdnslookup.PointerRecords: Memory allocation failed");
+        const _ret = allocator.alloc(QDnsDomainNameRecord, _arr.len) catch @panic("QDnsLookup.PointerRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsDomainNameRecord = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1447,7 +1447,7 @@ pub const QDnsLookup = extern struct {
     pub fn ServiceRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsServiceRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_ServiceRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsServiceRecord, _arr.len) catch @panic("qdnslookup.ServiceRecords: Memory allocation failed");
+        const _ret = allocator.alloc(QDnsServiceRecord, _arr.len) catch @panic("QDnsLookup.ServiceRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsServiceRecord = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1465,7 +1465,7 @@ pub const QDnsLookup = extern struct {
     pub fn TextRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsTextRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_TextRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsTextRecord, _arr.len) catch @panic("qdnslookup.TextRecords: Memory allocation failed");
+        const _ret = allocator.alloc(QDnsTextRecord, _arr.len) catch @panic("QDnsLookup.TextRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsTextRecord = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1483,7 +1483,7 @@ pub const QDnsLookup = extern struct {
     pub fn TlsAssociationRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsTlsAssociationRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_TlsAssociationRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsTlsAssociationRecord, _arr.len) catch @panic("qdnslookup.TlsAssociationRecords: Memory allocation failed");
+        const _ret = allocator.alloc(QDnsTlsAssociationRecord, _arr.len) catch @panic("QDnsLookup.TlsAssociationRecords: Memory allocation failed");
         const _data: [*]QtC.QDnsTlsAssociationRecord = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1715,7 +1715,7 @@ pub const QDnsLookup = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnslookup.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1737,7 +1737,7 @@ pub const QDnsLookup = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnslookup.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1772,7 +1772,7 @@ pub const QDnsLookup = extern struct {
     pub fn ObjectName(self: QDnsLookup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdnslookup.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1949,7 +1949,7 @@ pub const QDnsLookup = extern struct {
     pub fn Children(self: QDnsLookup, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qdnslookup.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDnsLookup.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2225,10 +2225,10 @@ pub const QDnsLookup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdnslookup.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDnsLookup.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qdnslookup.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDnsLookup.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

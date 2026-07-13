@@ -188,7 +188,7 @@ pub const KNewFileMenu = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewFileMenu.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -262,7 +262,7 @@ pub const KNewFileMenu = extern struct {
     /// ` mime: []const []const u8 `
     ///
     pub fn SetSupportedMimeTypes(self: KNewFileMenu, allocator: std.mem.Allocator, mime: []const []const u8) void {
-        const mime_arr = allocator.alloc(qtc.libqt_string, mime.len) catch @panic("knewfilemenu.SetSupportedMimeTypes: Memory allocation failed");
+        const mime_arr = allocator.alloc(qtc.libqt_string, mime.len) catch @panic("KNewFileMenu.SetSupportedMimeTypes: Memory allocation failed");
         defer allocator.free(mime_arr);
         for (mime, 0..mime.len) |item, i|
             mime_arr[i] = .{
@@ -292,10 +292,10 @@ pub const KNewFileMenu = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("knewfilemenu.SupportedMimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KNewFileMenu.SupportedMimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("knewfilemenu.SupportedMimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KNewFileMenu.SupportedMimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -642,7 +642,7 @@ pub const KNewFileMenu = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewFileMenu.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -664,7 +664,7 @@ pub const KNewFileMenu = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewFileMenu.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -844,7 +844,7 @@ pub const KNewFileMenu = extern struct {
     pub fn AssociatedObjects(self: KNewFileMenu, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QAction_AssociatedObjects(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("knewfilemenu.AssociatedObjects: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KNewFileMenu.AssociatedObjects: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -936,7 +936,7 @@ pub const KNewFileMenu = extern struct {
     pub fn Text(self: KNewFileMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewFileMenu.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -972,7 +972,7 @@ pub const KNewFileMenu = extern struct {
     pub fn IconText(self: KNewFileMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_IconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.IconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewFileMenu.IconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1008,7 +1008,7 @@ pub const KNewFileMenu = extern struct {
     pub fn ToolTip(self: KNewFileMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewFileMenu.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1044,7 +1044,7 @@ pub const KNewFileMenu = extern struct {
     pub fn StatusTip(self: KNewFileMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewFileMenu.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1080,7 +1080,7 @@ pub const KNewFileMenu = extern struct {
     pub fn WhatsThis(self: KNewFileMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAction_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewFileMenu.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1213,7 +1213,7 @@ pub const KNewFileMenu = extern struct {
     pub fn Shortcuts(self: KNewFileMenu, allocator: std.mem.Allocator) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.QAction_Shortcuts(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("knewfilemenu.Shortcuts: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KNewFileMenu.Shortcuts: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1848,7 +1848,7 @@ pub const KNewFileMenu = extern struct {
     pub fn ObjectName(self: KNewFileMenu, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knewfilemenu.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewFileMenu.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2025,7 +2025,7 @@ pub const KNewFileMenu = extern struct {
     pub fn Children(self: KNewFileMenu, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("knewfilemenu.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KNewFileMenu.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2301,10 +2301,10 @@ pub const KNewFileMenu = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("knewfilemenu.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KNewFileMenu.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("knewfilemenu.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KNewFileMenu.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3111,7 +3111,7 @@ pub const KNewFileMenu = extern struct {
     pub fn CreatedWidgets(self: KNewFileMenu, allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.KNewFileMenu_CreatedWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("knewfilemenu.CreatedWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KNewFileMenu.CreatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3137,7 +3137,7 @@ pub const KNewFileMenu = extern struct {
     pub fn SuperCreatedWidgets(self: KNewFileMenu, allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.KNewFileMenu_SuperCreatedWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("knewfilemenu.CreatedWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KNewFileMenu.CreatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

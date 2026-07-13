@@ -75,7 +75,7 @@ pub const KArchiveEntry = extern struct {
     pub fn Name(self: KArchiveEntry, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("karchiveentry.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveEntry.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -101,7 +101,7 @@ pub const KArchiveEntry = extern struct {
     pub fn User(self: KArchiveEntry, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_User(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("karchiveentry.User: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveEntry.User: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -117,7 +117,7 @@ pub const KArchiveEntry = extern struct {
     pub fn Group(self: KArchiveEntry, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_Group(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("karchiveentry.Group: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveEntry.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -133,7 +133,7 @@ pub const KArchiveEntry = extern struct {
     pub fn SymLinkTarget(self: KArchiveEntry, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_SymLinkTarget(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("karchiveentry.SymLinkTarget: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveEntry.SymLinkTarget: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

@@ -109,7 +109,7 @@ pub const QLegend = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlegend.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLegend.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -381,7 +381,7 @@ pub const QLegend = extern struct {
     pub fn Markers(self: QLegend, allocator: std.mem.Allocator) []QLegendMarker {
         const _arr: qtc.libqt_list = qtc.QLegend_Markers(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLegendMarker, _arr.len) catch @panic("qlegend.Markers: Memory allocation failed");
+        const _ret = allocator.alloc(QLegendMarker, _arr.len) catch @panic("QLegend.Markers: Memory allocation failed");
         const _data: [*]QtC.QLegendMarker = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -737,7 +737,7 @@ pub const QLegend = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlegend.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLegend.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -759,7 +759,7 @@ pub const QLegend = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlegend.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLegend.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -790,7 +790,7 @@ pub const QLegend = extern struct {
         comptime _ = @TypeOf(series)._is_QAbstractSeries;
         const _arr: qtc.libqt_list = qtc.QLegend_Markers1(@ptrCast(self.ptr), @ptrCast(series.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLegendMarker, _arr.len) catch @panic("qlegend.Markers1: Memory allocation failed");
+        const _ret = allocator.alloc(QLegendMarker, _arr.len) catch @panic("QLegend.Markers1: Memory allocation failed");
         const _data: [*]QtC.QLegendMarker = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1295,7 +1295,7 @@ pub const QLegend = extern struct {
     pub fn WindowTitle(self: QLegend, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGraphicsWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlegend.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLegend.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1515,7 +1515,7 @@ pub const QLegend = extern struct {
     pub fn Actions(self: QLegend, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QGraphicsWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qlegend.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QLegend.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2123,7 +2123,7 @@ pub const QLegend = extern struct {
     pub fn ObjectName(self: QLegend, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlegend.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLegend.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2300,7 +2300,7 @@ pub const QLegend = extern struct {
     pub fn Children(self: QLegend, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qlegend.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QLegend.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2576,10 +2576,10 @@ pub const QLegend = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qlegend.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QLegend.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qlegend.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QLegend.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3003,7 +3003,7 @@ pub const QLegend = extern struct {
     pub fn ChildItems(self: QLegend, allocator: std.mem.Allocator) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_ChildItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("qlegend.ChildItems: Memory allocation failed");
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QLegend.ChildItems: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3226,7 +3226,7 @@ pub const QLegend = extern struct {
     pub fn ToolTip(self: QLegend, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGraphicsItem_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qlegend.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLegend.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4104,7 +4104,7 @@ pub const QLegend = extern struct {
     pub fn Transformations(self: QLegend, allocator: std.mem.Allocator) []QGraphicsTransform {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_Transformations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsTransform, _arr.len) catch @panic("qlegend.Transformations: Memory allocation failed");
+        const _ret = allocator.alloc(QGraphicsTransform, _arr.len) catch @panic("QLegend.Transformations: Memory allocation failed");
         const _data: [*]QtC.QGraphicsTransform = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4337,7 +4337,7 @@ pub const QLegend = extern struct {
     pub fn CollidingItems(self: QLegend, allocator: std.mem.Allocator) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("qlegend.CollidingItems: Memory allocation failed");
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QLegend.CollidingItems: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5348,7 +5348,7 @@ pub const QLegend = extern struct {
     pub fn CollidingItems1(self: QLegend, allocator: std.mem.Allocator, mode: i32) []QGraphicsItem {
         const _arr: qtc.libqt_list = qtc.QGraphicsItem_CollidingItems1(@ptrCast(self.ptr), @bitCast(mode));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("qlegend.CollidingItems1: Memory allocation failed");
+        const _ret = allocator.alloc(QGraphicsItem, _arr.len) catch @panic("QLegend.CollidingItems1: Memory allocation failed");
         const _data: [*]QtC.QGraphicsItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

@@ -85,7 +85,7 @@ pub const KFileMetaData__WriteData = extern struct {
     pub fn InputUrl(self: KFileMetaData__WriteData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__WriteData_InputUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__writedata.InputUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__WriteData.InputUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -101,7 +101,7 @@ pub const KFileMetaData__WriteData = extern struct {
     pub fn InputMimetype(self: KFileMetaData__WriteData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__WriteData_InputMimetype(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__writedata.InputMimetype: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__WriteData.InputMimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -133,9 +133,9 @@ pub const KFileMetaData__WriteData = extern struct {
     ///
     pub fn AddImageData(self: KFileMetaData__WriteData, allocator: std.mem.Allocator, images: ArrayMap_i32_u8) void {
         const images_count = images.count();
-        const images_keys = allocator.alloc(i32, images_count) catch @panic("kfilemetadata__writedata.AddImageData: Memory allocation failed");
+        const images_keys = allocator.alloc(i32, images_count) catch @panic("KFileMetaData__WriteData.AddImageData: Memory allocation failed");
         defer allocator.free(images_keys);
-        const images_values = allocator.alloc(qtc.libqt_string, images_count) catch @panic("kfilemetadata__writedata.AddImageData: Memory allocation failed");
+        const images_values = allocator.alloc(qtc.libqt_string, images_count) catch @panic("KFileMetaData__WriteData.AddImageData: Memory allocation failed");
         defer allocator.free(images_values);
         var i: usize = 0;
         var images_it = images.iterator();
@@ -171,7 +171,7 @@ pub const KFileMetaData__WriteData = extern struct {
     pub fn Properties(self: KFileMetaData__WriteData, allocator: std.mem.Allocator) ArrayMap_i32_SliceQVariant {
         const _map: qtc.libqt_map = qtc.KFileMetaData__WriteData_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kfilemetadata__writedata.Properties: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KFileMetaData__WriteData.Properties: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -186,7 +186,7 @@ pub const KFileMetaData__WriteData = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(QVariant, _value.len) catch @panic("kfilemetadata__writedata.Properties: Memory allocation failed");
+            const _value_slice = allocator.alloc(QVariant, _value.len) catch @panic("KFileMetaData__WriteData.Properties: Memory allocation failed");
             const _value_data: [*]QtC.QVariant = @ptrCast(@alignCast(_value.data));
             for (0.._value.len) |ii|
                 _value_slice[ii] = .{ .ptr = _value_data[ii] };
@@ -210,7 +210,7 @@ pub const KFileMetaData__WriteData = extern struct {
     pub fn ImageData(self: KFileMetaData__WriteData, allocator: std.mem.Allocator) ArrayMap_i32_u8 {
         const _map: qtc.libqt_map = qtc.KFileMetaData__WriteData_ImageData(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kfilemetadata__writedata.ImageData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KFileMetaData__WriteData.ImageData: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -225,7 +225,7 @@ pub const KFileMetaData__WriteData = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kfilemetadata__writedata.ImageData: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KFileMetaData__WriteData.ImageData: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }

@@ -54,9 +54,9 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     pub fn New(allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant) QPlaceManagerEngine {
         const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qplacemanagerengine.New: Memory allocation failed");
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QPlaceManagerEngine.New: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("qplacemanagerengine.New: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QPlaceManagerEngine.New: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
@@ -88,9 +88,9 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     pub fn New2(allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant, parent: anytype) QPlaceManagerEngine {
         const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qplacemanagerengine.New2: Memory allocation failed");
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QPlaceManagerEngine.New2: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("qplacemanagerengine.New2: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QPlaceManagerEngine.New2: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
@@ -249,7 +249,7 @@ pub const QPlaceManagerEngine = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacemanagerengine.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -265,7 +265,7 @@ pub const QPlaceManagerEngine = extern struct {
     pub fn ManagerName(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceManagerEngine_ManagerName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacemanagerengine.ManagerName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.ManagerName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -735,7 +735,7 @@ pub const QPlaceManagerEngine = extern struct {
         };
         var _str = qtc.QPlaceManagerEngine_ParentCategoryId(@ptrCast(self.ptr), categoryId_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacemanagerengine.ParentCategoryId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.ParentCategoryId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -777,7 +777,7 @@ pub const QPlaceManagerEngine = extern struct {
         };
         var _str = qtc.QPlaceManagerEngine_SuperParentCategoryId(@ptrCast(self.ptr), categoryId_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacemanagerengine.ParentCategoryId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.ParentCategoryId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -804,10 +804,10 @@ pub const QPlaceManagerEngine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qplacemanagerengine.ChildCategoryIds: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QPlaceManagerEngine.ChildCategoryIds: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qplacemanagerengine.ChildCategoryIds: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPlaceManagerEngine.ChildCategoryIds: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -858,10 +858,10 @@ pub const QPlaceManagerEngine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qplacemanagerengine.ChildCategoryIds: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QPlaceManagerEngine.ChildCategoryIds: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qplacemanagerengine.ChildCategoryIds: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPlaceManagerEngine.ChildCategoryIds: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -939,7 +939,7 @@ pub const QPlaceManagerEngine = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QPlaceManagerEngine_ChildCategories(@ptrCast(self.ptr), parentId_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPlaceCategory, _arr.len) catch @panic("qplacemanagerengine.ChildCategories: Memory allocation failed");
+        const _ret = allocator.alloc(QPlaceCategory, _arr.len) catch @panic("QPlaceManagerEngine.ChildCategories: Memory allocation failed");
         const _data: [*]QtC.QPlaceCategory = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -989,7 +989,7 @@ pub const QPlaceManagerEngine = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QPlaceManagerEngine_SuperChildCategories(@ptrCast(self.ptr), parentId_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPlaceCategory, _arr.len) catch @panic("qplacemanagerengine.ChildCategories: Memory allocation failed");
+        const _ret = allocator.alloc(QPlaceCategory, _arr.len) catch @panic("QPlaceManagerEngine.ChildCategories: Memory allocation failed");
         const _data: [*]QtC.QPlaceCategory = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1007,7 +1007,7 @@ pub const QPlaceManagerEngine = extern struct {
     pub fn Locales(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []QLocale {
         const _arr: qtc.libqt_list = qtc.QPlaceManagerEngine_Locales(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("qplacemanagerengine.Locales: Memory allocation failed");
+        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("QPlaceManagerEngine.Locales: Memory allocation failed");
         const _data: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1051,7 +1051,7 @@ pub const QPlaceManagerEngine = extern struct {
     pub fn SuperLocales(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []QLocale {
         const _arr: qtc.libqt_list = qtc.QPlaceManagerEngine_SuperLocales(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("qplacemanagerengine.Locales: Memory allocation failed");
+        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("QPlaceManagerEngine.Locales: Memory allocation failed");
         const _data: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1567,7 +1567,7 @@ pub const QPlaceManagerEngine = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacemanagerengine.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1589,7 +1589,7 @@ pub const QPlaceManagerEngine = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacemanagerengine.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1640,7 +1640,7 @@ pub const QPlaceManagerEngine = extern struct {
     pub fn ObjectName(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacemanagerengine.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1817,7 +1817,7 @@ pub const QPlaceManagerEngine = extern struct {
     pub fn Children(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qplacemanagerengine.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPlaceManagerEngine.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2093,10 +2093,10 @@ pub const QPlaceManagerEngine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qplacemanagerengine.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPlaceManagerEngine.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qplacemanagerengine.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPlaceManagerEngine.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

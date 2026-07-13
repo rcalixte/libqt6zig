@@ -105,7 +105,7 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     pub fn TranslatedLanguages(allocator: std.mem.Allocator) ArrayMap_i32_constu8 {
         const _map: qtc.libqt_map = qtc.TextTranslator__TranslatorUtil_TranslatedLanguages();
         var _ret: ArrayMap_i32_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("texttranslator__translatorutil.TranslatedLanguages: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextTranslator__TranslatorUtil.TranslatedLanguages: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -120,7 +120,7 @@ pub const TextTranslator__TranslatorUtil = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("texttranslator__translatorutil.TranslatedLanguages: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextTranslator__TranslatorUtil.TranslatedLanguages: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
@@ -136,7 +136,7 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     pub fn LoadEngine(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorUtil_LoadEngine();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorutil.LoadEngine: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.LoadEngine: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -164,7 +164,7 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     pub fn GroupTranslateName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorUtil_GroupTranslateName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorutil.GroupTranslateName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.GroupTranslateName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -178,7 +178,7 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     pub fn EngineTranslateName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorUtil_EngineTranslateName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorutil.EngineTranslateName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.EngineTranslateName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -192,7 +192,7 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     pub fn DefaultEngineName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextTranslator__TranslatorUtil_DefaultEngineName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorutil.DefaultEngineName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.DefaultEngineName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -208,7 +208,7 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     pub fn TranslatedLanguage(allocator: std.mem.Allocator, lang: i32) []const u8 {
         var _str = qtc.TextTranslator__TranslatorUtil_TranslatedLanguage(@bitCast(lang));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorutil.TranslatedLanguage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.TranslatedLanguage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -224,7 +224,7 @@ pub const TextTranslator__TranslatorUtil = extern struct {
     pub fn LanguageCode(allocator: std.mem.Allocator, lang: i32) []const u8 {
         var _str = qtc.TextTranslator__TranslatorUtil_LanguageCode(@bitCast(lang));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorutil.LanguageCode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.LanguageCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -244,7 +244,7 @@ pub const TextTranslator__TranslatorUtil = extern struct {
         };
         var _str = qtc.TextTranslator__TranslatorUtil_SearchI18nFromLanguage(langCode_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorutil.SearchI18nFromLanguage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorUtil.SearchI18nFromLanguage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -313,7 +313,7 @@ pub const TextTranslator__TranslatorUtil__TranslatorSettings = extern struct {
     pub fn Engine(self: TextTranslator__TranslatorUtil__TranslatorSettings, allocator: std.mem.Allocator) []const u8 {
         var engine_str = qtc.TextTranslator__TranslatorUtil__TranslatorSettings_Engine(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&engine_str);
-        const engine_ret = allocator.alloc(u8, engine_str.len) catch @panic("texttranslator__translatorutil__translatorsettings.Engine: Memory allocation failed");
+        const engine_ret = allocator.alloc(u8, engine_str.len) catch @panic("TextTranslator__TranslatorUtil__TranslatorSettings.Engine: Memory allocation failed");
         @memcpy(engine_ret, engine_str.data[0..engine_str.len]);
         return engine_ret;
     }
@@ -343,7 +343,7 @@ pub const TextTranslator__TranslatorUtil__TranslatorSettings = extern struct {
     pub fn From(self: TextTranslator__TranslatorUtil__TranslatorSettings, allocator: std.mem.Allocator) []const u8 {
         var from_str = qtc.TextTranslator__TranslatorUtil__TranslatorSettings_From(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&from_str);
-        const from_ret = allocator.alloc(u8, from_str.len) catch @panic("texttranslator__translatorutil__translatorsettings.From: Memory allocation failed");
+        const from_ret = allocator.alloc(u8, from_str.len) catch @panic("TextTranslator__TranslatorUtil__TranslatorSettings.From: Memory allocation failed");
         @memcpy(from_ret, from_str.data[0..from_str.len]);
         return from_ret;
     }
@@ -373,7 +373,7 @@ pub const TextTranslator__TranslatorUtil__TranslatorSettings = extern struct {
     pub fn To(self: TextTranslator__TranslatorUtil__TranslatorSettings, allocator: std.mem.Allocator) []const u8 {
         var to_str = qtc.TextTranslator__TranslatorUtil__TranslatorSettings_To(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&to_str);
-        const to_ret = allocator.alloc(u8, to_str.len) catch @panic("texttranslator__translatorutil__translatorsettings.To: Memory allocation failed");
+        const to_ret = allocator.alloc(u8, to_str.len) catch @panic("TextTranslator__TranslatorUtil__TranslatorSettings.To: Memory allocation failed");
         @memcpy(to_ret, to_str.data[0..to_str.len]);
         return to_ret;
     }

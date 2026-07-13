@@ -56,8 +56,8 @@ void QBuffer_SetData(QBuffer* self, const libqt_string data) {
     self->setData(data_QByteArray);
 }
 
-void QBuffer_SetData2(QBuffer* self, const char* data, ptrdiff_t lenVal) {
-    self->setData(data, (qsizetype)(lenVal));
+void QBuffer_SetData2(QBuffer* self, const char* data, ptrdiff_t len) {
+    self->setData(data, (qsizetype)(len));
 }
 
 libqt_string QBuffer_Data(const QBuffer* self) {
@@ -119,10 +119,10 @@ long long QBuffer_ReadData(QBuffer* self, char* data, long long maxlen) {
     return {};
 }
 
-long long QBuffer_WriteData(QBuffer* self, const char* data, long long lenVal) {
+long long QBuffer_WriteData(QBuffer* self, const char* data, long long len) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
-        return static_cast<long long>(vqbuffer->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqbuffer->writeData(data, static_cast<qint64>(len)));
     }
     return {};
 }
@@ -375,13 +375,13 @@ void QBuffer_OnReadData(QBuffer* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QBuffer_SuperWriteData(QBuffer* self, const char* data, long long lenVal) {
+long long QBuffer_SuperWriteData(QBuffer* self, const char* data, long long len) {
     auto* vqbuffer = dynamic_cast<VirtualQBuffer*>(self);
     if (vqbuffer && vqbuffer->isVirtualQBuffer) {
         vqbuffer->setQBuffer_WriteData_IsBase(true);
-        return static_cast<long long>(vqbuffer->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqbuffer->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualQBuffer*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualQBuffer*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 

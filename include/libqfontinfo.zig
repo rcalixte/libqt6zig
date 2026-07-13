@@ -73,7 +73,7 @@ pub const QFontInfo = extern struct {
     pub fn Family(self: QFontInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFontInfo_Family(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontinfo.Family: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontInfo.Family: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -89,7 +89,7 @@ pub const QFontInfo = extern struct {
     pub fn StyleName(self: QFontInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFontInfo_StyleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfontinfo.StyleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontInfo.StyleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

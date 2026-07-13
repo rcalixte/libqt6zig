@@ -232,10 +232,10 @@ pub const QStringEncoder = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qstringencoder.AvailableCodecs: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QStringEncoder.AvailableCodecs: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qstringencoder.AvailableCodecs: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QStringEncoder.AvailableCodecs: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -500,10 +500,10 @@ pub const QStringDecoder = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qstringdecoder.AvailableCodecs: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QStringDecoder.AvailableCodecs: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qstringdecoder.AvailableCodecs: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QStringDecoder.AvailableCodecs: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

@@ -241,7 +241,7 @@ pub const KDateTimeEdit = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -311,7 +311,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn CalendarLocalesList(self: KDateTimeEdit, allocator: std.mem.Allocator) []QLocale {
         const _arr: qtc.libqt_list = qtc.KDateTimeEdit_CalendarLocalesList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("kdatetimeedit.CalendarLocalesList: Memory allocation failed");
+        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("KDateTimeEdit.CalendarLocalesList: Memory allocation failed");
         const _data: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -363,7 +363,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn DateMap(self: KDateTimeEdit, allocator: std.mem.Allocator) ArrayMap_QDate_constu8 {
         const _map: qtc.libqt_map = qtc.KDateTimeEdit_DateMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_QDate_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kdatetimeedit.DateMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KDateTimeEdit.DateMap: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -378,7 +378,7 @@ pub const KDateTimeEdit = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kdatetimeedit.DateMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KDateTimeEdit.DateMap: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(.{ .ptr = @ptrCast(_key) }, _value_slice);
         }
@@ -420,7 +420,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn TimeList(self: KDateTimeEdit, allocator: std.mem.Allocator) []QTime {
         const _arr: qtc.libqt_list = qtc.KDateTimeEdit_TimeList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTime, _arr.len) catch @panic("kdatetimeedit.TimeList: Memory allocation failed");
+        const _ret = allocator.alloc(QTime, _arr.len) catch @panic("KDateTimeEdit.TimeList: Memory allocation failed");
         const _data: [*]QtC.QTime = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -438,7 +438,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn TimeZones(self: KDateTimeEdit, allocator: std.mem.Allocator) []QTimeZone {
         const _arr: qtc.libqt_list = qtc.KDateTimeEdit_TimeZones(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTimeZone, _arr.len) catch @panic("kdatetimeedit.TimeZones: Memory allocation failed");
+        const _ret = allocator.alloc(QTimeZone, _arr.len) catch @panic("KDateTimeEdit.TimeZones: Memory allocation failed");
         const _data: [*]QtC.QTimeZone = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1006,9 +1006,9 @@ pub const KDateTimeEdit = extern struct {
     ///
     pub fn SetDateMap(self: KDateTimeEdit, allocator: std.mem.Allocator, dateMap: ArrayMap_QDate_constu8) void {
         const dateMap_count = dateMap.count();
-        const dateMap_keys = allocator.alloc(QtC.QDate, dateMap_count) catch @panic("kdatetimeedit.SetDateMap: Memory allocation failed");
+        const dateMap_keys = allocator.alloc(QtC.QDate, dateMap_count) catch @panic("KDateTimeEdit.SetDateMap: Memory allocation failed");
         defer allocator.free(dateMap_keys);
-        const dateMap_values = allocator.alloc(qtc.libqt_string, dateMap_count) catch @panic("kdatetimeedit.SetDateMap: Memory allocation failed");
+        const dateMap_values = allocator.alloc(qtc.libqt_string, dateMap_count) catch @panic("KDateTimeEdit.SetDateMap: Memory allocation failed");
         defer allocator.free(dateMap_values);
         var i: usize = 0;
         var dateMap_it = dateMap.iterator();
@@ -1474,7 +1474,7 @@ pub const KDateTimeEdit = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1496,7 +1496,7 @@ pub const KDateTimeEdit = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3009,7 +3009,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn StyleSheet(self: KDateTimeEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3027,7 +3027,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn WindowTitle(self: KDateTimeEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3090,7 +3090,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn WindowIconText(self: KDateTimeEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3126,7 +3126,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn WindowRole(self: KDateTimeEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3162,7 +3162,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn WindowFilePath(self: KDateTimeEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3236,7 +3236,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn ToolTip(self: KDateTimeEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3298,7 +3298,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn StatusTip(self: KDateTimeEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3334,7 +3334,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn WhatsThis(self: KDateTimeEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3352,7 +3352,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn AccessibleName(self: KDateTimeEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3388,7 +3388,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn AccessibleDescription(self: KDateTimeEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4238,7 +4238,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn SaveGeometry(self: KDateTimeEdit, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kdatetimeedit.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KDateTimeEdit.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -4774,7 +4774,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn Actions(self: KDateTimeEdit, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kdatetimeedit.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KDateTimeEdit.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5589,7 +5589,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn ObjectName(self: KDateTimeEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdatetimeedit.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDateTimeEdit.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5766,7 +5766,7 @@ pub const KDateTimeEdit = extern struct {
     pub fn Children(self: KDateTimeEdit, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kdatetimeedit.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KDateTimeEdit.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6027,10 +6027,10 @@ pub const KDateTimeEdit = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kdatetimeedit.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KDateTimeEdit.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kdatetimeedit.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDateTimeEdit.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

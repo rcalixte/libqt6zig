@@ -303,7 +303,7 @@ pub const QHostAddress = extern struct {
     pub fn ToString(self: QHostAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QHostAddress_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qhostaddress.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHostAddress.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -319,7 +319,7 @@ pub const QHostAddress = extern struct {
     pub fn ScopeId(self: QHostAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QHostAddress_ScopeId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qhostaddress.ScopeId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHostAddress.ScopeId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

@@ -279,7 +279,7 @@ pub const KLineEdit = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -552,7 +552,7 @@ pub const KLineEdit = extern struct {
     pub fn OriginalText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KLineEdit_OriginalText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.OriginalText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.OriginalText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -568,7 +568,7 @@ pub const KLineEdit = extern struct {
     pub fn UserText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KLineEdit_UserText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.UserText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.UserText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -940,7 +940,7 @@ pub const KLineEdit = extern struct {
     /// ` autoSuggest: bool `
     ///
     pub fn SetCompletedItems(self: KLineEdit, allocator: std.mem.Allocator, items: []const []const u8, autoSuggest: bool) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("klineedit.SetCompletedItems: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KLineEdit.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i|
             items_arr[i] = .{
@@ -987,7 +987,7 @@ pub const KLineEdit = extern struct {
     /// ` autoSuggest: bool `
     ///
     pub fn SuperSetCompletedItems(self: KLineEdit, allocator: std.mem.Allocator, items: []const []const u8, autoSuggest: bool) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("klineedit.SetCompletedItems: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KLineEdit.SetCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i|
             items_arr[i] = .{
@@ -1736,7 +1736,7 @@ pub const KLineEdit = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1758,7 +1758,7 @@ pub const KLineEdit = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1790,7 +1790,7 @@ pub const KLineEdit = extern struct {
     pub fn Text(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1808,7 +1808,7 @@ pub const KLineEdit = extern struct {
     pub fn DisplayText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_DisplayText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.DisplayText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.DisplayText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1826,7 +1826,7 @@ pub const KLineEdit = extern struct {
     pub fn PlaceholderText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.PlaceholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2269,7 +2269,7 @@ pub const KLineEdit = extern struct {
     pub fn SelectedText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.SelectedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.SelectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2403,7 +2403,7 @@ pub const KLineEdit = extern struct {
     pub fn InputMask(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_InputMask(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.InputMask: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.InputMask: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4238,7 +4238,7 @@ pub const KLineEdit = extern struct {
     pub fn StyleSheet(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4256,7 +4256,7 @@ pub const KLineEdit = extern struct {
     pub fn WindowTitle(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4319,7 +4319,7 @@ pub const KLineEdit = extern struct {
     pub fn WindowIconText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4355,7 +4355,7 @@ pub const KLineEdit = extern struct {
     pub fn WindowRole(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4391,7 +4391,7 @@ pub const KLineEdit = extern struct {
     pub fn WindowFilePath(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4465,7 +4465,7 @@ pub const KLineEdit = extern struct {
     pub fn ToolTip(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4527,7 +4527,7 @@ pub const KLineEdit = extern struct {
     pub fn StatusTip(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4563,7 +4563,7 @@ pub const KLineEdit = extern struct {
     pub fn WhatsThis(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4581,7 +4581,7 @@ pub const KLineEdit = extern struct {
     pub fn AccessibleName(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4617,7 +4617,7 @@ pub const KLineEdit = extern struct {
     pub fn AccessibleDescription(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5467,7 +5467,7 @@ pub const KLineEdit = extern struct {
     pub fn SaveGeometry(self: KLineEdit, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("klineedit.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KLineEdit.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -5988,7 +5988,7 @@ pub const KLineEdit = extern struct {
     pub fn Actions(self: KLineEdit, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("klineedit.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KLineEdit.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6785,7 +6785,7 @@ pub const KLineEdit = extern struct {
     pub fn ObjectName(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klineedit.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6962,7 +6962,7 @@ pub const KLineEdit = extern struct {
     pub fn Children(self: KLineEdit, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("klineedit.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KLineEdit.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7223,10 +7223,10 @@ pub const KLineEdit = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("klineedit.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KLineEdit.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("klineedit.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KLineEdit.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -7821,7 +7821,7 @@ pub const KLineEdit = extern struct {
     pub fn KeyBinding(self: KLineEdit, allocator: std.mem.Allocator, item: i32) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self.ptr), @bitCast(item));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("klineedit.KeyBinding: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KLineEdit.KeyBinding: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -10683,7 +10683,7 @@ pub const KLineEdit = extern struct {
     pub fn KeyBindingMap(self: KLineEdit, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
         const _map: qtc.libqt_map = qtc.KLineEdit_KeyBindingMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("klineedit.KeyBindingMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KLineEdit.KeyBindingMap: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -10698,7 +10698,7 @@ pub const KLineEdit = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("klineedit.KeyBindingMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KLineEdit.KeyBindingMap: Memory allocation failed");
             const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
             for (0.._value.len) |ii|
                 _value_slice[ii] = .{ .ptr = _value_data[ii] };
@@ -10730,7 +10730,7 @@ pub const KLineEdit = extern struct {
     pub fn SuperKeyBindingMap(self: KLineEdit, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
         const _map: qtc.libqt_map = qtc.KLineEdit_SuperKeyBindingMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("klineedit.KeyBindingMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KLineEdit.KeyBindingMap: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -10745,7 +10745,7 @@ pub const KLineEdit = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("klineedit.KeyBindingMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KLineEdit.KeyBindingMap: Memory allocation failed");
             const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
             for (0.._value.len) |ii|
                 _value_slice[ii] = .{ .ptr = _value_data[ii] };
@@ -10790,9 +10790,9 @@ pub const KLineEdit = extern struct {
     ///
     pub fn SetKeyBindingMap(self: KLineEdit, allocator: std.mem.Allocator, keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
         const keyBindingMap_count = keyBindingMap.count();
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("klineedit.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KLineEdit.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("klineedit.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KLineEdit.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
         var i: usize = 0;
         var keyBindingMap_it = keyBindingMap.iterator();
@@ -10833,9 +10833,9 @@ pub const KLineEdit = extern struct {
     ///
     pub fn SuperSetKeyBindingMap(self: KLineEdit, allocator: std.mem.Allocator, keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
         const keyBindingMap_count = keyBindingMap.count();
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("klineedit.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KLineEdit.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("klineedit.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KLineEdit.SetKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
         var i: usize = 0;
         var keyBindingMap_it = keyBindingMap.iterator();

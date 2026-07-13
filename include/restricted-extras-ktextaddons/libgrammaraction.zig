@@ -40,7 +40,7 @@ pub const TextGrammarCheck__GrammarAction = extern struct {
     pub fn Replacement(self: TextGrammarCheck__GrammarAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextGrammarCheck__GrammarAction_Replacement(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textgrammarcheck__grammaraction.Replacement: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammarAction.Replacement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -121,10 +121,10 @@ pub const TextGrammarCheck__GrammarAction = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("textgrammarcheck__grammaraction.Suggestions: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextGrammarCheck__GrammarAction.Suggestions: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textgrammarcheck__grammaraction.Suggestions: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextGrammarCheck__GrammarAction.Suggestions: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -142,7 +142,7 @@ pub const TextGrammarCheck__GrammarAction = extern struct {
     /// ` suggestions: []const []const u8 `
     ///
     pub fn SetSuggestions(self: TextGrammarCheck__GrammarAction, allocator: std.mem.Allocator, suggestions: []const []const u8) void {
-        const suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("textgrammarcheck__grammaraction.SetSuggestions: Memory allocation failed");
+        const suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("TextGrammarCheck__GrammarAction.SetSuggestions: Memory allocation failed");
         defer allocator.free(suggestions_arr);
         for (suggestions, 0..suggestions.len) |item, i|
             suggestions_arr[i] = .{
@@ -194,10 +194,10 @@ pub const TextGrammarCheck__GrammarAction = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("textgrammarcheck__grammaraction.InfoUrls: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextGrammarCheck__GrammarAction.InfoUrls: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textgrammarcheck__grammaraction.InfoUrls: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextGrammarCheck__GrammarAction.InfoUrls: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -215,7 +215,7 @@ pub const TextGrammarCheck__GrammarAction = extern struct {
     /// ` urls: []const []const u8 `
     ///
     pub fn SetInfoUrls(self: TextGrammarCheck__GrammarAction, allocator: std.mem.Allocator, urls: []const []const u8) void {
-        const urls_arr = allocator.alloc(qtc.libqt_string, urls.len) catch @panic("textgrammarcheck__grammaraction.SetInfoUrls: Memory allocation failed");
+        const urls_arr = allocator.alloc(qtc.libqt_string, urls.len) catch @panic("TextGrammarCheck__GrammarAction.SetInfoUrls: Memory allocation failed");
         defer allocator.free(urls_arr);
         for (urls, 0..urls.len) |item, i|
             urls_arr[i] = .{

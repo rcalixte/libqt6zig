@@ -73,7 +73,7 @@ pub const Solid__StorageAccess = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storageaccess.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -109,7 +109,7 @@ pub const Solid__StorageAccess = extern struct {
     pub fn FilePath(self: Solid__StorageAccess, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__StorageAccess_FilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storageaccess.FilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.FilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -483,7 +483,7 @@ pub const Solid__StorageAccess = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storageaccess.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -505,7 +505,7 @@ pub const Solid__StorageAccess = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storageaccess.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -535,7 +535,7 @@ pub const Solid__StorageAccess = extern struct {
     pub fn TypeToString(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
         var _str = qtc.Solid__DeviceInterface_TypeToString(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storageaccess.TypeToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.TypeToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -573,7 +573,7 @@ pub const Solid__StorageAccess = extern struct {
     pub fn TypeDescription(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
         var _str = qtc.Solid__DeviceInterface_TypeDescription(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storageaccess.TypeDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.TypeDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -624,7 +624,7 @@ pub const Solid__StorageAccess = extern struct {
     pub fn ObjectName(self: Solid__StorageAccess, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__storageaccess.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__StorageAccess.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -801,7 +801,7 @@ pub const Solid__StorageAccess = extern struct {
     pub fn Children(self: Solid__StorageAccess, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("solid__storageaccess.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Solid__StorageAccess.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1077,10 +1077,10 @@ pub const Solid__StorageAccess = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("solid__storageaccess.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Solid__StorageAccess.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("solid__storageaccess.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Solid__StorageAccess.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

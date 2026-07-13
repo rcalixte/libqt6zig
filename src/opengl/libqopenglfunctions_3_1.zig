@@ -2131,11 +2131,11 @@ pub const QOpenGLFunctions_3_1 = extern struct {
     /// ` length: []const i32 `
     ///
     pub fn GlShaderSource(self: QOpenGLFunctions_3_1, allocator: std.mem.Allocator, shader: u32, count: i32, string: []const [:0]const u8, length: []const i32) void {
-        const string_chararr = allocator.alloc([*c]const u8, string.len) catch @panic("qopenglfunctions_3_1.GlShaderSource: Memory allocation failed");
+        const string_chararr = allocator.alloc([*:0]const u8, string.len) catch @panic("QOpenGLFunctions_3_1.GlShaderSource: Memory allocation failed");
         defer allocator.free(string_chararr);
         for (string, 0..string.len) |str, i|
             string_chararr[i] = @ptrCast(str.ptr);
-        qtc.QOpenGLFunctions_3_1_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), string_chararr.ptr, length.ptr);
+        qtc.QOpenGLFunctions_3_1_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), @ptrCast(string_chararr), length.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-1.html#glLinkProgram)
@@ -3547,11 +3547,11 @@ pub const QOpenGLFunctions_3_1 = extern struct {
     /// ` bufferMode: u32 `
     ///
     pub fn GlTransformFeedbackVaryings(self: QOpenGLFunctions_3_1, allocator: std.mem.Allocator, program: u32, count: i32, varyings: []const [:0]const u8, bufferMode: u32) void {
-        const varyings_chararr = allocator.alloc([*c]const u8, varyings.len) catch @panic("qopenglfunctions_3_1.GlTransformFeedbackVaryings: Memory allocation failed");
+        const varyings_chararr = allocator.alloc([*:0]const u8, varyings.len) catch @panic("QOpenGLFunctions_3_1.GlTransformFeedbackVaryings: Memory allocation failed");
         defer allocator.free(varyings_chararr);
         for (varyings, 0..varyings.len) |str, i|
             varyings_chararr[i] = @ptrCast(str.ptr);
-        qtc.QOpenGLFunctions_3_1_GlTransformFeedbackVaryings(@ptrCast(self.ptr), @bitCast(program), @bitCast(count), varyings_chararr.ptr, @bitCast(bufferMode));
+        qtc.QOpenGLFunctions_3_1_GlTransformFeedbackVaryings(@ptrCast(self.ptr), @bitCast(program), @bitCast(count), @ptrCast(varyings_chararr), @bitCast(bufferMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-1.html#glBindBufferBase)
@@ -3854,11 +3854,11 @@ pub const QOpenGLFunctions_3_1 = extern struct {
     /// ` uniformIndices: []u32 `
     ///
     pub fn GlGetUniformIndices(self: QOpenGLFunctions_3_1, allocator: std.mem.Allocator, program: u32, uniformCount: i32, uniformNames: []const [:0]const u8, uniformIndices: []u32) void {
-        const uniformNames_chararr = allocator.alloc([*c]const u8, uniformNames.len) catch @panic("qopenglfunctions_3_1.GlGetUniformIndices: Memory allocation failed");
+        const uniformNames_chararr = allocator.alloc([*:0]const u8, uniformNames.len) catch @panic("QOpenGLFunctions_3_1.GlGetUniformIndices: Memory allocation failed");
         defer allocator.free(uniformNames_chararr);
         for (uniformNames, 0..uniformNames.len) |str, i|
             uniformNames_chararr[i] = @ptrCast(str.ptr);
-        qtc.QOpenGLFunctions_3_1_GlGetUniformIndices(@ptrCast(self.ptr), @bitCast(program), @bitCast(uniformCount), uniformNames_chararr.ptr, uniformIndices.ptr);
+        qtc.QOpenGLFunctions_3_1_GlGetUniformIndices(@ptrCast(self.ptr), @bitCast(program), @bitCast(uniformCount), @ptrCast(uniformNames_chararr), uniformIndices.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-3-1.html#glPrimitiveRestartIndex)

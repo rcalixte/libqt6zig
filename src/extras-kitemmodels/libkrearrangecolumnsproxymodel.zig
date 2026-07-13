@@ -194,7 +194,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krearrangecolumnsproxymodel.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRearrangeColumnsProxyModel.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -702,7 +702,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krearrangecolumnsproxymodel.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRearrangeColumnsProxyModel.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -724,7 +724,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krearrangecolumnsproxymodel.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRearrangeColumnsProxyModel.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1299,7 +1299,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     pub fn ObjectName(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("krearrangecolumnsproxymodel.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRearrangeColumnsProxyModel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1476,7 +1476,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     pub fn Children(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("krearrangecolumnsproxymodel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KRearrangeColumnsProxyModel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1752,10 +1752,10 @@ pub const KRearrangeColumnsProxyModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("krearrangecolumnsproxymodel.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KRearrangeColumnsProxyModel.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("krearrangecolumnsproxymodel.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KRearrangeColumnsProxyModel.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2254,7 +2254,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
         comptime _ = @TypeOf(value)._is_QVariant;
         const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KRearrangeColumnsProxyModel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2292,7 +2292,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
         comptime _ = @TypeOf(value)._is_QVariant;
         const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KRearrangeColumnsProxyModel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2941,7 +2941,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("krearrangecolumnsproxymodel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KRearrangeColumnsProxyModel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2979,7 +2979,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("krearrangecolumnsproxymodel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KRearrangeColumnsProxyModel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -3160,9 +3160,9 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     pub fn SetItemData(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("krearrangecolumnsproxymodel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("KRearrangeColumnsProxyModel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("krearrangecolumnsproxymodel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("KRearrangeColumnsProxyModel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -3202,9 +3202,9 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     pub fn SuperSetItemData(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("krearrangecolumnsproxymodel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("KRearrangeColumnsProxyModel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("krearrangecolumnsproxymodel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("KRearrangeColumnsProxyModel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -3785,10 +3785,10 @@ pub const KRearrangeColumnsProxyModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("krearrangecolumnsproxymodel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KRearrangeColumnsProxyModel.MimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("krearrangecolumnsproxymodel.MimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KRearrangeColumnsProxyModel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3819,10 +3819,10 @@ pub const KRearrangeColumnsProxyModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("krearrangecolumnsproxymodel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KRearrangeColumnsProxyModel.MimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("krearrangecolumnsproxymodel.MimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KRearrangeColumnsProxyModel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3974,7 +3974,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     pub fn RoleNames(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_RoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("krearrangecolumnsproxymodel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KRearrangeColumnsProxyModel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -3989,7 +3989,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("krearrangecolumnsproxymodel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KRearrangeColumnsProxyModel.RoleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
@@ -4015,7 +4015,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     pub fn SuperRoleNames(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.KRearrangeColumnsProxyModel_SuperRoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("krearrangecolumnsproxymodel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KRearrangeColumnsProxyModel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -4030,7 +4030,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("krearrangecolumnsproxymodel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KRearrangeColumnsProxyModel.RoleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
@@ -5830,7 +5830,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     pub fn PersistentIndexList(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_PersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KRearrangeColumnsProxyModel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5856,7 +5856,7 @@ pub const KRearrangeColumnsProxyModel = extern struct {
     pub fn SuperPersistentIndexList(self: KRearrangeColumnsProxyModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.KRearrangeColumnsProxyModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("krearrangecolumnsproxymodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KRearrangeColumnsProxyModel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

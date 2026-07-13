@@ -82,11 +82,11 @@ pub const QPixmap = extern struct {
     /// ` xpm: []const [:0]const u8 `
     ///
     pub fn New5(allocator: std.mem.Allocator, xpm: []const [:0]const u8) QPixmap {
-        const xpm_chararr = allocator.alloc([*c]const u8, xpm.len) catch @panic("qpixmap.New5: Memory allocation failed");
+        const xpm_chararr = allocator.alloc([*:0]const u8, xpm.len) catch @panic("QPixmap.New5: Memory allocation failed");
         defer allocator.free(xpm_chararr);
         for (xpm, 0..xpm.len) |str, i|
             xpm_chararr[i] = @ptrCast(str.ptr);
-        return .{ .ptr = qtc.QPixmap_new5(xpm_chararr.ptr) };
+        return .{ .ptr = qtc.QPixmap_new5(@ptrCast(xpm_chararr)) };
     }
 
     /// New6 constructs a new QPixmap object.
@@ -521,10 +521,10 @@ pub const QPixmap = extern struct {
     ///
     /// ` buf: *const u8 `
     ///
-    /// ` lenVal: u32 `
+    /// ` len: u32 `
     ///
-    pub fn LoadFromData(self: QPixmap, buf: *const u8, lenVal: u32) bool {
-        return qtc.QPixmap_LoadFromData(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(lenVal));
+    pub fn LoadFromData(self: QPixmap, buf: *const u8, len: u32) bool {
+        return qtc.QPixmap_LoadFromData(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
@@ -1057,13 +1057,13 @@ pub const QPixmap = extern struct {
     ///
     /// ` buf: *const u8 `
     ///
-    /// ` lenVal: u32 `
+    /// ` len: u32 `
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn LoadFromData3(self: QPixmap, buf: *const u8, lenVal: u32, format: [:0]const u8) bool {
+    pub fn LoadFromData3(self: QPixmap, buf: *const u8, len: u32, format: [:0]const u8) bool {
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_LoadFromData3(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(lenVal), format_Cstring);
+        return qtc.QPixmap_LoadFromData3(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(len), format_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)
@@ -1074,15 +1074,15 @@ pub const QPixmap = extern struct {
     ///
     /// ` buf: *const u8 `
     ///
-    /// ` lenVal: u32 `
+    /// ` len: u32 `
     ///
     /// ` format: [:0]const u8 `
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn LoadFromData4(self: QPixmap, buf: *const u8, lenVal: u32, format: [:0]const u8, flags: i32) bool {
+    pub fn LoadFromData4(self: QPixmap, buf: *const u8, len: u32, format: [:0]const u8, flags: i32) bool {
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_LoadFromData4(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(lenVal), format_Cstring, @bitCast(flags));
+        return qtc.QPixmap_LoadFromData4(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(len), format_Cstring, @bitCast(flags));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpixmap.html#loadFromData)

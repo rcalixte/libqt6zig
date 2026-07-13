@@ -67,7 +67,7 @@ pub const QSslCertificateExtension = extern struct {
     pub fn Oid(self: QSslCertificateExtension, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSslCertificateExtension_Oid(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcertificateextension.Oid: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCertificateExtension.Oid: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -83,7 +83,7 @@ pub const QSslCertificateExtension = extern struct {
     pub fn Name(self: QSslCertificateExtension, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSslCertificateExtension_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcertificateextension.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCertificateExtension.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

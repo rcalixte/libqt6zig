@@ -329,7 +329,7 @@ pub const KPlotObject = extern struct {
     pub fn Points(self: KPlotObject, allocator: std.mem.Allocator) []KPlotPoint {
         const _arr: qtc.libqt_list = qtc.KPlotObject_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KPlotPoint, _arr.len) catch @panic("kplotobject.Points: Memory allocation failed");
+        const _ret = allocator.alloc(KPlotPoint, _arr.len) catch @panic("KPlotObject.Points: Memory allocation failed");
         const _data: [*]QtC.KPlotPoint = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

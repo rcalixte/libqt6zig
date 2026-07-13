@@ -63,7 +63,7 @@ pub const KFileMetaData__UserMetaData = extern struct {
     pub fn FilePath(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__UserMetaData_FilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.FilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__UserMetaData.FilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -93,7 +93,7 @@ pub const KFileMetaData__UserMetaData = extern struct {
     /// ` usermetadata_enums.Error `
     ///
     pub fn SetTags(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator, tags: []const []const u8) i32 {
-        const tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("kfilemetadata__usermetadata.SetTags: Memory allocation failed");
+        const tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("KFileMetaData__UserMetaData.SetTags: Memory allocation failed");
         defer allocator.free(tags_arr);
         for (tags, 0..tags.len) |item, i|
             tags_arr[i] = .{
@@ -123,10 +123,10 @@ pub const KFileMetaData__UserMetaData = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kfilemetadata__usermetadata.Tags: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFileMetaData__UserMetaData.Tags: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kfilemetadata__usermetadata.Tags: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KFileMetaData__UserMetaData.Tags: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -170,7 +170,7 @@ pub const KFileMetaData__UserMetaData = extern struct {
     pub fn UserComment(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__UserMetaData_UserComment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.UserComment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__UserMetaData.UserComment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -233,7 +233,7 @@ pub const KFileMetaData__UserMetaData = extern struct {
     pub fn OriginEmailSubject(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__UserMetaData_OriginEmailSubject(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.OriginEmailSubject: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__UserMetaData.OriginEmailSubject: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -269,7 +269,7 @@ pub const KFileMetaData__UserMetaData = extern struct {
     pub fn OriginEmailSender(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__UserMetaData_OriginEmailSender(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.OriginEmailSender: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__UserMetaData.OriginEmailSender: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -305,7 +305,7 @@ pub const KFileMetaData__UserMetaData = extern struct {
     pub fn OriginEmailMessageId(self: KFileMetaData__UserMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__UserMetaData_OriginEmailMessageId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.OriginEmailMessageId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__UserMetaData.OriginEmailMessageId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -347,7 +347,7 @@ pub const KFileMetaData__UserMetaData = extern struct {
         };
         var _str = qtc.KFileMetaData__UserMetaData_Attribute(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.Attribute: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__UserMetaData.Attribute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -369,7 +369,7 @@ pub const KFileMetaData__UserMetaData = extern struct {
         };
         var _str = qtc.KFileMetaData__UserMetaData_Attribute2(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__usermetadata.Attribute2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__UserMetaData.Attribute2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

@@ -64,12 +64,12 @@ void QCborStreamWriter_Append13(QCborStreamWriter* self, double d) {
     self->append(static_cast<double>(d));
 }
 
-void QCborStreamWriter_AppendByteString(QCborStreamWriter* self, const char* data, ptrdiff_t lenVal) {
-    self->appendByteString(data, (qsizetype)(lenVal));
+void QCborStreamWriter_AppendByteString(QCborStreamWriter* self, const char* data, ptrdiff_t len) {
+    self->appendByteString(data, (qsizetype)(len));
 }
 
-void QCborStreamWriter_AppendTextString(QCborStreamWriter* self, const char* utf8, ptrdiff_t lenVal) {
-    self->appendTextString(utf8, (qsizetype)(lenVal));
+void QCborStreamWriter_AppendTextString(QCborStreamWriter* self, const char* utf8, ptrdiff_t len) {
+    self->appendTextString(utf8, (qsizetype)(len));
 }
 
 void QCborStreamWriter_Append14(QCborStreamWriter* self, bool b) {

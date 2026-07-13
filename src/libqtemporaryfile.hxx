@@ -441,19 +441,19 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual qint64 writeData(const char* data, qint64 lenVal) override {
+    virtual qint64 writeData(const char* data, qint64 len) override {
         if (qtemporaryfile_writedata_isbase) {
             qtemporaryfile_writedata_isbase = false;
-            return QTemporaryFile::writeData(data, lenVal);
+            return QTemporaryFile::writeData(data, len);
         }
         auto writedata_cb = qtemporaryfile_writedata_callback;
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
-            long long cbval2 = static_cast<long long>(lenVal);
+            long long cbval2 = static_cast<long long>(len);
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
-        return QTemporaryFile::writeData(data, lenVal);
+        return QTemporaryFile::writeData(data, len);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -793,8 +793,8 @@ class VirtualQTemporaryFile final : public QTemporaryFile {
     friend bool QTemporaryFile_SuperOpen2(QTemporaryFile* self, int flags);
     friend long long QTemporaryFile_ReadData(QTemporaryFile* self, char* data, long long maxlen);
     friend long long QTemporaryFile_SuperReadData(QTemporaryFile* self, char* data, long long maxlen);
-    friend long long QTemporaryFile_WriteData(QTemporaryFile* self, const char* data, long long lenVal);
-    friend long long QTemporaryFile_SuperWriteData(QTemporaryFile* self, const char* data, long long lenVal);
+    friend long long QTemporaryFile_WriteData(QTemporaryFile* self, const char* data, long long len);
+    friend long long QTemporaryFile_SuperWriteData(QTemporaryFile* self, const char* data, long long len);
     friend long long QTemporaryFile_ReadLineData(QTemporaryFile* self, char* data, long long maxlen);
     friend long long QTemporaryFile_SuperReadLineData(QTemporaryFile* self, char* data, long long maxlen);
     friend long long QTemporaryFile_SkipData(QTemporaryFile* self, long long maxSize);

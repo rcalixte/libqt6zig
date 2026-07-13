@@ -166,7 +166,7 @@ pub const KPluginMetaData = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KPluginMetaData_FindPlugins(directory_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KPluginMetaData, _arr.len) catch @panic("kpluginmetadata.FindPlugins: Memory allocation failed");
+        const _ret = allocator.alloc(KPluginMetaData, _arr.len) catch @panic("KPluginMetaData.FindPlugins: Memory allocation failed");
         const _data: [*]QtC.KPluginMetaData = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -204,7 +204,7 @@ pub const KPluginMetaData = extern struct {
     pub fn FileName(self: KPluginMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPluginMetaData_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -230,7 +230,7 @@ pub const KPluginMetaData = extern struct {
     pub fn Name(self: KPluginMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPluginMetaData_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -246,7 +246,7 @@ pub const KPluginMetaData = extern struct {
     pub fn Description(self: KPluginMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPluginMetaData_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -262,7 +262,7 @@ pub const KPluginMetaData = extern struct {
     pub fn Authors(self: KPluginMetaData, allocator: std.mem.Allocator) []KAboutPerson {
         const _arr: qtc.libqt_list = qtc.KPluginMetaData_Authors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KAboutPerson, _arr.len) catch @panic("kpluginmetadata.Authors: Memory allocation failed");
+        const _ret = allocator.alloc(KAboutPerson, _arr.len) catch @panic("KPluginMetaData.Authors: Memory allocation failed");
         const _data: [*]QtC.KAboutPerson = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -280,7 +280,7 @@ pub const KPluginMetaData = extern struct {
     pub fn Translators(self: KPluginMetaData, allocator: std.mem.Allocator) []KAboutPerson {
         const _arr: qtc.libqt_list = qtc.KPluginMetaData_Translators(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KAboutPerson, _arr.len) catch @panic("kpluginmetadata.Translators: Memory allocation failed");
+        const _ret = allocator.alloc(KAboutPerson, _arr.len) catch @panic("KPluginMetaData.Translators: Memory allocation failed");
         const _data: [*]QtC.KAboutPerson = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -298,7 +298,7 @@ pub const KPluginMetaData = extern struct {
     pub fn OtherContributors(self: KPluginMetaData, allocator: std.mem.Allocator) []KAboutPerson {
         const _arr: qtc.libqt_list = qtc.KPluginMetaData_OtherContributors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KAboutPerson, _arr.len) catch @panic("kpluginmetadata.OtherContributors: Memory allocation failed");
+        const _ret = allocator.alloc(KAboutPerson, _arr.len) catch @panic("KPluginMetaData.OtherContributors: Memory allocation failed");
         const _data: [*]QtC.KAboutPerson = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -316,7 +316,7 @@ pub const KPluginMetaData = extern struct {
     pub fn Category(self: KPluginMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPluginMetaData_Category(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.Category: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.Category: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -332,7 +332,7 @@ pub const KPluginMetaData = extern struct {
     pub fn IconName(self: KPluginMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPluginMetaData_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -348,7 +348,7 @@ pub const KPluginMetaData = extern struct {
     pub fn License(self: KPluginMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPluginMetaData_License(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.License: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.License: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -364,7 +364,7 @@ pub const KPluginMetaData = extern struct {
     pub fn LicenseText(self: KPluginMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPluginMetaData_LicenseText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.LicenseText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.LicenseText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -380,7 +380,7 @@ pub const KPluginMetaData = extern struct {
     pub fn CopyrightText(self: KPluginMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPluginMetaData_CopyrightText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.CopyrightText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.CopyrightText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -396,7 +396,7 @@ pub const KPluginMetaData = extern struct {
     pub fn PluginId(self: KPluginMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPluginMetaData_PluginId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.PluginId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.PluginId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -412,7 +412,7 @@ pub const KPluginMetaData = extern struct {
     pub fn Version(self: KPluginMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPluginMetaData_Version(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.Version: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.Version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -428,7 +428,7 @@ pub const KPluginMetaData = extern struct {
     pub fn Website(self: KPluginMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPluginMetaData_Website(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.Website: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.Website: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -444,7 +444,7 @@ pub const KPluginMetaData = extern struct {
     pub fn BugReportUrl(self: KPluginMetaData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPluginMetaData_BugReportUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.BugReportUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.BugReportUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -465,10 +465,10 @@ pub const KPluginMetaData = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kpluginmetadata.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KPluginMetaData.MimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kpluginmetadata.MimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KPluginMetaData.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -507,10 +507,10 @@ pub const KPluginMetaData = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kpluginmetadata.FormFactors: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KPluginMetaData.FormFactors: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kpluginmetadata.FormFactors: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KPluginMetaData.FormFactors: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -544,7 +544,7 @@ pub const KPluginMetaData = extern struct {
         };
         var _str = qtc.KPluginMetaData_Value(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.Value: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -566,7 +566,7 @@ pub const KPluginMetaData = extern struct {
         };
         var _str = qtc.KPluginMetaData_Value2(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.Value2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.Value2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -660,7 +660,7 @@ pub const KPluginMetaData = extern struct {
             .len = key.len,
             .data = key.ptr,
         };
-        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kpluginmetadata.Value7: Memory allocation failed");
+        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("KPluginMetaData.Value7: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
         for (defaultValue, 0..defaultValue.len) |item, i|
             defaultValue_arr[i] = .{
@@ -678,10 +678,10 @@ pub const KPluginMetaData = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kpluginmetadata.Value7: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KPluginMetaData.Value7: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kpluginmetadata.Value7: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KPluginMetaData.Value7: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -705,7 +705,7 @@ pub const KPluginMetaData = extern struct {
             .len = key.len,
             .data = key.ptr,
         };
-        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("kpluginmetadata.Value8: Memory allocation failed");
+        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("KPluginMetaData.Value8: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
         for (defaultValue, 0..defaultValue.len) |item, i|
             defaultValue_arr[i] = .{
@@ -723,10 +723,10 @@ pub const KPluginMetaData = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kpluginmetadata.Value8: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KPluginMetaData.Value8: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kpluginmetadata.Value8: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KPluginMetaData.Value8: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -808,7 +808,7 @@ pub const KPluginMetaData = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KPluginMetaData_FindPlugins2(directory_str, @bitCast(@intFromPtr(filter)));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KPluginMetaData, _arr.len) catch @panic("kpluginmetadata.FindPlugins2: Memory allocation failed");
+        const _ret = allocator.alloc(KPluginMetaData, _arr.len) catch @panic("KPluginMetaData.FindPlugins2: Memory allocation failed");
         const _data: [*]QtC.KPluginMetaData = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -834,7 +834,7 @@ pub const KPluginMetaData = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KPluginMetaData_FindPlugins3(directory_str, @bitCast(@intFromPtr(filter)), @bitCast(options));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KPluginMetaData, _arr.len) catch @panic("kpluginmetadata.FindPlugins3: Memory allocation failed");
+        const _ret = allocator.alloc(KPluginMetaData, _arr.len) catch @panic("KPluginMetaData.FindPlugins3: Memory allocation failed");
         const _data: [*]QtC.KPluginMetaData = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -864,7 +864,7 @@ pub const KPluginMetaData = extern struct {
         };
         var _str = qtc.KPluginMetaData_Value22(@ptrCast(self.ptr), key_str, defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.Value22: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.Value22: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -892,7 +892,7 @@ pub const KPluginMetaData = extern struct {
         };
         var _str = qtc.KPluginMetaData_Value23(@ptrCast(self.ptr), key_str, defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluginmetadata.Value23: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluginMetaData.Value23: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

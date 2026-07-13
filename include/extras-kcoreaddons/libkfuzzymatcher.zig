@@ -277,7 +277,7 @@ pub const KFuzzyMatcher = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KFuzzyMatcher_MatchedRanges(pattern_str, str_str, @bitCast(_type));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KFuzzyMatcher__Range, _arr.len) catch @panic("kfuzzymatcher.MatchedRanges: Memory allocation failed");
+        const _ret = allocator.alloc(KFuzzyMatcher__Range, _arr.len) catch @panic("KFuzzyMatcher.MatchedRanges: Memory allocation failed");
         const _data: [*]QtC.KFuzzyMatcher__Range = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

@@ -66,7 +66,7 @@ pub const QGeoAddress = extern struct {
     pub fn Text(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoaddress.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -98,7 +98,7 @@ pub const QGeoAddress = extern struct {
     pub fn Country(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_Country(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoaddress.Country: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.Country: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -130,7 +130,7 @@ pub const QGeoAddress = extern struct {
     pub fn CountryCode(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_CountryCode(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoaddress.CountryCode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.CountryCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -162,7 +162,7 @@ pub const QGeoAddress = extern struct {
     pub fn State(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_State(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoaddress.State: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.State: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -194,7 +194,7 @@ pub const QGeoAddress = extern struct {
     pub fn County(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_County(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoaddress.County: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.County: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -226,7 +226,7 @@ pub const QGeoAddress = extern struct {
     pub fn City(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_City(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoaddress.City: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.City: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -258,7 +258,7 @@ pub const QGeoAddress = extern struct {
     pub fn District(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_District(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoaddress.District: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.District: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -290,7 +290,7 @@ pub const QGeoAddress = extern struct {
     pub fn PostalCode(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_PostalCode(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoaddress.PostalCode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.PostalCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -322,7 +322,7 @@ pub const QGeoAddress = extern struct {
     pub fn Street(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_Street(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoaddress.Street: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.Street: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -354,7 +354,7 @@ pub const QGeoAddress = extern struct {
     pub fn StreetNumber(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_StreetNumber(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoaddress.StreetNumber: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.StreetNumber: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

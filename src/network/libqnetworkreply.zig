@@ -84,7 +84,7 @@ pub const QNetworkReply = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkreply.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkReply.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -249,10 +249,10 @@ pub const QNetworkReply = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qnetworkreply.RawHeaderList: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QNetworkReply.RawHeaderList: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qnetworkreply.RawHeaderList: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QNetworkReply.RawHeaderList: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -272,7 +272,7 @@ pub const QNetworkReply = extern struct {
     pub fn RawHeader(self: QNetworkReply, allocator: std.mem.Allocator, headerName: []const u8) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QNetworkReply_RawHeader(@ptrCast(self.ptr), headerName.ptr);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.RawHeader: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkReply.RawHeader: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -295,13 +295,13 @@ pub const QNetworkReply = extern struct {
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(Struct_u8_u8, _arr.len) catch @panic("qnetworkreply.RawHeaderPairs: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_u8_u8, _arr.len) catch @panic("QNetworkReply.RawHeaderPairs: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].first));
-            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("qnetworkreply.RawHeaderPairs: Memory allocation failed");
+            const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("QNetworkReply.RawHeaderPairs: Memory allocation failed");
             @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
             const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
-            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("qnetworkreply.RawHeaderPairs: Memory allocation failed");
+            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("QNetworkReply.RawHeaderPairs: Memory allocation failed");
             @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
             _ret[i] = Struct_u8_u8{
                 .first = _first_slice,
@@ -693,7 +693,7 @@ pub const QNetworkReply = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkreply.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkReply.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -715,7 +715,7 @@ pub const QNetworkReply = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkreply.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkReply.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1006,7 +1006,7 @@ pub const QNetworkReply = extern struct {
     pub fn Read2(self: QNetworkReply, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.Read2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkReply.Read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1024,7 +1024,7 @@ pub const QNetworkReply = extern struct {
     pub fn ReadAll(self: QNetworkReply, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.ReadAll: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkReply.ReadAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1059,7 +1059,7 @@ pub const QNetworkReply = extern struct {
     pub fn ReadLine2(self: QNetworkReply, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.ReadLine2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkReply.ReadLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1134,11 +1134,11 @@ pub const QNetworkReply = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: i64 `
+    /// ` len: i64 `
     ///
-    pub fn Write(self: QNetworkReply, data: [:0]const u8, lenVal: i64) i64 {
+    pub fn Write(self: QNetworkReply, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// Inherited from QIODevice
@@ -1206,7 +1206,7 @@ pub const QNetworkReply = extern struct {
     pub fn Peek2(self: QNetworkReply, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.Peek2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkReply.Peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1309,7 +1309,7 @@ pub const QNetworkReply = extern struct {
     pub fn ErrorString(self: QNetworkReply, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkreply.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkReply.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1493,7 +1493,7 @@ pub const QNetworkReply = extern struct {
     pub fn ReadLine1(self: QNetworkReply, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qnetworkreply.ReadLine1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkReply.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1544,7 +1544,7 @@ pub const QNetworkReply = extern struct {
     pub fn ObjectName(self: QNetworkReply, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qnetworkreply.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNetworkReply.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1721,7 +1721,7 @@ pub const QNetworkReply = extern struct {
     pub fn Children(self: QNetworkReply, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qnetworkreply.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QNetworkReply.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1997,10 +1997,10 @@ pub const QNetworkReply = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qnetworkreply.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QNetworkReply.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qnetworkreply.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QNetworkReply.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

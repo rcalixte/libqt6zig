@@ -67,7 +67,7 @@ pub const QAccessibleInterface = extern struct {
         const _arr: qtc.libqt_list = qtc.QAccessibleInterface_Relations(@ptrCast(self.ptr), @bitCast(match));
         const _data: [*]Struct_QAccessibleInterface_i32 = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_QAccessibleInterface_i32, _arr.len) catch @panic("qaccessibleinterface.Relations: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_QAccessibleInterface_i32, _arr.len) catch @panic("QAccessibleInterface.Relations: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -154,7 +154,7 @@ pub const QAccessibleInterface = extern struct {
     pub fn Text(self: QAccessibleInterface, allocator: std.mem.Allocator, t: i32) []const u8 {
         var _str = qtc.QAccessibleInterface_Text(@ptrCast(self.ptr), @bitCast(t));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleinterface.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleInterface.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -473,7 +473,7 @@ pub const QAccessibleTextInterface = extern struct {
     pub fn Text(self: QAccessibleTextInterface, allocator: std.mem.Allocator, startOffset: i32, endOffset: i32) []const u8 {
         var _str = qtc.QAccessibleTextInterface_Text(@ptrCast(self.ptr), @bitCast(startOffset), @bitCast(endOffset));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleTextInterface.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -497,7 +497,7 @@ pub const QAccessibleTextInterface = extern struct {
     pub fn TextBeforeOffset(self: QAccessibleTextInterface, allocator: std.mem.Allocator, offset: i32, boundaryType: i32, startOffset: *i32, endOffset: *i32) []const u8 {
         var _str = qtc.QAccessibleTextInterface_TextBeforeOffset(@ptrCast(self.ptr), @bitCast(offset), @bitCast(boundaryType), @ptrCast(startOffset), @ptrCast(endOffset));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.TextBeforeOffset: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleTextInterface.TextBeforeOffset: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -521,7 +521,7 @@ pub const QAccessibleTextInterface = extern struct {
     pub fn TextAfterOffset(self: QAccessibleTextInterface, allocator: std.mem.Allocator, offset: i32, boundaryType: i32, startOffset: *i32, endOffset: *i32) []const u8 {
         var _str = qtc.QAccessibleTextInterface_TextAfterOffset(@ptrCast(self.ptr), @bitCast(offset), @bitCast(boundaryType), @ptrCast(startOffset), @ptrCast(endOffset));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.TextAfterOffset: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleTextInterface.TextAfterOffset: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -545,7 +545,7 @@ pub const QAccessibleTextInterface = extern struct {
     pub fn TextAtOffset(self: QAccessibleTextInterface, allocator: std.mem.Allocator, offset: i32, boundaryType: i32, startOffset: *i32, endOffset: *i32) []const u8 {
         var _str = qtc.QAccessibleTextInterface_TextAtOffset(@ptrCast(self.ptr), @bitCast(offset), @bitCast(boundaryType), @ptrCast(startOffset), @ptrCast(endOffset));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.TextAtOffset: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleTextInterface.TextAtOffset: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -616,7 +616,7 @@ pub const QAccessibleTextInterface = extern struct {
     pub fn Attributes(self: QAccessibleTextInterface, allocator: std.mem.Allocator, offset: i32, startOffset: *i32, endOffset: *i32) []const u8 {
         var _str = qtc.QAccessibleTextInterface_Attributes(@ptrCast(self.ptr), @bitCast(offset), @ptrCast(startOffset), @ptrCast(endOffset));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinterface.Attributes: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleTextInterface.Attributes: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -867,7 +867,7 @@ pub const QAccessibleTableCellInterface = extern struct {
     pub fn ColumnHeaderCells(self: QAccessibleTableCellInterface, allocator: std.mem.Allocator) []QAccessibleInterface {
         const _arr: qtc.libqt_list = qtc.QAccessibleTableCellInterface_ColumnHeaderCells(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAccessibleInterface, _arr.len) catch @panic("qaccessibletablecellinterface.ColumnHeaderCells: Memory allocation failed");
+        const _ret = allocator.alloc(QAccessibleInterface, _arr.len) catch @panic("QAccessibleTableCellInterface.ColumnHeaderCells: Memory allocation failed");
         const _data: [*]QtC.QAccessibleInterface = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -885,7 +885,7 @@ pub const QAccessibleTableCellInterface = extern struct {
     pub fn RowHeaderCells(self: QAccessibleTableCellInterface, allocator: std.mem.Allocator) []QAccessibleInterface {
         const _arr: qtc.libqt_list = qtc.QAccessibleTableCellInterface_RowHeaderCells(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAccessibleInterface, _arr.len) catch @panic("qaccessibletablecellinterface.RowHeaderCells: Memory allocation failed");
+        const _ret = allocator.alloc(QAccessibleInterface, _arr.len) catch @panic("QAccessibleTableCellInterface.RowHeaderCells: Memory allocation failed");
         const _data: [*]QtC.QAccessibleInterface = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1037,7 +1037,7 @@ pub const QAccessibleTableInterface = extern struct {
     pub fn SelectedCells(self: QAccessibleTableInterface, allocator: std.mem.Allocator) []QAccessibleInterface {
         const _arr: qtc.libqt_list = qtc.QAccessibleTableInterface_SelectedCells(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAccessibleInterface, _arr.len) catch @panic("qaccessibletableinterface.SelectedCells: Memory allocation failed");
+        const _ret = allocator.alloc(QAccessibleInterface, _arr.len) catch @panic("QAccessibleTableInterface.SelectedCells: Memory allocation failed");
         const _data: [*]QtC.QAccessibleInterface = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1057,7 +1057,7 @@ pub const QAccessibleTableInterface = extern struct {
     pub fn ColumnDescription(self: QAccessibleTableInterface, allocator: std.mem.Allocator, column: i32) []const u8 {
         var _str = qtc.QAccessibleTableInterface_ColumnDescription(@ptrCast(self.ptr), @bitCast(column));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletableinterface.ColumnDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleTableInterface.ColumnDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1075,7 +1075,7 @@ pub const QAccessibleTableInterface = extern struct {
     pub fn RowDescription(self: QAccessibleTableInterface, allocator: std.mem.Allocator, row: i32) []const u8 {
         var _str = qtc.QAccessibleTableInterface_RowDescription(@ptrCast(self.ptr), @bitCast(row));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletableinterface.RowDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleTableInterface.RowDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1131,7 +1131,7 @@ pub const QAccessibleTableInterface = extern struct {
     pub fn SelectedColumns(self: QAccessibleTableInterface, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QAccessibleTableInterface_SelectedColumns(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qaccessibletableinterface.SelectedColumns: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QAccessibleTableInterface.SelectedColumns: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1148,7 +1148,7 @@ pub const QAccessibleTableInterface = extern struct {
     pub fn SelectedRows(self: QAccessibleTableInterface, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QAccessibleTableInterface_SelectedRows(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qaccessibletableinterface.SelectedRows: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QAccessibleTableInterface.SelectedRows: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1278,7 +1278,7 @@ pub const QAccessibleActionInterface = extern struct {
         const sourceText_Cstring = sourceText.ptr;
         var _str = qtc.QObject_Tr(sourceText_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1299,10 +1299,10 @@ pub const QAccessibleActionInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qaccessibleactioninterface.ActionNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QAccessibleActionInterface.ActionNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qaccessibleactioninterface.ActionNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QAccessibleActionInterface.ActionNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1326,7 +1326,7 @@ pub const QAccessibleActionInterface = extern struct {
         };
         var _str = qtc.QAccessibleActionInterface_LocalizedActionName(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.LocalizedActionName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.LocalizedActionName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1348,7 +1348,7 @@ pub const QAccessibleActionInterface = extern struct {
         };
         var _str = qtc.QAccessibleActionInterface_LocalizedActionDescription(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.LocalizedActionDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.LocalizedActionDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1391,10 +1391,10 @@ pub const QAccessibleActionInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qaccessibleactioninterface.KeyBindingsForAction: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QAccessibleActionInterface.KeyBindingsForAction: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qaccessibleactioninterface.KeyBindingsForAction: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QAccessibleActionInterface.KeyBindingsForAction: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1410,7 +1410,7 @@ pub const QAccessibleActionInterface = extern struct {
     pub fn PressAction(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleActionInterface_PressAction();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.PressAction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.PressAction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1424,7 +1424,7 @@ pub const QAccessibleActionInterface = extern struct {
     pub fn IncreaseAction(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleActionInterface_IncreaseAction();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.IncreaseAction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.IncreaseAction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1438,7 +1438,7 @@ pub const QAccessibleActionInterface = extern struct {
     pub fn DecreaseAction(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleActionInterface_DecreaseAction();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.DecreaseAction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.DecreaseAction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1452,7 +1452,7 @@ pub const QAccessibleActionInterface = extern struct {
     pub fn ShowMenuAction(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleActionInterface_ShowMenuAction();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.ShowMenuAction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.ShowMenuAction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1466,7 +1466,7 @@ pub const QAccessibleActionInterface = extern struct {
     pub fn SetFocusAction(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleActionInterface_SetFocusAction();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.SetFocusAction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.SetFocusAction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1480,7 +1480,7 @@ pub const QAccessibleActionInterface = extern struct {
     pub fn ToggleAction(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleActionInterface_ToggleAction();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.ToggleAction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.ToggleAction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1494,7 +1494,7 @@ pub const QAccessibleActionInterface = extern struct {
     pub fn ScrollLeftAction(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleActionInterface_ScrollLeftAction();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.ScrollLeftAction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.ScrollLeftAction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1508,7 +1508,7 @@ pub const QAccessibleActionInterface = extern struct {
     pub fn ScrollRightAction(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleActionInterface_ScrollRightAction();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.ScrollRightAction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.ScrollRightAction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1522,7 +1522,7 @@ pub const QAccessibleActionInterface = extern struct {
     pub fn ScrollUpAction(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleActionInterface_ScrollUpAction();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.ScrollUpAction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.ScrollUpAction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1536,7 +1536,7 @@ pub const QAccessibleActionInterface = extern struct {
     pub fn ScrollDownAction(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleActionInterface_ScrollDownAction();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.ScrollDownAction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.ScrollDownAction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1550,7 +1550,7 @@ pub const QAccessibleActionInterface = extern struct {
     pub fn NextPageAction(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleActionInterface_NextPageAction();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.NextPageAction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.NextPageAction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1564,7 +1564,7 @@ pub const QAccessibleActionInterface = extern struct {
     pub fn PreviousPageAction(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleActionInterface_PreviousPageAction();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.PreviousPageAction: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.PreviousPageAction: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1597,7 +1597,7 @@ pub const QAccessibleActionInterface = extern struct {
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1619,7 +1619,7 @@ pub const QAccessibleActionInterface = extern struct {
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleactioninterface.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleActionInterface.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1662,7 +1662,7 @@ pub const QAccessibleImageInterface = extern struct {
     pub fn ImageDescription(self: QAccessibleImageInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleImageInterface_ImageDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleimageinterface.ImageDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleImageInterface.ImageDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1738,7 +1738,7 @@ pub const QAccessibleHyperlinkInterface = extern struct {
     pub fn Anchor(self: QAccessibleHyperlinkInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleHyperlinkInterface_Anchor(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblehyperlinkinterface.Anchor: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleHyperlinkInterface.Anchor: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1754,7 +1754,7 @@ pub const QAccessibleHyperlinkInterface = extern struct {
     pub fn AnchorTarget(self: QAccessibleHyperlinkInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleHyperlinkInterface_AnchorTarget(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessiblehyperlinkinterface.AnchorTarget: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleHyperlinkInterface.AnchorTarget: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1850,7 +1850,7 @@ pub const QAccessibleSelectionInterface = extern struct {
     pub fn SelectedItems(self: QAccessibleSelectionInterface, allocator: std.mem.Allocator) []QAccessibleInterface {
         const _arr: qtc.libqt_list = qtc.QAccessibleSelectionInterface_SelectedItems(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAccessibleInterface, _arr.len) catch @panic("qaccessibleselectioninterface.SelectedItems: Memory allocation failed");
+        const _ret = allocator.alloc(QAccessibleInterface, _arr.len) catch @panic("QAccessibleSelectionInterface.SelectedItems: Memory allocation failed");
         const _data: [*]QtC.QAccessibleInterface = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1983,7 +1983,7 @@ pub const QAccessibleAttributesInterface = extern struct {
     pub fn AttributeKeys(self: QAccessibleAttributesInterface, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QAccessibleAttributesInterface_AttributeKeys(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qaccessibleattributesinterface.AttributeKeys: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QAccessibleAttributesInterface.AttributeKeys: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -2844,7 +2844,7 @@ pub const QAccessibleTextInsertEvent = extern struct {
     pub fn TextInserted(self: QAccessibleTextInsertEvent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleTextInsertEvent_TextInserted(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextinsertevent.TextInserted: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleTextInsertEvent.TextInserted: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3077,7 +3077,7 @@ pub const QAccessibleTextRemoveEvent = extern struct {
     pub fn TextRemoved(self: QAccessibleTextRemoveEvent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleTextRemoveEvent_TextRemoved(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextremoveevent.TextRemoved: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleTextRemoveEvent.TextRemoved: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3322,7 +3322,7 @@ pub const QAccessibleTextUpdateEvent = extern struct {
     pub fn TextRemoved(self: QAccessibleTextUpdateEvent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleTextUpdateEvent_TextRemoved(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextupdateevent.TextRemoved: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleTextUpdateEvent.TextRemoved: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3338,7 +3338,7 @@ pub const QAccessibleTextUpdateEvent = extern struct {
     pub fn TextInserted(self: QAccessibleTextUpdateEvent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleTextUpdateEvent_TextInserted(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibletextupdateevent.TextInserted: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleTextUpdateEvent.TextInserted: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4041,7 +4041,7 @@ pub const QAccessibleAnnouncementEvent = extern struct {
     pub fn Message(self: QAccessibleAnnouncementEvent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAccessibleAnnouncementEvent_Message(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qaccessibleannouncementevent.Message: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAccessibleAnnouncementEvent.Message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

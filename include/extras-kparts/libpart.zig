@@ -211,7 +211,7 @@ pub const KParts__Part = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -745,7 +745,7 @@ pub const KParts__Part = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -767,7 +767,7 @@ pub const KParts__Part = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -785,7 +785,7 @@ pub const KParts__Part = extern struct {
     pub fn ObjectName(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -962,7 +962,7 @@ pub const KParts__Part = extern struct {
     pub fn Children(self: KParts__Part, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kparts__part.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KParts__Part.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1238,10 +1238,10 @@ pub const KParts__Part = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kparts__part.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KParts__Part.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kparts__part.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KParts__Part.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1695,7 +1695,7 @@ pub const KParts__Part = extern struct {
     pub fn ChildClients(self: KParts__Part, allocator: std.mem.Allocator) []KXMLGUIClient {
         const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("kparts__part.ChildClients: Memory allocation failed");
+        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("KParts__Part.ChildClients: Memory allocation failed");
         const _data: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1796,7 +1796,7 @@ pub const KParts__Part = extern struct {
     /// ` doc: []const u8 `
     ///
     pub fn FindMostRecentXMLFile(allocator: std.mem.Allocator, files: []const []const u8, doc: []const u8) []const u8 {
-        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kparts__part.FindMostRecentXMLFile: Memory allocation failed");
+        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("KParts__Part.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i|
             files_arr[i] = .{
@@ -1813,7 +1813,7 @@ pub const KParts__Part = extern struct {
         };
         var _str = qtc.KXMLGUIClient_FindMostRecentXMLFile(files_list, doc_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.FindMostRecentXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.FindMostRecentXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1967,7 +1967,7 @@ pub const KParts__Part = extern struct {
         };
         var _str = qtc.KXMLGUIClient_FindVersionNumber(xml_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.FindVersionNumber: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.FindVersionNumber: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2445,7 +2445,7 @@ pub const KParts__Part = extern struct {
     pub fn ComponentName(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KParts__Part_ComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.ComponentName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2469,7 +2469,7 @@ pub const KParts__Part = extern struct {
     pub fn SuperComponentName(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KParts__Part_SuperComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.ComponentName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2555,7 +2555,7 @@ pub const KParts__Part = extern struct {
     pub fn XmlFile(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KParts__Part_XmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.XmlFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2579,7 +2579,7 @@ pub const KParts__Part = extern struct {
     pub fn SuperXmlFile(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KParts__Part_SuperXmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.XmlFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2615,7 +2615,7 @@ pub const KParts__Part = extern struct {
     pub fn LocalXMLFile(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KParts__Part_LocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.LocalXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2639,7 +2639,7 @@ pub const KParts__Part = extern struct {
     pub fn SuperLocalXMLFile(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KParts__Part_SuperLocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.LocalXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3265,7 +3265,7 @@ pub const KParts__Part = extern struct {
     pub fn StandardsXmlFileLocation(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KParts__Part_StandardsXmlFileLocation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.StandardsXmlFileLocation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3289,7 +3289,7 @@ pub const KParts__Part = extern struct {
     pub fn SuperStandardsXmlFileLocation(self: KParts__Part, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KParts__Part_SuperStandardsXmlFileLocation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__part.StandardsXmlFileLocation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__Part.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
