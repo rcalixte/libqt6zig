@@ -186,7 +186,7 @@ pub const QPlaceResult = extern struct {
     pub fn Title(self: QPlaceResult, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceSearchResult_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplaceresult.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceResult.Title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

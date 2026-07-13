@@ -366,11 +366,11 @@ pub const QBitArray = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
-    pub fn FromBits(data: [:0]const u8, lenVal: isize) QBitArray {
+    pub fn FromBits(data: [:0]const u8, len: isize) QBitArray {
         const data_Cstring = data.ptr;
-        return .{ .ptr = qtc.QBitArray_FromBits(data_Cstring, @bitCast(lenVal)) };
+        return .{ .ptr = qtc.QBitArray_FromBits(data_Cstring, @bitCast(len)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#toUInt32)

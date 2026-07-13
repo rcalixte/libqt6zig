@@ -138,7 +138,7 @@ void QImage_ApplyColorTransform2(QImage* self, const QColorTransform* transform,
 bool QImage_Load(QImage* self, QIODevice* device, const char* format);
 bool QImage_Load2(QImage* self, const libqt_string fileName);
 bool QImage_LoadFromData(QImage* self, libqt_string data);
-bool QImage_LoadFromData2(QImage* self, const unsigned char* buf, int lenVal);
+bool QImage_LoadFromData2(QImage* self, const unsigned char* buf, int len);
 bool QImage_LoadFromData3(QImage* self, const libqt_string data);
 bool QImage_Save(const QImage* self, const libqt_string fileName);
 bool QImage_Save2(const QImage* self, QIODevice* device);
@@ -186,7 +186,7 @@ QImage* QImage_ColorTransformed3(const QImage* self, const QColorTransform* tran
 void QImage_ApplyColorTransform3(QImage* self, const QColorTransform* transform, int format, int flags);
 bool QImage_Load22(QImage* self, const libqt_string fileName, const char* format);
 bool QImage_LoadFromData22(QImage* self, libqt_string data, const char* format);
-bool QImage_LoadFromData32(QImage* self, const unsigned char* buf, int lenVal, const char* format);
+bool QImage_LoadFromData32(QImage* self, const unsigned char* buf, int len, const char* format);
 bool QImage_LoadFromData23(QImage* self, const libqt_string data, const char* format);
 bool QImage_Save22(const QImage* self, const libqt_string fileName, const char* format);
 bool QImage_Save3(const QImage* self, const libqt_string fileName, const char* format, int quality);

@@ -71,7 +71,7 @@ pub const Attica__Forum = extern struct {
     pub fn Id(self: Attica__Forum, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Forum_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__forum.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Forum.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -103,7 +103,7 @@ pub const Attica__Forum = extern struct {
     pub fn Name(self: Attica__Forum, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Forum_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__forum.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Forum.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -135,7 +135,7 @@ pub const Attica__Forum = extern struct {
     pub fn Description(self: Attica__Forum, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Forum_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__forum.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Forum.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -257,7 +257,7 @@ pub const Attica__Forum = extern struct {
     pub fn Children(self: Attica__Forum, allocator: std.mem.Allocator) []Attica__Forum {
         const _arr: qtc.libqt_list = qtc.Attica__Forum_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Attica__Forum, _arr.len) catch @panic("attica__forum.Children: Memory allocation failed");
+        const _ret = allocator.alloc(Attica__Forum, _arr.len) catch @panic("Attica__Forum.Children: Memory allocation failed");
         const _data: [*]QtC.Attica__Forum = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

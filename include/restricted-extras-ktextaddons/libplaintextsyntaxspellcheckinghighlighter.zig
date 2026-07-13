@@ -339,7 +339,7 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -369,7 +369,7 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
     pub fn CurrentLanguage(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Sonnet__Highlighter_CurrentLanguage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.CurrentLanguage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.CurrentLanguage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -512,10 +512,10 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.SuggestionsForWord: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.SuggestionsForWord: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.SuggestionsForWord: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.SuggestionsForWord: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -549,10 +549,10 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.SuggestionsForWord2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.SuggestionsForWord2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.SuggestionsForWord2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.SuggestionsForWord2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -710,7 +710,7 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -734,7 +734,7 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -765,10 +765,10 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.SuggestionsForWord22: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.SuggestionsForWord22: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.SuggestionsForWord22: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.SuggestionsForWord22: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -804,10 +804,10 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.SuggestionsForWord3: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.SuggestionsForWord3: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.SuggestionsForWord3: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.SuggestionsForWord3: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -866,7 +866,7 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
     pub fn ObjectName(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1043,7 +1043,7 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
     pub fn Children(self: TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1319,10 +1319,10 @@ pub const TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter = extern str
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textcustomeditor__plaintextsyntaxspellcheckinghighlighter.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextCustomEditor__PlainTextSyntaxSpellCheckingHighlighter.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

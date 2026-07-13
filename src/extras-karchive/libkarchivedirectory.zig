@@ -84,10 +84,10 @@ pub const KArchiveDirectory = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("karchivedirectory.Entries: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KArchiveDirectory.Entries: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("karchivedirectory.Entries: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KArchiveDirectory.Entries: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -325,7 +325,7 @@ pub const KArchiveDirectory = extern struct {
     pub fn Name(self: KArchiveDirectory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("karchivedirectory.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveDirectory.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -355,7 +355,7 @@ pub const KArchiveDirectory = extern struct {
     pub fn User(self: KArchiveDirectory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_User(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("karchivedirectory.User: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveDirectory.User: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -373,7 +373,7 @@ pub const KArchiveDirectory = extern struct {
     pub fn Group(self: KArchiveDirectory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_Group(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("karchivedirectory.Group: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveDirectory.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -391,7 +391,7 @@ pub const KArchiveDirectory = extern struct {
     pub fn SymLinkTarget(self: KArchiveDirectory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_SymLinkTarget(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("karchivedirectory.SymLinkTarget: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveDirectory.SymLinkTarget: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

@@ -72,7 +72,7 @@ pub const QLowEnergyDescriptorData = extern struct {
     pub fn Value(self: QLowEnergyDescriptorData, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QLowEnergyDescriptorData_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qlowenergydescriptordata.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QLowEnergyDescriptorData.Value: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

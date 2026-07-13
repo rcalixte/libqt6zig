@@ -175,8 +175,8 @@ bool QIODevice_IsTransactionStarted(const QIODevice* self) {
     return self->isTransactionStarted();
 }
 
-long long QIODevice_Write(QIODevice* self, const char* data, long long lenVal) {
-    return static_cast<long long>(self->write(data, static_cast<qint64>(lenVal)));
+long long QIODevice_Write(QIODevice* self, const char* data, long long len) {
+    return static_cast<long long>(self->write(data, static_cast<qint64>(len)));
 }
 
 long long QIODevice_Write2(QIODevice* self, const char* data) {
@@ -331,10 +331,10 @@ long long QIODevice_SkipData(QIODevice* self, long long maxSize) {
     return {};
 }
 
-long long QIODevice_WriteData(QIODevice* self, const char* data, long long lenVal) {
+long long QIODevice_WriteData(QIODevice* self, const char* data, long long len) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
-        return static_cast<long long>(vqiodevice->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqiodevice->writeData(data, static_cast<qint64>(len)));
     }
     return {};
 }
@@ -710,13 +710,13 @@ void QIODevice_OnSkipData(QIODevice* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QIODevice_SuperWriteData(QIODevice* self, const char* data, long long lenVal) {
+long long QIODevice_SuperWriteData(QIODevice* self, const char* data, long long len) {
     auto* vqiodevice = dynamic_cast<VirtualQIODevice*>(self);
     if (vqiodevice && vqiodevice->isVirtualQIODevice) {
         vqiodevice->setQIODevice_WriteData_IsBase(true);
-        return static_cast<long long>(vqiodevice->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqiodevice->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualQIODevice*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualQIODevice*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 

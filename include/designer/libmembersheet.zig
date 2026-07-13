@@ -123,7 +123,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     pub fn MemberName(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_MemberName(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignermembersheetextension.MemberName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.MemberName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -161,7 +161,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     pub fn SuperMemberName(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_SuperMemberName(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignermembersheetextension.MemberName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.MemberName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -179,7 +179,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     pub fn MemberGroup(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_MemberGroup(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignermembersheetextension.MemberGroup: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.MemberGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -217,7 +217,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     pub fn SuperMemberGroup(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_SuperMemberGroup(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignermembersheetextension.MemberGroup: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.MemberGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -515,7 +515,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     pub fn DeclaredInClass(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_DeclaredInClass(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignermembersheetextension.DeclaredInClass: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.DeclaredInClass: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -553,7 +553,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     pub fn SuperDeclaredInClass(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_SuperDeclaredInClass(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignermembersheetextension.DeclaredInClass: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.DeclaredInClass: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -571,7 +571,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     pub fn Signature(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_Signature(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignermembersheetextension.Signature: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.Signature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -609,7 +609,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     pub fn SuperSignature(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_SuperSignature(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignermembersheetextension.Signature: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.Signature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -632,10 +632,10 @@ pub const QDesignerMemberSheetExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdesignermembersheetextension.ParameterTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.ParameterTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qdesignermembersheetextension.ParameterTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerMemberSheetExtension.ParameterTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -682,10 +682,10 @@ pub const QDesignerMemberSheetExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdesignermembersheetextension.ParameterTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.ParameterTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qdesignermembersheetextension.ParameterTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerMemberSheetExtension.ParameterTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -710,10 +710,10 @@ pub const QDesignerMemberSheetExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdesignermembersheetextension.ParameterNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.ParameterNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qdesignermembersheetextension.ParameterNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerMemberSheetExtension.ParameterNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -760,10 +760,10 @@ pub const QDesignerMemberSheetExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdesignermembersheetextension.ParameterNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.ParameterNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qdesignermembersheetextension.ParameterNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerMemberSheetExtension.ParameterNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

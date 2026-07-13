@@ -52,7 +52,7 @@ pub const QsciCommandSet = extern struct {
     pub fn Commands(self: QsciCommandSet, allocator: std.mem.Allocator) []QsciCommand {
         const _arr: qtc.libqt_list = qtc.QsciCommandSet_Commands(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QsciCommand, _arr.len) catch @panic("qscicommandset.Commands: Memory allocation failed");
+        const _ret = allocator.alloc(QsciCommand, _arr.len) catch @panic("QsciCommandSet.Commands: Memory allocation failed");
         const _data: [*]QtC.QsciCommand = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

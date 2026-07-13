@@ -81,8 +81,8 @@ bool QTranslator_Load2(QTranslator* self, const QLocale* locale, const libqt_str
     return self->load(*locale, filename_QString);
 }
 
-bool QTranslator_Load3(QTranslator* self, const unsigned char* data, int lenVal) {
-    return self->load(static_cast<const uchar*>(data), static_cast<int>(lenVal));
+bool QTranslator_Load3(QTranslator* self, const unsigned char* data, int len) {
+    return self->load(static_cast<const uchar*>(data), static_cast<int>(len));
 }
 
 bool QTranslator_Load22(QTranslator* self, const libqt_string filename, const libqt_string directory) {
@@ -127,9 +127,9 @@ bool QTranslator_Load5(QTranslator* self, const QLocale* locale, const libqt_str
     return self->load(*locale, filename_QString, prefix_QString, directory_QString, suffix_QString);
 }
 
-bool QTranslator_Load34(QTranslator* self, const unsigned char* data, int lenVal, const libqt_string directory) {
+bool QTranslator_Load34(QTranslator* self, const unsigned char* data, int len, const libqt_string directory) {
     QString directory_QString = QString::fromUtf8(directory.data, directory.len);
-    return self->load(static_cast<const uchar*>(data), static_cast<int>(lenVal), directory_QString);
+    return self->load(static_cast<const uchar*>(data), static_cast<int>(len), directory_QString);
 }
 
 // Base class handler implementation

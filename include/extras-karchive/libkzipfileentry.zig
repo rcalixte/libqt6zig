@@ -170,7 +170,7 @@ pub const KZipFileEntry = extern struct {
     pub fn Path(self: KZipFileEntry, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KZipFileEntry_Path(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kzipfileentry.Path: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KZipFileEntry.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -186,7 +186,7 @@ pub const KZipFileEntry = extern struct {
     pub fn Data(self: KZipFileEntry, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.KZipFileEntry_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kzipfileentry.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KZipFileEntry.Data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -222,7 +222,7 @@ pub const KZipFileEntry = extern struct {
     pub fn SuperData(self: KZipFileEntry, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.KZipFileEntry_SuperData(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kzipfileentry.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KZipFileEntry.Data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -348,7 +348,7 @@ pub const KZipFileEntry = extern struct {
     pub fn Name(self: KZipFileEntry, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kzipfileentry.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KZipFileEntry.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -378,7 +378,7 @@ pub const KZipFileEntry = extern struct {
     pub fn User(self: KZipFileEntry, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_User(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kzipfileentry.User: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KZipFileEntry.User: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -396,7 +396,7 @@ pub const KZipFileEntry = extern struct {
     pub fn Group(self: KZipFileEntry, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_Group(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kzipfileentry.Group: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KZipFileEntry.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -414,7 +414,7 @@ pub const KZipFileEntry = extern struct {
     pub fn SymLinkTarget(self: KZipFileEntry, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_SymLinkTarget(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kzipfileentry.SymLinkTarget: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KZipFileEntry.SymLinkTarget: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

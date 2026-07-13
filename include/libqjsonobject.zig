@@ -71,9 +71,9 @@ pub const QJsonObject = extern struct {
     ///
     pub fn FromVariantMap(allocator: std.mem.Allocator, map: ArrayMap_constu8_QVariant) QJsonObject {
         const map_count = map.count();
-        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("qjsonobject.FromVariantMap: Memory allocation failed");
+        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("QJsonObject.FromVariantMap: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("qjsonobject.FromVariantMap: Memory allocation failed");
+        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("QJsonObject.FromVariantMap: Memory allocation failed");
         defer allocator.free(map_values);
         var i: usize = 0;
         var map_it = map.iterator();
@@ -104,7 +104,7 @@ pub const QJsonObject = extern struct {
     pub fn ToVariantMap(self: QJsonObject, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QJsonObject_ToVariantMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qjsonobject.ToVariantMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QJsonObject.ToVariantMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -118,7 +118,7 @@ pub const QJsonObject = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qjsonobject.ToVariantMap: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QJsonObject.ToVariantMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
@@ -136,9 +136,9 @@ pub const QJsonObject = extern struct {
     ///
     pub fn FromVariantHash(allocator: std.mem.Allocator, map: Map_constu8_QVariant) QJsonObject {
         const map_count = map.count();
-        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("qjsonobject.FromVariantHash: Memory allocation failed");
+        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("QJsonObject.FromVariantHash: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("qjsonobject.FromVariantHash: Memory allocation failed");
+        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("QJsonObject.FromVariantHash: Memory allocation failed");
         defer allocator.free(map_values);
         var i: usize = 0;
         var map_it = map.iterator();
@@ -169,7 +169,7 @@ pub const QJsonObject = extern struct {
     pub fn ToVariantHash(self: QJsonObject, allocator: std.mem.Allocator) Map_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QJsonObject_ToVariantHash(@ptrCast(self.ptr));
         var _ret: Map_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qjsonobject.ToVariantHash: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QJsonObject.ToVariantHash: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -183,7 +183,7 @@ pub const QJsonObject = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qjsonobject.ToVariantHash: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QJsonObject.ToVariantHash: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
@@ -207,10 +207,10 @@ pub const QJsonObject = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qjsonobject.Keys: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QJsonObject.Keys: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qjsonobject.Keys: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QJsonObject.Keys: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -921,7 +921,7 @@ pub const QJsonObject__iterator = extern struct {
     pub fn Key(self: QJsonObject__iterator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QJsonObject__iterator_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qjsonobject__iterator.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonObject__iterator.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1184,7 +1184,7 @@ pub const QJsonObject__const_iterator = extern struct {
     pub fn Key(self: QJsonObject__const_iterator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QJsonObject__const_iterator_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qjsonobject__const_iterator.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonObject__const_iterator.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

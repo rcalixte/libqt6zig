@@ -76,8 +76,8 @@ QModelRoleDataSpan* QModelRoleDataSpan_new4(QModelRoleData* modelRoleData) {
     return new QModelRoleDataSpan(*modelRoleData);
 }
 
-QModelRoleDataSpan* QModelRoleDataSpan_new5(QModelRoleData* modelRoleData, ptrdiff_t lenVal) {
-    return new QModelRoleDataSpan(modelRoleData, (qsizetype)(lenVal));
+QModelRoleDataSpan* QModelRoleDataSpan_new5(QModelRoleData* modelRoleData, ptrdiff_t len) {
+    return new QModelRoleDataSpan(modelRoleData, (qsizetype)(len));
 }
 
 QModelRoleDataSpan* QModelRoleDataSpan_new6(const QModelRoleDataSpan* param1) {

@@ -186,7 +186,7 @@ pub const QBarCategoryAxis = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbarcategoryaxis.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarCategoryAxis.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -250,7 +250,7 @@ pub const QBarCategoryAxis = extern struct {
     /// ` categories: []const []const u8 `
     ///
     pub fn Append(self: QBarCategoryAxis, allocator: std.mem.Allocator, categories: []const []const u8) void {
-        const categories_arr = allocator.alloc(qtc.libqt_string, categories.len) catch @panic("qbarcategoryaxis.Append: Memory allocation failed");
+        const categories_arr = allocator.alloc(qtc.libqt_string, categories.len) catch @panic("QBarCategoryAxis.Append: Memory allocation failed");
         defer allocator.free(categories_arr);
         for (categories, 0..categories.len) |item, i|
             categories_arr[i] = .{
@@ -357,7 +357,7 @@ pub const QBarCategoryAxis = extern struct {
     /// ` categories: []const []const u8 `
     ///
     pub fn SetCategories(self: QBarCategoryAxis, allocator: std.mem.Allocator, categories: []const []const u8) void {
-        const categories_arr = allocator.alloc(qtc.libqt_string, categories.len) catch @panic("qbarcategoryaxis.SetCategories: Memory allocation failed");
+        const categories_arr = allocator.alloc(qtc.libqt_string, categories.len) catch @panic("QBarCategoryAxis.SetCategories: Memory allocation failed");
         defer allocator.free(categories_arr);
         for (categories, 0..categories.len) |item, i|
             categories_arr[i] = .{
@@ -387,10 +387,10 @@ pub const QBarCategoryAxis = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qbarcategoryaxis.Categories: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QBarCategoryAxis.Categories: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qbarcategoryaxis.Categories: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QBarCategoryAxis.Categories: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -420,7 +420,7 @@ pub const QBarCategoryAxis = extern struct {
     pub fn At(self: QBarCategoryAxis, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QBarCategoryAxis_At(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbarcategoryaxis.At: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarCategoryAxis.At: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -452,7 +452,7 @@ pub const QBarCategoryAxis = extern struct {
     pub fn Min(self: QBarCategoryAxis, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QBarCategoryAxis_Min(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbarcategoryaxis.Min: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarCategoryAxis.Min: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -484,7 +484,7 @@ pub const QBarCategoryAxis = extern struct {
     pub fn Max(self: QBarCategoryAxis, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QBarCategoryAxis_Max(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbarcategoryaxis.Max: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarCategoryAxis.Max: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -660,7 +660,7 @@ pub const QBarCategoryAxis = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbarcategoryaxis.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarCategoryAxis.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -682,7 +682,7 @@ pub const QBarCategoryAxis = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbarcategoryaxis.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarCategoryAxis.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1209,7 +1209,7 @@ pub const QBarCategoryAxis = extern struct {
     pub fn TitleText(self: QBarCategoryAxis, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractAxis_TitleText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbarcategoryaxis.TitleText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarCategoryAxis.TitleText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2418,7 +2418,7 @@ pub const QBarCategoryAxis = extern struct {
     pub fn ObjectName(self: QBarCategoryAxis, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qbarcategoryaxis.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarCategoryAxis.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2595,7 +2595,7 @@ pub const QBarCategoryAxis = extern struct {
     pub fn Children(self: QBarCategoryAxis, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qbarcategoryaxis.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QBarCategoryAxis.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2871,10 +2871,10 @@ pub const QBarCategoryAxis = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qbarcategoryaxis.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QBarCategoryAxis.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qbarcategoryaxis.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QBarCategoryAxis.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

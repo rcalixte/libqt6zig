@@ -55,10 +55,10 @@ pub const QWebEngineGlobalSettings__DnsMode = extern struct {
                 qtc.libqt_string_free(@ptrCast(&serverTemplates_str[i]));
             qtc.libqt_free(serverTemplates_arr.data);
         }
-        const serverTemplates_ret = allocator.alloc([]const u8, serverTemplates_arr.len) catch @panic("qwebengineglobalsettings__dnsmode.ServerTemplates: Memory allocation failed");
+        const serverTemplates_ret = allocator.alloc([]const u8, serverTemplates_arr.len) catch @panic("QWebEngineGlobalSettings__DnsMode.ServerTemplates: Memory allocation failed");
         for (0..serverTemplates_arr.len) |i| {
             const serverTemplates_data = serverTemplates_str[i];
-            const serverTemplates_buf = allocator.alloc(u8, serverTemplates_data.len) catch @panic("qwebengineglobalsettings__dnsmode.ServerTemplates: Memory allocation failed");
+            const serverTemplates_buf = allocator.alloc(u8, serverTemplates_data.len) catch @panic("QWebEngineGlobalSettings__DnsMode.ServerTemplates: Memory allocation failed");
             @memcpy(serverTemplates_buf, serverTemplates_data.data[0..serverTemplates_data.len]);
             serverTemplates_ret[i] = serverTemplates_buf;
         }
@@ -76,7 +76,7 @@ pub const QWebEngineGlobalSettings__DnsMode = extern struct {
     /// ` serverTemplates: []const []const u8 `
     ///
     pub fn SetServerTemplates(self: QWebEngineGlobalSettings__DnsMode, allocator: std.mem.Allocator, serverTemplates: []const []const u8) void {
-        const serverTemplates_arr = allocator.alloc(qtc.libqt_string, serverTemplates.len) catch @panic("qwebengineglobalsettings__dnsmode.SetServerTemplates: Memory allocation failed");
+        const serverTemplates_arr = allocator.alloc(qtc.libqt_string, serverTemplates.len) catch @panic("QWebEngineGlobalSettings__DnsMode.SetServerTemplates: Memory allocation failed");
         defer allocator.free(serverTemplates_arr);
         for (serverTemplates, 0..serverTemplates.len) |item, i|
             serverTemplates_arr[i] = .{

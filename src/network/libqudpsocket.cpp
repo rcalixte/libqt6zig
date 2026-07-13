@@ -86,8 +86,8 @@ long long QUdpSocket_WriteDatagram(QUdpSocket* self, const QNetworkDatagram* dat
     return static_cast<long long>(self->writeDatagram(*datagram));
 }
 
-long long QUdpSocket_WriteDatagram2(QUdpSocket* self, const char* data, long long lenVal, const QHostAddress* host, uint16_t port) {
-    return static_cast<long long>(self->writeDatagram(data, static_cast<qint64>(lenVal), *host, static_cast<quint16>(port)));
+long long QUdpSocket_WriteDatagram2(QUdpSocket* self, const char* data, long long len, const QHostAddress* host, uint16_t port) {
+    return static_cast<long long>(self->writeDatagram(data, static_cast<qint64>(len), *host, static_cast<quint16>(port)));
 }
 
 long long QUdpSocket_WriteDatagram3(QUdpSocket* self, const libqt_string datagram, const QHostAddress* host, uint16_t port) {
@@ -730,23 +730,23 @@ void QUdpSocket_OnSkipData(QUdpSocket* self, intptr_t slot) {
 }
 
 // Derived class handler implementation
-long long QUdpSocket_WriteData(QUdpSocket* self, const char* data, long long lenVal) {
+long long QUdpSocket_WriteData(QUdpSocket* self, const char* data, long long len) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
-        return static_cast<long long>(vqudpsocket->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqudpsocket->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualQUdpSocket*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualQUdpSocket*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 
 // Base class handler implementation
-long long QUdpSocket_SuperWriteData(QUdpSocket* self, const char* data, long long lenVal) {
+long long QUdpSocket_SuperWriteData(QUdpSocket* self, const char* data, long long len) {
     auto* vqudpsocket = dynamic_cast<VirtualQUdpSocket*>(self);
     if (vqudpsocket && vqudpsocket->isVirtualQUdpSocket) {
         vqudpsocket->setQUdpSocket_WriteData_IsBase(true);
-        return static_cast<long long>(vqudpsocket->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqudpsocket->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualQUdpSocket*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualQUdpSocket*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 

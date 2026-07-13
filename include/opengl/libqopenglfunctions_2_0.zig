@@ -2169,11 +2169,11 @@ pub const QOpenGLFunctions_2_0 = extern struct {
     /// ` length: []const i32 `
     ///
     pub fn GlShaderSource(self: QOpenGLFunctions_2_0, allocator: std.mem.Allocator, shader: u32, count: i32, string: []const [:0]const u8, length: []const i32) void {
-        const string_chararr = allocator.alloc([*c]const u8, string.len) catch @panic("qopenglfunctions_2_0.GlShaderSource: Memory allocation failed");
+        const string_chararr = allocator.alloc([*:0]const u8, string.len) catch @panic("QOpenGLFunctions_2_0.GlShaderSource: Memory allocation failed");
         defer allocator.free(string_chararr);
         for (string, 0..string.len) |str, i|
             string_chararr[i] = @ptrCast(str.ptr);
-        qtc.QOpenGLFunctions_2_0_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), string_chararr.ptr, length.ptr);
+        qtc.QOpenGLFunctions_2_0_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), @ptrCast(string_chararr), length.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglfunctions-2-0.html#glLinkProgram)

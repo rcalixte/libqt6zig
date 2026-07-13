@@ -194,7 +194,7 @@ pub const QTextStream = extern struct {
     pub fn String(self: QTextStream, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextStream_String(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.String: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.String: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -308,7 +308,7 @@ pub const QTextStream = extern struct {
     pub fn ReadLine(self: QTextStream, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextStream_ReadLine(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.ReadLine: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.ReadLine: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -324,7 +324,7 @@ pub const QTextStream = extern struct {
     pub fn ReadAll(self: QTextStream, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextStream_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.ReadAll: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.ReadAll: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -342,7 +342,7 @@ pub const QTextStream = extern struct {
     pub fn Read(self: QTextStream, allocator: std.mem.Allocator, maxlen: i64) []const u8 {
         var _str = qtc.QTextStream_Read(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.Read: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.Read: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -961,7 +961,7 @@ pub const QTextStream = extern struct {
     pub fn ReadLine1(self: QTextStream, allocator: std.mem.Allocator, maxlen: i64) []const u8 {
         var _str = qtc.QTextStream_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextstream.ReadLine1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextStream.ReadLine1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

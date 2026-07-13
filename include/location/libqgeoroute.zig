@@ -89,7 +89,7 @@ pub const QGeoRoute = extern struct {
     pub fn RouteId(self: QGeoRoute, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoRoute_RouteId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoroute.RouteId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoRoute.RouteId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -184,7 +184,7 @@ pub const QGeoRoute = extern struct {
     pub fn Segments(self: QGeoRoute, allocator: std.mem.Allocator) []QGeoRouteSegment {
         const _arr: qtc.libqt_list = qtc.QGeoRoute_Segments(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGeoRouteSegment, _arr.len) catch @panic("qgeoroute.Segments: Memory allocation failed");
+        const _ret = allocator.alloc(QGeoRouteSegment, _arr.len) catch @panic("QGeoRoute.Segments: Memory allocation failed");
         const _data: [*]QtC.QGeoRouteSegment = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -288,7 +288,7 @@ pub const QGeoRoute = extern struct {
     pub fn Path(self: QGeoRoute, allocator: std.mem.Allocator) []QGeoCoordinate {
         const _arr: qtc.libqt_list = qtc.QGeoRoute_Path(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("qgeoroute.Path: Memory allocation failed");
+        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("QGeoRoute.Path: Memory allocation failed");
         const _data: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -322,7 +322,7 @@ pub const QGeoRoute = extern struct {
     pub fn RouteLegs(self: QGeoRoute, allocator: std.mem.Allocator) []QGeoRoute {
         const _arr: qtc.libqt_list = qtc.QGeoRoute_RouteLegs(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGeoRoute, _arr.len) catch @panic("qgeoroute.RouteLegs: Memory allocation failed");
+        const _ret = allocator.alloc(QGeoRoute, _arr.len) catch @panic("QGeoRoute.RouteLegs: Memory allocation failed");
         const _data: [*]QtC.QGeoRoute = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -341,9 +341,9 @@ pub const QGeoRoute = extern struct {
     ///
     pub fn SetExtendedAttributes(self: QGeoRoute, allocator: std.mem.Allocator, extendedAttributes: ArrayMap_constu8_QVariant) void {
         const extendedAttributes_count = extendedAttributes.count();
-        const extendedAttributes_keys = allocator.alloc(qtc.libqt_string, extendedAttributes_count) catch @panic("qgeoroute.SetExtendedAttributes: Memory allocation failed");
+        const extendedAttributes_keys = allocator.alloc(qtc.libqt_string, extendedAttributes_count) catch @panic("QGeoRoute.SetExtendedAttributes: Memory allocation failed");
         defer allocator.free(extendedAttributes_keys);
-        const extendedAttributes_values = allocator.alloc(QtC.QVariant, extendedAttributes_count) catch @panic("qgeoroute.SetExtendedAttributes: Memory allocation failed");
+        const extendedAttributes_values = allocator.alloc(QtC.QVariant, extendedAttributes_count) catch @panic("QGeoRoute.SetExtendedAttributes: Memory allocation failed");
         defer allocator.free(extendedAttributes_values);
         var i: usize = 0;
         var extendedAttributes_it = extendedAttributes.iterator();
@@ -374,7 +374,7 @@ pub const QGeoRoute = extern struct {
     pub fn ExtendedAttributes(self: QGeoRoute, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QGeoRoute_ExtendedAttributes(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qgeoroute.ExtendedAttributes: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QGeoRoute.ExtendedAttributes: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -388,7 +388,7 @@ pub const QGeoRoute = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qgeoroute.ExtendedAttributes: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QGeoRoute.ExtendedAttributes: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });

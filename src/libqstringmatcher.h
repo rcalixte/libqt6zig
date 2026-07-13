@@ -21,11 +21,11 @@ typedef struct QStringMatcher QStringMatcher;
 
 QStringMatcher* QStringMatcher_new();
 QStringMatcher* QStringMatcher_new2(const libqt_string pattern);
-QStringMatcher* QStringMatcher_new3(const QChar* uc, ptrdiff_t lenVal);
+QStringMatcher* QStringMatcher_new3(const QChar* uc, ptrdiff_t len);
 QStringMatcher* QStringMatcher_new4(libqt_string pattern);
 QStringMatcher* QStringMatcher_new5(const QStringMatcher* other);
 QStringMatcher* QStringMatcher_new6(const libqt_string pattern, int cs);
-QStringMatcher* QStringMatcher_new7(const QChar* uc, ptrdiff_t lenVal, int cs);
+QStringMatcher* QStringMatcher_new7(const QChar* uc, ptrdiff_t len, int cs);
 QStringMatcher* QStringMatcher_new8(libqt_string pattern, int cs);
 void QStringMatcher_OperatorAssign(QStringMatcher* self, const QStringMatcher* other);
 void QStringMatcher_SetPattern(QStringMatcher* self, const libqt_string pattern);

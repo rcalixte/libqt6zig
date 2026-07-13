@@ -62,9 +62,9 @@ pub const KUrlMimeData = extern struct {
     ///
     pub fn SetMetaData(allocator: std.mem.Allocator, metaData: ArrayMap_constu8_constu8, mimeData: anytype) void {
         const metaData_count = metaData.count();
-        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kurlmimedata.SetMetaData: Memory allocation failed");
+        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.SetMetaData: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kurlmimedata.SetMetaData: Memory allocation failed");
+        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.SetMetaData: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();
@@ -103,10 +103,10 @@ pub const KUrlMimeData = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlmimedata.MimeDataTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlMimeData.MimeDataTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlmimedata.MimeDataTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlMimeData.MimeDataTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -128,9 +128,9 @@ pub const KUrlMimeData = extern struct {
     pub fn UrlsFromMimeData(allocator: std.mem.Allocator, mimeData: anytype, decodeOptions: i32, metaData: ArrayMap_constu8_constu8) []QUrl {
         comptime _ = @TypeOf(mimeData)._is_QMimeData;
         const metaData_count = metaData.count();
-        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
+        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.UrlsFromMimeData: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
+        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KUrlMimeData.UrlsFromMimeData: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();
@@ -153,7 +153,7 @@ pub const KUrlMimeData = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KUrlMimeData_UrlsFromMimeData(@ptrCast(mimeData.ptr), @bitCast(decodeOptions), &metaData_map);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("kurlmimedata.UrlsFromMimeData: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KUrlMimeData.UrlsFromMimeData: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

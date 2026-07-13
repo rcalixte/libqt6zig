@@ -173,7 +173,7 @@ pub const KSyntaxHighlighting__Repository = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__repository.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Repository.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -227,7 +227,7 @@ pub const KSyntaxHighlighting__Repository = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Repository_DefinitionsForFileName(@ptrCast(self.ptr), fileName_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KSyntaxHighlighting__Definition, _arr.len) catch @panic("ksyntaxhighlighting__repository.DefinitionsForFileName: Memory allocation failed");
+        const _ret = allocator.alloc(KSyntaxHighlighting__Definition, _arr.len) catch @panic("KSyntaxHighlighting__Repository.DefinitionsForFileName: Memory allocation failed");
         const _data: [*]QtC.KSyntaxHighlighting__Definition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -267,7 +267,7 @@ pub const KSyntaxHighlighting__Repository = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Repository_DefinitionsForMimeType(@ptrCast(self.ptr), mimeType_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KSyntaxHighlighting__Definition, _arr.len) catch @panic("ksyntaxhighlighting__repository.DefinitionsForMimeType: Memory allocation failed");
+        const _ret = allocator.alloc(KSyntaxHighlighting__Definition, _arr.len) catch @panic("KSyntaxHighlighting__Repository.DefinitionsForMimeType: Memory allocation failed");
         const _data: [*]QtC.KSyntaxHighlighting__Definition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -285,7 +285,7 @@ pub const KSyntaxHighlighting__Repository = extern struct {
     pub fn Definitions(self: KSyntaxHighlighting__Repository, allocator: std.mem.Allocator) []KSyntaxHighlighting__Definition {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Repository_Definitions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KSyntaxHighlighting__Definition, _arr.len) catch @panic("ksyntaxhighlighting__repository.Definitions: Memory allocation failed");
+        const _ret = allocator.alloc(KSyntaxHighlighting__Definition, _arr.len) catch @panic("KSyntaxHighlighting__Repository.Definitions: Memory allocation failed");
         const _data: [*]QtC.KSyntaxHighlighting__Definition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -303,7 +303,7 @@ pub const KSyntaxHighlighting__Repository = extern struct {
     pub fn Themes(self: KSyntaxHighlighting__Repository, allocator: std.mem.Allocator) []KSyntaxHighlighting__Theme {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Repository_Themes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KSyntaxHighlighting__Theme, _arr.len) catch @panic("ksyntaxhighlighting__repository.Themes: Memory allocation failed");
+        const _ret = allocator.alloc(KSyntaxHighlighting__Theme, _arr.len) catch @panic("KSyntaxHighlighting__Repository.Themes: Memory allocation failed");
         const _data: [*]QtC.KSyntaxHighlighting__Theme = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -391,10 +391,10 @@ pub const KSyntaxHighlighting__Repository = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("ksyntaxhighlighting__repository.CustomSearchPaths: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSyntaxHighlighting__Repository.CustomSearchPaths: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting__repository.CustomSearchPaths: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KSyntaxHighlighting__Repository.CustomSearchPaths: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -460,7 +460,7 @@ pub const KSyntaxHighlighting__Repository = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__repository.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Repository.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -482,7 +482,7 @@ pub const KSyntaxHighlighting__Repository = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__repository.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Repository.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -512,7 +512,7 @@ pub const KSyntaxHighlighting__Repository = extern struct {
     pub fn ObjectName(self: KSyntaxHighlighting__Repository, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__repository.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Repository.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -689,7 +689,7 @@ pub const KSyntaxHighlighting__Repository = extern struct {
     pub fn Children(self: KSyntaxHighlighting__Repository, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("ksyntaxhighlighting__repository.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KSyntaxHighlighting__Repository.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -965,10 +965,10 @@ pub const KSyntaxHighlighting__Repository = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ksyntaxhighlighting__repository.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KSyntaxHighlighting__Repository.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ksyntaxhighlighting__repository.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KSyntaxHighlighting__Repository.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

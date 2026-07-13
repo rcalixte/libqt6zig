@@ -186,7 +186,7 @@ pub const QGraphicsItemAnimation = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsitemanimation.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsItemAnimation.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -261,7 +261,7 @@ pub const QGraphicsItemAnimation = extern struct {
         const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_PosList(@ptrCast(self.ptr));
         const _data: [*]Struct_f64_QPointF = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QPointF, _arr.len) catch @panic("qgraphicsitemanimation.PosList: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_QPointF, _arr.len) catch @panic("QGraphicsItemAnimation.PosList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -317,7 +317,7 @@ pub const QGraphicsItemAnimation = extern struct {
         const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_RotationList(@ptrCast(self.ptr));
         const _data: [*]Struct_f64_f64 = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_f64, _arr.len) catch @panic("qgraphicsitemanimation.RotationList: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_f64, _arr.len) catch @panic("QGraphicsItemAnimation.RotationList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -372,7 +372,7 @@ pub const QGraphicsItemAnimation = extern struct {
         const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_TranslationList(@ptrCast(self.ptr));
         const _data: [*]Struct_f64_QPointF = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QPointF, _arr.len) catch @panic("qgraphicsitemanimation.TranslationList: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_QPointF, _arr.len) catch @panic("QGraphicsItemAnimation.TranslationList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -429,7 +429,7 @@ pub const QGraphicsItemAnimation = extern struct {
         const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_ScaleList(@ptrCast(self.ptr));
         const _data: [*]Struct_f64_QPointF = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QPointF, _arr.len) catch @panic("qgraphicsitemanimation.ScaleList: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_QPointF, _arr.len) catch @panic("QGraphicsItemAnimation.ScaleList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -486,7 +486,7 @@ pub const QGraphicsItemAnimation = extern struct {
         const _arr: qtc.libqt_list = qtc.QGraphicsItemAnimation_ShearList(@ptrCast(self.ptr));
         const _data: [*]Struct_f64_QPointF = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QPointF, _arr.len) catch @panic("qgraphicsitemanimation.ShearList: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_f64_QPointF, _arr.len) catch @panic("QGraphicsItemAnimation.ShearList: Memory allocation failed");
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
     }
@@ -632,7 +632,7 @@ pub const QGraphicsItemAnimation = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsitemanimation.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsItemAnimation.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -654,7 +654,7 @@ pub const QGraphicsItemAnimation = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsitemanimation.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsItemAnimation.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -672,7 +672,7 @@ pub const QGraphicsItemAnimation = extern struct {
     pub fn ObjectName(self: QGraphicsItemAnimation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgraphicsitemanimation.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGraphicsItemAnimation.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -849,7 +849,7 @@ pub const QGraphicsItemAnimation = extern struct {
     pub fn Children(self: QGraphicsItemAnimation, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qgraphicsitemanimation.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGraphicsItemAnimation.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1125,10 +1125,10 @@ pub const QGraphicsItemAnimation = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qgraphicsitemanimation.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGraphicsItemAnimation.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qgraphicsitemanimation.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGraphicsItemAnimation.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

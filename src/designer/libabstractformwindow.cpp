@@ -370,8 +370,8 @@ void QDesignerFormWindowInterface_ClearSelection(QDesignerFormWindowInterface* s
     self->clearSelection(changePropertyDisplay);
 }
 
-void QDesignerFormWindowInterface_SelectWidget(QDesignerFormWindowInterface* self, QWidget* w, bool selectVal) {
-    self->selectWidget(w, selectVal);
+void QDesignerFormWindowInterface_SelectWidget(QDesignerFormWindowInterface* self, QWidget* w, bool select) {
+    self->selectWidget(w, select);
 }
 
 void QDesignerFormWindowInterface_SetGrid(QDesignerFormWindowInterface* self, const QPoint* grid) {

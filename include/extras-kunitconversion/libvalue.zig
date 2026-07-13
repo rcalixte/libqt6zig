@@ -194,7 +194,7 @@ pub const KUnitConversion__Value = extern struct {
     pub fn ToString(self: KUnitConversion__Value, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUnitConversion__Value_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__value.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__Value.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -210,7 +210,7 @@ pub const KUnitConversion__Value = extern struct {
     pub fn ToSymbolString(self: KUnitConversion__Value, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUnitConversion__Value_ToSymbolString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__value.ToSymbolString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__Value.ToSymbolString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -281,7 +281,7 @@ pub const KUnitConversion__Value = extern struct {
     pub fn ToString1(self: KUnitConversion__Value, allocator: std.mem.Allocator, fieldWidth: i32) []const u8 {
         var _str = qtc.KUnitConversion__Value_ToString1(@ptrCast(self.ptr), @bitCast(fieldWidth));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__value.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__Value.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -301,7 +301,7 @@ pub const KUnitConversion__Value = extern struct {
     pub fn ToString2(self: KUnitConversion__Value, allocator: std.mem.Allocator, fieldWidth: i32, format: u8) []const u8 {
         var _str = qtc.KUnitConversion__Value_ToString2(@ptrCast(self.ptr), @bitCast(fieldWidth), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__value.ToString2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__Value.ToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -323,7 +323,7 @@ pub const KUnitConversion__Value = extern struct {
     pub fn ToString3(self: KUnitConversion__Value, allocator: std.mem.Allocator, fieldWidth: i32, format: u8, precision: i32) []const u8 {
         var _str = qtc.KUnitConversion__Value_ToString3(@ptrCast(self.ptr), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__value.ToString3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__Value.ToString3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -348,7 +348,7 @@ pub const KUnitConversion__Value = extern struct {
         comptime _ = @TypeOf(fillChar)._is_QChar;
         var _str = qtc.KUnitConversion__Value_ToString4(@ptrCast(self.ptr), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision), @ptrCast(fillChar.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__value.ToString4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__Value.ToString4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -366,7 +366,7 @@ pub const KUnitConversion__Value = extern struct {
     pub fn ToSymbolString1(self: KUnitConversion__Value, allocator: std.mem.Allocator, fieldWidth: i32) []const u8 {
         var _str = qtc.KUnitConversion__Value_ToSymbolString1(@ptrCast(self.ptr), @bitCast(fieldWidth));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__value.ToSymbolString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__Value.ToSymbolString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -386,7 +386,7 @@ pub const KUnitConversion__Value = extern struct {
     pub fn ToSymbolString2(self: KUnitConversion__Value, allocator: std.mem.Allocator, fieldWidth: i32, format: u8) []const u8 {
         var _str = qtc.KUnitConversion__Value_ToSymbolString2(@ptrCast(self.ptr), @bitCast(fieldWidth), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__value.ToSymbolString2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__Value.ToSymbolString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -408,7 +408,7 @@ pub const KUnitConversion__Value = extern struct {
     pub fn ToSymbolString3(self: KUnitConversion__Value, allocator: std.mem.Allocator, fieldWidth: i32, format: u8, precision: i32) []const u8 {
         var _str = qtc.KUnitConversion__Value_ToSymbolString3(@ptrCast(self.ptr), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__value.ToSymbolString3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__Value.ToSymbolString3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -433,7 +433,7 @@ pub const KUnitConversion__Value = extern struct {
         comptime _ = @TypeOf(fillChar)._is_QChar;
         var _str = qtc.KUnitConversion__Value_ToSymbolString4(@ptrCast(self.ptr), @bitCast(fieldWidth), @bitCast(format), @bitCast(precision), @ptrCast(fillChar.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kunitconversion__value.ToSymbolString4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUnitConversion__Value.ToSymbolString4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

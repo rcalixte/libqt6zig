@@ -255,7 +255,7 @@ pub const QsciScintilla = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -282,10 +282,10 @@ pub const QsciScintilla = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsciscintilla.ApiContext: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QsciScintilla.ApiContext: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsciscintilla.ApiContext: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QsciScintilla.ApiContext: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -336,10 +336,10 @@ pub const QsciScintilla = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsciscintilla.ApiContext: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QsciScintilla.ApiContext: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsciscintilla.ApiContext: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QsciScintilla.ApiContext: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -415,7 +415,7 @@ pub const QsciScintilla = extern struct {
     pub fn Annotation(self: QsciScintilla, allocator: std.mem.Allocator, line: i32) []const u8 {
         var _str = qtc.QsciScintilla_Annotation(@ptrCast(self.ptr), @bitCast(line));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.Annotation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.Annotation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -581,7 +581,7 @@ pub const QsciScintilla = extern struct {
     pub fn Bytes(self: QsciScintilla, allocator: std.mem.Allocator, start: i32, end: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QsciScintilla_Bytes(@ptrCast(self.ptr), @bitCast(start), @bitCast(end));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.Bytes: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciScintilla.Bytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -715,7 +715,7 @@ pub const QsciScintilla = extern struct {
     pub fn ContractedFolds(self: QsciScintilla, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QsciScintilla_ContractedFolds(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qsciscintilla.ContractedFolds: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QsciScintilla.ContractedFolds: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1929,7 +1929,7 @@ pub const QsciScintilla = extern struct {
     /// ` separators: []const []const u8 `
     ///
     pub fn SetAutoCompletionWordSeparators(self: QsciScintilla, allocator: std.mem.Allocator, separators: []const []const u8) void {
-        const separators_arr = allocator.alloc(qtc.libqt_string, separators.len) catch @panic("qsciscintilla.SetAutoCompletionWordSeparators: Memory allocation failed");
+        const separators_arr = allocator.alloc(qtc.libqt_string, separators.len) catch @panic("QsciScintilla.SetAutoCompletionWordSeparators: Memory allocation failed");
         defer allocator.free(separators_arr);
         for (separators, 0..separators.len) |item, i|
             separators_arr[i] = .{
@@ -2484,7 +2484,7 @@ pub const QsciScintilla = extern struct {
     pub fn SelectedText(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QsciScintilla_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.SelectedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.SelectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2660,7 +2660,7 @@ pub const QsciScintilla = extern struct {
     /// ` list: []const []const u8 `
     ///
     pub fn ShowUserList(self: QsciScintilla, allocator: std.mem.Allocator, id: i32, list: []const []const u8) void {
-        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("qsciscintilla.ShowUserList: Memory allocation failed");
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("QsciScintilla.ShowUserList: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i|
             list_arr[i] = .{
@@ -2729,7 +2729,7 @@ pub const QsciScintilla = extern struct {
     pub fn Text(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QsciScintilla_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2747,7 +2747,7 @@ pub const QsciScintilla = extern struct {
     pub fn Text2(self: QsciScintilla, allocator: std.mem.Allocator, line: i32) []const u8 {
         var _str = qtc.QsciScintilla_Text2(@ptrCast(self.ptr), @bitCast(line));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.Text2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.Text2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2767,7 +2767,7 @@ pub const QsciScintilla = extern struct {
     pub fn Text3(self: QsciScintilla, allocator: std.mem.Allocator, start: i32, end: i32) []const u8 {
         var _str = qtc.QsciScintilla_Text3(@ptrCast(self.ptr), @bitCast(start), @bitCast(end));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.Text3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.Text3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2823,7 +2823,7 @@ pub const QsciScintilla = extern struct {
     pub fn WordAtLineIndex(self: QsciScintilla, allocator: std.mem.Allocator, line: i32, index: i32) []const u8 {
         var _str = qtc.QsciScintilla_WordAtLineIndex(@ptrCast(self.ptr), @bitCast(line), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WordAtLineIndex: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.WordAtLineIndex: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2842,7 +2842,7 @@ pub const QsciScintilla = extern struct {
         comptime _ = @TypeOf(point)._is_QPoint;
         var _str = qtc.QsciScintilla_WordAtPoint(@ptrCast(self.ptr), @ptrCast(point.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WordAtPoint: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.WordAtPoint: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3857,10 +3857,10 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla `
     ///
-    /// ` selectVal: bool `
+    /// ` select: bool `
     ///
-    pub fn SelectAll(self: QsciScintilla, selectVal: bool) void {
-        qtc.QsciScintilla_SelectAll(@ptrCast(self.ptr), selectVal);
+    pub fn SelectAll(self: QsciScintilla, select: bool) void {
+        qtc.QsciScintilla_SelectAll(@ptrCast(self.ptr), select);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -3871,7 +3871,7 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla `
     ///
-    /// ` callback: *const fn (self: QsciScintilla, selectVal: bool) callconv(.c) void `
+    /// ` callback: *const fn (self: QsciScintilla, select: bool) callconv(.c) void `
     ///
     pub fn OnSelectAll(self: QsciScintilla, callback: *const fn (QsciScintilla, bool) callconv(.c) void) void {
         qtc.QsciScintilla_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
@@ -3889,10 +3889,10 @@ pub const QsciScintilla = extern struct {
     ///
     /// ` self: QsciScintilla `
     ///
-    /// ` selectVal: bool `
+    /// ` select: bool `
     ///
-    pub fn SuperSelectAll(self: QsciScintilla, selectVal: bool) void {
-        qtc.QsciScintilla_SuperSelectAll(@ptrCast(self.ptr), selectVal);
+    pub fn SuperSelectAll(self: QsciScintilla, select: bool) void {
+        qtc.QsciScintilla_SuperSelectAll(@ptrCast(self.ptr), select);
     }
 
     /// ### [Upstream resources](https://www.riverbankcomputing.com/static/Docs/QScintilla/classQsciScintilla.html)
@@ -6842,7 +6842,7 @@ pub const QsciScintilla = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6864,7 +6864,7 @@ pub const QsciScintilla = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8219,7 +8219,7 @@ pub const QsciScintilla = extern struct {
     pub fn ScrollBarWidgets(self: QsciScintilla, allocator: std.mem.Allocator, alignment: i32) []QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("qsciscintilla.ScrollBarWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QsciScintilla.ScrollBarWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -9827,7 +9827,7 @@ pub const QsciScintilla = extern struct {
     pub fn StyleSheet(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -9845,7 +9845,7 @@ pub const QsciScintilla = extern struct {
     pub fn WindowTitle(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -9908,7 +9908,7 @@ pub const QsciScintilla = extern struct {
     pub fn WindowIconText(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -9944,7 +9944,7 @@ pub const QsciScintilla = extern struct {
     pub fn WindowRole(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -9980,7 +9980,7 @@ pub const QsciScintilla = extern struct {
     pub fn WindowFilePath(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10054,7 +10054,7 @@ pub const QsciScintilla = extern struct {
     pub fn ToolTip(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10116,7 +10116,7 @@ pub const QsciScintilla = extern struct {
     pub fn StatusTip(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10152,7 +10152,7 @@ pub const QsciScintilla = extern struct {
     pub fn WhatsThis(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10170,7 +10170,7 @@ pub const QsciScintilla = extern struct {
     pub fn AccessibleName(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10206,7 +10206,7 @@ pub const QsciScintilla = extern struct {
     pub fn AccessibleDescription(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11056,7 +11056,7 @@ pub const QsciScintilla = extern struct {
     pub fn SaveGeometry(self: QsciScintilla, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciScintilla.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -11592,7 +11592,7 @@ pub const QsciScintilla = extern struct {
     pub fn Actions(self: QsciScintilla, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qsciscintilla.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QsciScintilla.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -12407,7 +12407,7 @@ pub const QsciScintilla = extern struct {
     pub fn ObjectName(self: QsciScintilla, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -12584,7 +12584,7 @@ pub const QsciScintilla = extern struct {
     pub fn Children(self: QsciScintilla, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qsciscintilla.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QsciScintilla.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -12845,10 +12845,10 @@ pub const QsciScintilla = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsciscintilla.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QsciScintilla.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsciscintilla.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QsciScintilla.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -13376,7 +13376,7 @@ pub const QsciScintilla = extern struct {
         comptime _ = @TypeOf(source)._is_QMimeData;
         var _bytearray: qtc.libqt_string = qtc.QsciScintilla_FromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr), @ptrCast(rectangular));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.FromMimeData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciScintilla.FromMimeData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -13405,7 +13405,7 @@ pub const QsciScintilla = extern struct {
         comptime _ = @TypeOf(source)._is_QMimeData;
         var _bytearray: qtc.libqt_string = qtc.QsciScintilla_SuperFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr), @ptrCast(rectangular));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.FromMimeData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciScintilla.FromMimeData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -16129,7 +16129,7 @@ pub const QsciScintilla = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QsciScintilla_TextAsBytes(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.TextAsBytes: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciScintilla.TextAsBytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -16159,7 +16159,7 @@ pub const QsciScintilla = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QsciScintilla_SuperTextAsBytes(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsciscintilla.TextAsBytes: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QsciScintilla.TextAsBytes: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -16200,7 +16200,7 @@ pub const QsciScintilla = extern struct {
         const bytes_Cstring = bytes.ptr;
         var _str = qtc.QsciScintilla_BytesAsText(@ptrCast(self.ptr), bytes_Cstring, @bitCast(size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.BytesAsText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.BytesAsText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -16229,7 +16229,7 @@ pub const QsciScintilla = extern struct {
         const bytes_Cstring = bytes.ptr;
         var _str = qtc.QsciScintilla_SuperBytesAsText(@ptrCast(self.ptr), bytes_Cstring, @bitCast(size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciscintilla.BytesAsText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciScintilla.BytesAsText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

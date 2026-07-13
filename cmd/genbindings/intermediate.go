@@ -578,8 +578,8 @@ type CppClass struct {
 // C++ constructors cannot be virtual.
 func (c *CppClass) VirtualMethods() []CppMethod {
 	var ret []CppMethod
-	var retNames = make(map[string]struct{}, 0) // if name is present, a child class found it first
-	var block = slice_to_set(c.PrivateMethods)
+	retNames := make(map[string]struct{}, 0) // if name is present, a child class found it first
+	block := slice_to_set(c.PrivateMethods)
 
 	if len(c.Ctors) == 0 {
 		// This class can't be constructed
@@ -601,10 +601,6 @@ func (c *CppClass) VirtualMethods() []CppMethod {
 
 		ret = append(ret, c.Methods[i])
 		retNames[c.Methods[i].CppCallTarget()] = struct{}{}
-	}
-
-	for i := range c.PrivateMethods {
-		block[c.PrivateMethods[i]] = struct{}{}
 	}
 
 	// Only allow virtual overrides for direct inherits, not all inherits
@@ -657,8 +653,8 @@ func (c *CppClass) VirtualMethods() []CppMethod {
 // This only considers protected methods, not protected constructor overloads.
 func (c *CppClass) ProtectedMethods() []CppMethod {
 	var ret []CppMethod
-	var retNames = make(map[string]struct{}, 0) // if name is present, a child class found it first
-	var block = slice_to_set(c.PrivateMethods)
+	retNames := make(map[string]struct{}, 0) // if name is present, a child class found it first
+	block := slice_to_set(c.PrivateMethods)
 
 	for i := range c.Methods {
 
@@ -677,10 +673,6 @@ func (c *CppClass) ProtectedMethods() []CppMethod {
 
 		ret = append(ret, c.Methods[i])
 		retNames[c.Methods[i].CppCallTarget()] = struct{}{}
-	}
-
-	for i := range c.PrivateMethods {
-		block[c.PrivateMethods[i]] = struct{}{}
 	}
 
 	for _, cinfo := range c.AllInheritsClassInfo() {

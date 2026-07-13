@@ -425,7 +425,7 @@ pub const QsciPrinter = extern struct {
     pub fn PrinterName(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPrinter_PrinterName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciprinter.PrinterName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.PrinterName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -473,7 +473,7 @@ pub const QsciPrinter = extern struct {
     pub fn OutputFileName(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPrinter_OutputFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciprinter.OutputFileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.OutputFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -509,7 +509,7 @@ pub const QsciPrinter = extern struct {
     pub fn PrintProgram(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPrinter_PrintProgram(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciprinter.PrintProgram: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.PrintProgram: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -545,7 +545,7 @@ pub const QsciPrinter = extern struct {
     pub fn DocName(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPrinter_DocName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciprinter.DocName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.DocName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -581,7 +581,7 @@ pub const QsciPrinter = extern struct {
     pub fn Creator(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPrinter_Creator(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciprinter.Creator: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.Creator: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -835,7 +835,7 @@ pub const QsciPrinter = extern struct {
     pub fn SupportedResolutions(self: QsciPrinter, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QPrinter_SupportedResolutions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qsciprinter.SupportedResolutions: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QsciPrinter.SupportedResolutions: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -908,7 +908,7 @@ pub const QsciPrinter = extern struct {
     pub fn PrinterSelectionOption(self: QsciPrinter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPrinter_PrinterSelectionOption(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsciprinter.PrinterSelectionOption: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QsciPrinter.PrinterSelectionOption: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

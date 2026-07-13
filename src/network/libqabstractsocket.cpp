@@ -295,10 +295,10 @@ long long QAbstractSocket_SkipData(QAbstractSocket* self, long long maxSize) {
     return {};
 }
 
-long long QAbstractSocket_WriteData(QAbstractSocket* self, const char* data, long long lenVal) {
+long long QAbstractSocket_WriteData(QAbstractSocket* self, const char* data, long long len) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
-        return static_cast<long long>(vqabstractsocket->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqabstractsocket->writeData(data, static_cast<qint64>(len)));
     }
     return {};
 }
@@ -756,13 +756,13 @@ void QAbstractSocket_OnSkipData(QAbstractSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QAbstractSocket_SuperWriteData(QAbstractSocket* self, const char* data, long long lenVal) {
+long long QAbstractSocket_SuperWriteData(QAbstractSocket* self, const char* data, long long len) {
     auto* vqabstractsocket = dynamic_cast<VirtualQAbstractSocket*>(self);
     if (vqabstractsocket && vqabstractsocket->isVirtualQAbstractSocket) {
         vqabstractsocket->setQAbstractSocket_WriteData_IsBase(true);
-        return static_cast<long long>(vqabstractsocket->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqabstractsocket->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualQAbstractSocket*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualQAbstractSocket*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 

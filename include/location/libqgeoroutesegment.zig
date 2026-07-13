@@ -171,7 +171,7 @@ pub const QGeoRouteSegment = extern struct {
     pub fn Path(self: QGeoRouteSegment, allocator: std.mem.Allocator) []QGeoCoordinate {
         const _arr: qtc.libqt_list = qtc.QGeoRouteSegment_Path(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("qgeoroutesegment.Path: Memory allocation failed");
+        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("QGeoRouteSegment.Path: Memory allocation failed");
         const _data: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

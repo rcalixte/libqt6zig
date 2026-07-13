@@ -47,7 +47,7 @@ pub const Poppler__Annotation = extern struct {
     pub fn Author(self: Poppler__Annotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__annotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -79,7 +79,7 @@ pub const Poppler__Annotation = extern struct {
     pub fn Contents(self: Poppler__Annotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__annotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -111,7 +111,7 @@ pub const Poppler__Annotation = extern struct {
     pub fn UniqueName(self: Poppler__Annotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__annotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -312,7 +312,7 @@ pub const Poppler__Annotation = extern struct {
     pub fn Revisions(self: Poppler__Annotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__annotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__Annotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -467,7 +467,7 @@ pub const Poppler__TextAnnotation = extern struct {
     pub fn TextIcon(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__TextAnnotation_TextIcon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__textannotation.TextIcon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__TextAnnotation.TextIcon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -583,7 +583,7 @@ pub const Poppler__TextAnnotation = extern struct {
     pub fn CalloutPoints(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []QPointF {
         const _arr: qtc.libqt_list = qtc.Poppler__TextAnnotation_CalloutPoints(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("poppler__textannotation.CalloutPoints: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("Poppler__TextAnnotation.CalloutPoints: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -645,7 +645,7 @@ pub const Poppler__TextAnnotation = extern struct {
     pub fn Author(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__textannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__TextAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -681,7 +681,7 @@ pub const Poppler__TextAnnotation = extern struct {
     pub fn Contents(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__textannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__TextAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -717,7 +717,7 @@ pub const Poppler__TextAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__textannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__TextAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -950,7 +950,7 @@ pub const Poppler__TextAnnotation = extern struct {
     pub fn Revisions(self: Poppler__TextAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__textannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__TextAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1095,7 +1095,7 @@ pub const Poppler__LineAnnotation = extern struct {
     pub fn LinePoints(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []QPointF {
         const _arr: qtc.libqt_list = qtc.Poppler__LineAnnotation_LinePoints(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("poppler__lineannotation.LinePoints: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("Poppler__LineAnnotation.LinePoints: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1320,7 +1320,7 @@ pub const Poppler__LineAnnotation = extern struct {
     pub fn Author(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__lineannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LineAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1356,7 +1356,7 @@ pub const Poppler__LineAnnotation = extern struct {
     pub fn Contents(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__lineannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LineAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1392,7 +1392,7 @@ pub const Poppler__LineAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__lineannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LineAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1625,7 +1625,7 @@ pub const Poppler__LineAnnotation = extern struct {
     pub fn Revisions(self: Poppler__LineAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__lineannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__LineAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1803,7 +1803,7 @@ pub const Poppler__GeomAnnotation = extern struct {
     pub fn Author(self: Poppler__GeomAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__geomannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__GeomAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1839,7 +1839,7 @@ pub const Poppler__GeomAnnotation = extern struct {
     pub fn Contents(self: Poppler__GeomAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__geomannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__GeomAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1875,7 +1875,7 @@ pub const Poppler__GeomAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__GeomAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__geomannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__GeomAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2108,7 +2108,7 @@ pub const Poppler__GeomAnnotation = extern struct {
     pub fn Revisions(self: Poppler__GeomAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__geomannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__GeomAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2261,7 +2261,7 @@ pub const Poppler__HighlightAnnotation = extern struct {
     pub fn HighlightQuads(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []Poppler__HighlightAnnotation__Quad {
         const _arr: qtc.libqt_list = qtc.Poppler__HighlightAnnotation_HighlightQuads(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__HighlightAnnotation__Quad, _arr.len) catch @panic("poppler__highlightannotation.HighlightQuads: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__HighlightAnnotation__Quad, _arr.len) catch @panic("Poppler__HighlightAnnotation.HighlightQuads: Memory allocation failed");
         const _data: [*]QtC.Poppler__HighlightAnnotation__Quad = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2297,7 +2297,7 @@ pub const Poppler__HighlightAnnotation = extern struct {
     pub fn Author(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__highlightannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__HighlightAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2333,7 +2333,7 @@ pub const Poppler__HighlightAnnotation = extern struct {
     pub fn Contents(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__highlightannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__HighlightAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2369,7 +2369,7 @@ pub const Poppler__HighlightAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__highlightannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__HighlightAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2602,7 +2602,7 @@ pub const Poppler__HighlightAnnotation = extern struct {
     pub fn Revisions(self: Poppler__HighlightAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__highlightannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__HighlightAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2729,7 +2729,7 @@ pub const Poppler__StampAnnotation = extern struct {
     pub fn StampIconName(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__StampAnnotation_StampIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__stampannotation.StampIconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__StampAnnotation.StampIconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2776,7 +2776,7 @@ pub const Poppler__StampAnnotation = extern struct {
     pub fn Author(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__stampannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__StampAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2812,7 +2812,7 @@ pub const Poppler__StampAnnotation = extern struct {
     pub fn Contents(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__stampannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__StampAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2848,7 +2848,7 @@ pub const Poppler__StampAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__stampannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__StampAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3081,7 +3081,7 @@ pub const Poppler__StampAnnotation = extern struct {
     pub fn Revisions(self: Poppler__StampAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__stampannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__StampAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3375,7 +3375,7 @@ pub const Poppler__SignatureAnnotation = extern struct {
     pub fn ImagePath(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__SignatureAnnotation_ImagePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__signatureannotation.ImagePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.ImagePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3407,7 +3407,7 @@ pub const Poppler__SignatureAnnotation = extern struct {
     pub fn FieldPartialName(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__SignatureAnnotation_FieldPartialName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__signatureannotation.FieldPartialName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.FieldPartialName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3464,7 +3464,7 @@ pub const Poppler__SignatureAnnotation = extern struct {
     pub fn Author(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__signatureannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3500,7 +3500,7 @@ pub const Poppler__SignatureAnnotation = extern struct {
     pub fn Contents(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__signatureannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3536,7 +3536,7 @@ pub const Poppler__SignatureAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__signatureannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SignatureAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3769,7 +3769,7 @@ pub const Poppler__SignatureAnnotation = extern struct {
     pub fn Revisions(self: Poppler__SignatureAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__signatureannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__SignatureAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3901,10 +3901,10 @@ pub const Poppler__InkAnnotation = extern struct {
                 qtc.libqt_free(_list[i].data);
             qtc.libqt_free(_list);
         }
-        const _ret = allocator.alloc([]QPointF, _arr.len) catch @panic("poppler__inkannotation.InkPaths: Memory allocation failed");
+        const _ret = allocator.alloc([]QPointF, _arr.len) catch @panic("Poppler__InkAnnotation.InkPaths: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_list[i].data));
-            _ret[i] = allocator.alloc(QPointF, _list[i].len) catch @panic("poppler__inkannotation.InkPaths: Memory allocation failed");
+            _ret[i] = allocator.alloc(QPointF, _list[i].len) catch @panic("Poppler__InkAnnotation.InkPaths: Memory allocation failed");
             for (0.._list[i].len) |j|
                 _ret[i][j] = .{ .ptr = _data[j] };
         }
@@ -3922,7 +3922,7 @@ pub const Poppler__InkAnnotation = extern struct {
     /// ` paths: [][]QPointF `
     ///
     pub fn SetInkPaths(self: Poppler__InkAnnotation, allocator: std.mem.Allocator, paths: [][]QPointF) void {
-        const paths_arr = allocator.alloc(qtc.libqt_list, paths.len) catch @panic("poppler__inkannotation.SetInkPaths: Memory allocation failed");
+        const paths_arr = allocator.alloc(qtc.libqt_list, paths.len) catch @panic("Poppler__InkAnnotation.SetInkPaths: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..) |paths_inner, i|
             paths_arr[i] = qtc.libqt_list{
@@ -3949,7 +3949,7 @@ pub const Poppler__InkAnnotation = extern struct {
     pub fn Author(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__inkannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__InkAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3985,7 +3985,7 @@ pub const Poppler__InkAnnotation = extern struct {
     pub fn Contents(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__inkannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__InkAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4021,7 +4021,7 @@ pub const Poppler__InkAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__inkannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__InkAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4254,7 +4254,7 @@ pub const Poppler__InkAnnotation = extern struct {
     pub fn Revisions(self: Poppler__InkAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__inkannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__InkAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4406,7 +4406,7 @@ pub const Poppler__LinkAnnotation = extern struct {
     pub fn Author(self: Poppler__LinkAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__linkannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4442,7 +4442,7 @@ pub const Poppler__LinkAnnotation = extern struct {
     pub fn Contents(self: Poppler__LinkAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__linkannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4478,7 +4478,7 @@ pub const Poppler__LinkAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__LinkAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__linkannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4711,7 +4711,7 @@ pub const Poppler__LinkAnnotation = extern struct {
     pub fn Revisions(self: Poppler__LinkAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__linkannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__LinkAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4866,7 +4866,7 @@ pub const Poppler__CaretAnnotation = extern struct {
     pub fn Author(self: Poppler__CaretAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__caretannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__CaretAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4902,7 +4902,7 @@ pub const Poppler__CaretAnnotation = extern struct {
     pub fn Contents(self: Poppler__CaretAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__caretannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__CaretAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4938,7 +4938,7 @@ pub const Poppler__CaretAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__CaretAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__caretannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__CaretAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5171,7 +5171,7 @@ pub const Poppler__CaretAnnotation = extern struct {
     pub fn Revisions(self: Poppler__CaretAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__caretannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__CaretAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5258,7 +5258,7 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     pub fn FileIconName(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__FileAttachmentAnnotation_FileIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__fileattachmentannotation.FileIconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__FileAttachmentAnnotation.FileIconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5315,7 +5315,7 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     pub fn Author(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__fileattachmentannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__FileAttachmentAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5351,7 +5351,7 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     pub fn Contents(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__fileattachmentannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__FileAttachmentAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5387,7 +5387,7 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__fileattachmentannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__FileAttachmentAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5620,7 +5620,7 @@ pub const Poppler__FileAttachmentAnnotation = extern struct {
     pub fn Revisions(self: Poppler__FileAttachmentAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__fileattachmentannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__FileAttachmentAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5707,7 +5707,7 @@ pub const Poppler__SoundAnnotation = extern struct {
     pub fn SoundIconName(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__SoundAnnotation_SoundIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__soundannotation.SoundIconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SoundAnnotation.SoundIconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5764,7 +5764,7 @@ pub const Poppler__SoundAnnotation = extern struct {
     pub fn Author(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__soundannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SoundAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5800,7 +5800,7 @@ pub const Poppler__SoundAnnotation = extern struct {
     pub fn Contents(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__soundannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SoundAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5836,7 +5836,7 @@ pub const Poppler__SoundAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__soundannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__SoundAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6069,7 +6069,7 @@ pub const Poppler__SoundAnnotation = extern struct {
     pub fn Revisions(self: Poppler__SoundAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__soundannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__SoundAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6179,7 +6179,7 @@ pub const Poppler__MovieAnnotation = extern struct {
     pub fn MovieTitle(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__MovieAnnotation_MovieTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__movieannotation.MovieTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MovieAnnotation.MovieTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6213,7 +6213,7 @@ pub const Poppler__MovieAnnotation = extern struct {
     pub fn Author(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__movieannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MovieAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6249,7 +6249,7 @@ pub const Poppler__MovieAnnotation = extern struct {
     pub fn Contents(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__movieannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MovieAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6285,7 +6285,7 @@ pub const Poppler__MovieAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__movieannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__MovieAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6518,7 +6518,7 @@ pub const Poppler__MovieAnnotation = extern struct {
     pub fn Revisions(self: Poppler__MovieAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__movieannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__MovieAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6628,7 +6628,7 @@ pub const Poppler__ScreenAnnotation = extern struct {
     pub fn ScreenTitle(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__ScreenAnnotation_ScreenTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__screenannotation.ScreenTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__ScreenAnnotation.ScreenTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6674,7 +6674,7 @@ pub const Poppler__ScreenAnnotation = extern struct {
     pub fn Author(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__screenannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__ScreenAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6710,7 +6710,7 @@ pub const Poppler__ScreenAnnotation = extern struct {
     pub fn Contents(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__screenannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__ScreenAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6746,7 +6746,7 @@ pub const Poppler__ScreenAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__screenannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__ScreenAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6979,7 +6979,7 @@ pub const Poppler__ScreenAnnotation = extern struct {
     pub fn Revisions(self: Poppler__ScreenAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__screenannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__ScreenAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7080,7 +7080,7 @@ pub const Poppler__WidgetAnnotation = extern struct {
     pub fn Author(self: Poppler__WidgetAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__widgetannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__WidgetAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7116,7 +7116,7 @@ pub const Poppler__WidgetAnnotation = extern struct {
     pub fn Contents(self: Poppler__WidgetAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__widgetannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__WidgetAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7152,7 +7152,7 @@ pub const Poppler__WidgetAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__WidgetAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__widgetannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__WidgetAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7385,7 +7385,7 @@ pub const Poppler__WidgetAnnotation = extern struct {
     pub fn Revisions(self: Poppler__WidgetAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__widgetannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__WidgetAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7494,7 +7494,7 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     pub fn Author(self: Poppler__RichMediaAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__richmediaannotation.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation.Author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7530,7 +7530,7 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     pub fn Contents(self: Poppler__RichMediaAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_Contents(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__richmediaannotation.Contents: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation.Contents: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7566,7 +7566,7 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     pub fn UniqueName(self: Poppler__RichMediaAnnotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation_UniqueName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__richmediaannotation.UniqueName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation.UniqueName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7799,7 +7799,7 @@ pub const Poppler__RichMediaAnnotation = extern struct {
     pub fn Revisions(self: Poppler__RichMediaAnnotation, allocator: std.mem.Allocator) []Poppler__Annotation {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation_Revisions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("poppler__richmediaannotation.Revisions: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Annotation, _arr.len) catch @panic("Poppler__RichMediaAnnotation.Revisions: Memory allocation failed");
         const _data: [*]QtC.Poppler__Annotation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -8038,7 +8038,7 @@ pub const Poppler__Annotation__Style = extern struct {
     pub fn DashArray(self: Poppler__Annotation__Style, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.Poppler__Annotation__Style_DashArray(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("poppler__annotation__style.DashArray: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("Poppler__Annotation__Style.DashArray: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -8221,7 +8221,7 @@ pub const Poppler__Annotation__Popup = extern struct {
     pub fn Title(self: Poppler__Annotation__Popup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation__Popup_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__annotation__popup.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation__Popup.Title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8253,7 +8253,7 @@ pub const Poppler__Annotation__Popup = extern struct {
     pub fn Summary(self: Poppler__Annotation__Popup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation__Popup_Summary(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__annotation__popup.Summary: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation__Popup.Summary: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8285,7 +8285,7 @@ pub const Poppler__Annotation__Popup = extern struct {
     pub fn Text(self: Poppler__Annotation__Popup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Annotation__Popup_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__annotation__popup.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Annotation__Popup.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8443,7 +8443,7 @@ pub const Poppler__RichMediaAnnotation__Params = extern struct {
     pub fn FlashVars(self: Poppler__RichMediaAnnotation__Params, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__RichMediaAnnotation__Params_FlashVars(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__richmediaannotation__params.FlashVars: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation__Params.FlashVars: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8563,7 +8563,7 @@ pub const Poppler__RichMediaAnnotation__Configuration = extern struct {
     pub fn Name(self: Poppler__RichMediaAnnotation__Configuration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__RichMediaAnnotation__Configuration_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__richmediaannotation__configuration.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation__Configuration.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8579,7 +8579,7 @@ pub const Poppler__RichMediaAnnotation__Configuration = extern struct {
     pub fn Instances(self: Poppler__RichMediaAnnotation__Configuration, allocator: std.mem.Allocator) []Poppler__RichMediaAnnotation__Instance {
         const _arr: qtc.libqt_list = qtc.Poppler__RichMediaAnnotation__Configuration_Instances(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__RichMediaAnnotation__Instance, _arr.len) catch @panic("poppler__richmediaannotation__configuration.Instances: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__RichMediaAnnotation__Instance, _arr.len) catch @panic("Poppler__RichMediaAnnotation__Configuration.Instances: Memory allocation failed");
         const _data: [*]QtC.Poppler__RichMediaAnnotation__Instance = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -8630,7 +8630,7 @@ pub const Poppler__RichMediaAnnotation__Asset = extern struct {
     pub fn Name(self: Poppler__RichMediaAnnotation__Asset, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__RichMediaAnnotation__Asset_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__richmediaannotation__asset.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__RichMediaAnnotation__Asset.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8689,7 +8689,7 @@ pub const Poppler__RichMediaAnnotation__Content = extern struct {
     pub fn Configurations(self: Poppler__RichMediaAnnotation__Content, allocator: std.mem.Allocator) []Poppler__RichMediaAnnotation__Configuration {
         const _arr: qtc.libqt_list = qtc.Poppler__RichMediaAnnotation__Content_Configurations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__RichMediaAnnotation__Configuration, _arr.len) catch @panic("poppler__richmediaannotation__content.Configurations: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__RichMediaAnnotation__Configuration, _arr.len) catch @panic("Poppler__RichMediaAnnotation__Content.Configurations: Memory allocation failed");
         const _data: [*]QtC.Poppler__RichMediaAnnotation__Configuration = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -8707,7 +8707,7 @@ pub const Poppler__RichMediaAnnotation__Content = extern struct {
     pub fn Assets(self: Poppler__RichMediaAnnotation__Content, allocator: std.mem.Allocator) []Poppler__RichMediaAnnotation__Asset {
         const _arr: qtc.libqt_list = qtc.Poppler__RichMediaAnnotation__Content_Assets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__RichMediaAnnotation__Asset, _arr.len) catch @panic("poppler__richmediaannotation__content.Assets: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__RichMediaAnnotation__Asset, _arr.len) catch @panic("Poppler__RichMediaAnnotation__Content.Assets: Memory allocation failed");
         const _data: [*]QtC.Poppler__RichMediaAnnotation__Asset = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

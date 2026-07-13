@@ -116,7 +116,7 @@ pub const QCryptographicHash = extern struct {
     pub fn Result(self: QCryptographicHash, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_Result(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.Result: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCryptographicHash.Result: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -132,7 +132,7 @@ pub const QCryptographicHash = extern struct {
     pub fn ResultView(self: QCryptographicHash, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_ResultView(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.ResultView: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCryptographicHash.ResultView: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -154,7 +154,7 @@ pub const QCryptographicHash = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_Hash(data_str, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.Hash: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCryptographicHash.Hash: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -182,7 +182,7 @@ pub const QCryptographicHash = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_HashInto(buffer_list, data_str, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.HashInto: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCryptographicHash.HashInto: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -210,7 +210,7 @@ pub const QCryptographicHash = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_HashInto2(buffer_list, data_str, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.HashInto2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCryptographicHash.HashInto2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -232,7 +232,7 @@ pub const QCryptographicHash = extern struct {
             .len = buffer.len,
             .data = buffer.ptr,
         };
-        const data_arr = allocator.alloc(qtc.libqt_string, data.len) catch @panic("qcryptographichash.HashInto4: Memory allocation failed");
+        const data_arr = allocator.alloc(qtc.libqt_string, data.len) catch @panic("QCryptographicHash.HashInto4: Memory allocation failed");
         defer allocator.free(data_arr);
         for (data, 0..data.len) |item, i|
             data_arr[i] = .{
@@ -245,7 +245,7 @@ pub const QCryptographicHash = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_HashInto4(buffer_list, data_list, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.HashInto4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCryptographicHash.HashInto4: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -267,7 +267,7 @@ pub const QCryptographicHash = extern struct {
             .len = buffer.len,
             .data = buffer.ptr,
         };
-        const data_arr = allocator.alloc(qtc.libqt_string, data.len) catch @panic("qcryptographichash.HashInto5: Memory allocation failed");
+        const data_arr = allocator.alloc(qtc.libqt_string, data.len) catch @panic("QCryptographicHash.HashInto5: Memory allocation failed");
         defer allocator.free(data_arr);
         for (data, 0..data.len) |item, i|
             data_arr[i] = .{
@@ -280,7 +280,7 @@ pub const QCryptographicHash = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QCryptographicHash_HashInto5(buffer_list, data_list, @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcryptographichash.HashInto5: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCryptographicHash.HashInto5: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

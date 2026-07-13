@@ -44,9 +44,9 @@ pub const KIconUtils = extern struct {
     pub fn AddOverlays(allocator: std.mem.Allocator, icon: anytype, overlays: Map_i32_QIcon) QIcon {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const overlays_count = overlays.count();
-        const overlays_keys = allocator.alloc(i32, overlays_count) catch @panic("kiconutils.AddOverlays: Memory allocation failed");
+        const overlays_keys = allocator.alloc(i32, overlays_count) catch @panic("KIconUtils.AddOverlays: Memory allocation failed");
         defer allocator.free(overlays_keys);
-        const overlays_values = allocator.alloc(QtC.QIcon, overlays_count) catch @panic("kiconutils.AddOverlays: Memory allocation failed");
+        const overlays_values = allocator.alloc(QtC.QIcon, overlays_count) catch @panic("KIconUtils.AddOverlays: Memory allocation failed");
         defer allocator.free(overlays_values);
         var i: usize = 0;
         var overlays_it = overlays.iterator();
@@ -75,7 +75,7 @@ pub const KIconUtils = extern struct {
     ///
     pub fn AddOverlays2(allocator: std.mem.Allocator, icon: anytype, overlays: []const []const u8) QIcon {
         comptime _ = @TypeOf(icon)._is_QIcon;
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconutils.AddOverlays2: Memory allocation failed");
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconUtils.AddOverlays2: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i|
             overlays_arr[i] = .{
@@ -104,7 +104,7 @@ pub const KIconUtils = extern struct {
             .len = iconName.len,
             .data = iconName.ptr,
         };
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconutils.AddOverlays3: Memory allocation failed");
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconUtils.AddOverlays3: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i|
             overlays_arr[i] = .{

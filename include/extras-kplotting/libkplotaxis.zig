@@ -103,7 +103,7 @@ pub const KPlotAxis = extern struct {
     pub fn Label(self: KPlotAxis, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KPlotAxis_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kplotaxis.Label: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotAxis.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -121,7 +121,7 @@ pub const KPlotAxis = extern struct {
     pub fn TickLabel(self: KPlotAxis, allocator: std.mem.Allocator, value: f64) []const u8 {
         var _str = qtc.KPlotAxis_TickLabel(@ptrCast(self.ptr), @bitCast(value));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kplotaxis.TickLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotAxis.TickLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -191,7 +191,7 @@ pub const KPlotAxis = extern struct {
     pub fn MajorTickMarks(self: KPlotAxis, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.KPlotAxis_MajorTickMarks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("kplotaxis.MajorTickMarks: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("KPlotAxis.MajorTickMarks: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -208,7 +208,7 @@ pub const KPlotAxis = extern struct {
     pub fn MinorTickMarks(self: KPlotAxis, allocator: std.mem.Allocator) []f64 {
         const _arr: qtc.libqt_list = qtc.KPlotAxis_MinorTickMarks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f64, _arr.len) catch @panic("kplotaxis.MinorTickMarks: Memory allocation failed");
+        const _ret = allocator.alloc(f64, _arr.len) catch @panic("KPlotAxis.MinorTickMarks: Memory allocation failed");
         const _data: [*]f64 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;

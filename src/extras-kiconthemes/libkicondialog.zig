@@ -236,7 +236,7 @@ pub const KIconDialog = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -340,7 +340,7 @@ pub const KIconDialog = extern struct {
     pub fn OpenDialog(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconDialog_OpenDialog(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.OpenDialog: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.OpenDialog: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -364,7 +364,7 @@ pub const KIconDialog = extern struct {
     pub fn GetIcon(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconDialog_GetIcon();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.GetIcon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -498,7 +498,7 @@ pub const KIconDialog = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -520,7 +520,7 @@ pub const KIconDialog = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -650,7 +650,7 @@ pub const KIconDialog = extern struct {
     pub fn GetIcon1(allocator: std.mem.Allocator, group: i32) []const u8 {
         var _str = qtc.KIconDialog_GetIcon1(@bitCast(group));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.GetIcon1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -668,7 +668,7 @@ pub const KIconDialog = extern struct {
     pub fn GetIcon2(allocator: std.mem.Allocator, group: i32, context: i32) []const u8 {
         var _str = qtc.KIconDialog_GetIcon2(@bitCast(group), @bitCast(context));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.GetIcon2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -688,7 +688,7 @@ pub const KIconDialog = extern struct {
     pub fn GetIcon3(allocator: std.mem.Allocator, group: i32, context: i32, strictIconSize: bool) []const u8 {
         var _str = qtc.KIconDialog_GetIcon3(@bitCast(group), @bitCast(context), strictIconSize);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.GetIcon3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -710,7 +710,7 @@ pub const KIconDialog = extern struct {
     pub fn GetIcon4(allocator: std.mem.Allocator, group: i32, context: i32, strictIconSize: bool, iconSize: i32) []const u8 {
         var _str = qtc.KIconDialog_GetIcon4(@bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.GetIcon4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -734,7 +734,7 @@ pub const KIconDialog = extern struct {
     pub fn GetIcon5(allocator: std.mem.Allocator, group: i32, context: i32, strictIconSize: bool, iconSize: i32, user: bool) []const u8 {
         var _str = qtc.KIconDialog_GetIcon5(@bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon5: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.GetIcon5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -761,7 +761,7 @@ pub const KIconDialog = extern struct {
         comptime _ = @TypeOf(parent)._is_QWidget;
         var _str = qtc.KIconDialog_GetIcon6(@bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user, @ptrCast(parent.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon6: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.GetIcon6: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -794,7 +794,7 @@ pub const KIconDialog = extern struct {
         };
         var _str = qtc.KIconDialog_GetIcon7(@bitCast(group), @bitCast(context), strictIconSize, @bitCast(iconSize), user, @ptrCast(parent.ptr), title_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.GetIcon7: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.GetIcon7: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2315,7 +2315,7 @@ pub const KIconDialog = extern struct {
     pub fn StyleSheet(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2333,7 +2333,7 @@ pub const KIconDialog = extern struct {
     pub fn WindowTitle(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2396,7 +2396,7 @@ pub const KIconDialog = extern struct {
     pub fn WindowIconText(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2432,7 +2432,7 @@ pub const KIconDialog = extern struct {
     pub fn WindowRole(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2468,7 +2468,7 @@ pub const KIconDialog = extern struct {
     pub fn WindowFilePath(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2542,7 +2542,7 @@ pub const KIconDialog = extern struct {
     pub fn ToolTip(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2604,7 +2604,7 @@ pub const KIconDialog = extern struct {
     pub fn StatusTip(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2640,7 +2640,7 @@ pub const KIconDialog = extern struct {
     pub fn WhatsThis(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2658,7 +2658,7 @@ pub const KIconDialog = extern struct {
     pub fn AccessibleName(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2694,7 +2694,7 @@ pub const KIconDialog = extern struct {
     pub fn AccessibleDescription(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3544,7 +3544,7 @@ pub const KIconDialog = extern struct {
     pub fn SaveGeometry(self: KIconDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kicondialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KIconDialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -4080,7 +4080,7 @@ pub const KIconDialog = extern struct {
     pub fn Actions(self: KIconDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kicondialog.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KIconDialog.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4895,7 +4895,7 @@ pub const KIconDialog = extern struct {
     pub fn ObjectName(self: KIconDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kicondialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconDialog.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5072,7 +5072,7 @@ pub const KIconDialog = extern struct {
     pub fn Children(self: KIconDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kicondialog.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KIconDialog.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5333,10 +5333,10 @@ pub const KIconDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kicondialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIconDialog.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kicondialog.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIconDialog.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

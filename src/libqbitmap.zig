@@ -585,10 +585,10 @@ pub const QBitmap = extern struct {
     ///
     /// ` buf: *const u8 `
     ///
-    /// ` lenVal: u32 `
+    /// ` len: u32 `
     ///
-    pub fn LoadFromData(self: QBitmap, buf: *const u8, lenVal: u32) bool {
-        return qtc.QPixmap_LoadFromData(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(lenVal));
+    pub fn LoadFromData(self: QBitmap, buf: *const u8, len: u32) bool {
+        return qtc.QPixmap_LoadFromData(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(len));
     }
 
     /// Inherited from QPixmap
@@ -1030,13 +1030,13 @@ pub const QBitmap = extern struct {
     ///
     /// ` buf: *const u8 `
     ///
-    /// ` lenVal: u32 `
+    /// ` len: u32 `
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn LoadFromData3(self: QBitmap, buf: *const u8, lenVal: u32, format: [:0]const u8) bool {
+    pub fn LoadFromData3(self: QBitmap, buf: *const u8, len: u32, format: [:0]const u8) bool {
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_LoadFromData3(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(lenVal), format_Cstring);
+        return qtc.QPixmap_LoadFromData3(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(len), format_Cstring);
     }
 
     /// Inherited from QPixmap
@@ -1049,15 +1049,15 @@ pub const QBitmap = extern struct {
     ///
     /// ` buf: *const u8 `
     ///
-    /// ` lenVal: u32 `
+    /// ` len: u32 `
     ///
     /// ` format: [:0]const u8 `
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn LoadFromData4(self: QBitmap, buf: *const u8, lenVal: u32, format: [:0]const u8, flags: i32) bool {
+    pub fn LoadFromData4(self: QBitmap, buf: *const u8, len: u32, format: [:0]const u8, flags: i32) bool {
         const format_Cstring = format.ptr;
-        return qtc.QPixmap_LoadFromData4(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(lenVal), format_Cstring, @bitCast(flags));
+        return qtc.QPixmap_LoadFromData4(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(len), format_Cstring, @bitCast(flags));
     }
 
     /// Inherited from QPixmap

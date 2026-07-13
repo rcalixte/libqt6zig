@@ -258,7 +258,7 @@ pub const QStandardItem = extern struct {
     pub fn Text(self: QStandardItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStandardItem_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandarditem.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStandardItem.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -313,7 +313,7 @@ pub const QStandardItem = extern struct {
     pub fn ToolTip(self: QStandardItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStandardItem_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandarditem.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStandardItem.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -345,7 +345,7 @@ pub const QStandardItem = extern struct {
     pub fn StatusTip(self: QStandardItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStandardItem_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandarditem.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStandardItem.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -377,7 +377,7 @@ pub const QStandardItem = extern struct {
     pub fn WhatsThis(self: QStandardItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStandardItem_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandarditem.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStandardItem.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -553,7 +553,7 @@ pub const QStandardItem = extern struct {
     pub fn AccessibleText(self: QStandardItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStandardItem_AccessibleText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandarditem.AccessibleText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStandardItem.AccessibleText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -585,7 +585,7 @@ pub const QStandardItem = extern struct {
     pub fn AccessibleDescription(self: QStandardItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStandardItem_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandarditem.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStandardItem.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1191,7 +1191,7 @@ pub const QStandardItem = extern struct {
     pub fn TakeRow(self: QStandardItem, allocator: std.mem.Allocator, row: i32) []QStandardItem {
         const _arr: qtc.libqt_list = qtc.QStandardItem_TakeRow(@ptrCast(self.ptr), @bitCast(row));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("qstandarditem.TakeRow: Memory allocation failed");
+        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("QStandardItem.TakeRow: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1211,7 +1211,7 @@ pub const QStandardItem = extern struct {
     pub fn TakeColumn(self: QStandardItem, allocator: std.mem.Allocator, column: i32) []QStandardItem {
         const _arr: qtc.libqt_list = qtc.QStandardItem_TakeColumn(@ptrCast(self.ptr), @bitCast(column));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("qstandarditem.TakeColumn: Memory allocation failed");
+        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("QStandardItem.TakeColumn: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1787,7 +1787,7 @@ pub const QStandardItemModel = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandarditemmodel.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStandardItemModel.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1804,9 +1804,9 @@ pub const QStandardItemModel = extern struct {
     ///
     pub fn SetItemRoleNames(self: QStandardItemModel, allocator: std.mem.Allocator, roleNames: Map_i32_u8) void {
         const roleNames_count = roleNames.count();
-        const roleNames_keys = allocator.alloc(i32, roleNames_count) catch @panic("qstandarditemmodel.SetItemRoleNames: Memory allocation failed");
+        const roleNames_keys = allocator.alloc(i32, roleNames_count) catch @panic("QStandardItemModel.SetItemRoleNames: Memory allocation failed");
         defer allocator.free(roleNames_keys);
-        const roleNames_values = allocator.alloc(qtc.libqt_string, roleNames_count) catch @panic("qstandarditemmodel.SetItemRoleNames: Memory allocation failed");
+        const roleNames_values = allocator.alloc(qtc.libqt_string, roleNames_count) catch @panic("QStandardItemModel.SetItemRoleNames: Memory allocation failed");
         defer allocator.free(roleNames_values);
         var i: usize = 0;
         var roleNames_it = roleNames.iterator();
@@ -1838,7 +1838,7 @@ pub const QStandardItemModel = extern struct {
     pub fn RoleNames(self: QStandardItemModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QStandardItemModel_RoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qstandarditemmodel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QStandardItemModel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -1853,7 +1853,7 @@ pub const QStandardItemModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("qstandarditemmodel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QStandardItemModel.RoleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
@@ -1895,7 +1895,7 @@ pub const QStandardItemModel = extern struct {
     pub fn SuperRoleNames(self: QStandardItemModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QStandardItemModel_SuperRoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qstandarditemmodel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QStandardItemModel.RoleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -1910,7 +1910,7 @@ pub const QStandardItemModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("qstandarditemmodel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QStandardItemModel.RoleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
@@ -2809,7 +2809,7 @@ pub const QStandardItemModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.QStandardItemModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qstandarditemmodel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QStandardItemModel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2863,7 +2863,7 @@ pub const QStandardItemModel = extern struct {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.QStandardItemModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qstandarditemmodel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QStandardItemModel.ItemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -2894,9 +2894,9 @@ pub const QStandardItemModel = extern struct {
     pub fn SetItemData(self: QStandardItemModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("qstandarditemmodel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("QStandardItemModel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("qstandarditemmodel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("QStandardItemModel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -2948,9 +2948,9 @@ pub const QStandardItemModel = extern struct {
     pub fn SuperSetItemData(self: QStandardItemModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("qstandarditemmodel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("QStandardItemModel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("qstandarditemmodel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("QStandardItemModel.SetItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -3170,7 +3170,7 @@ pub const QStandardItemModel = extern struct {
     /// ` labels: []const []const u8 `
     ///
     pub fn SetHorizontalHeaderLabels(self: QStandardItemModel, allocator: std.mem.Allocator, labels: []const []const u8) void {
-        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qstandarditemmodel.SetHorizontalHeaderLabels: Memory allocation failed");
+        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("QStandardItemModel.SetHorizontalHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i|
             labels_arr[i] = .{
@@ -3195,7 +3195,7 @@ pub const QStandardItemModel = extern struct {
     /// ` labels: []const []const u8 `
     ///
     pub fn SetVerticalHeaderLabels(self: QStandardItemModel, allocator: std.mem.Allocator, labels: []const []const u8) void {
-        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("qstandarditemmodel.SetVerticalHeaderLabels: Memory allocation failed");
+        const labels_arr = allocator.alloc(qtc.libqt_string, labels.len) catch @panic("QStandardItemModel.SetVerticalHeaderLabels: Memory allocation failed");
         defer allocator.free(labels_arr);
         for (labels, 0..labels.len) |item, i|
             labels_arr[i] = .{
@@ -3378,7 +3378,7 @@ pub const QStandardItemModel = extern struct {
     pub fn TakeRow(self: QStandardItemModel, allocator: std.mem.Allocator, row: i32) []QStandardItem {
         const _arr: qtc.libqt_list = qtc.QStandardItemModel_TakeRow(@ptrCast(self.ptr), @bitCast(row));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("qstandarditemmodel.TakeRow: Memory allocation failed");
+        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("QStandardItemModel.TakeRow: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3398,7 +3398,7 @@ pub const QStandardItemModel = extern struct {
     pub fn TakeColumn(self: QStandardItemModel, allocator: std.mem.Allocator, column: i32) []QStandardItem {
         const _arr: qtc.libqt_list = qtc.QStandardItemModel_TakeColumn(@ptrCast(self.ptr), @bitCast(column));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("qstandarditemmodel.TakeColumn: Memory allocation failed");
+        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("QStandardItemModel.TakeColumn: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3469,7 +3469,7 @@ pub const QStandardItemModel = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QStandardItemModel_FindItems(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("qstandarditemmodel.FindItems: Memory allocation failed");
+        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("QStandardItemModel.FindItems: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3514,10 +3514,10 @@ pub const QStandardItemModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qstandarditemmodel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QStandardItemModel.MimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qstandarditemmodel.MimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QStandardItemModel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3562,10 +3562,10 @@ pub const QStandardItemModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qstandarditemmodel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QStandardItemModel.MimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qstandarditemmodel.MimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QStandardItemModel.MimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3728,7 +3728,7 @@ pub const QStandardItemModel = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandarditemmodel.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStandardItemModel.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3750,7 +3750,7 @@ pub const QStandardItemModel = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandarditemmodel.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStandardItemModel.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3832,7 +3832,7 @@ pub const QStandardItemModel = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QStandardItemModel_FindItems2(@ptrCast(self.ptr), text_str, @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("qstandarditemmodel.FindItems2: Memory allocation failed");
+        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("QStandardItemModel.FindItems2: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3860,7 +3860,7 @@ pub const QStandardItemModel = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QStandardItemModel_FindItems3(@ptrCast(self.ptr), text_str, @bitCast(flags), @bitCast(column));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("qstandarditemmodel.FindItems3: Memory allocation failed");
+        const _ret = allocator.alloc(QStandardItem, _arr.len) catch @panic("QStandardItemModel.FindItems3: Memory allocation failed");
         const _data: [*]QtC.QStandardItem = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4339,7 +4339,7 @@ pub const QStandardItemModel = extern struct {
     pub fn ObjectName(self: QStandardItemModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstandarditemmodel.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStandardItemModel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4516,7 +4516,7 @@ pub const QStandardItemModel = extern struct {
     pub fn Children(self: QStandardItemModel, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qstandarditemmodel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QStandardItemModel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4792,10 +4792,10 @@ pub const QStandardItemModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qstandarditemmodel.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QStandardItemModel.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qstandarditemmodel.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QStandardItemModel.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -5610,7 +5610,7 @@ pub const QStandardItemModel = extern struct {
         comptime _ = @TypeOf(value)._is_QVariant;
         const _arr: qtc.libqt_list = qtc.QStandardItemModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qstandarditemmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QStandardItemModel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5648,7 +5648,7 @@ pub const QStandardItemModel = extern struct {
         comptime _ = @TypeOf(value)._is_QVariant;
         const _arr: qtc.libqt_list = qtc.QStandardItemModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qstandarditemmodel.Match: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QStandardItemModel.Match: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7376,7 +7376,7 @@ pub const QStandardItemModel = extern struct {
     pub fn PersistentIndexList(self: QStandardItemModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QStandardItemModel_PersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qstandarditemmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QStandardItemModel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7402,7 +7402,7 @@ pub const QStandardItemModel = extern struct {
     pub fn SuperPersistentIndexList(self: QStandardItemModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QStandardItemModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("qstandarditemmodel.PersistentIndexList: Memory allocation failed");
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QStandardItemModel.PersistentIndexList: Memory allocation failed");
         const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

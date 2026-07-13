@@ -44,7 +44,7 @@ pub const QFont = extern struct {
     /// ` families: []const []const u8 `
     ///
     pub fn New3(allocator: std.mem.Allocator, families: []const []const u8) QFont {
-        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.New3: Memory allocation failed");
+        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QFont.New3: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i|
             families_arr[i] = .{
@@ -148,7 +148,7 @@ pub const QFont = extern struct {
     /// ` pointSize: i32 `
     ///
     pub fn New9(allocator: std.mem.Allocator, families: []const []const u8, pointSize: i32) QFont {
-        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.New9: Memory allocation failed");
+        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QFont.New9: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i|
             families_arr[i] = .{
@@ -175,7 +175,7 @@ pub const QFont = extern struct {
     /// ` weight: i32 `
     ///
     pub fn New10(allocator: std.mem.Allocator, families: []const []const u8, pointSize: i32, weight: i32) QFont {
-        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.New10: Memory allocation failed");
+        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QFont.New10: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i|
             families_arr[i] = .{
@@ -204,7 +204,7 @@ pub const QFont = extern struct {
     /// ` italic: bool `
     ///
     pub fn New11(allocator: std.mem.Allocator, families: []const []const u8, pointSize: i32, weight: i32, italic: bool) QFont {
-        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.New11: Memory allocation failed");
+        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QFont.New11: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i|
             families_arr[i] = .{
@@ -242,7 +242,7 @@ pub const QFont = extern struct {
     pub fn Family(self: QFont, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFont_Family(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfont.Family: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.Family: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -279,10 +279,10 @@ pub const QFont = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfont.Families: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFont.Families: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfont.Families: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFont.Families: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -300,7 +300,7 @@ pub const QFont = extern struct {
     /// ` families: []const []const u8 `
     ///
     pub fn SetFamilies(self: QFont, allocator: std.mem.Allocator, families: []const []const u8) void {
-        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("qfont.SetFamilies: Memory allocation failed");
+        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QFont.SetFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
         for (families, 0..families.len) |item, i|
             families_arr[i] = .{
@@ -325,7 +325,7 @@ pub const QFont = extern struct {
     pub fn StyleName(self: QFont, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFont_StyleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfont.StyleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.StyleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -869,7 +869,7 @@ pub const QFont = extern struct {
     pub fn FeatureTags(self: QFont, allocator: std.mem.Allocator) []QFont__Tag {
         const _arr: qtc.libqt_list = qtc.QFont_FeatureTags(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QFont__Tag, _arr.len) catch @panic("qfont.FeatureTags: Memory allocation failed");
+        const _ret = allocator.alloc(QFont__Tag, _arr.len) catch @panic("QFont.FeatureTags: Memory allocation failed");
         const _data: [*]QtC.QFont__Tag = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -961,7 +961,7 @@ pub const QFont = extern struct {
     pub fn VariableAxisTags(self: QFont, allocator: std.mem.Allocator) []QFont__Tag {
         const _arr: qtc.libqt_list = qtc.QFont_VariableAxisTags(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QFont__Tag, _arr.len) catch @panic("qfont.VariableAxisTags: Memory allocation failed");
+        const _ret = allocator.alloc(QFont__Tag, _arr.len) catch @panic("QFont.VariableAxisTags: Memory allocation failed");
         const _data: [*]QtC.QFont__Tag = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1064,7 +1064,7 @@ pub const QFont = extern struct {
     pub fn Key(self: QFont, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFont_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfont.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1080,7 +1080,7 @@ pub const QFont = extern struct {
     pub fn ToString(self: QFont, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFont_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfont.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1116,7 +1116,7 @@ pub const QFont = extern struct {
         };
         var _str = qtc.QFont_Substitute(param1_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfont.Substitute: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.Substitute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1141,10 +1141,10 @@ pub const QFont = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfont.Substitutes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFont.Substitutes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfont.Substitutes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFont.Substitutes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1165,10 +1165,10 @@ pub const QFont = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfont.Substitutions: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFont.Substitutions: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfont.Substitutions: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFont.Substitutions: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1210,7 +1210,7 @@ pub const QFont = extern struct {
             .len = param1.len,
             .data = param1.ptr,
         };
-        const param2_arr = allocator.alloc(qtc.libqt_string, param2.len) catch @panic("qfont.InsertSubstitutions: Memory allocation failed");
+        const param2_arr = allocator.alloc(qtc.libqt_string, param2.len) catch @panic("QFont.InsertSubstitutions: Memory allocation failed");
         defer allocator.free(param2_arr);
         for (param2, 0..param2.len) |item, i|
             param2_arr[i] = .{
@@ -1267,7 +1267,7 @@ pub const QFont = extern struct {
     pub fn DefaultFamily(self: QFont, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFont_DefaultFamily(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfont.DefaultFamily: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.DefaultFamily: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1464,7 +1464,7 @@ pub const QFont__Tag = extern struct {
     pub fn ToString(self: QFont__Tag, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QFont__Tag_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfont__tag.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QFont__Tag.ToString: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

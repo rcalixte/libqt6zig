@@ -114,7 +114,7 @@ pub const QCborMap = extern struct {
     pub fn Keys(self: QCborMap, allocator: std.mem.Allocator) []QCborValue {
         const _arr: qtc.libqt_list = qtc.QCborMap_Keys(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCborValue, _arr.len) catch @panic("qcbormap.Keys: Memory allocation failed");
+        const _ret = allocator.alloc(QCborValue, _arr.len) catch @panic("QCborMap.Keys: Memory allocation failed");
         const _data: [*]QtC.QCborValue = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -880,9 +880,9 @@ pub const QCborMap = extern struct {
     ///
     pub fn FromVariantMap(allocator: std.mem.Allocator, map: ArrayMap_constu8_QVariant) QCborMap {
         const map_count = map.count();
-        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("qcbormap.FromVariantMap: Memory allocation failed");
+        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("QCborMap.FromVariantMap: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("qcbormap.FromVariantMap: Memory allocation failed");
+        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("QCborMap.FromVariantMap: Memory allocation failed");
         defer allocator.free(map_values);
         var i: usize = 0;
         var map_it = map.iterator();
@@ -912,9 +912,9 @@ pub const QCborMap = extern struct {
     ///
     pub fn FromVariantHash(allocator: std.mem.Allocator, hash: Map_constu8_QVariant) QCborMap {
         const hash_count = hash.count();
-        const hash_keys = allocator.alloc(qtc.libqt_string, hash_count) catch @panic("qcbormap.FromVariantHash: Memory allocation failed");
+        const hash_keys = allocator.alloc(qtc.libqt_string, hash_count) catch @panic("QCborMap.FromVariantHash: Memory allocation failed");
         defer allocator.free(hash_keys);
-        const hash_values = allocator.alloc(QtC.QVariant, hash_count) catch @panic("qcbormap.FromVariantHash: Memory allocation failed");
+        const hash_values = allocator.alloc(QtC.QVariant, hash_count) catch @panic("QCborMap.FromVariantHash: Memory allocation failed");
         defer allocator.free(hash_values);
         var i: usize = 0;
         var hash_it = hash.iterator();
@@ -956,7 +956,7 @@ pub const QCborMap = extern struct {
     pub fn ToVariantMap(self: QCborMap, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QCborMap_ToVariantMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcbormap.ToVariantMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCborMap.ToVariantMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -970,7 +970,7 @@ pub const QCborMap = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qcbormap.ToVariantMap: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QCborMap.ToVariantMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
@@ -989,7 +989,7 @@ pub const QCborMap = extern struct {
     pub fn ToVariantHash(self: QCborMap, allocator: std.mem.Allocator) Map_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QCborMap_ToVariantHash(@ptrCast(self.ptr));
         var _ret: Map_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qcbormap.ToVariantHash: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QCborMap.ToVariantHash: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -1003,7 +1003,7 @@ pub const QCborMap = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qcbormap.ToVariantHash: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QCborMap.ToVariantHash: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });

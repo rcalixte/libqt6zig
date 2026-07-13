@@ -77,7 +77,7 @@ pub const KServiceAction = extern struct {
     pub fn Name(self: KServiceAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KServiceAction_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kserviceaction.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceAction.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -93,7 +93,7 @@ pub const KServiceAction = extern struct {
     pub fn Text(self: KServiceAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KServiceAction_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kserviceaction.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceAction.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -109,7 +109,7 @@ pub const KServiceAction = extern struct {
     pub fn Icon(self: KServiceAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KServiceAction_Icon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kserviceaction.Icon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceAction.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -125,7 +125,7 @@ pub const KServiceAction = extern struct {
     pub fn Exec(self: KServiceAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KServiceAction_Exec(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kserviceaction.Exec: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KServiceAction.Exec: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

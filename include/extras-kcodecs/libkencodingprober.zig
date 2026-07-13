@@ -41,7 +41,7 @@ pub const KEncodingProber = extern struct {
         const sourceText_Cstring = sourceText.ptr;
         var _str = qtc.QObject_Tr(sourceText_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingprober.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingProber.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -84,15 +84,15 @@ pub const KEncodingProber = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
     /// ## Returns:
     ///
     /// ` kencodingprober_enums.ProberState `
     ///
-    pub fn Feed2(self: KEncodingProber, data: [:0]const u8, lenVal: isize) i32 {
+    pub fn Feed2(self: KEncodingProber, data: [:0]const u8, len: isize) i32 {
         const data_Cstring = data.ptr;
-        return qtc.KEncodingProber_Feed2(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        return qtc.KEncodingProber_Feed2(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://api.kde.org/kencodingprober.html#state)
@@ -120,7 +120,7 @@ pub const KEncodingProber = extern struct {
     pub fn Encoding(self: KEncodingProber, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.KEncodingProber_Encoding(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kencodingprober.Encoding: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KEncodingProber.Encoding: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -190,7 +190,7 @@ pub const KEncodingProber = extern struct {
     pub fn NameForProberType(allocator: std.mem.Allocator, proberType: i32) []const u8 {
         var _str = qtc.KEncodingProber_NameForProberType(@bitCast(proberType));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingprober.NameForProberType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingProber.NameForProberType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -210,7 +210,7 @@ pub const KEncodingProber = extern struct {
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingprober.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingProber.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -232,7 +232,7 @@ pub const KEncodingProber = extern struct {
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kencodingprober.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingProber.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

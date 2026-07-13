@@ -74,7 +74,7 @@ pub const QKeychain__Job = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__job.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__Job.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -123,7 +123,7 @@ pub const QKeychain__Job = extern struct {
     pub fn Service(self: QKeychain__Job, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeychain__Job_Service(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__job.Service: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__Job.Service: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -153,7 +153,7 @@ pub const QKeychain__Job = extern struct {
     pub fn ErrorString(self: QKeychain__Job, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeychain__Job_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__job.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__Job.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -213,7 +213,7 @@ pub const QKeychain__Job = extern struct {
     pub fn Key(self: QKeychain__Job, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeychain__Job_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__job.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__Job.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -302,7 +302,7 @@ pub const QKeychain__Job = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__job.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__Job.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -324,7 +324,7 @@ pub const QKeychain__Job = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__job.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__Job.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -375,7 +375,7 @@ pub const QKeychain__Job = extern struct {
     pub fn ObjectName(self: QKeychain__Job, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__job.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__Job.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -552,7 +552,7 @@ pub const QKeychain__Job = extern struct {
     pub fn Children(self: QKeychain__Job, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qkeychain__job.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QKeychain__Job.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -828,10 +828,10 @@ pub const QKeychain__Job = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qkeychain__job.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QKeychain__Job.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qkeychain__job.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QKeychain__Job.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1345,7 +1345,7 @@ pub const QKeychain__ReadPasswordJob = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__readpasswordjob.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__ReadPasswordJob.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1361,7 +1361,7 @@ pub const QKeychain__ReadPasswordJob = extern struct {
     pub fn BinaryData(self: QKeychain__ReadPasswordJob, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QKeychain__ReadPasswordJob_BinaryData(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qkeychain__readpasswordjob.BinaryData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QKeychain__ReadPasswordJob.BinaryData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -1377,7 +1377,7 @@ pub const QKeychain__ReadPasswordJob = extern struct {
     pub fn TextData(self: QKeychain__ReadPasswordJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeychain__ReadPasswordJob_TextData(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__readpasswordjob.TextData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__ReadPasswordJob.TextData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1397,7 +1397,7 @@ pub const QKeychain__ReadPasswordJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__readpasswordjob.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__ReadPasswordJob.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1419,7 +1419,7 @@ pub const QKeychain__ReadPasswordJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__readpasswordjob.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__ReadPasswordJob.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1476,7 +1476,7 @@ pub const QKeychain__ReadPasswordJob = extern struct {
     pub fn Service(self: QKeychain__ReadPasswordJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeychain__Job_Service(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__readpasswordjob.Service: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__ReadPasswordJob.Service: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1510,7 +1510,7 @@ pub const QKeychain__ReadPasswordJob = extern struct {
     pub fn ErrorString(self: QKeychain__ReadPasswordJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeychain__Job_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__readpasswordjob.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__ReadPasswordJob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1580,7 +1580,7 @@ pub const QKeychain__ReadPasswordJob = extern struct {
     pub fn Key(self: QKeychain__ReadPasswordJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeychain__Job_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__readpasswordjob.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__ReadPasswordJob.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1677,7 +1677,7 @@ pub const QKeychain__ReadPasswordJob = extern struct {
     pub fn ObjectName(self: QKeychain__ReadPasswordJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__readpasswordjob.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__ReadPasswordJob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1854,7 +1854,7 @@ pub const QKeychain__ReadPasswordJob = extern struct {
     pub fn Children(self: QKeychain__ReadPasswordJob, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qkeychain__readpasswordjob.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QKeychain__ReadPasswordJob.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2130,10 +2130,10 @@ pub const QKeychain__ReadPasswordJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qkeychain__readpasswordjob.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QKeychain__ReadPasswordJob.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qkeychain__readpasswordjob.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QKeychain__ReadPasswordJob.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3283,7 +3283,7 @@ pub const QKeychain__WritePasswordJob = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__writepasswordjob.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__WritePasswordJob.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3335,7 +3335,7 @@ pub const QKeychain__WritePasswordJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__writepasswordjob.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__WritePasswordJob.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3357,7 +3357,7 @@ pub const QKeychain__WritePasswordJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__writepasswordjob.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__WritePasswordJob.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3414,7 +3414,7 @@ pub const QKeychain__WritePasswordJob = extern struct {
     pub fn Service(self: QKeychain__WritePasswordJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeychain__Job_Service(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__writepasswordjob.Service: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__WritePasswordJob.Service: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3448,7 +3448,7 @@ pub const QKeychain__WritePasswordJob = extern struct {
     pub fn ErrorString(self: QKeychain__WritePasswordJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeychain__Job_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__writepasswordjob.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__WritePasswordJob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3518,7 +3518,7 @@ pub const QKeychain__WritePasswordJob = extern struct {
     pub fn Key(self: QKeychain__WritePasswordJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeychain__Job_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__writepasswordjob.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__WritePasswordJob.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3615,7 +3615,7 @@ pub const QKeychain__WritePasswordJob = extern struct {
     pub fn ObjectName(self: QKeychain__WritePasswordJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__writepasswordjob.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__WritePasswordJob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3792,7 +3792,7 @@ pub const QKeychain__WritePasswordJob = extern struct {
     pub fn Children(self: QKeychain__WritePasswordJob, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qkeychain__writepasswordjob.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QKeychain__WritePasswordJob.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4068,10 +4068,10 @@ pub const QKeychain__WritePasswordJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qkeychain__writepasswordjob.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QKeychain__WritePasswordJob.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qkeychain__writepasswordjob.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QKeychain__WritePasswordJob.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -5221,7 +5221,7 @@ pub const QKeychain__DeletePasswordJob = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__deletepasswordjob.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__DeletePasswordJob.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5241,7 +5241,7 @@ pub const QKeychain__DeletePasswordJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__deletepasswordjob.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__DeletePasswordJob.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5263,7 +5263,7 @@ pub const QKeychain__DeletePasswordJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__deletepasswordjob.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__DeletePasswordJob.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5320,7 +5320,7 @@ pub const QKeychain__DeletePasswordJob = extern struct {
     pub fn Service(self: QKeychain__DeletePasswordJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeychain__Job_Service(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__deletepasswordjob.Service: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__DeletePasswordJob.Service: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5354,7 +5354,7 @@ pub const QKeychain__DeletePasswordJob = extern struct {
     pub fn ErrorString(self: QKeychain__DeletePasswordJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeychain__Job_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__deletepasswordjob.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__DeletePasswordJob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5424,7 +5424,7 @@ pub const QKeychain__DeletePasswordJob = extern struct {
     pub fn Key(self: QKeychain__DeletePasswordJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeychain__Job_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__deletepasswordjob.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__DeletePasswordJob.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5521,7 +5521,7 @@ pub const QKeychain__DeletePasswordJob = extern struct {
     pub fn ObjectName(self: QKeychain__DeletePasswordJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeychain__deletepasswordjob.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeychain__DeletePasswordJob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5698,7 +5698,7 @@ pub const QKeychain__DeletePasswordJob = extern struct {
     pub fn Children(self: QKeychain__DeletePasswordJob, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qkeychain__deletepasswordjob.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QKeychain__DeletePasswordJob.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5974,10 +5974,10 @@ pub const QKeychain__DeletePasswordJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qkeychain__deletepasswordjob.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QKeychain__DeletePasswordJob.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qkeychain__deletepasswordjob.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QKeychain__DeletePasswordJob.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

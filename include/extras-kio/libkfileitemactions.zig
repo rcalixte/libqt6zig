@@ -186,7 +186,7 @@ pub const KFileItemActions = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitemactions.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItemActions.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -234,7 +234,7 @@ pub const KFileItemActions = extern struct {
     pub fn InsertOpenWithActionsTo(self: KFileItemActions, allocator: std.mem.Allocator, before: anytype, topMenu: anytype, excludedDesktopEntryNames: []const []const u8) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(topMenu)._is_QMenu;
-        const excludedDesktopEntryNames_arr = allocator.alloc(qtc.libqt_string, excludedDesktopEntryNames.len) catch @panic("kfileitemactions.InsertOpenWithActionsTo: Memory allocation failed");
+        const excludedDesktopEntryNames_arr = allocator.alloc(qtc.libqt_string, excludedDesktopEntryNames.len) catch @panic("KFileItemActions.InsertOpenWithActionsTo: Memory allocation failed");
         defer allocator.free(excludedDesktopEntryNames_arr);
         for (excludedDesktopEntryNames, 0..excludedDesktopEntryNames.len) |item, i|
             excludedDesktopEntryNames_arr[i] = .{
@@ -339,7 +339,7 @@ pub const KFileItemActions = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitemactions.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItemActions.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -361,7 +361,7 @@ pub const KFileItemActions = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitemactions.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItemActions.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -424,7 +424,7 @@ pub const KFileItemActions = extern struct {
             .len = additionalActions.len,
             .data = @ptrCast(additionalActions.ptr),
         };
-        const excludeList_arr = allocator.alloc(qtc.libqt_string, excludeList.len) catch @panic("kfileitemactions.AddActionsTo4: Memory allocation failed");
+        const excludeList_arr = allocator.alloc(qtc.libqt_string, excludeList.len) catch @panic("KFileItemActions.AddActionsTo4: Memory allocation failed");
         defer allocator.free(excludeList_arr);
         for (excludeList, 0..excludeList.len) |item, i|
             excludeList_arr[i] = .{
@@ -451,7 +451,7 @@ pub const KFileItemActions = extern struct {
     pub fn ObjectName(self: KFileItemActions, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileitemactions.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileItemActions.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -628,7 +628,7 @@ pub const KFileItemActions = extern struct {
     pub fn Children(self: KFileItemActions, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kfileitemactions.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KFileItemActions.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -904,10 +904,10 @@ pub const KFileItemActions = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kfileitemactions.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KFileItemActions.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kfileitemactions.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KFileItemActions.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

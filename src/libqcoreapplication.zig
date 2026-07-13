@@ -42,13 +42,13 @@ pub const QCoreApplication = extern struct {
     /// ` argv: [][:0]u8 `
     ///
     pub fn New(allocator: std.mem.Allocator, argc: *i32, argv: [][:0]u8) QCoreApplication {
-        const argv_chararr = allocator.alloc([*c]u8, argv.len) catch @panic("qcoreapplication.New: Memory allocation failed");
+        const argv_chararr = allocator.alloc([*:0]u8, argv.len) catch @panic("QCoreApplication.New: Memory allocation failed");
         // Qt takes ownership of the memory.
         // The memory must outlive the application.
         // Do not free this allocation.
         for (argv, 0..argv.len) |str, i|
             argv_chararr[i] = @ptrCast(str.ptr);
-        return .{ .ptr = qtc.QCoreApplication_new(@ptrCast(argc), argv_chararr.ptr) };
+        return .{ .ptr = qtc.QCoreApplication_new(@ptrCast(argc), @ptrCast(argv_chararr)) };
     }
 
     /// New2 constructs a new QCoreApplication object.
@@ -64,13 +64,13 @@ pub const QCoreApplication = extern struct {
     /// ` param3: i32 `
     ///
     pub fn New2(allocator: std.mem.Allocator, argc: *i32, argv: [][:0]u8, param3: i32) QCoreApplication {
-        const argv_chararr = allocator.alloc([*c]u8, argv.len) catch @panic("qcoreapplication.New2: Memory allocation failed");
+        const argv_chararr = allocator.alloc([*:0]u8, argv.len) catch @panic("QCoreApplication.New2: Memory allocation failed");
         // Qt takes ownership of the memory.
         // The memory must outlive the application.
         // Do not free this allocation.
         for (argv, 0..argv.len) |str, i|
             argv_chararr[i] = @ptrCast(str.ptr);
-        return .{ .ptr = qtc.QCoreApplication_new2(@ptrCast(argc), argv_chararr.ptr, @bitCast(param3)) };
+        return .{ .ptr = qtc.QCoreApplication_new2(@ptrCast(argc), @ptrCast(argv_chararr), @bitCast(param3)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
@@ -211,7 +211,7 @@ pub const QCoreApplication = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCoreApplication.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -230,10 +230,10 @@ pub const QCoreApplication = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcoreapplication.Arguments: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCoreApplication.Arguments: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcoreapplication.Arguments: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCoreApplication.Arguments: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -283,7 +283,7 @@ pub const QCoreApplication = extern struct {
     pub fn OrganizationDomain(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCoreApplication_OrganizationDomain();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.OrganizationDomain: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCoreApplication.OrganizationDomain: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -311,7 +311,7 @@ pub const QCoreApplication = extern struct {
     pub fn OrganizationName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCoreApplication_OrganizationName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.OrganizationName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCoreApplication.OrganizationName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -339,7 +339,7 @@ pub const QCoreApplication = extern struct {
     pub fn ApplicationName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCoreApplication_ApplicationName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.ApplicationName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCoreApplication.ApplicationName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -367,7 +367,7 @@ pub const QCoreApplication = extern struct {
     pub fn ApplicationVersion(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCoreApplication_ApplicationVersion();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.ApplicationVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCoreApplication.ApplicationVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -566,7 +566,7 @@ pub const QCoreApplication = extern struct {
     pub fn ApplicationDirPath(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCoreApplication_ApplicationDirPath();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.ApplicationDirPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCoreApplication.ApplicationDirPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -580,7 +580,7 @@ pub const QCoreApplication = extern struct {
     pub fn ApplicationFilePath(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCoreApplication_ApplicationFilePath();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.ApplicationFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCoreApplication.ApplicationFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -617,7 +617,7 @@ pub const QCoreApplication = extern struct {
     /// ` libraryPaths: []const []const u8 `
     ///
     pub fn SetLibraryPaths(allocator: std.mem.Allocator, libraryPaths: []const []const u8) void {
-        const libraryPaths_arr = allocator.alloc(qtc.libqt_string, libraryPaths.len) catch @panic("qcoreapplication.SetLibraryPaths: Memory allocation failed");
+        const libraryPaths_arr = allocator.alloc(qtc.libqt_string, libraryPaths.len) catch @panic("QCoreApplication.SetLibraryPaths: Memory allocation failed");
         defer allocator.free(libraryPaths_arr);
         for (libraryPaths, 0..libraryPaths.len) |item, i|
             libraryPaths_arr[i] = .{
@@ -645,10 +645,10 @@ pub const QCoreApplication = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcoreapplication.LibraryPaths: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCoreApplication.LibraryPaths: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcoreapplication.LibraryPaths: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCoreApplication.LibraryPaths: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -720,7 +720,7 @@ pub const QCoreApplication = extern struct {
         const key_Cstring = key.ptr;
         var _str = qtc.QCoreApplication_Translate(context_Cstring, key_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.Translate: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCoreApplication.Translate: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1002,7 +1002,7 @@ pub const QCoreApplication = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCoreApplication.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1024,7 +1024,7 @@ pub const QCoreApplication = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCoreApplication.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1122,7 +1122,7 @@ pub const QCoreApplication = extern struct {
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QCoreApplication_Translate3(context_Cstring, key_Cstring, disambiguation_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.Translate3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCoreApplication.Translate3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1147,7 +1147,7 @@ pub const QCoreApplication = extern struct {
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QCoreApplication_Translate4(context_Cstring, key_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.Translate4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCoreApplication.Translate4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1175,7 +1175,7 @@ pub const QCoreApplication = extern struct {
     pub fn ObjectName(self: QCoreApplication, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcoreapplication.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCoreApplication.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1352,7 +1352,7 @@ pub const QCoreApplication = extern struct {
     pub fn Children(self: QCoreApplication, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qcoreapplication.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QCoreApplication.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1628,10 +1628,10 @@ pub const QCoreApplication = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qcoreapplication.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QCoreApplication.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcoreapplication.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCoreApplication.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

@@ -131,7 +131,7 @@ pub const QOpenGLDebugMessage = extern struct {
     pub fn Message(self: QOpenGLDebugMessage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QOpenGLDebugMessage_Message(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengldebugmessage.Message: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLDebugMessage.Message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -481,7 +481,7 @@ pub const QOpenGLDebugLogger = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengldebuglogger.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLDebugLogger.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -619,7 +619,7 @@ pub const QOpenGLDebugLogger = extern struct {
     pub fn LoggedMessages(self: QOpenGLDebugLogger, allocator: std.mem.Allocator) []QOpenGLDebugMessage {
         const _arr: qtc.libqt_list = qtc.QOpenGLDebugLogger_LoggedMessages(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QOpenGLDebugMessage, _arr.len) catch @panic("qopengldebuglogger.LoggedMessages: Memory allocation failed");
+        const _ret = allocator.alloc(QOpenGLDebugMessage, _arr.len) catch @panic("QOpenGLDebugLogger.LoggedMessages: Memory allocation failed");
         const _data: [*]QtC.QOpenGLDebugMessage = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -699,7 +699,7 @@ pub const QOpenGLDebugLogger = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengldebuglogger.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLDebugLogger.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -721,7 +721,7 @@ pub const QOpenGLDebugLogger = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengldebuglogger.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLDebugLogger.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -949,7 +949,7 @@ pub const QOpenGLDebugLogger = extern struct {
     pub fn ObjectName(self: QOpenGLDebugLogger, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopengldebuglogger.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLDebugLogger.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1126,7 +1126,7 @@ pub const QOpenGLDebugLogger = extern struct {
     pub fn Children(self: QOpenGLDebugLogger, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qopengldebuglogger.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QOpenGLDebugLogger.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1402,10 +1402,10 @@ pub const QOpenGLDebugLogger = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qopengldebuglogger.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLDebugLogger.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qopengldebuglogger.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QOpenGLDebugLogger.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

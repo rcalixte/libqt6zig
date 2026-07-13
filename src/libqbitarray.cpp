@@ -124,8 +124,8 @@ const char* QBitArray_Bits(const QBitArray* self) {
     return (const char*)self->bits();
 }
 
-QBitArray* QBitArray_FromBits(const char* data, ptrdiff_t lenVal) {
-    return new QBitArray(QBitArray::fromBits(data, (qsizetype)(lenVal)));
+QBitArray* QBitArray_FromBits(const char* data, ptrdiff_t len) {
+    return new QBitArray(QBitArray::fromBits(data, (qsizetype)(len)));
 }
 
 unsigned int QBitArray_ToUInt32(const QBitArray* self, int endianness) {

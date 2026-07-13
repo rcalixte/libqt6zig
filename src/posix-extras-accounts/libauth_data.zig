@@ -46,7 +46,7 @@ pub const Accounts__AuthData = extern struct {
     pub fn Method(self: Accounts__AuthData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__AuthData_Method(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__authdata.Method: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__AuthData.Method: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -62,7 +62,7 @@ pub const Accounts__AuthData = extern struct {
     pub fn Mechanism(self: Accounts__AuthData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__AuthData_Mechanism(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__authdata.Mechanism: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__AuthData.Mechanism: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -78,7 +78,7 @@ pub const Accounts__AuthData = extern struct {
     pub fn Parameters(self: Accounts__AuthData, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.Accounts__AuthData_Parameters(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("accounts__authdata.Parameters: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("Accounts__AuthData.Parameters: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -92,7 +92,7 @@ pub const Accounts__AuthData = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("accounts__authdata.Parameters: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("Accounts__AuthData.Parameters: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });

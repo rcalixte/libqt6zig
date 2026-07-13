@@ -41,7 +41,7 @@ pub const KSambaShareData = extern struct {
     pub fn Name(self: KSambaShareData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSambaShareData_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksambasharedata.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSambaShareData.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -57,7 +57,7 @@ pub const KSambaShareData = extern struct {
     pub fn Path(self: KSambaShareData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSambaShareData_Path(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksambasharedata.Path: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSambaShareData.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -73,7 +73,7 @@ pub const KSambaShareData = extern struct {
     pub fn Comment(self: KSambaShareData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSambaShareData_Comment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksambasharedata.Comment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSambaShareData.Comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -89,7 +89,7 @@ pub const KSambaShareData = extern struct {
     pub fn Acl(self: KSambaShareData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSambaShareData_Acl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksambasharedata.Acl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSambaShareData.Acl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

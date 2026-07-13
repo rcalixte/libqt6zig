@@ -274,7 +274,7 @@ pub const KFileMetaData__SimpleExtractionResult = extern struct {
     pub fn Properties(self: KFileMetaData__SimpleExtractionResult, allocator: std.mem.Allocator) ArrayMap_i32_SliceQVariant {
         const _map: qtc.libqt_map = qtc.KFileMetaData__SimpleExtractionResult_Properties(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kfilemetadata__simpleextractionresult.Properties: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KFileMetaData__SimpleExtractionResult.Properties: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -289,7 +289,7 @@ pub const KFileMetaData__SimpleExtractionResult = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(QVariant, _value.len) catch @panic("kfilemetadata__simpleextractionresult.Properties: Memory allocation failed");
+            const _value_slice = allocator.alloc(QVariant, _value.len) catch @panic("KFileMetaData__SimpleExtractionResult.Properties: Memory allocation failed");
             const _value_data: [*]QtC.QVariant = @ptrCast(@alignCast(_value.data));
             for (0.._value.len) |ii|
                 _value_slice[ii] = .{ .ptr = _value_data[ii] };
@@ -309,7 +309,7 @@ pub const KFileMetaData__SimpleExtractionResult = extern struct {
     pub fn Text(self: KFileMetaData__SimpleExtractionResult, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__SimpleExtractionResult_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__simpleextractionresult.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__SimpleExtractionResult.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -329,7 +329,7 @@ pub const KFileMetaData__SimpleExtractionResult = extern struct {
     pub fn Types(self: KFileMetaData__SimpleExtractionResult, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.KFileMetaData__SimpleExtractionResult_Types(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("kfilemetadata__simpleextractionresult.Types: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KFileMetaData__SimpleExtractionResult.Types: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -348,7 +348,7 @@ pub const KFileMetaData__SimpleExtractionResult = extern struct {
     pub fn InputUrl(self: KFileMetaData__SimpleExtractionResult, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__ExtractionResult_InputUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__simpleextractionresult.InputUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__SimpleExtractionResult.InputUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -366,7 +366,7 @@ pub const KFileMetaData__SimpleExtractionResult = extern struct {
     pub fn InputMimetype(self: KFileMetaData__SimpleExtractionResult, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__ExtractionResult_InputMimetype(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__simpleextractionresult.InputMimetype: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__SimpleExtractionResult.InputMimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -404,7 +404,7 @@ pub const KFileMetaData__SimpleExtractionResult = extern struct {
     pub fn ImageData(self: KFileMetaData__SimpleExtractionResult, allocator: std.mem.Allocator) ArrayMap_i32_u8 {
         const _map: qtc.libqt_map = qtc.KFileMetaData__ExtractionResult_ImageData(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kfilemetadata__simpleextractionresult.ImageData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KFileMetaData__SimpleExtractionResult.ImageData: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -419,7 +419,7 @@ pub const KFileMetaData__SimpleExtractionResult = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kfilemetadata__simpleextractionresult.ImageData: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KFileMetaData__SimpleExtractionResult.ImageData: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }

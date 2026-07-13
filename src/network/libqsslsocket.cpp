@@ -617,10 +617,10 @@ long long QSslSocket_SkipData(QSslSocket* self, long long maxSize) {
     return {};
 }
 
-long long QSslSocket_WriteData(QSslSocket* self, const char* data, long long lenVal) {
+long long QSslSocket_WriteData(QSslSocket* self, const char* data, long long len) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
-        return static_cast<long long>(vqsslsocket->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqsslsocket->writeData(data, static_cast<qint64>(len)));
     }
     return {};
 }
@@ -1130,13 +1130,13 @@ void QSslSocket_OnSkipData(QSslSocket* self, intptr_t slot) {
 }
 
 // Base class handler implementation
-long long QSslSocket_SuperWriteData(QSslSocket* self, const char* data, long long lenVal) {
+long long QSslSocket_SuperWriteData(QSslSocket* self, const char* data, long long len) {
     auto* vqsslsocket = dynamic_cast<VirtualQSslSocket*>(self);
     if (vqsslsocket && vqsslsocket->isVirtualQSslSocket) {
         vqsslsocket->setQSslSocket_WriteData_IsBase(true);
-        return static_cast<long long>(vqsslsocket->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(vqsslsocket->writeData(data, static_cast<qint64>(len)));
     } else {
-        return static_cast<long long>(((VirtualQSslSocket*)self)->writeData(data, static_cast<qint64>(lenVal)));
+        return static_cast<long long>(((VirtualQSslSocket*)self)->writeData(data, static_cast<qint64>(len)));
     }
 }
 

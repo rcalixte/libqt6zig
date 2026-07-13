@@ -126,7 +126,7 @@ pub const KMacroExpanderBase = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kmacroexpanderbase.ExpandPlainMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KMacroExpanderBase.ExpandPlainMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -179,7 +179,7 @@ pub const KMacroExpanderBase = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kmacroexpanderbase.ExpandPlainMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KMacroExpanderBase.ExpandPlainMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -212,7 +212,7 @@ pub const KMacroExpanderBase = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kmacroexpanderbase.ExpandEscapedMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KMacroExpanderBase.ExpandEscapedMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -265,7 +265,7 @@ pub const KMacroExpanderBase = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kmacroexpanderbase.ExpandEscapedMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KMacroExpanderBase.ExpandEscapedMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -343,7 +343,7 @@ pub const KWordMacroExpander = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kwordmacroexpander.ExpandPlainMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KWordMacroExpander.ExpandPlainMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -396,7 +396,7 @@ pub const KWordMacroExpander = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kwordmacroexpander.ExpandPlainMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KWordMacroExpander.ExpandPlainMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -429,7 +429,7 @@ pub const KWordMacroExpander = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kwordmacroexpander.ExpandEscapedMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KWordMacroExpander.ExpandEscapedMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -482,7 +482,7 @@ pub const KWordMacroExpander = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kwordmacroexpander.ExpandEscapedMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KWordMacroExpander.ExpandEscapedMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -513,7 +513,7 @@ pub const KWordMacroExpander = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kwordmacroexpander.ExpandMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KWordMacroExpander.ExpandMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -564,7 +564,7 @@ pub const KWordMacroExpander = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kwordmacroexpander.ExpandMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KWordMacroExpander.ExpandMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -725,7 +725,7 @@ pub const KCharMacroExpander = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kcharmacroexpander.ExpandPlainMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KCharMacroExpander.ExpandPlainMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -778,7 +778,7 @@ pub const KCharMacroExpander = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kcharmacroexpander.ExpandPlainMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KCharMacroExpander.ExpandPlainMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -811,7 +811,7 @@ pub const KCharMacroExpander = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kcharmacroexpander.ExpandEscapedMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KCharMacroExpander.ExpandEscapedMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -864,7 +864,7 @@ pub const KCharMacroExpander = extern struct {
             .len = str.len,
             .data = str.ptr,
         };
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kcharmacroexpander.ExpandEscapedMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KCharMacroExpander.ExpandEscapedMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -892,7 +892,7 @@ pub const KCharMacroExpander = extern struct {
     ///
     pub fn ExpandMacro(self: KCharMacroExpander, allocator: std.mem.Allocator, chr: anytype, retVal: []const []const u8) bool {
         comptime _ = @TypeOf(chr)._is_QChar;
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kcharmacroexpander.ExpandMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KCharMacroExpander.ExpandMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -940,7 +940,7 @@ pub const KCharMacroExpander = extern struct {
     ///
     pub fn SuperExpandMacro(self: KCharMacroExpander, allocator: std.mem.Allocator, chr: anytype, retVal: []const []const u8) bool {
         comptime _ = @TypeOf(chr)._is_QChar;
-        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("kcharmacroexpander.ExpandMacro: Memory allocation failed");
+        const retVal_arr = allocator.alloc(qtc.libqt_string, retVal.len) catch @panic("KCharMacroExpander.ExpandMacro: Memory allocation failed");
         defer allocator.free(retVal_arr);
         for (retVal, 0..retVal.len) |item, i|
             retVal_arr[i] = .{
@@ -1082,9 +1082,9 @@ pub const KMacroExpander = extern struct {
             .data = str.ptr,
         };
         const map_count = map.count();
-        const map_keys = allocator.alloc(QtC.QChar, map_count) catch @panic("kmacroexpander.ExpandMacros: Memory allocation failed");
+        const map_keys = allocator.alloc(QtC.QChar, map_count) catch @panic("KMacroExpander.ExpandMacros: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(qtc.libqt_string, map_count) catch @panic("kmacroexpander.ExpandMacros: Memory allocation failed");
+        const map_values = allocator.alloc(qtc.libqt_string, map_count) catch @panic("KMacroExpander.ExpandMacros: Memory allocation failed");
         defer allocator.free(map_values);
         var i: usize = 0;
         var map_it = map.iterator();
@@ -1105,7 +1105,7 @@ pub const KMacroExpander = extern struct {
         comptime _ = @TypeOf(c)._is_QChar;
         var _str = qtc.KMacroExpander_ExpandMacros(str_str, map_map, @ptrCast(c.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kmacroexpander.ExpandMacros: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMacroExpander.ExpandMacros: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1128,9 +1128,9 @@ pub const KMacroExpander = extern struct {
             .data = str.ptr,
         };
         const map_count = map.count();
-        const map_keys = allocator.alloc(QtC.QChar, map_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote: Memory allocation failed");
+        const map_keys = allocator.alloc(QtC.QChar, map_count) catch @panic("KMacroExpander.ExpandMacrosShellQuote: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(qtc.libqt_string, map_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote: Memory allocation failed");
+        const map_values = allocator.alloc(qtc.libqt_string, map_count) catch @panic("KMacroExpander.ExpandMacrosShellQuote: Memory allocation failed");
         defer allocator.free(map_values);
         var i: usize = 0;
         var map_it = map.iterator();
@@ -1151,7 +1151,7 @@ pub const KMacroExpander = extern struct {
         comptime _ = @TypeOf(c)._is_QChar;
         var _str = qtc.KMacroExpander_ExpandMacrosShellQuote(str_str, map_map, @ptrCast(c.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kmacroexpander.ExpandMacrosShellQuote: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMacroExpander.ExpandMacrosShellQuote: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1174,9 +1174,9 @@ pub const KMacroExpander = extern struct {
             .data = str.ptr,
         };
         const map_count = map.count();
-        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("kmacroexpander.ExpandMacros2: Memory allocation failed");
+        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("KMacroExpander.ExpandMacros2: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(qtc.libqt_string, map_count) catch @panic("kmacroexpander.ExpandMacros2: Memory allocation failed");
+        const map_values = allocator.alloc(qtc.libqt_string, map_count) catch @panic("KMacroExpander.ExpandMacros2: Memory allocation failed");
         defer allocator.free(map_values);
         var i: usize = 0;
         var map_it = map.iterator();
@@ -1200,7 +1200,7 @@ pub const KMacroExpander = extern struct {
         comptime _ = @TypeOf(c)._is_QChar;
         var _str = qtc.KMacroExpander_ExpandMacros2(str_str, map_map, @ptrCast(c.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kmacroexpander.ExpandMacros2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMacroExpander.ExpandMacros2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1223,9 +1223,9 @@ pub const KMacroExpander = extern struct {
             .data = str.ptr,
         };
         const map_count = map.count();
-        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote2: Memory allocation failed");
+        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("KMacroExpander.ExpandMacrosShellQuote2: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(qtc.libqt_string, map_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote2: Memory allocation failed");
+        const map_values = allocator.alloc(qtc.libqt_string, map_count) catch @panic("KMacroExpander.ExpandMacrosShellQuote2: Memory allocation failed");
         defer allocator.free(map_values);
         var i: usize = 0;
         var map_it = map.iterator();
@@ -1249,7 +1249,7 @@ pub const KMacroExpander = extern struct {
         comptime _ = @TypeOf(c)._is_QChar;
         var _str = qtc.KMacroExpander_ExpandMacrosShellQuote2(str_str, map_map, @ptrCast(c.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kmacroexpander.ExpandMacrosShellQuote2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMacroExpander.ExpandMacrosShellQuote2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1272,11 +1272,11 @@ pub const KMacroExpander = extern struct {
             .data = str.ptr,
         };
         const map_count = map.count();
-        const map_keys = allocator.alloc(QtC.QChar, map_count) catch @panic("kmacroexpander.ExpandMacros3: Memory allocation failed");
+        const map_keys = allocator.alloc(QtC.QChar, map_count) catch @panic("KMacroExpander.ExpandMacros3: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(qtc.libqt_list, map_count) catch @panic("kmacroexpander.ExpandMacros3: Memory allocation failed");
+        const map_values = allocator.alloc(qtc.libqt_list, map_count) catch @panic("KMacroExpander.ExpandMacros3: Memory allocation failed");
         defer allocator.free(map_values);
-        const map_inners = allocator.alloc([]qtc.libqt_string, map_count) catch @panic("kmacroexpander.ExpandMacros3: Memory allocation failed");
+        const map_inners = allocator.alloc([]qtc.libqt_string, map_count) catch @panic("KMacroExpander.ExpandMacros3: Memory allocation failed");
         defer {
             for (map_inners) |map_inner|
                 allocator.free(map_inner);
@@ -1288,7 +1288,7 @@ pub const KMacroExpander = extern struct {
             const map_key = it_entry.key_ptr.*;
             map_keys[i] = @ptrCast(map_key.ptr);
             map_values[i].len = it_entry.value_ptr.*.len;
-            const map_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("kmacroexpander.ExpandMacros3: Memory allocation failed");
+            const map_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("KMacroExpander.ExpandMacros3: Memory allocation failed");
             map_inners[i] = map_val;
             for (it_entry.value_ptr.*, 0..) |value, j|
                 map_val[j] = qtc.libqt_string{
@@ -1305,7 +1305,7 @@ pub const KMacroExpander = extern struct {
         comptime _ = @TypeOf(c)._is_QChar;
         var _str = qtc.KMacroExpander_ExpandMacros3(str_str, map_map, @ptrCast(c.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kmacroexpander.ExpandMacros3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMacroExpander.ExpandMacros3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1328,11 +1328,11 @@ pub const KMacroExpander = extern struct {
             .data = str.ptr,
         };
         const map_count = map.count();
-        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("kmacroexpander.ExpandMacros4: Memory allocation failed");
+        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("KMacroExpander.ExpandMacros4: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(qtc.libqt_list, map_count) catch @panic("kmacroexpander.ExpandMacros4: Memory allocation failed");
+        const map_values = allocator.alloc(qtc.libqt_list, map_count) catch @panic("KMacroExpander.ExpandMacros4: Memory allocation failed");
         defer allocator.free(map_values);
-        const map_inners = allocator.alloc([]qtc.libqt_string, map_count) catch @panic("kmacroexpander.ExpandMacros4: Memory allocation failed");
+        const map_inners = allocator.alloc([]qtc.libqt_string, map_count) catch @panic("KMacroExpander.ExpandMacros4: Memory allocation failed");
         defer {
             for (map_inners) |map_inner|
                 allocator.free(map_inner);
@@ -1347,7 +1347,7 @@ pub const KMacroExpander = extern struct {
                 .data = map_key.ptr,
             };
             map_values[i].len = it_entry.value_ptr.*.len;
-            const map_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("kmacroexpander.ExpandMacros4: Memory allocation failed");
+            const map_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("KMacroExpander.ExpandMacros4: Memory allocation failed");
             map_inners[i] = map_val;
             for (it_entry.value_ptr.*, 0..) |value, j|
                 map_val[j] = qtc.libqt_string{
@@ -1364,7 +1364,7 @@ pub const KMacroExpander = extern struct {
         comptime _ = @TypeOf(c)._is_QChar;
         var _str = qtc.KMacroExpander_ExpandMacros4(str_str, map_map, @ptrCast(c.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kmacroexpander.ExpandMacros4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMacroExpander.ExpandMacros4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1387,11 +1387,11 @@ pub const KMacroExpander = extern struct {
             .data = str.ptr,
         };
         const map_count = map.count();
-        const map_keys = allocator.alloc(QtC.QChar, map_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote3: Memory allocation failed");
+        const map_keys = allocator.alloc(QtC.QChar, map_count) catch @panic("KMacroExpander.ExpandMacrosShellQuote3: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(qtc.libqt_list, map_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote3: Memory allocation failed");
+        const map_values = allocator.alloc(qtc.libqt_list, map_count) catch @panic("KMacroExpander.ExpandMacrosShellQuote3: Memory allocation failed");
         defer allocator.free(map_values);
-        const map_inners = allocator.alloc([]qtc.libqt_string, map_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote3: Memory allocation failed");
+        const map_inners = allocator.alloc([]qtc.libqt_string, map_count) catch @panic("KMacroExpander.ExpandMacrosShellQuote3: Memory allocation failed");
         defer {
             for (map_inners) |map_inner|
                 allocator.free(map_inner);
@@ -1403,7 +1403,7 @@ pub const KMacroExpander = extern struct {
             const map_key = it_entry.key_ptr.*;
             map_keys[i] = @ptrCast(map_key.ptr);
             map_values[i].len = it_entry.value_ptr.*.len;
-            const map_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("kmacroexpander.ExpandMacrosShellQuote3: Memory allocation failed");
+            const map_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("KMacroExpander.ExpandMacrosShellQuote3: Memory allocation failed");
             map_inners[i] = map_val;
             for (it_entry.value_ptr.*, 0..) |value, j|
                 map_val[j] = qtc.libqt_string{
@@ -1420,7 +1420,7 @@ pub const KMacroExpander = extern struct {
         comptime _ = @TypeOf(c)._is_QChar;
         var _str = qtc.KMacroExpander_ExpandMacrosShellQuote3(str_str, map_map, @ptrCast(c.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kmacroexpander.ExpandMacrosShellQuote3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMacroExpander.ExpandMacrosShellQuote3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1443,11 +1443,11 @@ pub const KMacroExpander = extern struct {
             .data = str.ptr,
         };
         const map_count = map.count();
-        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote4: Memory allocation failed");
+        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("KMacroExpander.ExpandMacrosShellQuote4: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(qtc.libqt_list, map_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote4: Memory allocation failed");
+        const map_values = allocator.alloc(qtc.libqt_list, map_count) catch @panic("KMacroExpander.ExpandMacrosShellQuote4: Memory allocation failed");
         defer allocator.free(map_values);
-        const map_inners = allocator.alloc([]qtc.libqt_string, map_count) catch @panic("kmacroexpander.ExpandMacrosShellQuote4: Memory allocation failed");
+        const map_inners = allocator.alloc([]qtc.libqt_string, map_count) catch @panic("KMacroExpander.ExpandMacrosShellQuote4: Memory allocation failed");
         defer {
             for (map_inners) |map_inner|
                 allocator.free(map_inner);
@@ -1462,7 +1462,7 @@ pub const KMacroExpander = extern struct {
                 .data = map_key.ptr,
             };
             map_values[i].len = it_entry.value_ptr.*.len;
-            const map_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("kmacroexpander.ExpandMacrosShellQuote4: Memory allocation failed");
+            const map_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("KMacroExpander.ExpandMacrosShellQuote4: Memory allocation failed");
             map_inners[i] = map_val;
             for (it_entry.value_ptr.*, 0..) |value, j|
                 map_val[j] = qtc.libqt_string{
@@ -1479,7 +1479,7 @@ pub const KMacroExpander = extern struct {
         comptime _ = @TypeOf(c)._is_QChar;
         var _str = qtc.KMacroExpander_ExpandMacrosShellQuote4(str_str, map_map, @ptrCast(c.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kmacroexpander.ExpandMacrosShellQuote4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMacroExpander.ExpandMacrosShellQuote4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

@@ -68,7 +68,7 @@ pub const QPlaceCategory = extern struct {
     pub fn CategoryId(self: QPlaceCategory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceCategory_CategoryId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacecategory.CategoryId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceCategory.CategoryId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -100,7 +100,7 @@ pub const QPlaceCategory = extern struct {
     pub fn Name(self: QPlaceCategory, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceCategory_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacecategory.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceCategory.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

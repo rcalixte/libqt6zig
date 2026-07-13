@@ -13,7 +13,7 @@ pub const Poppler__Version = extern struct {
     pub fn String(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__Version_String();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__version.String: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__Version.String: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

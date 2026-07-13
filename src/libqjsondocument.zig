@@ -74,7 +74,7 @@ pub const QJsonParseError = extern struct {
     pub fn ErrorString(self: QJsonParseError, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QJsonParseError_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qjsonparseerror.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonParseError.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -265,7 +265,7 @@ pub const QJsonDocument = extern struct {
     pub fn ToJson(self: QJsonDocument, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QJsonDocument_ToJson(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qjsondocument.ToJson: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QJsonDocument.ToJson: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -446,7 +446,7 @@ pub const QJsonDocument = extern struct {
     pub fn ToJson1(self: QJsonDocument, allocator: std.mem.Allocator, format: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QJsonDocument_ToJson1(@ptrCast(self.ptr), @bitCast(format));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qjsondocument.ToJson1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QJsonDocument.ToJson1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

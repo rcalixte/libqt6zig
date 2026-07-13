@@ -40,7 +40,7 @@ pub const KIconEngine = extern struct {
             .data = iconName.ptr,
         };
         comptime _ = @TypeOf(iconLoader)._is_KIconLoader;
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconengine.New: Memory allocation failed");
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconEngine.New: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i|
             overlays_arr[i] = .{
@@ -112,7 +112,7 @@ pub const KIconEngine = extern struct {
         };
         comptime _ = @TypeOf(colors)._is_KIconColors;
         comptime _ = @TypeOf(iconLoader)._is_KIconLoader;
-        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("kiconengine.New4: Memory allocation failed");
+        const overlays_arr = allocator.alloc(qtc.libqt_string, overlays.len) catch @panic("KIconEngine.New4: Memory allocation failed");
         defer allocator.free(overlays_arr);
         for (overlays, 0..overlays.len) |item, i|
             overlays_arr[i] = .{
@@ -380,7 +380,7 @@ pub const KIconEngine = extern struct {
     pub fn IconName(self: KIconEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconEngine_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconengine.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconEngine.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -416,7 +416,7 @@ pub const KIconEngine = extern struct {
     pub fn SuperIconName(self: KIconEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconEngine_SuperIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconengine.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconEngine.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -436,7 +436,7 @@ pub const KIconEngine = extern struct {
     pub fn AvailableSizes(self: KIconEngine, allocator: std.mem.Allocator, mode: i32, state: i32) []QSize {
         const _arr: qtc.libqt_list = qtc.KIconEngine_AvailableSizes(@ptrCast(self.ptr), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("kiconengine.AvailableSizes: Memory allocation failed");
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("KIconEngine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -484,7 +484,7 @@ pub const KIconEngine = extern struct {
     pub fn SuperAvailableSizes(self: KIconEngine, allocator: std.mem.Allocator, mode: i32, state: i32) []QSize {
         const _arr: qtc.libqt_list = qtc.KIconEngine_SuperAvailableSizes(@ptrCast(self.ptr), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("kiconengine.AvailableSizes: Memory allocation failed");
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("KIconEngine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -542,7 +542,7 @@ pub const KIconEngine = extern struct {
     pub fn Key(self: KIconEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconEngine_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconengine.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconEngine.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -578,7 +578,7 @@ pub const KIconEngine = extern struct {
     pub fn SuperKey(self: KIconEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIconEngine_SuperKey(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kiconengine.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIconEngine.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

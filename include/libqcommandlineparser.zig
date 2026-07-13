@@ -33,7 +33,7 @@ pub const QCommandLineParser = extern struct {
         const sourceText_Cstring = sourceText.ptr;
         var _str = qtc.QObject_Tr(sourceText_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommandLineParser.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -138,7 +138,7 @@ pub const QCommandLineParser = extern struct {
     pub fn ApplicationDescription(self: QCommandLineParser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCommandLineParser_ApplicationDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.ApplicationDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommandLineParser.ApplicationDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -186,7 +186,7 @@ pub const QCommandLineParser = extern struct {
     /// ` arguments: []const []const u8 `
     ///
     pub fn Process(self: QCommandLineParser, allocator: std.mem.Allocator, arguments: []const []const u8) void {
-        const arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qcommandlineparser.Process: Memory allocation failed");
+        const arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("QCommandLineParser.Process: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i|
             arguments_arr[i] = .{
@@ -224,7 +224,7 @@ pub const QCommandLineParser = extern struct {
     /// ` arguments: []const []const u8 `
     ///
     pub fn Parse(self: QCommandLineParser, allocator: std.mem.Allocator, arguments: []const []const u8) bool {
-        const arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("qcommandlineparser.Parse: Memory allocation failed");
+        const arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("QCommandLineParser.Parse: Memory allocation failed");
         defer allocator.free(arguments_arr);
         for (arguments, 0..arguments.len) |item, i|
             arguments_arr[i] = .{
@@ -249,7 +249,7 @@ pub const QCommandLineParser = extern struct {
     pub fn ErrorText(self: QCommandLineParser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCommandLineParser_ErrorText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.ErrorText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommandLineParser.ErrorText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -287,7 +287,7 @@ pub const QCommandLineParser = extern struct {
         };
         var _str = qtc.QCommandLineParser_Value(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommandLineParser.Value: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -314,10 +314,10 @@ pub const QCommandLineParser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineparser.Values: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCommandLineParser.Values: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcommandlineparser.Values: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCommandLineParser.Values: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -351,7 +351,7 @@ pub const QCommandLineParser = extern struct {
         comptime _ = @TypeOf(option)._is_QCommandLineOption;
         var _str = qtc.QCommandLineParser_Value2(@ptrCast(self.ptr), @ptrCast(option.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.Value2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommandLineParser.Value2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -375,10 +375,10 @@ pub const QCommandLineParser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineparser.Values2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCommandLineParser.Values2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcommandlineparser.Values2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCommandLineParser.Values2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -401,10 +401,10 @@ pub const QCommandLineParser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineparser.PositionalArguments: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCommandLineParser.PositionalArguments: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcommandlineparser.PositionalArguments: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCommandLineParser.PositionalArguments: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -427,10 +427,10 @@ pub const QCommandLineParser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineparser.OptionNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCommandLineParser.OptionNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcommandlineparser.OptionNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCommandLineParser.OptionNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -453,10 +453,10 @@ pub const QCommandLineParser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qcommandlineparser.UnknownOptionNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCommandLineParser.UnknownOptionNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qcommandlineparser.UnknownOptionNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCommandLineParser.UnknownOptionNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -494,7 +494,7 @@ pub const QCommandLineParser = extern struct {
     pub fn HelpText(self: QCommandLineParser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCommandLineParser_HelpText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.HelpText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommandLineParser.HelpText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -514,7 +514,7 @@ pub const QCommandLineParser = extern struct {
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommandLineParser.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -536,7 +536,7 @@ pub const QCommandLineParser = extern struct {
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcommandlineparser.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCommandLineParser.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

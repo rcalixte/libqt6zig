@@ -622,19 +622,19 @@ class VirtualQSslSocket final : public QSslSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual qint64 writeData(const char* data, qint64 lenVal) override {
+    virtual qint64 writeData(const char* data, qint64 len) override {
         if (qsslsocket_writedata_isbase) {
             qsslsocket_writedata_isbase = false;
-            return QSslSocket::writeData(data, lenVal);
+            return QSslSocket::writeData(data, len);
         }
         auto writedata_cb = qsslsocket_writedata_callback;
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
-            long long cbval2 = static_cast<long long>(lenVal);
+            long long cbval2 = static_cast<long long>(len);
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
-        return QSslSocket::writeData(data, lenVal);
+        return QSslSocket::writeData(data, len);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1116,8 +1116,8 @@ class VirtualQSslSocket final : public QSslSocket {
     friend long long QSslSocket_SuperReadData(QSslSocket* self, char* data, long long maxlen);
     friend long long QSslSocket_SkipData(QSslSocket* self, long long maxSize);
     friend long long QSslSocket_SuperSkipData(QSslSocket* self, long long maxSize);
-    friend long long QSslSocket_WriteData(QSslSocket* self, const char* data, long long lenVal);
-    friend long long QSslSocket_SuperWriteData(QSslSocket* self, const char* data, long long lenVal);
+    friend long long QSslSocket_WriteData(QSslSocket* self, const char* data, long long len);
+    friend long long QSslSocket_SuperWriteData(QSslSocket* self, const char* data, long long len);
     friend long long QSslSocket_ReadLineData(QSslSocket* self, char* data, long long maxlen);
     friend long long QSslSocket_SuperReadLineData(QSslSocket* self, char* data, long long maxlen);
     friend void QSslSocket_TimerEvent(QSslSocket* self, QTimerEvent* event);

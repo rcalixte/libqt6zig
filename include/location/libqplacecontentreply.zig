@@ -185,7 +185,7 @@ pub const QPlaceContentReply = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacecontentreply.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContentReply.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -249,7 +249,7 @@ pub const QPlaceContentReply = extern struct {
     pub fn Content(self: QPlaceContentReply, allocator: std.mem.Allocator) ArrayMap_i32_QPlaceContent {
         const _map: qtc.libqt_map = qtc.QPlaceContentReply_Content(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_QPlaceContent = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qplacecontentreply.Content: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QPlaceContentReply.Content: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -317,9 +317,9 @@ pub const QPlaceContentReply = extern struct {
     ///
     pub fn SetContent(self: QPlaceContentReply, allocator: std.mem.Allocator, content: ArrayMap_i32_QPlaceContent) void {
         const content_count = content.count();
-        const content_keys = allocator.alloc(i32, content_count) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
+        const content_keys = allocator.alloc(i32, content_count) catch @panic("QPlaceContentReply.SetContent: Memory allocation failed");
         defer allocator.free(content_keys);
-        const content_values = allocator.alloc(QtC.QPlaceContent, content_count) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
+        const content_values = allocator.alloc(QtC.QPlaceContent, content_count) catch @panic("QPlaceContentReply.SetContent: Memory allocation failed");
         defer allocator.free(content_values);
         var i: usize = 0;
         var content_it = content.iterator();
@@ -368,9 +368,9 @@ pub const QPlaceContentReply = extern struct {
     ///
     pub fn SuperSetContent(self: QPlaceContentReply, allocator: std.mem.Allocator, content: ArrayMap_i32_QPlaceContent) void {
         const content_count = content.count();
-        const content_keys = allocator.alloc(i32, content_count) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
+        const content_keys = allocator.alloc(i32, content_count) catch @panic("QPlaceContentReply.SetContent: Memory allocation failed");
         defer allocator.free(content_keys);
-        const content_values = allocator.alloc(QtC.QPlaceContent, content_count) catch @panic("qplacecontentreply.SetContent: Memory allocation failed");
+        const content_values = allocator.alloc(QtC.QPlaceContent, content_count) catch @panic("QPlaceContentReply.SetContent: Memory allocation failed");
         defer allocator.free(content_values);
         var i: usize = 0;
         var content_it = content.iterator();
@@ -584,7 +584,7 @@ pub const QPlaceContentReply = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacecontentreply.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContentReply.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -606,7 +606,7 @@ pub const QPlaceContentReply = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacecontentreply.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContentReply.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -636,7 +636,7 @@ pub const QPlaceContentReply = extern struct {
     pub fn ErrorString(self: QPlaceContentReply, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceReply_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacecontentreply.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContentReply.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -810,7 +810,7 @@ pub const QPlaceContentReply = extern struct {
     pub fn ObjectName(self: QPlaceContentReply, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplacecontentreply.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContentReply.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -987,7 +987,7 @@ pub const QPlaceContentReply = extern struct {
     pub fn Children(self: QPlaceContentReply, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qplacecontentreply.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPlaceContentReply.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1263,10 +1263,10 @@ pub const QPlaceContentReply = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qplacecontentreply.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPlaceContentReply.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qplacecontentreply.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPlaceContentReply.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

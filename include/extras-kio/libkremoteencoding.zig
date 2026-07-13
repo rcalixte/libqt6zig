@@ -47,7 +47,7 @@ pub const KRemoteEncoding = extern struct {
         };
         var _str = qtc.KRemoteEncoding_Decode(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kremoteencoding.Decode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KRemoteEncoding.Decode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -69,7 +69,7 @@ pub const KRemoteEncoding = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.KRemoteEncoding_Encode(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kremoteencoding.Encode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KRemoteEncoding.Encode: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -88,7 +88,7 @@ pub const KRemoteEncoding = extern struct {
         comptime _ = @TypeOf(url)._is_QUrl;
         var _bytearray: qtc.libqt_string = qtc.KRemoteEncoding_Encode2(@ptrCast(self.ptr), @ptrCast(url.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kremoteencoding.Encode2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KRemoteEncoding.Encode2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -107,7 +107,7 @@ pub const KRemoteEncoding = extern struct {
         comptime _ = @TypeOf(url)._is_QUrl;
         var _bytearray: qtc.libqt_string = qtc.KRemoteEncoding_Directory(@ptrCast(self.ptr), @ptrCast(url.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kremoteencoding.Directory: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KRemoteEncoding.Directory: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -126,7 +126,7 @@ pub const KRemoteEncoding = extern struct {
         comptime _ = @TypeOf(url)._is_QUrl;
         var _bytearray: qtc.libqt_string = qtc.KRemoteEncoding_FileName(@ptrCast(self.ptr), @ptrCast(url.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kremoteencoding.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KRemoteEncoding.FileName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -219,7 +219,7 @@ pub const KRemoteEncoding = extern struct {
         comptime _ = @TypeOf(url)._is_QUrl;
         var _bytearray: qtc.libqt_string = qtc.KRemoteEncoding_Directory2(@ptrCast(self.ptr), @ptrCast(url.ptr), ignore_trailing_slash);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kremoteencoding.Directory2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KRemoteEncoding.Directory2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

@@ -74,7 +74,7 @@ pub const Solid__GenericInterface = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__genericinterface.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__GenericInterface.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -116,7 +116,7 @@ pub const Solid__GenericInterface = extern struct {
     pub fn AllProperties(self: Solid__GenericInterface, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.Solid__GenericInterface_AllProperties(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("solid__genericinterface.AllProperties: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("Solid__GenericInterface.AllProperties: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -130,7 +130,7 @@ pub const Solid__GenericInterface = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("solid__genericinterface.AllProperties: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("Solid__GenericInterface.AllProperties: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
@@ -166,9 +166,9 @@ pub const Solid__GenericInterface = extern struct {
     ///
     pub fn PropertyChanged(self: Solid__GenericInterface, allocator: std.mem.Allocator, changes: ArrayMap_constu8_i32) void {
         const changes_count = changes.count();
-        const changes_keys = allocator.alloc(qtc.libqt_string, changes_count) catch @panic("solid__genericinterface.PropertyChanged: Memory allocation failed");
+        const changes_keys = allocator.alloc(qtc.libqt_string, changes_count) catch @panic("Solid__GenericInterface.PropertyChanged: Memory allocation failed");
         defer allocator.free(changes_keys);
-        const changes_values = allocator.alloc(i32, changes_count) catch @panic("solid__genericinterface.PropertyChanged: Memory allocation failed");
+        const changes_values = allocator.alloc(i32, changes_count) catch @panic("Solid__GenericInterface.PropertyChanged: Memory allocation failed");
         defer allocator.free(changes_values);
         var i: usize = 0;
         var changes_it = changes.iterator();
@@ -249,7 +249,7 @@ pub const Solid__GenericInterface = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__genericinterface.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__GenericInterface.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -271,7 +271,7 @@ pub const Solid__GenericInterface = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__genericinterface.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__GenericInterface.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -301,7 +301,7 @@ pub const Solid__GenericInterface = extern struct {
     pub fn TypeToString(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
         var _str = qtc.Solid__DeviceInterface_TypeToString(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__genericinterface.TypeToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__GenericInterface.TypeToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -339,7 +339,7 @@ pub const Solid__GenericInterface = extern struct {
     pub fn TypeDescription(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
         var _str = qtc.Solid__DeviceInterface_TypeDescription(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__genericinterface.TypeDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__GenericInterface.TypeDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -390,7 +390,7 @@ pub const Solid__GenericInterface = extern struct {
     pub fn ObjectName(self: Solid__GenericInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__genericinterface.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__GenericInterface.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -567,7 +567,7 @@ pub const Solid__GenericInterface = extern struct {
     pub fn Children(self: Solid__GenericInterface, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("solid__genericinterface.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Solid__GenericInterface.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -828,10 +828,10 @@ pub const Solid__GenericInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("solid__genericinterface.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Solid__GenericInterface.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("solid__genericinterface.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Solid__GenericInterface.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

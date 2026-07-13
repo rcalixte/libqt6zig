@@ -82,7 +82,7 @@ pub const KIO__RestoreJob = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__restorejob.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__RestoreJob.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -98,7 +98,7 @@ pub const KIO__RestoreJob = extern struct {
     pub fn TrashUrls(self: KIO__RestoreJob, allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.KIO__RestoreJob_TrashUrls(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("kio__restorejob.TrashUrls: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KIO__RestoreJob.TrashUrls: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -120,7 +120,7 @@ pub const KIO__RestoreJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__restorejob.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__RestoreJob.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -142,7 +142,7 @@ pub const KIO__RestoreJob = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__restorejob.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__RestoreJob.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -199,7 +199,7 @@ pub const KIO__RestoreJob = extern struct {
     pub fn ErrorString(self: KIO__RestoreJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIO__Job_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__restorejob.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__RestoreJob.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -222,10 +222,10 @@ pub const KIO__RestoreJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__restorejob.DetailedErrorStrings: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIO__RestoreJob.DetailedErrorStrings: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio__restorejob.DetailedErrorStrings: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIO__RestoreJob.DetailedErrorStrings: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -312,9 +312,9 @@ pub const KIO__RestoreJob = extern struct {
     ///
     pub fn AddMetaData2(self: KIO__RestoreJob, allocator: std.mem.Allocator, values: ArrayMap_constu8_constu8) void {
         const values_count = values.count();
-        const values_keys = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__restorejob.AddMetaData2: Memory allocation failed");
+        const values_keys = allocator.alloc(qtc.libqt_string, values_count) catch @panic("KIO__RestoreJob.AddMetaData2: Memory allocation failed");
         defer allocator.free(values_keys);
-        const values_values = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__restorejob.AddMetaData2: Memory allocation failed");
+        const values_values = allocator.alloc(qtc.libqt_string, values_count) catch @panic("KIO__RestoreJob.AddMetaData2: Memory allocation failed");
         defer allocator.free(values_values);
         var i: usize = 0;
         var values_it = values.iterator();
@@ -352,9 +352,9 @@ pub const KIO__RestoreJob = extern struct {
     ///
     pub fn MergeMetaData(self: KIO__RestoreJob, allocator: std.mem.Allocator, values: ArrayMap_constu8_constu8) void {
         const values_count = values.count();
-        const values_keys = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__restorejob.MergeMetaData: Memory allocation failed");
+        const values_keys = allocator.alloc(qtc.libqt_string, values_count) catch @panic("KIO__RestoreJob.MergeMetaData: Memory allocation failed");
         defer allocator.free(values_keys);
-        const values_values = allocator.alloc(qtc.libqt_string, values_count) catch @panic("kio__restorejob.MergeMetaData: Memory allocation failed");
+        const values_values = allocator.alloc(qtc.libqt_string, values_count) catch @panic("KIO__RestoreJob.MergeMetaData: Memory allocation failed");
         defer allocator.free(values_values);
         var i: usize = 0;
         var values_it = values.iterator();
@@ -421,7 +421,7 @@ pub const KIO__RestoreJob = extern struct {
         };
         var _str = qtc.KIO__Job_QueryMetaData(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__restorejob.QueryMetaData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__RestoreJob.QueryMetaData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -476,10 +476,10 @@ pub const KIO__RestoreJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__restorejob.DetailedErrorStrings1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIO__RestoreJob.DetailedErrorStrings1: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio__restorejob.DetailedErrorStrings1: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIO__RestoreJob.DetailedErrorStrings1: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -509,10 +509,10 @@ pub const KIO__RestoreJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__restorejob.DetailedErrorStrings2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIO__RestoreJob.DetailedErrorStrings2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio__restorejob.DetailedErrorStrings2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIO__RestoreJob.DetailedErrorStrings2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -647,7 +647,7 @@ pub const KIO__RestoreJob = extern struct {
     pub fn ErrorText(self: KIO__RestoreJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KJob_ErrorText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__restorejob.ErrorText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__RestoreJob.ErrorText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1003,7 +1003,7 @@ pub const KIO__RestoreJob = extern struct {
     pub fn ObjectName(self: KIO__RestoreJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__restorejob.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__RestoreJob.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1180,7 +1180,7 @@ pub const KIO__RestoreJob = extern struct {
     pub fn Children(self: KIO__RestoreJob, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kio__restorejob.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KIO__RestoreJob.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1456,10 +1456,10 @@ pub const KIO__RestoreJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kio__restorejob.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KIO__RestoreJob.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio__restorejob.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIO__RestoreJob.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

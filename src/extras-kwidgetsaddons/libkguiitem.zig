@@ -232,7 +232,7 @@ pub const KGuiItem = extern struct {
     pub fn Text(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KGuiItem_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kguiitem.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -248,7 +248,7 @@ pub const KGuiItem = extern struct {
     pub fn PlainText(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KGuiItem_PlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kguiitem.PlainText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.PlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -303,7 +303,7 @@ pub const KGuiItem = extern struct {
     pub fn IconName(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KGuiItem_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kguiitem.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -345,7 +345,7 @@ pub const KGuiItem = extern struct {
     pub fn ToolTip(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KGuiItem_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kguiitem.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -377,7 +377,7 @@ pub const KGuiItem = extern struct {
     pub fn WhatsThis(self: KGuiItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KGuiItem_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kguiitem.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGuiItem.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

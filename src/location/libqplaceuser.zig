@@ -66,7 +66,7 @@ pub const QPlaceUser = extern struct {
     pub fn UserId(self: QPlaceUser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceUser_UserId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplaceuser.UserId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceUser.UserId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -98,7 +98,7 @@ pub const QPlaceUser = extern struct {
     pub fn Name(self: QPlaceUser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceUser_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qplaceuser.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceUser.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

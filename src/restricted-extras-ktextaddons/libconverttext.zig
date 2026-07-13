@@ -20,7 +20,7 @@ pub const TextUtils__ConvertText = extern struct {
         };
         var _str = qtc.TextUtils__ConvertText_Normalize(str_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textutils__converttext.Normalize: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextUtils__ConvertText.Normalize: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

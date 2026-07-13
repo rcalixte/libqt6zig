@@ -42,7 +42,7 @@ pub const KIO = extern struct {
         comptime _ = @TypeOf(destItem)._is_KFileItem;
         var _str = qtc.KIO_PasteActionText(@ptrCast(mimeData.ptr), @ptrCast(enable), @ptrCast(destItem.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.PasteActionText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO.PasteActionText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

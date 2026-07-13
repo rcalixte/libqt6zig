@@ -1384,19 +1384,19 @@ class VirtualQsciScintilla final : public QsciScintilla {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual void selectAll(bool selectVal) override {
+    virtual void selectAll(bool select) override {
         if (qsciscintilla_selectall_isbase) {
             qsciscintilla_selectall_isbase = false;
-            QsciScintilla::selectAll(selectVal);
+            QsciScintilla::selectAll(select);
             return;
         }
         auto selectall_cb = qsciscintilla_selectall_callback;
         if (selectall_cb) {
-            bool cbval1 = selectVal;
+            bool cbval1 = select;
             selectall_cb(this, cbval1);
             return;
         }
-        QsciScintilla::selectAll(selectVal);
+        QsciScintilla::selectAll(select);
     }
 
     // Virtual method for C ABI access and custom callback

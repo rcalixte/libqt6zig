@@ -184,7 +184,7 @@ pub const KUrlCompletion = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlCompletion.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -206,7 +206,7 @@ pub const KUrlCompletion = extern struct {
         };
         var _str = qtc.KUrlCompletion_MakeCompletion(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.MakeCompletion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlCompletion.MakeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -248,7 +248,7 @@ pub const KUrlCompletion = extern struct {
         };
         var _str = qtc.KUrlCompletion_SuperMakeCompletion(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.MakeCompletion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlCompletion.MakeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -698,7 +698,7 @@ pub const KUrlCompletion = extern struct {
         };
         var _str = qtc.KUrlCompletion_ReplacedPath(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.ReplacedPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlCompletion.ReplacedPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -720,7 +720,7 @@ pub const KUrlCompletion = extern struct {
         };
         var _str = qtc.KUrlCompletion_ReplacedPath2(text_str, replaceHome);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.ReplacedPath2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlCompletion.ReplacedPath2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -736,7 +736,7 @@ pub const KUrlCompletion = extern struct {
     /// ` mimeTypes: []const []const u8 `
     ///
     pub fn SetMimeTypeFilters(self: KUrlCompletion, allocator: std.mem.Allocator, mimeTypes: []const []const u8) void {
-        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kurlcompletion.SetMimeTypeFilters: Memory allocation failed");
+        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("KUrlCompletion.SetMimeTypeFilters: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
         for (mimeTypes, 0..mimeTypes.len) |item, i|
             mimeTypes_arr[i] = .{
@@ -766,10 +766,10 @@ pub const KUrlCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlcompletion.MimeTypeFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlCompletion.MimeTypeFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlcompletion.MimeTypeFilters: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlCompletion.MimeTypeFilters: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -787,7 +787,7 @@ pub const KUrlCompletion = extern struct {
     /// ` matches: []const []const u8 `
     ///
     pub fn PostProcessMatches(self: KUrlCompletion, allocator: std.mem.Allocator, matches: []const []const u8) void {
-        const matches_arr = allocator.alloc(qtc.libqt_string, matches.len) catch @panic("kurlcompletion.PostProcessMatches: Memory allocation failed");
+        const matches_arr = allocator.alloc(qtc.libqt_string, matches.len) catch @panic("KUrlCompletion.PostProcessMatches: Memory allocation failed");
         defer allocator.free(matches_arr);
         for (matches, 0..matches.len) |item, i|
             matches_arr[i] = .{
@@ -832,7 +832,7 @@ pub const KUrlCompletion = extern struct {
     /// ` matches: []const []const u8 `
     ///
     pub fn SuperPostProcessMatches(self: KUrlCompletion, allocator: std.mem.Allocator, matches: []const []const u8) void {
-        const matches_arr = allocator.alloc(qtc.libqt_string, matches.len) catch @panic("kurlcompletion.PostProcessMatches: Memory allocation failed");
+        const matches_arr = allocator.alloc(qtc.libqt_string, matches.len) catch @panic("KUrlCompletion.PostProcessMatches: Memory allocation failed");
         defer allocator.free(matches_arr);
         for (matches, 0..matches.len) |item, i|
             matches_arr[i] = .{
@@ -907,7 +907,7 @@ pub const KUrlCompletion = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlCompletion.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -929,7 +929,7 @@ pub const KUrlCompletion = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlCompletion.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -953,7 +953,7 @@ pub const KUrlCompletion = extern struct {
         };
         var _str = qtc.KUrlCompletion_ReplacedPath3(text_str, replaceHome, replaceEnv);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.ReplacedPath3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlCompletion.ReplacedPath3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -982,10 +982,10 @@ pub const KUrlCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlcompletion.SubstringCompletion: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlCompletion.SubstringCompletion: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlcompletion.SubstringCompletion: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlCompletion.SubstringCompletion: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1010,10 +1010,10 @@ pub const KUrlCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlcompletion.Items: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlCompletion.Items: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlcompletion.Items: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlCompletion.Items: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1106,10 +1106,10 @@ pub const KUrlCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlcompletion.AllMatches: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlCompletion.AllMatches: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlcompletion.AllMatches: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlCompletion.AllMatches: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1140,10 +1140,10 @@ pub const KUrlCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kurlcompletion.AllMatches2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUrlCompletion.AllMatches2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlcompletion.AllMatches2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlCompletion.AllMatches2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1217,7 +1217,7 @@ pub const KUrlCompletion = extern struct {
     pub fn PreviousMatch(self: KUrlCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCompletion_PreviousMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.PreviousMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlCompletion.PreviousMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1235,7 +1235,7 @@ pub const KUrlCompletion = extern struct {
     pub fn NextMatch(self: KUrlCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCompletion_NextMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.NextMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlCompletion.NextMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1253,7 +1253,7 @@ pub const KUrlCompletion = extern struct {
     /// ` items: []const []const u8 `
     ///
     pub fn InsertItems(self: KUrlCompletion, allocator: std.mem.Allocator, items: []const []const u8) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("kurlcompletion.InsertItems: Memory allocation failed");
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KUrlCompletion.InsertItems: Memory allocation failed");
         defer allocator.free(items_arr);
         for (items, 0..items.len) |item, i|
             items_arr[i] = .{
@@ -1368,7 +1368,7 @@ pub const KUrlCompletion = extern struct {
     /// ` matchlist: []const []const u8 `
     ///
     pub fn Matches(self: KUrlCompletion, allocator: std.mem.Allocator, matchlist: []const []const u8) void {
-        const matchlist_arr = allocator.alloc(qtc.libqt_string, matchlist.len) catch @panic("kurlcompletion.Matches: Memory allocation failed");
+        const matchlist_arr = allocator.alloc(qtc.libqt_string, matchlist.len) catch @panic("KUrlCompletion.Matches: Memory allocation failed");
         defer allocator.free(matchlist_arr);
         for (matchlist, 0..matchlist.len) |item, i|
             matchlist_arr[i] = .{
@@ -1435,7 +1435,7 @@ pub const KUrlCompletion = extern struct {
     pub fn ObjectName(self: KUrlCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlCompletion.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1612,7 +1612,7 @@ pub const KUrlCompletion = extern struct {
     pub fn Children(self: KUrlCompletion, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kurlcompletion.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KUrlCompletion.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1888,10 +1888,10 @@ pub const KUrlCompletion = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kurlcompletion.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KUrlCompletion.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kurlcompletion.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUrlCompletion.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2206,7 +2206,7 @@ pub const KUrlCompletion = extern struct {
     pub fn LastMatch(self: KUrlCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUrlCompletion_LastMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.LastMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlCompletion.LastMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2230,7 +2230,7 @@ pub const KUrlCompletion = extern struct {
     pub fn SuperLastMatch(self: KUrlCompletion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUrlCompletion_SuperLastMatch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kurlcompletion.LastMatch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUrlCompletion.LastMatch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2474,7 +2474,7 @@ pub const KUrlCompletion = extern struct {
     /// ` itemList: []const []const u8 `
     ///
     pub fn SetItems(self: KUrlCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
-        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("kurlcompletion.SetItems: Memory allocation failed");
+        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("KUrlCompletion.SetItems: Memory allocation failed");
         defer allocator.free(itemList_arr);
         for (itemList, 0..itemList.len) |item, i|
             itemList_arr[i] = .{
@@ -2507,7 +2507,7 @@ pub const KUrlCompletion = extern struct {
     /// ` itemList: []const []const u8 `
     ///
     pub fn SuperSetItems(self: KUrlCompletion, allocator: std.mem.Allocator, itemList: []const []const u8) void {
-        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("kurlcompletion.SetItems: Memory allocation failed");
+        const itemList_arr = allocator.alloc(qtc.libqt_string, itemList.len) catch @panic("KUrlCompletion.SetItems: Memory allocation failed");
         defer allocator.free(itemList_arr);
         for (itemList, 0..itemList.len) |item, i|
             itemList_arr[i] = .{

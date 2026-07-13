@@ -456,7 +456,7 @@ pub const QVideoFrameFormat = extern struct {
     pub fn VertexShaderFileName(self: QVideoFrameFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QVideoFrameFormat_VertexShaderFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideoframeformat.VertexShaderFileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVideoFrameFormat.VertexShaderFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -472,7 +472,7 @@ pub const QVideoFrameFormat = extern struct {
     pub fn FragmentShaderFileName(self: QVideoFrameFormat, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QVideoFrameFormat_FragmentShaderFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideoframeformat.FragmentShaderFileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVideoFrameFormat.FragmentShaderFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -538,7 +538,7 @@ pub const QVideoFrameFormat = extern struct {
     pub fn PixelFormatToString(allocator: std.mem.Allocator, pixelFormat: i32) []const u8 {
         var _str = qtc.QVideoFrameFormat_PixelFormatToString(@bitCast(pixelFormat));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qvideoframeformat.PixelFormatToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVideoFrameFormat.PixelFormatToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

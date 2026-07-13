@@ -73,7 +73,7 @@ pub const SignOn__AuthSession = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__authsession.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("SignOn__AuthSession.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -89,7 +89,7 @@ pub const SignOn__AuthSession = extern struct {
     pub fn Name(self: SignOn__AuthSession, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.SignOn__AuthSession_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__authsession.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("SignOn__AuthSession.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -202,7 +202,7 @@ pub const SignOn__AuthSession = extern struct {
     /// ` mechanisms: []const []const u8 `
     ///
     pub fn MechanismsAvailable(self: SignOn__AuthSession, allocator: std.mem.Allocator, mechanisms: []const []const u8) void {
-        const mechanisms_arr = allocator.alloc(qtc.libqt_string, mechanisms.len) catch @panic("signon__authsession.MechanismsAvailable: Memory allocation failed");
+        const mechanisms_arr = allocator.alloc(qtc.libqt_string, mechanisms.len) catch @panic("SignOn__AuthSession.MechanismsAvailable: Memory allocation failed");
         defer allocator.free(mechanisms_arr);
         for (mechanisms, 0..mechanisms.len) |item, i|
             mechanisms_arr[i] = .{
@@ -298,7 +298,7 @@ pub const SignOn__AuthSession = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__authsession.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("SignOn__AuthSession.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -320,7 +320,7 @@ pub const SignOn__AuthSession = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__authsession.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("SignOn__AuthSession.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -336,7 +336,7 @@ pub const SignOn__AuthSession = extern struct {
     /// ` wantedMechanisms: []const []const u8 `
     ///
     pub fn QueryAvailableMechanisms1(self: SignOn__AuthSession, allocator: std.mem.Allocator, wantedMechanisms: []const []const u8) void {
-        const wantedMechanisms_arr = allocator.alloc(qtc.libqt_string, wantedMechanisms.len) catch @panic("signon__authsession.QueryAvailableMechanisms1: Memory allocation failed");
+        const wantedMechanisms_arr = allocator.alloc(qtc.libqt_string, wantedMechanisms.len) catch @panic("SignOn__AuthSession.QueryAvailableMechanisms1: Memory allocation failed");
         defer allocator.free(wantedMechanisms_arr);
         for (wantedMechanisms, 0..wantedMechanisms.len) |item, i|
             wantedMechanisms_arr[i] = .{
@@ -472,7 +472,7 @@ pub const SignOn__AuthSession = extern struct {
     pub fn ObjectName(self: SignOn__AuthSession, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__authsession.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("SignOn__AuthSession.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -649,7 +649,7 @@ pub const SignOn__AuthSession = extern struct {
     pub fn Children(self: SignOn__AuthSession, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("signon__authsession.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("SignOn__AuthSession.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -925,10 +925,10 @@ pub const SignOn__AuthSession = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("signon__authsession.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("SignOn__AuthSession.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("signon__authsession.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("SignOn__AuthSession.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

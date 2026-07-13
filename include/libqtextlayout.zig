@@ -375,7 +375,7 @@ pub const QTextLayout = extern struct {
     pub fn Text(self: QTextLayout, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextLayout_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextlayout.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextLayout.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -442,7 +442,7 @@ pub const QTextLayout = extern struct {
     pub fn PreeditAreaText(self: QTextLayout, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextLayout_PreeditAreaText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qtextlayout.PreeditAreaText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextLayout.PreeditAreaText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -474,7 +474,7 @@ pub const QTextLayout = extern struct {
     pub fn Formats(self: QTextLayout, allocator: std.mem.Allocator) []QTextLayout__FormatRange {
         const _arr: qtc.libqt_list = qtc.QTextLayout_Formats(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextLayout__FormatRange, _arr.len) catch @panic("qtextlayout.Formats: Memory allocation failed");
+        const _ret = allocator.alloc(QTextLayout__FormatRange, _arr.len) catch @panic("QTextLayout.Formats: Memory allocation failed");
         const _data: [*]QtC.QTextLayout__FormatRange = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -797,7 +797,7 @@ pub const QTextLayout = extern struct {
     pub fn GlyphRuns(self: QTextLayout, allocator: std.mem.Allocator, from: i32, length: i32, flags: u16) []QGlyphRun {
         const _arr: qtc.libqt_list = qtc.QTextLayout_GlyphRuns(@ptrCast(self.ptr), @bitCast(from), @bitCast(length), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("qtextlayout.GlyphRuns: Memory allocation failed");
+        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextLayout.GlyphRuns: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -815,7 +815,7 @@ pub const QTextLayout = extern struct {
     pub fn GlyphRuns2(self: QTextLayout, allocator: std.mem.Allocator) []QGlyphRun {
         const _arr: qtc.libqt_list = qtc.QTextLayout_GlyphRuns2(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("qtextlayout.GlyphRuns2: Memory allocation failed");
+        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextLayout.GlyphRuns2: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -922,7 +922,7 @@ pub const QTextLayout = extern struct {
     pub fn GlyphRuns1(self: QTextLayout, allocator: std.mem.Allocator, from: i32) []QGlyphRun {
         const _arr: qtc.libqt_list = qtc.QTextLayout_GlyphRuns1(@ptrCast(self.ptr), @bitCast(from));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("qtextlayout.GlyphRuns1: Memory allocation failed");
+        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextLayout.GlyphRuns1: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -944,7 +944,7 @@ pub const QTextLayout = extern struct {
     pub fn GlyphRuns22(self: QTextLayout, allocator: std.mem.Allocator, from: i32, length: i32) []QGlyphRun {
         const _arr: qtc.libqt_list = qtc.QTextLayout_GlyphRuns22(@ptrCast(self.ptr), @bitCast(from), @bitCast(length));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("qtextlayout.GlyphRuns22: Memory allocation failed");
+        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextLayout.GlyphRuns22: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1332,7 +1332,7 @@ pub const QTextLine = extern struct {
     pub fn GlyphRuns(self: QTextLine, allocator: std.mem.Allocator, from: i32, length: i32, flags: u16) []QGlyphRun {
         const _arr: qtc.libqt_list = qtc.QTextLine_GlyphRuns(@ptrCast(self.ptr), @bitCast(from), @bitCast(length), @bitCast(flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("qtextline.GlyphRuns: Memory allocation failed");
+        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextLine.GlyphRuns: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1350,7 +1350,7 @@ pub const QTextLine = extern struct {
     pub fn GlyphRuns2(self: QTextLine, allocator: std.mem.Allocator) []QGlyphRun {
         const _arr: qtc.libqt_list = qtc.QTextLine_GlyphRuns2(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("qtextline.GlyphRuns2: Memory allocation failed");
+        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextLine.GlyphRuns2: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1412,7 +1412,7 @@ pub const QTextLine = extern struct {
     pub fn GlyphRuns1(self: QTextLine, allocator: std.mem.Allocator, from: i32) []QGlyphRun {
         const _arr: qtc.libqt_list = qtc.QTextLine_GlyphRuns1(@ptrCast(self.ptr), @bitCast(from));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("qtextline.GlyphRuns1: Memory allocation failed");
+        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextLine.GlyphRuns1: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1434,7 +1434,7 @@ pub const QTextLine = extern struct {
     pub fn GlyphRuns22(self: QTextLine, allocator: std.mem.Allocator, from: i32, length: i32) []QGlyphRun {
         const _arr: qtc.libqt_list = qtc.QTextLine_GlyphRuns22(@ptrCast(self.ptr), @bitCast(from), @bitCast(length));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("qtextline.GlyphRuns22: Memory allocation failed");
+        const _ret = allocator.alloc(QGlyphRun, _arr.len) catch @panic("QTextLine.GlyphRuns22: Memory allocation failed");
         const _data: [*]QtC.QGlyphRun = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

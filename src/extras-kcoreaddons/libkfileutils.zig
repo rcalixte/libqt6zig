@@ -31,7 +31,7 @@ pub const KFileUtils = extern struct {
         };
         var _str = qtc.KFileUtils_SuggestName(@ptrCast(baseURL.ptr), oldName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileutils.SuggestName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileUtils.SuggestName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -51,7 +51,7 @@ pub const KFileUtils = extern struct {
         };
         var _str = qtc.KFileUtils_MakeSuggestedName(oldName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfileutils.MakeSuggestedName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileUtils.MakeSuggestedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -67,7 +67,7 @@ pub const KFileUtils = extern struct {
     /// ` nameFilters: []const []const u8 `
     ///
     pub fn FindAllUniqueFiles(allocator: std.mem.Allocator, dirs: []const []const u8, nameFilters: []const []const u8) []const []const u8 {
-        const dirs_arr = allocator.alloc(qtc.libqt_string, dirs.len) catch @panic("kfileutils.FindAllUniqueFiles: Memory allocation failed");
+        const dirs_arr = allocator.alloc(qtc.libqt_string, dirs.len) catch @panic("KFileUtils.FindAllUniqueFiles: Memory allocation failed");
         defer allocator.free(dirs_arr);
         for (dirs, 0..dirs.len) |item, i|
             dirs_arr[i] = .{
@@ -78,7 +78,7 @@ pub const KFileUtils = extern struct {
             .len = dirs.len,
             .data = dirs_arr.ptr,
         };
-        const nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("kfileutils.FindAllUniqueFiles: Memory allocation failed");
+        const nameFilters_arr = allocator.alloc(qtc.libqt_string, nameFilters.len) catch @panic("KFileUtils.FindAllUniqueFiles: Memory allocation failed");
         defer allocator.free(nameFilters_arr);
         for (nameFilters, 0..nameFilters.len) |item, i|
             nameFilters_arr[i] = .{
@@ -96,10 +96,10 @@ pub const KFileUtils = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kfileutils.FindAllUniqueFiles: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFileUtils.FindAllUniqueFiles: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kfileutils.FindAllUniqueFiles: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KFileUtils.FindAllUniqueFiles: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

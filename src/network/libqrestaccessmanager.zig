@@ -195,7 +195,7 @@ pub const QRestAccessManager = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qrestaccessmanager.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRestAccessManager.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -331,9 +331,9 @@ pub const QRestAccessManager = extern struct {
     pub fn Post2(self: QRestAccessManager, allocator: std.mem.Allocator, request: anytype, data: ArrayMap_constu8_QVariant) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_count = data.count();
-        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("qrestaccessmanager.Post2: Memory allocation failed");
+        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("QRestAccessManager.Post2: Memory allocation failed");
         defer allocator.free(data_keys);
-        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("qrestaccessmanager.Post2: Memory allocation failed");
+        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("QRestAccessManager.Post2: Memory allocation failed");
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();
@@ -435,9 +435,9 @@ pub const QRestAccessManager = extern struct {
     pub fn Put2(self: QRestAccessManager, allocator: std.mem.Allocator, request: anytype, data: ArrayMap_constu8_QVariant) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_count = data.count();
-        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("qrestaccessmanager.Put2: Memory allocation failed");
+        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("QRestAccessManager.Put2: Memory allocation failed");
         defer allocator.free(data_keys);
-        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("qrestaccessmanager.Put2: Memory allocation failed");
+        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("QRestAccessManager.Put2: Memory allocation failed");
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();
@@ -539,9 +539,9 @@ pub const QRestAccessManager = extern struct {
     pub fn Patch2(self: QRestAccessManager, allocator: std.mem.Allocator, request: anytype, data: ArrayMap_constu8_QVariant) QNetworkReply {
         comptime _ = @TypeOf(request)._is_QNetworkRequest;
         const data_count = data.count();
-        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("qrestaccessmanager.Patch2: Memory allocation failed");
+        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("QRestAccessManager.Patch2: Memory allocation failed");
         defer allocator.free(data_keys);
-        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("qrestaccessmanager.Patch2: Memory allocation failed");
+        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("QRestAccessManager.Patch2: Memory allocation failed");
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();
@@ -680,7 +680,7 @@ pub const QRestAccessManager = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qrestaccessmanager.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRestAccessManager.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -702,7 +702,7 @@ pub const QRestAccessManager = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qrestaccessmanager.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRestAccessManager.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -720,7 +720,7 @@ pub const QRestAccessManager = extern struct {
     pub fn ObjectName(self: QRestAccessManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qrestaccessmanager.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QRestAccessManager.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -897,7 +897,7 @@ pub const QRestAccessManager = extern struct {
     pub fn Children(self: QRestAccessManager, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qrestaccessmanager.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QRestAccessManager.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1173,10 +1173,10 @@ pub const QRestAccessManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qrestaccessmanager.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QRestAccessManager.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qrestaccessmanager.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QRestAccessManager.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

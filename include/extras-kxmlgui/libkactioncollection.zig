@@ -199,7 +199,7 @@ pub const KActionCollection = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kactioncollection.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KActionCollection.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -213,7 +213,7 @@ pub const KActionCollection = extern struct {
     pub fn AllCollections(allocator: std.mem.Allocator) []KActionCollection {
         const _arr: qtc.libqt_list = qtc.KActionCollection_AllCollections();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KActionCollection, _arr.len) catch @panic("kactioncollection.AllCollections: Memory allocation failed");
+        const _ret = allocator.alloc(KActionCollection, _arr.len) catch @panic("KActionCollection.AllCollections: Memory allocation failed");
         const _data: [*]QtC.KActionCollection = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -280,7 +280,7 @@ pub const KActionCollection = extern struct {
     pub fn AssociatedWidgets(self: KActionCollection, allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.KActionCollection_AssociatedWidgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("kactioncollection.AssociatedWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KActionCollection.AssociatedWidgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -308,7 +308,7 @@ pub const KActionCollection = extern struct {
     pub fn ConfigGroup(self: KActionCollection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KActionCollection_ConfigGroup(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kactioncollection.ConfigGroup: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KActionCollection.ConfigGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -456,7 +456,7 @@ pub const KActionCollection = extern struct {
     pub fn Actions(self: KActionCollection, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.KActionCollection_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kactioncollection.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KActionCollection.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -474,7 +474,7 @@ pub const KActionCollection = extern struct {
     pub fn ActionsWithoutGroup(self: KActionCollection, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.KActionCollection_ActionsWithoutGroup(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kactioncollection.ActionsWithoutGroup: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KActionCollection.ActionsWithoutGroup: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -492,7 +492,7 @@ pub const KActionCollection = extern struct {
     pub fn ActionGroups(self: KActionCollection, allocator: std.mem.Allocator) []QActionGroup {
         const _arr: qtc.libqt_list = qtc.KActionCollection_ActionGroups(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QActionGroup, _arr.len) catch @panic("kactioncollection.ActionGroups: Memory allocation failed");
+        const _ret = allocator.alloc(QActionGroup, _arr.len) catch @panic("KActionCollection.ActionGroups: Memory allocation failed");
         const _data: [*]QtC.QActionGroup = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -526,7 +526,7 @@ pub const KActionCollection = extern struct {
     pub fn ComponentName(self: KActionCollection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KActionCollection_ComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kactioncollection.ComponentName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KActionCollection.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -558,7 +558,7 @@ pub const KActionCollection = extern struct {
     pub fn ComponentDisplayName(self: KActionCollection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KActionCollection_ComponentDisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kactioncollection.ComponentDisplayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KActionCollection.ComponentDisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -898,7 +898,7 @@ pub const KActionCollection = extern struct {
         comptime _ = @TypeOf(action)._is_QAction;
         const _arr: qtc.libqt_list = qtc.KActionCollection_DefaultShortcuts(@ptrCast(action.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("kactioncollection.DefaultShortcuts: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KActionCollection.DefaultShortcuts: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -975,7 +975,7 @@ pub const KActionCollection = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kactioncollection.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KActionCollection.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -997,7 +997,7 @@ pub const KActionCollection = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kactioncollection.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KActionCollection.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1208,7 +1208,7 @@ pub const KActionCollection = extern struct {
     pub fn ObjectName(self: KActionCollection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kactioncollection.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KActionCollection.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1385,7 +1385,7 @@ pub const KActionCollection = extern struct {
     pub fn Children(self: KActionCollection, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kactioncollection.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KActionCollection.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1661,10 +1661,10 @@ pub const KActionCollection = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kactioncollection.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KActionCollection.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kactioncollection.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KActionCollection.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

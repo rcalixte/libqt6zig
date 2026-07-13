@@ -74,7 +74,7 @@ pub const QAbstractEventDispatcher = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracteventdispatcher.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractEventDispatcher.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -198,7 +198,7 @@ pub const QAbstractEventDispatcher = extern struct {
         comptime _ = @TypeOf(object)._is_QObject;
         const _arr: qtc.libqt_list = qtc.QAbstractEventDispatcher_RegisteredTimers(@ptrCast(self.ptr), @ptrCast(object.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractEventDispatcher__TimerInfo, _arr.len) catch @panic("qabstracteventdispatcher.RegisteredTimers: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractEventDispatcher__TimerInfo, _arr.len) catch @panic("QAbstractEventDispatcher.RegisteredTimers: Memory allocation failed");
         const _data: [*]QtC.QAbstractEventDispatcher__TimerInfo = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -243,7 +243,7 @@ pub const QAbstractEventDispatcher = extern struct {
         comptime _ = @TypeOf(object)._is_QObject;
         const _arr: qtc.libqt_list = qtc.QAbstractEventDispatcher_TimersForObject(@ptrCast(self.ptr), @ptrCast(object.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractEventDispatcher__TimerInfoV2, _arr.len) catch @panic("qabstracteventdispatcher.TimersForObject: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractEventDispatcher__TimerInfoV2, _arr.len) catch @panic("QAbstractEventDispatcher.TimersForObject: Memory allocation failed");
         const _data: [*]QtC.QAbstractEventDispatcher__TimerInfoV2 = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -395,7 +395,7 @@ pub const QAbstractEventDispatcher = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracteventdispatcher.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractEventDispatcher.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -417,7 +417,7 @@ pub const QAbstractEventDispatcher = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracteventdispatcher.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractEventDispatcher.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -479,7 +479,7 @@ pub const QAbstractEventDispatcher = extern struct {
     pub fn ObjectName(self: QAbstractEventDispatcher, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracteventdispatcher.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractEventDispatcher.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -656,7 +656,7 @@ pub const QAbstractEventDispatcher = extern struct {
     pub fn Children(self: QAbstractEventDispatcher, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qabstracteventdispatcher.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractEventDispatcher.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -932,10 +932,10 @@ pub const QAbstractEventDispatcher = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qabstracteventdispatcher.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractEventDispatcher.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qabstracteventdispatcher.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QAbstractEventDispatcher.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1327,7 +1327,7 @@ pub const QAbstractEventDispatcherV2 = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracteventdispatcherv2.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractEventDispatcherV2.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1358,7 +1358,7 @@ pub const QAbstractEventDispatcherV2 = extern struct {
         comptime _ = @TypeOf(object)._is_QObject;
         const _arr: qtc.libqt_list = qtc.QAbstractEventDispatcherV2_TimersForObject(@ptrCast(self.ptr), @ptrCast(object.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractEventDispatcher__TimerInfoV2, _arr.len) catch @panic("qabstracteventdispatcherv2.TimersForObject: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractEventDispatcher__TimerInfoV2, _arr.len) catch @panic("QAbstractEventDispatcherV2.TimersForObject: Memory allocation failed");
         const _data: [*]QtC.QAbstractEventDispatcher__TimerInfoV2 = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1395,7 +1395,7 @@ pub const QAbstractEventDispatcherV2 = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracteventdispatcherv2.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractEventDispatcherV2.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1417,7 +1417,7 @@ pub const QAbstractEventDispatcherV2 = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracteventdispatcherv2.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractEventDispatcherV2.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1545,7 +1545,7 @@ pub const QAbstractEventDispatcherV2 = extern struct {
         comptime _ = @TypeOf(object)._is_QObject;
         const _arr: qtc.libqt_list = qtc.QAbstractEventDispatcher_RegisteredTimers(@ptrCast(self.ptr), @ptrCast(object.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractEventDispatcher__TimerInfo, _arr.len) catch @panic("qabstracteventdispatcherv2.RegisteredTimers: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractEventDispatcher__TimerInfo, _arr.len) catch @panic("QAbstractEventDispatcherV2.RegisteredTimers: Memory allocation failed");
         const _data: [*]QtC.QAbstractEventDispatcher__TimerInfo = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1791,7 +1791,7 @@ pub const QAbstractEventDispatcherV2 = extern struct {
     pub fn ObjectName(self: QAbstractEventDispatcherV2, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qabstracteventdispatcherv2.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractEventDispatcherV2.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1968,7 +1968,7 @@ pub const QAbstractEventDispatcherV2 = extern struct {
     pub fn Children(self: QAbstractEventDispatcherV2, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qabstracteventdispatcherv2.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractEventDispatcherV2.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2244,10 +2244,10 @@ pub const QAbstractEventDispatcherV2 = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qabstracteventdispatcherv2.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractEventDispatcherV2.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qabstracteventdispatcherv2.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QAbstractEventDispatcherV2.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

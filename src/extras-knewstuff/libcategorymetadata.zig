@@ -34,7 +34,7 @@ pub const KNSCore__CategoryMetadata = extern struct {
     pub fn Id(self: KNSCore__CategoryMetadata, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__CategoryMetadata_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__categorymetadata.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__CategoryMetadata.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -50,7 +50,7 @@ pub const KNSCore__CategoryMetadata = extern struct {
     pub fn Name(self: KNSCore__CategoryMetadata, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__CategoryMetadata_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__categorymetadata.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__CategoryMetadata.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -66,7 +66,7 @@ pub const KNSCore__CategoryMetadata = extern struct {
     pub fn DisplayName(self: KNSCore__CategoryMetadata, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__CategoryMetadata_DisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__categorymetadata.DisplayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__CategoryMetadata.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

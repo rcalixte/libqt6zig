@@ -81,7 +81,7 @@ pub const QAuthenticator = extern struct {
     pub fn User(self: QAuthenticator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAuthenticator_User(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qauthenticator.User: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAuthenticator.User: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -113,7 +113,7 @@ pub const QAuthenticator = extern struct {
     pub fn Password(self: QAuthenticator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAuthenticator_Password(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qauthenticator.Password: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAuthenticator.Password: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -145,7 +145,7 @@ pub const QAuthenticator = extern struct {
     pub fn Realm(self: QAuthenticator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAuthenticator_Realm(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qauthenticator.Realm: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAuthenticator.Realm: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -193,7 +193,7 @@ pub const QAuthenticator = extern struct {
     pub fn Options(self: QAuthenticator, allocator: std.mem.Allocator) Map_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QAuthenticator_Options(@ptrCast(self.ptr));
         var _ret: Map_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qauthenticator.Options: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QAuthenticator.Options: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -207,7 +207,7 @@ pub const QAuthenticator = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qauthenticator.Options: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QAuthenticator.Options: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });

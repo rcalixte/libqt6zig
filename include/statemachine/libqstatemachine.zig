@@ -214,7 +214,7 @@ pub const QStateMachine = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstatemachine.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -270,7 +270,7 @@ pub const QStateMachine = extern struct {
     pub fn ErrorString(self: QStateMachine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStateMachine_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstatemachine.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -341,7 +341,7 @@ pub const QStateMachine = extern struct {
     pub fn DefaultAnimations(self: QStateMachine, allocator: std.mem.Allocator) []QAbstractAnimation {
         const _arr: qtc.libqt_list = qtc.QStateMachine_DefaultAnimations(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractAnimation, _arr.len) catch @panic("qstatemachine.DefaultAnimations: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractAnimation, _arr.len) catch @panic("QStateMachine.DefaultAnimations: Memory allocation failed");
         const _data: [*]QtC.QAbstractAnimation = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -438,7 +438,7 @@ pub const QStateMachine = extern struct {
     pub fn Configuration(self: QStateMachine, allocator: std.mem.Allocator) Set_QAbstractState {
         const _set: qtc.libqt_list = qtc.QStateMachine_Configuration(@ptrCast(self.ptr));
         var _ret: Set_QAbstractState = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("qstatemachine.Configuration: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("QStateMachine.Configuration: Total capacity allocation failed");
         const _data: [*]QtC.QAbstractState = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(.{ .ptr = _data[i] }, {});
@@ -905,7 +905,7 @@ pub const QStateMachine = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstatemachine.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -927,7 +927,7 @@ pub const QStateMachine = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstatemachine.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1053,7 +1053,7 @@ pub const QStateMachine = extern struct {
     pub fn Transitions(self: QStateMachine, allocator: std.mem.Allocator) []QAbstractTransition {
         const _arr: qtc.libqt_list = qtc.QState_Transitions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractTransition, _arr.len) catch @panic("qstatemachine.Transitions: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractTransition, _arr.len) catch @panic("QStateMachine.Transitions: Memory allocation failed");
         const _data: [*]QtC.QAbstractTransition = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1215,7 +1215,7 @@ pub const QStateMachine = extern struct {
     pub fn ObjectName(self: QStateMachine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstatemachine.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStateMachine.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1392,7 +1392,7 @@ pub const QStateMachine = extern struct {
     pub fn Children(self: QStateMachine, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qstatemachine.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QStateMachine.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1668,10 +1668,10 @@ pub const QStateMachine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qstatemachine.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QStateMachine.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qstatemachine.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QStateMachine.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2690,7 +2690,7 @@ pub const QStateMachine__SignalEvent = extern struct {
     pub fn Arguments(self: QStateMachine__SignalEvent, allocator: std.mem.Allocator) []QVariant {
         const _arr: qtc.libqt_list = qtc.QStateMachine__SignalEvent_Arguments(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("qstatemachine__signalevent.Arguments: Memory allocation failed");
+        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QStateMachine__SignalEvent.Arguments: Memory allocation failed");
         const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

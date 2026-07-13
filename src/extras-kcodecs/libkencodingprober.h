@@ -23,7 +23,7 @@ KEncodingProber* KEncodingProber_new();
 KEncodingProber* KEncodingProber_new2(int proberType);
 void KEncodingProber_Reset(KEncodingProber* self);
 int KEncodingProber_Feed(KEncodingProber* self, libqt_string data);
-int KEncodingProber_Feed2(KEncodingProber* self, const char* data, ptrdiff_t lenVal);
+int KEncodingProber_Feed2(KEncodingProber* self, const char* data, ptrdiff_t len);
 int KEncodingProber_State(const KEncodingProber* self);
 libqt_string KEncodingProber_Encoding(const KEncodingProber* self);
 float KEncodingProber_Confidence(const KEncodingProber* self);

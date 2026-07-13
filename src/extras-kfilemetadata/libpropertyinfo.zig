@@ -93,7 +93,7 @@ pub const KFileMetaData__PropertyInfo = extern struct {
     pub fn Name(self: KFileMetaData__PropertyInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__PropertyInfo_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__propertyinfo.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__PropertyInfo.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -109,7 +109,7 @@ pub const KFileMetaData__PropertyInfo = extern struct {
     pub fn DisplayName(self: KFileMetaData__PropertyInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__PropertyInfo_DisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__propertyinfo.DisplayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__PropertyInfo.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -166,10 +166,10 @@ pub const KFileMetaData__PropertyInfo = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kfilemetadata__propertyinfo.AllNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFileMetaData__PropertyInfo.AllNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kfilemetadata__propertyinfo.AllNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KFileMetaData__PropertyInfo.AllNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -190,7 +190,7 @@ pub const KFileMetaData__PropertyInfo = extern struct {
         comptime _ = @TypeOf(value)._is_QVariant;
         var _str = qtc.KFileMetaData__PropertyInfo_FormatAsDisplayString(@ptrCast(self.ptr), @ptrCast(value.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilemetadata__propertyinfo.FormatAsDisplayString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__PropertyInfo.FormatAsDisplayString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

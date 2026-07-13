@@ -85,7 +85,7 @@ pub const QOperatingSystemVersionBase = extern struct {
         comptime _ = @TypeOf(osversion)._is_QOperatingSystemVersionBase;
         var _str = qtc.QOperatingSystemVersionBase_Name(@ptrCast(osversion.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversionbase.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOperatingSystemVersionBase.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -175,7 +175,7 @@ pub const QOperatingSystemVersionBase = extern struct {
     pub fn Name2(self: QOperatingSystemVersionBase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QOperatingSystemVersionBase_Name2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversionbase.Name2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOperatingSystemVersionBase.Name2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -274,7 +274,7 @@ pub const QOperatingSystemVersionUnexported = extern struct {
         comptime _ = @TypeOf(osversion)._is_QOperatingSystemVersionBase;
         var _str = qtc.QOperatingSystemVersionBase_Name(@ptrCast(osversion.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversionunexported.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOperatingSystemVersionUnexported.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -380,7 +380,7 @@ pub const QOperatingSystemVersionUnexported = extern struct {
     pub fn Name2(self: QOperatingSystemVersionUnexported, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QOperatingSystemVersionBase_Name2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversionunexported.Name2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOperatingSystemVersionUnexported.Name2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -524,7 +524,7 @@ pub const QOperatingSystemVersion = extern struct {
         comptime _ = @TypeOf(osversion)._is_QOperatingSystemVersionBase;
         var _str = qtc.QOperatingSystemVersionBase_Name(@ptrCast(osversion.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversion.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOperatingSystemVersion.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -602,7 +602,7 @@ pub const QOperatingSystemVersion = extern struct {
     pub fn Name2(self: QOperatingSystemVersion, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QOperatingSystemVersionBase_Name2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qoperatingsystemversion.Name2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOperatingSystemVersion.Name2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

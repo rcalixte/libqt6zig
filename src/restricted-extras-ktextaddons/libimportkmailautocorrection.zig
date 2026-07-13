@@ -128,7 +128,7 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     pub fn UpperCaseExceptions(self: TextAutoCorrectionCore__ImportKMailAutocorrection, allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_UpperCaseExceptions(@ptrCast(self.ptr));
         var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("textautocorrectioncore__importkmailautocorrection.UpperCaseExceptions: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.UpperCaseExceptions: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
@@ -148,7 +148,7 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     pub fn TwoUpperLetterExceptions(self: TextAutoCorrectionCore__ImportKMailAutocorrection, allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_TwoUpperLetterExceptions(@ptrCast(self.ptr));
         var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("textautocorrectioncore__importkmailautocorrection.TwoUpperLetterExceptions: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.TwoUpperLetterExceptions: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
@@ -168,7 +168,7 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     pub fn AutocorrectEntries(self: TextAutoCorrectionCore__ImportKMailAutocorrection, allocator: std.mem.Allocator) Map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_AutocorrectEntries(@ptrCast(self.ptr));
         var _ret: Map_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("textautocorrectioncore__importkmailautocorrection.AutocorrectEntries: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.AutocorrectEntries: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -184,10 +184,10 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("textautocorrectioncore__importkmailautocorrection.AutocorrectEntries: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.AutocorrectEntries: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("textautocorrectioncore__importkmailautocorrection.AutocorrectEntries: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.AutocorrectEntries: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
@@ -207,7 +207,7 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
     pub fn SuperScriptEntries(self: TextAutoCorrectionCore__ImportKMailAutocorrection, allocator: std.mem.Allocator) Map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.TextAutoCorrectionCore__ImportAbstractAutocorrection_SuperScriptEntries(@ptrCast(self.ptr));
         var _ret: Map_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("textautocorrectioncore__importkmailautocorrection.SuperScriptEntries: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.SuperScriptEntries: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -223,10 +223,10 @@ pub const TextAutoCorrectionCore__ImportKMailAutocorrection = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("textautocorrectioncore__importkmailautocorrection.SuperScriptEntries: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.SuperScriptEntries: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("textautocorrectioncore__importkmailautocorrection.SuperScriptEntries: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextAutoCorrectionCore__ImportKMailAutocorrection.SuperScriptEntries: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }

@@ -393,12 +393,12 @@ QCborValue* QCborValue_FromCbor2(const libqt_string ba) {
     return new QCborValue(QCborValue::fromCbor(ba_QByteArray));
 }
 
-QCborValue* QCborValue_FromCbor3(const char* data, ptrdiff_t lenVal) {
-    return new QCborValue(QCborValue::fromCbor(data, (qsizetype)(lenVal)));
+QCborValue* QCborValue_FromCbor3(const char* data, ptrdiff_t len) {
+    return new QCborValue(QCborValue::fromCbor(data, (qsizetype)(len)));
 }
 
-QCborValue* QCborValue_FromCbor4(const unsigned char* data, ptrdiff_t lenVal) {
-    return new QCborValue(QCborValue::fromCbor(static_cast<const quint8*>(data), (qsizetype)(lenVal)));
+QCborValue* QCborValue_FromCbor4(const unsigned char* data, ptrdiff_t len) {
+    return new QCborValue(QCborValue::fromCbor(static_cast<const quint8*>(data), (qsizetype)(len)));
 }
 
 libqt_string QCborValue_ToCbor(const QCborValue* self) {
@@ -494,12 +494,12 @@ QCborValue* QCborValue_FromCbor22(const libqt_string ba, QCborParserError* error
     return new QCborValue(QCborValue::fromCbor(ba_QByteArray, errorVal));
 }
 
-QCborValue* QCborValue_FromCbor32(const char* data, ptrdiff_t lenVal, QCborParserError* errorVal) {
-    return new QCborValue(QCborValue::fromCbor(data, (qsizetype)(lenVal), errorVal));
+QCborValue* QCborValue_FromCbor32(const char* data, ptrdiff_t len, QCborParserError* errorVal) {
+    return new QCborValue(QCborValue::fromCbor(data, (qsizetype)(len), errorVal));
 }
 
-QCborValue* QCborValue_FromCbor33(const unsigned char* data, ptrdiff_t lenVal, QCborParserError* errorVal) {
-    return new QCborValue(QCborValue::fromCbor(static_cast<const quint8*>(data), (qsizetype)(lenVal), errorVal));
+QCborValue* QCborValue_FromCbor33(const unsigned char* data, ptrdiff_t len, QCborParserError* errorVal) {
+    return new QCborValue(QCborValue::fromCbor(static_cast<const quint8*>(data), (qsizetype)(len), errorVal));
 }
 
 libqt_string QCborValue_ToCbor1(const QCborValue* self, int opt) {

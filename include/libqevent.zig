@@ -605,7 +605,7 @@ pub const QPointerEvent = extern struct {
     pub fn Points(self: QPointerEvent, allocator: std.mem.Allocator) []QEventPoint {
         const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("qpointerevent.Points: Memory allocation failed");
+        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("QPointerEvent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1304,7 +1304,7 @@ pub const QSinglePointEvent = extern struct {
     pub fn Points(self: QSinglePointEvent, allocator: std.mem.Allocator) []QEventPoint {
         const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("qsinglepointevent.Points: Memory allocation failed");
+        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("QSinglePointEvent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1997,7 +1997,7 @@ pub const QEnterEvent = extern struct {
     pub fn Points(self: QEnterEvent, allocator: std.mem.Allocator) []QEventPoint {
         const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("qenterevent.Points: Memory allocation failed");
+        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("QEnterEvent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -3113,7 +3113,7 @@ pub const QMouseEvent = extern struct {
     pub fn Points(self: QMouseEvent, allocator: std.mem.Allocator) []QEventPoint {
         const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("qmouseevent.Points: Memory allocation failed");
+        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("QMouseEvent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4112,7 +4112,7 @@ pub const QHoverEvent = extern struct {
     pub fn Points(self: QHoverEvent, allocator: std.mem.Allocator) []QEventPoint {
         const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("qhoverevent.Points: Memory allocation failed");
+        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("QHoverEvent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5153,7 +5153,7 @@ pub const QWheelEvent = extern struct {
     pub fn Points(self: QWheelEvent, allocator: std.mem.Allocator) []QEventPoint {
         const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("qwheelevent.Points: Memory allocation failed");
+        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("QWheelEvent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6016,7 +6016,7 @@ pub const QTabletEvent = extern struct {
     pub fn Points(self: QTabletEvent, allocator: std.mem.Allocator) []QEventPoint {
         const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("qtabletevent.Points: Memory allocation failed");
+        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("QTabletEvent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6998,7 +6998,7 @@ pub const QNativeGestureEvent = extern struct {
     pub fn Points(self: QNativeGestureEvent, allocator: std.mem.Allocator) []QEventPoint {
         const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("qnativegestureevent.Points: Memory allocation failed");
+        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("QNativeGestureEvent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7908,7 +7908,7 @@ pub const QKeyEvent = extern struct {
     pub fn Text(self: QKeyEvent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QKeyEvent_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qkeyevent.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QKeyEvent.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11481,7 +11481,7 @@ pub const QInputMethodEvent = extern struct {
     pub fn Attributes(self: QInputMethodEvent, allocator: std.mem.Allocator) []QInputMethodEvent__Attribute {
         const _arr: qtc.libqt_list = qtc.QInputMethodEvent_Attributes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QInputMethodEvent__Attribute, _arr.len) catch @panic("qinputmethodevent.Attributes: Memory allocation failed");
+        const _ret = allocator.alloc(QInputMethodEvent__Attribute, _arr.len) catch @panic("QInputMethodEvent.Attributes: Memory allocation failed");
         const _data: [*]QtC.QInputMethodEvent__Attribute = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -11499,7 +11499,7 @@ pub const QInputMethodEvent = extern struct {
     pub fn PreeditString(self: QInputMethodEvent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QInputMethodEvent_PreeditString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputmethodevent.PreeditString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QInputMethodEvent.PreeditString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11515,7 +11515,7 @@ pub const QInputMethodEvent = extern struct {
     pub fn CommitString(self: QInputMethodEvent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QInputMethodEvent_CommitString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qinputmethodevent.CommitString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QInputMethodEvent.CommitString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -14163,7 +14163,7 @@ pub const QStatusTipEvent = extern struct {
     pub fn Tip(self: QStatusTipEvent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStatusTipEvent_Tip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstatustipevent.Tip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStatusTipEvent.Tip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -14433,7 +14433,7 @@ pub const QWhatsThisClickedEvent = extern struct {
     pub fn Href(self: QWhatsThisClickedEvent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWhatsThisClickedEvent_Href(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qwhatsthisclickedevent.Href: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWhatsThisClickedEvent.Href: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -15003,7 +15003,7 @@ pub const QFileOpenEvent = extern struct {
     pub fn File(self: QFileOpenEvent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFileOpenEvent_File(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfileopenevent.File: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileOpenEvent.File: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -16294,7 +16294,7 @@ pub const QTouchEvent = extern struct {
     pub fn TouchPoints(self: QTouchEvent, allocator: std.mem.Allocator) []QEventPoint {
         const _arr: qtc.libqt_list = qtc.QTouchEvent_TouchPoints(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("qtouchevent.TouchPoints: Memory allocation failed");
+        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("QTouchEvent.TouchPoints: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -16488,7 +16488,7 @@ pub const QTouchEvent = extern struct {
     pub fn Points(self: QTouchEvent, allocator: std.mem.Allocator) []QEventPoint {
         const _arr: qtc.libqt_list = qtc.QPointerEvent_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("qtouchevent.Points: Memory allocation failed");
+        const _ret = allocator.alloc(QEventPoint, _arr.len) catch @panic("QTouchEvent.Points: Memory allocation failed");
         const _data: [*]QtC.QEventPoint = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

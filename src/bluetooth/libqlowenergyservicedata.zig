@@ -106,7 +106,7 @@ pub const QLowEnergyServiceData = extern struct {
     pub fn IncludedServices(self: QLowEnergyServiceData, allocator: std.mem.Allocator) []QLowEnergyService {
         const _arr: qtc.libqt_list = qtc.QLowEnergyServiceData_IncludedServices(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLowEnergyService, _arr.len) catch @panic("qlowenergyservicedata.IncludedServices: Memory allocation failed");
+        const _ret = allocator.alloc(QLowEnergyService, _arr.len) catch @panic("QLowEnergyServiceData.IncludedServices: Memory allocation failed");
         const _data: [*]QtC.QLowEnergyService = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -153,7 +153,7 @@ pub const QLowEnergyServiceData = extern struct {
     pub fn Characteristics(self: QLowEnergyServiceData, allocator: std.mem.Allocator) []QLowEnergyCharacteristicData {
         const _arr: qtc.libqt_list = qtc.QLowEnergyServiceData_Characteristics(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLowEnergyCharacteristicData, _arr.len) catch @panic("qlowenergyservicedata.Characteristics: Memory allocation failed");
+        const _ret = allocator.alloc(QLowEnergyCharacteristicData, _arr.len) catch @panic("QLowEnergyServiceData.Characteristics: Memory allocation failed");
         const _data: [*]QtC.QLowEnergyCharacteristicData = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

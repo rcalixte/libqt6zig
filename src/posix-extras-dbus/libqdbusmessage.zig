@@ -283,7 +283,7 @@ pub const QDBusMessage = extern struct {
     pub fn Service(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDBusMessage_Service(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Service: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusMessage.Service: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -299,7 +299,7 @@ pub const QDBusMessage = extern struct {
     pub fn Path(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDBusMessage_Path(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Path: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusMessage.Path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -315,7 +315,7 @@ pub const QDBusMessage = extern struct {
     pub fn Interface(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDBusMessage_Interface(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Interface: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusMessage.Interface: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -331,7 +331,7 @@ pub const QDBusMessage = extern struct {
     pub fn Member(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDBusMessage_Member(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Member: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusMessage.Member: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -347,7 +347,7 @@ pub const QDBusMessage = extern struct {
     pub fn ErrorName(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDBusMessage_ErrorName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.ErrorName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusMessage.ErrorName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -363,7 +363,7 @@ pub const QDBusMessage = extern struct {
     pub fn ErrorMessage(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDBusMessage_ErrorMessage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.ErrorMessage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusMessage.ErrorMessage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -393,7 +393,7 @@ pub const QDBusMessage = extern struct {
     pub fn Signature(self: QDBusMessage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDBusMessage_Signature(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusmessage.Signature: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusMessage.Signature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -501,7 +501,7 @@ pub const QDBusMessage = extern struct {
     pub fn Arguments(self: QDBusMessage, allocator: std.mem.Allocator) []QVariant {
         const _arr: qtc.libqt_list = qtc.QDBusMessage_Arguments(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("qdbusmessage.Arguments: Memory allocation failed");
+        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QDBusMessage.Arguments: Memory allocation failed");
         const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

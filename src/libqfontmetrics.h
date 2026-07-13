@@ -66,7 +66,7 @@ int QFontMetrics_LineWidth(const QFontMetrics* self);
 double QFontMetrics_FontDpi(const QFontMetrics* self);
 bool QFontMetrics_OperatorEqual(const QFontMetrics* self, const QFontMetrics* other);
 bool QFontMetrics_OperatorNotEqual(const QFontMetrics* self, const QFontMetrics* other);
-int QFontMetrics_HorizontalAdvance22(const QFontMetrics* self, const libqt_string param1, int lenVal);
+int QFontMetrics_HorizontalAdvance22(const QFontMetrics* self, const libqt_string param1, int len);
 QRect* QFontMetrics_BoundingRect42(const QFontMetrics* self, const QRect* r, int flags, const libqt_string text, int tabstops);
 QRect* QFontMetrics_BoundingRect52(const QFontMetrics* self, const QRect* r, int flags, const libqt_string text, int tabstops, int* tabarray);
 QRect* QFontMetrics_BoundingRect7(const QFontMetrics* self, int x, int y, int w, int h, int flags, const libqt_string text, int tabstops);

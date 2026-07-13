@@ -123,7 +123,7 @@ pub const KProcessList__KProcessInfo = extern struct {
     pub fn Name(self: KProcessList__KProcessInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KProcessList__KProcessInfo_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kprocesslist__kprocessinfo.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcessList__KProcessInfo.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -139,7 +139,7 @@ pub const KProcessList__KProcessInfo = extern struct {
     pub fn User(self: KProcessList__KProcessInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KProcessList__KProcessInfo_User(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kprocesslist__kprocessinfo.User: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcessList__KProcessInfo.User: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -155,7 +155,7 @@ pub const KProcessList__KProcessInfo = extern struct {
     pub fn Command(self: KProcessList__KProcessInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KProcessList__KProcessInfo_Command(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kprocesslist__kprocessinfo.Command: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcessList__KProcessInfo.Command: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -194,7 +194,7 @@ pub const KProcessList = extern struct {
     pub fn ProcessInfoList(allocator: std.mem.Allocator) []KProcessList__KProcessInfo {
         const _arr: qtc.libqt_list = qtc.KProcessList_ProcessInfoList();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KProcessList__KProcessInfo, _arr.len) catch @panic("kprocesslist.ProcessInfoList: Memory allocation failed");
+        const _ret = allocator.alloc(KProcessList__KProcessInfo, _arr.len) catch @panic("KProcessList.ProcessInfoList: Memory allocation failed");
         const _data: [*]QtC.KProcessList__KProcessInfo = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

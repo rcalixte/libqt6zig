@@ -33,9 +33,9 @@ pub const PackageKit__Details = extern struct {
     ///
     pub fn New2(allocator: std.mem.Allocator, other: ArrayMap_constu8_QVariant) PackageKit__Details {
         const other_count = other.count();
-        const other_keys = allocator.alloc(qtc.libqt_string, other_count) catch @panic("packagekit__details.New2: Memory allocation failed");
+        const other_keys = allocator.alloc(qtc.libqt_string, other_count) catch @panic("PackageKit__Details.New2: Memory allocation failed");
         defer allocator.free(other_keys);
-        const other_values = allocator.alloc(QtC.QVariant, other_count) catch @panic("packagekit__details.New2: Memory allocation failed");
+        const other_values = allocator.alloc(QtC.QVariant, other_count) catch @panic("PackageKit__Details.New2: Memory allocation failed");
         defer allocator.free(other_values);
         var i: usize = 0;
         var other_it = other.iterator();
@@ -66,7 +66,7 @@ pub const PackageKit__Details = extern struct {
     pub fn PackageId(self: PackageKit__Details, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Details_PackageId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__details.PackageId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Details.PackageId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -82,7 +82,7 @@ pub const PackageKit__Details = extern struct {
     pub fn Description(self: PackageKit__Details, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Details_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__details.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Details.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -112,7 +112,7 @@ pub const PackageKit__Details = extern struct {
     pub fn Summary(self: PackageKit__Details, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Details_Summary(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__details.Summary: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Details.Summary: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -128,7 +128,7 @@ pub const PackageKit__Details = extern struct {
     pub fn Url(self: PackageKit__Details, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Details_Url(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__details.Url: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Details.Url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -144,7 +144,7 @@ pub const PackageKit__Details = extern struct {
     pub fn License(self: PackageKit__Details, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.PackageKit__Details_License(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__details.License: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Details.License: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

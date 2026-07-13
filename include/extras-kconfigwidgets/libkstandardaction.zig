@@ -64,7 +64,7 @@ pub const KStandardAction = extern struct {
     pub fn Name(allocator: std.mem.Allocator, id: i32) []const u8 {
         var _str = qtc.KStandardAction_Name(@bitCast(id));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardaction.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStandardAction.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -83,10 +83,10 @@ pub const KStandardAction = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kstandardaction.StdNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KStandardAction.StdNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kstandardaction.StdNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KStandardAction.StdNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -106,7 +106,7 @@ pub const KStandardAction = extern struct {
     pub fn ActionIds(allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.KStandardAction_ActionIds();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("kstandardaction.ActionIds: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("KStandardAction.ActionIds: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;

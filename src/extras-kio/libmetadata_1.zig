@@ -33,9 +33,9 @@ pub const KIO__MetaData = extern struct {
     ///
     pub fn New2(allocator: std.mem.Allocator, metaData: ArrayMap_constu8_constu8) KIO__MetaData {
         const metaData_count = metaData.count();
-        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kio__metadata.New2: Memory allocation failed");
+        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.New2: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kio__metadata.New2: Memory allocation failed");
+        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.New2: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();
@@ -69,9 +69,9 @@ pub const KIO__MetaData = extern struct {
     ///
     pub fn New3(allocator: std.mem.Allocator, param1: ArrayMap_constu8_QVariant) KIO__MetaData {
         const param1_count = param1.count();
-        const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("kio__metadata.New3: Memory allocation failed");
+        const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("KIO__MetaData.New3: Memory allocation failed");
         defer allocator.free(param1_keys);
-        const param1_values = allocator.alloc(QtC.QVariant, param1_count) catch @panic("kio__metadata.New3: Memory allocation failed");
+        const param1_values = allocator.alloc(QtC.QVariant, param1_count) catch @panic("KIO__MetaData.New3: Memory allocation failed");
         defer allocator.free(param1_values);
         var i: usize = 0;
         var param1_it = param1.iterator();
@@ -114,9 +114,9 @@ pub const KIO__MetaData = extern struct {
     ///
     pub fn OperatorPlusAssign(self: KIO__MetaData, allocator: std.mem.Allocator, metaData: ArrayMap_constu8_constu8) KIO__MetaData {
         const metaData_count = metaData.count();
-        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kio__metadata.OperatorPlusAssign: Memory allocation failed");
+        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.OperatorPlusAssign: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kio__metadata.OperatorPlusAssign: Memory allocation failed");
+        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.OperatorPlusAssign: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();
@@ -152,9 +152,9 @@ pub const KIO__MetaData = extern struct {
     ///
     pub fn OperatorPlusAssign2(self: KIO__MetaData, allocator: std.mem.Allocator, metaData: ArrayMap_constu8_QVariant) KIO__MetaData {
         const metaData_count = metaData.count();
-        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kio__metadata.OperatorPlusAssign2: Memory allocation failed");
+        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.OperatorPlusAssign2: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc(QtC.QVariant, metaData_count) catch @panic("kio__metadata.OperatorPlusAssign2: Memory allocation failed");
+        const metaData_values = allocator.alloc(QtC.QVariant, metaData_count) catch @panic("KIO__MetaData.OperatorPlusAssign2: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();
@@ -186,9 +186,9 @@ pub const KIO__MetaData = extern struct {
     ///
     pub fn OperatorAssign(self: KIO__MetaData, allocator: std.mem.Allocator, metaData: ArrayMap_constu8_QVariant) void {
         const metaData_count = metaData.count();
-        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("kio__metadata.OperatorAssign: Memory allocation failed");
+        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.OperatorAssign: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc(QtC.QVariant, metaData_count) catch @panic("kio__metadata.OperatorAssign: Memory allocation failed");
+        const metaData_values = allocator.alloc(QtC.QVariant, metaData_count) catch @panic("KIO__MetaData.OperatorAssign: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();

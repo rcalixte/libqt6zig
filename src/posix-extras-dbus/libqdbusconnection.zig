@@ -91,7 +91,7 @@ pub const QDBusConnection = extern struct {
     pub fn BaseService(self: QDBusConnection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDBusConnection_BaseService(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusconnection.BaseService: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusConnection.BaseService: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -117,7 +117,7 @@ pub const QDBusConnection = extern struct {
     pub fn Name(self: QDBusConnection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDBusConnection_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdbusconnection.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusConnection.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -343,7 +343,7 @@ pub const QDBusConnection = extern struct {
             .len = name.len,
             .data = name.ptr,
         };
-        const argumentMatch_arr = allocator.alloc(qtc.libqt_string, argumentMatch.len) catch @panic("qdbusconnection.Connect3: Memory allocation failed");
+        const argumentMatch_arr = allocator.alloc(qtc.libqt_string, argumentMatch.len) catch @panic("QDBusConnection.Connect3: Memory allocation failed");
         defer allocator.free(argumentMatch_arr);
         for (argumentMatch, 0..argumentMatch.len) |item, i|
             argumentMatch_arr[i] = .{
@@ -490,7 +490,7 @@ pub const QDBusConnection = extern struct {
             .len = name.len,
             .data = name.ptr,
         };
-        const argumentMatch_arr = allocator.alloc(qtc.libqt_string, argumentMatch.len) catch @panic("qdbusconnection.Disconnect3: Memory allocation failed");
+        const argumentMatch_arr = allocator.alloc(qtc.libqt_string, argumentMatch.len) catch @panic("QDBusConnection.Disconnect3: Memory allocation failed");
         defer allocator.free(argumentMatch_arr);
         for (argumentMatch, 0..argumentMatch.len) |item, i|
             argumentMatch_arr[i] = .{
@@ -750,7 +750,7 @@ pub const QDBusConnection = extern struct {
     pub fn LocalMachineId(allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QDBusConnection_LocalMachineId();
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdbusconnection.LocalMachineId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDBusConnection.LocalMachineId: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

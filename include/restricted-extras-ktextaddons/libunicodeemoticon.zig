@@ -40,7 +40,7 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     pub fn Identifier(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__UnicodeEmoticon_Identifier(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textemoticonscore__unicodeemoticon.Identifier: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.Identifier: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -72,7 +72,7 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     pub fn Unicode(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__UnicodeEmoticon_Unicode(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textemoticonscore__unicodeemoticon.Unicode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.Unicode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -88,7 +88,7 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     pub fn UnicodeDisplay(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__UnicodeEmoticon_UnicodeDisplay(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textemoticonscore__unicodeemoticon.UnicodeDisplay: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.UnicodeDisplay: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -120,7 +120,7 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     pub fn Category(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__UnicodeEmoticon_Category(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textemoticonscore__unicodeemoticon.Category: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.Category: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -157,10 +157,10 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("textemoticonscore__unicodeemoticon.Aliases: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.Aliases: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textemoticonscore__unicodeemoticon.Aliases: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.Aliases: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -178,7 +178,7 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     /// ` aliases: []const []const u8 `
     ///
     pub fn SetAliases(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator, aliases: []const []const u8) void {
-        const aliases_arr = allocator.alloc(qtc.libqt_string, aliases.len) catch @panic("textemoticonscore__unicodeemoticon.SetAliases: Memory allocation failed");
+        const aliases_arr = allocator.alloc(qtc.libqt_string, aliases.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.SetAliases: Memory allocation failed");
         defer allocator.free(aliases_arr);
         for (aliases, 0..aliases.len) |item, i|
             aliases_arr[i] = .{
@@ -251,7 +251,7 @@ pub const TextEmoticonsCore__UnicodeEmoticon = extern struct {
     pub fn Key(self: TextEmoticonsCore__UnicodeEmoticon, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__UnicodeEmoticon_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textemoticonscore__unicodeemoticon.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__UnicodeEmoticon.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

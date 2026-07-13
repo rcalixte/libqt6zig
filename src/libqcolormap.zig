@@ -126,7 +126,7 @@ pub const QColormap = extern struct {
     pub fn Colormap(self: QColormap, allocator: std.mem.Allocator) []QColor {
         const _arr: qtc.libqt_list = qtc.QColormap_Colormap(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QColor, _arr.len) catch @panic("qcolormap.Colormap: Memory allocation failed");
+        const _ret = allocator.alloc(QColor, _arr.len) catch @panic("QColormap.Colormap: Memory allocation failed");
         const _data: [*]QtC.QColor = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

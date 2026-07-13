@@ -28,11 +28,11 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
-    pub fn New2(data: [:0]const u8, lenVal: isize) QCborStreamReader {
+    pub fn New2(data: [:0]const u8, len: isize) QCborStreamReader {
         const data_Cstring = data.ptr;
-        return .{ .ptr = qtc.QCborStreamReader_new2(data_Cstring, @bitCast(lenVal)) };
+        return .{ .ptr = qtc.QCborStreamReader_new2(data_Cstring, @bitCast(len)) };
     }
 
     /// New3 constructs a new QCborStreamReader object.
@@ -41,10 +41,10 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` data: *const u8 `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
-    pub fn New3(data: *const u8, lenVal: isize) QCborStreamReader {
-        return .{ .ptr = qtc.QCborStreamReader_new3(@ptrCast(data), @bitCast(lenVal)) };
+    pub fn New3(data: *const u8, len: isize) QCborStreamReader {
+        return .{ .ptr = qtc.QCborStreamReader_new3(@ptrCast(data), @bitCast(len)) };
     }
 
     /// New4 constructs a new QCborStreamReader object.
@@ -119,11 +119,11 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
-    pub fn AddData2(self: QCborStreamReader, data: [:0]const u8, lenVal: isize) void {
+    pub fn AddData2(self: QCborStreamReader, data: [:0]const u8, len: isize) void {
         const data_Cstring = data.ptr;
-        qtc.QCborStreamReader_AddData2(@ptrCast(self.ptr), data_Cstring, @bitCast(lenVal));
+        qtc.QCborStreamReader_AddData2(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#addData)
@@ -134,10 +134,10 @@ pub const QCborStreamReader = extern struct {
     ///
     /// ` data: *const u8 `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
-    pub fn AddData3(self: QCborStreamReader, data: *const u8, lenVal: isize) void {
-        qtc.QCborStreamReader_AddData3(@ptrCast(self.ptr), @ptrCast(data), @bitCast(lenVal));
+    pub fn AddData3(self: QCborStreamReader, data: *const u8, len: isize) void {
+        qtc.QCborStreamReader_AddData3(@ptrCast(self.ptr), @ptrCast(data), @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborstreamreader.html#reparse)
@@ -661,7 +661,7 @@ pub const QCborStreamReader = extern struct {
     pub fn ReadAllString(self: QCborStreamReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCborStreamReader_ReadAllString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcborstreamreader.ReadAllString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborStreamReader.ReadAllString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -677,7 +677,7 @@ pub const QCborStreamReader = extern struct {
     pub fn ReadAllUtf8String(self: QCborStreamReader, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCborStreamReader_ReadAllUtf8String(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborstreamreader.ReadAllUtf8String: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborStreamReader.ReadAllUtf8String: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -693,7 +693,7 @@ pub const QCborStreamReader = extern struct {
     pub fn ReadAllByteArray(self: QCborStreamReader, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCborStreamReader_ReadAllByteArray(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcborstreamreader.ReadAllByteArray: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborStreamReader.ReadAllByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

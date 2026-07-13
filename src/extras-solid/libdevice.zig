@@ -55,7 +55,7 @@ pub const Solid__Device = extern struct {
     pub fn AllDevices(allocator: std.mem.Allocator) []Solid__Device {
         const _arr: qtc.libqt_list = qtc.Solid__Device_AllDevices();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("solid__device.AllDevices: Memory allocation failed");
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.AllDevices: Memory allocation failed");
         const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -73,7 +73,7 @@ pub const Solid__Device = extern struct {
     pub fn ListFromType(allocator: std.mem.Allocator, typeVal: *const i32) []Solid__Device {
         const _arr: qtc.libqt_list = qtc.Solid__Device_ListFromType(@ptrCast(typeVal));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("solid__device.ListFromType: Memory allocation failed");
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.ListFromType: Memory allocation failed");
         const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -92,7 +92,7 @@ pub const Solid__Device = extern struct {
         comptime _ = @TypeOf(predicate)._is_Solid__Predicate;
         const _arr: qtc.libqt_list = qtc.Solid__Device_ListFromQuery(@ptrCast(predicate.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("solid__device.ListFromQuery: Memory allocation failed");
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.ListFromQuery: Memory allocation failed");
         const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -114,7 +114,7 @@ pub const Solid__Device = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.Solid__Device_ListFromQuery2(predicate_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("solid__device.ListFromQuery2: Memory allocation failed");
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.ListFromQuery2: Memory allocation failed");
         const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -169,7 +169,7 @@ pub const Solid__Device = extern struct {
     pub fn Udi(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_Udi(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__device.Udi: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.Udi: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -185,7 +185,7 @@ pub const Solid__Device = extern struct {
     pub fn ParentUdi(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_ParentUdi(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__device.ParentUdi: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.ParentUdi: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -211,7 +211,7 @@ pub const Solid__Device = extern struct {
     pub fn Vendor(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_Vendor(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__device.Vendor: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.Vendor: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -227,7 +227,7 @@ pub const Solid__Device = extern struct {
     pub fn Product(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_Product(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__device.Product: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.Product: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -243,7 +243,7 @@ pub const Solid__Device = extern struct {
     pub fn Icon(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_Icon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__device.Icon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -264,10 +264,10 @@ pub const Solid__Device = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("solid__device.Emblems: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Solid__Device.Emblems: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("solid__device.Emblems: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Solid__Device.Emblems: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -285,7 +285,7 @@ pub const Solid__Device = extern struct {
     pub fn DisplayName(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_DisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__device.DisplayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -301,7 +301,7 @@ pub const Solid__Device = extern struct {
     pub fn Description(self: Solid__Device, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Device_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__device.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Device.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -359,7 +359,7 @@ pub const Solid__Device = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.Solid__Device_ListFromType2(@ptrCast(typeVal), parentUdi_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("solid__device.ListFromType2: Memory allocation failed");
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.ListFromType2: Memory allocation failed");
         const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -384,7 +384,7 @@ pub const Solid__Device = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.Solid__Device_ListFromQuery22(@ptrCast(predicate.ptr), parentUdi_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("solid__device.ListFromQuery22: Memory allocation failed");
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.ListFromQuery22: Memory allocation failed");
         const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -412,7 +412,7 @@ pub const Solid__Device = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.Solid__Device_ListFromQuery23(predicate_str, parentUdi_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("solid__device.ListFromQuery23: Memory allocation failed");
+        const _ret = allocator.alloc(Solid__Device, _arr.len) catch @panic("Solid__Device.ListFromQuery23: Memory allocation failed");
         const _data: [*]QtC.Solid__Device = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

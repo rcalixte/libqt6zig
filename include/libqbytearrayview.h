@@ -36,7 +36,7 @@ libqt_string QByteArrayView_Sliced(const QByteArrayView* self, ptrdiff_t pos);
 libqt_string QByteArrayView_Sliced2(const QByteArrayView* self, ptrdiff_t pos, ptrdiff_t n);
 libqt_string QByteArrayView_Slice(QByteArrayView* self, ptrdiff_t pos);
 libqt_string QByteArrayView_Slice2(QByteArrayView* self, ptrdiff_t pos, ptrdiff_t n);
-libqt_string QByteArrayView_Chopped(const QByteArrayView* self, ptrdiff_t lenVal);
+libqt_string QByteArrayView_Chopped(const QByteArrayView* self, ptrdiff_t len);
 libqt_string QByteArrayView_Left(const QByteArrayView* self, ptrdiff_t n);
 libqt_string QByteArrayView_Right(const QByteArrayView* self, ptrdiff_t n);
 libqt_string QByteArrayView_Mid(const QByteArrayView* self, ptrdiff_t pos);

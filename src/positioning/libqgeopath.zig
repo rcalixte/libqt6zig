@@ -116,7 +116,7 @@ pub const QGeoPath = extern struct {
     pub fn Path(self: QGeoPath, allocator: std.mem.Allocator) []QGeoCoordinate {
         const _arr: qtc.libqt_list = qtc.QGeoPath_Path(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("qgeopath.Path: Memory allocation failed");
+        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("QGeoPath.Path: Memory allocation failed");
         const _data: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -160,7 +160,7 @@ pub const QGeoPath = extern struct {
     pub fn VariantPath(self: QGeoPath, allocator: std.mem.Allocator) []QVariant {
         const _arr: qtc.libqt_list = qtc.QGeoPath_VariantPath(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("qgeopath.VariantPath: Memory allocation failed");
+        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QGeoPath.VariantPath: Memory allocation failed");
         const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -341,7 +341,7 @@ pub const QGeoPath = extern struct {
     pub fn ToString(self: QGeoPath, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoPath_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeopath.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoPath.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

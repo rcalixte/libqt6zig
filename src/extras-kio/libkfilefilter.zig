@@ -35,7 +35,7 @@ pub const KFileFilter = extern struct {
             .len = label.len,
             .data = label.ptr,
         };
-        const filePatterns_arr = allocator.alloc(qtc.libqt_string, filePatterns.len) catch @panic("kfilefilter.New2: Memory allocation failed");
+        const filePatterns_arr = allocator.alloc(qtc.libqt_string, filePatterns.len) catch @panic("KFileFilter.New2: Memory allocation failed");
         defer allocator.free(filePatterns_arr);
         for (filePatterns, 0..filePatterns.len) |item, i|
             filePatterns_arr[i] = .{
@@ -46,7 +46,7 @@ pub const KFileFilter = extern struct {
             .len = filePatterns.len,
             .data = filePatterns_arr.ptr,
         };
-        const mimePatterns_arr = allocator.alloc(qtc.libqt_string, mimePatterns.len) catch @panic("kfilefilter.New2: Memory allocation failed");
+        const mimePatterns_arr = allocator.alloc(qtc.libqt_string, mimePatterns.len) catch @panic("KFileFilter.New2: Memory allocation failed");
         defer allocator.free(mimePatterns_arr);
         for (mimePatterns, 0..mimePatterns.len) |item, i|
             mimePatterns_arr[i] = .{
@@ -108,7 +108,7 @@ pub const KFileFilter = extern struct {
     pub fn Label(self: KFileFilter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileFilter_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilefilter.Label: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileFilter.Label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -129,10 +129,10 @@ pub const KFileFilter = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kfilefilter.FilePatterns: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFileFilter.FilePatterns: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kfilefilter.FilePatterns: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KFileFilter.FilePatterns: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -155,10 +155,10 @@ pub const KFileFilter = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kfilefilter.MimePatterns: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFileFilter.MimePatterns: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kfilefilter.MimePatterns: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KFileFilter.MimePatterns: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -176,7 +176,7 @@ pub const KFileFilter = extern struct {
     pub fn ToFilterString(self: KFileFilter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileFilter_ToFilterString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kfilefilter.ToFilterString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileFilter.ToFilterString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -224,7 +224,7 @@ pub const KFileFilter = extern struct {
     /// ` mimeTypes: []const []const u8 `
     ///
     pub fn FromMimeTypes(allocator: std.mem.Allocator, mimeTypes: []const []const u8) []KFileFilter {
-        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("kfilefilter.FromMimeTypes: Memory allocation failed");
+        const mimeTypes_arr = allocator.alloc(qtc.libqt_string, mimeTypes.len) catch @panic("KFileFilter.FromMimeTypes: Memory allocation failed");
         defer allocator.free(mimeTypes_arr);
         for (mimeTypes, 0..mimeTypes.len) |item, i|
             mimeTypes_arr[i] = .{
@@ -237,7 +237,7 @@ pub const KFileFilter = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KFileFilter_FromMimeTypes(mimeTypes_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KFileFilter, _arr.len) catch @panic("kfilefilter.FromMimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc(KFileFilter, _arr.len) catch @panic("KFileFilter.FromMimeTypes: Memory allocation failed");
         const _data: [*]QtC.KFileFilter = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

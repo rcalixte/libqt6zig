@@ -40,11 +40,11 @@ pub const QStringMatcher = extern struct {
     ///
     /// ` uc: QChar `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
-    pub fn New3(uc: anytype, lenVal: isize) QStringMatcher {
+    pub fn New3(uc: anytype, len: isize) QStringMatcher {
         comptime _ = @TypeOf(uc)._is_QChar;
-        return .{ .ptr = qtc.QStringMatcher_new3(@ptrCast(uc.ptr), @bitCast(lenVal)) };
+        return .{ .ptr = qtc.QStringMatcher_new3(@ptrCast(uc.ptr), @bitCast(len)) };
     }
 
     /// New4 constructs a new QStringMatcher object.
@@ -94,13 +94,13 @@ pub const QStringMatcher = extern struct {
     ///
     /// ` uc: QChar `
     ///
-    /// ` lenVal: isize `
+    /// ` len: isize `
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn New7(uc: anytype, lenVal: isize, cs: i32) QStringMatcher {
+    pub fn New7(uc: anytype, len: isize, cs: i32) QStringMatcher {
         comptime _ = @TypeOf(uc)._is_QChar;
-        return .{ .ptr = qtc.QStringMatcher_new7(@ptrCast(uc.ptr), @bitCast(lenVal), @bitCast(cs)) };
+        return .{ .ptr = qtc.QStringMatcher_new7(@ptrCast(uc.ptr), @bitCast(len), @bitCast(cs)) };
     }
 
     /// New8 constructs a new QStringMatcher object.
@@ -218,7 +218,7 @@ pub const QStringMatcher = extern struct {
     pub fn Pattern(self: QStringMatcher, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStringMatcher_Pattern(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstringmatcher.Pattern: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStringMatcher.Pattern: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -234,7 +234,7 @@ pub const QStringMatcher = extern struct {
     pub fn PatternView(self: QStringMatcher, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStringMatcher_PatternView(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qstringmatcher.PatternView: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStringMatcher.PatternView: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

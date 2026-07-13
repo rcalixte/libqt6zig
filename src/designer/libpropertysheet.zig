@@ -124,7 +124,7 @@ pub const QDesignerPropertySheetExtension = extern struct {
     pub fn PropertyName(self: QDesignerPropertySheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerPropertySheetExtension_PropertyName(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerpropertysheetextension.PropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerPropertySheetExtension.PropertyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -162,7 +162,7 @@ pub const QDesignerPropertySheetExtension = extern struct {
     pub fn SuperPropertyName(self: QDesignerPropertySheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerPropertySheetExtension_SuperPropertyName(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerpropertysheetextension.PropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerPropertySheetExtension.PropertyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -180,7 +180,7 @@ pub const QDesignerPropertySheetExtension = extern struct {
     pub fn PropertyGroup(self: QDesignerPropertySheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerPropertySheetExtension_PropertyGroup(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerpropertysheetextension.PropertyGroup: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerPropertySheetExtension.PropertyGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -218,7 +218,7 @@ pub const QDesignerPropertySheetExtension = extern struct {
     pub fn SuperPropertyGroup(self: QDesignerPropertySheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerPropertySheetExtension_SuperPropertyGroup(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerpropertysheetextension.PropertyGroup: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerPropertySheetExtension.PropertyGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

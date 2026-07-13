@@ -86,7 +86,7 @@ pub const KCountryFlagEmojiIconEngine = extern struct {
     pub fn Key(self: KCountryFlagEmojiIconEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCountryFlagEmojiIconEngine_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcountryflagemojiiconengine.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCountryFlagEmojiIconEngine.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -122,7 +122,7 @@ pub const KCountryFlagEmojiIconEngine = extern struct {
     pub fn SuperKey(self: KCountryFlagEmojiIconEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCountryFlagEmojiIconEngine_SuperKey(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcountryflagemojiiconengine.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCountryFlagEmojiIconEngine.Key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -681,7 +681,7 @@ pub const KCountryFlagEmojiIconEngine = extern struct {
     pub fn AvailableSizes(self: KCountryFlagEmojiIconEngine, allocator: std.mem.Allocator, mode: i32, state: i32) []QSize {
         const _arr: qtc.libqt_list = qtc.KCountryFlagEmojiIconEngine_AvailableSizes(@ptrCast(self.ptr), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("kcountryflagemojiiconengine.AvailableSizes: Memory allocation failed");
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("KCountryFlagEmojiIconEngine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -711,7 +711,7 @@ pub const KCountryFlagEmojiIconEngine = extern struct {
     pub fn SuperAvailableSizes(self: KCountryFlagEmojiIconEngine, allocator: std.mem.Allocator, mode: i32, state: i32) []QSize {
         const _arr: qtc.libqt_list = qtc.KCountryFlagEmojiIconEngine_SuperAvailableSizes(@ptrCast(self.ptr), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("kcountryflagemojiiconengine.AvailableSizes: Memory allocation failed");
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("KCountryFlagEmojiIconEngine.AvailableSizes: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -755,7 +755,7 @@ pub const KCountryFlagEmojiIconEngine = extern struct {
     pub fn IconName(self: KCountryFlagEmojiIconEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCountryFlagEmojiIconEngine_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcountryflagemojiiconengine.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCountryFlagEmojiIconEngine.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -779,7 +779,7 @@ pub const KCountryFlagEmojiIconEngine = extern struct {
     pub fn SuperIconName(self: KCountryFlagEmojiIconEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCountryFlagEmojiIconEngine_SuperIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kcountryflagemojiiconengine.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KCountryFlagEmojiIconEngine.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

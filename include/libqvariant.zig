@@ -219,9 +219,9 @@ pub const QVariant = extern struct {
     ///
     pub fn New17(allocator: std.mem.Allocator, hash: Map_constu8_QVariant) QVariant {
         const hash_count = hash.count();
-        const hash_keys = allocator.alloc(qtc.libqt_string, hash_count) catch @panic("qvariant.New17: Memory allocation failed");
+        const hash_keys = allocator.alloc(qtc.libqt_string, hash_count) catch @panic("QVariant.New17: Memory allocation failed");
         defer allocator.free(hash_keys);
-        const hash_values = allocator.alloc(QtC.QVariant, hash_count) catch @panic("qvariant.New17: Memory allocation failed");
+        const hash_values = allocator.alloc(QtC.QVariant, hash_count) catch @panic("QVariant.New17: Memory allocation failed");
         defer allocator.free(hash_values);
         var i: usize = 0;
         var hash_it = hash.iterator();
@@ -298,9 +298,9 @@ pub const QVariant = extern struct {
     ///
     pub fn New22(allocator: std.mem.Allocator, map: ArrayMap_constu8_QVariant) QVariant {
         const map_count = map.count();
-        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("qvariant.New22: Memory allocation failed");
+        const map_keys = allocator.alloc(qtc.libqt_string, map_count) catch @panic("QVariant.New22: Memory allocation failed");
         defer allocator.free(map_keys);
-        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("qvariant.New22: Memory allocation failed");
+        const map_values = allocator.alloc(QtC.QVariant, map_count) catch @panic("QVariant.New22: Memory allocation failed");
         defer allocator.free(map_values);
         var i: usize = 0;
         var map_it = map.iterator();
@@ -354,7 +354,7 @@ pub const QVariant = extern struct {
     /// ` stringlist: []const []const u8 `
     ///
     pub fn New25(allocator: std.mem.Allocator, stringlist: []const []const u8) QVariant {
-        const stringlist_arr = allocator.alloc(qtc.libqt_string, stringlist.len) catch @panic("qvariant.New25: Memory allocation failed");
+        const stringlist_arr = allocator.alloc(qtc.libqt_string, stringlist.len) catch @panic("QVariant.New25: Memory allocation failed");
         defer allocator.free(stringlist_arr);
         for (stringlist, 0..stringlist.len) |item, i|
             stringlist_arr[i] = .{
@@ -852,7 +852,7 @@ pub const QVariant = extern struct {
     pub fn ToByteArray(self: QVariant, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QVariant_ToByteArray(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qvariant.ToByteArray: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QVariant.ToByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -878,7 +878,7 @@ pub const QVariant = extern struct {
     pub fn ToString(self: QVariant, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QVariant_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qvariant.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QVariant.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -899,10 +899,10 @@ pub const QVariant = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qvariant.ToStringList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QVariant.ToStringList: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qvariant.ToStringList: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QVariant.ToStringList: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -960,7 +960,7 @@ pub const QVariant = extern struct {
     pub fn ToList(self: QVariant, allocator: std.mem.Allocator) []QVariant {
         const _arr: qtc.libqt_list = qtc.QVariant_ToList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("qvariant.ToList: Memory allocation failed");
+        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QVariant.ToList: Memory allocation failed");
         const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -978,7 +978,7 @@ pub const QVariant = extern struct {
     pub fn ToMap(self: QVariant, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QVariant_ToMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qvariant.ToMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QVariant.ToMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -992,7 +992,7 @@ pub const QVariant = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qvariant.ToMap: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QVariant.ToMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
@@ -1011,7 +1011,7 @@ pub const QVariant = extern struct {
     pub fn ToHash(self: QVariant, allocator: std.mem.Allocator) Map_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QVariant_ToHash(@ptrCast(self.ptr));
         var _ret: Map_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qvariant.ToHash: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QVariant.ToHash: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -1025,7 +1025,7 @@ pub const QVariant = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qvariant.ToHash: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QVariant.ToHash: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });

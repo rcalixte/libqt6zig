@@ -657,19 +657,19 @@ class VirtualQSctpSocket final : public QSctpSocket {
     }
 
     // Virtual method for C ABI access and custom callback
-    virtual qint64 writeData(const char* data, qint64 lenVal) override {
+    virtual qint64 writeData(const char* data, qint64 len) override {
         if (qsctpsocket_writedata_isbase) {
             qsctpsocket_writedata_isbase = false;
-            return QSctpSocket::writeData(data, lenVal);
+            return QSctpSocket::writeData(data, len);
         }
         auto writedata_cb = qsctpsocket_writedata_callback;
         if (writedata_cb) {
             const char* cbval1 = (const char*)data;
-            long long cbval2 = static_cast<long long>(lenVal);
+            long long cbval2 = static_cast<long long>(len);
             long long callback_ret = writedata_cb(this, cbval1, cbval2);
             return static_cast<qint64>(callback_ret);
         }
-        return QSctpSocket::writeData(data, lenVal);
+        return QSctpSocket::writeData(data, len);
     }
 
     // Virtual method for C ABI access and custom callback
@@ -1118,8 +1118,8 @@ class VirtualQSctpSocket final : public QSctpSocket {
     friend long long QSctpSocket_SuperReadLineData(QSctpSocket* self, char* data, long long maxlen);
     friend long long QSctpSocket_SkipData(QSctpSocket* self, long long maxSize);
     friend long long QSctpSocket_SuperSkipData(QSctpSocket* self, long long maxSize);
-    friend long long QSctpSocket_WriteData(QSctpSocket* self, const char* data, long long lenVal);
-    friend long long QSctpSocket_SuperWriteData(QSctpSocket* self, const char* data, long long lenVal);
+    friend long long QSctpSocket_WriteData(QSctpSocket* self, const char* data, long long len);
+    friend long long QSctpSocket_SuperWriteData(QSctpSocket* self, const char* data, long long len);
     friend void QSctpSocket_TimerEvent(QSctpSocket* self, QTimerEvent* event);
     friend void QSctpSocket_SuperTimerEvent(QSctpSocket* self, QTimerEvent* event);
     friend void QSctpSocket_ChildEvent(QSctpSocket* self, QChildEvent* event);

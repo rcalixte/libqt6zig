@@ -100,7 +100,7 @@ pub const QImageReader = extern struct {
         const sourceText_Cstring = sourceText.ptr;
         var _str = qtc.QObject_Tr(sourceText_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagereader.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageReader.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -132,7 +132,7 @@ pub const QImageReader = extern struct {
     pub fn Format(self: QImageReader, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QImageReader_Format(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qimagereader.Format: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QImageReader.Format: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -231,7 +231,7 @@ pub const QImageReader = extern struct {
     pub fn FileName(self: QImageReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QImageReader_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagereader.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageReader.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -276,10 +276,10 @@ pub const QImageReader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qimagereader.TextKeys: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QImageReader.TextKeys: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qimagereader.TextKeys: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QImageReader.TextKeys: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -303,7 +303,7 @@ pub const QImageReader = extern struct {
         };
         var _str = qtc.QImageReader_Text(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagereader.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageReader.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -479,7 +479,7 @@ pub const QImageReader = extern struct {
     pub fn SubType(self: QImageReader, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QImageReader_SubType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qimagereader.SubType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QImageReader.SubType: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -500,10 +500,10 @@ pub const QImageReader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qimagereader.SupportedSubTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QImageReader.SupportedSubTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qimagereader.SupportedSubTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QImageReader.SupportedSubTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -640,7 +640,7 @@ pub const QImageReader = extern struct {
     pub fn ErrorString(self: QImageReader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QImageReader_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagereader.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageReader.ErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -672,7 +672,7 @@ pub const QImageReader = extern struct {
         };
         var _bytearray: qtc.libqt_string = qtc.QImageReader_ImageFormat2(fileName_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qimagereader.ImageFormat2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QImageReader.ImageFormat2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -689,7 +689,7 @@ pub const QImageReader = extern struct {
         comptime _ = @TypeOf(device)._is_QIODevice;
         var _bytearray: qtc.libqt_string = qtc.QImageReader_ImageFormat3(@ptrCast(device.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qimagereader.ImageFormat3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QImageReader.ImageFormat3: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -708,10 +708,10 @@ pub const QImageReader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qimagereader.SupportedImageFormats: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QImageReader.SupportedImageFormats: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qimagereader.SupportedImageFormats: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QImageReader.SupportedImageFormats: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -732,10 +732,10 @@ pub const QImageReader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qimagereader.SupportedMimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QImageReader.SupportedMimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qimagereader.SupportedMimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QImageReader.SupportedMimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -762,10 +762,10 @@ pub const QImageReader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qimagereader.ImageFormatsForMimeType: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QImageReader.ImageFormatsForMimeType: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qimagereader.ImageFormatsForMimeType: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QImageReader.ImageFormatsForMimeType: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -803,7 +803,7 @@ pub const QImageReader = extern struct {
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr2(sourceText_Cstring, disambiguation_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagereader.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageReader.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -825,7 +825,7 @@ pub const QImageReader = extern struct {
         const disambiguation_Cstring = disambiguation.ptr;
         var _str = qtc.QObject_Tr3(sourceText_Cstring, disambiguation_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimagereader.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImageReader.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

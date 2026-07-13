@@ -140,11 +140,11 @@ pub const QImage = extern struct {
     /// ` xpm: []const [:0]const u8 `
     ///
     pub fn New8(allocator: std.mem.Allocator, xpm: []const [:0]const u8) QImage {
-        const xpm_chararr = allocator.alloc([*c]const u8, xpm.len) catch @panic("qimage.New8: Memory allocation failed");
+        const xpm_chararr = allocator.alloc([*:0]const u8, xpm.len) catch @panic("QImage.New8: Memory allocation failed");
         defer allocator.free(xpm_chararr);
         for (xpm, 0..xpm.len) |str, i|
             xpm_chararr[i] = @ptrCast(str.ptr);
-        return .{ .ptr = qtc.QImage_new8(xpm_chararr.ptr) };
+        return .{ .ptr = qtc.QImage_new8(@ptrCast(xpm_chararr)) };
     }
 
     /// New9 constructs a new QImage object.
@@ -986,7 +986,7 @@ pub const QImage = extern struct {
     pub fn ColorTable(self: QImage, allocator: std.mem.Allocator) []u32 {
         const _arr: qtc.libqt_list = qtc.QImage_ColorTable(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(u32, _arr.len) catch @panic("qimage.ColorTable: Memory allocation failed");
+        const _ret = allocator.alloc(u32, _arr.len) catch @panic("QImage.ColorTable: Memory allocation failed");
         const _data: [*]u32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1452,10 +1452,10 @@ pub const QImage = extern struct {
     ///
     /// ` buf: *const u8 `
     ///
-    /// ` lenVal: i32 `
+    /// ` len: i32 `
     ///
-    pub fn LoadFromData2(self: QImage, buf: *const u8, lenVal: i32) bool {
-        return qtc.QImage_LoadFromData2(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(lenVal));
+    pub fn LoadFromData2(self: QImage, buf: *const u8, len: i32) bool {
+        return qtc.QImage_LoadFromData2(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(len));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#loadFromData)
@@ -1676,10 +1676,10 @@ pub const QImage = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qimage.TextKeys: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QImage.TextKeys: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qimage.TextKeys: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QImage.TextKeys: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1697,7 +1697,7 @@ pub const QImage = extern struct {
     pub fn Text(self: QImage, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QImage_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimage.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImage.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2571,13 +2571,13 @@ pub const QImage = extern struct {
     ///
     /// ` buf: *const u8 `
     ///
-    /// ` lenVal: i32 `
+    /// ` len: i32 `
     ///
     /// ` format: [:0]const u8 `
     ///
-    pub fn LoadFromData32(self: QImage, buf: *const u8, lenVal: i32, format: [:0]const u8) bool {
+    pub fn LoadFromData32(self: QImage, buf: *const u8, len: i32, format: [:0]const u8) bool {
         const format_Cstring = format.ptr;
-        return qtc.QImage_LoadFromData32(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(lenVal), format_Cstring);
+        return qtc.QImage_LoadFromData32(@ptrCast(self.ptr), @ptrCast(buf), @bitCast(len), format_Cstring);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qimage.html#loadFromData)
@@ -2739,7 +2739,7 @@ pub const QImage = extern struct {
         };
         var _str = qtc.QImage_Text1(@ptrCast(self.ptr), key_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qimage.Text1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QImage.Text1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

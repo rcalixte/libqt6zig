@@ -62,9 +62,9 @@ void KWordWrap_DrawTruncateText(QPainter* p, int x, int y, int maxW, const libqt
     KWordWrap::drawTruncateText(p, static_cast<int>(x), static_cast<int>(y), static_cast<int>(maxW), t_QString);
 }
 
-KWordWrap* KWordWrap_FormatText5(QFontMetrics* fm, const QRect* r, int flags, const libqt_string str, int lenVal) {
+KWordWrap* KWordWrap_FormatText5(QFontMetrics* fm, const QRect* r, int flags, const libqt_string str, int len) {
     QString str_QString = QString::fromUtf8(str.data, str.len);
-    return new KWordWrap(KWordWrap::formatText(*fm, *r, static_cast<int>(flags), str_QString, static_cast<int>(lenVal)));
+    return new KWordWrap(KWordWrap::formatText(*fm, *r, static_cast<int>(flags), str_QString, static_cast<int>(len)));
 }
 
 libqt_string KWordWrap_TruncatedString1(const KWordWrap* self, bool dots) {

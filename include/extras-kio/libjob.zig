@@ -30,7 +30,7 @@ pub const KIO = extern struct {
         };
         var _str = qtc.KIO_BuildErrorString(@bitCast(errorCode), errorText_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio.BuildErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO.BuildErrorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -57,7 +57,7 @@ pub const KIO = extern struct {
         comptime _ = @TypeOf(reqUrl)._is_QUrl;
         var _bytearray: qtc.libqt_string = qtc.KIO_RawErrorDetail(@bitCast(errorCode), errorText_str, @ptrCast(reqUrl.ptr), @bitCast(method));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kio.RawErrorDetail: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KIO.RawErrorDetail: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

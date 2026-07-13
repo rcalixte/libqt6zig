@@ -66,7 +66,7 @@ pub const KSyntaxHighlighting__Format = extern struct {
     pub fn Name(self: KSyntaxHighlighting__Format, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Format_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ksyntaxhighlighting__format.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Format.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

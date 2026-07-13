@@ -84,7 +84,7 @@ pub const QGeoAreaMonitorInfo = extern struct {
     pub fn Name(self: QGeoAreaMonitorInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAreaMonitorInfo_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoareamonitorinfo.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAreaMonitorInfo.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -116,7 +116,7 @@ pub const QGeoAreaMonitorInfo = extern struct {
     pub fn Identifier(self: QGeoAreaMonitorInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAreaMonitorInfo_Identifier(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qgeoareamonitorinfo.Identifier: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAreaMonitorInfo.Identifier: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -210,7 +210,7 @@ pub const QGeoAreaMonitorInfo = extern struct {
     pub fn NotificationParameters(self: QGeoAreaMonitorInfo, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QGeoAreaMonitorInfo_NotificationParameters(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qgeoareamonitorinfo.NotificationParameters: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QGeoAreaMonitorInfo.NotificationParameters: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -224,7 +224,7 @@ pub const QGeoAreaMonitorInfo = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("qgeoareamonitorinfo.NotificationParameters: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QGeoAreaMonitorInfo.NotificationParameters: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
@@ -244,9 +244,9 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     pub fn SetNotificationParameters(self: QGeoAreaMonitorInfo, allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant) void {
         const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("qgeoareamonitorinfo.SetNotificationParameters: Memory allocation failed");
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QGeoAreaMonitorInfo.SetNotificationParameters: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("qgeoareamonitorinfo.SetNotificationParameters: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QGeoAreaMonitorInfo.SetNotificationParameters: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();

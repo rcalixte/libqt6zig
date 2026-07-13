@@ -249,7 +249,7 @@ pub const Solid__Predicate = extern struct {
     pub fn UsedTypes(self: Solid__Predicate, allocator: std.mem.Allocator) Set_i32 {
         const _set: qtc.libqt_list = qtc.Solid__Predicate_UsedTypes(@ptrCast(self.ptr));
         var _ret: Set_i32 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("solid__predicate.UsedTypes: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("Solid__Predicate.UsedTypes: Total capacity allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(_data[i], {});
@@ -267,7 +267,7 @@ pub const Solid__Predicate = extern struct {
     pub fn ToString(self: Solid__Predicate, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Predicate_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__predicate.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Predicate.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -325,7 +325,7 @@ pub const Solid__Predicate = extern struct {
     pub fn PropertyName(self: Solid__Predicate, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Solid__Predicate_PropertyName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("solid__predicate.PropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__Predicate.PropertyName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

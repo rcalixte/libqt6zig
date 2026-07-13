@@ -66,7 +66,7 @@ pub const KLocalizedString = extern struct {
     pub fn ToString(self: KLocalizedString, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KLocalizedString_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLocalizedString.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -82,7 +82,7 @@ pub const KLocalizedString = extern struct {
     /// ` languages: []const []const u8 `
     ///
     pub fn ToString2(self: KLocalizedString, allocator: std.mem.Allocator, languages: []const []const u8) []const u8 {
-        const languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("klocalizedstring.ToString2: Memory allocation failed");
+        const languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("KLocalizedString.ToString2: Memory allocation failed");
         defer allocator.free(languages_arr);
         for (languages, 0..languages.len) |item, i|
             languages_arr[i] = .{
@@ -95,7 +95,7 @@ pub const KLocalizedString = extern struct {
         };
         var _str = qtc.KLocalizedString_ToString2(@ptrCast(self.ptr), languages_list);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring.ToString2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLocalizedString.ToString2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -114,7 +114,7 @@ pub const KLocalizedString = extern struct {
         const domain_Cstring = domain.ptr;
         var _str = qtc.KLocalizedString_ToString3(@ptrCast(self.ptr), domain_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring.ToString3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLocalizedString.ToString3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -132,7 +132,7 @@ pub const KLocalizedString = extern struct {
     pub fn ToString4(self: KLocalizedString, allocator: std.mem.Allocator, format: i32) []const u8 {
         var _str = qtc.KLocalizedString_ToString4(@ptrCast(self.ptr), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring.ToString4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLocalizedString.ToString4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -148,7 +148,7 @@ pub const KLocalizedString = extern struct {
     /// ` languages: []const []const u8 `
     ///
     pub fn WithLanguages(self: KLocalizedString, allocator: std.mem.Allocator, languages: []const []const u8) KLocalizedString {
-        const languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("klocalizedstring.WithLanguages: Memory allocation failed");
+        const languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("KLocalizedString.WithLanguages: Memory allocation failed");
         defer allocator.free(languages_arr);
         for (languages, 0..languages.len) |item, i|
             languages_arr[i] = .{
@@ -366,7 +366,7 @@ pub const KLocalizedString = extern struct {
     pub fn UntranslatedText(self: KLocalizedString, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.KLocalizedString_UntranslatedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("klocalizedstring.UntranslatedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KLocalizedString.UntranslatedText: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -394,7 +394,7 @@ pub const KLocalizedString = extern struct {
     pub fn ApplicationDomain(allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.KLocalizedString_ApplicationDomain();
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("klocalizedstring.ApplicationDomain: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KLocalizedString.ApplicationDomain: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -413,10 +413,10 @@ pub const KLocalizedString = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("klocalizedstring.Languages: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KLocalizedString.Languages: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("klocalizedstring.Languages: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KLocalizedString.Languages: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -432,7 +432,7 @@ pub const KLocalizedString = extern struct {
     /// ` languages: []const []const u8 `
     ///
     pub fn SetLanguages(allocator: std.mem.Allocator, languages: []const []const u8) void {
-        const languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("klocalizedstring.SetLanguages: Memory allocation failed");
+        const languages_arr = allocator.alloc(qtc.libqt_string, languages.len) catch @panic("KLocalizedString.SetLanguages: Memory allocation failed");
         defer allocator.free(languages_arr);
         for (languages, 0..languages.len) |item, i|
             languages_arr[i] = .{
@@ -475,7 +475,7 @@ pub const KLocalizedString = extern struct {
     pub fn AvailableApplicationTranslations(allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.KLocalizedString_AvailableApplicationTranslations();
         var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("klocalizedstring.AvailableApplicationTranslations: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("KLocalizedString.AvailableApplicationTranslations: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
@@ -497,7 +497,7 @@ pub const KLocalizedString = extern struct {
         };
         const _set: qtc.libqt_list = qtc.KLocalizedString_AvailableDomainTranslations(domain_str);
         var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("klocalizedstring.AvailableDomainTranslations: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("KLocalizedString.AvailableDomainTranslations: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
@@ -539,7 +539,7 @@ pub const KLocalizedString = extern struct {
         };
         var _str = qtc.KLocalizedString_LocalizedFilePath(filePath_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring.LocalizedFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLocalizedString.LocalizedFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -559,7 +559,7 @@ pub const KLocalizedString = extern struct {
         };
         var _str = qtc.KLocalizedString_RemoveAcceleratorMarker(label_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("klocalizedstring.RemoveAcceleratorMarker: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLocalizedString.RemoveAcceleratorMarker: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

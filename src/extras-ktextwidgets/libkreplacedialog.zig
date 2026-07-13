@@ -125,7 +125,7 @@ pub const KReplaceDialog = extern struct {
     ///
     pub fn New4(allocator: std.mem.Allocator, parent: anytype, options: isize, findStrings: []const []const u8) KReplaceDialog {
         comptime _ = @TypeOf(parent)._is_QWidget;
-        const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.New4: Memory allocation failed");
+        const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("KReplaceDialog.New4: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i|
             findStrings_arr[i] = .{
@@ -155,7 +155,7 @@ pub const KReplaceDialog = extern struct {
     ///
     pub fn New5(allocator: std.mem.Allocator, parent: anytype, options: isize, findStrings: []const []const u8, replaceStrings: []const []const u8) KReplaceDialog {
         comptime _ = @TypeOf(parent)._is_QWidget;
-        const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.New5: Memory allocation failed");
+        const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("KReplaceDialog.New5: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i|
             findStrings_arr[i] = .{
@@ -166,7 +166,7 @@ pub const KReplaceDialog = extern struct {
             .len = findStrings.len,
             .data = findStrings_arr.ptr,
         };
-        const replaceStrings_arr = allocator.alloc(qtc.libqt_string, replaceStrings.len) catch @panic("kreplacedialog.New5: Memory allocation failed");
+        const replaceStrings_arr = allocator.alloc(qtc.libqt_string, replaceStrings.len) catch @panic("KReplaceDialog.New5: Memory allocation failed");
         defer allocator.free(replaceStrings_arr);
         for (replaceStrings, 0..replaceStrings.len) |item, i|
             replaceStrings_arr[i] = .{
@@ -198,7 +198,7 @@ pub const KReplaceDialog = extern struct {
     ///
     pub fn New6(allocator: std.mem.Allocator, parent: anytype, options: isize, findStrings: []const []const u8, replaceStrings: []const []const u8, hasSelection: bool) KReplaceDialog {
         comptime _ = @TypeOf(parent)._is_QWidget;
-        const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("kreplacedialog.New6: Memory allocation failed");
+        const findStrings_arr = allocator.alloc(qtc.libqt_string, findStrings.len) catch @panic("KReplaceDialog.New6: Memory allocation failed");
         defer allocator.free(findStrings_arr);
         for (findStrings, 0..findStrings.len) |item, i|
             findStrings_arr[i] = .{
@@ -209,7 +209,7 @@ pub const KReplaceDialog = extern struct {
             .len = findStrings.len,
             .data = findStrings_arr.ptr,
         };
-        const replaceStrings_arr = allocator.alloc(qtc.libqt_string, replaceStrings.len) catch @panic("kreplacedialog.New6: Memory allocation failed");
+        const replaceStrings_arr = allocator.alloc(qtc.libqt_string, replaceStrings.len) catch @panic("KReplaceDialog.New6: Memory allocation failed");
         defer allocator.free(replaceStrings_arr);
         for (replaceStrings, 0..replaceStrings.len) |item, i|
             replaceStrings_arr[i] = .{
@@ -361,7 +361,7 @@ pub const KReplaceDialog = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -377,7 +377,7 @@ pub const KReplaceDialog = extern struct {
     /// ` history: []const []const u8 `
     ///
     pub fn SetReplacementHistory(self: KReplaceDialog, allocator: std.mem.Allocator, history: []const []const u8) void {
-        const history_arr = allocator.alloc(qtc.libqt_string, history.len) catch @panic("kreplacedialog.SetReplacementHistory: Memory allocation failed");
+        const history_arr = allocator.alloc(qtc.libqt_string, history.len) catch @panic("KReplaceDialog.SetReplacementHistory: Memory allocation failed");
         defer allocator.free(history_arr);
         for (history, 0..history.len) |item, i|
             history_arr[i] = .{
@@ -407,10 +407,10 @@ pub const KReplaceDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kreplacedialog.ReplacementHistory: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KReplaceDialog.ReplacementHistory: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kreplacedialog.ReplacementHistory: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KReplaceDialog.ReplacementHistory: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -450,7 +450,7 @@ pub const KReplaceDialog = extern struct {
     pub fn Replacement(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KReplaceDialog_Replacement(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.Replacement: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.Replacement: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -526,7 +526,7 @@ pub const KReplaceDialog = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -548,7 +548,7 @@ pub const KReplaceDialog = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -566,7 +566,7 @@ pub const KReplaceDialog = extern struct {
     /// ` history: []const []const u8 `
     ///
     pub fn SetFindHistory(self: KReplaceDialog, allocator: std.mem.Allocator, history: []const []const u8) void {
-        const history_arr = allocator.alloc(qtc.libqt_string, history.len) catch @panic("kreplacedialog.SetFindHistory: Memory allocation failed");
+        const history_arr = allocator.alloc(qtc.libqt_string, history.len) catch @panic("KReplaceDialog.SetFindHistory: Memory allocation failed");
         defer allocator.free(history_arr);
         for (history, 0..history.len) |item, i|
             history_arr[i] = .{
@@ -598,10 +598,10 @@ pub const KReplaceDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kreplacedialog.FindHistory: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KReplaceDialog.FindHistory: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kreplacedialog.FindHistory: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KReplaceDialog.FindHistory: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -705,7 +705,7 @@ pub const KReplaceDialog = extern struct {
     pub fn Pattern(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFindDialog_Pattern(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.Pattern: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.Pattern: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2334,7 +2334,7 @@ pub const KReplaceDialog = extern struct {
     pub fn StyleSheet(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2352,7 +2352,7 @@ pub const KReplaceDialog = extern struct {
     pub fn WindowTitle(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2415,7 +2415,7 @@ pub const KReplaceDialog = extern struct {
     pub fn WindowIconText(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2451,7 +2451,7 @@ pub const KReplaceDialog = extern struct {
     pub fn WindowRole(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2487,7 +2487,7 @@ pub const KReplaceDialog = extern struct {
     pub fn WindowFilePath(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2561,7 +2561,7 @@ pub const KReplaceDialog = extern struct {
     pub fn ToolTip(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2623,7 +2623,7 @@ pub const KReplaceDialog = extern struct {
     pub fn StatusTip(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2659,7 +2659,7 @@ pub const KReplaceDialog = extern struct {
     pub fn WhatsThis(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2677,7 +2677,7 @@ pub const KReplaceDialog = extern struct {
     pub fn AccessibleName(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2713,7 +2713,7 @@ pub const KReplaceDialog = extern struct {
     pub fn AccessibleDescription(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3563,7 +3563,7 @@ pub const KReplaceDialog = extern struct {
     pub fn SaveGeometry(self: KReplaceDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kreplacedialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KReplaceDialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -4099,7 +4099,7 @@ pub const KReplaceDialog = extern struct {
     pub fn Actions(self: KReplaceDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kreplacedialog.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KReplaceDialog.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4914,7 +4914,7 @@ pub const KReplaceDialog = extern struct {
     pub fn ObjectName(self: KReplaceDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kreplacedialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KReplaceDialog.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5091,7 +5091,7 @@ pub const KReplaceDialog = extern struct {
     pub fn Children(self: KReplaceDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kreplacedialog.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KReplaceDialog.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5352,10 +5352,10 @@ pub const KReplaceDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kreplacedialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KReplaceDialog.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kreplacedialog.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KReplaceDialog.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

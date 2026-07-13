@@ -528,7 +528,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     pub fn CertNickname(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_CertNickname(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__pdfconverter__newsignaturedata.CertNickname: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.CertNickname: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -560,7 +560,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     pub fn Password(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_Password(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__pdfconverter__newsignaturedata.Password: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.Password: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -637,7 +637,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     pub fn SignatureText(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_SignatureText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__pdfconverter__newsignaturedata.SignatureText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.SignatureText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -669,7 +669,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     pub fn SignatureLeftText(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_SignatureLeftText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__pdfconverter__newsignaturedata.SignatureLeftText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.SignatureLeftText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -701,7 +701,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     pub fn Reason(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_Reason(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__pdfconverter__newsignaturedata.Reason: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.Reason: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -733,7 +733,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     pub fn Location(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_Location(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__pdfconverter__newsignaturedata.Location: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.Location: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -900,7 +900,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     pub fn FieldPartialName(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_FieldPartialName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__pdfconverter__newsignaturedata.FieldPartialName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.FieldPartialName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -932,7 +932,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     pub fn DocumentOwnerPassword(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.Poppler__PDFConverter__NewSignatureData_DocumentOwnerPassword(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("poppler__pdfconverter__newsignaturedata.DocumentOwnerPassword: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__PDFConverter__NewSignatureData.DocumentOwnerPassword: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -964,7 +964,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     pub fn DocumentUserPassword(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.Poppler__PDFConverter__NewSignatureData_DocumentUserPassword(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("poppler__pdfconverter__newsignaturedata.DocumentUserPassword: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("Poppler__PDFConverter__NewSignatureData.DocumentUserPassword: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -996,7 +996,7 @@ pub const Poppler__PDFConverter__NewSignatureData = extern struct {
     pub fn ImagePath(self: Poppler__PDFConverter__NewSignatureData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__PDFConverter__NewSignatureData_ImagePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__pdfconverter__newsignaturedata.ImagePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__PDFConverter__NewSignatureData.ImagePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

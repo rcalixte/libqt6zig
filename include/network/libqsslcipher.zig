@@ -133,7 +133,7 @@ pub const QSslCipher = extern struct {
     pub fn Name(self: QSslCipher, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSslCipher_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcipher.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCipher.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -169,7 +169,7 @@ pub const QSslCipher = extern struct {
     pub fn KeyExchangeMethod(self: QSslCipher, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSslCipher_KeyExchangeMethod(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcipher.KeyExchangeMethod: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCipher.KeyExchangeMethod: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -185,7 +185,7 @@ pub const QSslCipher = extern struct {
     pub fn AuthenticationMethod(self: QSslCipher, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSslCipher_AuthenticationMethod(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcipher.AuthenticationMethod: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCipher.AuthenticationMethod: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -201,7 +201,7 @@ pub const QSslCipher = extern struct {
     pub fn EncryptionMethod(self: QSslCipher, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSslCipher_EncryptionMethod(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcipher.EncryptionMethod: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCipher.EncryptionMethod: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -217,7 +217,7 @@ pub const QSslCipher = extern struct {
     pub fn ProtocolString(self: QSslCipher, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSslCipher_ProtocolString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcipher.ProtocolString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCipher.ProtocolString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

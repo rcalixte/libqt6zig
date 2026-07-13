@@ -75,10 +75,10 @@ pub const KIO__DesktopExecParser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__desktopexecparser.ResultingArguments: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIO__DesktopExecParser.ResultingArguments: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio__desktopexecparser.ResultingArguments: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIO__DesktopExecParser.ResultingArguments: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -96,7 +96,7 @@ pub const KIO__DesktopExecParser = extern struct {
     pub fn ErrorMessage(self: KIO__DesktopExecParser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KIO__DesktopExecParser_ErrorMessage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__desktopexecparser.ErrorMessage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__DesktopExecParser.ErrorMessage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -118,10 +118,10 @@ pub const KIO__DesktopExecParser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kio__desktopexecparser.SupportedProtocols: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KIO__DesktopExecParser.SupportedProtocols: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kio__desktopexecparser.SupportedProtocols: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KIO__DesktopExecParser.SupportedProtocols: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -140,7 +140,7 @@ pub const KIO__DesktopExecParser = extern struct {
     ///
     pub fn IsProtocolInSupportedList(allocator: std.mem.Allocator, url: anytype, supportedProtocols: []const []const u8) bool {
         comptime _ = @TypeOf(url)._is_QUrl;
-        const supportedProtocols_arr = allocator.alloc(qtc.libqt_string, supportedProtocols.len) catch @panic("kio__desktopexecparser.IsProtocolInSupportedList: Memory allocation failed");
+        const supportedProtocols_arr = allocator.alloc(qtc.libqt_string, supportedProtocols.len) catch @panic("KIO__DesktopExecParser.IsProtocolInSupportedList: Memory allocation failed");
         defer allocator.free(supportedProtocols_arr);
         for (supportedProtocols, 0..supportedProtocols.len) |item, i|
             supportedProtocols_arr[i] = .{
@@ -180,7 +180,7 @@ pub const KIO__DesktopExecParser = extern struct {
         };
         var _str = qtc.KIO__DesktopExecParser_ExecutableName(execLine_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__desktopexecparser.ExecutableName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__DesktopExecParser.ExecutableName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -200,7 +200,7 @@ pub const KIO__DesktopExecParser = extern struct {
         };
         var _str = qtc.KIO__DesktopExecParser_ExecutablePath(execLine_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kio__desktopexecparser.ExecutablePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KIO__DesktopExecParser.ExecutablePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

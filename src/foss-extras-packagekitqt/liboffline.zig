@@ -72,7 +72,7 @@ pub const PackageKit__Offline = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__offline.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Offline.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -88,7 +88,7 @@ pub const PackageKit__Offline = extern struct {
     pub fn PreparedUpgrade(self: PackageKit__Offline, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.PackageKit__Offline_PreparedUpgrade(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("packagekit__offline.PreparedUpgrade: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("PackageKit__Offline.PreparedUpgrade: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -102,7 +102,7 @@ pub const PackageKit__Offline = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("packagekit__offline.PreparedUpgrade: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("PackageKit__Offline.PreparedUpgrade: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
@@ -185,7 +185,7 @@ pub const PackageKit__Offline = extern struct {
     /// ` updates: []const []const u8 `
     ///
     pub fn PreparedUpdates(self: PackageKit__Offline, allocator: std.mem.Allocator, updates: []const []const u8) void {
-        const updates_arr = allocator.alloc(qtc.libqt_string, updates.len) catch @panic("packagekit__offline.PreparedUpdates: Memory allocation failed");
+        const updates_arr = allocator.alloc(qtc.libqt_string, updates.len) catch @panic("PackageKit__Offline.PreparedUpdates: Memory allocation failed");
         defer allocator.free(updates_arr);
         for (updates, 0..updates.len) |item, i|
             updates_arr[i] = .{
@@ -248,7 +248,7 @@ pub const PackageKit__Offline = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__offline.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Offline.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -270,7 +270,7 @@ pub const PackageKit__Offline = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__offline.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Offline.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -321,7 +321,7 @@ pub const PackageKit__Offline = extern struct {
     pub fn ObjectName(self: PackageKit__Offline, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("packagekit__offline.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("PackageKit__Offline.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -498,7 +498,7 @@ pub const PackageKit__Offline = extern struct {
     pub fn Children(self: PackageKit__Offline, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("packagekit__offline.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("PackageKit__Offline.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -774,10 +774,10 @@ pub const PackageKit__Offline = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("packagekit__offline.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("PackageKit__Offline.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("packagekit__offline.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("PackageKit__Offline.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

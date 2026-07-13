@@ -158,7 +158,7 @@ pub const Poppler__LinkDestination = extern struct {
     pub fn ToString(self: Poppler__LinkDestination, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkDestination_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__linkdestination.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkDestination.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -174,7 +174,7 @@ pub const Poppler__LinkDestination = extern struct {
     pub fn DestinationName(self: Poppler__LinkDestination, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkDestination_DestinationName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__linkdestination.DestinationName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkDestination.DestinationName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -299,7 +299,7 @@ pub const Poppler__Link = extern struct {
     pub fn NextLinks(self: Poppler__Link, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__link.NextLinks: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__Link.NextLinks: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -375,7 +375,7 @@ pub const Poppler__LinkGoto = extern struct {
     pub fn FileName(self: Poppler__LinkGoto, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkGoto_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__linkgoto.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkGoto.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -463,7 +463,7 @@ pub const Poppler__LinkGoto = extern struct {
     pub fn NextLinks(self: Poppler__LinkGoto, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__linkgoto.NextLinks: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkGoto.NextLinks: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -532,7 +532,7 @@ pub const Poppler__LinkExecute = extern struct {
     pub fn FileName(self: Poppler__LinkExecute, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkExecute_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__linkexecute.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkExecute.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -548,7 +548,7 @@ pub const Poppler__LinkExecute = extern struct {
     pub fn Parameters(self: Poppler__LinkExecute, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkExecute_Parameters(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__linkexecute.Parameters: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkExecute.Parameters: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -626,7 +626,7 @@ pub const Poppler__LinkExecute = extern struct {
     pub fn NextLinks(self: Poppler__LinkExecute, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__linkexecute.NextLinks: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkExecute.NextLinks: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -689,7 +689,7 @@ pub const Poppler__LinkBrowse = extern struct {
     pub fn Url(self: Poppler__LinkBrowse, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkBrowse_Url(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__linkbrowse.Url: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkBrowse.Url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -767,7 +767,7 @@ pub const Poppler__LinkBrowse = extern struct {
     pub fn NextLinks(self: Poppler__LinkBrowse, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__linkbrowse.NextLinks: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkBrowse.NextLinks: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -902,7 +902,7 @@ pub const Poppler__LinkAction = extern struct {
     pub fn NextLinks(self: Poppler__LinkAction, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__linkaction.NextLinks: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkAction.NextLinks: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1082,7 +1082,7 @@ pub const Poppler__LinkSound = extern struct {
     pub fn NextLinks(self: Poppler__LinkSound, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__linksound.NextLinks: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkSound.NextLinks: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1166,7 +1166,7 @@ pub const Poppler__LinkRendition = extern struct {
     pub fn Script(self: Poppler__LinkRendition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkRendition_Script(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__linkrendition.Script: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkRendition.Script: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1209,7 +1209,7 @@ pub const Poppler__LinkRendition = extern struct {
     pub fn NextLinks(self: Poppler__LinkRendition, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__linkrendition.NextLinks: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkRendition.NextLinks: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1320,7 +1320,7 @@ pub const Poppler__LinkJavaScript = extern struct {
     pub fn Script(self: Poppler__LinkJavaScript, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkJavaScript_Script(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__linkjavascript.Script: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkJavaScript.Script: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1350,7 +1350,7 @@ pub const Poppler__LinkJavaScript = extern struct {
     pub fn NextLinks(self: Poppler__LinkJavaScript, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__linkjavascript.NextLinks: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkJavaScript.NextLinks: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1451,7 +1451,7 @@ pub const Poppler__LinkMovie = extern struct {
     pub fn NextLinks(self: Poppler__LinkMovie, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__linkmovie.NextLinks: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkMovie.NextLinks: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1525,7 +1525,7 @@ pub const Poppler__LinkOCGState = extern struct {
     pub fn NextLinks(self: Poppler__LinkOCGState, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__linkocgstate.NextLinks: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkOCGState.NextLinks: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1590,10 +1590,10 @@ pub const Poppler__LinkHide = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("poppler__linkhide.Targets: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Poppler__LinkHide.Targets: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("poppler__linkhide.Targets: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Poppler__LinkHide.Targets: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1635,7 +1635,7 @@ pub const Poppler__LinkHide = extern struct {
     pub fn NextLinks(self: Poppler__LinkHide, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__linkhide.NextLinks: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkHide.NextLinks: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1709,7 +1709,7 @@ pub const Poppler__LinkResetForm = extern struct {
     pub fn NextLinks(self: Poppler__LinkResetForm, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__linkresetform.NextLinks: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkResetForm.NextLinks: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1769,7 +1769,7 @@ pub const Poppler__LinkSubmitForm = extern struct {
     pub fn GetFieldIds(self: Poppler__LinkSubmitForm, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.Poppler__LinkSubmitForm_GetFieldIds(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("poppler__linksubmitform.GetFieldIds: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("Poppler__LinkSubmitForm.GetFieldIds: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -1786,7 +1786,7 @@ pub const Poppler__LinkSubmitForm = extern struct {
     pub fn GetUrl(self: Poppler__LinkSubmitForm, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkSubmitForm_GetUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("poppler__linksubmitform.GetUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkSubmitForm.GetUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1830,7 +1830,7 @@ pub const Poppler__LinkSubmitForm = extern struct {
     pub fn NextLinks(self: Poppler__LinkSubmitForm, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("poppler__linksubmitform.NextLinks: Memory allocation failed");
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkSubmitForm.NextLinks: Memory allocation failed");
         const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

@@ -70,7 +70,7 @@ pub const KNSCore__Author = extern struct {
     pub fn Id(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__author.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -102,7 +102,7 @@ pub const KNSCore__Author = extern struct {
     pub fn Name(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__author.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -134,7 +134,7 @@ pub const KNSCore__Author = extern struct {
     pub fn Email(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Email(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__author.Email: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Email: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -166,7 +166,7 @@ pub const KNSCore__Author = extern struct {
     pub fn Jabber(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Jabber(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__author.Jabber: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Jabber: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -198,7 +198,7 @@ pub const KNSCore__Author = extern struct {
     pub fn Homepage(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Homepage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__author.Homepage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Homepage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -230,7 +230,7 @@ pub const KNSCore__Author = extern struct {
     pub fn Profilepage(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Profilepage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__author.Profilepage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Profilepage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -269,7 +269,7 @@ pub const KNSCore__Author = extern struct {
     pub fn Description(self: KNSCore__Author, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__Author_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("knscore__author.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__Author.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

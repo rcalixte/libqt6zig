@@ -140,7 +140,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.QuestionTwoActionsList: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.QuestionTwoActionsList: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{
@@ -237,7 +237,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.WarningTwoActionsList: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.WarningTwoActionsList: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{
@@ -381,7 +381,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.WarningContinueCancelList: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.WarningContinueCancelList: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{
@@ -483,7 +483,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.WarningTwoActionsCancelList: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.WarningTwoActionsCancelList: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{
@@ -583,7 +583,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.ErrorList: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.ErrorList: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{
@@ -721,7 +721,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.InformationList: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.InformationList: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{
@@ -937,7 +937,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.CreateKMessageBox: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.CreateKMessageBox: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{
@@ -997,7 +997,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.CreateKMessageBox2: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.CreateKMessageBox2: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{
@@ -1133,7 +1133,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.QuestionTwoActionsListWId: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.QuestionTwoActionsListWId: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{
@@ -1228,7 +1228,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.WarningTwoActionsListWId: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.WarningTwoActionsListWId: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{
@@ -1323,7 +1323,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.WarningContinueCancelListWId: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.WarningContinueCancelListWId: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{
@@ -1423,7 +1423,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.WarningTwoActionsCancelListWId: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.WarningTwoActionsCancelListWId: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{
@@ -1493,7 +1493,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.ErrorListWId: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.ErrorListWId: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{
@@ -1627,7 +1627,7 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("kmessagebox.InformationListWId: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.InformationListWId: Memory allocation failed");
         defer allocator.free(strlist_arr);
         for (strlist, 0..strlist.len) |item, i|
             strlist_arr[i] = .{

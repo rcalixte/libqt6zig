@@ -243,7 +243,7 @@ pub const QFutureInterfaceBase = extern struct {
     pub fn ProgressText(self: QFutureInterfaceBase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFutureInterfaceBase_ProgressText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfutureinterfacebase.ProgressText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFutureInterfaceBase.ProgressText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

@@ -198,7 +198,7 @@ pub const QOpenGLShader = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshader.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -289,7 +289,7 @@ pub const QOpenGLShader = extern struct {
     pub fn SourceCode(self: QOpenGLShader, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QOpenGLShader_SourceCode(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qopenglshader.SourceCode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QOpenGLShader.SourceCode: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -315,7 +315,7 @@ pub const QOpenGLShader = extern struct {
     pub fn Log(self: QOpenGLShader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QOpenGLShader_Log(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshader.Log: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.Log: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -355,7 +355,7 @@ pub const QOpenGLShader = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshader.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -377,7 +377,7 @@ pub const QOpenGLShader = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshader.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -408,7 +408,7 @@ pub const QOpenGLShader = extern struct {
     pub fn ObjectName(self: QOpenGLShader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshader.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -585,7 +585,7 @@ pub const QOpenGLShader = extern struct {
     pub fn Children(self: QOpenGLShader, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qopenglshader.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QOpenGLShader.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -861,10 +861,10 @@ pub const QOpenGLShader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qopenglshader.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLShader.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qopenglshader.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QOpenGLShader.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1951,7 +1951,7 @@ pub const QOpenGLShaderProgram = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshaderprogram.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1993,7 +1993,7 @@ pub const QOpenGLShaderProgram = extern struct {
     pub fn Shaders(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []QOpenGLShader {
         const _arr: qtc.libqt_list = qtc.QOpenGLShaderProgram_Shaders(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QOpenGLShader, _arr.len) catch @panic("qopenglshaderprogram.Shaders: Memory allocation failed");
+        const _ret = allocator.alloc(QOpenGLShader, _arr.len) catch @panic("QOpenGLShaderProgram.Shaders: Memory allocation failed");
         const _data: [*]QtC.QOpenGLShader = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2209,7 +2209,7 @@ pub const QOpenGLShaderProgram = extern struct {
     pub fn Log(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QOpenGLShaderProgram_Log(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshaderprogram.Log: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.Log: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2313,7 +2313,7 @@ pub const QOpenGLShaderProgram = extern struct {
     pub fn DefaultOuterTessellationLevels(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []f32 {
         const _arr: qtc.libqt_list = qtc.QOpenGLShaderProgram_DefaultOuterTessellationLevels(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f32, _arr.len) catch @panic("qopenglshaderprogram.DefaultOuterTessellationLevels: Memory allocation failed");
+        const _ret = allocator.alloc(f32, _arr.len) catch @panic("QOpenGLShaderProgram.DefaultOuterTessellationLevels: Memory allocation failed");
         const _data: [*]f32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -2346,7 +2346,7 @@ pub const QOpenGLShaderProgram = extern struct {
     pub fn DefaultInnerTessellationLevels(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []f32 {
         const _arr: qtc.libqt_list = qtc.QOpenGLShaderProgram_DefaultInnerTessellationLevels(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f32, _arr.len) catch @panic("qopenglshaderprogram.DefaultInnerTessellationLevels: Memory allocation failed");
+        const _ret = allocator.alloc(f32, _arr.len) catch @panic("QOpenGLShaderProgram.DefaultInnerTessellationLevels: Memory allocation failed");
         const _data: [*]f32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -3816,7 +3816,7 @@ pub const QOpenGLShaderProgram = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshaderprogram.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3838,7 +3838,7 @@ pub const QOpenGLShaderProgram = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshaderprogram.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4091,7 +4091,7 @@ pub const QOpenGLShaderProgram = extern struct {
     pub fn ObjectName(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qopenglshaderprogram.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4268,7 +4268,7 @@ pub const QOpenGLShaderProgram = extern struct {
     pub fn Children(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qopenglshaderprogram.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QOpenGLShaderProgram.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4544,10 +4544,10 @@ pub const QOpenGLShaderProgram = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qopenglshaderprogram.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLShaderProgram.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qopenglshaderprogram.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QOpenGLShaderProgram.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

@@ -37,7 +37,7 @@ pub const KStandardGuiItem = extern struct {
     pub fn StandardItem(allocator: std.mem.Allocator, id: i32) []const u8 {
         var _str = qtc.KStandardGuiItem_StandardItem(@bitCast(id));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstandardguiitem.StandardItem: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStandardGuiItem.StandardItem: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

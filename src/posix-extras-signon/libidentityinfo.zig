@@ -54,11 +54,11 @@ pub const SignOn__IdentityInfo = extern struct {
             .data = userName.ptr,
         };
         const methods_count = methods.count();
-        const methods_keys = allocator.alloc(qtc.libqt_string, methods_count) catch @panic("signon__identityinfo.New3: Memory allocation failed");
+        const methods_keys = allocator.alloc(qtc.libqt_string, methods_count) catch @panic("SignOn__IdentityInfo.New3: Memory allocation failed");
         defer allocator.free(methods_keys);
-        const methods_values = allocator.alloc(qtc.libqt_list, methods_count) catch @panic("signon__identityinfo.New3: Memory allocation failed");
+        const methods_values = allocator.alloc(qtc.libqt_list, methods_count) catch @panic("SignOn__IdentityInfo.New3: Memory allocation failed");
         defer allocator.free(methods_values);
-        const methods_inners = allocator.alloc([]qtc.libqt_string, methods_count) catch @panic("signon__identityinfo.New3: Memory allocation failed");
+        const methods_inners = allocator.alloc([]qtc.libqt_string, methods_count) catch @panic("SignOn__IdentityInfo.New3: Memory allocation failed");
         defer {
             for (methods_inners) |methods_inner|
                 allocator.free(methods_inner);
@@ -73,7 +73,7 @@ pub const SignOn__IdentityInfo = extern struct {
                 .data = methods_key.ptr,
             };
             methods_values[i].len = it_entry.value_ptr.*.len;
-            const methods_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("signon__identityinfo.New3: Memory allocation failed");
+            const methods_val = allocator.alloc(qtc.libqt_string, it_entry.value_ptr.len) catch @panic("SignOn__IdentityInfo.New3: Memory allocation failed");
             methods_inners[i] = methods_val;
             for (it_entry.value_ptr.*, 0..) |value, j|
                 methods_val[j] = qtc.libqt_string{
@@ -152,7 +152,7 @@ pub const SignOn__IdentityInfo = extern struct {
     pub fn Secret(self: SignOn__IdentityInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.SignOn__IdentityInfo_Secret(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__identityinfo.Secret: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("SignOn__IdentityInfo.Secret: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -206,7 +206,7 @@ pub const SignOn__IdentityInfo = extern struct {
     pub fn UserName(self: SignOn__IdentityInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.SignOn__IdentityInfo_UserName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__identityinfo.UserName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("SignOn__IdentityInfo.UserName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -238,7 +238,7 @@ pub const SignOn__IdentityInfo = extern struct {
     pub fn Caption(self: SignOn__IdentityInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.SignOn__IdentityInfo_Caption(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__identityinfo.Caption: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("SignOn__IdentityInfo.Caption: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -254,7 +254,7 @@ pub const SignOn__IdentityInfo = extern struct {
     /// ` realms: []const []const u8 `
     ///
     pub fn SetRealms(self: SignOn__IdentityInfo, allocator: std.mem.Allocator, realms: []const []const u8) void {
-        const realms_arr = allocator.alloc(qtc.libqt_string, realms.len) catch @panic("signon__identityinfo.SetRealms: Memory allocation failed");
+        const realms_arr = allocator.alloc(qtc.libqt_string, realms.len) catch @panic("SignOn__IdentityInfo.SetRealms: Memory allocation failed");
         defer allocator.free(realms_arr);
         for (realms, 0..realms.len) |item, i|
             realms_arr[i] = .{
@@ -284,10 +284,10 @@ pub const SignOn__IdentityInfo = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("signon__identityinfo.Realms: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("SignOn__IdentityInfo.Realms: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("signon__identityinfo.Realms: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("SignOn__IdentityInfo.Realms: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -321,7 +321,7 @@ pub const SignOn__IdentityInfo = extern struct {
     pub fn Owner(self: SignOn__IdentityInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.SignOn__IdentityInfo_Owner(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("signon__identityinfo.Owner: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("SignOn__IdentityInfo.Owner: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -337,7 +337,7 @@ pub const SignOn__IdentityInfo = extern struct {
     /// ` accessControlList: []const []const u8 `
     ///
     pub fn SetAccessControlList(self: SignOn__IdentityInfo, allocator: std.mem.Allocator, accessControlList: []const []const u8) void {
-        const accessControlList_arr = allocator.alloc(qtc.libqt_string, accessControlList.len) catch @panic("signon__identityinfo.SetAccessControlList: Memory allocation failed");
+        const accessControlList_arr = allocator.alloc(qtc.libqt_string, accessControlList.len) catch @panic("SignOn__IdentityInfo.SetAccessControlList: Memory allocation failed");
         defer allocator.free(accessControlList_arr);
         for (accessControlList, 0..accessControlList.len) |item, i|
             accessControlList_arr[i] = .{
@@ -383,10 +383,10 @@ pub const SignOn__IdentityInfo = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("signon__identityinfo.AccessControlList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("SignOn__IdentityInfo.AccessControlList: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("signon__identityinfo.AccessControlList: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("SignOn__IdentityInfo.AccessControlList: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -404,7 +404,7 @@ pub const SignOn__IdentityInfo = extern struct {
     pub fn AccessControlListFull(self: SignOn__IdentityInfo, allocator: std.mem.Allocator) []SignOn__SecurityContext {
         const _arr: qtc.libqt_list = qtc.SignOn__IdentityInfo_AccessControlListFull(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(SignOn__SecurityContext, _arr.len) catch @panic("signon__identityinfo.AccessControlListFull: Memory allocation failed");
+        const _ret = allocator.alloc(SignOn__SecurityContext, _arr.len) catch @panic("SignOn__IdentityInfo.AccessControlListFull: Memory allocation failed");
         const _data: [*]QtC.SignOn__SecurityContext = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -428,7 +428,7 @@ pub const SignOn__IdentityInfo = extern struct {
             .len = method.len,
             .data = method.ptr,
         };
-        const mechanismsList_arr = allocator.alloc(qtc.libqt_string, mechanismsList.len) catch @panic("signon__identityinfo.SetMethod: Memory allocation failed");
+        const mechanismsList_arr = allocator.alloc(qtc.libqt_string, mechanismsList.len) catch @panic("SignOn__IdentityInfo.SetMethod: Memory allocation failed");
         defer allocator.free(mechanismsList_arr);
         for (mechanismsList, 0..mechanismsList.len) |item, i|
             mechanismsList_arr[i] = .{
@@ -500,10 +500,10 @@ pub const SignOn__IdentityInfo = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("signon__identityinfo.Methods: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("SignOn__IdentityInfo.Methods: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("signon__identityinfo.Methods: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("SignOn__IdentityInfo.Methods: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -532,10 +532,10 @@ pub const SignOn__IdentityInfo = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("signon__identityinfo.Mechanisms: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("SignOn__IdentityInfo.Mechanisms: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("signon__identityinfo.Mechanisms: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("SignOn__IdentityInfo.Mechanisms: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

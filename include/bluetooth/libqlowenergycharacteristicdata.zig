@@ -80,7 +80,7 @@ pub const QLowEnergyCharacteristicData = extern struct {
     pub fn Value(self: QLowEnergyCharacteristicData, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QLowEnergyCharacteristicData_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qlowenergycharacteristicdata.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QLowEnergyCharacteristicData.Value: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -138,7 +138,7 @@ pub const QLowEnergyCharacteristicData = extern struct {
     pub fn Descriptors(self: QLowEnergyCharacteristicData, allocator: std.mem.Allocator) []QLowEnergyDescriptorData {
         const _arr: qtc.libqt_list = qtc.QLowEnergyCharacteristicData_Descriptors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLowEnergyDescriptorData, _arr.len) catch @panic("qlowenergycharacteristicdata.Descriptors: Memory allocation failed");
+        const _ret = allocator.alloc(QLowEnergyDescriptorData, _arr.len) catch @panic("QLowEnergyCharacteristicData.Descriptors: Memory allocation failed");
         const _data: [*]QtC.QLowEnergyDescriptorData = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

@@ -167,32 +167,32 @@ void QDataStream_OperatorShiftLeft13(QDataStream* self, const char* str) {
     self->operator<<(str);
 }
 
-QDataStream* QDataStream_ReadBytes(QDataStream* self, char* param1, unsigned int* lenVal) {
-    QDataStream& _ret = self->readBytes(param1, static_cast<uint&>(*lenVal));
+QDataStream* QDataStream_ReadBytes(QDataStream* self, char* param1, unsigned int* len) {
+    QDataStream& _ret = self->readBytes(param1, static_cast<uint&>(*len));
     // Cast returned reference into pointer
     return &_ret;
 }
 
-QDataStream* QDataStream_ReadBytes2(QDataStream* self, char* param1, long long* lenVal) {
-    QDataStream& _ret = self->readBytes(param1, static_cast<qint64&>(*lenVal));
+QDataStream* QDataStream_ReadBytes2(QDataStream* self, char* param1, long long* len) {
+    QDataStream& _ret = self->readBytes(param1, static_cast<qint64&>(*len));
     // Cast returned reference into pointer
     return &_ret;
 }
 
-long long QDataStream_ReadRawData(QDataStream* self, char* param1, long long lenVal) {
-    return static_cast<long long>(self->readRawData(param1, static_cast<qint64>(lenVal)));
+long long QDataStream_ReadRawData(QDataStream* self, char* param1, long long len) {
+    return static_cast<long long>(self->readRawData(param1, static_cast<qint64>(len)));
 }
 
-void QDataStream_WriteBytes(QDataStream* self, const char* param1, long long lenVal) {
-    self->writeBytes(param1, static_cast<qint64>(lenVal));
+void QDataStream_WriteBytes(QDataStream* self, const char* param1, long long len) {
+    self->writeBytes(param1, static_cast<qint64>(len));
 }
 
-long long QDataStream_WriteRawData(QDataStream* self, const char* param1, long long lenVal) {
-    return static_cast<long long>(self->writeRawData(param1, static_cast<qint64>(lenVal)));
+long long QDataStream_WriteRawData(QDataStream* self, const char* param1, long long len) {
+    return static_cast<long long>(self->writeRawData(param1, static_cast<qint64>(len)));
 }
 
-long long QDataStream_SkipRawData(QDataStream* self, long long lenVal) {
-    return static_cast<long long>(self->skipRawData(static_cast<qint64>(lenVal)));
+long long QDataStream_SkipRawData(QDataStream* self, long long len) {
+    return static_cast<long long>(self->skipRawData(static_cast<qint64>(len)));
 }
 
 void QDataStream_StartTransaction(QDataStream* self) {

@@ -248,7 +248,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -301,10 +301,10 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.SelectedLanguages: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.SelectedLanguages: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.SelectedLanguages: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.SelectedLanguages: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -322,7 +322,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     /// ` list: []const []const u8 `
     ///
     pub fn SetSelectedLanguages(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator, list: []const []const u8) void {
-        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.SetSelectedLanguages: Memory allocation failed");
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.SetSelectedLanguages: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i|
             list_arr[i] = .{
@@ -351,7 +351,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -373,7 +373,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1748,7 +1748,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn StyleSheet(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1766,7 +1766,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn WindowTitle(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1829,7 +1829,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn WindowIconText(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1865,7 +1865,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn WindowRole(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1901,7 +1901,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn WindowFilePath(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1975,7 +1975,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn ToolTip(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2037,7 +2037,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn StatusTip(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2073,7 +2073,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn WhatsThis(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2091,7 +2091,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn AccessibleName(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2127,7 +2127,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn AccessibleDescription(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2977,7 +2977,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn SaveGeometry(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -3513,7 +3513,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn Actions(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4328,7 +4328,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn ObjectName(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4505,7 +4505,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub fn Children(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4766,10 +4766,10 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("texttranslator__translatorconfigurelanguagelistwidget.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

@@ -40,7 +40,7 @@ pub const TextEmoticonsCore__CustomEmoji = extern struct {
     pub fn Identifier(self: TextEmoticonsCore__CustomEmoji, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__CustomEmoji_Identifier(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textemoticonscore__customemoji.Identifier: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__CustomEmoji.Identifier: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -72,7 +72,7 @@ pub const TextEmoticonsCore__CustomEmoji = extern struct {
     pub fn Category(self: TextEmoticonsCore__CustomEmoji, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextEmoticonsCore__CustomEmoji_Category(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textemoticonscore__customemoji.Category: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextEmoticonsCore__CustomEmoji.Category: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

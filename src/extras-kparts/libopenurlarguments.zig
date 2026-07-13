@@ -120,7 +120,7 @@ pub const KParts__OpenUrlArguments = extern struct {
     pub fn MimeType(self: KParts__OpenUrlArguments, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KParts__OpenUrlArguments_MimeType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kparts__openurlarguments.MimeType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__OpenUrlArguments.MimeType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -174,7 +174,7 @@ pub const KParts__OpenUrlArguments = extern struct {
     pub fn MetaData(self: KParts__OpenUrlArguments, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KParts__OpenUrlArguments_MetaData(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kparts__openurlarguments.MetaData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KParts__OpenUrlArguments.MetaData: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -190,10 +190,10 @@ pub const KParts__OpenUrlArguments = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kparts__openurlarguments.MetaData: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KParts__OpenUrlArguments.MetaData: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kparts__openurlarguments.MetaData: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KParts__OpenUrlArguments.MetaData: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
@@ -211,7 +211,7 @@ pub const KParts__OpenUrlArguments = extern struct {
     pub fn MetaData2(self: KParts__OpenUrlArguments, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KParts__OpenUrlArguments_MetaData2(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("kparts__openurlarguments.MetaData2: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KParts__OpenUrlArguments.MetaData2: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -227,10 +227,10 @@ pub const KParts__OpenUrlArguments = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("kparts__openurlarguments.MetaData2: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KParts__OpenUrlArguments.MetaData2: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("kparts__openurlarguments.MetaData2: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KParts__OpenUrlArguments.MetaData2: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }

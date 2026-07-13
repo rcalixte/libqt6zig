@@ -69,7 +69,7 @@ pub const Attica__Folder = extern struct {
     pub fn Id(self: Attica__Folder, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Folder_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__folder.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Folder.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -101,7 +101,7 @@ pub const Attica__Folder = extern struct {
     pub fn Name(self: Attica__Folder, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Folder_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__folder.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Folder.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -155,7 +155,7 @@ pub const Attica__Folder = extern struct {
     pub fn Type(self: Attica__Folder, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Folder_Type(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__folder.Type: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Folder.Type: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

@@ -43,7 +43,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn Name(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -79,7 +79,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn SuperName(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -147,7 +147,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn Group(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_Group(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.Group: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -183,7 +183,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn SuperGroup(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperGroup(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.Group: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.Group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -251,7 +251,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn ToolTip(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -287,7 +287,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn SuperToolTip(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -355,7 +355,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn WhatsThis(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -391,7 +391,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn SuperWhatsThis(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperWhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -459,7 +459,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn IncludeFile(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_IncludeFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.IncludeFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.IncludeFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -495,7 +495,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn SuperIncludeFile(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperIncludeFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.IncludeFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.IncludeFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -903,7 +903,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn PluginPath(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_PluginPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.PluginPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.PluginPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -939,7 +939,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn SuperPluginPath(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperPluginPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.PluginPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.PluginPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1091,7 +1091,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn Extends(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_Extends(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.Extends: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.Extends: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1127,7 +1127,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn SuperExtends(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetDataBaseItemInterface_SuperExtends(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseiteminterface.Extends: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseItemInterface.Extends: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1247,7 +1247,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn DefaultPropertyValues(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []QVariant {
         const _arr: qtc.libqt_list = qtc.QDesignerWidgetDataBaseItemInterface_DefaultPropertyValues(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("qdesignerwidgetdatabaseiteminterface.DefaultPropertyValues: Memory allocation failed");
+        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QDesignerWidgetDataBaseItemInterface.DefaultPropertyValues: Memory allocation failed");
         const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1291,7 +1291,7 @@ pub const QDesignerWidgetDataBaseItemInterface = extern struct {
     pub fn SuperDefaultPropertyValues(self: QDesignerWidgetDataBaseItemInterface, allocator: std.mem.Allocator) []QVariant {
         const _arr: qtc.libqt_list = qtc.QDesignerWidgetDataBaseItemInterface_SuperDefaultPropertyValues(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("qdesignerwidgetdatabaseiteminterface.DefaultPropertyValues: Memory allocation failed");
+        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QDesignerWidgetDataBaseItemInterface.DefaultPropertyValues: Memory allocation failed");
         const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1481,7 +1481,7 @@ pub const QDesignerWidgetDataBaseInterface = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseinterface.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseInterface.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1921,7 +1921,7 @@ pub const QDesignerWidgetDataBaseInterface = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseinterface.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseInterface.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1943,7 +1943,7 @@ pub const QDesignerWidgetDataBaseInterface = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseinterface.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseInterface.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1991,7 +1991,7 @@ pub const QDesignerWidgetDataBaseInterface = extern struct {
     pub fn ObjectName(self: QDesignerWidgetDataBaseInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerwidgetdatabaseinterface.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetDataBaseInterface.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2168,7 +2168,7 @@ pub const QDesignerWidgetDataBaseInterface = extern struct {
     pub fn Children(self: QDesignerWidgetDataBaseInterface, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qdesignerwidgetdatabaseinterface.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerWidgetDataBaseInterface.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2444,10 +2444,10 @@ pub const QDesignerWidgetDataBaseInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdesignerwidgetdatabaseinterface.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerWidgetDataBaseInterface.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qdesignerwidgetdatabaseinterface.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerWidgetDataBaseInterface.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

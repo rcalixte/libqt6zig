@@ -49,7 +49,7 @@ bool QBitArray_Fill(QBitArray* self, bool aval);
 void QBitArray_Fill2(QBitArray* self, bool val, ptrdiff_t first, ptrdiff_t last);
 void QBitArray_Truncate(QBitArray* self, ptrdiff_t pos);
 const char* QBitArray_Bits(const QBitArray* self);
-QBitArray* QBitArray_FromBits(const char* data, ptrdiff_t lenVal);
+QBitArray* QBitArray_FromBits(const char* data, ptrdiff_t len);
 unsigned int QBitArray_ToUInt32(const QBitArray* self, int endianness);
 bool QBitArray_Fill22(QBitArray* self, bool aval, ptrdiff_t asize);
 unsigned int QBitArray_ToUInt322(const QBitArray* self, int endianness, bool* ok);

@@ -230,7 +230,7 @@ pub const QCameraDevice = extern struct {
     pub fn Id(self: QCameraDevice, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCameraDevice_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qcameradevice.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCameraDevice.Id: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -246,7 +246,7 @@ pub const QCameraDevice = extern struct {
     pub fn Description(self: QCameraDevice, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCameraDevice_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qcameradevice.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCameraDevice.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -286,7 +286,7 @@ pub const QCameraDevice = extern struct {
     pub fn PhotoResolutions(self: QCameraDevice, allocator: std.mem.Allocator) []QSize {
         const _arr: qtc.libqt_list = qtc.QCameraDevice_PhotoResolutions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("qcameradevice.PhotoResolutions: Memory allocation failed");
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QCameraDevice.PhotoResolutions: Memory allocation failed");
         const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -304,7 +304,7 @@ pub const QCameraDevice = extern struct {
     pub fn VideoFormats(self: QCameraDevice, allocator: std.mem.Allocator) []QCameraFormat {
         const _arr: qtc.libqt_list = qtc.QCameraDevice_VideoFormats(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCameraFormat, _arr.len) catch @panic("qcameradevice.VideoFormats: Memory allocation failed");
+        const _ret = allocator.alloc(QCameraFormat, _arr.len) catch @panic("QCameraDevice.VideoFormats: Memory allocation failed");
         const _data: [*]QtC.QCameraFormat = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

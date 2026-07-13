@@ -134,7 +134,7 @@ pub const QFileIconProvider = extern struct {
         comptime _ = @TypeOf(param1)._is_QFileInfo;
         var _str = qtc.QFileIconProvider_Type(@ptrCast(self.ptr), @ptrCast(param1.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfileiconprovider.Type: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileIconProvider.Type: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -161,7 +161,7 @@ pub const QFileIconProvider = extern struct {
         comptime _ = @TypeOf(param1)._is_QFileInfo;
         var _str = qtc.QFileIconProvider_SuperType(@ptrCast(self.ptr), @ptrCast(param1.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfileiconprovider.Type: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileIconProvider.Type: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

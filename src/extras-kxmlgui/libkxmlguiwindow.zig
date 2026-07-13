@@ -271,7 +271,7 @@ pub const KXmlGuiWindow = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -437,10 +437,10 @@ pub const KXmlGuiWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kxmlguiwindow.ToolBarNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.ToolBarNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kxmlguiwindow.ToolBarNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KXmlGuiWindow.ToolBarNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -812,7 +812,7 @@ pub const KXmlGuiWindow = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -834,7 +834,7 @@ pub const KXmlGuiWindow = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -958,7 +958,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn ClassNameOfToplevel(allocator: std.mem.Allocator, instanceNumber: i32) []const u8 {
         var _str = qtc.KMainWindow_ClassNameOfToplevel(@bitCast(instanceNumber));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.ClassNameOfToplevel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.ClassNameOfToplevel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1000,7 +1000,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn MemberList(allocator: std.mem.Allocator) []KMainWindow {
         const _arr: qtc.libqt_list = qtc.KMainWindow_MemberList();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KMainWindow, _arr.len) catch @panic("kxmlguiwindow.MemberList: Memory allocation failed");
+        const _ret = allocator.alloc(KMainWindow, _arr.len) catch @panic("KXmlGuiWindow.MemberList: Memory allocation failed");
         const _data: [*]QtC.KMainWindow = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1032,7 +1032,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn ToolBars(self: KXmlGuiWindow, allocator: std.mem.Allocator) []KToolBar {
         const _arr: qtc.libqt_list = qtc.KMainWindow_ToolBars(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KToolBar, _arr.len) catch @panic("kxmlguiwindow.ToolBars: Memory allocation failed");
+        const _ret = allocator.alloc(KToolBar, _arr.len) catch @panic("KXmlGuiWindow.ToolBars: Memory allocation failed");
         const _data: [*]QtC.KToolBar = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1103,7 +1103,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn AutoSaveGroup(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KMainWindow_AutoSaveGroup(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.AutoSaveGroup: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.AutoSaveGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1178,7 +1178,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn DbusName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KMainWindow_DbusName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.DbusName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.DbusName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1989,7 +1989,7 @@ pub const KXmlGuiWindow = extern struct {
         comptime _ = @TypeOf(dockwidget)._is_QDockWidget;
         const _arr: qtc.libqt_list = qtc.QMainWindow_TabifiedDockWidgets(@ptrCast(self.ptr), @ptrCast(dockwidget.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDockWidget, _arr.len) catch @panic("kxmlguiwindow.TabifiedDockWidgets: Memory allocation failed");
+        const _ret = allocator.alloc(QDockWidget, _arr.len) catch @panic("KXmlGuiWindow.TabifiedDockWidgets: Memory allocation failed");
         const _data: [*]QtC.QDockWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2084,7 +2084,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn SaveState(self: KXmlGuiWindow, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QMainWindow_SaveState(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kxmlguiwindow.SaveState: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KXmlGuiWindow.SaveState: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -2264,7 +2264,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn SaveState1(self: KXmlGuiWindow, allocator: std.mem.Allocator, version: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QMainWindow_SaveState1(@ptrCast(self.ptr), @bitCast(version));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kxmlguiwindow.SaveState1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KXmlGuiWindow.SaveState1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -3659,7 +3659,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn StyleSheet(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3677,7 +3677,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn WindowTitle(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3740,7 +3740,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn WindowIconText(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3776,7 +3776,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn WindowRole(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3812,7 +3812,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn WindowFilePath(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3886,7 +3886,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn ToolTip(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3948,7 +3948,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn StatusTip(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3984,7 +3984,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn WhatsThis(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4002,7 +4002,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn AccessibleName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4038,7 +4038,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn AccessibleDescription(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4888,7 +4888,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn SaveGeometry(self: KXmlGuiWindow, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kxmlguiwindow.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KXmlGuiWindow.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -5424,7 +5424,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn Actions(self: KXmlGuiWindow, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kxmlguiwindow.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KXmlGuiWindow.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6239,7 +6239,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn ObjectName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6416,7 +6416,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn Children(self: KXmlGuiWindow, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kxmlguiwindow.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KXmlGuiWindow.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6677,10 +6677,10 @@ pub const KXmlGuiWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kxmlguiwindow.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KXmlGuiWindow.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kxmlguiwindow.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KXmlGuiWindow.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -7300,7 +7300,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn ChildClients(self: KXmlGuiWindow, allocator: std.mem.Allocator) []KXMLGUIClient {
         const _arr: qtc.libqt_list = qtc.KXMLGUIClient_ChildClients(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("kxmlguiwindow.ChildClients: Memory allocation failed");
+        const _ret = allocator.alloc(KXMLGUIClient, _arr.len) catch @panic("KXmlGuiWindow.ChildClients: Memory allocation failed");
         const _data: [*]QtC.KXMLGUIClient = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7401,7 +7401,7 @@ pub const KXmlGuiWindow = extern struct {
     /// ` doc: []const u8 `
     ///
     pub fn FindMostRecentXMLFile(allocator: std.mem.Allocator, files: []const []const u8, doc: []const u8) []const u8 {
-        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("kxmlguiwindow.FindMostRecentXMLFile: Memory allocation failed");
+        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("KXmlGuiWindow.FindMostRecentXMLFile: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i|
             files_arr[i] = .{
@@ -7418,7 +7418,7 @@ pub const KXmlGuiWindow = extern struct {
         };
         var _str = qtc.KXMLGUIClient_FindMostRecentXMLFile(files_list, doc_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.FindMostRecentXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.FindMostRecentXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7572,7 +7572,7 @@ pub const KXmlGuiWindow = extern struct {
         };
         var _str = qtc.KXMLGUIClient_FindVersionNumber(xml_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.FindVersionNumber: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.FindVersionNumber: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10519,10 +10519,10 @@ pub const KXmlGuiWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kxmlguiwindow.ContainerTags: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.ContainerTags: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kxmlguiwindow.ContainerTags: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KXmlGuiWindow.ContainerTags: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -10553,10 +10553,10 @@ pub const KXmlGuiWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kxmlguiwindow.ContainerTags: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.ContainerTags: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kxmlguiwindow.ContainerTags: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KXmlGuiWindow.ContainerTags: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -10743,10 +10743,10 @@ pub const KXmlGuiWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kxmlguiwindow.CustomTags: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.CustomTags: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kxmlguiwindow.CustomTags: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KXmlGuiWindow.CustomTags: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -10777,10 +10777,10 @@ pub const KXmlGuiWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kxmlguiwindow.CustomTags: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KXmlGuiWindow.CustomTags: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kxmlguiwindow.CustomTags: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KXmlGuiWindow.CustomTags: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -10986,7 +10986,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn ComponentName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_ComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.ComponentName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11010,7 +11010,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn SuperComponentName(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_SuperComponentName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.ComponentName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.ComponentName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11096,7 +11096,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn XmlFile(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_XmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.XmlFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11120,7 +11120,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn SuperXmlFile(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_SuperXmlFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.XmlFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.XmlFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11156,7 +11156,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn LocalXMLFile(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_LocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.LocalXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11180,7 +11180,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn SuperLocalXMLFile(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_SuperLocalXMLFile(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.LocalXMLFile: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.LocalXMLFile: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -12314,7 +12314,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn StandardsXmlFileLocation(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_StandardsXmlFileLocation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.StandardsXmlFileLocation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -12338,7 +12338,7 @@ pub const KXmlGuiWindow = extern struct {
     pub fn SuperStandardsXmlFileLocation(self: KXmlGuiWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KXmlGuiWindow_SuperStandardsXmlFileLocation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kxmlguiwindow.StandardsXmlFileLocation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KXmlGuiWindow.StandardsXmlFileLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

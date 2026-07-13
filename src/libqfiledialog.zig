@@ -324,7 +324,7 @@ pub const QFileDialog = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -423,10 +423,10 @@ pub const QFileDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.SelectedFiles: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFileDialog.SelectedFiles: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfiledialog.SelectedFiles: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFileDialog.SelectedFiles: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -457,7 +457,7 @@ pub const QFileDialog = extern struct {
     pub fn SelectedUrls(self: QFileDialog, allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.QFileDialog_SelectedUrls(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.SelectedUrls: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("QFileDialog.SelectedUrls: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -491,7 +491,7 @@ pub const QFileDialog = extern struct {
     /// ` filters: []const []const u8 `
     ///
     pub fn SetNameFilters(self: QFileDialog, allocator: std.mem.Allocator, filters: []const []const u8) void {
-        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfiledialog.SetNameFilters: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("QFileDialog.SetNameFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i|
             filters_arr[i] = .{
@@ -521,10 +521,10 @@ pub const QFileDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.NameFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFileDialog.NameFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfiledialog.NameFilters: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFileDialog.NameFilters: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -558,7 +558,7 @@ pub const QFileDialog = extern struct {
     pub fn SelectedMimeTypeFilter(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFileDialog_SelectedMimeTypeFilter(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.SelectedMimeTypeFilter: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.SelectedMimeTypeFilter: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -574,7 +574,7 @@ pub const QFileDialog = extern struct {
     pub fn SelectedNameFilter(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFileDialog_SelectedNameFilter(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.SelectedNameFilter: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.SelectedNameFilter: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -590,7 +590,7 @@ pub const QFileDialog = extern struct {
     /// ` filters: []const []const u8 `
     ///
     pub fn SetMimeTypeFilters(self: QFileDialog, allocator: std.mem.Allocator, filters: []const []const u8) void {
-        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("qfiledialog.SetMimeTypeFilters: Memory allocation failed");
+        const filters_arr = allocator.alloc(qtc.libqt_string, filters.len) catch @panic("QFileDialog.SetMimeTypeFilters: Memory allocation failed");
         defer allocator.free(filters_arr);
         for (filters, 0..filters.len) |item, i|
             filters_arr[i] = .{
@@ -620,10 +620,10 @@ pub const QFileDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.MimeTypeFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFileDialog.MimeTypeFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfiledialog.MimeTypeFilters: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFileDialog.MimeTypeFilters: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -777,7 +777,7 @@ pub const QFileDialog = extern struct {
     pub fn SidebarUrls(self: QFileDialog, allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.QFileDialog_SidebarUrls(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.SidebarUrls: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("QFileDialog.SidebarUrls: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -795,7 +795,7 @@ pub const QFileDialog = extern struct {
     pub fn SaveState(self: QFileDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QFileDialog_SaveState(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledialog.SaveState: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QFileDialog.SaveState: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -843,7 +843,7 @@ pub const QFileDialog = extern struct {
     pub fn DefaultSuffix(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFileDialog_DefaultSuffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.DefaultSuffix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.DefaultSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -859,7 +859,7 @@ pub const QFileDialog = extern struct {
     /// ` paths: []const []const u8 `
     ///
     pub fn SetHistory(self: QFileDialog, allocator: std.mem.Allocator, paths: []const []const u8) void {
-        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("qfiledialog.SetHistory: Memory allocation failed");
+        const paths_arr = allocator.alloc(qtc.libqt_string, paths.len) catch @panic("QFileDialog.SetHistory: Memory allocation failed");
         defer allocator.free(paths_arr);
         for (paths, 0..paths.len) |item, i|
             paths_arr[i] = .{
@@ -889,10 +889,10 @@ pub const QFileDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.History: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFileDialog.History: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfiledialog.History: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFileDialog.History: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -976,7 +976,7 @@ pub const QFileDialog = extern struct {
     pub fn LabelText(self: QFileDialog, allocator: std.mem.Allocator, label: i32) []const u8 {
         var _str = qtc.QFileDialog_LabelText(@ptrCast(self.ptr), @bitCast(label));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.LabelText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.LabelText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -992,7 +992,7 @@ pub const QFileDialog = extern struct {
     /// ` schemes: []const []const u8 `
     ///
     pub fn SetSupportedSchemes(self: QFileDialog, allocator: std.mem.Allocator, schemes: []const []const u8) void {
-        const schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("qfiledialog.SetSupportedSchemes: Memory allocation failed");
+        const schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("QFileDialog.SetSupportedSchemes: Memory allocation failed");
         defer allocator.free(schemes_arr);
         for (schemes, 0..schemes.len) |item, i|
             schemes_arr[i] = .{
@@ -1022,10 +1022,10 @@ pub const QFileDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.SupportedSchemes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFileDialog.SupportedSchemes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfiledialog.SupportedSchemes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFileDialog.SupportedSchemes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1188,7 +1188,7 @@ pub const QFileDialog = extern struct {
     /// ` files: []const []const u8 `
     ///
     pub fn FilesSelected(self: QFileDialog, allocator: std.mem.Allocator, files: []const []const u8) void {
-        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("qfiledialog.FilesSelected: Memory allocation failed");
+        const files_arr = allocator.alloc(qtc.libqt_string, files.len) catch @panic("QFileDialog.FilesSelected: Memory allocation failed");
         defer allocator.free(files_arr);
         for (files, 0..files.len) |item, i|
             files_arr[i] = .{
@@ -1410,7 +1410,7 @@ pub const QFileDialog = extern struct {
     pub fn GetOpenFileName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFileDialog_GetOpenFileName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetOpenFileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetOpenFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1430,7 +1430,7 @@ pub const QFileDialog = extern struct {
     pub fn GetSaveFileName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFileDialog_GetSaveFileName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetSaveFileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetSaveFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1450,7 +1450,7 @@ pub const QFileDialog = extern struct {
     pub fn GetExistingDirectory(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFileDialog_GetExistingDirectory();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetExistingDirectory: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetExistingDirectory: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1475,10 +1475,10 @@ pub const QFileDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.GetOpenFileNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFileDialog.GetOpenFileNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfiledialog.GetOpenFileNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFileDialog.GetOpenFileNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1494,7 +1494,7 @@ pub const QFileDialog = extern struct {
     pub fn GetOpenFileUrls(allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("QFileDialog.GetOpenFileUrls: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1682,7 +1682,7 @@ pub const QFileDialog = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1704,7 +1704,7 @@ pub const QFileDialog = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1735,7 +1735,7 @@ pub const QFileDialog = extern struct {
         comptime _ = @TypeOf(parent)._is_QWidget;
         var _str = qtc.QFileDialog_GetOpenFileName1(@ptrCast(parent.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetOpenFileName1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetOpenFileName1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1758,7 +1758,7 @@ pub const QFileDialog = extern struct {
         };
         var _str = qtc.QFileDialog_GetOpenFileName2(@ptrCast(parent.ptr), caption_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetOpenFileName2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetOpenFileName2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1787,7 +1787,7 @@ pub const QFileDialog = extern struct {
         };
         var _str = qtc.QFileDialog_GetOpenFileName3(@ptrCast(parent.ptr), caption_str, dir_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetOpenFileName3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetOpenFileName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1822,7 +1822,7 @@ pub const QFileDialog = extern struct {
         };
         var _str = qtc.QFileDialog_GetOpenFileName4(@ptrCast(parent.ptr), caption_str, dir_str, filter_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetOpenFileName4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetOpenFileName4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1913,7 +1913,7 @@ pub const QFileDialog = extern struct {
         comptime _ = @TypeOf(parent)._is_QWidget;
         var _str = qtc.QFileDialog_GetSaveFileName1(@ptrCast(parent.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetSaveFileName1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetSaveFileName1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1936,7 +1936,7 @@ pub const QFileDialog = extern struct {
         };
         var _str = qtc.QFileDialog_GetSaveFileName2(@ptrCast(parent.ptr), caption_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetSaveFileName2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetSaveFileName2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1965,7 +1965,7 @@ pub const QFileDialog = extern struct {
         };
         var _str = qtc.QFileDialog_GetSaveFileName3(@ptrCast(parent.ptr), caption_str, dir_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetSaveFileName3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetSaveFileName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2000,7 +2000,7 @@ pub const QFileDialog = extern struct {
         };
         var _str = qtc.QFileDialog_GetSaveFileName4(@ptrCast(parent.ptr), caption_str, dir_str, filter_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetSaveFileName4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetSaveFileName4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2091,7 +2091,7 @@ pub const QFileDialog = extern struct {
         comptime _ = @TypeOf(parent)._is_QWidget;
         var _str = qtc.QFileDialog_GetExistingDirectory1(@ptrCast(parent.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetExistingDirectory1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetExistingDirectory1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2114,7 +2114,7 @@ pub const QFileDialog = extern struct {
         };
         var _str = qtc.QFileDialog_GetExistingDirectory2(@ptrCast(parent.ptr), caption_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetExistingDirectory2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetExistingDirectory2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2143,7 +2143,7 @@ pub const QFileDialog = extern struct {
         };
         var _str = qtc.QFileDialog_GetExistingDirectory3(@ptrCast(parent.ptr), caption_str, dir_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetExistingDirectory3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetExistingDirectory3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2174,7 +2174,7 @@ pub const QFileDialog = extern struct {
         };
         var _str = qtc.QFileDialog_GetExistingDirectory4(@ptrCast(parent.ptr), caption_str, dir_str, @bitCast(options));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.GetExistingDirectory4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.GetExistingDirectory4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2272,7 +2272,7 @@ pub const QFileDialog = extern struct {
             .data = caption.ptr,
         };
         comptime _ = @TypeOf(dir)._is_QUrl;
-        const supportedSchemes_arr = allocator.alloc(qtc.libqt_string, supportedSchemes.len) catch @panic("qfiledialog.GetExistingDirectoryUrl5: Memory allocation failed");
+        const supportedSchemes_arr = allocator.alloc(qtc.libqt_string, supportedSchemes.len) catch @panic("QFileDialog.GetExistingDirectoryUrl5: Memory allocation failed");
         defer allocator.free(supportedSchemes_arr);
         for (supportedSchemes, 0..supportedSchemes.len) |item, i|
             supportedSchemes_arr[i] = .{
@@ -2303,10 +2303,10 @@ pub const QFileDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.GetOpenFileNames1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFileDialog.GetOpenFileNames1: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfiledialog.GetOpenFileNames1: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFileDialog.GetOpenFileNames1: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2336,10 +2336,10 @@ pub const QFileDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.GetOpenFileNames2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFileDialog.GetOpenFileNames2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfiledialog.GetOpenFileNames2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFileDialog.GetOpenFileNames2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2375,10 +2375,10 @@ pub const QFileDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.GetOpenFileNames3: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFileDialog.GetOpenFileNames3: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfiledialog.GetOpenFileNames3: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFileDialog.GetOpenFileNames3: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2420,10 +2420,10 @@ pub const QFileDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qfiledialog.GetOpenFileNames4: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFileDialog.GetOpenFileNames4: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfiledialog.GetOpenFileNames4: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFileDialog.GetOpenFileNames4: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -2442,7 +2442,7 @@ pub const QFileDialog = extern struct {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls1(@ptrCast(parent.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls1: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("QFileDialog.GetOpenFileUrls1: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2467,7 +2467,7 @@ pub const QFileDialog = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls2(@ptrCast(parent.ptr), caption_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls2: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("QFileDialog.GetOpenFileUrls2: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2495,7 +2495,7 @@ pub const QFileDialog = extern struct {
         comptime _ = @TypeOf(dir)._is_QUrl;
         const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls3(@ptrCast(parent.ptr), caption_str, @ptrCast(dir.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls3: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("QFileDialog.GetOpenFileUrls3: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2529,7 +2529,7 @@ pub const QFileDialog = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QFileDialog_GetOpenFileUrls4(@ptrCast(parent.ptr), caption_str, @ptrCast(dir.ptr), filter_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("qfiledialog.GetOpenFileUrls4: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("QFileDialog.GetOpenFileUrls4: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4094,7 +4094,7 @@ pub const QFileDialog = extern struct {
     pub fn StyleSheet(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4112,7 +4112,7 @@ pub const QFileDialog = extern struct {
     pub fn WindowTitle(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4175,7 +4175,7 @@ pub const QFileDialog = extern struct {
     pub fn WindowIconText(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4211,7 +4211,7 @@ pub const QFileDialog = extern struct {
     pub fn WindowRole(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4247,7 +4247,7 @@ pub const QFileDialog = extern struct {
     pub fn WindowFilePath(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4321,7 +4321,7 @@ pub const QFileDialog = extern struct {
     pub fn ToolTip(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4383,7 +4383,7 @@ pub const QFileDialog = extern struct {
     pub fn StatusTip(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4419,7 +4419,7 @@ pub const QFileDialog = extern struct {
     pub fn WhatsThis(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4437,7 +4437,7 @@ pub const QFileDialog = extern struct {
     pub fn AccessibleName(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4473,7 +4473,7 @@ pub const QFileDialog = extern struct {
     pub fn AccessibleDescription(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5323,7 +5323,7 @@ pub const QFileDialog = extern struct {
     pub fn SaveGeometry(self: QFileDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qfiledialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QFileDialog.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -5859,7 +5859,7 @@ pub const QFileDialog = extern struct {
     pub fn Actions(self: QFileDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("qfiledialog.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QFileDialog.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -6674,7 +6674,7 @@ pub const QFileDialog = extern struct {
     pub fn ObjectName(self: QFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qfiledialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFileDialog.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6851,7 +6851,7 @@ pub const QFileDialog = extern struct {
     pub fn Children(self: QFileDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qfiledialog.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QFileDialog.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -7112,10 +7112,10 @@ pub const QFileDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qfiledialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QFileDialog.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qfiledialog.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFileDialog.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

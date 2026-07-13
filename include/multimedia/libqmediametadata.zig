@@ -85,7 +85,7 @@ pub const QMediaMetaData = extern struct {
     pub fn Keys(self: QMediaMetaData, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QMediaMetaData_Keys(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qmediametadata.Keys: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QMediaMetaData.Keys: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -136,7 +136,7 @@ pub const QMediaMetaData = extern struct {
     pub fn StringValue(self: QMediaMetaData, allocator: std.mem.Allocator, k: i32) []const u8 {
         var _str = qtc.QMediaMetaData_StringValue(@ptrCast(self.ptr), @bitCast(k));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmediametadata.StringValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaMetaData.StringValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -152,7 +152,7 @@ pub const QMediaMetaData = extern struct {
     pub fn MetaDataKeyToString(allocator: std.mem.Allocator, k: i32) []const u8 {
         var _str = qtc.QMediaMetaData_MetaDataKeyToString(@bitCast(k));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmediametadata.MetaDataKeyToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMediaMetaData.MetaDataKeyToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

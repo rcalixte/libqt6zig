@@ -397,7 +397,7 @@ pub const QDomNode = extern struct {
     pub fn NodeName(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomnode.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -507,7 +507,7 @@ pub const QDomNode = extern struct {
     pub fn NamespaceURI(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomnode.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -523,7 +523,7 @@ pub const QDomNode = extern struct {
     pub fn LocalName(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomnode.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -549,7 +549,7 @@ pub const QDomNode = extern struct {
     pub fn NodeValue(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomnode.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -581,7 +581,7 @@ pub const QDomNode = extern struct {
     pub fn Prefix(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomnode.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1370,7 +1370,7 @@ pub const QDomDocumentType = extern struct {
     pub fn Name(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomDocumentType_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumenttype.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1406,7 +1406,7 @@ pub const QDomDocumentType = extern struct {
     pub fn PublicId(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomDocumentType_PublicId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumenttype.PublicId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.PublicId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1422,7 +1422,7 @@ pub const QDomDocumentType = extern struct {
     pub fn SystemId(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomDocumentType_SystemId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumenttype.SystemId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.SystemId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1438,7 +1438,7 @@ pub const QDomDocumentType = extern struct {
     pub fn InternalSubset(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomDocumentType_InternalSubset(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumenttype.InternalSubset: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.InternalSubset: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1644,7 +1644,7 @@ pub const QDomDocumentType = extern struct {
     pub fn NodeName(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumenttype.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1758,7 +1758,7 @@ pub const QDomDocumentType = extern struct {
     pub fn NamespaceURI(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumenttype.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1776,7 +1776,7 @@ pub const QDomDocumentType = extern struct {
     pub fn LocalName(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumenttype.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1806,7 +1806,7 @@ pub const QDomDocumentType = extern struct {
     pub fn NodeValue(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumenttype.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1842,7 +1842,7 @@ pub const QDomDocumentType = extern struct {
     pub fn Prefix(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumenttype.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2992,7 +2992,7 @@ pub const QDomDocument = extern struct {
     pub fn ToString(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomDocument_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocument.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.ToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3008,7 +3008,7 @@ pub const QDomDocument = extern struct {
     pub fn ToByteArray(self: QDomDocument, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QDomDocument_ToByteArray(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdomdocument.ToByteArray: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDomDocument.ToByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -3070,7 +3070,7 @@ pub const QDomDocument = extern struct {
     pub fn ToString1(self: QDomDocument, allocator: std.mem.Allocator, indent: i32) []const u8 {
         var _str = qtc.QDomDocument_ToString1(@ptrCast(self.ptr), @bitCast(indent));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocument.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.ToString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3088,7 +3088,7 @@ pub const QDomDocument = extern struct {
     pub fn ToByteArray1(self: QDomDocument, allocator: std.mem.Allocator, indent: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QDomDocument_ToByteArray1(@ptrCast(self.ptr), @bitCast(indent));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qdomdocument.ToByteArray1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDomDocument.ToByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -3280,7 +3280,7 @@ pub const QDomDocument = extern struct {
     pub fn NodeName(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocument.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3394,7 +3394,7 @@ pub const QDomDocument = extern struct {
     pub fn NamespaceURI(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocument.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3412,7 +3412,7 @@ pub const QDomDocument = extern struct {
     pub fn LocalName(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocument.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3442,7 +3442,7 @@ pub const QDomDocument = extern struct {
     pub fn NodeValue(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocument.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3478,7 +3478,7 @@ pub const QDomDocument = extern struct {
     pub fn Prefix(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocument.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4657,7 +4657,7 @@ pub const QDomDocumentFragment = extern struct {
     pub fn NodeName(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumentfragment.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4771,7 +4771,7 @@ pub const QDomDocumentFragment = extern struct {
     pub fn NamespaceURI(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumentfragment.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4789,7 +4789,7 @@ pub const QDomDocumentFragment = extern struct {
     pub fn LocalName(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumentfragment.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4819,7 +4819,7 @@ pub const QDomDocumentFragment = extern struct {
     pub fn NodeValue(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumentfragment.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4855,7 +4855,7 @@ pub const QDomDocumentFragment = extern struct {
     pub fn Prefix(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomdocumentfragment.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5595,7 +5595,7 @@ pub const QDomCharacterData = extern struct {
     pub fn SubstringData(self: QDomCharacterData, allocator: std.mem.Allocator, offset: usize, count: usize) []const u8 {
         var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcharacterdata.SubstringData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.SubstringData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5689,7 +5689,7 @@ pub const QDomCharacterData = extern struct {
     pub fn Data(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomCharacterData_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcharacterdata.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.Data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5911,7 +5911,7 @@ pub const QDomCharacterData = extern struct {
     pub fn NodeName(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcharacterdata.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6025,7 +6025,7 @@ pub const QDomCharacterData = extern struct {
     pub fn NamespaceURI(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcharacterdata.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6043,7 +6043,7 @@ pub const QDomCharacterData = extern struct {
     pub fn LocalName(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcharacterdata.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6073,7 +6073,7 @@ pub const QDomCharacterData = extern struct {
     pub fn NodeValue(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcharacterdata.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6109,7 +6109,7 @@ pub const QDomCharacterData = extern struct {
     pub fn Prefix(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcharacterdata.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6845,7 +6845,7 @@ pub const QDomAttr = extern struct {
     pub fn Name(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomAttr_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomattr.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6881,7 +6881,7 @@ pub const QDomAttr = extern struct {
     pub fn Value(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomAttr_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomattr.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.Value: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7103,7 +7103,7 @@ pub const QDomAttr = extern struct {
     pub fn NodeName(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomattr.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7217,7 +7217,7 @@ pub const QDomAttr = extern struct {
     pub fn NamespaceURI(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomattr.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7235,7 +7235,7 @@ pub const QDomAttr = extern struct {
     pub fn LocalName(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomattr.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7265,7 +7265,7 @@ pub const QDomAttr = extern struct {
     pub fn NodeValue(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomattr.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -7301,7 +7301,7 @@ pub const QDomAttr = extern struct {
     pub fn Prefix(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomattr.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8043,7 +8043,7 @@ pub const QDomElement = extern struct {
         };
         var _str = qtc.QDomElement_Attribute(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomelement.Attribute: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.Attribute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8291,7 +8291,7 @@ pub const QDomElement = extern struct {
         };
         var _str = qtc.QDomElement_AttributeNS(@ptrCast(self.ptr), nsURI_str, localName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomelement.AttributeNS: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.AttributeNS: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8556,7 +8556,7 @@ pub const QDomElement = extern struct {
     pub fn TagName(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomElement_TagName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomelement.TagName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.TagName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8612,7 +8612,7 @@ pub const QDomElement = extern struct {
     pub fn Text(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomElement_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomelement.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8640,7 +8640,7 @@ pub const QDomElement = extern struct {
         };
         var _str = qtc.QDomElement_Attribute2(@ptrCast(self.ptr), name_str, defValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomelement.Attribute2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.Attribute2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8674,7 +8674,7 @@ pub const QDomElement = extern struct {
         };
         var _str = qtc.QDomElement_AttributeNS3(@ptrCast(self.ptr), nsURI_str, localName_str, defValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomelement.AttributeNS3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.AttributeNS3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8866,7 +8866,7 @@ pub const QDomElement = extern struct {
     pub fn NodeName(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomelement.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8968,7 +8968,7 @@ pub const QDomElement = extern struct {
     pub fn NamespaceURI(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomelement.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -8986,7 +8986,7 @@ pub const QDomElement = extern struct {
     pub fn LocalName(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomelement.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -9016,7 +9016,7 @@ pub const QDomElement = extern struct {
     pub fn NodeValue(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomelement.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -9052,7 +9052,7 @@ pub const QDomElement = extern struct {
     pub fn Prefix(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomelement.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -9821,7 +9821,7 @@ pub const QDomText = extern struct {
     pub fn SubstringData(self: QDomText, allocator: std.mem.Allocator, offset: usize, count: usize) []const u8 {
         var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomtext.SubstringData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.SubstringData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -9927,7 +9927,7 @@ pub const QDomText = extern struct {
     pub fn Data(self: QDomText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomCharacterData_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomtext.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.Data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10137,7 +10137,7 @@ pub const QDomText = extern struct {
     pub fn NodeName(self: QDomText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomtext.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10251,7 +10251,7 @@ pub const QDomText = extern struct {
     pub fn NamespaceURI(self: QDomText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomtext.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10269,7 +10269,7 @@ pub const QDomText = extern struct {
     pub fn LocalName(self: QDomText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomtext.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10299,7 +10299,7 @@ pub const QDomText = extern struct {
     pub fn NodeValue(self: QDomText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomtext.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -10335,7 +10335,7 @@ pub const QDomText = extern struct {
     pub fn Prefix(self: QDomText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomtext.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11092,7 +11092,7 @@ pub const QDomComment = extern struct {
     pub fn SubstringData(self: QDomComment, allocator: std.mem.Allocator, offset: usize, count: usize) []const u8 {
         var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcomment.SubstringData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.SubstringData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11198,7 +11198,7 @@ pub const QDomComment = extern struct {
     pub fn Data(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomCharacterData_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcomment.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.Data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11408,7 +11408,7 @@ pub const QDomComment = extern struct {
     pub fn NodeName(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcomment.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11522,7 +11522,7 @@ pub const QDomComment = extern struct {
     pub fn NamespaceURI(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcomment.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11540,7 +11540,7 @@ pub const QDomComment = extern struct {
     pub fn LocalName(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcomment.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11570,7 +11570,7 @@ pub const QDomComment = extern struct {
     pub fn NodeValue(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcomment.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -11606,7 +11606,7 @@ pub const QDomComment = extern struct {
     pub fn Prefix(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcomment.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -12378,7 +12378,7 @@ pub const QDomCDATASection = extern struct {
     pub fn SubstringData(self: QDomCDATASection, allocator: std.mem.Allocator, offset: usize, count: usize) []const u8 {
         var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcdatasection.SubstringData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.SubstringData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -12484,7 +12484,7 @@ pub const QDomCDATASection = extern struct {
     pub fn Data(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomCharacterData_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcdatasection.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.Data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -12694,7 +12694,7 @@ pub const QDomCDATASection = extern struct {
     pub fn NodeName(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcdatasection.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -12808,7 +12808,7 @@ pub const QDomCDATASection = extern struct {
     pub fn NamespaceURI(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcdatasection.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -12826,7 +12826,7 @@ pub const QDomCDATASection = extern struct {
     pub fn LocalName(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcdatasection.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -12856,7 +12856,7 @@ pub const QDomCDATASection = extern struct {
     pub fn NodeValue(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcdatasection.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -12892,7 +12892,7 @@ pub const QDomCDATASection = extern struct {
     pub fn Prefix(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomcdatasection.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -13628,7 +13628,7 @@ pub const QDomNotation = extern struct {
     pub fn PublicId(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNotation_PublicId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomnotation.PublicId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.PublicId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -13644,7 +13644,7 @@ pub const QDomNotation = extern struct {
     pub fn SystemId(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNotation_SystemId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomnotation.SystemId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.SystemId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -13850,7 +13850,7 @@ pub const QDomNotation = extern struct {
     pub fn NodeName(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomnotation.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -13964,7 +13964,7 @@ pub const QDomNotation = extern struct {
     pub fn NamespaceURI(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomnotation.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -13982,7 +13982,7 @@ pub const QDomNotation = extern struct {
     pub fn LocalName(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomnotation.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -14012,7 +14012,7 @@ pub const QDomNotation = extern struct {
     pub fn NodeValue(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomnotation.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -14048,7 +14048,7 @@ pub const QDomNotation = extern struct {
     pub fn Prefix(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomnotation.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -14784,7 +14784,7 @@ pub const QDomEntity = extern struct {
     pub fn PublicId(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomEntity_PublicId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomentity.PublicId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.PublicId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -14800,7 +14800,7 @@ pub const QDomEntity = extern struct {
     pub fn SystemId(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomEntity_SystemId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomentity.SystemId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.SystemId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -14816,7 +14816,7 @@ pub const QDomEntity = extern struct {
     pub fn NotationName(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomEntity_NotationName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomentity.NotationName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.NotationName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -15022,7 +15022,7 @@ pub const QDomEntity = extern struct {
     pub fn NodeName(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomentity.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -15136,7 +15136,7 @@ pub const QDomEntity = extern struct {
     pub fn NamespaceURI(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomentity.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -15154,7 +15154,7 @@ pub const QDomEntity = extern struct {
     pub fn LocalName(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomentity.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -15184,7 +15184,7 @@ pub const QDomEntity = extern struct {
     pub fn NodeValue(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomentity.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -15220,7 +15220,7 @@ pub const QDomEntity = extern struct {
     pub fn Prefix(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomentity.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -16146,7 +16146,7 @@ pub const QDomEntityReference = extern struct {
     pub fn NodeName(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomentityreference.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -16260,7 +16260,7 @@ pub const QDomEntityReference = extern struct {
     pub fn NamespaceURI(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomentityreference.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -16278,7 +16278,7 @@ pub const QDomEntityReference = extern struct {
     pub fn LocalName(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomentityreference.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -16308,7 +16308,7 @@ pub const QDomEntityReference = extern struct {
     pub fn NodeValue(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomentityreference.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -16344,7 +16344,7 @@ pub const QDomEntityReference = extern struct {
     pub fn Prefix(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomentityreference.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -17080,7 +17080,7 @@ pub const QDomProcessingInstruction = extern struct {
     pub fn Target(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomProcessingInstruction_Target(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomprocessinginstruction.Target: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.Target: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -17096,7 +17096,7 @@ pub const QDomProcessingInstruction = extern struct {
     pub fn Data(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomProcessingInstruction_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomprocessinginstruction.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.Data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -17318,7 +17318,7 @@ pub const QDomProcessingInstruction = extern struct {
     pub fn NodeName(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomprocessinginstruction.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.NodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -17432,7 +17432,7 @@ pub const QDomProcessingInstruction = extern struct {
     pub fn NamespaceURI(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomprocessinginstruction.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.NamespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -17450,7 +17450,7 @@ pub const QDomProcessingInstruction = extern struct {
     pub fn LocalName(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomprocessinginstruction.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.LocalName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -17480,7 +17480,7 @@ pub const QDomProcessingInstruction = extern struct {
     pub fn NodeValue(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomprocessinginstruction.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.NodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -17516,7 +17516,7 @@ pub const QDomProcessingInstruction = extern struct {
     pub fn Prefix(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdomprocessinginstruction.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -18232,7 +18232,7 @@ pub const QDomDocument__ParseResult = extern struct {
     pub fn ErrorMessage(self: QDomDocument__ParseResult, allocator: std.mem.Allocator) []const u8 {
         var errorMessage_str = qtc.QDomDocument__ParseResult_ErrorMessage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&errorMessage_str);
-        const errorMessage_ret = allocator.alloc(u8, errorMessage_str.len) catch @panic("qdomdocument__parseresult.ErrorMessage: Memory allocation failed");
+        const errorMessage_ret = allocator.alloc(u8, errorMessage_str.len) catch @panic("QDomDocument__ParseResult.ErrorMessage: Memory allocation failed");
         @memcpy(errorMessage_ret, errorMessage_str.data[0..errorMessage_str.len]);
         return errorMessage_ret;
     }

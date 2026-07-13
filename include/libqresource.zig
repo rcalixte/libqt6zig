@@ -79,7 +79,7 @@ pub const QResource = extern struct {
     pub fn FileName(self: QResource, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QResource_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qresource.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QResource.FileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -95,7 +95,7 @@ pub const QResource = extern struct {
     pub fn AbsoluteFilePath(self: QResource, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QResource_AbsoluteFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qresource.AbsoluteFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QResource.AbsoluteFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -188,7 +188,7 @@ pub const QResource = extern struct {
     pub fn UncompressedData(self: QResource, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QResource_UncompressedData(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qresource.UncompressedData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QResource.UncompressedData: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }

@@ -122,9 +122,9 @@ pub const KCrash = extern struct {
     ///
     pub fn SetErrorTags(allocator: std.mem.Allocator, details: Map_constu8_constu8) void {
         const details_count = details.count();
-        const details_keys = allocator.alloc(qtc.libqt_string, details_count) catch @panic("kcrash.SetErrorTags: Memory allocation failed");
+        const details_keys = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.SetErrorTags: Memory allocation failed");
         defer allocator.free(details_keys);
-        const details_values = allocator.alloc(qtc.libqt_string, details_count) catch @panic("kcrash.SetErrorTags: Memory allocation failed");
+        const details_values = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.SetErrorTags: Memory allocation failed");
         defer allocator.free(details_values);
         var i: usize = 0;
         var details_it = details.iterator();
@@ -158,9 +158,9 @@ pub const KCrash = extern struct {
     ///
     pub fn SetErrorExtraData(allocator: std.mem.Allocator, details: Map_constu8_constu8) void {
         const details_count = details.count();
-        const details_keys = allocator.alloc(qtc.libqt_string, details_count) catch @panic("kcrash.SetErrorExtraData: Memory allocation failed");
+        const details_keys = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.SetErrorExtraData: Memory allocation failed");
         defer allocator.free(details_keys);
-        const details_values = allocator.alloc(qtc.libqt_string, details_count) catch @panic("kcrash.SetErrorExtraData: Memory allocation failed");
+        const details_values = allocator.alloc(qtc.libqt_string, details_count) catch @panic("KCrash.SetErrorExtraData: Memory allocation failed");
         defer allocator.free(details_values);
         var i: usize = 0;
         var details_it = details.iterator();
@@ -194,9 +194,9 @@ pub const KCrash = extern struct {
     ///
     pub fn SetGPUData(allocator: std.mem.Allocator, data: Map_constu8_QVariant) void {
         const data_count = data.count();
-        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("kcrash.SetGPUData: Memory allocation failed");
+        const data_keys = allocator.alloc(qtc.libqt_string, data_count) catch @panic("KCrash.SetGPUData: Memory allocation failed");
         defer allocator.free(data_keys);
-        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("kcrash.SetGPUData: Memory allocation failed");
+        const data_values = allocator.alloc(QtC.QVariant, data_count) catch @panic("KCrash.SetGPUData: Memory allocation failed");
         defer allocator.free(data_values);
         var i: usize = 0;
         var data_it = data.iterator();

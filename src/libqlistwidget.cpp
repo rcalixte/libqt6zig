@@ -111,8 +111,8 @@ QListWidget* QListWidgetItem_ListWidget(const QListWidgetItem* self) {
     return self->listWidget();
 }
 
-void QListWidgetItem_SetSelected(QListWidgetItem* self, bool selectVal) {
-    self->setSelected(selectVal);
+void QListWidgetItem_SetSelected(QListWidgetItem* self, bool select) {
+    self->setSelected(select);
 }
 
 bool QListWidgetItem_IsSelected(const QListWidgetItem* self) {

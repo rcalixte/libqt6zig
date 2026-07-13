@@ -91,7 +91,7 @@ pub const KDesktopFileAction = extern struct {
     pub fn ActionsKey(self: KDesktopFileAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFileAction_ActionsKey(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfileaction.ActionsKey: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFileAction.ActionsKey: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -107,7 +107,7 @@ pub const KDesktopFileAction = extern struct {
     pub fn DesktopFilePath(self: KDesktopFileAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFileAction_DesktopFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfileaction.DesktopFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFileAction.DesktopFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -123,7 +123,7 @@ pub const KDesktopFileAction = extern struct {
     pub fn Name(self: KDesktopFileAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFileAction_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfileaction.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFileAction.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -139,7 +139,7 @@ pub const KDesktopFileAction = extern struct {
     pub fn Icon(self: KDesktopFileAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFileAction_Icon(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfileaction.Icon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFileAction.Icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -155,7 +155,7 @@ pub const KDesktopFileAction = extern struct {
     pub fn Exec(self: KDesktopFileAction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDesktopFileAction_Exec(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdesktopfileaction.Exec: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDesktopFileAction.Exec: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

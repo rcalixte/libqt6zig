@@ -241,7 +241,7 @@ pub const KPluralHandlingSpinBox = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -274,7 +274,7 @@ pub const KPluralHandlingSpinBox = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -296,7 +296,7 @@ pub const KPluralHandlingSpinBox = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -326,7 +326,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn Prefix(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSpinBox_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.Prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -362,7 +362,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn Suffix(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSpinBox_Suffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.Suffix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.Suffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -380,7 +380,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn CleanText(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSpinBox_CleanText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.CleanText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.CleanText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -694,7 +694,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn Text(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractSpinBox_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -712,7 +712,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn SpecialValueText(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractSpinBox_SpecialValueText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.SpecialValueText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.SpecialValueText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2365,7 +2365,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn StyleSheet(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.StyleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2383,7 +2383,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn WindowTitle(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.WindowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2446,7 +2446,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn WindowIconText(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.WindowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2482,7 +2482,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn WindowRole(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.WindowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2518,7 +2518,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn WindowFilePath(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.WindowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2592,7 +2592,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn ToolTip(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.ToolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2654,7 +2654,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn StatusTip(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.StatusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2690,7 +2690,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn WhatsThis(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.WhatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2708,7 +2708,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn AccessibleName(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.AccessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2744,7 +2744,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn AccessibleDescription(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.AccessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3594,7 +3594,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn SaveGeometry(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("kpluralhandlingspinbox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KPluralHandlingSpinBox.SaveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -4130,7 +4130,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn Actions(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kpluralhandlingspinbox.Actions: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KPluralHandlingSpinBox.Actions: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4945,7 +4945,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn ObjectName(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -5122,7 +5122,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn Children(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kpluralhandlingspinbox.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KPluralHandlingSpinBox.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -5383,10 +5383,10 @@ pub const KPluralHandlingSpinBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kpluralhandlingspinbox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KPluralHandlingSpinBox.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kpluralhandlingspinbox.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KPluralHandlingSpinBox.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -6043,7 +6043,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn TextFromValue(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator, val: i32) []const u8 {
         var _str = qtc.KPluralHandlingSpinBox_TextFromValue(@ptrCast(self.ptr), @bitCast(val));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.TextFromValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.TextFromValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -6069,7 +6069,7 @@ pub const KPluralHandlingSpinBox = extern struct {
     pub fn SuperTextFromValue(self: KPluralHandlingSpinBox, allocator: std.mem.Allocator, val: i32) []const u8 {
         var _str = qtc.KPluralHandlingSpinBox_SuperTextFromValue(@ptrCast(self.ptr), @bitCast(val));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kpluralhandlingspinbox.TextFromValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPluralHandlingSpinBox.TextFromValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

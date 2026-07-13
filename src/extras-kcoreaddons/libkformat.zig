@@ -71,7 +71,7 @@ pub const KFormat = extern struct {
     pub fn FormatByteSize(self: KFormat, allocator: std.mem.Allocator, size: f64) []const u8 {
         var _str = qtc.KFormat_FormatByteSize(@ptrCast(self.ptr), @bitCast(size));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatByteSize: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatByteSize: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -89,7 +89,7 @@ pub const KFormat = extern struct {
     pub fn FormatDuration(self: KFormat, allocator: std.mem.Allocator, msecs: u64) []const u8 {
         var _str = qtc.KFormat_FormatDuration(@ptrCast(self.ptr), @bitCast(msecs));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatDuration: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatDuration: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -107,7 +107,7 @@ pub const KFormat = extern struct {
     pub fn FormatDecimalDuration(self: KFormat, allocator: std.mem.Allocator, msecs: u64) []const u8 {
         var _str = qtc.KFormat_FormatDecimalDuration(@ptrCast(self.ptr), @bitCast(msecs));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatDecimalDuration: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatDecimalDuration: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -125,7 +125,7 @@ pub const KFormat = extern struct {
     pub fn FormatSpelloutDuration(self: KFormat, allocator: std.mem.Allocator, msecs: u64) []const u8 {
         var _str = qtc.KFormat_FormatSpelloutDuration(@ptrCast(self.ptr), @bitCast(msecs));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatSpelloutDuration: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatSpelloutDuration: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -146,7 +146,7 @@ pub const KFormat = extern struct {
         comptime _ = @TypeOf(date)._is_QDate;
         var _str = qtc.KFormat_FormatRelativeDate(@ptrCast(self.ptr), @ptrCast(date.ptr), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatRelativeDate: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatRelativeDate: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -167,7 +167,7 @@ pub const KFormat = extern struct {
         comptime _ = @TypeOf(dateTime)._is_QDateTime;
         var _str = qtc.KFormat_FormatRelativeDateTime(@ptrCast(self.ptr), @ptrCast(dateTime.ptr), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatRelativeDateTime: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatRelativeDateTime: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -187,7 +187,7 @@ pub const KFormat = extern struct {
     pub fn FormatValue(self: KFormat, allocator: std.mem.Allocator, value: f64, unit: i32) []const u8 {
         var _str = qtc.KFormat_FormatValue(@ptrCast(self.ptr), @bitCast(value), @bitCast(unit));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -211,7 +211,7 @@ pub const KFormat = extern struct {
         };
         var _str = qtc.KFormat_FormatValue2(@ptrCast(self.ptr), @bitCast(value), unit_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatValue2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatValue2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -241,7 +241,7 @@ pub const KFormat = extern struct {
         };
         var _str = qtc.KFormat_FormatValue3(@ptrCast(self.ptr), @bitCast(value), unit_str, @bitCast(precision), @bitCast(prefix), @bitCast(dialect));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatValue3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatValue3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -259,7 +259,7 @@ pub const KFormat = extern struct {
     pub fn FormatDistance(self: KFormat, allocator: std.mem.Allocator, distance: f64) []const u8 {
         var _str = qtc.KFormat_FormatDistance(@ptrCast(self.ptr), @bitCast(distance));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatDistance: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatDistance: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -279,7 +279,7 @@ pub const KFormat = extern struct {
     pub fn FormatByteSize2(self: KFormat, allocator: std.mem.Allocator, size: f64, precision: i32) []const u8 {
         var _str = qtc.KFormat_FormatByteSize2(@ptrCast(self.ptr), @bitCast(size), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatByteSize2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatByteSize2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -301,7 +301,7 @@ pub const KFormat = extern struct {
     pub fn FormatByteSize3(self: KFormat, allocator: std.mem.Allocator, size: f64, precision: i32, dialect: i32) []const u8 {
         var _str = qtc.KFormat_FormatByteSize3(@ptrCast(self.ptr), @bitCast(size), @bitCast(precision), @bitCast(dialect));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatByteSize3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatByteSize3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -325,7 +325,7 @@ pub const KFormat = extern struct {
     pub fn FormatByteSize4(self: KFormat, allocator: std.mem.Allocator, size: f64, precision: i32, dialect: i32, units: i32) []const u8 {
         var _str = qtc.KFormat_FormatByteSize4(@ptrCast(self.ptr), @bitCast(size), @bitCast(precision), @bitCast(dialect), @bitCast(units));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatByteSize4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatByteSize4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -345,7 +345,7 @@ pub const KFormat = extern struct {
     pub fn FormatDuration2(self: KFormat, allocator: std.mem.Allocator, msecs: u64, options: i32) []const u8 {
         var _str = qtc.KFormat_FormatDuration2(@ptrCast(self.ptr), @bitCast(msecs), @bitCast(options));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatDuration2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatDuration2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -365,7 +365,7 @@ pub const KFormat = extern struct {
     pub fn FormatDecimalDuration2(self: KFormat, allocator: std.mem.Allocator, msecs: u64, decimalPlaces: i32) []const u8 {
         var _str = qtc.KFormat_FormatDecimalDuration2(@ptrCast(self.ptr), @bitCast(msecs), @bitCast(decimalPlaces));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatDecimalDuration2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatDecimalDuration2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -387,7 +387,7 @@ pub const KFormat = extern struct {
     pub fn FormatValue32(self: KFormat, allocator: std.mem.Allocator, value: f64, unit: i32, precision: i32) []const u8 {
         var _str = qtc.KFormat_FormatValue32(@ptrCast(self.ptr), @bitCast(value), @bitCast(unit), @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatValue32: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatValue32: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -411,7 +411,7 @@ pub const KFormat = extern struct {
     pub fn FormatValue4(self: KFormat, allocator: std.mem.Allocator, value: f64, unit: i32, precision: i32, prefix: i32) []const u8 {
         var _str = qtc.KFormat_FormatValue4(@ptrCast(self.ptr), @bitCast(value), @bitCast(unit), @bitCast(precision), @bitCast(prefix));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatValue4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatValue4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -437,7 +437,7 @@ pub const KFormat = extern struct {
     pub fn FormatValue5(self: KFormat, allocator: std.mem.Allocator, value: f64, unit: i32, precision: i32, prefix: i32, dialect: i32) []const u8 {
         var _str = qtc.KFormat_FormatValue5(@ptrCast(self.ptr), @bitCast(value), @bitCast(unit), @bitCast(precision), @bitCast(prefix), @bitCast(dialect));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatValue5: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatValue5: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -463,7 +463,7 @@ pub const KFormat = extern struct {
         };
         var _str = qtc.KFormat_FormatValue33(@ptrCast(self.ptr), @bitCast(value), unit_str, @bitCast(precision));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatValue33: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatValue33: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -491,7 +491,7 @@ pub const KFormat = extern struct {
         };
         var _str = qtc.KFormat_FormatValue42(@ptrCast(self.ptr), @bitCast(value), unit_str, @bitCast(precision), @bitCast(prefix));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatValue42: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatValue42: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -511,7 +511,7 @@ pub const KFormat = extern struct {
     pub fn FormatDistance2(self: KFormat, allocator: std.mem.Allocator, distance: f64, param2: i32) []const u8 {
         var _str = qtc.KFormat_FormatDistance2(@ptrCast(self.ptr), @bitCast(distance), @bitCast(param2));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kformat.FormatDistance2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFormat.FormatDistance2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

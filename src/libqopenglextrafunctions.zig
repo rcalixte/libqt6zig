@@ -708,11 +708,11 @@ pub const QOpenGLExtraFunctions = extern struct {
     /// ` bufferMode: u32 `
     ///
     pub fn GlTransformFeedbackVaryings(self: QOpenGLExtraFunctions, allocator: std.mem.Allocator, program: u32, count: i32, varyings: []const [:0]const u8, bufferMode: u32) void {
-        const varyings_chararr = allocator.alloc([*c]const u8, varyings.len) catch @panic("qopenglextrafunctions.GlTransformFeedbackVaryings: Memory allocation failed");
+        const varyings_chararr = allocator.alloc([*:0]const u8, varyings.len) catch @panic("QOpenGLExtraFunctions.GlTransformFeedbackVaryings: Memory allocation failed");
         defer allocator.free(varyings_chararr);
         for (varyings, 0..varyings.len) |str, i|
             varyings_chararr[i] = @ptrCast(str.ptr);
-        qtc.QOpenGLExtraFunctions_GlTransformFeedbackVaryings(@ptrCast(self.ptr), @bitCast(program), @bitCast(count), varyings_chararr.ptr, @bitCast(bufferMode));
+        qtc.QOpenGLExtraFunctions_GlTransformFeedbackVaryings(@ptrCast(self.ptr), @bitCast(program), @bitCast(count), @ptrCast(varyings_chararr), @bitCast(bufferMode));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glVertexAttribIPointer)
@@ -1117,11 +1117,11 @@ pub const QOpenGLExtraFunctions = extern struct {
     /// ` uniformIndices: []u32 `
     ///
     pub fn GlGetUniformIndices(self: QOpenGLExtraFunctions, allocator: std.mem.Allocator, program: u32, uniformCount: i32, uniformNames: []const [:0]const u8, uniformIndices: []u32) void {
-        const uniformNames_chararr = allocator.alloc([*c]const u8, uniformNames.len) catch @panic("qopenglextrafunctions.GlGetUniformIndices: Memory allocation failed");
+        const uniformNames_chararr = allocator.alloc([*:0]const u8, uniformNames.len) catch @panic("QOpenGLExtraFunctions.GlGetUniformIndices: Memory allocation failed");
         defer allocator.free(uniformNames_chararr);
         for (uniformNames, 0..uniformNames.len) |str, i|
             uniformNames_chararr[i] = @ptrCast(str.ptr);
-        qtc.QOpenGLExtraFunctions_GlGetUniformIndices(@ptrCast(self.ptr), @bitCast(program), @bitCast(uniformCount), uniformNames_chararr.ptr, uniformIndices.ptr);
+        qtc.QOpenGLExtraFunctions_GlGetUniformIndices(@ptrCast(self.ptr), @bitCast(program), @bitCast(uniformCount), @ptrCast(uniformNames_chararr), uniformIndices.ptr);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glGetActiveUniformsiv)
@@ -1842,11 +1842,11 @@ pub const QOpenGLExtraFunctions = extern struct {
     /// ` strings: []const [:0]const u8 `
     ///
     pub fn GlCreateShaderProgramv(self: QOpenGLExtraFunctions, allocator: std.mem.Allocator, typeVal: u32, count: i32, strings: []const [:0]const u8) u32 {
-        const strings_chararr = allocator.alloc([*c]const u8, strings.len) catch @panic("qopenglextrafunctions.GlCreateShaderProgramv: Memory allocation failed");
+        const strings_chararr = allocator.alloc([*:0]const u8, strings.len) catch @panic("QOpenGLExtraFunctions.GlCreateShaderProgramv: Memory allocation failed");
         defer allocator.free(strings_chararr);
         for (strings, 0..strings.len) |str, i|
             strings_chararr[i] = @ptrCast(str.ptr);
-        return qtc.QOpenGLExtraFunctions_GlCreateShaderProgramv(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(count), strings_chararr.ptr);
+        return qtc.QOpenGLExtraFunctions_GlCreateShaderProgramv(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(count), @ptrCast(strings_chararr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglextrafunctions.html#glBindProgramPipeline)
@@ -5419,11 +5419,11 @@ pub const QOpenGLExtraFunctions = extern struct {
     /// ` length: []const i32 `
     ///
     pub fn GlShaderSource(self: QOpenGLExtraFunctions, allocator: std.mem.Allocator, shader: u32, count: i32, string: []const [:0]const u8, length: []const i32) void {
-        const string_chararr = allocator.alloc([*c]const u8, string.len) catch @panic("qopenglextrafunctions.GlShaderSource: Memory allocation failed");
+        const string_chararr = allocator.alloc([*:0]const u8, string.len) catch @panic("QOpenGLExtraFunctions.GlShaderSource: Memory allocation failed");
         defer allocator.free(string_chararr);
         for (string, 0..string.len) |str, i|
             string_chararr[i] = @ptrCast(str.ptr);
-        qtc.QOpenGLFunctions_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), string_chararr.ptr, length.ptr);
+        qtc.QOpenGLFunctions_GlShaderSource(@ptrCast(self.ptr), @bitCast(shader), @bitCast(count), @ptrCast(string_chararr), length.ptr);
     }
 
     /// Inherited from QOpenGLFunctions

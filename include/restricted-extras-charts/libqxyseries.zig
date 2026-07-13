@@ -85,7 +85,7 @@ pub const QXYSeries = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxyseries.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXYSeries.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -297,7 +297,7 @@ pub const QXYSeries = extern struct {
     pub fn Points(self: QXYSeries, allocator: std.mem.Allocator) []QPointF {
         const _arr: qtc.libqt_list = qtc.QXYSeries_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qxyseries.Points: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QXYSeries.Points: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -315,7 +315,7 @@ pub const QXYSeries = extern struct {
     pub fn PointsVector(self: QXYSeries, allocator: std.mem.Allocator) []QPointF {
         const _arr: qtc.libqt_list = qtc.QXYSeries_PointsVector(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("qxyseries.PointsVector: Memory allocation failed");
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QXYSeries.PointsVector: Memory allocation failed");
         const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -502,7 +502,7 @@ pub const QXYSeries = extern struct {
     pub fn PointLabelsFormat(self: QXYSeries, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXYSeries_PointLabelsFormat(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxyseries.PointLabelsFormat: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXYSeries.PointLabelsFormat: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -738,7 +738,7 @@ pub const QXYSeries = extern struct {
     pub fn SelectedPoints(self: QXYSeries, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QXYSeries_SelectedPoints(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("qxyseries.SelectedPoints: Memory allocation failed");
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QXYSeries.SelectedPoints: Memory allocation failed");
         const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
         @memcpy(_ret, _data[0.._arr.len]);
         return _ret;
@@ -953,9 +953,9 @@ pub const QXYSeries = extern struct {
     ///
     pub fn SetPointConfiguration(self: QXYSeries, allocator: std.mem.Allocator, index: i32, configuration: Map_i32_QVariant) void {
         const configuration_count = configuration.count();
-        const configuration_keys = allocator.alloc(i32, configuration_count) catch @panic("qxyseries.SetPointConfiguration: Memory allocation failed");
+        const configuration_keys = allocator.alloc(i32, configuration_count) catch @panic("QXYSeries.SetPointConfiguration: Memory allocation failed");
         defer allocator.free(configuration_keys);
-        const configuration_values = allocator.alloc(QtC.QVariant, configuration_count) catch @panic("qxyseries.SetPointConfiguration: Memory allocation failed");
+        const configuration_values = allocator.alloc(QtC.QVariant, configuration_count) catch @panic("QXYSeries.SetPointConfiguration: Memory allocation failed");
         defer allocator.free(configuration_values);
         var i: usize = 0;
         var configuration_it = configuration.iterator();
@@ -1001,9 +1001,9 @@ pub const QXYSeries = extern struct {
     ///
     pub fn SetPointsConfiguration(self: QXYSeries, allocator: std.mem.Allocator, pointsConfiguration: Map_i32_Map_i32_QVariant) void {
         const pointsConfiguration_count = pointsConfiguration.count();
-        const pointsConfiguration_keys = allocator.alloc(i32, pointsConfiguration_count) catch @panic("qxyseries.SetPointsConfiguration: Memory allocation failed");
+        const pointsConfiguration_keys = allocator.alloc(i32, pointsConfiguration_count) catch @panic("QXYSeries.SetPointsConfiguration: Memory allocation failed");
         defer allocator.free(pointsConfiguration_keys);
-        const pointsConfiguration_values = allocator.alloc(Map_i32_QVariant, pointsConfiguration_count) catch @panic("qxyseries.SetPointsConfiguration: Memory allocation failed");
+        const pointsConfiguration_values = allocator.alloc(Map_i32_QVariant, pointsConfiguration_count) catch @panic("QXYSeries.SetPointsConfiguration: Memory allocation failed");
         defer allocator.free(pointsConfiguration_values);
         var i: usize = 0;
         var pointsConfiguration_it = pointsConfiguration.iterator();
@@ -1037,7 +1037,7 @@ pub const QXYSeries = extern struct {
     pub fn PointConfiguration(self: QXYSeries, allocator: std.mem.Allocator, index: i32) Map_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QXYSeries_PointConfiguration(@ptrCast(self.ptr), @bitCast(index));
         var _ret: Map_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qxyseries.PointConfiguration: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QXYSeries.PointConfiguration: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -1064,7 +1064,7 @@ pub const QXYSeries = extern struct {
     pub fn PointsConfiguration(self: QXYSeries, allocator: std.mem.Allocator) Map_i32_Map_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QXYSeries_PointsConfiguration(@ptrCast(self.ptr));
         var _ret: Map_i32_Map_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qxyseries.PointsConfiguration: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QXYSeries.PointsConfiguration: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -1722,9 +1722,9 @@ pub const QXYSeries = extern struct {
     ///
     pub fn PointsConfigurationChanged(self: QXYSeries, allocator: std.mem.Allocator, configuration: Map_i32_Map_i32_QVariant) void {
         const configuration_count = configuration.count();
-        const configuration_keys = allocator.alloc(i32, configuration_count) catch @panic("qxyseries.PointsConfigurationChanged: Memory allocation failed");
+        const configuration_keys = allocator.alloc(i32, configuration_count) catch @panic("QXYSeries.PointsConfigurationChanged: Memory allocation failed");
         defer allocator.free(configuration_keys);
-        const configuration_values = allocator.alloc(Map_i32_QVariant, configuration_count) catch @panic("qxyseries.PointsConfigurationChanged: Memory allocation failed");
+        const configuration_values = allocator.alloc(Map_i32_QVariant, configuration_count) catch @panic("QXYSeries.PointsConfigurationChanged: Memory allocation failed");
         defer allocator.free(configuration_values);
         var i: usize = 0;
         var configuration_it = configuration.iterator();
@@ -1792,7 +1792,7 @@ pub const QXYSeries = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxyseries.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXYSeries.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1814,7 +1814,7 @@ pub const QXYSeries = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxyseries.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXYSeries.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1933,7 +1933,7 @@ pub const QXYSeries = extern struct {
     pub fn Name(self: QXYSeries, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractSeries_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxyseries.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXYSeries.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2067,7 +2067,7 @@ pub const QXYSeries = extern struct {
     pub fn AttachedAxes(self: QXYSeries, allocator: std.mem.Allocator) []QAbstractAxis {
         const _arr: qtc.libqt_list = qtc.QAbstractSeries_AttachedAxes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("qxyseries.AttachedAxes: Memory allocation failed");
+        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("QXYSeries.AttachedAxes: Memory allocation failed");
         const _data: [*]QtC.QAbstractAxis = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2276,7 +2276,7 @@ pub const QXYSeries = extern struct {
     pub fn ObjectName(self: QXYSeries, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qxyseries.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QXYSeries.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -2453,7 +2453,7 @@ pub const QXYSeries = extern struct {
     pub fn Children(self: QXYSeries, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qxyseries.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QXYSeries.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -2729,10 +2729,10 @@ pub const QXYSeries = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qxyseries.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QXYSeries.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qxyseries.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QXYSeries.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

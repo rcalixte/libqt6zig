@@ -88,7 +88,7 @@ pub const Attica__DownloadDescription = extern struct {
     pub fn Category(self: Attica__DownloadDescription, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadDescription_Category(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaddescription.Category: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadDescription.Category: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -104,7 +104,7 @@ pub const Attica__DownloadDescription = extern struct {
     pub fn Name(self: Attica__DownloadDescription, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadDescription_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaddescription.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadDescription.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -120,7 +120,7 @@ pub const Attica__DownloadDescription = extern struct {
     pub fn Link(self: Attica__DownloadDescription, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadDescription_Link(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaddescription.Link: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadDescription.Link: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -136,7 +136,7 @@ pub const Attica__DownloadDescription = extern struct {
     pub fn DistributionType(self: Attica__DownloadDescription, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadDescription_DistributionType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaddescription.DistributionType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadDescription.DistributionType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -152,7 +152,7 @@ pub const Attica__DownloadDescription = extern struct {
     pub fn PriceReason(self: Attica__DownloadDescription, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadDescription_PriceReason(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaddescription.PriceReason: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadDescription.PriceReason: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -168,7 +168,7 @@ pub const Attica__DownloadDescription = extern struct {
     pub fn PriceAmount(self: Attica__DownloadDescription, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadDescription_PriceAmount(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaddescription.PriceAmount: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadDescription.PriceAmount: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -194,7 +194,7 @@ pub const Attica__DownloadDescription = extern struct {
     pub fn GpgFingerprint(self: Attica__DownloadDescription, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadDescription_GpgFingerprint(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaddescription.GpgFingerprint: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadDescription.GpgFingerprint: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -210,7 +210,7 @@ pub const Attica__DownloadDescription = extern struct {
     pub fn GpgSignature(self: Attica__DownloadDescription, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadDescription_GpgSignature(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaddescription.GpgSignature: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadDescription.GpgSignature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -226,7 +226,7 @@ pub const Attica__DownloadDescription = extern struct {
     pub fn PackageName(self: Attica__DownloadDescription, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadDescription_PackageName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaddescription.PackageName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadDescription.PackageName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -242,7 +242,7 @@ pub const Attica__DownloadDescription = extern struct {
     pub fn Repository(self: Attica__DownloadDescription, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadDescription_Repository(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaddescription.Repository: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadDescription.Repository: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -263,10 +263,10 @@ pub const Attica__DownloadDescription = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("attica__downloaddescription.Tags: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Attica__DownloadDescription.Tags: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("attica__downloaddescription.Tags: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("Attica__DownloadDescription.Tags: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -492,7 +492,7 @@ pub const Attica__DownloadDescription = extern struct {
     /// ` tags: []const []const u8 `
     ///
     pub fn SetTags(self: Attica__DownloadDescription, allocator: std.mem.Allocator, tags: []const []const u8) void {
-        const tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("attica__downloaddescription.SetTags: Memory allocation failed");
+        const tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("Attica__DownloadDescription.SetTags: Memory allocation failed");
         defer allocator.free(tags_arr);
         for (tags, 0..tags.len) |item, i|
             tags_arr[i] = .{
@@ -517,7 +517,7 @@ pub const Attica__DownloadDescription = extern struct {
     pub fn Version(self: Attica__DownloadDescription, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__DownloadDescription_Version(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("attica__downloaddescription.Version: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__DownloadDescription.Version: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

@@ -116,8 +116,8 @@ libqt_string QByteArrayView_Slice2(QByteArrayView* self, ptrdiff_t pos, ptrdiff_
     return _str;
 }
 
-libqt_string QByteArrayView_Chopped(const QByteArrayView* self, ptrdiff_t lenVal) {
-    QByteArrayView _qb = self->chopped((qsizetype)(lenVal));
+libqt_string QByteArrayView_Chopped(const QByteArrayView* self, ptrdiff_t len) {
+    QByteArrayView _qb = self->chopped((qsizetype)(len));
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));

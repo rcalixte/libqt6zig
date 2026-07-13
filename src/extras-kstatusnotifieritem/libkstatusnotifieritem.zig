@@ -217,7 +217,7 @@ pub const KStatusNotifierItem = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -233,7 +233,7 @@ pub const KStatusNotifierItem = extern struct {
     pub fn Id(self: KStatusNotifierItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KStatusNotifierItem_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.Id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -291,7 +291,7 @@ pub const KStatusNotifierItem = extern struct {
     pub fn Title(self: KStatusNotifierItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KStatusNotifierItem_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.Title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -349,7 +349,7 @@ pub const KStatusNotifierItem = extern struct {
     pub fn IconName(self: KStatusNotifierItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KStatusNotifierItem_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -404,7 +404,7 @@ pub const KStatusNotifierItem = extern struct {
     pub fn OverlayIconName(self: KStatusNotifierItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KStatusNotifierItem_OverlayIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.OverlayIconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.OverlayIconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -459,7 +459,7 @@ pub const KStatusNotifierItem = extern struct {
     pub fn AttentionIconName(self: KStatusNotifierItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KStatusNotifierItem_AttentionIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.AttentionIconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.AttentionIconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -514,7 +514,7 @@ pub const KStatusNotifierItem = extern struct {
     pub fn AttentionMovieName(self: KStatusNotifierItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KStatusNotifierItem_AttentionMovieName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.AttentionMovieName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.AttentionMovieName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -599,7 +599,7 @@ pub const KStatusNotifierItem = extern struct {
     pub fn ToolTipIconName(self: KStatusNotifierItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KStatusNotifierItem_ToolTipIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.ToolTipIconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.ToolTipIconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -654,7 +654,7 @@ pub const KStatusNotifierItem = extern struct {
     pub fn ToolTipTitle(self: KStatusNotifierItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KStatusNotifierItem_ToolTipTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.ToolTipTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.ToolTipTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -686,7 +686,7 @@ pub const KStatusNotifierItem = extern struct {
     pub fn ToolTipSubTitle(self: KStatusNotifierItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KStatusNotifierItem_ToolTipSubTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.ToolTipSubTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.ToolTipSubTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -748,7 +748,7 @@ pub const KStatusNotifierItem = extern struct {
     pub fn ActionCollection(self: KStatusNotifierItem, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.KStatusNotifierItem_ActionCollection(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("kstatusnotifieritem.ActionCollection: Memory allocation failed");
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KStatusNotifierItem.ActionCollection: Memory allocation failed");
         const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -867,7 +867,7 @@ pub const KStatusNotifierItem = extern struct {
     pub fn ProvidedToken(self: KStatusNotifierItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KStatusNotifierItem_ProvidedToken(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.ProvidedToken: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.ProvidedToken: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1105,7 +1105,7 @@ pub const KStatusNotifierItem = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1127,7 +1127,7 @@ pub const KStatusNotifierItem = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1175,7 +1175,7 @@ pub const KStatusNotifierItem = extern struct {
     pub fn ObjectName(self: KStatusNotifierItem, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstatusnotifieritem.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStatusNotifierItem.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1352,7 +1352,7 @@ pub const KStatusNotifierItem = extern struct {
     pub fn Children(self: KStatusNotifierItem, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kstatusnotifieritem.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KStatusNotifierItem.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1628,10 +1628,10 @@ pub const KStatusNotifierItem = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kstatusnotifieritem.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KStatusNotifierItem.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kstatusnotifieritem.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KStatusNotifierItem.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

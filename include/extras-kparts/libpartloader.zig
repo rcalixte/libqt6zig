@@ -90,7 +90,7 @@ pub const KParts__PartLoader = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KParts__PartLoader_PartsForMimeType(mimeType_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KPluginMetaData, _arr.len) catch @panic("kparts__partloader.PartsForMimeType: Memory allocation failed");
+        const _ret = allocator.alloc(KPluginMetaData, _arr.len) catch @panic("KParts__PartLoader.PartsForMimeType: Memory allocation failed");
         const _data: [*]QtC.KPluginMetaData = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

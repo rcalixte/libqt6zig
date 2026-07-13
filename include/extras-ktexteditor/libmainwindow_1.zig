@@ -183,7 +183,7 @@ pub const KTextEditor__MainWindow = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__mainwindow.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__MainWindow.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -244,7 +244,7 @@ pub const KTextEditor__MainWindow = extern struct {
     pub fn Views(self: KTextEditor__MainWindow, allocator: std.mem.Allocator) []KTextEditor__View {
         const _arr: qtc.libqt_list = qtc.KTextEditor__MainWindow_Views(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KTextEditor__View, _arr.len) catch @panic("ktexteditor__mainwindow.Views: Memory allocation failed");
+        const _ret = allocator.alloc(KTextEditor__View, _arr.len) catch @panic("KTextEditor__MainWindow.Views: Memory allocation failed");
         const _data: [*]QtC.KTextEditor__View = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -660,7 +660,7 @@ pub const KTextEditor__MainWindow = extern struct {
     pub fn Widgets(self: KTextEditor__MainWindow, allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.KTextEditor__MainWindow_Widgets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("ktexteditor__mainwindow.Widgets: Memory allocation failed");
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("KTextEditor__MainWindow.Widgets: Memory allocation failed");
         const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -752,9 +752,9 @@ pub const KTextEditor__MainWindow = extern struct {
     ///
     pub fn ShowMessage(self: KTextEditor__MainWindow, allocator: std.mem.Allocator, message: ArrayMap_constu8_QVariant) bool {
         const message_count = message.count();
-        const message_keys = allocator.alloc(qtc.libqt_string, message_count) catch @panic("ktexteditor__mainwindow.ShowMessage: Memory allocation failed");
+        const message_keys = allocator.alloc(qtc.libqt_string, message_count) catch @panic("KTextEditor__MainWindow.ShowMessage: Memory allocation failed");
         defer allocator.free(message_keys);
-        const message_values = allocator.alloc(QtC.QVariant, message_count) catch @panic("ktexteditor__mainwindow.ShowMessage: Memory allocation failed");
+        const message_values = allocator.alloc(QtC.QVariant, message_count) catch @panic("KTextEditor__MainWindow.ShowMessage: Memory allocation failed");
         defer allocator.free(message_values);
         var i: usize = 0;
         var message_it = message.iterator();
@@ -789,7 +789,7 @@ pub const KTextEditor__MainWindow = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__mainwindow.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__MainWindow.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -811,7 +811,7 @@ pub const KTextEditor__MainWindow = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__mainwindow.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__MainWindow.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -848,7 +848,7 @@ pub const KTextEditor__MainWindow = extern struct {
     pub fn ObjectName(self: KTextEditor__MainWindow, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("ktexteditor__mainwindow.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__MainWindow.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1025,7 +1025,7 @@ pub const KTextEditor__MainWindow = extern struct {
     pub fn Children(self: KTextEditor__MainWindow, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("ktexteditor__mainwindow.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KTextEditor__MainWindow.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1301,10 +1301,10 @@ pub const KTextEditor__MainWindow = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("ktexteditor__mainwindow.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KTextEditor__MainWindow.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("ktexteditor__mainwindow.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KTextEditor__MainWindow.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

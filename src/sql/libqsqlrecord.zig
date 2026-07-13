@@ -210,7 +210,7 @@ pub const QSqlRecord = extern struct {
     pub fn FieldName(self: QSqlRecord, allocator: std.mem.Allocator, i: i32) []const u8 {
         var _str = qtc.QSqlRecord_FieldName(@ptrCast(self.ptr), @bitCast(i));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsqlrecord.FieldName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSqlRecord.FieldName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

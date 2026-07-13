@@ -164,7 +164,7 @@ pub const QUndoCommand = extern struct {
     pub fn Text(self: QUndoCommand, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QUndoCommand_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qundocommand.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoCommand.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -180,7 +180,7 @@ pub const QUndoCommand = extern struct {
     pub fn ActionText(self: QUndoCommand, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QUndoCommand_ActionText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qundocommand.ActionText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoCommand.ActionText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -514,7 +514,7 @@ pub const QUndoStack = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoStack.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -573,7 +573,7 @@ pub const QUndoStack = extern struct {
     pub fn UndoText(self: QUndoStack, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QUndoStack_UndoText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.UndoText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoStack.UndoText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -589,7 +589,7 @@ pub const QUndoStack = extern struct {
     pub fn RedoText(self: QUndoStack, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QUndoStack_RedoText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.RedoText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoStack.RedoText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -627,7 +627,7 @@ pub const QUndoStack = extern struct {
     pub fn Text(self: QUndoStack, allocator: std.mem.Allocator, idx: i32) []const u8 {
         var _str = qtc.QUndoStack_Text(@ptrCast(self.ptr), @bitCast(idx));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoStack.Text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -977,7 +977,7 @@ pub const QUndoStack = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoStack.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -999,7 +999,7 @@ pub const QUndoStack = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoStack.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1067,7 +1067,7 @@ pub const QUndoStack = extern struct {
     pub fn ObjectName(self: QUndoStack, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qundostack.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QUndoStack.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1244,7 +1244,7 @@ pub const QUndoStack = extern struct {
     pub fn Children(self: QUndoStack, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qundostack.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QUndoStack.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1520,10 +1520,10 @@ pub const QUndoStack = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qundostack.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QUndoStack.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qundostack.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QUndoStack.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

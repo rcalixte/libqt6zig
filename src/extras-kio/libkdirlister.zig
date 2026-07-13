@@ -188,7 +188,7 @@ pub const KDirLister = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdirlister.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirLister.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -287,7 +287,7 @@ pub const KDirLister = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdirlister.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirLister.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -309,7 +309,7 @@ pub const KDirLister = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdirlister.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirLister.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -526,7 +526,7 @@ pub const KDirLister = extern struct {
     pub fn Directories(self: KDirLister, allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.KCoreDirLister_Directories(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("kdirlister.Directories: Memory allocation failed");
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("KDirLister.Directories: Memory allocation failed");
         const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -648,7 +648,7 @@ pub const KDirLister = extern struct {
     pub fn NameFilter(self: KDirLister, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCoreDirLister_NameFilter(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdirlister.NameFilter: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirLister.NameFilter: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -666,7 +666,7 @@ pub const KDirLister = extern struct {
     /// ` mimeList: []const []const u8 `
     ///
     pub fn SetMimeFilter(self: KDirLister, allocator: std.mem.Allocator, mimeList: []const []const u8) void {
-        const mimeList_arr = allocator.alloc(qtc.libqt_string, mimeList.len) catch @panic("kdirlister.SetMimeFilter: Memory allocation failed");
+        const mimeList_arr = allocator.alloc(qtc.libqt_string, mimeList.len) catch @panic("KDirLister.SetMimeFilter: Memory allocation failed");
         defer allocator.free(mimeList_arr);
         for (mimeList, 0..mimeList.len) |item, i|
             mimeList_arr[i] = .{
@@ -693,7 +693,7 @@ pub const KDirLister = extern struct {
     /// ` mimeList: []const []const u8 `
     ///
     pub fn SetMimeExcludeFilter(self: KDirLister, allocator: std.mem.Allocator, mimeList: []const []const u8) void {
-        const mimeList_arr = allocator.alloc(qtc.libqt_string, mimeList.len) catch @panic("kdirlister.SetMimeExcludeFilter: Memory allocation failed");
+        const mimeList_arr = allocator.alloc(qtc.libqt_string, mimeList.len) catch @panic("KDirLister.SetMimeExcludeFilter: Memory allocation failed");
         defer allocator.free(mimeList_arr);
         for (mimeList, 0..mimeList.len) |item, i|
             mimeList_arr[i] = .{
@@ -737,10 +737,10 @@ pub const KDirLister = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kdirlister.MimeFilters: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDirLister.MimeFilters: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kdirlister.MimeFilters: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDirLister.MimeFilters: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -1380,7 +1380,7 @@ pub const KDirLister = extern struct {
     pub fn ObjectName(self: KDirLister, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kdirlister.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirLister.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1557,7 +1557,7 @@ pub const KDirLister = extern struct {
     pub fn Children(self: KDirLister, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kdirlister.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KDirLister.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1833,10 +1833,10 @@ pub const KDirLister = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kdirlister.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KDirLister.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kdirlister.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDirLister.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

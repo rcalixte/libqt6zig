@@ -193,7 +193,7 @@ pub const QDesignerIntegrationInterface = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegrationInterface.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -311,7 +311,7 @@ pub const QDesignerIntegrationInterface = extern struct {
     pub fn HeaderSuffix(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerIntegrationInterface_HeaderSuffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.HeaderSuffix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegrationInterface.HeaderSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -347,7 +347,7 @@ pub const QDesignerIntegrationInterface = extern struct {
     pub fn SuperHeaderSuffix(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerIntegrationInterface_SuperHeaderSuffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.HeaderSuffix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegrationInterface.HeaderSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -651,7 +651,7 @@ pub const QDesignerIntegrationInterface = extern struct {
     pub fn ContextHelpId(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerIntegrationInterface_ContextHelpId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.ContextHelpId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegrationInterface.ContextHelpId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -687,7 +687,7 @@ pub const QDesignerIntegrationInterface = extern struct {
     pub fn SuperContextHelpId(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerIntegrationInterface_SuperContextHelpId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.ContextHelpId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegrationInterface.ContextHelpId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -743,7 +743,7 @@ pub const QDesignerIntegrationInterface = extern struct {
             .len = signalSignature.len,
             .data = signalSignature.ptr,
         };
-        const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegrationinterface.EmitNavigateToSlot: Memory allocation failed");
+        const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("QDesignerIntegrationInterface.EmitNavigateToSlot: Memory allocation failed");
         defer allocator.free(parameterNames_arr);
         for (parameterNames, 0..parameterNames.len) |item, i|
             parameterNames_arr[i] = .{
@@ -890,7 +890,7 @@ pub const QDesignerIntegrationInterface = extern struct {
             .len = signalSignature.len,
             .data = signalSignature.ptr,
         };
-        const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegrationinterface.NavigateToSlot: Memory allocation failed");
+        const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("QDesignerIntegrationInterface.NavigateToSlot: Memory allocation failed");
         defer allocator.free(parameterNames_arr);
         for (parameterNames, 0..parameterNames.len) |item, i|
             parameterNames_arr[i] = .{
@@ -1433,7 +1433,7 @@ pub const QDesignerIntegrationInterface = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegrationInterface.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1455,7 +1455,7 @@ pub const QDesignerIntegrationInterface = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegrationInterface.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1473,7 +1473,7 @@ pub const QDesignerIntegrationInterface = extern struct {
     pub fn ObjectName(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegrationinterface.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegrationInterface.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -1650,7 +1650,7 @@ pub const QDesignerIntegrationInterface = extern struct {
     pub fn Children(self: QDesignerIntegrationInterface, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qdesignerintegrationinterface.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerIntegrationInterface.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1926,10 +1926,10 @@ pub const QDesignerIntegrationInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdesignerintegrationinterface.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerIntegrationInterface.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qdesignerintegrationinterface.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerIntegrationInterface.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -3009,7 +3009,7 @@ pub const QDesignerIntegration = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegration.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3025,7 +3025,7 @@ pub const QDesignerIntegration = extern struct {
     pub fn HeaderSuffix(self: QDesignerIntegration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerIntegration_HeaderSuffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.HeaderSuffix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegration.HeaderSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3061,7 +3061,7 @@ pub const QDesignerIntegration = extern struct {
     pub fn SuperHeaderSuffix(self: QDesignerIntegration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerIntegration_SuperHeaderSuffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.HeaderSuffix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegration.HeaderSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3500,7 +3500,7 @@ pub const QDesignerIntegration = extern struct {
     pub fn ContextHelpId(self: QDesignerIntegration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerIntegration_ContextHelpId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.ContextHelpId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegration.ContextHelpId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -3536,7 +3536,7 @@ pub const QDesignerIntegration = extern struct {
     pub fn SuperContextHelpId(self: QDesignerIntegration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerIntegration_SuperContextHelpId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.ContextHelpId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegration.ContextHelpId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4010,7 +4010,7 @@ pub const QDesignerIntegration = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegration.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4032,7 +4032,7 @@ pub const QDesignerIntegration = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegration.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4118,7 +4118,7 @@ pub const QDesignerIntegration = extern struct {
             .len = signalSignature.len,
             .data = signalSignature.ptr,
         };
-        const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegration.EmitNavigateToSlot: Memory allocation failed");
+        const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("QDesignerIntegration.EmitNavigateToSlot: Memory allocation failed");
         defer allocator.free(parameterNames_arr);
         for (parameterNames, 0..parameterNames.len) |item, i|
             parameterNames_arr[i] = .{
@@ -4277,7 +4277,7 @@ pub const QDesignerIntegration = extern struct {
             .len = signalSignature.len,
             .data = signalSignature.ptr,
         };
-        const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("qdesignerintegration.NavigateToSlot: Memory allocation failed");
+        const parameterNames_arr = allocator.alloc(qtc.libqt_string, parameterNames.len) catch @panic("QDesignerIntegration.NavigateToSlot: Memory allocation failed");
         defer allocator.free(parameterNames_arr);
         for (parameterNames, 0..parameterNames.len) |item, i|
             parameterNames_arr[i] = .{
@@ -4322,7 +4322,7 @@ pub const QDesignerIntegration = extern struct {
     pub fn ObjectName(self: QDesignerIntegration, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qdesignerintegration.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerIntegration.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -4499,7 +4499,7 @@ pub const QDesignerIntegration = extern struct {
     pub fn Children(self: QDesignerIntegration, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("qdesignerintegration.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerIntegration.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -4775,10 +4775,10 @@ pub const QDesignerIntegration = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qdesignerintegration.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerIntegration.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qdesignerintegration.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerIntegration.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

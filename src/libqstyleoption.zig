@@ -1938,7 +1938,7 @@ pub const QStyleOptionHeader = extern struct {
     pub fn Text(self: QStyleOptionHeader, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionHeader_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptionheader.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionHeader.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
@@ -2554,7 +2554,7 @@ pub const QStyleOptionHeaderV2 = extern struct {
     pub fn Text(self: QStyleOptionHeaderV2, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionHeader_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptionheaderv2.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionHeaderV2.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
@@ -3101,7 +3101,7 @@ pub const QStyleOptionButton = extern struct {
     pub fn Text(self: QStyleOptionButton, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionButton_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptionbutton.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionButton.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
@@ -3498,7 +3498,7 @@ pub const QStyleOptionTab = extern struct {
     pub fn Text(self: QStyleOptionTab, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionTab_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptiontab.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionTab.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
@@ -4592,7 +4592,7 @@ pub const QStyleOptionProgressBar = extern struct {
     pub fn Text(self: QStyleOptionProgressBar, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionProgressBar_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptionprogressbar.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionProgressBar.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
@@ -5128,7 +5128,7 @@ pub const QStyleOptionMenuItem = extern struct {
     pub fn Text(self: QStyleOptionMenuItem, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionMenuItem_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptionmenuitem.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionMenuItem.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
@@ -5543,7 +5543,7 @@ pub const QStyleOptionDockWidget = extern struct {
     pub fn Title(self: QStyleOptionDockWidget, allocator: std.mem.Allocator) []const u8 {
         var title_str = qtc.QStyleOptionDockWidget_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&title_str);
-        const title_ret = allocator.alloc(u8, title_str.len) catch @panic("qstyleoptiondockwidget.Title: Memory allocation failed");
+        const title_ret = allocator.alloc(u8, title_str.len) catch @panic("QStyleOptionDockWidget.Title: Memory allocation failed");
         @memcpy(title_ret, title_str.data[0..title_str.len]);
         return title_ret;
     }
@@ -6272,7 +6272,7 @@ pub const QStyleOptionViewItem = extern struct {
     pub fn Text(self: QStyleOptionViewItem, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionViewItem_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptionviewitem.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionViewItem.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
@@ -6646,7 +6646,7 @@ pub const QStyleOptionToolBox = extern struct {
     pub fn Text(self: QStyleOptionToolBox, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionToolBox_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptiontoolbox.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionToolBox.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
@@ -8907,7 +8907,7 @@ pub const QStyleOptionToolButton = extern struct {
     pub fn Text(self: QStyleOptionToolButton, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionToolButton_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptiontoolbutton.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionToolButton.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
@@ -9458,7 +9458,7 @@ pub const QStyleOptionComboBox = extern struct {
     pub fn CurrentText(self: QStyleOptionComboBox, allocator: std.mem.Allocator) []const u8 {
         var currentText_str = qtc.QStyleOptionComboBox_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&currentText_str);
-        const currentText_ret = allocator.alloc(u8, currentText_str.len) catch @panic("qstyleoptioncombobox.CurrentText: Memory allocation failed");
+        const currentText_ret = allocator.alloc(u8, currentText_str.len) catch @panic("QStyleOptionComboBox.CurrentText: Memory allocation failed");
         @memcpy(currentText_ret, currentText_str.data[0..currentText_str.len]);
         return currentText_ret;
     }
@@ -9916,7 +9916,7 @@ pub const QStyleOptionTitleBar = extern struct {
     pub fn Text(self: QStyleOptionTitleBar, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionTitleBar_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptiontitlebar.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionTitleBar.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
@@ -10399,7 +10399,7 @@ pub const QStyleOptionGroupBox = extern struct {
     pub fn Text(self: QStyleOptionGroupBox, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionGroupBox_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("qstyleoptiongroupbox.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionGroupBox.Text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }

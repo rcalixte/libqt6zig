@@ -180,7 +180,7 @@ pub const TextGrammarCheck__GrammalecteManager = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textgrammarcheck__grammalectemanager.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteManager.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -202,7 +202,7 @@ pub const TextGrammarCheck__GrammalecteManager = extern struct {
     pub fn PythonPath(self: TextGrammarCheck__GrammalecteManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextGrammarCheck__GrammalecteManager_PythonPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textgrammarcheck__grammalectemanager.PythonPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteManager.PythonPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -218,7 +218,7 @@ pub const TextGrammarCheck__GrammalecteManager = extern struct {
     pub fn GrammalectePath(self: TextGrammarCheck__GrammalecteManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextGrammarCheck__GrammalecteManager_GrammalectePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textgrammarcheck__grammalectemanager.GrammalectePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteManager.GrammalectePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -271,10 +271,10 @@ pub const TextGrammarCheck__GrammalecteManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("textgrammarcheck__grammalectemanager.Options: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextGrammarCheck__GrammalecteManager.Options: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textgrammarcheck__grammalectemanager.Options: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextGrammarCheck__GrammalecteManager.Options: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -292,7 +292,7 @@ pub const TextGrammarCheck__GrammalecteManager = extern struct {
     /// ` saveOptions: []const []const u8 `
     ///
     pub fn SetOptions(self: TextGrammarCheck__GrammalecteManager, allocator: std.mem.Allocator, saveOptions: []const []const u8) void {
-        const saveOptions_arr = allocator.alloc(qtc.libqt_string, saveOptions.len) catch @panic("textgrammarcheck__grammalectemanager.SetOptions: Memory allocation failed");
+        const saveOptions_arr = allocator.alloc(qtc.libqt_string, saveOptions.len) catch @panic("TextGrammarCheck__GrammalecteManager.SetOptions: Memory allocation failed");
         defer allocator.free(saveOptions_arr);
         for (saveOptions, 0..saveOptions.len) |item, i|
             saveOptions_arr[i] = .{
@@ -341,7 +341,7 @@ pub const TextGrammarCheck__GrammalecteManager = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textgrammarcheck__grammalectemanager.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteManager.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -363,7 +363,7 @@ pub const TextGrammarCheck__GrammalecteManager = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textgrammarcheck__grammalectemanager.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteManager.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -381,7 +381,7 @@ pub const TextGrammarCheck__GrammalecteManager = extern struct {
     pub fn ObjectName(self: TextGrammarCheck__GrammalecteManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("textgrammarcheck__grammalectemanager.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextGrammarCheck__GrammalecteManager.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -558,7 +558,7 @@ pub const TextGrammarCheck__GrammalecteManager = extern struct {
     pub fn Children(self: TextGrammarCheck__GrammalecteManager, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("textgrammarcheck__grammalectemanager.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextGrammarCheck__GrammalecteManager.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -834,10 +834,10 @@ pub const TextGrammarCheck__GrammalecteManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("textgrammarcheck__grammalectemanager.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextGrammarCheck__GrammalecteManager.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("textgrammarcheck__grammalectemanager.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextGrammarCheck__GrammalecteManager.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

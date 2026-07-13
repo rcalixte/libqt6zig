@@ -195,7 +195,7 @@ pub const QSslCertificate = extern struct {
     pub fn Version(self: QSslCertificate, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSslCertificate_Version(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslcertificate.Version: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslCertificate.Version: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -211,7 +211,7 @@ pub const QSslCertificate = extern struct {
     pub fn SerialNumber(self: QSslCertificate, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSslCertificate_SerialNumber(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslcertificate.SerialNumber: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslCertificate.SerialNumber: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -227,7 +227,7 @@ pub const QSslCertificate = extern struct {
     pub fn Digest(self: QSslCertificate, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSslCertificate_Digest(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslcertificate.Digest: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslCertificate.Digest: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -250,10 +250,10 @@ pub const QSslCertificate = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsslcertificate.IssuerInfo: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSslCertificate.IssuerInfo: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsslcertificate.IssuerInfo: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSslCertificate.IssuerInfo: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -282,10 +282,10 @@ pub const QSslCertificate = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsslcertificate.IssuerInfo2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSslCertificate.IssuerInfo2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsslcertificate.IssuerInfo2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSslCertificate.IssuerInfo2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -310,10 +310,10 @@ pub const QSslCertificate = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsslcertificate.SubjectInfo: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSslCertificate.SubjectInfo: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsslcertificate.SubjectInfo: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSslCertificate.SubjectInfo: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -342,10 +342,10 @@ pub const QSslCertificate = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qsslcertificate.SubjectInfo2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QSslCertificate.SubjectInfo2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsslcertificate.SubjectInfo2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSslCertificate.SubjectInfo2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -363,7 +363,7 @@ pub const QSslCertificate = extern struct {
     pub fn IssuerDisplayName(self: QSslCertificate, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSslCertificate_IssuerDisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcertificate.IssuerDisplayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCertificate.IssuerDisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -379,7 +379,7 @@ pub const QSslCertificate = extern struct {
     pub fn SubjectDisplayName(self: QSslCertificate, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSslCertificate_SubjectDisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcertificate.SubjectDisplayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCertificate.SubjectDisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -400,10 +400,10 @@ pub const QSslCertificate = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsslcertificate.SubjectInfoAttributes: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSslCertificate.SubjectInfoAttributes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsslcertificate.SubjectInfoAttributes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSslCertificate.SubjectInfoAttributes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -426,10 +426,10 @@ pub const QSslCertificate = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("qsslcertificate.IssuerInfoAttributes: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSslCertificate.IssuerInfoAttributes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qsslcertificate.IssuerInfoAttributes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSslCertificate.IssuerInfoAttributes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -451,7 +451,7 @@ pub const QSslCertificate = extern struct {
     pub fn SubjectAlternativeNames(self: QSslCertificate, allocator: std.mem.Allocator) ArrayMap_i32_constconstu8 {
         const _map: qtc.libqt_map = qtc.QSslCertificate_SubjectAlternativeNames(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_constconstu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("qsslcertificate.SubjectAlternativeNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSslCertificate.SubjectAlternativeNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -471,9 +471,9 @@ pub const QSslCertificate = extern struct {
             const _key = _keys[i];
             const _value = _values[i];
             const _value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(_value.data));
-            const _value_slice = allocator.alloc([]const u8, _value.len) catch @panic("qsslcertificate.SubjectAlternativeNames: Memory allocation failed");
+            const _value_slice = allocator.alloc([]const u8, _value.len) catch @panic("QSslCertificate.SubjectAlternativeNames: Memory allocation failed");
             for (0.._value.len) |j| {
-                const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("qsslcertificate.SubjectAlternativeNames: Memory allocation failed");
+                const _vslice = allocator.alloc(u8, _value_strings[j].len) catch @panic("QSslCertificate.SubjectAlternativeNames: Memory allocation failed");
                 @memcpy(_vslice, _value_strings[j].data);
                 _value_slice[j] = _vslice;
             }
@@ -523,7 +523,7 @@ pub const QSslCertificate = extern struct {
     pub fn Extensions(self: QSslCertificate, allocator: std.mem.Allocator) []QSslCertificateExtension {
         const _arr: qtc.libqt_list = qtc.QSslCertificate_Extensions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslCertificateExtension, _arr.len) catch @panic("qsslcertificate.Extensions: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificateExtension, _arr.len) catch @panic("QSslCertificate.Extensions: Memory allocation failed");
         const _data: [*]QtC.QSslCertificateExtension = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -541,7 +541,7 @@ pub const QSslCertificate = extern struct {
     pub fn ToPem(self: QSslCertificate, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSslCertificate_ToPem(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslcertificate.ToPem: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslCertificate.ToPem: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -557,7 +557,7 @@ pub const QSslCertificate = extern struct {
     pub fn ToDer(self: QSslCertificate, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSslCertificate_ToDer(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslcertificate.ToDer: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslCertificate.ToDer: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -573,7 +573,7 @@ pub const QSslCertificate = extern struct {
     pub fn ToText(self: QSslCertificate, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QSslCertificate_ToText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qsslcertificate.ToText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSslCertificate.ToText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -593,7 +593,7 @@ pub const QSslCertificate = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QSslCertificate_FromPath(path_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromPath: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("QSslCertificate.FromPath: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -612,7 +612,7 @@ pub const QSslCertificate = extern struct {
         comptime _ = @TypeOf(device)._is_QIODevice;
         const _arr: qtc.libqt_list = qtc.QSslCertificate_FromDevice(@ptrCast(device.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromDevice: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("QSslCertificate.FromDevice: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -634,7 +634,7 @@ pub const QSslCertificate = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QSslCertificate_FromData(data_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromData: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("QSslCertificate.FromData: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -656,7 +656,7 @@ pub const QSslCertificate = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QSslCertificate_Verify(certificateChain_list);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslError, _arr.len) catch @panic("qsslcertificate.Verify: Memory allocation failed");
+        const _ret = allocator.alloc(QSslError, _arr.len) catch @panic("QSslCertificate.Verify: Memory allocation failed");
         const _data: [*]QtC.QSslError = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -703,7 +703,7 @@ pub const QSslCertificate = extern struct {
     pub fn Digest1(self: QSslCertificate, allocator: std.mem.Allocator, algorithm: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QSslCertificate_Digest1(@ptrCast(self.ptr), @bitCast(algorithm));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("qsslcertificate.Digest1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QSslCertificate.Digest1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
@@ -725,7 +725,7 @@ pub const QSslCertificate = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QSslCertificate_FromPath2(path_str, @bitCast(format));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromPath2: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("QSslCertificate.FromPath2: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -751,7 +751,7 @@ pub const QSslCertificate = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QSslCertificate_FromPath3(path_str, @bitCast(format), @bitCast(syntax));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromPath3: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("QSslCertificate.FromPath3: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -772,7 +772,7 @@ pub const QSslCertificate = extern struct {
         comptime _ = @TypeOf(device)._is_QIODevice;
         const _arr: qtc.libqt_list = qtc.QSslCertificate_FromDevice2(@ptrCast(device.ptr), @bitCast(format));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromDevice2: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("QSslCertificate.FromDevice2: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -796,7 +796,7 @@ pub const QSslCertificate = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QSslCertificate_FromData2(data_str, @bitCast(format));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("qsslcertificate.FromData2: Memory allocation failed");
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("QSslCertificate.FromData2: Memory allocation failed");
         const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -824,7 +824,7 @@ pub const QSslCertificate = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.QSslCertificate_Verify2(certificateChain_list, hostName_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslError, _arr.len) catch @panic("qsslcertificate.Verify2: Memory allocation failed");
+        const _ret = allocator.alloc(QSslError, _arr.len) catch @panic("QSslCertificate.Verify2: Memory allocation failed");
         const _data: [*]QtC.QSslError = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };

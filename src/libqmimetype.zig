@@ -86,7 +86,7 @@ pub const QMimeType = extern struct {
     pub fn Name(self: QMimeType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QMimeType_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmimetype.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMimeType.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -102,7 +102,7 @@ pub const QMimeType = extern struct {
     pub fn Comment(self: QMimeType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QMimeType_Comment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmimetype.Comment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMimeType.Comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -118,7 +118,7 @@ pub const QMimeType = extern struct {
     pub fn GenericIconName(self: QMimeType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QMimeType_GenericIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmimetype.GenericIconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMimeType.GenericIconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -134,7 +134,7 @@ pub const QMimeType = extern struct {
     pub fn IconName(self: QMimeType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QMimeType_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmimetype.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMimeType.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -155,10 +155,10 @@ pub const QMimeType = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qmimetype.GlobPatterns: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QMimeType.GlobPatterns: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qmimetype.GlobPatterns: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QMimeType.GlobPatterns: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -181,10 +181,10 @@ pub const QMimeType = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qmimetype.ParentMimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QMimeType.ParentMimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qmimetype.ParentMimeTypes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QMimeType.ParentMimeTypes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -207,10 +207,10 @@ pub const QMimeType = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qmimetype.AllAncestors: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QMimeType.AllAncestors: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qmimetype.AllAncestors: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QMimeType.AllAncestors: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -233,10 +233,10 @@ pub const QMimeType = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qmimetype.Aliases: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QMimeType.Aliases: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qmimetype.Aliases: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QMimeType.Aliases: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -259,10 +259,10 @@ pub const QMimeType = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("qmimetype.Suffixes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QMimeType.Suffixes: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("qmimetype.Suffixes: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("QMimeType.Suffixes: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -280,7 +280,7 @@ pub const QMimeType = extern struct {
     pub fn PreferredSuffix(self: QMimeType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QMimeType_PreferredSuffix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmimetype.PreferredSuffix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMimeType.PreferredSuffix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -312,7 +312,7 @@ pub const QMimeType = extern struct {
     pub fn FilterString(self: QMimeType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QMimeType_FilterString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("qmimetype.FilterString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QMimeType.FilterString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

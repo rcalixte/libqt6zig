@@ -29,7 +29,7 @@ pub const KStringHandler = extern struct {
         };
         var _str = qtc.KStringHandler_Capwords(text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.Capwords: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStringHandler.Capwords: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -43,7 +43,7 @@ pub const KStringHandler = extern struct {
     /// ` list: []const []const u8 `
     ///
     pub fn Capwords2(allocator: std.mem.Allocator, list: []const []const u8) []const []const u8 {
-        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("kstringhandler.Capwords2: Memory allocation failed");
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("KStringHandler.Capwords2: Memory allocation failed");
         defer allocator.free(list_arr);
         for (list, 0..list.len) |item, i|
             list_arr[i] = .{
@@ -61,10 +61,10 @@ pub const KStringHandler = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kstringhandler.Capwords2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KStringHandler.Capwords2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kstringhandler.Capwords2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KStringHandler.Capwords2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -88,7 +88,7 @@ pub const KStringHandler = extern struct {
         };
         var _str = qtc.KStringHandler_Lsqueeze(str_str, @bitCast(maxlen));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.Lsqueeze: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStringHandler.Lsqueeze: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -110,7 +110,7 @@ pub const KStringHandler = extern struct {
         };
         var _str = qtc.KStringHandler_Csqueeze(str_str, @bitCast(maxlen));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.Csqueeze: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStringHandler.Csqueeze: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -132,7 +132,7 @@ pub const KStringHandler = extern struct {
         };
         var _str = qtc.KStringHandler_Rsqueeze(str_str, @bitCast(maxlen));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.Rsqueeze: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStringHandler.Rsqueeze: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -165,10 +165,10 @@ pub const KStringHandler = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kstringhandler.PerlSplit: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KStringHandler.PerlSplit: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kstringhandler.PerlSplit: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KStringHandler.PerlSplit: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -203,10 +203,10 @@ pub const KStringHandler = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kstringhandler.PerlSplit2: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KStringHandler.PerlSplit2: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kstringhandler.PerlSplit2: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KStringHandler.PerlSplit2: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -238,10 +238,10 @@ pub const KStringHandler = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kstringhandler.PerlSplit3: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KStringHandler.PerlSplit3: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kstringhandler.PerlSplit3: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KStringHandler.PerlSplit3: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -273,10 +273,10 @@ pub const KStringHandler = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kstringhandler.PerlSplit4: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KStringHandler.PerlSplit4: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kstringhandler.PerlSplit4: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KStringHandler.PerlSplit4: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }
@@ -298,7 +298,7 @@ pub const KStringHandler = extern struct {
         };
         var _str = qtc.KStringHandler_TagUrls(text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.TagUrls: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStringHandler.TagUrls: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -318,7 +318,7 @@ pub const KStringHandler = extern struct {
         };
         var _str = qtc.KStringHandler_Obscure(str_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.Obscure: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStringHandler.Obscure: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -338,7 +338,7 @@ pub const KStringHandler = extern struct {
         };
         var _str = qtc.KStringHandler_PreProcessWrap(text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kstringhandler.PreProcessWrap: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KStringHandler.PreProcessWrap: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

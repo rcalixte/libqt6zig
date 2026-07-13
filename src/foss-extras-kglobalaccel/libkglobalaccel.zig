@@ -75,7 +75,7 @@ pub const KGlobalAccel = extern struct {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kglobalaccel.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGlobalAccel.Tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -137,7 +137,7 @@ pub const KGlobalAccel = extern struct {
         comptime _ = @TypeOf(seq)._is_QKeySequence;
         const _arr: qtc.libqt_list = qtc.KGlobalAccel_GlobalShortcutsByKey(@ptrCast(seq.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KGlobalShortcutInfo, _arr.len) catch @panic("kglobalaccel.GlobalShortcutsByKey: Memory allocation failed");
+        const _ret = allocator.alloc(KGlobalShortcutInfo, _arr.len) catch @panic("KGlobalAccel.GlobalShortcutsByKey: Memory allocation failed");
         const _data: [*]QtC.KGlobalShortcutInfo = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -258,7 +258,7 @@ pub const KGlobalAccel = extern struct {
         comptime _ = @TypeOf(action)._is_QAction;
         const _arr: qtc.libqt_list = qtc.KGlobalAccel_DefaultShortcut(@ptrCast(self.ptr), @ptrCast(action.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("kglobalaccel.DefaultShortcut: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KGlobalAccel.DefaultShortcut: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -279,7 +279,7 @@ pub const KGlobalAccel = extern struct {
         comptime _ = @TypeOf(action)._is_QAction;
         const _arr: qtc.libqt_list = qtc.KGlobalAccel_Shortcut(@ptrCast(self.ptr), @ptrCast(action.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("kglobalaccel.Shortcut: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KGlobalAccel.Shortcut: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -309,7 +309,7 @@ pub const KGlobalAccel = extern struct {
         };
         const _arr: qtc.libqt_list = qtc.KGlobalAccel_GlobalShortcut(@ptrCast(self.ptr), componentName_str, actionId_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("kglobalaccel.GlobalShortcut: Memory allocation failed");
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KGlobalAccel.GlobalShortcut: Memory allocation failed");
         const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -412,7 +412,7 @@ pub const KGlobalAccel = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kglobalaccel.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGlobalAccel.Tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -434,7 +434,7 @@ pub const KGlobalAccel = extern struct {
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kglobalaccel.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGlobalAccel.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -453,7 +453,7 @@ pub const KGlobalAccel = extern struct {
         comptime _ = @TypeOf(seq)._is_QKeySequence;
         const _arr: qtc.libqt_list = qtc.KGlobalAccel_GlobalShortcutsByKey2(@ptrCast(seq.ptr), @bitCast(typeVal));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KGlobalShortcutInfo, _arr.len) catch @panic("kglobalaccel.GlobalShortcutsByKey2: Memory allocation failed");
+        const _ret = allocator.alloc(KGlobalShortcutInfo, _arr.len) catch @panic("KGlobalAccel.GlobalShortcutsByKey2: Memory allocation failed");
         const _data: [*]QtC.KGlobalShortcutInfo = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -565,7 +565,7 @@ pub const KGlobalAccel = extern struct {
     pub fn ObjectName(self: KGlobalAccel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kglobalaccel.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KGlobalAccel.ObjectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -742,7 +742,7 @@ pub const KGlobalAccel = extern struct {
     pub fn Children(self: KGlobalAccel, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("kglobalaccel.Children: Memory allocation failed");
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KGlobalAccel.Children: Memory allocation failed");
         const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
@@ -1018,10 +1018,10 @@ pub const KGlobalAccel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("kglobalaccel.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KGlobalAccel.DynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kglobalaccel.DynamicPropertyNames: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KGlobalAccel.DynamicPropertyNames: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

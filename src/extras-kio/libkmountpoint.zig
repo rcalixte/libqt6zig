@@ -37,7 +37,7 @@ pub const KMountPoint = extern struct {
     pub fn MountedFrom(self: KMountPoint, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KMountPoint_MountedFrom(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kmountpoint.MountedFrom: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMountPoint.MountedFrom: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -73,7 +73,7 @@ pub const KMountPoint = extern struct {
     pub fn RealDeviceName(self: KMountPoint, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KMountPoint_RealDeviceName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kmountpoint.RealDeviceName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMountPoint.RealDeviceName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -89,7 +89,7 @@ pub const KMountPoint = extern struct {
     pub fn MountPoint(self: KMountPoint, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KMountPoint_MountPoint(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kmountpoint.MountPoint: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMountPoint.MountPoint: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -105,7 +105,7 @@ pub const KMountPoint = extern struct {
     pub fn MountType(self: KMountPoint, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KMountPoint_MountType(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("kmountpoint.MountType: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMountPoint.MountType: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -126,10 +126,10 @@ pub const KMountPoint = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("kmountpoint.MountOptions: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KMountPoint.MountOptions: Memory allocation failed");
         for (0.._arr.len) |i| {
             const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("kmountpoint.MountOptions: Memory allocation failed");
+            const _buf = allocator.alloc(u8, _data.len) catch @panic("KMountPoint.MountOptions: Memory allocation failed");
             @memcpy(_buf, _data.data[0.._data.len]);
             _ret[i] = _buf;
         }

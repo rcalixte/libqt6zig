@@ -65,7 +65,7 @@ pub const Accounts__Provider = extern struct {
     pub fn Name(self: Accounts__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Provider_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__provider.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Provider.Name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -81,7 +81,7 @@ pub const Accounts__Provider = extern struct {
     pub fn DisplayName(self: Accounts__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Provider_DisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__provider.DisplayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Provider.DisplayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -97,7 +97,7 @@ pub const Accounts__Provider = extern struct {
     pub fn Description(self: Accounts__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Provider_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__provider.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Provider.Description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -113,7 +113,7 @@ pub const Accounts__Provider = extern struct {
     pub fn PluginName(self: Accounts__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Provider_PluginName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__provider.PluginName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Provider.PluginName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -129,7 +129,7 @@ pub const Accounts__Provider = extern struct {
     pub fn TrCatalog(self: Accounts__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Provider_TrCatalog(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__provider.TrCatalog: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Provider.TrCatalog: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -145,7 +145,7 @@ pub const Accounts__Provider = extern struct {
     pub fn IconName(self: Accounts__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Provider_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__provider.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Provider.IconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -161,7 +161,7 @@ pub const Accounts__Provider = extern struct {
     pub fn DomainsRegExp(self: Accounts__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__Provider_DomainsRegExp(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("accounts__provider.DomainsRegExp: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__Provider.DomainsRegExp: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
@@ -203,7 +203,7 @@ pub const Accounts__Provider = extern struct {
     pub fn Tags(self: Accounts__Provider, allocator: std.mem.Allocator) Set_constu8 {
         const _set: qtc.libqt_list = qtc.Accounts__Provider_Tags(@ptrCast(self.ptr));
         var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("accounts__provider.Tags: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("Accounts__Provider.Tags: Total capacity allocation failed");
         const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
             _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});

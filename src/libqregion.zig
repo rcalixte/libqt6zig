@@ -425,7 +425,7 @@ pub const QRegion = extern struct {
     pub fn Rects(self: QRegion, allocator: std.mem.Allocator) []QRect {
         const _arr: qtc.libqt_list = qtc.QRegion_Rects(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QRect, _arr.len) catch @panic("qregion.Rects: Memory allocation failed");
+        const _ret = allocator.alloc(QRect, _arr.len) catch @panic("QRegion.Rects: Memory allocation failed");
         const _data: [*]QtC.QRect = @ptrCast(@alignCast(_arr.data));
         for (0.._arr.len) |ii|
             _ret[ii] = .{ .ptr = _data[ii] };
