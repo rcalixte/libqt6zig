@@ -24,9 +24,9 @@ func zigReservedWord(s string) bool {
 	}
 
 	switch s {
-	case "default", "const", "fn", "var", "type", "len", "new", "copy", "import",
-		"error", "int", "select", "pub", "ret", "suspend",
-		"opaque", "align", "packed", "self", "allocator", "URLs":
+	case "align", "allocator", "const", "copy", "default", "defer", "error",
+		"fn", "import", "int", "new", "opaque", "packed", "pub", "resume",
+		"ret", "self", "suspend", "test", "type", "var", "URLs":
 		return true
 	default:
 		return false
@@ -1007,8 +1007,6 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		p.ParameterName = "_" + p.ParameterName
 	}
 
-	lowerClass := strings.ToLower(zfs.currentClassName)
-
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" ||
 		p.ParameterType == "QLatin1String" || p.ParameterType == "QLatin1StringView" ||
 		p.ParameterType == "SignOn::MethodName" || p.ParameterType == "QStringView" {
@@ -1034,7 +1032,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" || t.ParameterType == "SignOn::MethodName" ||
 			t.ParameterType == "QByteArrayView" {
-			preamble += "const " + nameprefix + "_arr = allocator.alloc(qtc.libqt_string, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "const " + nameprefix + "_arr = allocator.alloc(qtc.libqt_string, " + p.ParameterName + `.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_arr);\n"
 			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |item, i|\n"
 			preamble += "    " + nameprefix + "_arr[i] = .{\n"
@@ -1043,7 +1041,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			preamble += "    };\n"
 
 		} else if t.ParameterType == "char" && t.PointerCount == 1 {
-			preamble += "const " + nameprefix + "_cStr = allocator.alloc([*c]" + ifv(t.Const, "const ", "") + " u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "const " + nameprefix + "_cStr = allocator.alloc([*:0]" + ifv(t.Const, "const ", "") + " u8, " + p.ParameterName + `.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_cStr);\n"
 			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |" + p.ParameterName + "_item, i|\n"
 			preamble += "    " + nameprefix + "_cStr[i] = @ptrCast(" + p.ParameterName + "_item.ptr);"
@@ -1054,7 +1052,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 				zfs.currentClasses = append(zfs.currentClasses, l.ParameterType)
 			}
 
-			preamble += "const " + nameprefix + "_arr = allocator.alloc(qtc.libqt_list, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "const " + nameprefix + "_arr = allocator.alloc(qtc.libqt_list, " + p.ParameterName + `.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_arr);\n"
 			preamble += "for (" + p.ParameterName + ", 0.." + ") |" + nameprefix + "_inner, i|\n"
 			preamble += "    " + nameprefix + "_arr[i] = qtc.libqt_list{\n"
@@ -1064,9 +1062,9 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 		} else if f, s, ok := t.QPairOf(); ok {
 			if (f.ParameterType == "QString" || f.ParameterType == "QByteArray") && (s.ParameterType == "QString" || s.ParameterType == "QByteArray") {
-				preamble += "const " + p.ParameterName + "_pairs = allocator.alloc(qtc.libqt_pair, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				preamble += "const " + p.ParameterName + "_pairs = allocator.alloc(qtc.libqt_pair, " + p.ParameterName + `.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				preamble += "defer allocator.free(" + p.ParameterName + "_pairs);\n"
-				preamble += "const " + nameprefix + "_str = allocator.alloc(qtc.libqt_string, " + p.ParameterName + `.len * 2) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				preamble += "const " + nameprefix + "_str = allocator.alloc(qtc.libqt_string, " + p.ParameterName + `.len * 2) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				preamble += "defer allocator.free(" + nameprefix + "_str);\n"
 				preamble += "for (" + p.ParameterName + ", 0.." + ") |" + p.ParameterName + "_item, i| {\n"
 				preamble += "    " + p.ParameterName + "_str[i * 2] = qtc.libqt_string{\n"
@@ -1092,7 +1090,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			preamble += "    .data = " + nameprefix + "_arr.ptr,\n"
 
 		} else if t.ParameterType == "char" && t.PointerCount == 1 {
-			preamble += "    .data = @ptrCast(" + nameprefix + "_cStr.ptr),\n"
+			preamble += "    .data = @ptrCast(" + nameprefix + "_cStr),\n"
 
 		} else if t.QtClassType() {
 			if !slices.Contains(zfs.currentClasses, t.ParameterType) {
@@ -1133,7 +1131,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		preamble += "const " + nameprefix + "_count = " + p.ParameterName + ".count();\n"
 
 		if t.ParameterType == "QString" || t.ParameterType == "QByteArray" {
-			preamble += "const " + nameprefix + "_arr = allocator.alloc(qtc.libqt_string, " + nameprefix + `_count) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "const " + nameprefix + "_arr = allocator.alloc(qtc.libqt_string, " + nameprefix + `_count) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_arr);\n"
 			preamble += "var " + nameprefix + "_it = " + nameprefix + ".keyIterator();\n"
 			preamble += "var " + nameprefix + "_i: usize = 0;\n"
@@ -1151,7 +1149,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			rvalue = nameprefix + "_set"
 
 		} else if e, ok := KnownEnums[t.ParameterType]; ok {
-			preamble += "const " + nameprefix + "_keys = allocator.alloc(" + e.EnumTypeZig + ", " + nameprefix + `_count) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "const " + nameprefix + "_keys = allocator.alloc(" + e.EnumTypeZig + ", " + nameprefix + `_count) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer allocator.free(" + nameprefix + "_keys);\n"
 			preamble += "var i: usize = 0;\n"
 			preamble += "var " + p.ParameterName + "_it = " + p.ParameterName + ".iterator();\n"
@@ -1259,13 +1257,13 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 		// Allocate temporary space for keys and values
 		preamble += "const " + nameprefix + "_count = " + p.ParameterName + ".count();\n"
-		preamble += "const " + nameprefix + "_keys = allocator.alloc(" + maybeKeyPointer + kTypeZig + ", " + nameprefix + `_count) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+		preamble += "const " + nameprefix + "_keys = allocator.alloc(" + maybeKeyPointer + kTypeZig + ", " + nameprefix + `_count) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 		preamble += "defer allocator.free(" + nameprefix + "_keys);\n"
-		preamble += "const " + nameprefix + "_values = allocator.alloc(" + maybeValuePointer + vAllocType + ", " + nameprefix + `_count) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+		preamble += "const " + nameprefix + "_values = allocator.alloc(" + maybeValuePointer + vAllocType + ", " + nameprefix + `_count) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 		preamble += "defer allocator.free(" + nameprefix + "_values);\n"
 
 		if isQMulti {
-			preamble += "const " + nameprefix + "_inners = allocator.alloc([]" + valueParamType + ", " + nameprefix + `_count) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "const " + nameprefix + "_inners = allocator.alloc([]" + valueParamType + ", " + nameprefix + `_count) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += "defer {\n"
 			preamble += "    for (" + nameprefix + "_inners) |" + nameprefix + "_inner|\n"
 			preamble += "        allocator.free(" + nameprefix + "_inner);\n"
@@ -1293,7 +1291,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 
 		if isQMulti {
 			preamble += nameprefix + "_values[i].len = it_entry.value_ptr.*.len;\n"
-			preamble += "const " + nameprefix + "_val = allocator.alloc(" + valueParamType + `, it_entry.value_ptr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "const " + nameprefix + "_val = allocator.alloc(" + valueParamType + `, it_entry.value_ptr.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += nameprefix + "_inners[i] = " + nameprefix + "_val;\n"
 
 			if vType.ParameterType == "QByteArray" || vType.ParameterType == "QString" || valueTypeOverride {
@@ -1412,14 +1410,14 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 			// Qt has a warning in the docs saying these pointers must be valid for
 			// the entire lifetime of Q*Application, so we allocate and never free
 			// the memory unless an error occurs.
-			preamble += "const " + nameprefix + "_chararr = allocator.alloc([*c]" + ifv(p.Const, "const ", "") + "u8, " + p.ParameterName + `.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			preamble += "const " + nameprefix + "_chararr = allocator.alloc([*:0]" + ifv(p.Const, "const ", "") + "u8, " + p.ParameterName + `.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			preamble += ifv(p.ParameterName == "argv",
 				"// Qt takes ownership of the memory.\n// The memory must outlive the application.\n// Do not free this allocation.\n",
 				"defer allocator.free("+nameprefix+"_chararr);\n")
 			preamble += "for (" + p.ParameterName + ", 0.." + p.ParameterName + ".len) |str, i|\n"
 			preamble += "    " + nameprefix + "_chararr[i] = @ptrCast(str.ptr);"
 
-			rvalue = nameprefix + "_chararr.ptr"
+			rvalue = "@ptrCast(" + nameprefix + "_chararr)"
 
 		default:
 			panic("char argument with " + strconv.Itoa(p.PointerCount) + " pointers")
@@ -1472,7 +1470,6 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 	shouldReturn := assignExpr
 	afterword := ""
 	namePrefix := makeNamePrefix(rt.ParameterName)
-	lowerClass := strings.ToLower(zfs.currentClassName)
 
 	if rt.Void() {
 		return rvalue + ";"
@@ -1500,7 +1497,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 		shouldReturn = "var " + namePrefix + "_str ="
 		afterword += "defer qtc.libqt_string_free(&" + namePrefix + "_str);\n"
-		afterword += "const " + namePrefix + "_ret = allocator.alloc(u8, " + namePrefix + `_str.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+		afterword += "const " + namePrefix + "_ret = allocator.alloc(u8, " + namePrefix + `_str.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 		afterword += "@memcpy(" + namePrefix + "_ret, " + namePrefix + "_str.data[0.." + namePrefix + "_str.len]);\n"
 		afterword += assignExpr + " " + namePrefix + "_ret;\n"
 		return shouldReturn + " " + rvalue + ";\n" + afterword
@@ -1514,7 +1511,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 		shouldReturn = "var " + namePrefix + "_bytearray: qtc.libqt_string = "
 		afterword += "defer qtc.libqt_string_free(&" + namePrefix + "_bytearray);\n"
-		afterword += "const " + namePrefix + "_ret = allocator.alloc(u8, " + namePrefix + `_bytearray.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+		afterword += "const " + namePrefix + "_ret = allocator.alloc(u8, " + namePrefix + `_bytearray.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 		afterword += "@memcpy(" + namePrefix + "_ret, " + namePrefix + "_bytearray.data[0.." + namePrefix + "_bytearray.len]);\n"
 		afterword += assignExpr + " " + namePrefix + "_ret;\n"
 		return shouldReturn + " " + rvalue + ";\n" + afterword
@@ -1558,7 +1555,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			}
 
 			afterword += "defer qtc.libqt_free(" + namePrefix + "_arr.data);\n"
-			afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			afterword += "const " + namePrefix + "_data: [*]" + arrCast + arrType + " = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
 			if IsKnownClass(t.ParameterType) {
 				afterword += "for (0.." + namePrefix + "_arr.len) |ii|\n"
@@ -1570,12 +1567,12 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		} else if t.ParameterType == "char" {
 			afterword += "const " + namePrefix + "_str: [*]?[*:0]const u8 = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
 			afterword += "defer qtc.libqt_free(" + namePrefix + "_arr.data);\n"
-			afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
 			afterword += "    const " + namePrefix + "_cstr = " + namePrefix + "_str[i];\n"
 			afterword += "    if (" + namePrefix + "_cstr) |cstr| {\n"
 			afterword += "        const cstr_len = std.mem.len(cstr);\n"
-			afterword += "        const " + namePrefix + "_buf = allocator.allocSentinel(u8, cstr_len, 0) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Buffer allocation failed\");\n"
+			afterword += "        const " + namePrefix + `_buf = allocator.allocSentinel(u8, cstr_len, 0) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Buffer allocation failed");` + "\n"
 			afterword += "        @memcpy(" + namePrefix + "_buf, cstr[0..cstr_len]);\n"
 			afterword += "        " + namePrefix + "_ret[i] = " + namePrefix + "_buf;\n"
 			afterword += "    } else {\n"
@@ -1590,10 +1587,10 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			afterword += "    qtc.libqt_string_free(@ptrCast(&" + namePrefix + "_str[i]));\n"
 			afterword += "qtc.libqt_free(" + namePrefix + "_arr.data);\n"
 			afterword += "}\n"
-			afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
 			afterword += "    const " + namePrefix + "_data = " + namePrefix + "_str[i];\n"
-			afterword += "    const " + namePrefix + "_buf = allocator.alloc(u8, " + namePrefix + `_data.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+			afterword += "    const " + namePrefix + "_buf = allocator.alloc(u8, " + namePrefix + `_data.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			afterword += "    @memcpy(" + namePrefix + "_buf, " + namePrefix + "_data.data[0.." + namePrefix + "_data.len]);\n"
 			afterword += "    " + namePrefix + "_ret[i] = " + namePrefix + "_buf;\n"
 			afterword += "}\n"
@@ -1612,7 +1609,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 				afterword += "const " + namePrefix + "_data: [*]" + arrType + " = @ptrCast(@alignCast(" + namePrefix + "_arr.data));\n"
 				afterword += "defer qtc.libqt_free(" + namePrefix + "_arr.data);\n"
-				afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "@memcpy(" + namePrefix + "_ret, " + namePrefix + "_data[0.." + namePrefix + "_arr.len]);\n"
 
 			} else {
@@ -1623,7 +1620,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 				if f.ParameterType == "QString" || f.ParameterType == "QByteArray" {
 					firstFree = "        qtc.libqt_string_free(@ptrCast(@alignCast(" + namePrefix + "_data[i].first)));\n"
 					firstLoop = "    const " + namePrefix + "_first_str: *qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_data[i].first));\n"
-					firstLoop += "    const " + namePrefix + "_first_slice = allocator.alloc(u8, " + namePrefix + `_first_str.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+					firstLoop += "    const " + namePrefix + "_first_slice = allocator.alloc(u8, " + namePrefix + `_first_str.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 					firstLoop += "    @memcpy(" + namePrefix + "_first_slice, " + namePrefix + "_first_str.data[0.." + namePrefix + "_first_str.len]);\n"
 					firstParam = namePrefix + "_first_slice"
 				} else if IsKnownClass(f.ParameterType) {
@@ -1643,7 +1640,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 				if s.ParameterType == "QString" || s.ParameterType == "QByteArray" {
 					secondFree = "        qtc.libqt_string_free(@ptrCast(@alignCast(" + namePrefix + "_data[i].second)));\n"
 					secondLoop = "    const " + namePrefix + "_second_str: *qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_data[i].second));\n"
-					secondLoop += "    const " + namePrefix + "_second_slice = allocator.alloc(u8, " + namePrefix + `_second_str.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed")` + ";\n"
+					secondLoop += "    const " + namePrefix + "_second_slice = allocator.alloc(u8, " + namePrefix + `_second_str.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed")` + ";\n"
 					secondLoop += "    @memcpy(" + namePrefix + "_second_slice, " + namePrefix + "_second_str.data[0.." + namePrefix + "_second_str.len]);\n"
 					secondParam = namePrefix + "_second_slice"
 				} else if IsKnownClass(s.ParameterType) {
@@ -1672,7 +1669,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 				afterword += "    qtc.libqt_free(" + namePrefix + "_arr.data);\n"
 				afterword += "}\n"
 
-				afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
 				afterword += firstLoop
 				afterword += secondLoop
@@ -1701,13 +1698,13 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 				afterword += "    }\n"
 				afterword += "    qtc.libqt_free(" + namePrefix + "_arr.data);\n"
 				afterword += "}\n"
-				afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
 				afterword += "    const " + namePrefix + "_data = " + namePrefix + "_str[i];\n"
-				afterword += "    const " + namePrefix + "_strlist = allocator.alloc(" + arrAllocType + ", " + namePrefix + `_data.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "    const " + namePrefix + "_strlist = allocator.alloc(" + arrAllocType + ", " + namePrefix + `_data.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "    var " + namePrefix + "_strdata: [*]qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_data.data));\n"
 				afterword += "    for (0.." + namePrefix + "_data.len) |j| {\n"
-				afterword += "        const " + namePrefix + "_buf = allocator.alloc(u8, " + namePrefix + `_strdata[j].len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "        const " + namePrefix + "_buf = allocator.alloc(u8, " + namePrefix + `_strdata[j].len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "        @memcpy(" + namePrefix + "_buf, " + namePrefix + "_strdata[j].data[0.." + namePrefix + "_strdata[j].len]);\n"
 				afterword += "        " + namePrefix + "_strlist[j] = " + namePrefix + "_buf;\n"
 				afterword += "    }\n"
@@ -1726,10 +1723,10 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 				afterword += "        qtc.libqt_free(" + namePrefix + "_list[i].data);\n"
 				afterword += "    qtc.libqt_free(" + namePrefix + "_list);\n"
 				afterword += "}\n"
-				afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "const " + namePrefix + "_ret = allocator.alloc(" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
 				afterword += "    const _data: [*]QtC." + p.ParameterType + " = @ptrCast(@alignCast(" + namePrefix + "_list[i].data));\n"
-				afterword += "    " + namePrefix + "_ret[i] = allocator.alloc(" + p.ParameterType + ", " + namePrefix + `_list[i].len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "    " + namePrefix + "_ret[i] = allocator.alloc(" + p.ParameterType + ", " + namePrefix + `_list[i].len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "    for (0.." + namePrefix + "_list[i].len) |j|\n"
 				afterword += "        " + namePrefix + "_ret[i][j] = .{ .ptr = _data[j] };\n"
 				afterword += "}\n"
@@ -1743,10 +1740,10 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 				afterword += "        qtc.libqt_free(" + namePrefix + "_list[i].data);\n"
 				afterword += "    qtc.libqt_free(" + namePrefix + "_list);\n"
 				afterword += "}\n"
-				afterword += "const " + namePrefix + "_ret = allocator.alloc([]" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "const " + namePrefix + "_ret = allocator.alloc([]" + arrType + ", " + namePrefix + `_arr.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "for (0.." + namePrefix + "_arr.len) |i| {\n"
 				afterword += "    const _data: [*]" + arrType + " = @ptrCast(@alignCast(" + namePrefix + "_list[i].data));\n"
-				afterword += "    " + namePrefix + "_ret[i] = allocator.alloc(" + arrType + ", " + namePrefix + `_list[i].len) catch @panic("` + lowerClass + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
+				afterword += "    " + namePrefix + "_ret[i] = allocator.alloc(" + arrType + ", " + namePrefix + `_list[i].len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "    for (0.." + namePrefix + "_list[i].len) |j|\n"
 				afterword += "        " + namePrefix + "_ret[i][j] = _data[j];\n"
 				afterword += "}\n"
@@ -1768,7 +1765,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			shouldReturn = "const " + namePrefix + "_set: qtc.libqt_list = "
 
 			afterword += "var " + namePrefix + "_ret: Set_" + t.RenderTypeMapZig(zfs, false) + " = .empty;\n"
-			afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, @intCast(" + namePrefix + "_set.len)) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Total capacity allocation failed\");\n"
+			afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, @intCast(" + namePrefix + `_set.len)) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Total capacity allocation failed");` + "\n"
 			afterword += "const " + namePrefix + "_data: [*]qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_set.data));\n"
 			afterword += "for (0.." + namePrefix + "_set.len) |i| \n"
 			afterword += "    " + namePrefix + "_ret.putAssumeCapacity(" + namePrefix + "_data[i].data[0.." + namePrefix + "_data[i].len], {});\n"
@@ -1798,7 +1795,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 			shouldReturn = "const " + namePrefix + "_set: qtc.libqt_list = "
 
 			afterword += "var " + namePrefix + "_ret: Set_" + setType + " = .empty;\n"
-			afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, @intCast(" + namePrefix + "_set.len)) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Total capacity allocation failed\");\n"
+			afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, @intCast(" + namePrefix + `_set.len)) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Total capacity allocation failed");` + "\n"
 			afterword += "const " + namePrefix + "_data: [*]" + setValue + " = @ptrCast(@alignCast(" + namePrefix + "_set.data));\n"
 			afterword += "for (0.." + namePrefix + "_set.len) |i|\n"
 			afterword += "    " + namePrefix + "_ret.putAssumeCapacity(" + maybeDecl + namePrefix + "_data[i]" + maybeDeclClose + ", {});\n"
@@ -1884,7 +1881,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		}
 
 		afterword += "var " + namePrefix + "_ret: " + maybeArray + "Map_" + keyParam + "_" + vParam + "= .empty;\n"
-		afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, @intCast(" + namePrefix + "_map.len)) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Total capacity allocation failed\");\n"
+		afterword += namePrefix + "_ret.ensureTotalCapacity(allocator, @intCast(" + namePrefix + `_map.len)) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Total capacity allocation failed");` + "\n"
 
 		afterword += "defer {\n"
 		var deferKey, deferVal string
@@ -1938,7 +1935,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 		afterword += "const " + namePrefix + "_key = " + namePrefix + "_keys[i];\n"
 		if stringKey {
-			afterword += "const " + namePrefix + "_entry_slice = allocator.alloc(u8, " + namePrefix + "_key.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Memory allocation failed\");\n"
+			afterword += "const " + namePrefix + "_entry_slice = allocator.alloc(u8, " + namePrefix + `_key.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			afterword += "@memcpy(" + namePrefix + "_entry_slice, " + namePrefix + "_key.data);\n"
 			retKey = namePrefix + "_entry_slice"
 		}
@@ -1947,9 +1944,9 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		if isQMulti {
 			if vType.ParameterType == "QByteArray" || vType.ParameterType == "QString" {
 				afterword += "const " + namePrefix + "_value_strings: [*]qtc.libqt_string = @ptrCast(@alignCast(" + namePrefix + "_value.data));\n"
-				afterword += "const " + namePrefix + "_value_slice = allocator.alloc(" + vType.RenderTypeZig(zfs, true, true) + ", " + namePrefix + "_value.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Memory allocation failed\");\n"
+				afterword += "const " + namePrefix + "_value_slice = allocator.alloc(" + vType.RenderTypeZig(zfs, true, true) + ", " + namePrefix + `_value.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "for (0.." + namePrefix + "_value.len) |j| {\n"
-				afterword += "    const " + namePrefix + "_vslice = allocator.alloc(u8, " + namePrefix + "_value_strings[j].len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Memory allocation failed\");\n"
+				afterword += "    const " + namePrefix + "_vslice = allocator.alloc(u8, " + namePrefix + `_value_strings[j].len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "    @memcpy(" + namePrefix + "_vslice, " + namePrefix + "_value_strings[j].data);\n"
 				afterword += "    " + namePrefix + "_value_slice[j] = " + namePrefix + "_vslice;\n"
 				afterword += "}\n"
@@ -1961,7 +1958,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 				}
 
 				valueAllocType := vType.RenderTypeZig(zfs, true, true)
-				afterword += "const " + namePrefix + "_value_slice = allocator.alloc(" + valueAllocType + ", " + namePrefix + "_value.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Memory allocation failed\");\n"
+				afterword += "const " + namePrefix + "_value_slice = allocator.alloc(" + valueAllocType + ", " + namePrefix + `_value.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "const " + namePrefix + "_value_data: [*]QtC." + valueAllocType + " = @ptrCast(@alignCast(" + namePrefix + "_value.data));\n"
 				afterword += "for (0.." + namePrefix + "_value.len) |ii|\n"
 				afterword += "    " + namePrefix + "_value_slice[ii] = .{ .ptr = " + namePrefix + "_value_data[ii] };\n"
@@ -1975,12 +1972,12 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 
 			retVal = namePrefix + "_value_slice"
 		} else if stringValue {
-			afterword += "const " + namePrefix + "_value_slice = allocator.alloc(u8, " + namePrefix + "_value.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Memory allocation failed\");\n"
+			afterword += "const " + namePrefix + "_value_slice = allocator.alloc(u8, " + namePrefix + `_value.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			afterword += "@memcpy(" + namePrefix + "_value_slice, " + namePrefix + "_value.data);\n"
 			retVal = namePrefix + "_value_slice"
 		} else if listValue {
 			maybePtr := ifv(IsKnownClass(listType), "QtC.", "")
-			afterword += "const " + namePrefix + "_value_slice = allocator.alloc(" + listType + ", " + namePrefix + "_value.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Memory allocation failed\");\n"
+			afterword += "const " + namePrefix + "_value_slice = allocator.alloc(" + listType + ", " + namePrefix + `_value.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 			afterword += "const " + namePrefix + "_value_data: [*]" + maybePtr + listType + " = @ptrCast(@alignCast(" + namePrefix + "_value.data));\n"
 			if maybePtr == "" {
 				afterword += "@memcpy(" + namePrefix + "_value_slice, " + namePrefix + "_value_data);\n"
@@ -2029,7 +2026,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 				afterword += "qtc.libqt_string_free(" + namePrefix + "_first_str);\n"
 				afterword += "qtc.libqt_free(" + namePrefix + "_pair.first);\n"
 				afterword += "}\n"
-				afterword += "const " + namePrefix + "_first_slice = allocator.alloc(u8, " + namePrefix + "_first_str.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Memory allocation failed\");\n"
+				afterword += "const " + namePrefix + "_first_slice = allocator.alloc(u8, " + namePrefix + `_first_str.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "@memcpy(" + namePrefix + "_first_slice, " + namePrefix + "_first_str.data[0.." + namePrefix + "_first_str.len]);\n"
 				firstVal = namePrefix + "_first_slice"
 			} else {
@@ -2049,7 +2046,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 				afterword += "qtc.libqt_string_free(" + namePrefix + "_second_str);\n"
 				afterword += "qtc.libqt_free(" + namePrefix + "_pair.second);\n"
 				afterword += "}\n"
-				afterword += "const " + namePrefix + "_second_slice = allocator.alloc(u8, " + namePrefix + "_second_str.len) catch @panic(\"" + lowerClass + "." + zfs.currentMethodName + ": Memory allocation failed\");\n"
+				afterword += "const " + namePrefix + "_second_slice = allocator.alloc(u8, " + namePrefix + `_second_str.len) catch @panic("` + zfs.currentClassName + "." + zfs.currentMethodName + `: Memory allocation failed");` + "\n"
 				afterword += "@memcpy(" + namePrefix + "_second_slice, " + namePrefix + "_second_str.data[0.." + namePrefix + "_second_str.len]);\n"
 				secondVal = namePrefix + "_second_slice"
 			} else {
