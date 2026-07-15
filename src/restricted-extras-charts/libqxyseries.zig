@@ -842,7 +842,10 @@ pub const QXYSeries = extern struct {
     ///
     pub fn BestFitLineEquation(self: QXYSeries, ok: *bool) Struct_f64_f64 {
         const _pair = qtc.QXYSeries_BestFitLineEquation(@ptrCast(self.ptr), @ptrCast(ok));
-        return @bitCast(_pair);
+        return .{
+            .first = @bitCast(_pair.first),
+            .second = @bitCast(_pair.second),
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries-qtcharts.html#setBestFitLinePen)

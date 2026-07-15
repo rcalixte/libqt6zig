@@ -221,7 +221,10 @@ pub const QAccessible = extern struct {
     pub fn QAccessibleTextBoundaryHelper(cursor: anytype, boundaryType: i32) Struct_i32_i32 {
         comptime _ = @TypeOf(cursor)._is_QTextCursor;
         const _pair = qtc.QAccessible_QAccessibleTextBoundaryHelper(@ptrCast(cursor.ptr), @bitCast(boundaryType));
-        return @bitCast(_pair);
+        return .{
+            .first = @bitCast(_pair.first),
+            .second = @bitCast(_pair.second),
+        };
     }
 
     /// ### DEPRECATED: Use `Delete` instead

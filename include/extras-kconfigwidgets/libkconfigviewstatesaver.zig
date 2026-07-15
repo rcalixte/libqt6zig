@@ -398,7 +398,10 @@ pub const KConfigViewStateSaver = extern struct {
     ///
     pub fn ScrollState(self: KConfigViewStateSaver) Struct_i32_i32 {
         const _pair = qtc.KViewStateSerializer_ScrollState(@ptrCast(self.ptr));
-        return @bitCast(_pair);
+        return .{
+            .first = @bitCast(_pair.first),
+            .second = @bitCast(_pair.second),
+        };
     }
 
     /// Inherited from KViewStateSerializer

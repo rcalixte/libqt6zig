@@ -874,7 +874,10 @@ pub const QOpenGLTexture = extern struct {
     ///
     pub fn MipLevelRange(self: QOpenGLTexture) Struct_i32_i32 {
         const _pair = qtc.QOpenGLTexture_MipLevelRange(@ptrCast(self.ptr));
-        return @bitCast(_pair);
+        return .{
+            .first = @bitCast(_pair.first),
+            .second = @bitCast(_pair.second),
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setAutoMipMapGenerationEnabled)
@@ -1125,7 +1128,10 @@ pub const QOpenGLTexture = extern struct {
     ///
     pub fn MinMagFilters(self: QOpenGLTexture) Struct_i32_i32 {
         const _pair = qtc.QOpenGLTexture_MinMagFilters(@ptrCast(self.ptr));
-        return @bitCast(_pair);
+        return .{
+            .first = @bitCast(_pair.first),
+            .second = @bitCast(_pair.second),
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setMaximumAnisotropy)
@@ -1371,7 +1377,10 @@ pub const QOpenGLTexture = extern struct {
     ///
     pub fn LevelOfDetailRange(self: QOpenGLTexture) Struct_f32_f32 {
         const _pair = qtc.QOpenGLTexture_LevelOfDetailRange(@ptrCast(self.ptr));
-        return @bitCast(_pair);
+        return .{
+            .first = @bitCast(_pair.first),
+            .second = @bitCast(_pair.second),
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltexture.html#setLevelofDetailBias)

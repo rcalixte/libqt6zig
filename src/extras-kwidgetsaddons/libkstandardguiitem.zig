@@ -204,7 +204,10 @@ pub const KStandardGuiItem = extern struct {
     ///
     pub fn BackAndForward() Struct_KGuiItem_KGuiItem {
         const _pair = qtc.KStandardGuiItem_BackAndForward();
-        return @bitCast(_pair);
+        return .{
+            .first = .{ .ptr = @ptrCast(_pair.first) },
+            .second = .{ .ptr = @ptrCast(_pair.second) },
+        };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardguiitem.html#quit)

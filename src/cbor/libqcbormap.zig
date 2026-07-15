@@ -867,7 +867,10 @@ pub const QCborMap = extern struct {
     /// ` v: Struct_QCborValue_QCborValue `
     ///
     pub fn Insert5(self: QCborMap, v: Struct_QCborValue_QCborValue) QCborMap__Iterator {
-        return .{ .ptr = qtc.QCborMap_Insert5(@ptrCast(self.ptr), @bitCast(v)) };
+        return .{ .ptr = qtc.QCborMap_Insert5(@ptrCast(self.ptr), .{
+            .first = @ptrCast(v.first.ptr),
+            .second = @ptrCast(v.second.ptr),
+        }) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap.html#fromVariantMap)
@@ -1097,7 +1100,10 @@ pub const QCborMap__Iterator = extern struct {
     ///
     pub fn OperatorMultiply(self: QCborMap__Iterator) Struct_QCborValue_QCborValue {
         const _pair = qtc.QCborMap__Iterator_OperatorMultiply(@ptrCast(self.ptr));
-        return @bitCast(_pair);
+        return .{
+            .first = .{ .ptr = @ptrCast(_pair.first) },
+            .second = .{ .ptr = @ptrCast(_pair.second) },
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator-5b-5d)
@@ -1110,7 +1116,10 @@ pub const QCborMap__Iterator = extern struct {
     ///
     pub fn OperatorSubscript(self: QCborMap__Iterator, j: isize) Struct_QCborValue_QCborValue {
         const _pair = qtc.QCborMap__Iterator_OperatorSubscript(@ptrCast(self.ptr), @bitCast(j));
-        return @bitCast(_pair);
+        return .{
+            .first = .{ .ptr = @ptrCast(_pair.first) },
+            .second = .{ .ptr = @ptrCast(_pair.second) },
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-iterator.html#operator--gt)
@@ -1332,7 +1341,10 @@ pub const QCborMap__ConstIterator = extern struct {
     ///
     pub fn OperatorMultiply(self: QCborMap__ConstIterator) Struct_QCborValue_QCborValue {
         const _pair = qtc.QCborMap__ConstIterator_OperatorMultiply(@ptrCast(self.ptr));
-        return @bitCast(_pair);
+        return .{
+            .first = .{ .ptr = @ptrCast(_pair.first) },
+            .second = .{ .ptr = @ptrCast(_pair.second) },
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator-5b-5d)
@@ -1345,7 +1357,10 @@ pub const QCborMap__ConstIterator = extern struct {
     ///
     pub fn OperatorSubscript(self: QCborMap__ConstIterator, j: isize) Struct_QCborValue_QCborValue {
         const _pair = qtc.QCborMap__ConstIterator_OperatorSubscript(@ptrCast(self.ptr), @bitCast(j));
-        return @bitCast(_pair);
+        return .{
+            .first = .{ .ptr = @ptrCast(_pair.first) },
+            .second = .{ .ptr = @ptrCast(_pair.second) },
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcbormap-constiterator.html#operator--gt)

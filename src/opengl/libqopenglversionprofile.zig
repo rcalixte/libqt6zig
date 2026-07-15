@@ -63,7 +63,10 @@ pub const QOpenGLVersionProfile = extern struct {
     ///
     pub fn Version(self: QOpenGLVersionProfile) Struct_i32_i32 {
         const _pair = qtc.QOpenGLVersionProfile_Version(@ptrCast(self.ptr));
-        return @bitCast(_pair);
+        return .{
+            .first = @bitCast(_pair.first),
+            .second = @bitCast(_pair.second),
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionprofile.html#setVersion)

@@ -530,7 +530,10 @@ pub const QHostAddress = extern struct {
             .data = subnet.ptr,
         };
         const _pair = qtc.QHostAddress_ParseSubnet(subnet_str);
-        return @bitCast(_pair);
+        return .{
+            .first = .{ .ptr = @ptrCast(_pair.first) },
+            .second = @bitCast(_pair.second),
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#toIPv4Address)

@@ -1427,7 +1427,10 @@ pub const QScatterSeries = extern struct {
     ///
     pub fn BestFitLineEquation(self: QScatterSeries, ok: *bool) Struct_f64_f64 {
         const _pair = qtc.QXYSeries_BestFitLineEquation(@ptrCast(self.ptr), @ptrCast(ok));
-        return @bitCast(_pair);
+        return .{
+            .first = @bitCast(_pair.first),
+            .second = @bitCast(_pair.second),
+        };
     }
 
     /// Inherited from QXYSeries
