@@ -24,9 +24,13 @@ func clangExec(ctx context.Context, clangBin, inputHeader string, cflags []strin
 	clangArgs := []string{"-x", "c++-header"}
 	clangArgs = append(clangArgs, cflags...)
 	clangArgs = append(clangArgs, "-Xclang", "-ast-dump=json", "-fsyntax-only", inputHeader)
-	// hack for QMenu::setAsDockMenu
-	if filepath.Base(inputHeader) == "qmenu.h" {
+	switch filepath.Base(inputHeader) {
+	case "qmenu.h":
+		// hack for QMenu::setAsDockMenu
 		clangArgs = append(clangArgs, "-DQ_OS_MACOS")
+	case "qsettings.h":
+		// hack for QSettings::Format
+		clangArgs = append(clangArgs, "-DQ_OS_WIN", "-Wno-ignored-attributes", "-fdeclspec")
 	}
 
 	cmd := exec.CommandContext(ctx, clangBin, clangArgs...)
