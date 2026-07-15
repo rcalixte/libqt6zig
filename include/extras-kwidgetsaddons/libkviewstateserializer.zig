@@ -312,7 +312,10 @@ pub const KViewStateSerializer = extern struct {
     ///
     pub fn ScrollState(self: KViewStateSerializer) Struct_i32_i32 {
         const _pair = qtc.KViewStateSerializer_ScrollState(@ptrCast(self.ptr));
-        return @bitCast(_pair);
+        return .{
+            .first = @bitCast(_pair.first),
+            .second = @bitCast(_pair.second),
+        };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kviewstateserializer.html#restoreSelection)

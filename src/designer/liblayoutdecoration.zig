@@ -327,7 +327,10 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     ///
     pub fn CurrentCell(self: QDesignerLayoutDecorationExtension) Struct_i32_i32 {
         const _pair = qtc.QDesignerLayoutDecorationExtension_CurrentCell(@ptrCast(self.ptr));
-        return @bitCast(_pair);
+        return .{
+            .first = @bitCast(_pair.first),
+            .second = @bitCast(_pair.second),
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#currentCell)
@@ -358,7 +361,10 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     ///
     pub fn SuperCurrentCell(self: QDesignerLayoutDecorationExtension) Struct_i32_i32 {
         const _pair = qtc.QDesignerLayoutDecorationExtension_SuperCurrentCell(@ptrCast(self.ptr));
-        return @bitCast(_pair);
+        return .{
+            .first = @bitCast(_pair.first),
+            .second = @bitCast(_pair.second),
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertWidget)
@@ -373,7 +379,10 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     ///
     pub fn InsertWidget(self: QDesignerLayoutDecorationExtension, widget: anytype, cell: Struct_i32_i32) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QDesignerLayoutDecorationExtension_InsertWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(cell));
+        qtc.QDesignerLayoutDecorationExtension_InsertWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), .{
+            .first = @bitCast(cell.first),
+            .second = @bitCast(cell.second),
+        });
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#insertWidget)
@@ -408,7 +417,10 @@ pub const QDesignerLayoutDecorationExtension = extern struct {
     ///
     pub fn SuperInsertWidget(self: QDesignerLayoutDecorationExtension, widget: anytype, cell: Struct_i32_i32) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QDesignerLayoutDecorationExtension_SuperInsertWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(cell));
+        qtc.QDesignerLayoutDecorationExtension_SuperInsertWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), .{
+            .first = @bitCast(cell.first),
+            .second = @bitCast(cell.second),
+        });
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerlayoutdecorationextension.html#removeWidget)

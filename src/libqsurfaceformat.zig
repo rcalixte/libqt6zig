@@ -348,7 +348,10 @@ pub const QSurfaceFormat = extern struct {
     ///
     pub fn Version(self: QSurfaceFormat) Struct_i32_i32 {
         const _pair = qtc.QSurfaceFormat_Version(@ptrCast(self.ptr));
-        return @bitCast(_pair);
+        return .{
+            .first = @bitCast(_pair.first),
+            .second = @bitCast(_pair.second),
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsurfaceformat.html#setVersion)

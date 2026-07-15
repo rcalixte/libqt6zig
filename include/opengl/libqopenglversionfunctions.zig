@@ -75,7 +75,10 @@ pub const QOpenGLVersionStatus = extern struct {
     ///
     pub fn Version(self: QOpenGLVersionStatus) Struct_i32_i32 {
         const version_pair = qtc.QOpenGLVersionStatus_Version(@ptrCast(self.ptr));
-        return @bitCast(version_pair);
+        return .{
+            .first = @bitCast(version_pair.first),
+            .second = @bitCast(version_pair.second),
+        };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#version-var)
@@ -87,7 +90,10 @@ pub const QOpenGLVersionStatus = extern struct {
     /// ` version: Struct_i32_i32 `
     ///
     pub fn SetVersion(self: QOpenGLVersionStatus, version: Struct_i32_i32) void {
-        qtc.QOpenGLVersionStatus_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+        qtc.QOpenGLVersionStatus_SetVersion(@ptrCast(self.ptr), .{
+            .first = @bitCast(version.first),
+            .second = @bitCast(version.second),
+        });
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionstatus.html#status-var)

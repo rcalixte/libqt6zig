@@ -1355,7 +1355,9 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		zfs.imports["Struct_"+fType.RenderTypeZig(zfs, false, true)+"_"+sType.RenderTypeZig(zfs, false, true)] = struct{}{}
 
 		if (fType.IntType() || IsKnownClass(fType.ParameterType)) && (sType.IntType() || IsKnownClass(sType.ParameterType)) {
-			rvalue = "@bitCast(" + nameprefix + ")"
+			firstValue := ifv(IsKnownClass(fType.ParameterType), "@ptrCast("+nameprefix+".first.ptr)", "@bitCast("+nameprefix+".first)")
+			secondValue := ifv(IsKnownClass(sType.ParameterType), "@ptrCast("+nameprefix+".second.ptr)", "@bitCast("+nameprefix+".second)")
+			rvalue = ".{ .first = " + firstValue + ", .second = " + secondValue + ", }"
 		} else {
 			fAddr := ""
 			fParam := ".first"
@@ -2002,17 +2004,25 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 		// e.g. QPair<float, float>
 		// e.g. std::pair<int, int>
 		if (kType.IntType() || IsKnownClass(kType.ParameterType)) && (vType.IntType() || IsKnownClass(vType.ParameterType)) {
-			if IsKnownClass(kType.ParameterType) && !slices.Contains(zfs.currentClasses, kType.ParameterType) {
-				zfs.imports["class:"+cabiClassName(kType.ParameterType)] = struct{}{}
-				zfs.currentClasses = append(zfs.currentClasses, kType.ParameterType)
+			firstValue := "@bitCast(" + namePrefix + "_pair.first)"
+			secondValue := "@bitCast(" + namePrefix + "_pair.second)"
+			if IsKnownClass(kType.ParameterType) {
+				if !slices.Contains(zfs.currentClasses, kType.ParameterType) {
+					zfs.imports["class:"+cabiClassName(kType.ParameterType)] = struct{}{}
+					zfs.currentClasses = append(zfs.currentClasses, kType.ParameterType)
+				}
+				firstValue = ".{ .ptr = @ptrCast(" + namePrefix + "_pair.first) }"
 			}
-			if IsKnownClass(vType.ParameterType) && !slices.Contains(zfs.currentClasses, vType.ParameterType) {
-				zfs.imports["class:"+cabiClassName(vType.ParameterType)] = struct{}{}
-				zfs.currentClasses = append(zfs.currentClasses, vType.ParameterType)
+			if IsKnownClass(vType.ParameterType) {
+				if !slices.Contains(zfs.currentClasses, vType.ParameterType) {
+					zfs.imports["class:"+cabiClassName(vType.ParameterType)] = struct{}{}
+					zfs.currentClasses = append(zfs.currentClasses, vType.ParameterType)
+				}
+				secondValue = ".{ .ptr = @ptrCast(" + namePrefix + "_pair.second) }"
 			}
 
 			shouldReturn = "const " + namePrefix + "_pair ="
-			afterword += assignExpr + " @bitCast(" + namePrefix + "_pair);"
+			afterword += assignExpr + " .{ .first = " + firstValue + ", .second = " + secondValue + ", };\n"
 
 		} else {
 			// e.g. QPair<QString, QString>
