@@ -391,7 +391,11 @@ pub const QKeychain__Job = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QKeychain__Job, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -1693,7 +1697,11 @@ pub const QKeychain__ReadPasswordJob = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QKeychain__ReadPasswordJob, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -3631,7 +3639,11 @@ pub const QKeychain__WritePasswordJob = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QKeychain__WritePasswordJob, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -5537,7 +5549,11 @@ pub const QKeychain__DeletePasswordJob = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QKeychain__DeletePasswordJob, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject

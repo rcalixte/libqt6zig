@@ -215,7 +215,15 @@ pub const QXmlStreamAttributes = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn Value(self: QXmlStreamAttributes, allocator: std.mem.Allocator, namespaceUri: []const u8, name: []const u8) []const u8 {
-        var _str = qtc.QXmlStreamAttributes_Value(@ptrCast(self.ptr), namespaceUri.ptr, name.ptr);
+        const namespaceUri_str = qtc.libqt_string{
+            .len = namespaceUri.len,
+            .data = namespaceUri.ptr,
+        };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        var _str = qtc.QXmlStreamAttributes_Value(@ptrCast(self.ptr), namespaceUri_str, name_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamAttributes.Value: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -233,7 +241,11 @@ pub const QXmlStreamAttributes = extern struct {
     /// ` qualifiedName: []const u8 `
     ///
     pub fn Value2(self: QXmlStreamAttributes, allocator: std.mem.Allocator, qualifiedName: []const u8) []const u8 {
-        var _str = qtc.QXmlStreamAttributes_Value2(@ptrCast(self.ptr), qualifiedName.ptr);
+        const qualifiedName_str = qtc.libqt_string{
+            .len = qualifiedName.len,
+            .data = qualifiedName.ptr,
+        };
+        var _str = qtc.QXmlStreamAttributes_Value2(@ptrCast(self.ptr), qualifiedName_str);
         defer qtc.libqt_string_free(&_str);
         const _ret = allocator.alloc(u8, _str.len) catch @panic("QXmlStreamAttributes.Value2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
@@ -299,7 +311,11 @@ pub const QXmlStreamAttributes = extern struct {
     /// ` qualifiedName: []const u8 `
     ///
     pub fn HasAttribute(self: QXmlStreamAttributes, qualifiedName: []const u8) bool {
-        return qtc.QXmlStreamAttributes_HasAttribute(@ptrCast(self.ptr), qualifiedName.ptr);
+        const qualifiedName_str = qtc.libqt_string{
+            .len = qualifiedName.len,
+            .data = qualifiedName.ptr,
+        };
+        return qtc.QXmlStreamAttributes_HasAttribute(@ptrCast(self.ptr), qualifiedName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamattributes.html#hasAttribute)
@@ -313,7 +329,15 @@ pub const QXmlStreamAttributes = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn HasAttribute2(self: QXmlStreamAttributes, namespaceUri: []const u8, name: []const u8) bool {
-        return qtc.QXmlStreamAttributes_HasAttribute2(@ptrCast(self.ptr), namespaceUri.ptr, name.ptr);
+        const namespaceUri_str = qtc.libqt_string{
+            .len = namespaceUri.len,
+            .data = namespaceUri.ptr,
+        };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.QXmlStreamAttributes_HasAttribute2(@ptrCast(self.ptr), namespaceUri_str, name_str);
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -852,7 +876,11 @@ pub const QXmlStreamReader = extern struct {
     /// ` data: []const u8 `
     ///
     pub fn New3(data: []const u8) QXmlStreamReader {
-        return .{ .ptr = qtc.QXmlStreamReader_new3(data.ptr) };
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        return .{ .ptr = qtc.QXmlStreamReader_new3(data_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#setDevice)
@@ -887,7 +915,11 @@ pub const QXmlStreamReader = extern struct {
     /// ` data: []const u8 `
     ///
     pub fn AddData(self: QXmlStreamReader, data: []const u8) void {
-        qtc.QXmlStreamReader_AddData(@ptrCast(self.ptr), data.ptr);
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        qtc.QXmlStreamReader_AddData(@ptrCast(self.ptr), data_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamreader.html#clear)
@@ -1708,7 +1740,15 @@ pub const QXmlStreamWriter = extern struct {
     /// ` value: []const u8 `
     ///
     pub fn WriteAttribute(self: QXmlStreamWriter, qualifiedName: []const u8, value: []const u8) void {
-        qtc.QXmlStreamWriter_WriteAttribute(@ptrCast(self.ptr), qualifiedName.ptr, value.ptr);
+        const qualifiedName_str = qtc.libqt_string{
+            .len = qualifiedName.len,
+            .data = qualifiedName.ptr,
+        };
+        const value_str = qtc.libqt_string{
+            .len = value.len,
+            .data = value.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteAttribute(@ptrCast(self.ptr), qualifiedName_str, value_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeAttribute)
@@ -1724,7 +1764,19 @@ pub const QXmlStreamWriter = extern struct {
     /// ` value: []const u8 `
     ///
     pub fn WriteAttribute2(self: QXmlStreamWriter, namespaceUri: []const u8, name: []const u8, value: []const u8) void {
-        qtc.QXmlStreamWriter_WriteAttribute2(@ptrCast(self.ptr), namespaceUri.ptr, name.ptr, value.ptr);
+        const namespaceUri_str = qtc.libqt_string{
+            .len = namespaceUri.len,
+            .data = namespaceUri.ptr,
+        };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const value_str = qtc.libqt_string{
+            .len = value.len,
+            .data = value.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteAttribute2(@ptrCast(self.ptr), namespaceUri_str, name_str, value_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeAttribute)
@@ -1762,7 +1814,11 @@ pub const QXmlStreamWriter = extern struct {
     /// ` text: []const u8 `
     ///
     pub fn WriteCDATA(self: QXmlStreamWriter, text: []const u8) void {
-        qtc.QXmlStreamWriter_WriteCDATA(@ptrCast(self.ptr), text.ptr);
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteCDATA(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeCharacters)
@@ -1774,7 +1830,11 @@ pub const QXmlStreamWriter = extern struct {
     /// ` text: []const u8 `
     ///
     pub fn WriteCharacters(self: QXmlStreamWriter, text: []const u8) void {
-        qtc.QXmlStreamWriter_WriteCharacters(@ptrCast(self.ptr), text.ptr);
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteCharacters(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeComment)
@@ -1786,7 +1846,11 @@ pub const QXmlStreamWriter = extern struct {
     /// ` text: []const u8 `
     ///
     pub fn WriteComment(self: QXmlStreamWriter, text: []const u8) void {
-        qtc.QXmlStreamWriter_WriteComment(@ptrCast(self.ptr), text.ptr);
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteComment(@ptrCast(self.ptr), text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeDTD)
@@ -1798,7 +1862,11 @@ pub const QXmlStreamWriter = extern struct {
     /// ` dtd: []const u8 `
     ///
     pub fn WriteDTD(self: QXmlStreamWriter, dtd: []const u8) void {
-        qtc.QXmlStreamWriter_WriteDTD(@ptrCast(self.ptr), dtd.ptr);
+        const dtd_str = qtc.libqt_string{
+            .len = dtd.len,
+            .data = dtd.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteDTD(@ptrCast(self.ptr), dtd_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeEmptyElement)
@@ -1810,7 +1878,11 @@ pub const QXmlStreamWriter = extern struct {
     /// ` qualifiedName: []const u8 `
     ///
     pub fn WriteEmptyElement(self: QXmlStreamWriter, qualifiedName: []const u8) void {
-        qtc.QXmlStreamWriter_WriteEmptyElement(@ptrCast(self.ptr), qualifiedName.ptr);
+        const qualifiedName_str = qtc.libqt_string{
+            .len = qualifiedName.len,
+            .data = qualifiedName.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteEmptyElement(@ptrCast(self.ptr), qualifiedName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeEmptyElement)
@@ -1824,7 +1896,15 @@ pub const QXmlStreamWriter = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn WriteEmptyElement2(self: QXmlStreamWriter, namespaceUri: []const u8, name: []const u8) void {
-        qtc.QXmlStreamWriter_WriteEmptyElement2(@ptrCast(self.ptr), namespaceUri.ptr, name.ptr);
+        const namespaceUri_str = qtc.libqt_string{
+            .len = namespaceUri.len,
+            .data = namespaceUri.ptr,
+        };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteEmptyElement2(@ptrCast(self.ptr), namespaceUri_str, name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeTextElement)
@@ -1838,7 +1918,15 @@ pub const QXmlStreamWriter = extern struct {
     /// ` text: []const u8 `
     ///
     pub fn WriteTextElement(self: QXmlStreamWriter, qualifiedName: []const u8, text: []const u8) void {
-        qtc.QXmlStreamWriter_WriteTextElement(@ptrCast(self.ptr), qualifiedName.ptr, text.ptr);
+        const qualifiedName_str = qtc.libqt_string{
+            .len = qualifiedName.len,
+            .data = qualifiedName.ptr,
+        };
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteTextElement(@ptrCast(self.ptr), qualifiedName_str, text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeTextElement)
@@ -1854,7 +1942,19 @@ pub const QXmlStreamWriter = extern struct {
     /// ` text: []const u8 `
     ///
     pub fn WriteTextElement2(self: QXmlStreamWriter, namespaceUri: []const u8, name: []const u8, text: []const u8) void {
-        qtc.QXmlStreamWriter_WriteTextElement2(@ptrCast(self.ptr), namespaceUri.ptr, name.ptr, text.ptr);
+        const namespaceUri_str = qtc.libqt_string{
+            .len = namespaceUri.len,
+            .data = namespaceUri.ptr,
+        };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        const text_str = qtc.libqt_string{
+            .len = text.len,
+            .data = text.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteTextElement2(@ptrCast(self.ptr), namespaceUri_str, name_str, text_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeEndDocument)
@@ -1886,7 +1986,11 @@ pub const QXmlStreamWriter = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn WriteEntityReference(self: QXmlStreamWriter, name: []const u8) void {
-        qtc.QXmlStreamWriter_WriteEntityReference(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteEntityReference(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeNamespace)
@@ -1898,7 +2002,11 @@ pub const QXmlStreamWriter = extern struct {
     /// ` namespaceUri: []const u8 `
     ///
     pub fn WriteNamespace(self: QXmlStreamWriter, namespaceUri: []const u8) void {
-        qtc.QXmlStreamWriter_WriteNamespace(@ptrCast(self.ptr), namespaceUri.ptr);
+        const namespaceUri_str = qtc.libqt_string{
+            .len = namespaceUri.len,
+            .data = namespaceUri.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteNamespace(@ptrCast(self.ptr), namespaceUri_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeDefaultNamespace)
@@ -1910,7 +2018,11 @@ pub const QXmlStreamWriter = extern struct {
     /// ` namespaceUri: []const u8 `
     ///
     pub fn WriteDefaultNamespace(self: QXmlStreamWriter, namespaceUri: []const u8) void {
-        qtc.QXmlStreamWriter_WriteDefaultNamespace(@ptrCast(self.ptr), namespaceUri.ptr);
+        const namespaceUri_str = qtc.libqt_string{
+            .len = namespaceUri.len,
+            .data = namespaceUri.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteDefaultNamespace(@ptrCast(self.ptr), namespaceUri_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeProcessingInstruction)
@@ -1922,7 +2034,11 @@ pub const QXmlStreamWriter = extern struct {
     /// ` target: []const u8 `
     ///
     pub fn WriteProcessingInstruction(self: QXmlStreamWriter, target: []const u8) void {
-        qtc.QXmlStreamWriter_WriteProcessingInstruction(@ptrCast(self.ptr), target.ptr);
+        const target_str = qtc.libqt_string{
+            .len = target.len,
+            .data = target.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteProcessingInstruction(@ptrCast(self.ptr), target_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartDocument)
@@ -1944,7 +2060,11 @@ pub const QXmlStreamWriter = extern struct {
     /// ` version: []const u8 `
     ///
     pub fn WriteStartDocument2(self: QXmlStreamWriter, version: []const u8) void {
-        qtc.QXmlStreamWriter_WriteStartDocument2(@ptrCast(self.ptr), version.ptr);
+        const version_str = qtc.libqt_string{
+            .len = version.len,
+            .data = version.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteStartDocument2(@ptrCast(self.ptr), version_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartDocument)
@@ -1958,7 +2078,11 @@ pub const QXmlStreamWriter = extern struct {
     /// ` standalone: bool `
     ///
     pub fn WriteStartDocument3(self: QXmlStreamWriter, version: []const u8, standalone: bool) void {
-        qtc.QXmlStreamWriter_WriteStartDocument3(@ptrCast(self.ptr), version.ptr, standalone);
+        const version_str = qtc.libqt_string{
+            .len = version.len,
+            .data = version.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteStartDocument3(@ptrCast(self.ptr), version_str, standalone);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartElement)
@@ -1970,7 +2094,11 @@ pub const QXmlStreamWriter = extern struct {
     /// ` qualifiedName: []const u8 `
     ///
     pub fn WriteStartElement(self: QXmlStreamWriter, qualifiedName: []const u8) void {
-        qtc.QXmlStreamWriter_WriteStartElement(@ptrCast(self.ptr), qualifiedName.ptr);
+        const qualifiedName_str = qtc.libqt_string{
+            .len = qualifiedName.len,
+            .data = qualifiedName.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteStartElement(@ptrCast(self.ptr), qualifiedName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeStartElement)
@@ -1984,7 +2112,15 @@ pub const QXmlStreamWriter = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn WriteStartElement2(self: QXmlStreamWriter, namespaceUri: []const u8, name: []const u8) void {
-        qtc.QXmlStreamWriter_WriteStartElement2(@ptrCast(self.ptr), namespaceUri.ptr, name.ptr);
+        const namespaceUri_str = qtc.libqt_string{
+            .len = namespaceUri.len,
+            .data = namespaceUri.ptr,
+        };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteStartElement2(@ptrCast(self.ptr), namespaceUri_str, name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeCurrentToken)
@@ -2021,7 +2157,15 @@ pub const QXmlStreamWriter = extern struct {
     /// ` prefix: []const u8 `
     ///
     pub fn WriteNamespace2(self: QXmlStreamWriter, namespaceUri: []const u8, prefix: []const u8) void {
-        qtc.QXmlStreamWriter_WriteNamespace2(@ptrCast(self.ptr), namespaceUri.ptr, prefix.ptr);
+        const namespaceUri_str = qtc.libqt_string{
+            .len = namespaceUri.len,
+            .data = namespaceUri.ptr,
+        };
+        const prefix_str = qtc.libqt_string{
+            .len = prefix.len,
+            .data = prefix.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteNamespace2(@ptrCast(self.ptr), namespaceUri_str, prefix_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxmlstreamwriter.html#writeProcessingInstruction)
@@ -2035,7 +2179,15 @@ pub const QXmlStreamWriter = extern struct {
     /// ` data: []const u8 `
     ///
     pub fn WriteProcessingInstruction2(self: QXmlStreamWriter, target: []const u8, data: []const u8) void {
-        qtc.QXmlStreamWriter_WriteProcessingInstruction2(@ptrCast(self.ptr), target.ptr, data.ptr);
+        const target_str = qtc.libqt_string{
+            .len = target.len,
+            .data = target.ptr,
+        };
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        qtc.QXmlStreamWriter_WriteProcessingInstruction2(@ptrCast(self.ptr), target_str, data_str);
     }
 
     /// ### DEPRECATED: Use `Delete` instead

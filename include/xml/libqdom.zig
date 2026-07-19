@@ -2952,7 +2952,11 @@ pub const QDomDocument = extern struct {
     /// ` data: []const u8 `
     ///
     pub fn SetContent8(self: QDomDocument, data: []const u8) QDomDocument__ParseResult {
-        return .{ .ptr = qtc.QDomDocument_SetContent8(@ptrCast(self.ptr), data.ptr) };
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        return .{ .ptr = qtc.QDomDocument_SetContent8(@ptrCast(self.ptr), data_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
@@ -3024,7 +3028,11 @@ pub const QDomDocument = extern struct {
     /// ` options: flag of qdom_enums.ParseOption `
     ///
     pub fn SetContent22(self: QDomDocument, data: []const u8, options: i32) QDomDocument__ParseResult {
-        return .{ .ptr = qtc.QDomDocument_SetContent22(@ptrCast(self.ptr), data.ptr, @bitCast(options)) };
+        const data_str = qtc.libqt_string{
+            .len = data.len,
+            .data = data.ptr,
+        };
+        return .{ .ptr = qtc.QDomDocument_SetContent22(@ptrCast(self.ptr), data_str, @bitCast(options)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)

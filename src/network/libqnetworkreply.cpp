@@ -81,8 +81,8 @@ QVariant* QNetworkReply_Header(const QNetworkReply* self, int header) {
     return new QVariant(self->header(static_cast<QNetworkRequest::KnownHeaders>(header)));
 }
 
-bool QNetworkReply_HasRawHeader(const QNetworkReply* self, const char* headerName) {
-    return self->hasRawHeader(QAnyStringView(headerName));
+bool QNetworkReply_HasRawHeader(const QNetworkReply* self, libqt_string headerName) {
+    return self->hasRawHeader(QAnyStringView(headerName.data, headerName.len));
 }
 
 libqt_list /* of libqt_string */ QNetworkReply_RawHeaderList(const QNetworkReply* self) {
@@ -103,8 +103,8 @@ libqt_list /* of libqt_string */ QNetworkReply_RawHeaderList(const QNetworkReply
     return _out;
 }
 
-libqt_string QNetworkReply_RawHeader(const QNetworkReply* self, const char* headerName) {
-    QByteArray _qb = self->rawHeader(QAnyStringView(headerName));
+libqt_string QNetworkReply_RawHeader(const QNetworkReply* self, libqt_string headerName) {
+    QByteArray _qb = self->rawHeader(QAnyStringView(headerName.data, headerName.len));
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));

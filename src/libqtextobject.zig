@@ -231,7 +231,11 @@ pub const QTextObject = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QTextObject, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -1204,7 +1208,11 @@ pub const QTextBlockGroup = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QTextBlockGroup, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -2357,7 +2365,11 @@ pub const QTextFrame = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QTextFrame, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject

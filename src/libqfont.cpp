@@ -611,8 +611,8 @@ QFont__Tag* QFont__Tag_FromValue(unsigned int value) {
     return _ret ? new QFont::Tag(*_ret) : nullptr;
 }
 
-QFont__Tag* QFont__Tag_FromString(const char* view) {
-    auto _ret = QFont::Tag::fromString(QAnyStringView(view));
+QFont__Tag* QFont__Tag_FromString(libqt_string view) {
+    auto _ret = QFont::Tag::fromString(QAnyStringView(view.data, view.len));
     return _ret ? new QFont::Tag(*_ret) : nullptr;
 }
 

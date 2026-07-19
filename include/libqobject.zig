@@ -306,7 +306,11 @@ pub const QObject = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QObject, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isWidgetType)

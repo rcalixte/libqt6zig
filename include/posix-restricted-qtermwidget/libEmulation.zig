@@ -1380,7 +1380,11 @@ pub const Konsole__Emulation = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: Konsole__Emulation, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject

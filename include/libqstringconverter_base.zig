@@ -66,7 +66,11 @@ pub const QStringConverter = extern struct {
     /// ` qstringconverter_base_enums.Encoding ` (Returns -1 for an invalid value)
     ///
     pub fn EncodingForName(name: []const u8) i32 {
-        return qtc.QStringConverter_EncodingForName(name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.QStringConverter_EncodingForName(name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringconverter.html#nameForEncoding)

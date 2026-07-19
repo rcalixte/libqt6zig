@@ -13,7 +13,15 @@ pub const QAnyStringView = extern struct {
     /// ` rhs: []const u8 `
     ///
     pub fn Compare(lhs: []const u8, rhs: []const u8) i32 {
-        return qtc.QAnyStringView_Compare(lhs.ptr, rhs.ptr);
+        const lhs_str = qtc.libqt_string{
+            .len = lhs.len,
+            .data = lhs.ptr,
+        };
+        const rhs_str = qtc.libqt_string{
+            .len = rhs.len,
+            .data = rhs.ptr,
+        };
+        return qtc.QAnyStringView_Compare(lhs_str, rhs_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#equal)
@@ -25,7 +33,15 @@ pub const QAnyStringView = extern struct {
     /// ` rhs: []const u8 `
     ///
     pub fn Equal(lhs: []const u8, rhs: []const u8) bool {
-        return qtc.QAnyStringView_Equal(lhs.ptr, rhs.ptr);
+        const lhs_str = qtc.libqt_string{
+            .len = lhs.len,
+            .data = lhs.ptr,
+        };
+        const rhs_str = qtc.libqt_string{
+            .len = rhs.len,
+            .data = rhs.ptr,
+        };
+        return qtc.QAnyStringView_Equal(lhs_str, rhs_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qanystringview.html#compare)
@@ -39,6 +55,14 @@ pub const QAnyStringView = extern struct {
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
     pub fn Compare3(lhs: []const u8, rhs: []const u8, cs: i32) i32 {
-        return qtc.QAnyStringView_Compare3(lhs.ptr, rhs.ptr, @bitCast(cs));
+        const lhs_str = qtc.libqt_string{
+            .len = lhs.len,
+            .data = lhs.ptr,
+        };
+        const rhs_str = qtc.libqt_string{
+            .len = rhs.len,
+            .data = rhs.ptr,
+        };
+        return qtc.QAnyStringView_Compare3(lhs_str, rhs_str, @bitCast(cs));
     }
 };

@@ -358,8 +358,8 @@ QWebEngineFrame* QWebEnginePage_MainFrame(QWebEnginePage* self) {
     return new QWebEngineFrame(self->mainFrame());
 }
 
-QWebEngineFrame* QWebEnginePage_FindFrameByName(QWebEnginePage* self, const char* name) {
-    auto _ret = self->findFrameByName(QAnyStringView(name));
+QWebEngineFrame* QWebEnginePage_FindFrameByName(QWebEnginePage* self, libqt_string name) {
+    auto _ret = self->findFrameByName(QAnyStringView(name.data, name.len));
     return _ret ? new QWebEngineFrame(*_ret) : nullptr;
 }
 

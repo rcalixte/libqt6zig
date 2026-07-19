@@ -230,7 +230,11 @@ pub const QNetworkReply = extern struct {
     /// ` headerName: []const u8 `
     ///
     pub fn HasRawHeader(self: QNetworkReply, headerName: []const u8) bool {
-        return qtc.QNetworkReply_HasRawHeader(@ptrCast(self.ptr), headerName.ptr);
+        const headerName_str = qtc.libqt_string{
+            .len = headerName.len,
+            .data = headerName.ptr,
+        };
+        return qtc.QNetworkReply_HasRawHeader(@ptrCast(self.ptr), headerName_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnetworkreply.html#rawHeaderList)
@@ -270,7 +274,11 @@ pub const QNetworkReply = extern struct {
     /// ` headerName: []const u8 `
     ///
     pub fn RawHeader(self: QNetworkReply, allocator: std.mem.Allocator, headerName: []const u8) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QNetworkReply_RawHeader(@ptrCast(self.ptr), headerName.ptr);
+        const headerName_str = qtc.libqt_string{
+            .len = headerName.len,
+            .data = headerName.ptr,
+        };
+        var _bytearray: qtc.libqt_string = qtc.QNetworkReply_RawHeader(@ptrCast(self.ptr), headerName_str);
         defer qtc.libqt_string_free(&_bytearray);
         const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QNetworkReply.RawHeader: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
@@ -1560,7 +1568,11 @@ pub const QNetworkReply = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QNetworkReply, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject

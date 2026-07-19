@@ -22974,7 +22974,9 @@ class VirtualQCPGraph final : public QCPGraph {
             for (size_t i = 0; i < callback_ret.len; ++i) {
                 QPair<QCPDataRange, QCPDataRange> callback_ret_arr_i_QPair;
                 callback_ret_arr_i_QPair.first = *(callback_ret_arr[i].first);
+                delete callback_ret_arr[i].first;
                 callback_ret_arr_i_QPair.second = *(callback_ret_arr[i].second);
+                delete callback_ret_arr[i].second;
                 callback_ret_QVector.push_back(callback_ret_arr_i_QPair);
             }
             libqt_free(callback_ret.data);

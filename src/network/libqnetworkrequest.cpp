@@ -65,8 +65,8 @@ void QNetworkRequest_SetHeader(QNetworkRequest* self, int header, const QVariant
     self->setHeader(static_cast<QNetworkRequest::KnownHeaders>(header), *value);
 }
 
-bool QNetworkRequest_HasRawHeader(const QNetworkRequest* self, const char* headerName) {
-    return self->hasRawHeader(QAnyStringView(headerName));
+bool QNetworkRequest_HasRawHeader(const QNetworkRequest* self, libqt_string headerName) {
+    return self->hasRawHeader(QAnyStringView(headerName.data, headerName.len));
 }
 
 libqt_list /* of libqt_string */ QNetworkRequest_RawHeaderList(const QNetworkRequest* self) {
@@ -87,8 +87,8 @@ libqt_list /* of libqt_string */ QNetworkRequest_RawHeaderList(const QNetworkReq
     return _out;
 }
 
-libqt_string QNetworkRequest_RawHeader(const QNetworkRequest* self, const char* headerName) {
-    QByteArray _qb = self->rawHeader(QAnyStringView(headerName));
+libqt_string QNetworkRequest_RawHeader(const QNetworkRequest* self, libqt_string headerName) {
+    QByteArray _qb = self->rawHeader(QAnyStringView(headerName.data, headerName.len));
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));

@@ -40,7 +40,7 @@ libqt_string QObject_Tr(const char* s);
 bool QObject_Event(QObject* self, QEvent* event);
 bool QObject_EventFilter(QObject* self, QObject* watched, QEvent* event);
 libqt_string QObject_ObjectName(const QObject* self);
-void QObject_SetObjectName(QObject* self, const char* name);
+void QObject_SetObjectName(QObject* self, libqt_string name);
 bool QObject_IsWidgetType(const QObject* self);
 bool QObject_IsWindowType(const QObject* self);
 bool QObject_IsQuickItemType(const QObject* self);

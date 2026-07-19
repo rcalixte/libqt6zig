@@ -102,7 +102,11 @@ pub const QFormDataPartBuilder = extern struct {
             .len = data.len,
             .data = data.ptr,
         };
-        return .{ .ptr = qtc.QFormDataPartBuilder_SetBody2(@ptrCast(self.ptr), data_str, fileName.ptr) };
+        const fileName_str = qtc.libqt_string{
+            .len = fileName.len,
+            .data = fileName.ptr,
+        };
+        return .{ .ptr = qtc.QFormDataPartBuilder_SetBody2(@ptrCast(self.ptr), data_str, fileName_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBody)
@@ -122,7 +126,15 @@ pub const QFormDataPartBuilder = extern struct {
             .len = data.len,
             .data = data.ptr,
         };
-        return .{ .ptr = qtc.QFormDataPartBuilder_SetBody3(@ptrCast(self.ptr), data_str, fileName.ptr, mimeType.ptr) };
+        const fileName_str = qtc.libqt_string{
+            .len = fileName.len,
+            .data = fileName.ptr,
+        };
+        const mimeType_str = qtc.libqt_string{
+            .len = mimeType.len,
+            .data = mimeType.ptr,
+        };
+        return .{ .ptr = qtc.QFormDataPartBuilder_SetBody3(@ptrCast(self.ptr), data_str, fileName_str, mimeType_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
@@ -137,7 +149,11 @@ pub const QFormDataPartBuilder = extern struct {
     ///
     pub fn SetBodyDevice2(self: QFormDataPartBuilder, body: anytype, fileName: []const u8) QFormDataPartBuilder {
         comptime _ = @TypeOf(body)._is_QIODevice;
-        return .{ .ptr = qtc.QFormDataPartBuilder_SetBodyDevice2(@ptrCast(self.ptr), @ptrCast(body.ptr), fileName.ptr) };
+        const fileName_str = qtc.libqt_string{
+            .len = fileName.len,
+            .data = fileName.ptr,
+        };
+        return .{ .ptr = qtc.QFormDataPartBuilder_SetBodyDevice2(@ptrCast(self.ptr), @ptrCast(body.ptr), fileName_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatapartbuilder.html#setBodyDevice)
@@ -154,7 +170,15 @@ pub const QFormDataPartBuilder = extern struct {
     ///
     pub fn SetBodyDevice3(self: QFormDataPartBuilder, body: anytype, fileName: []const u8, mimeType: []const u8) QFormDataPartBuilder {
         comptime _ = @TypeOf(body)._is_QIODevice;
-        return .{ .ptr = qtc.QFormDataPartBuilder_SetBodyDevice3(@ptrCast(self.ptr), @ptrCast(body.ptr), fileName.ptr, mimeType.ptr) };
+        const fileName_str = qtc.libqt_string{
+            .len = fileName.len,
+            .data = fileName.ptr,
+        };
+        const mimeType_str = qtc.libqt_string{
+            .len = mimeType.len,
+            .data = mimeType.ptr,
+        };
+        return .{ .ptr = qtc.QFormDataPartBuilder_SetBodyDevice3(@ptrCast(self.ptr), @ptrCast(body.ptr), fileName_str, mimeType_str) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead
@@ -212,7 +236,11 @@ pub const QFormDataBuilder = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn Part(self: QFormDataBuilder, name: []const u8) QFormDataPartBuilder {
-        return .{ .ptr = qtc.QFormDataBuilder_Part(@ptrCast(self.ptr), name.ptr) };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.QFormDataBuilder_Part(@ptrCast(self.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qformdatabuilder.html#buildMultiPart)

@@ -105,12 +105,12 @@ libqt_string QVersionNumber_ToString(const QVersionNumber* self) {
     return _str;
 }
 
-QVersionNumber* QVersionNumber_FromString(const char* string) {
-    return new QVersionNumber(QVersionNumber::fromString(QAnyStringView(string)));
+QVersionNumber* QVersionNumber_FromString(libqt_string string) {
+    return new QVersionNumber(QVersionNumber::fromString(QAnyStringView(string.data, string.len)));
 }
 
-QVersionNumber* QVersionNumber_FromString2(const char* string, ptrdiff_t* suffixIndex) {
-    return new QVersionNumber(QVersionNumber::fromString(QAnyStringView(string), (qsizetype*)(suffixIndex)));
+QVersionNumber* QVersionNumber_FromString2(libqt_string string, ptrdiff_t* suffixIndex) {
+    return new QVersionNumber(QVersionNumber::fromString(QAnyStringView(string.data, string.len), (qsizetype*)(suffixIndex)));
 }
 
 void QVersionNumber_Delete(QVersionNumber* self) {

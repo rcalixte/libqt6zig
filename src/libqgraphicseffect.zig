@@ -878,7 +878,11 @@ pub const QGraphicsEffect = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QGraphicsEffect, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -2700,7 +2704,11 @@ pub const QGraphicsColorizeEffect = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QGraphicsColorizeEffect, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -4930,7 +4938,11 @@ pub const QGraphicsBlurEffect = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QGraphicsBlurEffect, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -7220,7 +7232,11 @@ pub const QGraphicsDropShadowEffect = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QGraphicsDropShadowEffect, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -9344,7 +9360,11 @@ pub const QGraphicsOpacityEffect = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QGraphicsOpacityEffect, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject

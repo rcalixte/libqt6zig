@@ -23,7 +23,7 @@ bool QStringConverter_IsValid(const QStringConverter* self);
 void QStringConverter_ResetState(QStringConverter* self);
 bool QStringConverter_HasError(const QStringConverter* self);
 const char* QStringConverter_Name(const QStringConverter* self);
-int QStringConverter_EncodingForName(const char* name);
+int QStringConverter_EncodingForName(libqt_string name);
 const char* QStringConverter_NameForEncoding(int e);
 int QStringConverter_EncodingForData(libqt_string data);
 int QStringConverter_EncodingForHtml(libqt_string data);

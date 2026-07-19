@@ -18,9 +18,9 @@ extern "C" {
 typedef struct QChar QChar;
 #endif
 
-int QAnyStringView_Compare(const char* lhs, const char* rhs);
-bool QAnyStringView_Equal(const char* lhs, const char* rhs);
-int QAnyStringView_Compare3(const char* lhs, const char* rhs, int cs);
+int QAnyStringView_Compare(libqt_string lhs, libqt_string rhs);
+bool QAnyStringView_Equal(libqt_string lhs, libqt_string rhs);
+int QAnyStringView_Compare3(libqt_string lhs, libqt_string rhs, int cs);
 
 #ifdef __cplusplus
 } /* extern C */

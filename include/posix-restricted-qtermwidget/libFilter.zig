@@ -297,7 +297,11 @@ pub const Konsole__Filter = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: Konsole__Filter, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -2077,7 +2081,11 @@ pub const Konsole__RegExpFilter = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: Konsole__RegExpFilter, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -4189,7 +4197,11 @@ pub const Konsole__UrlFilter = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: Konsole__UrlFilter, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -6058,7 +6070,11 @@ pub const Konsole__FilterObject = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: Konsole__FilterObject, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject

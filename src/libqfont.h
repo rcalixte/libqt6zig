@@ -131,7 +131,7 @@ bool QFont__Tag_IsValid(const QFont__Tag* self);
 unsigned int QFont__Tag_Value(const QFont__Tag* self);
 libqt_string QFont__Tag_ToString(const QFont__Tag* self);
 QFont__Tag* QFont__Tag_FromValue(unsigned int value);
-QFont__Tag* QFont__Tag_FromString(const char* view);
+QFont__Tag* QFont__Tag_FromString(libqt_string view);
 void QFont__Tag_Delete(QFont__Tag* self);
 
 #ifdef __cplusplus

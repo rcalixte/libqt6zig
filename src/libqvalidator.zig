@@ -420,7 +420,11 @@ pub const QValidator = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QValidator, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -2326,7 +2330,11 @@ pub const QIntValidator = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QIntValidator, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -4348,7 +4356,11 @@ pub const QDoubleValidator = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QDoubleValidator, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -6142,7 +6154,11 @@ pub const QRegularExpressionValidator = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QRegularExpressionValidator, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject

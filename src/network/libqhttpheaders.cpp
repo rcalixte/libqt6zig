@@ -25,40 +25,40 @@ void QHttpHeaders_Swap(QHttpHeaders* self, QHttpHeaders* other) {
     self->swap(*other);
 }
 
-bool QHttpHeaders_Append(QHttpHeaders* self, const char* name, const char* value) {
-    return self->append(QAnyStringView(name), QAnyStringView(value));
+bool QHttpHeaders_Append(QHttpHeaders* self, libqt_string name, libqt_string value) {
+    return self->append(QAnyStringView(name.data, name.len), QAnyStringView(value.data, value.len));
 }
 
-bool QHttpHeaders_Append2(QHttpHeaders* self, int name, const char* value) {
-    return self->append(static_cast<QHttpHeaders::WellKnownHeader>(name), QAnyStringView(value));
+bool QHttpHeaders_Append2(QHttpHeaders* self, int name, libqt_string value) {
+    return self->append(static_cast<QHttpHeaders::WellKnownHeader>(name), QAnyStringView(value.data, value.len));
 }
 
-bool QHttpHeaders_Insert(QHttpHeaders* self, ptrdiff_t i, const char* name, const char* value) {
-    return self->insert((qsizetype)(i), QAnyStringView(name), QAnyStringView(value));
+bool QHttpHeaders_Insert(QHttpHeaders* self, ptrdiff_t i, libqt_string name, libqt_string value) {
+    return self->insert((qsizetype)(i), QAnyStringView(name.data, name.len), QAnyStringView(value.data, value.len));
 }
 
-bool QHttpHeaders_Insert2(QHttpHeaders* self, ptrdiff_t i, int name, const char* value) {
-    return self->insert((qsizetype)(i), static_cast<QHttpHeaders::WellKnownHeader>(name), QAnyStringView(value));
+bool QHttpHeaders_Insert2(QHttpHeaders* self, ptrdiff_t i, int name, libqt_string value) {
+    return self->insert((qsizetype)(i), static_cast<QHttpHeaders::WellKnownHeader>(name), QAnyStringView(value.data, value.len));
 }
 
-bool QHttpHeaders_Replace(QHttpHeaders* self, ptrdiff_t i, const char* name, const char* newValue) {
-    return self->replace((qsizetype)(i), QAnyStringView(name), QAnyStringView(newValue));
+bool QHttpHeaders_Replace(QHttpHeaders* self, ptrdiff_t i, libqt_string name, libqt_string newValue) {
+    return self->replace((qsizetype)(i), QAnyStringView(name.data, name.len), QAnyStringView(newValue.data, newValue.len));
 }
 
-bool QHttpHeaders_Replace2(QHttpHeaders* self, ptrdiff_t i, int name, const char* newValue) {
-    return self->replace((qsizetype)(i), static_cast<QHttpHeaders::WellKnownHeader>(name), QAnyStringView(newValue));
+bool QHttpHeaders_Replace2(QHttpHeaders* self, ptrdiff_t i, int name, libqt_string newValue) {
+    return self->replace((qsizetype)(i), static_cast<QHttpHeaders::WellKnownHeader>(name), QAnyStringView(newValue.data, newValue.len));
 }
 
-bool QHttpHeaders_ReplaceOrAppend(QHttpHeaders* self, const char* name, const char* newValue) {
-    return self->replaceOrAppend(QAnyStringView(name), QAnyStringView(newValue));
+bool QHttpHeaders_ReplaceOrAppend(QHttpHeaders* self, libqt_string name, libqt_string newValue) {
+    return self->replaceOrAppend(QAnyStringView(name.data, name.len), QAnyStringView(newValue.data, newValue.len));
 }
 
-bool QHttpHeaders_ReplaceOrAppend2(QHttpHeaders* self, int name, const char* newValue) {
-    return self->replaceOrAppend(static_cast<QHttpHeaders::WellKnownHeader>(name), QAnyStringView(newValue));
+bool QHttpHeaders_ReplaceOrAppend2(QHttpHeaders* self, int name, libqt_string newValue) {
+    return self->replaceOrAppend(static_cast<QHttpHeaders::WellKnownHeader>(name), QAnyStringView(newValue.data, newValue.len));
 }
 
-bool QHttpHeaders_Contains(const QHttpHeaders* self, const char* name) {
-    return self->contains(QAnyStringView(name));
+bool QHttpHeaders_Contains(const QHttpHeaders* self, libqt_string name) {
+    return self->contains(QAnyStringView(name.data, name.len));
 }
 
 bool QHttpHeaders_Contains2(const QHttpHeaders* self, int name) {
@@ -69,8 +69,8 @@ void QHttpHeaders_Clear(QHttpHeaders* self) {
     self->clear();
 }
 
-void QHttpHeaders_RemoveAll(QHttpHeaders* self, const char* name) {
-    self->removeAll(QAnyStringView(name));
+void QHttpHeaders_RemoveAll(QHttpHeaders* self, libqt_string name) {
+    self->removeAll(QAnyStringView(name.data, name.len));
 }
 
 void QHttpHeaders_RemoveAll2(QHttpHeaders* self, int name) {
@@ -81,8 +81,8 @@ void QHttpHeaders_RemoveAt(QHttpHeaders* self, ptrdiff_t i) {
     self->removeAt((qsizetype)(i));
 }
 
-libqt_string QHttpHeaders_Value(const QHttpHeaders* self, const char* name) {
-    QByteArrayView _qb = self->value(QAnyStringView(name));
+libqt_string QHttpHeaders_Value(const QHttpHeaders* self, libqt_string name) {
+    QByteArrayView _qb = self->value(QAnyStringView(name.data, name.len));
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
@@ -99,8 +99,8 @@ libqt_string QHttpHeaders_Value2(const QHttpHeaders* self, int name) {
     return _str;
 }
 
-libqt_list /* of libqt_string */ QHttpHeaders_Values(const QHttpHeaders* self, const char* name) {
-    QList<QByteArray> _ret = self->values(QAnyStringView(name));
+libqt_list /* of libqt_string */ QHttpHeaders_Values(const QHttpHeaders* self, libqt_string name) {
+    QList<QByteArray> _ret = self->values(QAnyStringView(name.data, name.len));
     // Convert QList<> from C++ memory to manually-managed C memory
     libqt_string* _arr = static_cast<libqt_string*>(malloc(sizeof(libqt_string) * (_ret.size())));
     for (qsizetype i = 0; i < _ret.size(); ++i) {
@@ -153,8 +153,8 @@ libqt_string QHttpHeaders_NameAt(const QHttpHeaders* self, ptrdiff_t i) {
     return _str;
 }
 
-libqt_string QHttpHeaders_CombinedValue(const QHttpHeaders* self, const char* name) {
-    QByteArray _qb = self->combinedValue(QAnyStringView(name));
+libqt_string QHttpHeaders_CombinedValue(const QHttpHeaders* self, libqt_string name) {
+    QByteArray _qb = self->combinedValue(QAnyStringView(name.data, name.len));
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
@@ -338,9 +338,9 @@ libqt_map /* of libqt_string to libqt_list of libqt_string */ QHttpHeaders_ToMul
     return _out;
 }
 
-libqt_string QHttpHeaders_Value22(const QHttpHeaders* self, const char* name, libqt_string defaultValue) {
+libqt_string QHttpHeaders_Value22(const QHttpHeaders* self, libqt_string name, libqt_string defaultValue) {
     QByteArrayView defaultValue_QByteArrayView(defaultValue.data, defaultValue.len);
-    QByteArrayView _qb = self->value(QAnyStringView(name), defaultValue_QByteArrayView);
+    QByteArrayView _qb = self->value(QAnyStringView(name.data, name.len), defaultValue_QByteArrayView);
     libqt_string _str;
     _str.len = _qb.length();
     _str.data = static_cast<char*>(malloc(_str.len));
