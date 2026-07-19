@@ -116,7 +116,7 @@ int QWebEnginePage_RecommendedState(const QWebEnginePage* self);
 bool QWebEnginePage_IsVisible(const QWebEnginePage* self);
 void QWebEnginePage_SetVisible(QWebEnginePage* self, bool visible);
 QWebEngineFrame* QWebEnginePage_MainFrame(QWebEnginePage* self);
-QWebEngineFrame* QWebEnginePage_FindFrameByName(QWebEnginePage* self, const char* name);
+QWebEngineFrame* QWebEnginePage_FindFrameByName(QWebEnginePage* self, libqt_string name);
 void QWebEnginePage_AcceptAsNewWindow(QWebEnginePage* self, QWebEngineNewWindowRequest* request);
 void QWebEnginePage_LoadStarted(QWebEnginePage* self);
 void QWebEnginePage_Connect_LoadStarted(QWebEnginePage* self, intptr_t slot);

@@ -6179,7 +6179,11 @@ pub const QCPLayer = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPLayer, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -8769,7 +8773,11 @@ pub const QCPLayerable = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPLayerable, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -11988,7 +11996,11 @@ pub const QCPSelectionRect = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPSelectionRect, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -14635,7 +14647,11 @@ pub const QCPMarginGroup = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPMarginGroup, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -17146,7 +17162,11 @@ pub const QCPLayoutElement = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPLayoutElement, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -20596,7 +20616,11 @@ pub const QCPLayout = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPLayout, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -24761,7 +24785,11 @@ pub const QCPLayoutGrid = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPLayoutGrid, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -28692,7 +28720,11 @@ pub const QCPLayoutInset = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPLayoutInset, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -39869,7 +39901,11 @@ pub const QCPGrid = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPGrid, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -44737,7 +44773,11 @@ pub const QCPAxis = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPAxis, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -48742,7 +48782,11 @@ pub const QCPAbstractPlottable = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPAbstractPlottable, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -52887,7 +52931,11 @@ pub const QCPAbstractItem = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPAbstractItem, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -63089,7 +63137,11 @@ pub const QCustomPlot = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCustomPlot, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -69923,7 +69975,11 @@ pub const QCPAxisRect = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPAxisRect, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -73267,7 +73323,11 @@ pub const QCPAbstractLegendItem = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPAbstractLegendItem, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -76701,7 +76761,11 @@ pub const QCPPlottableLegendItem = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPPlottableLegendItem, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -81355,7 +81419,11 @@ pub const QCPLegend = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPLegend, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -85984,7 +86052,11 @@ pub const QCPTextElement = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPTextElement, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -89390,7 +89462,11 @@ pub const QCPColorScale = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPColorScale, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -93379,6 +93455,8 @@ pub const QCPGraph = extern struct {
     ///
     /// ` C ABI representation of []Struct_QCPDataRange_QCPDataRange `
     ///
+    /// **Warning:** Memory for the .first and .second field(s) of the inner type of the returned type of the callback will be freed by the library.
+    ///
     pub fn OnGetOverlappingSegments(self: QCPGraph, callback: *const fn (QCPGraph, qtc.libqt_list, qtc.libqt_list, qtc.libqt_list, qtc.libqt_list) callconv(.c) qtc.libqt_list) void {
         qtc.QCPGraph_OnGetOverlappingSegments(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
@@ -94616,7 +94694,11 @@ pub const QCPGraph = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPGraph, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -99957,7 +100039,11 @@ pub const QCPCurve = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPCurve, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -103452,7 +103538,11 @@ pub const QCPBarsGroup = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPBarsGroup, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -106821,7 +106911,11 @@ pub const QCPBars = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPBars, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -111610,7 +111704,11 @@ pub const QCPStatisticalBox = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPStatisticalBox, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -116415,7 +116513,11 @@ pub const QCPColorMap = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPColorMap, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -120773,7 +120875,11 @@ pub const QCPFinancial = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPFinancial, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -125843,7 +125949,11 @@ pub const QCPErrorBars = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPErrorBars, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -129108,7 +129218,11 @@ pub const QCPItemStraightLine = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPItemStraightLine, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -132538,7 +132652,11 @@ pub const QCPItemLine = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPItemLine, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -135928,7 +136046,11 @@ pub const QCPItemCurve = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPItemCurve, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -139446,7 +139568,11 @@ pub const QCPItemRect = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPItemRect, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -143265,7 +143391,11 @@ pub const QCPItemText = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPItemText, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -146759,7 +146889,11 @@ pub const QCPItemEllipse = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPItemEllipse, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -150566,7 +150700,11 @@ pub const QCPItemPixmap = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPItemPixmap, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -154021,7 +154159,11 @@ pub const QCPItemTracer = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPItemTracer, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -157449,7 +157591,11 @@ pub const QCPItemBracket = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPItemBracket, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -162403,7 +162549,11 @@ pub const QCPPolarAxisRadial = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPPolarAxisRadial, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -167373,7 +167523,11 @@ pub const QCPPolarAxisAngular = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPPolarAxisAngular, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -170391,7 +170545,11 @@ pub const QCPPolarGrid = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPPolarGrid, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -173789,7 +173947,11 @@ pub const QCPPolarLegendItem = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPPolarLegendItem, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -178546,7 +178708,11 @@ pub const QCPPolarGraph = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QCPPolarGraph, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject

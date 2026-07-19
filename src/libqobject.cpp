@@ -68,8 +68,8 @@ libqt_string QObject_ObjectName(const QObject* self) {
     return _str;
 }
 
-void QObject_SetObjectName(QObject* self, const char* name) {
-    self->setObjectName(QAnyStringView(name));
+void QObject_SetObjectName(QObject* self, libqt_string name) {
+    self->setObjectName(QAnyStringView(name.data, name.len));
 }
 
 bool QObject_IsWidgetType(const QObject* self) {

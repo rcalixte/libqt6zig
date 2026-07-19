@@ -498,7 +498,11 @@ pub const QSettings = extern struct {
     /// ` prefix: []const u8 `
     ///
     pub fn BeginGroup(self: QSettings, prefix: []const u8) void {
-        qtc.QSettings_BeginGroup(@ptrCast(self.ptr), prefix.ptr);
+        const prefix_str = qtc.libqt_string{
+            .len = prefix.len,
+            .data = prefix.ptr,
+        };
+        qtc.QSettings_BeginGroup(@ptrCast(self.ptr), prefix_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#endGroup)
@@ -536,7 +540,11 @@ pub const QSettings = extern struct {
     /// ` prefix: []const u8 `
     ///
     pub fn BeginReadArray(self: QSettings, prefix: []const u8) i32 {
-        return qtc.QSettings_BeginReadArray(@ptrCast(self.ptr), prefix.ptr);
+        const prefix_str = qtc.libqt_string{
+            .len = prefix.len,
+            .data = prefix.ptr,
+        };
+        return qtc.QSettings_BeginReadArray(@ptrCast(self.ptr), prefix_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#beginWriteArray)
@@ -548,7 +556,11 @@ pub const QSettings = extern struct {
     /// ` prefix: []const u8 `
     ///
     pub fn BeginWriteArray(self: QSettings, prefix: []const u8) void {
-        qtc.QSettings_BeginWriteArray(@ptrCast(self.ptr), prefix.ptr);
+        const prefix_str = qtc.libqt_string{
+            .len = prefix.len,
+            .data = prefix.ptr,
+        };
+        qtc.QSettings_BeginWriteArray(@ptrCast(self.ptr), prefix_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#endArray)
@@ -672,8 +684,12 @@ pub const QSettings = extern struct {
     /// ` value: QVariant `
     ///
     pub fn SetValue(self: QSettings, key: []const u8, value: anytype) void {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
         comptime _ = @TypeOf(value)._is_QVariant;
-        qtc.QSettings_SetValue(@ptrCast(self.ptr), key.ptr, @ptrCast(value.ptr));
+        qtc.QSettings_SetValue(@ptrCast(self.ptr), key_str, @ptrCast(value.ptr));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#value)
@@ -687,8 +703,12 @@ pub const QSettings = extern struct {
     /// ` defaultValue: QVariant `
     ///
     pub fn Value(self: QSettings, key: []const u8, defaultValue: anytype) QVariant {
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
         comptime _ = @TypeOf(defaultValue)._is_QVariant;
-        return .{ .ptr = qtc.QSettings_Value(@ptrCast(self.ptr), key.ptr, @ptrCast(defaultValue.ptr)) };
+        return .{ .ptr = qtc.QSettings_Value(@ptrCast(self.ptr), key_str, @ptrCast(defaultValue.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#value)
@@ -700,7 +720,11 @@ pub const QSettings = extern struct {
     /// ` key: []const u8 `
     ///
     pub fn Value2(self: QSettings, key: []const u8) QVariant {
-        return .{ .ptr = qtc.QSettings_Value2(@ptrCast(self.ptr), key.ptr) };
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return .{ .ptr = qtc.QSettings_Value2(@ptrCast(self.ptr), key_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#remove)
@@ -712,7 +736,11 @@ pub const QSettings = extern struct {
     /// ` key: []const u8 `
     ///
     pub fn Remove(self: QSettings, key: []const u8) void {
-        qtc.QSettings_Remove(@ptrCast(self.ptr), key.ptr);
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        qtc.QSettings_Remove(@ptrCast(self.ptr), key_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#contains)
@@ -724,7 +752,11 @@ pub const QSettings = extern struct {
     /// ` key: []const u8 `
     ///
     pub fn Contains(self: QSettings, key: []const u8) bool {
-        return qtc.QSettings_Contains(@ptrCast(self.ptr), key.ptr);
+        const key_str = qtc.libqt_string{
+            .len = key.len,
+            .data = key.ptr,
+        };
+        return qtc.QSettings_Contains(@ptrCast(self.ptr), key_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsettings.html#setFallbacksEnabled)
@@ -962,7 +994,11 @@ pub const QSettings = extern struct {
     /// ` size: i32 `
     ///
     pub fn BeginWriteArray2(self: QSettings, prefix: []const u8, size: i32) void {
-        qtc.QSettings_BeginWriteArray2(@ptrCast(self.ptr), prefix.ptr, @bitCast(size));
+        const prefix_str = qtc.libqt_string{
+            .len = prefix.len,
+            .data = prefix.ptr,
+        };
+        qtc.QSettings_BeginWriteArray2(@ptrCast(self.ptr), prefix_str, @bitCast(size));
     }
 
     /// Inherited from QObject
@@ -994,7 +1030,11 @@ pub const QSettings = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QSettings, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject

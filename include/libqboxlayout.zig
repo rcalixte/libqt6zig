@@ -1693,7 +1693,11 @@ pub const QBoxLayout = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QBoxLayout, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -4828,7 +4832,11 @@ pub const QHBoxLayout = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QHBoxLayout, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -8729,7 +8737,11 @@ pub const QVBoxLayout = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QVBoxLayout, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject

@@ -1494,7 +1494,11 @@ pub const QFont__Tag = extern struct {
     /// ` QFont__Tag ` (NOTE: The `ptr` field could be `null`.)
     ///
     pub fn FromString(view: []const u8) QFont__Tag {
-        return .{ .ptr = qtc.QFont__Tag_FromString(view.ptr) };
+        const view_str = qtc.libqt_string{
+            .len = view.len,
+            .data = view.ptr,
+        };
+        return .{ .ptr = qtc.QFont__Tag_FromString(view_str) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead

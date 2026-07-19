@@ -357,7 +357,11 @@ pub const QGesture = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QGesture, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -2152,7 +2156,11 @@ pub const QPanGesture = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QPanGesture, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -4122,7 +4130,11 @@ pub const QPinchGesture = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QPinchGesture, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -5889,7 +5901,11 @@ pub const QSwipeGesture = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QSwipeGesture, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -7629,7 +7645,11 @@ pub const QTapGesture = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QTapGesture, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject
@@ -9385,7 +9405,11 @@ pub const QTapAndHoldGesture = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetObjectName(self: QTapAndHoldGesture, name: []const u8) void {
-        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QObject

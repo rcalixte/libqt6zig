@@ -27,8 +27,8 @@ QUuid* QUuid_new5(QUuid__Id128Bytes* id128) {
     return new QUuid(*id128);
 }
 
-QUuid* QUuid_new6(const char* string) {
-    return new QUuid(QAnyStringView(string));
+QUuid* QUuid_new6(libqt_string string) {
+    return new QUuid(QAnyStringView(string.data, string.len));
 }
 
 QUuid* QUuid_new7(const QUuid* param1) {
@@ -47,8 +47,8 @@ void QUuid_MoveAssign(QUuid* self, QUuid* other) {
     *self = std::move(*other);
 }
 
-QUuid* QUuid_FromString(const char* string) {
-    return new QUuid(QUuid::fromString(QAnyStringView(string)));
+QUuid* QUuid_FromString(libqt_string string) {
+    return new QUuid(QUuid::fromString(QAnyStringView(string.data, string.len)));
 }
 
 libqt_string QUuid_ToString(const QUuid* self) {

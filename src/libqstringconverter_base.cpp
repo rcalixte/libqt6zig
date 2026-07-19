@@ -22,8 +22,8 @@ const char* QStringConverter_Name(const QStringConverter* self) {
     return (const char*)self->name();
 }
 
-int QStringConverter_EncodingForName(const char* name) {
-    return static_cast<int>(QStringConverter::encodingForName(QAnyStringView(name)).value_or(static_cast<QStringConverter::Encoding>(-1)));
+int QStringConverter_EncodingForName(libqt_string name) {
+    return static_cast<int>(QStringConverter::encodingForName(QAnyStringView(name.data, name.len)).value_or(static_cast<QStringConverter::Encoding>(-1)));
 }
 
 const char* QStringConverter_NameForEncoding(int e) {

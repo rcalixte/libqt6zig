@@ -213,8 +213,8 @@ func (zfs *zigFileState) getPageUrl(pageType PageType, pageName, cmdURL, classNa
 		}
 	}
 
-	pageName = strings.ReplaceAll(pageName, "__", "-")
-	pageName = strings.ReplaceAll(pageName, "_", "-")
+	replacer := strings.NewReplacer("__", "-", "_", "-")
+	pageName = replacer.Replace(pageName)
 
 	switch pageType {
 	case QtPage:
@@ -598,8 +598,32 @@ func (p CppParameter) renderReturnTypeZig(zfs *zigFileState, isSlot bool) (strin
 			returnStr = "\n/// ## Callback Returns:\n///\n/// ` C ABI representation of " + ret + " `\n///\n"
 			ret = "qtc.libqt_list"
 			hasWarning = true
+			if kType, vType, ok := t.QPairOf(); ok {
+				var fields []string
+				if IsKnownClass(kType.ParameterType) && kType.PointerCount == 0 {
+					fields = append(fields, ".first")
+				}
+				if IsKnownClass(vType.ParameterType) && vType.PointerCount == 0 {
+					fields = append(fields, ".second")
+				}
+				if len(fields) > 0 {
+					returnStr += "/// **Warning:** Memory for the " + strings.Join(fields, " and ") +
+						" field(s) of the inner type of the returned type of the callback will be freed by the library.\n///\n"
+				}
+			}
 		} else if !p.Pointer && IsKnownClass(p.ParameterType) {
 			returnStr = "\n/// **Warning:** Memory for the returned type of the callback is freed by the library.\n///\n"
+		} else if kType, vType, ok := p.QPairOf(); ok {
+			var fields []string
+			if IsKnownClass(kType.ParameterType) && kType.PointerCount == 0 {
+				fields = append(fields, ".first")
+			}
+			if IsKnownClass(vType.ParameterType) && vType.PointerCount == 0 {
+				fields = append(fields, ".second")
+			}
+			if len(fields) > 0 {
+				returnStr = "/// **Warning:** Memory for the " + strings.Join(fields, " and ") + " field(s) of the returned type of the callback will be freed by the library.\n///\n"
+			}
 		} else {
 			// C calling convention limitations
 			switch ret {
@@ -1008,7 +1032,7 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 	}
 
 	if p.ParameterType == "QString" || p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" ||
-		p.ParameterType == "QLatin1String" || p.ParameterType == "QLatin1StringView" ||
+		p.ParameterType == "QAnyStringView" || p.ParameterType == "QLatin1String" || p.ParameterType == "QLatin1StringView" ||
 		p.ParameterType == "SignOn::MethodName" || p.ParameterType == "QStringView" {
 		// Zig: convert [](const) u8 -> libqt_string
 		// C ABI: convert libqt_string -> real QString
@@ -1019,9 +1043,6 @@ func (zfs *zigFileState) emitParameterZig2CABIForwarding(p CppParameter) (preamb
 		preamble += "};"
 
 		rvalue = nameprefix + "_str"
-
-	} else if p.ParameterType == "QAnyStringView" {
-		rvalue = p.ParameterName + ".ptr"
 
 	} else if t, _, ok := p.QListOf(); ok {
 		// QList<T>
@@ -1479,7 +1500,7 @@ func (zfs *zigFileState) emitCabiToZig(assignExpr string, rt CppParameter, rvalu
 	} else if (rt.ParameterType == "void" || rt.ParameterType == "GLvoid") && rt.Pointer {
 		return assignExpr + rvalue + ";"
 
-	} else if (rt.ParameterType == "char" && rt.Pointer) || rt.ParameterType == "QAnyStringView" {
+	} else if rt.ParameterType == "char" && rt.Pointer {
 		// Qt functions normally return QString - anything returning char*
 		// is something like QByteArray.Data() where it returns an unsafe
 		// internal pointer.
@@ -2663,7 +2684,7 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 			ret.WriteString("\n" + preamble + returnFunc + "\n}\n\n")
 
 			// Add Connect() wrappers for signal functions
-			if m.IsSignal {
+			if m.IsSignal && !m.IsProtected {
 				addConnect := true
 				if _, ok := noQtConnect[cmdStructName]; ok {
 					addConnect = false

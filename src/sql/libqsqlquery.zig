@@ -157,7 +157,11 @@ pub const QSqlQuery = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn IsNull2(self: QSqlQuery, name: []const u8) bool {
-        return qtc.QSqlQuery_IsNull2(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.QSqlQuery_IsNull2(@ptrCast(self.ptr), name_str);
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#at)
@@ -315,7 +319,11 @@ pub const QSqlQuery = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn Value2(self: QSqlQuery, name: []const u8) QVariant {
-        return .{ .ptr = qtc.QSqlQuery_Value2(@ptrCast(self.ptr), name.ptr) };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.QSqlQuery_Value2(@ptrCast(self.ptr), name_str) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsqlquery.html#setNumericalPrecisionPolicy)

@@ -266,7 +266,11 @@ pub const QSqlIndex = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn Value2(self: QSqlIndex, name: []const u8) QVariant {
-        return .{ .ptr = qtc.QSqlRecord_Value2(@ptrCast(self.ptr), name.ptr) };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.QSqlRecord_Value2(@ptrCast(self.ptr), name_str) };
     }
 
     /// Inherited from QSqlRecord
@@ -299,8 +303,12 @@ pub const QSqlIndex = extern struct {
     /// ` val: QVariant `
     ///
     pub fn SetValue2(self: QSqlIndex, name: []const u8, val: anytype) void {
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
         comptime _ = @TypeOf(val)._is_QVariant;
-        qtc.QSqlRecord_SetValue2(@ptrCast(self.ptr), name.ptr, @ptrCast(val.ptr));
+        qtc.QSqlRecord_SetValue2(@ptrCast(self.ptr), name_str, @ptrCast(val.ptr));
     }
 
     /// Inherited from QSqlRecord
@@ -328,7 +336,11 @@ pub const QSqlIndex = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn SetNull2(self: QSqlIndex, name: []const u8) void {
-        qtc.QSqlRecord_SetNull2(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QSqlRecord_SetNull2(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QSqlRecord
@@ -356,7 +368,11 @@ pub const QSqlIndex = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn IsNull2(self: QSqlIndex, name: []const u8) bool {
-        return qtc.QSqlRecord_IsNull2(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.QSqlRecord_IsNull2(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QSqlRecord
@@ -370,7 +386,11 @@ pub const QSqlIndex = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn IndexOf(self: QSqlIndex, name: []const u8) i32 {
-        return qtc.QSqlRecord_IndexOf(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.QSqlRecord_IndexOf(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QSqlRecord
@@ -418,7 +438,11 @@ pub const QSqlIndex = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn Field2(self: QSqlIndex, name: []const u8) QSqlField {
-        return .{ .ptr = qtc.QSqlRecord_Field2(@ptrCast(self.ptr), name.ptr) };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.QSqlRecord_Field2(@ptrCast(self.ptr), name_str) };
     }
 
     /// Inherited from QSqlRecord
@@ -446,7 +470,11 @@ pub const QSqlIndex = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn IsGenerated2(self: QSqlIndex, name: []const u8) bool {
-        return qtc.QSqlRecord_IsGenerated2(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.QSqlRecord_IsGenerated2(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QSqlRecord
@@ -462,7 +490,11 @@ pub const QSqlIndex = extern struct {
     /// ` generated: bool `
     ///
     pub fn SetGenerated(self: QSqlIndex, name: []const u8, generated: bool) void {
-        qtc.QSqlRecord_SetGenerated(@ptrCast(self.ptr), name.ptr, generated);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        qtc.QSqlRecord_SetGenerated(@ptrCast(self.ptr), name_str, generated);
     }
 
     /// Inherited from QSqlRecord
@@ -552,7 +584,11 @@ pub const QSqlIndex = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn Contains(self: QSqlIndex, name: []const u8) bool {
-        return qtc.QSqlRecord_Contains(@ptrCast(self.ptr), name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.QSqlRecord_Contains(@ptrCast(self.ptr), name_str);
     }
 
     /// Inherited from QSqlRecord

@@ -394,8 +394,8 @@ int QRegularExpressionMatch_LastCapturedIndex(const QRegularExpressionMatch* sel
     return self->lastCapturedIndex();
 }
 
-bool QRegularExpressionMatch_HasCaptured(const QRegularExpressionMatch* self, const char* name) {
-    return self->hasCaptured(QAnyStringView(name));
+bool QRegularExpressionMatch_HasCaptured(const QRegularExpressionMatch* self, libqt_string name) {
+    return self->hasCaptured(QAnyStringView(name.data, name.len));
 }
 
 bool QRegularExpressionMatch_HasCaptured2(const QRegularExpressionMatch* self, int nth) {
@@ -426,8 +426,8 @@ libqt_string QRegularExpressionMatch_CapturedView(const QRegularExpressionMatch*
     return _str;
 }
 
-libqt_string QRegularExpressionMatch_Captured2(const QRegularExpressionMatch* self, const char* name) {
-    auto _ret = self->captured(QAnyStringView(name));
+libqt_string QRegularExpressionMatch_Captured2(const QRegularExpressionMatch* self, libqt_string name) {
+    auto _ret = self->captured(QAnyStringView(name.data, name.len));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -438,8 +438,8 @@ libqt_string QRegularExpressionMatch_Captured2(const QRegularExpressionMatch* se
     return _str;
 }
 
-libqt_string QRegularExpressionMatch_CapturedView2(const QRegularExpressionMatch* self, const char* name) {
-    auto _ret = self->capturedView(QAnyStringView(name));
+libqt_string QRegularExpressionMatch_CapturedView2(const QRegularExpressionMatch* self, libqt_string name) {
+    auto _ret = self->capturedView(QAnyStringView(name.data, name.len));
     // Convert QString from UTF-16 in C++ RAII memory to UTF-8 in manually-managed C memory
     QByteArray _b = _ret.toUtf8();
     libqt_string _str;
@@ -483,16 +483,16 @@ ptrdiff_t QRegularExpressionMatch_CapturedEnd(const QRegularExpressionMatch* sel
     return static_cast<ptrdiff_t>(self->capturedEnd());
 }
 
-ptrdiff_t QRegularExpressionMatch_CapturedStart2(const QRegularExpressionMatch* self, const char* name) {
-    return static_cast<ptrdiff_t>(self->capturedStart(QAnyStringView(name)));
+ptrdiff_t QRegularExpressionMatch_CapturedStart2(const QRegularExpressionMatch* self, libqt_string name) {
+    return static_cast<ptrdiff_t>(self->capturedStart(QAnyStringView(name.data, name.len)));
 }
 
-ptrdiff_t QRegularExpressionMatch_CapturedLength2(const QRegularExpressionMatch* self, const char* name) {
-    return static_cast<ptrdiff_t>(self->capturedLength(QAnyStringView(name)));
+ptrdiff_t QRegularExpressionMatch_CapturedLength2(const QRegularExpressionMatch* self, libqt_string name) {
+    return static_cast<ptrdiff_t>(self->capturedLength(QAnyStringView(name.data, name.len)));
 }
 
-ptrdiff_t QRegularExpressionMatch_CapturedEnd2(const QRegularExpressionMatch* self, const char* name) {
-    return static_cast<ptrdiff_t>(self->capturedEnd(QAnyStringView(name)));
+ptrdiff_t QRegularExpressionMatch_CapturedEnd2(const QRegularExpressionMatch* self, libqt_string name) {
+    return static_cast<ptrdiff_t>(self->capturedEnd(QAnyStringView(name.data, name.len)));
 }
 
 libqt_string QRegularExpressionMatch_Captured1(const QRegularExpressionMatch* self, int nth) {

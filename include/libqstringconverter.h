@@ -24,18 +24,18 @@ typedef struct QStringEncoder QStringEncoder;
 
 QStringEncoder* QStringEncoder_new();
 QStringEncoder* QStringEncoder_new2(int encoding);
-QStringEncoder* QStringEncoder_new3(const char* name);
+QStringEncoder* QStringEncoder_new3(libqt_string name);
 QStringEncoder* QStringEncoder_new4(int encoding, int flags);
-QStringEncoder* QStringEncoder_new5(const char* name, int flags);
+QStringEncoder* QStringEncoder_new5(libqt_string name, int flags);
 ptrdiff_t QStringEncoder_RequiredSpace(const QStringEncoder* self, ptrdiff_t inputLength);
 char* QStringEncoder_AppendToBuffer(QStringEncoder* self, char* out, libqt_string in);
 void QStringEncoder_Delete(QStringEncoder* self);
 
 QStringDecoder* QStringDecoder_new(int encoding);
 QStringDecoder* QStringDecoder_new2();
-QStringDecoder* QStringDecoder_new3(const char* name);
+QStringDecoder* QStringDecoder_new3(libqt_string name);
 QStringDecoder* QStringDecoder_new4(int encoding, int flags);
-QStringDecoder* QStringDecoder_new5(const char* name, int f);
+QStringDecoder* QStringDecoder_new5(libqt_string name, int f);
 ptrdiff_t QStringDecoder_RequiredSpace(const QStringDecoder* self, ptrdiff_t inputLength);
 QChar* QStringDecoder_AppendToBuffer(QStringDecoder* self, QChar* out, libqt_string ba);
 QStringDecoder* QStringDecoder_DecoderForHtml(libqt_string data);

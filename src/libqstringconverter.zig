@@ -39,7 +39,11 @@ pub const QStringEncoder = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn New3(name: []const u8) QStringEncoder {
-        return .{ .ptr = qtc.QStringEncoder_new3(name.ptr) };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.QStringEncoder_new3(name_str) };
     }
 
     /// New4 constructs a new QStringEncoder object.
@@ -63,7 +67,11 @@ pub const QStringEncoder = extern struct {
     /// ` flags: flag of qstringconverter_base_enums.Flag `
     ///
     pub fn New5(name: []const u8, flags: i32) QStringEncoder {
-        return .{ .ptr = qtc.QStringEncoder_new5(name.ptr, @bitCast(flags)) };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.QStringEncoder_new5(name_str, @bitCast(flags)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringencoder.html#requiredSpace)
@@ -160,7 +168,11 @@ pub const QStringEncoder = extern struct {
     /// ` qstringconverter_base_enums.Encoding ` (Returns -1 for an invalid value)
     ///
     pub fn EncodingForName(name: []const u8) i32 {
-        return qtc.QStringConverter_EncodingForName(name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.QStringConverter_EncodingForName(name_str);
     }
 
     /// Inherited from QStringConverter
@@ -294,7 +306,11 @@ pub const QStringDecoder = extern struct {
     /// ` name: []const u8 `
     ///
     pub fn New3(name: []const u8) QStringDecoder {
-        return .{ .ptr = qtc.QStringDecoder_new3(name.ptr) };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.QStringDecoder_new3(name_str) };
     }
 
     /// New4 constructs a new QStringDecoder object.
@@ -318,7 +334,11 @@ pub const QStringDecoder = extern struct {
     /// ` f: flag of qstringconverter_base_enums.Flag `
     ///
     pub fn New5(name: []const u8, f: i32) QStringDecoder {
-        return .{ .ptr = qtc.QStringDecoder_new5(name.ptr, @bitCast(f)) };
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return .{ .ptr = qtc.QStringDecoder_new5(name_str, @bitCast(f)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstringdecoder.html#requiredSpace)
@@ -428,7 +448,11 @@ pub const QStringDecoder = extern struct {
     /// ` qstringconverter_base_enums.Encoding ` (Returns -1 for an invalid value)
     ///
     pub fn EncodingForName(name: []const u8) i32 {
-        return qtc.QStringConverter_EncodingForName(name.ptr);
+        const name_str = qtc.libqt_string{
+            .len = name.len,
+            .data = name.ptr,
+        };
+        return qtc.QStringConverter_EncodingForName(name_str);
     }
 
     /// Inherited from QStringConverter

@@ -700,8 +700,8 @@ bool QDomDocument_SetContent7(QDomDocument* self, QXmlStreamReader* reader, bool
     return self->setContent(reader, namespaceProcessing);
 }
 
-QDomDocument__ParseResult* QDomDocument_SetContent8(QDomDocument* self, const char* data) {
-    return new QDomDocument::ParseResult(self->setContent(QAnyStringView(data)));
+QDomDocument__ParseResult* QDomDocument_SetContent8(QDomDocument* self, libqt_string data) {
+    return new QDomDocument::ParseResult(self->setContent(QAnyStringView(data.data, data.len)));
 }
 
 QDomDocument__ParseResult* QDomDocument_SetContent9(QDomDocument* self, QIODevice* device) {
@@ -733,8 +733,8 @@ libqt_string QDomDocument_ToByteArray(const QDomDocument* self) {
     return _str;
 }
 
-QDomDocument__ParseResult* QDomDocument_SetContent22(QDomDocument* self, const char* data, int options) {
-    return new QDomDocument::ParseResult(self->setContent(QAnyStringView(data), static_cast<QDomDocument::ParseOptions>(options)));
+QDomDocument__ParseResult* QDomDocument_SetContent22(QDomDocument* self, libqt_string data, int options) {
+    return new QDomDocument::ParseResult(self->setContent(QAnyStringView(data.data, data.len), static_cast<QDomDocument::ParseOptions>(options)));
 }
 
 QDomDocument__ParseResult* QDomDocument_SetContent23(QDomDocument* self, QIODevice* device, int options) {
