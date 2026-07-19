@@ -471,18 +471,6 @@ func AllowMethod(className string, mm CppMethod) error {
 }
 
 func AllowCtor(className string) bool {
-	if className == "QStringConverterBase" {
-		// Both the main ctor and the copy constructor were changed from public to protected between 6.8.1 and 6.8.2
-		// @ref https://github.com/qt/qtbase/commit/41679e0b4398c0de38a8107642dc643fe2c3554f
-		// @ref https://github.com/mappu/miqt/issues/168
-		// Block both ctors from generation
-		return false
-	}
-
-	if className == "QNativeInterface::QGLXContext" || className == "QNativeInterface::QEGLContext" {
-		return false
-	}
-
 	// Qt 6 OpenGL
 	if strings.HasPrefix(className, "QOpenGL") && strings.HasSuffix(className, "Backend") {
 		// e.g. QOpenGLFunctions_1_0_CoreBackend, QOpenGLFunctions_1_0_DeprecatedBackend, QOpenGLVersionFunctionsBackend
@@ -493,22 +481,18 @@ func AllowCtor(className string) bool {
 		return false
 	}
 
-	// Qt 6 Attica
-	if className == "Attica::PlatformDependentV2" || className == "Attica::PlatformDependentV3" {
-		return false
-	}
-
-	// Qt 6 KIO
-	if className == "KIO::WorkerFactory" {
-		return false
-	}
-
-	// Qt 6 Poppler
-	if className == "Poppler::MediaRendition" {
-		return false
-	}
-
 	if isBindingRemoved(className) {
+		return false
+	}
+
+	switch className {
+	case
+		"Attica::PlatformDependentV2", // Qt 6 Attica
+		"Attica::PlatformDependentV3", // Qt 6 Attica
+		"KIO::WorkerFactory",          // Qt 6 KIO
+		"Poppler::MediaRendition",     // Qt 6 Poppler
+		"QNativeInterface::QGLXContext",
+		"QNativeInterface::QEGLContext":
 		return false
 	}
 
