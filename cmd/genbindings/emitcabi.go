@@ -59,11 +59,9 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 			return "libqt_string"
 		}
 
-	} else if p.ParameterType == "QAnyStringView" {
-		return "const char*"
-
 	} else if p.ParameterType == "QByteArray" || p.ParameterType == "QByteArrayView" ||
-		p.ParameterType == "QLatin1String" || p.ParameterType == "QLatin1StringView" {
+		p.ParameterType == "QLatin1String" || p.ParameterType == "QLatin1StringView" ||
+		p.ParameterType == "QAnyStringView" {
 		return "libqt_string"
 
 	} else if inner, _, ok := p.QListOf(); ok {
@@ -97,8 +95,9 @@ func (p CppParameter) RenderTypeCabi(isSlot bool) string {
 				vParam = e.EnumTypeCABI
 			}
 
-			kParam = strings.ReplaceAll(kParam, " ", "_")
-			vParam = strings.ReplaceAll(vParam, " ", "_")
+			replacer := strings.NewReplacer(" ", "_")
+			kParam = replacer.Replace(kParam)
+			vParam = replacer.Replace(vParam)
 
 			returnType = "pair_" + strings.ToLower(kParam) + "_" + strings.ToLower(vParam)
 		}
@@ -214,20 +213,17 @@ func (p CppParameter) RenderTypeIntermediateCpp() string {
 		cppType += "&"
 	}
 
-	// hack some difficult flag typedefs for now
-	if cppType == "ListJob::ListFlags" {
+	// TODO hack some difficult flag typedefs for now
+	switch cppType {
+	case "ListJob::ListFlags":
 		return "KIO::ListJob::ListFlags"
-	}
-	if cppType == "MovingRange::InsertBehaviors" {
+	case "MovingRange::InsertBehaviors":
 		return "KTextEditor::MovingRange::InsertBehaviors"
-	}
-	if cppType == "Transaction::Filters" {
+	case "Transaction::Filters":
 		return "PackageKit::Transaction::Filters"
-	}
-	if cppType == "Transaction::TransactionFlags" {
+	case "Transaction::TransactionFlags":
 		return "PackageKit::Transaction::TransactionFlag"
-	}
-	if cppType == "TextEditFindBarBase::FindFlags" {
+	case "TextEditFindBarBase::FindFlags":
 		return "TextCustomEditor::TextEditFindBarBase::FindFlags"
 	}
 
@@ -344,7 +340,7 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot,
 		return preamble, nameprefix + "_" + p.ParameterType
 
 	} else if p.ParameterType == "QAnyStringView" {
-		return preamble, p.ParameterType + "(" + nameprefix + ")"
+		return preamble, p.ParameterType + "(" + nameprefix + ".data, " + nameprefix + ".len)"
 
 	} else if listType, containerType, ok := p.QListOf(); ok {
 
@@ -472,22 +468,26 @@ func emitCABI2CppForwarding(p CppParameter, indent, currentClass string, isSlot,
 		preamble += indent + p.GetQtCppType().ParameterType + " " + nameprefix + "_QPair;\n"
 
 		if (kType.IntType() || IsKnownClass(kType.ParameterType)) && (vType.IntType() || IsKnownClass(vType.ParameterType)) {
-			var firstDeref, firstClose, secondDeref, secondClose string
-			if p.ParameterName[len(p.ParameterName)-1] == ']' || kType.ParameterType == "QCborValue" {
-				if IsKnownClass(kType.ParameterType) && kType.ParameterType != "QAccessibleInterface" {
+			var firstDeref, firstClose, firstDelete, secondDeref, secondClose, secondDelete string
+			if p.ParameterName[len(p.ParameterName)-1] == ']' || IsKnownClass(kType.ParameterType) {
+				if IsKnownClass(kType.ParameterType) && kType.PointerCount == 0 {
 					firstDeref = "*("
 					firstClose = ")"
+					firstDelete = ifv(isSlot, "delete "+p.ParameterName+".first;\n", "")
 				}
-				if IsKnownClass(vType.ParameterType) {
+				if IsKnownClass(vType.ParameterType) && vType.PointerCount == 0 {
 					secondDeref = "*("
 					secondClose = ")"
+					secondDelete = ifv(isSlot, "delete "+p.ParameterName+".second;\n", "")
 				} else if _, ok := vType.QFlagsOf(); ok {
 					secondDeref = "static_cast<" + vType.ParameterType + ">("
 					secondClose = ")"
 				}
 			}
 			preamble += indent + nameprefix + "_QPair.first = " + firstDeref + p.ParameterName + ".first" + firstClose + ";\n"
+			preamble += firstDelete
 			preamble += indent + nameprefix + "_QPair.second = " + secondDeref + p.ParameterName + ".second" + secondClose + ";\n"
+			preamble += secondDelete
 
 			return preamble, nameprefix + "_QPair"
 
@@ -971,11 +971,11 @@ func emitAssignCppToCabi(assignExpression string, p CppParameter, rvalue string)
 			afterCall += indent + p.RenderTypeCabi(false) + " " + namePrefix + "_out;"
 
 			var maybeNewF, fClose, maybeNewS, sClose string
-			if IsKnownClass(kType.ParameterType) && kType.ParameterType != "QAccessibleInterface" {
+			if IsKnownClass(kType.ParameterType) && kType.PointerCount == 0 {
 				maybeNewF = "new " + kType.ParameterType + "("
 				fClose = ")"
 			}
-			if IsKnownClass(vType.ParameterType) && vType.ParameterType != "QAccessibleInterface" {
+			if IsKnownClass(vType.ParameterType) && vType.PointerCount == 0 {
 				maybeNewS = "new " + vType.ParameterType + "("
 				sClose = ")"
 			}
@@ -1729,24 +1729,25 @@ extern "C" {
 		sortedExtras = append(sortedExtras, k)
 	}
 	sort.Strings(sortedExtras)
-	for _, k := range sortedExtras {
-		pairs := strings.Split(k, ":")
-		f := strings.ReplaceAll(strings.ToLower(pairs[0]), " ", "_")
-		s := strings.ReplaceAll(strings.ToLower(pairs[1]), " ", "_")
+	replacer := strings.NewReplacer(" ", "_")
+	for i := range sortedExtras {
+		pairs := strings.Split(sortedExtras[i], ":")
+		f := replacer.Replace(strings.ToLower(pairs[0]))
+		s := replacer.Replace(strings.ToLower(pairs[1]))
 		ret.WriteString("struct pair_" + f + "_" + s + ";\n")
 	}
 	ret.WriteString("\n")
-	for _, k := range sortedExtras {
-		pairs := strings.Split(k, ":")
-		f := strings.ReplaceAll(strings.ToLower(pairs[0]), " ", "_")
-		s := strings.ReplaceAll(strings.ToLower(pairs[1]), " ", "_")
+	for i := range sortedExtras {
+		pairs := strings.Split(sortedExtras[i], ":")
+		f := replacer.Replace(strings.ToLower(pairs[0]))
+		s := replacer.Replace(strings.ToLower(pairs[1]))
 		ret.WriteString("typedef struct pair_" + f + "_" + s + " pair_" + f + "_" + s + ";\n")
 	}
 	ret.WriteString("\n")
-	for _, k := range sortedExtras {
-		pairs := strings.Split(k, ":")
-		f := strings.ReplaceAll(strings.ToLower(pairs[0]), " ", "_")
-		s := strings.ReplaceAll(strings.ToLower(pairs[1]), " ", "_")
+	for i := range sortedExtras {
+		pairs := strings.Split(sortedExtras[i], ":")
+		f := replacer.Replace(strings.ToLower(pairs[0]))
+		s := replacer.Replace(strings.ToLower(pairs[1]))
 		ret.WriteString("#ifndef PAIR_" + strings.ToUpper(f+"_"+s) + "\n" +
 			"#define PAIR_" + strings.ToUpper(f+"_"+s) + "\n" +
 			"struct pair_" + f + "_" + s + " {\n" +
