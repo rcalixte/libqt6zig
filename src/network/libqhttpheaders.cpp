@@ -1,5 +1,4 @@
 #include <QByteArray>
-#include <QByteArrayView>
 #include <QHttpHeaders>
 #include <QList>
 #include <QMultiHash>

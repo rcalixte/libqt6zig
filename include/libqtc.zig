@@ -886,7 +886,6 @@ pub const QBrush = ?*C.QBrush;
 pub const QBuffer = ?*C.QBuffer;
 pub const QButtonGroup = ?*C.QButtonGroup;
 pub const QByteArrayMatcher = ?*C.QByteArrayMatcher;
-pub const QByteArrayView = ?*C.QByteArrayView;
 pub const QByteArray__FromBase64Result = ?*C.QByteArray__FromBase64Result;
 pub const QCP = ?*C.QCP;
 pub const QCPAbstractItem = ?*C.QCPAbstractItem;

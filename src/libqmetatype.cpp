@@ -1,5 +1,4 @@
 #include <QByteArray>
-#include <QByteArrayView>
 #include <QDataStream>
 #include <QDebug>
 #include <QMetaObject>

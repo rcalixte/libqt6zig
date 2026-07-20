@@ -1,5 +1,4 @@
 #include <QByteArray>
-#include <QByteArrayView>
 #include <QColor>
 #include <QColorSpace>
 #include <QColorTransform>

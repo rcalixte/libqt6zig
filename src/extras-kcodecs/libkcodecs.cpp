@@ -3,7 +3,6 @@
 #define WORKAROUND_INNER_CLASS_DEFINITION_KCodecs__Decoder
 #define WORKAROUND_INNER_CLASS_DEFINITION_KCodecs__Encoder
 #include <QByteArray>
-#include <QByteArrayView>
 #include <QString>
 #include <kcodecs.h>
 #include "libkcodecs.h"

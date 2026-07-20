@@ -1,4 +1,3 @@
-#include <QByteArrayView>
 #include <QChildEvent>
 #include <QEvent>
 #include <QGeoSatelliteInfo>

@@ -1,6 +1,5 @@
 #include <KArchive>
 #include <KArchiveDirectory>
-#include <QByteArrayView>
 #include <QDateTime>
 #include <QIODevice>
 #include <QString>

@@ -1,4 +1,3 @@
-#include <QByteArrayView>
 #include <QList>
 #include <QString>
 #include <QStringConverter>

@@ -16,7 +16,6 @@ extern "C" {
 #ifdef __cplusplus
 #else
 typedef struct KEncodingProber KEncodingProber;
-typedef struct QByteArrayView QByteArrayView;
 #endif
 
 KEncodingProber* KEncodingProber_new();
