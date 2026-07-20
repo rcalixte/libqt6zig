@@ -2320,8 +2320,12 @@ const qtc = @import("qt6c");`)
 		}
 	}
 
-	for _, c := range src.Classes {
-		zfs.currentClasses = append(zfs.currentClasses, c.ClassName)
+	for i := range src.Classes {
+		// hack for broken class definition
+		if zfs.currentHeaderName == "dropjob" && src.Classes[i].ClassName == "KIO::CopyJob" {
+			continue
+		}
+		zfs.currentClasses = append(zfs.currentClasses, src.Classes[i].ClassName)
 	}
 
 	for _, c := range src.Classes {
@@ -2397,8 +2401,6 @@ const qtc = @import("qt6c");`)
 					}
 				}
 			}
-		} else if zfs.currentHeaderName == "dropjob" {
-			zfs.imports["class:KIO__CopyJob"] = struct{}{}
 		}
 
 		for i, ctor := range c.Ctors {
