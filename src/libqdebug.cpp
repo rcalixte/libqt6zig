@@ -1,5 +1,4 @@
 #include <QByteArray>
-#include <QByteArrayView>
 #include <QChar>
 #include <QDebug>
 #include <QDebugStateSaver>

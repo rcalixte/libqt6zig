@@ -18,7 +18,6 @@ extern "C" {
 typedef QTimeZone::OffsetData QTimeZone__OffsetData;
 #endif
 #else
-typedef struct QByteArrayView QByteArrayView;
 typedef struct QDateTime QDateTime;
 typedef struct QLocale QLocale;
 typedef struct QTimeZone QTimeZone;

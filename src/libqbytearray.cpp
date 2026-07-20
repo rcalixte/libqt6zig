@@ -1,6 +1,5 @@
 #include <QByteArray>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QByteArray__FromBase64Result
-#include <QByteArrayView>
 #include <QList>
 #include <qbytearray.h>
 #include "libqbytearray.h"

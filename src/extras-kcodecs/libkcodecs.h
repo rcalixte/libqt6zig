@@ -28,7 +28,6 @@ typedef struct KCodecs KCodecs;
 typedef struct KCodecs__Codec KCodecs__Codec;
 typedef struct KCodecs__Decoder KCodecs__Decoder;
 typedef struct KCodecs__Encoder KCodecs__Encoder;
-typedef struct QByteArrayView QByteArrayView;
 #endif
 
 libqt_string KCodecs_QuotedPrintableEncode(libqt_string in, bool useCRLF);

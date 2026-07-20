@@ -1,5 +1,4 @@
 #include <QByteArray>
-#include <QByteArrayView>
 #include <QDateTime>
 #include <QList>
 #include <QNetworkCookie>

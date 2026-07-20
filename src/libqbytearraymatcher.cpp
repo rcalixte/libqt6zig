@@ -1,6 +1,5 @@
 #include <QByteArray>
 #include <QByteArrayMatcher>
-#include <QByteArrayView>
 #include <QStaticByteArrayMatcherBase>
 #include <qbytearraymatcher.h>
 #include "libqbytearraymatcher.h"

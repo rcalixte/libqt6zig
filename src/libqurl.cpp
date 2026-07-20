@@ -1,5 +1,4 @@
 #include <QByteArray>
-#include <QByteArrayView>
 #include <QList>
 #include <QString>
 #include <QUrl>

@@ -1,5 +1,4 @@
 #include <QByteArray>
-#include <QByteArrayView>
 #include <QString>
 #include <QUuid>
 #define WORKAROUND_INNER_CLASS_DEFINITION_QUuid__Id128Bytes

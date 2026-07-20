@@ -18,7 +18,6 @@ extern "C" {
 typedef QByteArray::FromBase64Result QByteArray__FromBase64Result;
 #endif
 #else
-typedef struct QByteArrayView QByteArrayView;
 typedef struct QByteArray__FromBase64Result QByteArray__FromBase64Result;
 #endif
 

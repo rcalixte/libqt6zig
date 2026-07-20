@@ -17,7 +17,6 @@ extern "C" {
 #else
 typedef struct KArchive KArchive;
 typedef struct KArchiveDirectory KArchiveDirectory;
-typedef struct QByteArrayView QByteArrayView;
 typedef struct QDateTime QDateTime;
 typedef struct QIODevice QIODevice;
 #endif

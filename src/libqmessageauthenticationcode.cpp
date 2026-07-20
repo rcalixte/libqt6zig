@@ -1,5 +1,4 @@
 #include <QByteArray>
-#include <QByteArrayView>
 #include <QIODevice>
 #include <QMessageAuthenticationCode>
 #include <QSpan>
