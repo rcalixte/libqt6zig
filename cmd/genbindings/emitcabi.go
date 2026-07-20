@@ -1239,7 +1239,8 @@ func cabiClassName(className string) string {
 
 func isBindingRemoved(className string) bool {
 	switch className {
-	case "QAnyStringView", "QByteArray", "QLatin1String", "QLatin1StringView",
+	case "QAnyStringView", "QByteArray", "QByteArrayView",
+		"QLatin1String", "QLatin1StringView",
 		"QString", "QStringView",
 		"QSet", "QMap", "QMultiMap", "QHash", "QMultiHash",
 		"QPair", "QList", "QVector", "QSpan":
