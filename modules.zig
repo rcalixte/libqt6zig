@@ -123,9 +123,11 @@ pub const modules = &.{
     "KSyntaxHighlighting",
     "KSyntaxHighlighting/KSyntaxHighlighting",
     // Qt 6 KTextAddons
+    "TextAddonsWidgets",
     "TextAddonsWidgets/textaddonswidgets",
     "TextAutoCorrectionCore",
     "TextAutoCorrectionCore/textautocorrectioncore",
+    "TextAutoCorrectionWidgets",
     "TextAutoCorrectionWidgets/textautocorrectionwidgets",
     "TextCustomEditor",
     "TextCustomEditor/textcustomeditor",
@@ -139,6 +141,7 @@ pub const modules = &.{
     "TextGrammarCheck/textgrammarcheck",
     "TextTranslator",
     "TextTranslator/texttranslator",
+    "TextUtils",
     "TextUtils/textutils",
     // Qt 6 KTextWidgets
     "KTextWidgets",
