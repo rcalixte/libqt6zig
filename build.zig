@@ -16,9 +16,11 @@ pub fn build(b: *std.Build) !void {
     const linkage = b.option(std.builtin.LinkMode, "linkage", "Link mode for libqt6zig") orelse .static;
     const strip = b.option(bool, "strip", "Include debug information in the compiled binary") orelse (optimize != .Debug);
 
+    const is_linux = target.result.os.tag == .linux or host_os == .linux;
     const is_macos = target.result.os.tag == .macos or host_os == .macos;
     const is_windows = target.result.os.tag == .windows or host_os == .windows;
-    const is_linux = target.result.os.tag == .linux or host_os == .linux;
+
+    const macos_libraries = b.option([]const []const u8, "macos-libraries", "Extra libraries or frameworks to link via pkg-config") orelse &.{};
 
     // Add isystem paths for Linux
     var distro: Distro = .none;
@@ -27,12 +29,11 @@ pub fn build(b: *std.Build) !void {
             .argv = &.{ "gcc", "-xc++", "-E", "-Wp,-v", "/dev/null" },
         });
 
-        var lines = std.mem.splitScalar(u8, result.stderr, '\n');
+        var lines = std.mem.tokenizeAny(u8, result.stderr, &std.ascii.whitespace);
         while (lines.next()) |line|
-            if (std.mem.startsWith(u8, line, " /")) {
-                const isystem_path = std.mem.trim(u8, line, &std.ascii.whitespace);
-                std.Io.Dir.cwd().access(b.graph.io, isystem_path, .{}) catch continue;
-                try linux_isystem.append(b.allocator, isystem_path);
+            if (std.mem.startsWith(u8, line, "/")) {
+                std.Io.Dir.cwd().access(b.graph.io, line, .{}) catch continue;
+                try linux_isystem.append(b.allocator, line);
             };
 
         for (linux_isystem.items) |isystem_path| {
@@ -46,6 +47,39 @@ pub fn build(b: *std.Build) !void {
                 };
 
             try cpp_flags.append(b.allocator, b.fmt("-isystem{s}", .{isystem_path}));
+        }
+    } else if (is_macos) {
+        const pkg_env = "PKG_CONFIG_PATH";
+        const pkg_dir = "/lib/pkgconfig";
+        var result = try std.process.run(b.allocator, b.graph.io, .{
+            .argv = &.{ "brew", "--prefix", "qt6" },
+        });
+        if (result.stdout.len != 0) {
+            const qt_path = std.mem.trim(u8, result.stdout, &std.ascii.whitespace);
+            if (b.graph.environ_map.get(pkg_env)) |existing| {
+                const merged = b.fmt("{s}{s}:{s}", .{ qt_path, pkg_dir, existing });
+                try b.graph.environ_map.put(pkg_env, merged);
+            } else try b.graph.environ_map.put(pkg_env, b.fmt("{s}{s}", .{ qt_path, pkg_dir }));
+
+            const argv = try std.mem.concat(b.allocator, []const u8, &.{
+                &.{ "pkg-config", "--cflags", "--libs", "Qt6Widgets" },
+                macos_libraries,
+            });
+            result = try std.process.run(b.allocator, b.graph.io, .{
+                .argv = argv,
+                .environ_map = &b.graph.environ_map,
+            });
+            if (result.stderr.len != 0) std.log.err("{s}", .{result.stderr});
+            if (result.stdout.len != 0) {
+                var it = std.mem.tokenizeScalar(u8, result.stdout, ' ');
+                while (it.next()) |arg| {
+                    if (std.mem.eql(u8, arg, "-framework")) {
+                        _ = it.next();
+                        continue;
+                    }
+                    try cpp_flags.append(b.allocator, arg);
+                }
+            }
         }
     }
 
@@ -261,7 +295,6 @@ const os_include_path: []const []const u8 = switch (host_os) {
         "/usr/local/opt/qt6/include",
         "/opt/homebrew/include/KF6",
         "/opt/homebrew/include",
-        "/opt/local/libexec/qt6/mkspecs/common/posix",
     },
     .windows => &.{
         "C:/Qt/6.8.3/llvm-mingw_64/include",
