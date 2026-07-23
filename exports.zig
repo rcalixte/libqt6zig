@@ -16,6 +16,9 @@ const QtExeOptions = struct {
     /// Extra libraries to link to the exe where the full path is
     /// determined by `gcc`
     linux_libraries: []const []const u8 = &.{},
+    /// Extra libraries or frameworks to link to the exe where the
+    /// full paths are determined by `pkg-config`
+    macos_libraries: []const []const u8 = &.{},
     /// Extra dlls to link to the exe
     win_libs: []const []const u8 = &.{},
     /// The directory where Qt is installed
@@ -65,6 +68,8 @@ pub fn configureQtExeRootModule(b: *std.Build, exe: *std.Build.Step.Compile, opt
     if (is_macos) {
         exe.root_module.addFrameworkPath(.{ .cwd_relative = "/opt/homebrew/Frameworks" });
         exe.root_module.addLibraryPath(.{ .cwd_relative = "/opt/homebrew/lib" });
+        for (options.macos_libraries) |lib|
+            exe.root_module.linkFramework(lib, .{});
     }
     if (is_windows) {
         const win_bin_dir = b.fmt("{s}/bin", .{options.win_root});
