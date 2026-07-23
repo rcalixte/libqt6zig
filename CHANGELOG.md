@@ -1,4 +1,8 @@
 
+### 6.8.2 rev80 (23 July 2026)
+
+* Improve cross-platform support
+
 ### 6.8.2 rev79 (20 July 2026)
 
 * **BREAKING CHANGE:** Restrict QByteArrayView to native types (#154)
