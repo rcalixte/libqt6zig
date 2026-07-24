@@ -56,10 +56,16 @@ pub fn build(b: *std.Build) !void {
         });
         if (result.stdout.len != 0) {
             const qt_path = std.mem.trim(u8, result.stdout, &std.ascii.whitespace);
+            var extra_env: std.ArrayList(u8) = .empty;
+            for (extra_paths) |extra_path| {
+                if (extra_path.len == 0) continue;
+                std.Io.Dir.cwd().access(b.graph.io, b.fmt("{s}{s}", .{ extra_path, pkg_dir }), .{}) catch continue;
+                try extra_env.print(b.allocator, "{s}{s}:", .{ extra_path, pkg_dir });
+            }
             if (b.graph.environ_map.get(pkg_env)) |existing| {
-                const merged = b.fmt("{s}{s}:{s}", .{ qt_path, pkg_dir, existing });
+                const merged = b.fmt("{s}{s}{s}:{s}", .{ extra_env.items, qt_path, pkg_dir, existing });
                 try b.graph.environ_map.put(pkg_env, merged);
-            } else try b.graph.environ_map.put(pkg_env, b.fmt("{s}{s}", .{ qt_path, pkg_dir }));
+            } else try b.graph.environ_map.put(pkg_env, b.fmt("{s}{s}{s}", .{ extra_env.items, qt_path, pkg_dir }));
 
             const argv = try std.mem.concat(b.allocator, []const u8, &.{
                 &.{ "pkg-config", "--cflags", "--libs", "Qt6Widgets" },
