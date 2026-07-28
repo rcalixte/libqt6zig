@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBVIRTUALAUTHINFO_H
-#define SRC_EXTRAS_KIOC_LIBVIRTUALAUTHINFO_H
+#ifndef EXTRAS_KIO_LIBAUTHINFO_HXX
+#define EXTRAS_KIO_LIBAUTHINFO_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

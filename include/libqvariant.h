@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQVARIANT_H
-#define SRCC_LIBQVARIANT_H
+#ifndef LIBQVARIANT_H
+#define LIBQVARIANT_H
 
 #include <stdbool.h>
 #include <stddef.h>

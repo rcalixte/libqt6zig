@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_ATTICAC_LIBVIRTUALMESSAGE_H
-#define SRC_EXTRAS_ATTICAC_LIBVIRTUALMESSAGE_H
+#ifndef EXTRAS_ATTICA_LIBMESSAGE_HXX
+#define EXTRAS_ATTICA_LIBMESSAGE_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

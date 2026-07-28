@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQTOOLBAR_H
-#define SRCC_LIBVIRTUALQTOOLBAR_H
+#ifndef LIBQTOOLBAR_HXX
+#define LIBQTOOLBAR_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

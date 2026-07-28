@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_SOLIDC_LIBPREDICATE_H
-#define SRC_EXTRAS_SOLIDC_LIBPREDICATE_H
+#ifndef EXTRAS_SOLID_LIBPREDICATE_H
+#define EXTRAS_SOLID_LIBPREDICATE_H
 
 #include <stdbool.h>
 #include <stddef.h>

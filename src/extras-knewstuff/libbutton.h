@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KNEWSTUFFC_LIBBUTTON_H
-#define SRC_EXTRAS_KNEWSTUFFC_LIBBUTTON_H
+#ifndef EXTRAS_KNEWSTUFF_LIBBUTTON_H
+#define EXTRAS_KNEWSTUFF_LIBBUTTON_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_SOLIDC_LIBDEVICE_H
-#define SRC_EXTRAS_SOLIDC_LIBDEVICE_H
+#ifndef EXTRAS_SOLID_LIBDEVICE_H
+#define EXTRAS_SOLID_LIBDEVICE_H
 
 #include <stdbool.h>
 #include <stddef.h>

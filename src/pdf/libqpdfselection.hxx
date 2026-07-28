@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_PDFC_LIBVIRTUALQPDFSELECTION_H
-#define SRC_PDFC_LIBVIRTUALQPDFSELECTION_H
+#ifndef PDF_LIBQPDFSELECTION_HXX
+#define PDF_LIBQPDFSELECTION_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

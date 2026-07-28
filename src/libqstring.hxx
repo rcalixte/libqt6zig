@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQSTRING_H
-#define SRCC_LIBVIRTUALQSTRING_H
+#ifndef LIBQSTRING_HXX
+#define LIBQSTRING_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KXMLGUIC_LIBKHELPMENU_H
-#define SRC_EXTRAS_KXMLGUIC_LIBKHELPMENU_H
+#ifndef EXTRAS_KXMLGUI_LIBKHELPMENU_H
+#define EXTRAS_KXMLGUI_LIBKHELPMENU_H
 
 #include <stdbool.h>
 #include <stddef.h>

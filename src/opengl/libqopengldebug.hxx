@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_OPENGLC_LIBVIRTUALQOPENGLDEBUG_H
-#define SRC_OPENGLC_LIBVIRTUALQOPENGLDEBUG_H
+#ifndef OPENGL_LIBQOPENGLDEBUG_HXX
+#define OPENGL_LIBQOPENGLDEBUG_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

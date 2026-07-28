@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_ATTICAC_LIBHOMEPAGETYPE_H
-#define SRC_EXTRAS_ATTICAC_LIBHOMEPAGETYPE_H
+#ifndef EXTRAS_ATTICA_LIBHOMEPAGETYPE_H
+#define EXTRAS_ATTICA_LIBHOMEPAGETYPE_H
 
 #include <stdbool.h>
 #include <stddef.h>

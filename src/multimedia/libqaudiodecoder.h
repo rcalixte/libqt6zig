@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_MULTIMEDIAC_LIBQAUDIODECODER_H
-#define SRC_MULTIMEDIAC_LIBQAUDIODECODER_H
+#ifndef MULTIMEDIA_LIBQAUDIODECODER_H
+#define MULTIMEDIA_LIBQAUDIODECODER_H
 
 #include <stdbool.h>
 #include <stddef.h>

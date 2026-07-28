@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_SONNETC_LIBSPELLER_H
-#define SRC_EXTRAS_SONNETC_LIBSPELLER_H
+#ifndef EXTRAS_SONNET_LIBSPELLER_H
+#define EXTRAS_SONNET_LIBSPELLER_H
 
 #include <stdbool.h>
 #include <stddef.h>

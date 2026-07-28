@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_NETWORKC_LIBQSSLCERTIFICATE_H
-#define SRC_NETWORKC_LIBQSSLCERTIFICATE_H
+#ifndef NETWORK_LIBQSSLCERTIFICATE_H
+#define NETWORK_LIBQSSLCERTIFICATE_H
 
 #include <stdbool.h>
 #include <stddef.h>

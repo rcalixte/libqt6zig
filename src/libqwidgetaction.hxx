@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQWIDGETACTION_H
-#define SRCC_LIBVIRTUALQWIDGETACTION_H
+#ifndef LIBQWIDGETACTION_HXX
+#define LIBQWIDGETACTION_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

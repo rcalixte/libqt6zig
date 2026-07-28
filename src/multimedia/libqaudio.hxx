@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_MULTIMEDIAC_LIBVIRTUALQAUDIO_H
-#define SRC_MULTIMEDIAC_LIBVIRTUALQAUDIO_H
+#ifndef MULTIMEDIA_LIBQAUDIO_HXX
+#define MULTIMEDIA_LIBQAUDIO_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQTABLEVIEW_H
-#define SRCC_LIBQTABLEVIEW_H
+#ifndef LIBQTABLEVIEW_H
+#define LIBQTABLEVIEW_H
 
 #include <stdbool.h>
 #include <stddef.h>

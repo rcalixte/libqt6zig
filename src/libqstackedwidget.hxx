@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQSTACKEDWIDGET_H
-#define SRCC_LIBVIRTUALQSTACKEDWIDGET_H
+#ifndef LIBQSTACKEDWIDGET_HXX
+#define LIBQSTACKEDWIDGET_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

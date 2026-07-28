@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQIMAGEREADER_H
-#define SRCC_LIBQIMAGEREADER_H
+#ifndef LIBQIMAGEREADER_H
+#define LIBQIMAGEREADER_H
 
 #include <stdbool.h>
 #include <stddef.h>

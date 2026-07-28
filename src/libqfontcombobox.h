@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQFONTCOMBOBOX_H
-#define SRCC_LIBQFONTCOMBOBOX_H
+#ifndef LIBQFONTCOMBOBOX_H
+#define LIBQFONTCOMBOBOX_H
 
 #include <stdbool.h>
 #include <stddef.h>

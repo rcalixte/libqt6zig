@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_LOCATIONC_LIBQGEOROUTEREPLY_H
-#define SRC_LOCATIONC_LIBQGEOROUTEREPLY_H
+#ifndef LOCATION_LIBQGEOROUTEREPLY_H
+#define LOCATION_LIBQGEOROUTEREPLY_H
 
 #include <stdbool.h>
 #include <stddef.h>

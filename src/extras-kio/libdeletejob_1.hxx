@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBVIRTUALDELETEJOB_H
-#define SRC_EXTRAS_KIOC_LIBVIRTUALDELETEJOB_H
+#ifndef EXTRAS_KIO_LIBDELETEJOB_HXX
+#define EXTRAS_KIO_LIBDELETEJOB_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

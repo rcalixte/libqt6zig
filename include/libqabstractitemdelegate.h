@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQABSTRACTITEMDELEGATE_H
-#define SRCC_LIBQABSTRACTITEMDELEGATE_H
+#ifndef LIBQABSTRACTITEMDELEGATE_H
+#define LIBQABSTRACTITEMDELEGATE_H
 
 #include <stdbool.h>
 #include <stddef.h>

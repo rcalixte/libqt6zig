@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQFILEICONPROVIDER_H
-#define SRCC_LIBQFILEICONPROVIDER_H
+#ifndef LIBQFILEICONPROVIDER_H
+#define LIBQFILEICONPROVIDER_H
 
 #include <stdbool.h>
 #include <stddef.h>

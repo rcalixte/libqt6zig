@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQCOLUMNVIEW_H
-#define SRCC_LIBVIRTUALQCOLUMNVIEW_H
+#ifndef LIBQCOLUMNVIEW_HXX
+#define LIBQCOLUMNVIEW_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

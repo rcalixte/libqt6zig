@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQIDENTITYPROXYMODEL_H
-#define SRCC_LIBQIDENTITYPROXYMODEL_H
+#ifndef LIBQIDENTITYPROXYMODEL_H
+#define LIBQIDENTITYPROXYMODEL_H
 
 #include <stdbool.h>
 #include <stddef.h>

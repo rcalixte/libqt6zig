@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQRUBBERBAND_H
-#define SRCC_LIBQRUBBERBAND_H
+#ifndef LIBQRUBBERBAND_H
+#define LIBQRUBBERBAND_H
 
 #include <stdbool.h>
 #include <stddef.h>

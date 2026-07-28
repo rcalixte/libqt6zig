@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQDIRITERATOR_H
-#define SRCC_LIBVIRTUALQDIRITERATOR_H
+#ifndef LIBQDIRITERATOR_HXX
+#define LIBQDIRITERATOR_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

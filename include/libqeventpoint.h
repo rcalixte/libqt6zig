@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQEVENTPOINT_H
-#define SRCC_LIBQEVENTPOINT_H
+#ifndef LIBQEVENTPOINT_H
+#define LIBQEVENTPOINT_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQPOINT_H
-#define SRCC_LIBVIRTUALQPOINT_H
+#ifndef LIBQPOINT_HXX
+#define LIBQPOINT_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

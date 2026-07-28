@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_ATTICAC_LIBFORUM_H
-#define SRC_EXTRAS_ATTICAC_LIBFORUM_H
+#ifndef EXTRAS_ATTICA_LIBFORUM_H
+#define EXTRAS_ATTICA_LIBFORUM_H
 
 #include <stdbool.h>
 #include <stddef.h>

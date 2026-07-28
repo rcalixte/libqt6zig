@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQDESKTOPSERVICES_H
-#define SRCC_LIBVIRTUALQDESKTOPSERVICES_H
+#ifndef LIBQDESKTOPSERVICES_HXX
+#define LIBQDESKTOPSERVICES_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KNEWSTUFFC_LIBPROVIDER_H
-#define SRC_EXTRAS_KNEWSTUFFC_LIBPROVIDER_H
+#ifndef EXTRAS_KNEWSTUFF_LIBPROVIDER_H
+#define EXTRAS_KNEWSTUFF_LIBPROVIDER_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQGESTURERECOGNIZER_H
-#define SRCC_LIBQGESTURERECOGNIZER_H
+#ifndef LIBQGESTURERECOGNIZER_H
+#define LIBQGESTURERECOGNIZER_H
 
 #include <stdbool.h>
 #include <stddef.h>

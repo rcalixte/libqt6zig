@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQLIBRARYINFO_H
-#define SRCC_LIBQLIBRARYINFO_H
+#ifndef LIBQLIBRARYINFO_H
+#define LIBQLIBRARYINFO_H
 
 #include <stdbool.h>
 #include <stddef.h>

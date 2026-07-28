@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQBITMAP_H
-#define SRCC_LIBQBITMAP_H
+#ifndef LIBQBITMAP_H
+#define LIBQBITMAP_H
 
 #include <stdbool.h>
 #include <stddef.h>

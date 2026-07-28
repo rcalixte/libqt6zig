@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQINPUTDIALOG_H
-#define SRCC_LIBVIRTUALQINPUTDIALOG_H
+#ifndef LIBQINPUTDIALOG_HXX
+#define LIBQINPUTDIALOG_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

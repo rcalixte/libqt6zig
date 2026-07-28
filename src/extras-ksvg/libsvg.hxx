@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KSVGC_LIBVIRTUALSVG_H
-#define SRC_EXTRAS_KSVGC_LIBVIRTUALSVG_H
+#ifndef EXTRAS_KSVG_LIBSVG_HXX
+#define EXTRAS_KSVG_LIBSVG_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

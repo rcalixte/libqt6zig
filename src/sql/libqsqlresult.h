@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_SQLC_LIBQSQLRESULT_H
-#define SRC_SQLC_LIBQSQLRESULT_H
+#ifndef SQL_LIBQSQLRESULT_H
+#define SQL_LIBQSQLRESULT_H
 
 #include <stdbool.h>
 #include <stddef.h>

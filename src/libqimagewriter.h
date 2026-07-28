@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQIMAGEWRITER_H
-#define SRCC_LIBQIMAGEWRITER_H
+#ifndef LIBQIMAGEWRITER_H
+#define LIBQIMAGEWRITER_H
 
 #include <stdbool.h>
 #include <stddef.h>

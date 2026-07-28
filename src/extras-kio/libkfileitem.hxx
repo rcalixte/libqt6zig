@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBVIRTUALKFILEITEM_H
-#define SRC_EXTRAS_KIOC_LIBVIRTUALKFILEITEM_H
+#ifndef EXTRAS_KIO_LIBKFILEITEM_HXX
+#define EXTRAS_KIO_LIBKFILEITEM_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

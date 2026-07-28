@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQCOLLATOR_H
-#define SRCC_LIBQCOLLATOR_H
+#ifndef LIBQCOLLATOR_H
+#define LIBQCOLLATOR_H
 
 #include <stdbool.h>
 #include <stddef.h>

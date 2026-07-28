@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQDRAWUTIL_H
-#define SRCC_LIBQDRAWUTIL_H
+#ifndef LIBQDRAWUTIL_H
+#define LIBQDRAWUTIL_H
 
 #include <stdbool.h>
 #include <stddef.h>

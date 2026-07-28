@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQTABBAR_H
-#define SRCC_LIBVIRTUALQTABBAR_H
+#ifndef LIBQTABBAR_HXX
+#define LIBQTABBAR_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_DESIGNERC_LIBTASKMENU_H
-#define SRC_DESIGNERC_LIBTASKMENU_H
+#ifndef DESIGNER_LIBTASKMENU_H
+#define DESIGNER_LIBTASKMENU_H
 
 #include <stdbool.h>
 #include <stddef.h>

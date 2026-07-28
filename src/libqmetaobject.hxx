@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQMETAOBJECT_H
-#define SRCC_LIBVIRTUALQMETAOBJECT_H
+#ifndef LIBQMETAOBJECT_HXX
+#define LIBQMETAOBJECT_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

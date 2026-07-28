@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KXMLGUIC_LIBKTOOLBAR_H
-#define SRC_EXTRAS_KXMLGUIC_LIBKTOOLBAR_H
+#ifndef EXTRAS_KXMLGUI_LIBKTOOLBAR_H
+#define EXTRAS_KXMLGUI_LIBKTOOLBAR_H
 
 #include <stdbool.h>
 #include <stddef.h>

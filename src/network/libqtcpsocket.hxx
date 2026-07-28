@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_NETWORKC_LIBVIRTUALQTCPSOCKET_H
-#define SRC_NETWORKC_LIBVIRTUALQTCPSOCKET_H
+#ifndef NETWORK_LIBQTCPSOCKET_HXX
+#define NETWORK_LIBQTCPSOCKET_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

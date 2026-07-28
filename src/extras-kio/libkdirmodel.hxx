@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBVIRTUALKDIRMODEL_H
-#define SRC_EXTRAS_KIOC_LIBVIRTUALKDIRMODEL_H
+#ifndef EXTRAS_KIO_LIBKDIRMODEL_HXX
+#define EXTRAS_KIO_LIBKDIRMODEL_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_PRINTSUPPORTC_LIBQPRINTER_H
-#define SRC_PRINTSUPPORTC_LIBQPRINTER_H
+#ifndef PRINTSUPPORT_LIBQPRINTER_H
+#define PRINTSUPPORT_LIBQPRINTER_H
 
 #include <stdbool.h>
 #include <stddef.h>

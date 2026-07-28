@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQDEADLINETIMER_H
-#define SRCC_LIBQDEADLINETIMER_H
+#ifndef LIBQDEADLINETIMER_H
+#define LIBQDEADLINETIMER_H
 
 #include <stdbool.h>
 #include <stddef.h>

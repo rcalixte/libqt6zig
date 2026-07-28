@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQFONTDIALOG_H
-#define SRCC_LIBVIRTUALQFONTDIALOG_H
+#ifndef LIBQFONTDIALOG_HXX
+#define LIBQFONTDIALOG_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

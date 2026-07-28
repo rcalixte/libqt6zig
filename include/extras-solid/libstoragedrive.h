@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_SOLIDC_LIBSTORAGEDRIVE_H
-#define SRC_EXTRAS_SOLIDC_LIBSTORAGEDRIVE_H
+#ifndef EXTRAS_SOLID_LIBSTORAGEDRIVE_H
+#define EXTRAS_SOLID_LIBSTORAGEDRIVE_H
 
 #include <stdbool.h>
 #include <stddef.h>

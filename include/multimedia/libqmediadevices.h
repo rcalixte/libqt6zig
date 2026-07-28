@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_MULTIMEDIAC_LIBQMEDIADEVICES_H
-#define SRC_MULTIMEDIAC_LIBQMEDIADEVICES_H
+#ifndef MULTIMEDIA_LIBQMEDIADEVICES_H
+#define MULTIMEDIA_LIBQMEDIADEVICES_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQDEBUG_H
-#define SRCC_LIBVIRTUALQDEBUG_H
+#ifndef LIBQDEBUG_HXX
+#define LIBQDEBUG_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

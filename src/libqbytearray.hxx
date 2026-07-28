@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQBYTEARRAY_H
-#define SRCC_LIBVIRTUALQBYTEARRAY_H
+#ifndef LIBQBYTEARRAY_HXX
+#define LIBQBYTEARRAY_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

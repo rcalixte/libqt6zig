@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQPLAINTEXTEDIT_H
-#define SRCC_LIBVIRTUALQPLAINTEXTEDIT_H
+#ifndef LIBQPLAINTEXTEDIT_HXX
+#define LIBQPLAINTEXTEDIT_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

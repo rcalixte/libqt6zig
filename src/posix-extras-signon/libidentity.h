@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_POSIX_EXTRAS_SIGNONC_LIBIDENTITY_H
-#define SRC_POSIX_EXTRAS_SIGNONC_LIBIDENTITY_H
+#ifndef POSIX_EXTRAS_SIGNON_LIBIDENTITY_H
+#define POSIX_EXTRAS_SIGNON_LIBIDENTITY_H
 
 #include <stdbool.h>
 #include <stddef.h>

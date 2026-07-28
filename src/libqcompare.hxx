@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQCOMPARE_H
-#define SRCC_LIBVIRTUALQCOMPARE_H
+#ifndef LIBQCOMPARE_HXX
+#define LIBQCOMPARE_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

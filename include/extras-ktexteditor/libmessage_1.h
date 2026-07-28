@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KTEXTEDITORC_LIBMESSAGE_H
-#define SRC_EXTRAS_KTEXTEDITORC_LIBMESSAGE_H
+#ifndef EXTRAS_KTEXTEDITOR_LIBMESSAGE_H
+#define EXTRAS_KTEXTEDITOR_LIBMESSAGE_H
 
 #include <stdbool.h>
 #include <stddef.h>

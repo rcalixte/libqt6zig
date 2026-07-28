@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_DESIGNERC_LIBABSTRACTDNDITEM_H
-#define SRC_DESIGNERC_LIBABSTRACTDNDITEM_H
+#ifndef DESIGNER_LIBABSTRACTDNDITEM_H
+#define DESIGNER_LIBABSTRACTDNDITEM_H
 
 #include <stdbool.h>
 #include <stddef.h>

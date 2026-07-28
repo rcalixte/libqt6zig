@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQT6ZIGTHREADING_H
-#define SRCC_LIBQT6ZIGTHREADING_H
+#ifndef LIBQT6ZIGTHREADING_H
+#define LIBQT6ZIGTHREADING_H
 
 #include <stdint.h>
 

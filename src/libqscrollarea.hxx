@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQSCROLLAREA_H
-#define SRCC_LIBVIRTUALQSCROLLAREA_H
+#ifndef LIBQSCROLLAREA_HXX
+#define LIBQSCROLLAREA_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KARCHIVEC_LIBVIRTUALKRCC_H
-#define SRC_EXTRAS_KARCHIVEC_LIBVIRTUALKRCC_H
+#ifndef EXTRAS_KARCHIVE_LIBKRCC_HXX
+#define EXTRAS_KARCHIVE_LIBKRCC_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

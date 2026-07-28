@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQPIXMAP_H
-#define SRCC_LIBVIRTUALQPIXMAP_H
+#ifndef LIBQPIXMAP_HXX
+#define LIBQPIXMAP_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

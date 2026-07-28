@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBKFILEPLACESVIEW_H
-#define SRC_EXTRAS_KIOC_LIBKFILEPLACESVIEW_H
+#ifndef EXTRAS_KIO_LIBKFILEPLACESVIEW_H
+#define EXTRAS_KIO_LIBKFILEPLACESVIEW_H
 
 #include <stdbool.h>
 #include <stddef.h>

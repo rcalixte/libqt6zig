@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBPASTEJOB_H
-#define SRC_EXTRAS_KIOC_LIBPASTEJOB_H
+#ifndef EXTRAS_KIO_LIBPASTEJOB_H
+#define EXTRAS_KIO_LIBPASTEJOB_H
 
 #include <stdbool.h>
 #include <stddef.h>

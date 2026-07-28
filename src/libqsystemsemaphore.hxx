@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQSYSTEMSEMAPHORE_H
-#define SRCC_LIBVIRTUALQSYSTEMSEMAPHORE_H
+#ifndef LIBQSYSTEMSEMAPHORE_HXX
+#define LIBQSYSTEMSEMAPHORE_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

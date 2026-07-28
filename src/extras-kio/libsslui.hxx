@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBVIRTUALSSLUI_H
-#define SRC_EXTRAS_KIOC_LIBVIRTUALSSLUI_H
+#ifndef EXTRAS_KIO_LIBSSLUI_HXX
+#define EXTRAS_KIO_LIBSSLUI_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

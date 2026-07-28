@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQSIGNALMAPPER_H
-#define SRCC_LIBQSIGNALMAPPER_H
+#ifndef LIBQSIGNALMAPPER_H
+#define LIBQSIGNALMAPPER_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQACTIONGROUP_H
-#define SRCC_LIBVIRTUALQACTIONGROUP_H
+#ifndef LIBQACTIONGROUP_HXX
+#define LIBQACTIONGROUP_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

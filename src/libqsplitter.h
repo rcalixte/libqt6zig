@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQSPLITTER_H
-#define SRCC_LIBQSPLITTER_H
+#ifndef LIBQSPLITTER_H
+#define LIBQSPLITTER_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBKDIRLISTER_H
-#define SRC_EXTRAS_KIOC_LIBKDIRLISTER_H
+#ifndef EXTRAS_KIO_LIBKDIRLISTER_H
+#define EXTRAS_KIO_LIBKDIRLISTER_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_NETWORKC_LIBVIRTUALQSCTPSERVER_H
-#define SRC_NETWORKC_LIBVIRTUALQSCTPSERVER_H
+#ifndef NETWORK_LIBQSCTPSERVER_HXX
+#define NETWORK_LIBQSCTPSERVER_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

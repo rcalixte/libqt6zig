@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQSCOPEDPOINTER_H
-#define SRCC_LIBQSCOPEDPOINTER_H
+#ifndef LIBQSCOPEDPOINTER_H
+#define LIBQSCOPEDPOINTER_H
 
 #include <stdbool.h>
 #include <stddef.h>

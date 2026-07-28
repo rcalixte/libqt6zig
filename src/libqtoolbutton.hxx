@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQTOOLBUTTON_H
-#define SRCC_LIBVIRTUALQTOOLBUTTON_H
+#ifndef LIBQTOOLBUTTON_HXX
+#define LIBQTOOLBUTTON_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

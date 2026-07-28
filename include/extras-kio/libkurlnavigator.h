@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBKURLNAVIGATOR_H
-#define SRC_EXTRAS_KIOC_LIBKURLNAVIGATOR_H
+#ifndef EXTRAS_KIO_LIBKURLNAVIGATOR_H
+#define EXTRAS_KIO_LIBKURLNAVIGATOR_H
 
 #include <stdbool.h>
 #include <stddef.h>

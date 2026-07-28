@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_NETWORKC_LIBQHOSTINFO_H
-#define SRC_NETWORKC_LIBQHOSTINFO_H
+#ifndef NETWORK_LIBQHOSTINFO_H
+#define NETWORK_LIBQHOSTINFO_H
 
 #include <stdbool.h>
 #include <stddef.h>

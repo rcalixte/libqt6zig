@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KPARTSC_LIBOPENURLEVENT_H
-#define SRC_EXTRAS_KPARTSC_LIBOPENURLEVENT_H
+#ifndef EXTRAS_KPARTS_LIBOPENURLEVENT_H
+#define EXTRAS_KPARTS_LIBOPENURLEVENT_H
 
 #include <stdbool.h>
 #include <stddef.h>

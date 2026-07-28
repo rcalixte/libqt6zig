@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQSHAREDDATA_H
-#define SRCC_LIBVIRTUALQSHAREDDATA_H
+#ifndef LIBQSHAREDDATA_HXX
+#define LIBQSHAREDDATA_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

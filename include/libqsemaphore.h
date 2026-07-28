@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQSEMAPHORE_H
-#define SRCC_LIBQSEMAPHORE_H
+#ifndef LIBQSEMAPHORE_H
+#define LIBQSEMAPHORE_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQSESSIONMANAGER_H
-#define SRCC_LIBVIRTUALQSESSIONMANAGER_H
+#ifndef LIBQSESSIONMANAGER_HXX
+#define LIBQSESSIONMANAGER_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

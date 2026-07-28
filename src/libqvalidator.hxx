@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQVALIDATOR_H
-#define SRCC_LIBVIRTUALQVALIDATOR_H
+#ifndef LIBQVALIDATOR_HXX
+#define LIBQVALIDATOR_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

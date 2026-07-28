@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQMARGINS_H
-#define SRCC_LIBQMARGINS_H
+#ifndef LIBQMARGINS_H
+#define LIBQMARGINS_H
 
 #include <stdbool.h>
 #include <stddef.h>

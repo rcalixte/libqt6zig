@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQSCROLLER_H
-#define SRCC_LIBVIRTUALQSCROLLER_H
+#ifndef LIBQSCROLLER_HXX
+#define LIBQSCROLLER_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

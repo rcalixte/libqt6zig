@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQPROCESS_H
-#define SRCC_LIBVIRTUALQPROCESS_H
+#ifndef LIBQPROCESS_HXX
+#define LIBQPROCESS_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

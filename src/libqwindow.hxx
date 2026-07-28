@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQWINDOW_H
-#define SRCC_LIBVIRTUALQWINDOW_H
+#ifndef LIBQWINDOW_HXX
+#define LIBQWINDOW_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_WEBENGINEC_LIBQWEBENGINEPAGE_H
-#define SRC_WEBENGINEC_LIBQWEBENGINEPAGE_H
+#ifndef WEBENGINE_LIBQWEBENGINEPAGE_H
+#define WEBENGINE_LIBQWEBENGINEPAGE_H
 
 #include <stdbool.h>
 #include <stddef.h>

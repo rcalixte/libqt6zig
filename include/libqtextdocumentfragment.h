@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQTEXTDOCUMENTFRAGMENT_H
-#define SRCC_LIBQTEXTDOCUMENTFRAGMENT_H
+#ifndef LIBQTEXTDOCUMENTFRAGMENT_H
+#define LIBQTEXTDOCUMENTFRAGMENT_H
 
 #include <stdbool.h>
 #include <stddef.h>

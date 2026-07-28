@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQFRAME_H
-#define SRCC_LIBVIRTUALQFRAME_H
+#ifndef LIBQFRAME_HXX
+#define LIBQFRAME_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

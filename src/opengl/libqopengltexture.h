@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_OPENGLC_LIBQOPENGLTEXTURE_H
-#define SRC_OPENGLC_LIBQOPENGLTEXTURE_H
+#ifndef OPENGL_LIBQOPENGLTEXTURE_H
+#define OPENGL_LIBQOPENGLTEXTURE_H
 
 #include <stdbool.h>
 #include <stddef.h>

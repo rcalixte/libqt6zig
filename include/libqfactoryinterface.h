@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQFACTORYINTERFACE_H
-#define SRCC_LIBQFACTORYINTERFACE_H
+#ifndef LIBQFACTORYINTERFACE_H
+#define LIBQFACTORYINTERFACE_H
 
 #include <stdbool.h>
 #include <stddef.h>

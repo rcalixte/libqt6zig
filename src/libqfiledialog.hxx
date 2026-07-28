@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQFILEDIALOG_H
-#define SRCC_LIBVIRTUALQFILEDIALOG_H
+#ifndef LIBQFILEDIALOG_HXX
+#define LIBQFILEDIALOG_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

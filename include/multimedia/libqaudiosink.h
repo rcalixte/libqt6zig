@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_MULTIMEDIAC_LIBQAUDIOSINK_H
-#define SRC_MULTIMEDIAC_LIBQAUDIOSINK_H
+#ifndef MULTIMEDIA_LIBQAUDIOSINK_H
+#define MULTIMEDIA_LIBQAUDIOSINK_H
 
 #include <stdbool.h>
 #include <stddef.h>

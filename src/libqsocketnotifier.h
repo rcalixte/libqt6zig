@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQSOCKETNOTIFIER_H
-#define SRCC_LIBQSOCKETNOTIFIER_H
+#ifndef LIBQSOCKETNOTIFIER_H
+#define LIBQSOCKETNOTIFIER_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQLAYOUT_H
-#define SRCC_LIBQLAYOUT_H
+#ifndef LIBQLAYOUT_H
+#define LIBQLAYOUT_H
 
 #include <stdbool.h>
 #include <stddef.h>

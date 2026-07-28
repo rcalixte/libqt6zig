@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQCOLOR_H
-#define SRCC_LIBQCOLOR_H
+#ifndef LIBQCOLOR_H
+#define LIBQCOLOR_H
 
 #include <stdbool.h>
 #include <stddef.h>

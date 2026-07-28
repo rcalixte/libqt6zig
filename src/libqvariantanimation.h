@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQVARIANTANIMATION_H
-#define SRCC_LIBQVARIANTANIMATION_H
+#ifndef LIBQVARIANTANIMATION_H
+#define LIBQVARIANTANIMATION_H
 
 #include <stdbool.h>
 #include <stddef.h>

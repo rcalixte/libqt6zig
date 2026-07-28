@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQUUID_H
-#define SRCC_LIBQUUID_H
+#ifndef LIBQUUID_H
+#define LIBQUUID_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQTEXTOBJECT_H
-#define SRCC_LIBVIRTUALQTEXTOBJECT_H
+#ifndef LIBQTEXTOBJECT_HXX
+#define LIBQTEXTOBJECT_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

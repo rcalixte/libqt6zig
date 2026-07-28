@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQRANDOM_H
-#define SRCC_LIBQRANDOM_H
+#ifndef LIBQRANDOM_H
+#define LIBQRANDOM_H
 
 #include <stdbool.h>
 #include <stddef.h>

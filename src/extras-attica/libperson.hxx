@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_ATTICAC_LIBVIRTUALPERSON_H
-#define SRC_EXTRAS_ATTICAC_LIBVIRTUALPERSON_H
+#ifndef EXTRAS_ATTICA_LIBPERSON_HXX
+#define EXTRAS_ATTICA_LIBPERSON_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

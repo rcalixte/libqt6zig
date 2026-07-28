@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQSCROLLBAR_H
-#define SRCC_LIBVIRTUALQSCROLLBAR_H
+#ifndef LIBQSCROLLBAR_HXX
+#define LIBQSCROLLBAR_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

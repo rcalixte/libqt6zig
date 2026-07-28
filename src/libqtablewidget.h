@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQTABLEWIDGET_H
-#define SRCC_LIBQTABLEWIDGET_H
+#ifndef LIBQTABLEWIDGET_H
+#define LIBQTABLEWIDGET_H
 
 #include <stdbool.h>
 #include <stddef.h>

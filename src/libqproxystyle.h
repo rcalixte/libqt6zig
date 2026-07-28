@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQPROXYSTYLE_H
-#define SRCC_LIBQPROXYSTYLE_H
+#ifndef LIBQPROXYSTYLE_H
+#define LIBQPROXYSTYLE_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQOBJECTCLEANUPHANDLER_H
-#define SRCC_LIBQOBJECTCLEANUPHANDLER_H
+#ifndef LIBQOBJECTCLEANUPHANDLER_H
+#define LIBQOBJECTCLEANUPHANDLER_H
 
 #include <stdbool.h>
 #include <stddef.h>

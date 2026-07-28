@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIDLETIMEC_LIBKIDLETIME_H
-#define SRC_EXTRAS_KIDLETIMEC_LIBKIDLETIME_H
+#ifndef EXTRAS_KIDLETIME_LIBKIDLETIME_H
+#define EXTRAS_KIDLETIME_LIBKIDLETIME_H
 
 #include <stdbool.h>
 #include <stddef.h>

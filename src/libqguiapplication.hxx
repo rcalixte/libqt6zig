@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQGUIAPPLICATION_H
-#define SRCC_LIBVIRTUALQGUIAPPLICATION_H
+#ifndef LIBQGUIAPPLICATION_HXX
+#define LIBQGUIAPPLICATION_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

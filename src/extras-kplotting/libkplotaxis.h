@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KPLOTTINGC_LIBKPLOTAXIS_H
-#define SRC_EXTRAS_KPLOTTINGC_LIBKPLOTAXIS_H
+#ifndef EXTRAS_KPLOTTING_LIBKPLOTAXIS_H
+#define EXTRAS_KPLOTTING_LIBKPLOTAXIS_H
 
 #include <stdbool.h>
 #include <stddef.h>
