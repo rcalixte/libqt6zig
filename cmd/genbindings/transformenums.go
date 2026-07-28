@@ -22,13 +22,13 @@ func getAllIncludedClasses(c *CppClass, seen map[string]struct{}) []string {
 	allIncludes = append(allIncludes, c.DirectInherits...)
 	allIncludes = append(allIncludes, c.IncludedClasses...)
 
-	for _, inherit := range c.DirectInherits {
-		if _, ok := seen[inherit]; ok {
+	for i := range c.DirectInherits {
+		if _, ok := seen[c.DirectInherits[i]]; ok {
 			continue
 		}
-		seen[inherit] = struct{}{}
+		seen[c.DirectInherits[i]] = struct{}{}
 
-		if parentInfo, ok := KnownClassnames[inherit]; ok {
+		if parentInfo, ok := KnownClassnames[c.DirectInherits[i]]; ok {
 			parentIncludes := getAllIncludedClasses(&parentInfo.Class, seen)
 			allIncludes = append(allIncludes, parentIncludes...)
 		}
@@ -48,9 +48,9 @@ func resolveEnumType(enumName string, currentClass string, currentNamespace stri
 	if currentClass != "" {
 		if classMap, ok := scopeMap[currentClass]; ok {
 			expectedName := currentClass + "::" + enumName
-			for _, info := range classMap {
-				if info.FullyQualifiedName == expectedName {
-					return info.FullyQualifiedName
+			for i := range classMap {
+				if classMap[i].FullyQualifiedName == expectedName {
+					return classMap[i].FullyQualifiedName
 				}
 			}
 		}
@@ -59,8 +59,8 @@ func resolveEnumType(enumName string, currentClass string, currentNamespace stri
 		if classInfo, ok := KnownClassnames[currentClass]; ok {
 			for _, parent := range classInfo.Class.DirectInheritClassInfo() {
 				if classMap, ok := scopeMap[parent.Class.ClassName]; ok {
-					for _, info := range classMap {
-						return info.FullyQualifiedName
+					for i := range classMap {
+						return classMap[i].FullyQualifiedName
 					}
 				}
 			}
@@ -70,9 +70,9 @@ func resolveEnumType(enumName string, currentClass string, currentNamespace stri
 	// Current namespace scope
 	if currentNamespace != "" {
 		if classMap, ok := scopeMap[currentNamespace]; ok {
-			for _, info := range classMap {
-				if info.ClassScope == currentNamespace {
-					return info.FullyQualifiedName
+			for i := range classMap {
+				if classMap[i].ClassScope == currentNamespace {
+					return classMap[i].FullyQualifiedName
 				}
 			}
 		}
@@ -86,9 +86,9 @@ func resolveEnumType(enumName string, currentClass string, currentNamespace stri
 		for _, includedClass := range classInfo.Class.IncludedClasses {
 			expectedName := includedClass + "::" + enumName
 			if classMap, ok := scopeMap[includedClass]; ok {
-				for _, info := range classMap {
-					if info.FullyQualifiedName == expectedName {
-						return info.FullyQualifiedName
+				for i := range classMap {
+					if classMap[i].FullyQualifiedName == expectedName {
+						return classMap[i].FullyQualifiedName
 					}
 				}
 			}
@@ -144,18 +144,18 @@ func (method *CppMethod) resolveMethodEnumTypes(className string, namespace stri
 
 // Resolve enum types in class ctors and methods
 func astTransformEnumResolution(parsed *CppParsedHeader) {
-	for _, class := range parsed.Classes {
+	for i := range parsed.Classes {
 		var namespace string
-		if strings.Contains(class.ClassName, "::") {
-			parts := strings.Split(class.ClassName, "::")
+		if strings.Contains(parsed.Classes[i].ClassName, "::") {
+			parts := strings.Split(parsed.Classes[i].ClassName, "::")
 			namespace = parts[0]
 		}
 
-		for i := range class.Ctors {
-			class.Ctors[i].resolveMethodEnumTypes(class.ClassName, namespace)
+		for j := range parsed.Classes[i].Ctors {
+			parsed.Classes[i].Ctors[j].resolveMethodEnumTypes(parsed.Classes[i].ClassName, namespace)
 		}
-		for i := range class.Methods {
-			class.Methods[i].resolveMethodEnumTypes(class.ClassName, namespace)
+		for j := range parsed.Classes[i].Methods {
+			parsed.Classes[i].Methods[j].resolveMethodEnumTypes(parsed.Classes[i].ClassName, namespace)
 		}
 	}
 }
