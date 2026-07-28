@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQRANDOM_H
-#define SRCC_LIBVIRTUALQRANDOM_H
+#ifndef LIBQRANDOM_HXX
+#define LIBQRANDOM_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

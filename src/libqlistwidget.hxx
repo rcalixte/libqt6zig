@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQLISTWIDGET_H
-#define SRCC_LIBVIRTUALQLISTWIDGET_H
+#ifndef LIBQLISTWIDGET_HXX
+#define LIBQLISTWIDGET_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

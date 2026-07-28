@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_NETWORKC_LIBQHSTSPOLICY_H
-#define SRC_NETWORKC_LIBQHSTSPOLICY_H
+#ifndef NETWORK_LIBQHSTSPOLICY_H
+#define NETWORK_LIBQHSTSPOLICY_H
 
 #include <stdbool.h>
 #include <stddef.h>

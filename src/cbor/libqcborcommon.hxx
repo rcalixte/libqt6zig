@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_CBORC_LIBVIRTUALQCBORCOMMON_H
-#define SRC_CBORC_LIBVIRTUALQCBORCOMMON_H
+#ifndef CBOR_LIBQCBORCOMMON_HXX
+#define CBOR_LIBQCBORCOMMON_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

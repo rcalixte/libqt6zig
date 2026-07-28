@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQWAITCONDITION_H
-#define SRCC_LIBQWAITCONDITION_H
+#ifndef LIBQWAITCONDITION_H
+#define LIBQWAITCONDITION_H
 
 #include <stdbool.h>
 #include <stddef.h>

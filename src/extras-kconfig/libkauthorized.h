@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KCONFIGC_LIBKAUTHORIZED_H
-#define SRC_EXTRAS_KCONFIGC_LIBKAUTHORIZED_H
+#ifndef EXTRAS_KCONFIG_LIBKAUTHORIZED_H
+#define EXTRAS_KCONFIG_LIBKAUTHORIZED_H
 
 #include <stdbool.h>
 #include <stddef.h>

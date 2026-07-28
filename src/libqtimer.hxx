@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQTIMER_H
-#define SRCC_LIBVIRTUALQTIMER_H
+#ifndef LIBQTIMER_HXX
+#define LIBQTIMER_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

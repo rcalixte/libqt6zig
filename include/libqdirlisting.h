@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQDIRLISTING_H
-#define SRCC_LIBQDIRLISTING_H
+#ifndef LIBQDIRLISTING_H
+#define LIBQDIRLISTING_H
 
 #include <stdbool.h>
 #include <stddef.h>

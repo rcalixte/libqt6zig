@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_TEXTTOSPEECHC_LIBQVOICE_H
-#define SRC_TEXTTOSPEECHC_LIBQVOICE_H
+#ifndef TEXTTOSPEECH_LIBQVOICE_H
+#define TEXTTOSPEECH_LIBQVOICE_H
 
 #include <stdbool.h>
 #include <stddef.h>

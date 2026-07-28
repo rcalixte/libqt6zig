@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_BLUETOOTHC_LIBQBLUETOOTHUUID_H
-#define SRC_BLUETOOTHC_LIBQBLUETOOTHUUID_H
+#ifndef BLUETOOTH_LIBQBLUETOOTHUUID_H
+#define BLUETOOTH_LIBQBLUETOOTHUUID_H
 
 #include <stdbool.h>
 #include <stddef.h>

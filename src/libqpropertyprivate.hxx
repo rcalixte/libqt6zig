@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQPROPERTYPRIVATE_H
-#define SRCC_LIBVIRTUALQPROPERTYPRIVATE_H
+#ifndef LIBQPROPERTYPRIVATE_HXX
+#define LIBQPROPERTYPRIVATE_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

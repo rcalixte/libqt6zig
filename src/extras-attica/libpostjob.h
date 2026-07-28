@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_ATTICAC_LIBPOSTJOB_H
-#define SRC_EXTRAS_ATTICAC_LIBPOSTJOB_H
+#ifndef EXTRAS_ATTICA_LIBPOSTJOB_H
+#define EXTRAS_ATTICA_LIBPOSTJOB_H
 
 #include <stdbool.h>
 #include <stddef.h>

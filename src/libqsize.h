@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQSIZE_H
-#define SRCC_LIBQSIZE_H
+#ifndef LIBQSIZE_H
+#define LIBQSIZE_H
 
 #include <stdbool.h>
 #include <stddef.h>

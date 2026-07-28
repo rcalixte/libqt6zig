@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQOFFSCREENSURFACE_H
-#define SRCC_LIBVIRTUALQOFFSCREENSURFACE_H
+#ifndef LIBQOFFSCREENSURFACE_HXX
+#define LIBQOFFSCREENSURFACE_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

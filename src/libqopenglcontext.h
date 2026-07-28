@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQOPENGLCONTEXT_H
-#define SRCC_LIBQOPENGLCONTEXT_H
+#ifndef LIBQOPENGLCONTEXT_H
+#define LIBQOPENGLCONTEXT_H
 
 #include <stdbool.h>
 #include <stddef.h>

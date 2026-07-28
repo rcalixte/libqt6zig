@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQRUNNABLE_H
-#define SRCC_LIBQRUNNABLE_H
+#ifndef LIBQRUNNABLE_H
+#define LIBQRUNNABLE_H
 
 #include <stdbool.h>
 #include <stddef.h>

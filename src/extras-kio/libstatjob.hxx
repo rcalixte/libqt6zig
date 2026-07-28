@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBVIRTUALSTATJOB_H
-#define SRC_EXTRAS_KIOC_LIBVIRTUALSTATJOB_H
+#ifndef EXTRAS_KIO_LIBSTATJOB_HXX
+#define EXTRAS_KIO_LIBSTATJOB_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

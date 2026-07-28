@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQBASICTIMER_H
-#define SRCC_LIBQBASICTIMER_H
+#ifndef LIBQBASICTIMER_H
+#define LIBQBASICTIMER_H
 
 #include <stdbool.h>
 #include <stddef.h>

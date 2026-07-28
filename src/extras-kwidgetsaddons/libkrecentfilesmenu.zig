@@ -1032,7 +1032,7 @@ pub const KRecentFilesMenu = extern struct {
     /// ` self: KRecentFilesMenu `
     ///
     pub fn SetAsDockMenu(self: KRecentFilesMenu) void {
-        if (builtin.is_test) return;
+        if (builtin.is_test and builtin.target.os.tag != .macos) return;
         if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system");
         qtc.QMenu_SetAsDockMenu(@ptrCast(self.ptr));
     }

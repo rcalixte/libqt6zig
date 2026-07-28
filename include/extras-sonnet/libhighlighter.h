@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_SONNETC_LIBHIGHLIGHTER_H
-#define SRC_EXTRAS_SONNETC_LIBHIGHLIGHTER_H
+#ifndef EXTRAS_SONNET_LIBHIGHLIGHTER_H
+#define EXTRAS_SONNET_LIBHIGHLIGHTER_H
 
 #include <stdbool.h>
 #include <stddef.h>

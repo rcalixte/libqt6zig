@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBKSAMBASHARE_H
-#define SRC_EXTRAS_KIOC_LIBKSAMBASHARE_H
+#ifndef EXTRAS_KIO_LIBKSAMBASHARE_H
+#define EXTRAS_KIO_LIBKSAMBASHARE_H
 
 #include <stdbool.h>
 #include <stddef.h>

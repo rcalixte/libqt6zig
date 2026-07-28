@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQSURFACEFORMAT_H
-#define SRCC_LIBQSURFACEFORMAT_H
+#ifndef LIBQSURFACEFORMAT_H
+#define LIBQSURFACEFORMAT_H
 
 #include <stdbool.h>
 #include <stddef.h>

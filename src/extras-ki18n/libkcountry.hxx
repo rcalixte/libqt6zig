@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KI18NC_LIBVIRTUALKCOUNTRY_H
-#define SRC_EXTRAS_KI18NC_LIBVIRTUALKCOUNTRY_H
+#ifndef EXTRAS_KI18N_LIBKCOUNTRY_HXX
+#define EXTRAS_KI18N_LIBKCOUNTRY_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

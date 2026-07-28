@@ -1293,7 +1293,7 @@ pub const KBookmarkContextMenu = extern struct {
     /// ` self: KBookmarkContextMenu `
     ///
     pub fn SetAsDockMenu(self: KBookmarkContextMenu) void {
-        if (builtin.is_test) return;
+        if (builtin.is_test and builtin.target.os.tag != .macos) return;
         if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system");
         qtc.QMenu_SetAsDockMenu(@ptrCast(self.ptr));
     }

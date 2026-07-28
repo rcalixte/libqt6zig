@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQGLYPHRUN_H
-#define SRCC_LIBQGLYPHRUN_H
+#ifndef LIBQGLYPHRUN_H
+#define LIBQGLYPHRUN_H
 
 #include <stdbool.h>
 #include <stddef.h>

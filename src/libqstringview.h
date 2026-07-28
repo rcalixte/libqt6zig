@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQSTRINGVIEW_H
-#define SRCC_LIBQSTRINGVIEW_H
+#ifndef LIBQSTRINGVIEW_H
+#define LIBQSTRINGVIEW_H
 
 #include <stdbool.h>
 #include <stddef.h>

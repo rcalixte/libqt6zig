@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KCOREADDONSC_LIBKFORMAT_H
-#define SRC_EXTRAS_KCOREADDONSC_LIBKFORMAT_H
+#ifndef EXTRAS_KCOREADDONS_LIBKFORMAT_H
+#define EXTRAS_KCOREADDONS_LIBKFORMAT_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQOPENGLFUNCTIONS_H
-#define SRCC_LIBVIRTUALQOPENGLFUNCTIONS_H
+#ifndef LIBQOPENGLFUNCTIONS_HXX
+#define LIBQOPENGLFUNCTIONS_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

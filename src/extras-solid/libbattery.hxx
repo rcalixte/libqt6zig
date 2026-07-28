@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_SOLIDC_LIBVIRTUALBATTERY_H
-#define SRC_EXTRAS_SOLIDC_LIBVIRTUALBATTERY_H
+#ifndef EXTRAS_SOLID_LIBBATTERY_HXX
+#define EXTRAS_SOLID_LIBBATTERY_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQPOINTINGDEVICE_H
-#define SRCC_LIBVIRTUALQPOINTINGDEVICE_H
+#ifndef LIBQPOINTINGDEVICE_HXX
+#define LIBQPOINTINGDEVICE_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

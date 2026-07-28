@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQXMLSTREAM_H
-#define SRCC_LIBVIRTUALQXMLSTREAM_H
+#ifndef LIBQXMLSTREAM_HXX
+#define LIBQXMLSTREAM_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

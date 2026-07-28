@@ -47,6 +47,9 @@ func registerChildClasses(class CppClass, packageName string) {
 
 func (e CppEnum) getEnumTypeZig() string {
 	switch e.UnderlyingType.ParameterType {
+	case "bool":
+		return "bool"
+
 	// signed types
 	case "char", "qint8", "signed char":
 		return "i8"
@@ -71,6 +74,10 @@ func (e CppEnum) getEnumTypeZig() string {
 func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 	for _, c := range parsed.Classes {
 		if !isBindingRemoved(c.ClassName) {
+			if IsKnownClass(c.ClassName) && len(c.Methods) == 0 && len(c.Ctors) == 0 {
+				continue
+			}
+
 			KnownClassnames[c.ClassName] = lookupResultClass{packageName, c /* copy */}
 
 			// If it's a nested class, also register its local name
@@ -125,7 +132,7 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 	for _, en := range parsed.Enums {
 		if parsed.Filename != "" && en.EnumName != "" {
 			// enum classes... in Qt 6, these are found in qcborcommon.h, qdtls.h, qlogging.h, qmetatype.h, qocspresponse.h
-			f := strings.ReplaceAll(filepath.Base(parsed.Filename), "-", "_")
+			f := sanitizeName(filepath.Base(parsed.Filename[:len(parsed.Filename)-2])) + ".h"
 			filename := f[:len(f)-2]
 			KnownImports[en.EnumName] = lookupResultImport{packageName, filename}
 		}
@@ -151,7 +158,7 @@ func addKnownTypes(packageName string, parsed *CppParsedHeader) {
 	}
 
 	if len(parsed.Enums) != 0 && parsed.Filename != "" {
-		f := strings.ReplaceAll(filepath.Base(parsed.Filename), "-", "_")
+		f := sanitizeName(filepath.Base(parsed.Filename[:len(parsed.Filename)-2])) + ".h"
 		extensionIndex := strings.LastIndex(f, ".")
 		filename := f[:extensionIndex]
 

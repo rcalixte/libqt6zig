@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_SONNETC_LIBCONFIGVIEW_H
-#define SRC_EXTRAS_SONNETC_LIBCONFIGVIEW_H
+#ifndef EXTRAS_SONNET_LIBCONFIGVIEW_H
+#define EXTRAS_SONNET_LIBCONFIGVIEW_H
 
 #include <stdbool.h>
 #include <stddef.h>

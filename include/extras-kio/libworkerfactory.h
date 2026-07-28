@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBWORKERFACTORY_H
-#define SRC_EXTRAS_KIOC_LIBWORKERFACTORY_H
+#ifndef EXTRAS_KIO_LIBWORKERFACTORY_H
+#define EXTRAS_KIO_LIBWORKERFACTORY_H
 
 #include <stdbool.h>
 #include <stddef.h>

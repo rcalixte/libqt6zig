@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQTIMELINE_H
-#define SRCC_LIBVIRTUALQTIMELINE_H
+#ifndef LIBQTIMELINE_HXX
+#define LIBQTIMELINE_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

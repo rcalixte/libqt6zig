@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQTOOLTIP_H
-#define SRCC_LIBVIRTUALQTOOLTIP_H
+#ifndef LIBQTOOLTIP_HXX
+#define LIBQTOOLTIP_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

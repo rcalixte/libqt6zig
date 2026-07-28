@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KTEXTEDITORC_LIBCURSOR_H
-#define SRC_EXTRAS_KTEXTEDITORC_LIBCURSOR_H
+#ifndef EXTRAS_KTEXTEDITOR_LIBCURSOR_H
+#define EXTRAS_KTEXTEDITOR_LIBCURSOR_H
 
 #include <stdbool.h>
 #include <stddef.h>

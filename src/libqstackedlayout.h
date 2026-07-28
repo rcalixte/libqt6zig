@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQSTACKEDLAYOUT_H
-#define SRCC_LIBQSTACKEDLAYOUT_H
+#ifndef LIBQSTACKEDLAYOUT_H
+#define LIBQSTACKEDLAYOUT_H
 
 #include <stdbool.h>
 #include <stddef.h>

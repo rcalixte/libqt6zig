@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQABSTRACTSLIDER_H
-#define SRCC_LIBVIRTUALQABSTRACTSLIDER_H
+#ifndef LIBQABSTRACTSLIDER_HXX
+#define LIBQABSTRACTSLIDER_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

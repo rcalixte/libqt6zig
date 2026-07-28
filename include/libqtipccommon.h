@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQTIPCCOMMON_H
-#define SRCC_LIBQTIPCCOMMON_H
+#ifndef LIBQTIPCCOMMON_H
+#define LIBQTIPCCOMMON_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQBOXLAYOUT_H
-#define SRCC_LIBVIRTUALQBOXLAYOUT_H
+#ifndef LIBQBOXLAYOUT_HXX
+#define LIBQBOXLAYOUT_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

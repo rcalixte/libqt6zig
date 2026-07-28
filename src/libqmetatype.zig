@@ -888,7 +888,7 @@ pub const QMetaType = extern struct {
 
 /// ### [Upstream resources](https://doc.qt.io/qt-6/qmetatype.html#public-types)
 pub const enums = struct {
-    pub const QCborSimpleType = enum(u8) {};
+    pub const QCborSimpleType = enum(u8) { _ };
 
     pub const Type = enum(i32) {
         pub const Bool: i32 = 1;

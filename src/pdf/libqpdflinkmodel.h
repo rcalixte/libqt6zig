@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_PDFC_LIBQPDFLINKMODEL_H
-#define SRC_PDFC_LIBQPDFLINKMODEL_H
+#ifndef PDF_LIBQPDFLINKMODEL_H
+#define PDF_LIBQPDFLINKMODEL_H
 
 #include <stdbool.h>
 #include <stddef.h>

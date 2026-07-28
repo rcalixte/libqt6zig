@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_ATTICAC_LIBVIRTUALCONFIG_H
-#define SRC_EXTRAS_ATTICAC_LIBVIRTUALCONFIG_H
+#ifndef EXTRAS_ATTICA_LIBCONFIG_HXX
+#define EXTRAS_ATTICA_LIBCONFIG_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

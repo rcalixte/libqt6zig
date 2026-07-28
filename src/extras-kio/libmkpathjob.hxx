@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBVIRTUALMKPATHJOB_H
-#define SRC_EXTRAS_KIOC_LIBVIRTUALMKPATHJOB_H
+#ifndef EXTRAS_KIO_LIBMKPATHJOB_HXX
+#define EXTRAS_KIO_LIBMKPATHJOB_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

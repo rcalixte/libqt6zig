@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQIMAGE_H
-#define SRCC_LIBVIRTUALQIMAGE_H
+#ifndef LIBQIMAGE_HXX
+#define LIBQIMAGE_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

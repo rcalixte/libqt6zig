@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQFLOAT16_H
-#define SRCC_LIBVIRTUALQFLOAT16_H
+#ifndef LIBQFLOAT16_HXX
+#define LIBQFLOAT16_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

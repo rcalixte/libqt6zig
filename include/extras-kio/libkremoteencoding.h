@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBKREMOTEENCODING_H
-#define SRC_EXTRAS_KIOC_LIBKREMOTEENCODING_H
+#ifndef EXTRAS_KIO_LIBKREMOTEENCODING_H
+#define EXTRAS_KIO_LIBKREMOTEENCODING_H
 
 #include <stdbool.h>
 #include <stddef.h>

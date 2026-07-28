@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQPDFOUTPUTINTENT_H
-#define SRCC_LIBVIRTUALQPDFOUTPUTINTENT_H
+#ifndef LIBQPDFOUTPUTINTENT_HXX
+#define LIBQPDFOUTPUTINTENT_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQMENU_H
-#define SRCC_LIBVIRTUALQMENU_H
+#ifndef LIBQMENU_HXX
+#define LIBQMENU_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

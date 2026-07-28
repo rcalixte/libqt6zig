@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQSCREEN_H
-#define SRCC_LIBVIRTUALQSCREEN_H
+#ifndef LIBQSCREEN_HXX
+#define LIBQSCREEN_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

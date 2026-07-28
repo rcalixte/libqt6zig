@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQPROGRESSBAR_H
-#define SRCC_LIBVIRTUALQPROGRESSBAR_H
+#ifndef LIBQPROGRESSBAR_HXX
+#define LIBQPROGRESSBAR_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

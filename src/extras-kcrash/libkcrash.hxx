@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KCRASHC_LIBVIRTUALKCRASH_H
-#define SRC_EXTRAS_KCRASHC_LIBVIRTUALKCRASH_H
+#ifndef EXTRAS_KCRASH_LIBKCRASH_HXX
+#define EXTRAS_KCRASH_LIBKCRASH_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

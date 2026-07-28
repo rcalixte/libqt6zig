@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_NETWORKC_LIBQFORMDATABUILDER_H
-#define SRC_NETWORKC_LIBQFORMDATABUILDER_H
+#ifndef NETWORK_LIBQFORMDATABUILDER_H
+#define NETWORK_LIBQFORMDATABUILDER_H
 
 #include <stdbool.h>
 #include <stddef.h>

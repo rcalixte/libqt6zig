@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KTEXTEDITORC_LIBVIEW_H
-#define SRC_EXTRAS_KTEXTEDITORC_LIBVIEW_H
+#ifndef EXTRAS_KTEXTEDITOR_LIBVIEW_H
+#define EXTRAS_KTEXTEDITOR_LIBVIEW_H
 
 #include <stdbool.h>
 #include <stddef.h>

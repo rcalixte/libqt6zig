@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_STATEMACHINEC_LIBQSTATE_H
-#define SRC_STATEMACHINEC_LIBQSTATE_H
+#ifndef STATEMACHINE_LIBQSTATE_H
+#define STATEMACHINE_LIBQSTATE_H
 
 #include <stdbool.h>
 #include <stddef.h>

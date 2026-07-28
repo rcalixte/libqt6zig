@@ -21,7 +21,9 @@
 //! The main library documentation is outlined in the
 //! [table of contents](https://github.com/rcalixte/libqt6zig?tab=readme-ov-file#table-of-contents).
 //!
-//! Full examples are available in the [examples](https://github.com/rcalixte/libqt6zig-examples) repository.
+//! Full examples are available in the [examples](https://github.com/rcalixte/libqt6zig-examples) repository. An
+//! [overview of the examples](https://github.com/rcalixte/libqt6zig-examples/blob/master/OVERVIEW.md) is also available
+//! for a simpler/quicker glance.
 //!
 //! There is also a [demo application](https://github.com/rcalixte/libqt6zig-demo) that demonstrates the use of the library
 //! with a simpler build system than the examples, while also demonstrating a
@@ -33,7 +35,7 @@
 /// The C namespace exports C ABI types and container structs.
 /// The structs are exported for use in specific callbacks when needed.
 /// Otherwise, they should not need to be used.
-pub const C = @import("qtzig");
+pub const C = @import("qt6zig");
 const std = @import("std");
 const builtin = @import("builtin");
 

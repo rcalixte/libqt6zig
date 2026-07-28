@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KXMLGUIC_LIBKBUGREPORT_H
-#define SRC_EXTRAS_KXMLGUIC_LIBKBUGREPORT_H
+#ifndef EXTRAS_KXMLGUI_LIBKBUGREPORT_H
+#define EXTRAS_KXMLGUI_LIBKBUGREPORT_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQCOMPLETER_H
-#define SRCC_LIBQCOMPLETER_H
+#ifndef LIBQCOMPLETER_H
+#define LIBQCOMPLETER_H
 
 #include <stdbool.h>
 #include <stddef.h>

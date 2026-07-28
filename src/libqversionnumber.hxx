@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQVERSIONNUMBER_H
-#define SRCC_LIBVIRTUALQVERSIONNUMBER_H
+#ifndef LIBQVERSIONNUMBER_HXX
+#define LIBQVERSIONNUMBER_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

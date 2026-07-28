@@ -2596,7 +2596,7 @@ const qtc = @import("qt6c");`)
 			} else if mSafeMethodName == "SetAsDockMenu" {
 				// hack for QMenu::setAsDockMenu
 				zfs.imports["builtin"] = struct{}{}
-				maybePlatformCompileError = `if (builtin.is_test) return;
+				maybePlatformCompileError = `if (builtin.is_test and builtin.target.os.tag != .macos) return;
 if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system");`
 			} else if cmdStructName == "QProcess" && (slices.Contains(nonWinQProcess, m.MethodName) || slices.Contains(nonWinQProcess, m.OverrideMethodName)) {
 				// Windows hacks for QProcess
@@ -3010,7 +3010,7 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 		seenEnums = append(seenEnums, zigEnumName)
 
 		enumType := e.UnderlyingType.RenderTypeZig(&zfs, false, false)
-		enumTag := ifv(enumType == "bool", "", "("+enumType+")")
+		enumTag := ifv(enumType == "bool", "(u1)", "("+enumType+")")
 
 		ret.WriteString("pub const " + zigEnumName + " = enum" + enumTag + " {\n")
 
@@ -3026,6 +3026,9 @@ if (builtin.target.os.tag != .macos) @compileError("Unsupported operating system
 			}
 
 			ret.WriteString("pub const " + titleCase(cabiClassName(ee.EntryName)) + ": " + enumType + " = " + entry + ";\n")
+		}
+		if len(e.Entries) == 0 {
+			ret.WriteString("_")
 		}
 
 		ret.WriteString("};\n\n")

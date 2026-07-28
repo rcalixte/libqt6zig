@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_OPENGLC_LIBQOPENGLTIMERQUERY_H
-#define SRC_OPENGLC_LIBQOPENGLTIMERQUERY_H
+#ifndef OPENGL_LIBQOPENGLTIMERQUERY_H
+#define OPENGL_LIBQOPENGLTIMERQUERY_H
 
 #include <stdbool.h>
 #include <stddef.h>

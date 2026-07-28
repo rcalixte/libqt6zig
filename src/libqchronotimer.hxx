@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQCHRONOTIMER_H
-#define SRCC_LIBVIRTUALQCHRONOTIMER_H
+#ifndef LIBQCHRONOTIMER_HXX
+#define LIBQCHRONOTIMER_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

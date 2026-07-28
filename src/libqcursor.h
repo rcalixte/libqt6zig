@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQCURSOR_H
-#define SRCC_LIBQCURSOR_H
+#ifndef LIBQCURSOR_H
+#define LIBQCURSOR_H
 
 #include <stdbool.h>
 #include <stddef.h>

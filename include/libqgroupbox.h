@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQGROUPBOX_H
-#define SRCC_LIBQGROUPBOX_H
+#ifndef LIBQGROUPBOX_H
+#define LIBQGROUPBOX_H
 
 #include <stdbool.h>
 #include <stddef.h>

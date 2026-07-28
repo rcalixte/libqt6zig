@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQTEXTLIST_H
-#define SRCC_LIBQTEXTLIST_H
+#ifndef LIBQTEXTLIST_H
+#define LIBQTEXTLIST_H
 
 #include <stdbool.h>
 #include <stddef.h>

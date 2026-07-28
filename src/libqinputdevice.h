@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQINPUTDEVICE_H
-#define SRCC_LIBQINPUTDEVICE_H
+#ifndef LIBQINPUTDEVICE_H
+#define LIBQINPUTDEVICE_H
 
 #include <stdbool.h>
 #include <stddef.h>

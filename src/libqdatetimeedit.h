@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQDATETIMEEDIT_H
-#define SRCC_LIBQDATETIMEEDIT_H
+#ifndef LIBQDATETIMEEDIT_H
+#define LIBQDATETIMEEDIT_H
 
 #include <stdbool.h>
 #include <stddef.h>

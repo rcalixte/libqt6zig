@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQRADIOBUTTON_H
-#define SRCC_LIBVIRTUALQRADIOBUTTON_H
+#ifndef LIBQRADIOBUTTON_HXX
+#define LIBQRADIOBUTTON_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_SVGC_LIBVIRTUALQSVGGENERATOR_H
-#define SRC_SVGC_LIBVIRTUALQSVGGENERATOR_H
+#ifndef SVG_LIBQSVGGENERATOR_HXX
+#define SVG_LIBQSVGGENERATOR_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

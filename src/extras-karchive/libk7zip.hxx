@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KARCHIVEC_LIBVIRTUALK7ZIP_H
-#define SRC_EXTRAS_KARCHIVEC_LIBVIRTUALK7ZIP_H
+#ifndef EXTRAS_KARCHIVE_LIBK7ZIP_HXX
+#define EXTRAS_KARCHIVE_LIBK7ZIP_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

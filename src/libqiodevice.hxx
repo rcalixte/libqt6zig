@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQIODEVICE_H
-#define SRCC_LIBVIRTUALQIODEVICE_H
+#ifndef LIBQIODEVICE_HXX
+#define LIBQIODEVICE_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_POSIX_EXTRAS_ACCOUNTSC_LIBERROR_H
-#define SRC_POSIX_EXTRAS_ACCOUNTSC_LIBERROR_H
+#ifndef POSIX_EXTRAS_ACCOUNTS_LIBERROR_H
+#define POSIX_EXTRAS_ACCOUNTS_LIBERROR_H
 
 #include <stdbool.h>
 #include <stddef.h>

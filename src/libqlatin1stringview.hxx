@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQLATIN1STRINGVIEW_H
-#define SRCC_LIBVIRTUALQLATIN1STRINGVIEW_H
+#ifndef LIBQLATIN1STRINGVIEW_HXX
+#define LIBQLATIN1STRINGVIEW_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

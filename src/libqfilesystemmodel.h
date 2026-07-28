@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQFILESYSTEMMODEL_H
-#define SRCC_LIBQFILESYSTEMMODEL_H
+#ifndef LIBQFILESYSTEMMODEL_H
+#define LIBQFILESYSTEMMODEL_H
 
 #include <stdbool.h>
 #include <stddef.h>

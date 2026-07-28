@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQPROGRESSDIALOG_H
-#define SRCC_LIBQPROGRESSDIALOG_H
+#ifndef LIBQPROGRESSDIALOG_H
+#define LIBQPROGRESSDIALOG_H
 
 #include <stdbool.h>
 #include <stddef.h>

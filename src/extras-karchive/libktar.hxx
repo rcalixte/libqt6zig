@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KARCHIVEC_LIBVIRTUALKTAR_H
-#define SRC_EXTRAS_KARCHIVEC_LIBVIRTUALKTAR_H
+#ifndef EXTRAS_KARCHIVE_LIBKTAR_HXX
+#define EXTRAS_KARCHIVE_LIBKTAR_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

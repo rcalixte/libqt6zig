@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_NETWORKC_LIBQNETWORKREQUEST_H
-#define SRC_NETWORKC_LIBQNETWORKREQUEST_H
+#ifndef NETWORK_LIBQNETWORKREQUEST_H
+#define NETWORK_LIBQNETWORKREQUEST_H
 
 #include <stdbool.h>
 #include <stddef.h>

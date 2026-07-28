@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQJSONARRAY_H
-#define SRCC_LIBVIRTUALQJSONARRAY_H
+#ifndef LIBQJSONARRAY_HXX
+#define LIBQJSONARRAY_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

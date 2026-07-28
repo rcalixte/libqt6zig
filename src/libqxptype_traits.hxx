@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQXPTYPE_TRAITS_H
-#define SRCC_LIBVIRTUALQXPTYPE_TRAITS_H
+#ifndef LIBQXPTYPE_TRAITS_HXX
+#define LIBQXPTYPE_TRAITS_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

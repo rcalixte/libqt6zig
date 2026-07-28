@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQITEMDELEGATE_H
-#define SRCC_LIBVIRTUALQITEMDELEGATE_H
+#ifndef LIBQITEMDELEGATE_HXX
+#define LIBQITEMDELEGATE_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQSLIDER_H
-#define SRCC_LIBVIRTUALQSLIDER_H
+#ifndef LIBQSLIDER_HXX
+#define LIBQSLIDER_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

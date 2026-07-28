@@ -247,7 +247,6 @@ pub fn build(b: *std.Build) !void {
 
     libqt6zig.addImport("qt6c", qtc_bindings);
     libqt6zig.addImport("qt6zig", qtzig_types);
-    libqt6zig.addImport("qtzig", qtzig_types);
     libqt6zig.addImport("libqt6", libqt6zig_internal);
 
     try b.modules.put(b.allocator, "libqt6zig", libqt6zig);

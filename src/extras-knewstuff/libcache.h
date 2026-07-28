@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KNEWSTUFFC_LIBCACHE_H
-#define SRC_EXTRAS_KNEWSTUFFC_LIBCACHE_H
+#ifndef EXTRAS_KNEWSTUFF_LIBCACHE_H
+#define EXTRAS_KNEWSTUFF_LIBCACHE_H
 
 #include <stdbool.h>
 #include <stddef.h>

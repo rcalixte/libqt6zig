@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQSURFACEFORMAT_H
-#define SRCC_LIBVIRTUALQSURFACEFORMAT_H
+#ifndef LIBQSURFACEFORMAT_HXX
+#define LIBQSURFACEFORMAT_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

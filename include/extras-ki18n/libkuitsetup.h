@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KI18NC_LIBKUITSETUP_H
-#define SRC_EXTRAS_KI18NC_LIBKUITSETUP_H
+#ifndef EXTRAS_KI18N_LIBKUITSETUP_H
+#define EXTRAS_KI18N_LIBKUITSETUP_H
 
 #include <stdbool.h>
 #include <stddef.h>

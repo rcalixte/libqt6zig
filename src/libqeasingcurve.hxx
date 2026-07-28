@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQEASINGCURVE_H
-#define SRCC_LIBVIRTUALQEASINGCURVE_H
+#ifndef LIBQEASINGCURVE_HXX
+#define LIBQEASINGCURVE_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

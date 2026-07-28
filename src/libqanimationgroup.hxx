@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQANIMATIONGROUP_H
-#define SRCC_LIBVIRTUALQANIMATIONGROUP_H
+#ifndef LIBQANIMATIONGROUP_HXX
+#define LIBQANIMATIONGROUP_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

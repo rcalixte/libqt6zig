@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQSIZEGRIP_H
-#define SRCC_LIBQSIZEGRIP_H
+#ifndef LIBQSIZEGRIP_H
+#define LIBQSIZEGRIP_H
 
 #include <stdbool.h>
 #include <stddef.h>

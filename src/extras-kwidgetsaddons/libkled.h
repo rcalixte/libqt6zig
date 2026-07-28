@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KWIDGETSADDONSC_LIBKLED_H
-#define SRC_EXTRAS_KWIDGETSADDONSC_LIBKLED_H
+#ifndef EXTRAS_KWIDGETSADDONS_LIBKLED_H
+#define EXTRAS_KWIDGETSADDONS_LIBKLED_H
 
 #include <stdbool.h>
 #include <stddef.h>

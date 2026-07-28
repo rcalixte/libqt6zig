@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_POSITIONINGC_LIBQGEOCIRCLE_H
-#define SRC_POSITIONINGC_LIBQGEOCIRCLE_H
+#ifndef POSITIONING_LIBQGEOCIRCLE_H
+#define POSITIONING_LIBQGEOCIRCLE_H
 
 #include <stdbool.h>
 #include <stddef.h>

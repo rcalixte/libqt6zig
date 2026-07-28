@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQPAGERANGES_H
-#define SRCC_LIBVIRTUALQPAGERANGES_H
+#ifndef LIBQPAGERANGES_HXX
+#define LIBQPAGERANGES_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

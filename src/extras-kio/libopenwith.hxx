@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBVIRTUALOPENWITH_H
-#define SRC_EXTRAS_KIOC_LIBVIRTUALOPENWITH_H
+#ifndef EXTRAS_KIO_LIBOPENWITH_HXX
+#define EXTRAS_KIO_LIBOPENWITH_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQCLIPBOARD_H
-#define SRCC_LIBQCLIPBOARD_H
+#ifndef LIBQCLIPBOARD_H
+#define LIBQCLIPBOARD_H
 
 #include <stdbool.h>
 #include <stddef.h>

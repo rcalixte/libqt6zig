@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KCOREADDONSC_LIBKSHELL_H
-#define SRC_EXTRAS_KCOREADDONSC_LIBKSHELL_H
+#ifndef EXTRAS_KCOREADDONS_LIBKSHELL_H
+#define EXTRAS_KCOREADDONS_LIBKSHELL_H
 
 #include <stdbool.h>
 #include <stddef.h>

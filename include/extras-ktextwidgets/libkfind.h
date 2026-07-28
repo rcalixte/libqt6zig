@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KTEXTWIDGETSC_LIBKFIND_H
-#define SRC_EXTRAS_KTEXTWIDGETSC_LIBKFIND_H
+#ifndef EXTRAS_KTEXTWIDGETS_LIBKFIND_H
+#define EXTRAS_KTEXTWIDGETS_LIBKFIND_H
 
 #include <stdbool.h>
 #include <stddef.h>

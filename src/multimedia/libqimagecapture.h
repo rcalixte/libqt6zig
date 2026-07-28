@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_MULTIMEDIAC_LIBQIMAGECAPTURE_H
-#define SRC_MULTIMEDIAC_LIBQIMAGECAPTURE_H
+#ifndef MULTIMEDIA_LIBQIMAGECAPTURE_H
+#define MULTIMEDIA_LIBQIMAGECAPTURE_H
 
 #include <stdbool.h>
 #include <stddef.h>

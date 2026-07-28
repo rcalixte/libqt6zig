@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQSCROLLERPROPERTIES_H
-#define SRCC_LIBQSCROLLERPROPERTIES_H
+#ifndef LIBQSCROLLERPROPERTIES_H
+#define LIBQSCROLLERPROPERTIES_H
 
 #include <stdbool.h>
 #include <stddef.h>

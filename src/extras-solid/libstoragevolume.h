@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_SOLIDC_LIBSTORAGEVOLUME_H
-#define SRC_EXTRAS_SOLIDC_LIBSTORAGEVOLUME_H
+#ifndef EXTRAS_SOLID_LIBSTORAGEVOLUME_H
+#define EXTRAS_SOLID_LIBSTORAGEVOLUME_H
 
 #include <stdbool.h>
 #include <stddef.h>

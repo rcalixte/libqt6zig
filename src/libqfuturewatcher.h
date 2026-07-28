@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQFUTUREWATCHER_H
-#define SRCC_LIBQFUTUREWATCHER_H
+#ifndef LIBQFUTUREWATCHER_H
+#define LIBQFUTUREWATCHER_H
 
 #include <stdbool.h>
 #include <stddef.h>

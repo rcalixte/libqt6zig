@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQGRAPHICSITEMANIMATION_H
-#define SRCC_LIBQGRAPHICSITEMANIMATION_H
+#ifndef LIBQGRAPHICSITEMANIMATION_H
+#define LIBQGRAPHICSITEMANIMATION_H
 
 #include <stdbool.h>
 #include <stddef.h>

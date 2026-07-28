@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQELAPSEDTIMER_H
-#define SRCC_LIBQELAPSEDTIMER_H
+#ifndef LIBQELAPSEDTIMER_H
+#define LIBQELAPSEDTIMER_H
 
 #include <stdbool.h>
 #include <stddef.h>

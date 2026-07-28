@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQSTRINGMATCHER_H
-#define SRCC_LIBQSTRINGMATCHER_H
+#ifndef LIBQSTRINGMATCHER_H
+#define LIBQSTRINGMATCHER_H
 
 #include <stdbool.h>
 #include <stddef.h>

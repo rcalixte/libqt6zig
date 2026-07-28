@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_NETWORKC_LIBQHTTPHEADERS_H
-#define SRC_NETWORKC_LIBQHTTPHEADERS_H
+#ifndef NETWORK_LIBQHTTPHEADERS_H
+#define NETWORK_LIBQHTTPHEADERS_H
 
 #include <stdbool.h>
 #include <stddef.h>

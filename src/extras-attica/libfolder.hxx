@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_ATTICAC_LIBVIRTUALFOLDER_H
-#define SRC_EXTRAS_ATTICAC_LIBVIRTUALFOLDER_H
+#ifndef EXTRAS_ATTICA_LIBFOLDER_HXX
+#define EXTRAS_ATTICA_LIBFOLDER_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

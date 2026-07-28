@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQRASTERWINDOW_H
-#define SRCC_LIBVIRTUALQRASTERWINDOW_H
+#ifndef LIBQRASTERWINDOW_HXX
+#define LIBQRASTERWINDOW_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

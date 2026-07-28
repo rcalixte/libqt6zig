@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQPIXELFORMAT_H
-#define SRCC_LIBVIRTUALQPIXELFORMAT_H
+#ifndef LIBQPIXELFORMAT_HXX
+#define LIBQPIXELFORMAT_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

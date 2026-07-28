@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_ATTICAC_LIBCATEGORY_H
-#define SRC_EXTRAS_ATTICAC_LIBCATEGORY_H
+#ifndef EXTRAS_ATTICA_LIBCATEGORY_H
+#define EXTRAS_ATTICA_LIBCATEGORY_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_DESIGNERC_LIBCONTAINER_H
-#define SRC_DESIGNERC_LIBCONTAINER_H
+#ifndef DESIGNER_LIBCONTAINER_H
+#define DESIGNER_LIBCONTAINER_H
 
 #include <stdbool.h>
 #include <stddef.h>

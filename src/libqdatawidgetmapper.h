@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQDATAWIDGETMAPPER_H
-#define SRCC_LIBQDATAWIDGETMAPPER_H
+#ifndef LIBQDATAWIDGETMAPPER_H
+#define LIBQDATAWIDGETMAPPER_H
 
 #include <stdbool.h>
 #include <stddef.h>

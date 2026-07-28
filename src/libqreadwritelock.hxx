@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQREADWRITELOCK_H
-#define SRCC_LIBVIRTUALQREADWRITELOCK_H
+#ifndef LIBQREADWRITELOCK_HXX
+#define LIBQREADWRITELOCK_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

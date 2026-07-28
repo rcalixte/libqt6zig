@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQMIMEDATABASE_H
-#define SRCC_LIBQMIMEDATABASE_H
+#ifndef LIBQMIMEDATABASE_H
+#define LIBQMIMEDATABASE_H
 
 #include <stdbool.h>
 #include <stddef.h>

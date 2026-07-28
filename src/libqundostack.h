@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQUNDOSTACK_H
-#define SRCC_LIBQUNDOSTACK_H
+#ifndef LIBQUNDOSTACK_H
+#define LIBQUNDOSTACK_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQTEXTBROWSER_H
-#define SRCC_LIBVIRTUALQTEXTBROWSER_H
+#ifndef LIBQTEXTBROWSER_HXX
+#define LIBQTEXTBROWSER_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

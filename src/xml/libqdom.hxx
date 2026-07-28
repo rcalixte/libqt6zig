@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_XMLC_LIBVIRTUALQDOM_H
-#define SRC_XMLC_LIBVIRTUALQDOM_H
+#ifndef XML_LIBQDOM_HXX
+#define XML_LIBQDOM_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

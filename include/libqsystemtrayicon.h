@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQSYSTEMTRAYICON_H
-#define SRCC_LIBQSYSTEMTRAYICON_H
+#ifndef LIBQSYSTEMTRAYICON_H
+#define LIBQSYSTEMTRAYICON_H
 
 #include <stdbool.h>
 #include <stddef.h>

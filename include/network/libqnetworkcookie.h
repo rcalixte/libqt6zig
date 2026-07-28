@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_NETWORKC_LIBQNETWORKCOOKIE_H
-#define SRC_NETWORKC_LIBQNETWORKCOOKIE_H
+#ifndef NETWORK_LIBQNETWORKCOOKIE_H
+#define NETWORK_LIBQNETWORKCOOKIE_H
 
 #include <stdbool.h>
 #include <stddef.h>

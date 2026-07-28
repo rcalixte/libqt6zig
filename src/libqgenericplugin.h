@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQGENERICPLUGIN_H
-#define SRCC_LIBQGENERICPLUGIN_H
+#ifndef LIBQGENERICPLUGIN_H
+#define LIBQGENERICPLUGIN_H
 
 #include <stdbool.h>
 #include <stddef.h>

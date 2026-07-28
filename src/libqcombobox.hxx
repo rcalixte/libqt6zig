@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBVIRTUALQCOMBOBOX_H
-#define SRCC_LIBVIRTUALQCOMBOBOX_H
+#ifndef LIBQCOMBOBOX_HXX
+#define LIBQCOMBOBOX_HXX
 
 #include <stdbool.h>
 #include <stddef.h>

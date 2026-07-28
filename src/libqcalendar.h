@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQCALENDAR_H
-#define SRCC_LIBQCALENDAR_H
+#ifndef LIBQCALENDAR_H
+#define LIBQCALENDAR_H
 
 #include <stdbool.h>
 #include <stddef.h>

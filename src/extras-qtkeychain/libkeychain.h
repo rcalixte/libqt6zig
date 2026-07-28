@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_QTKEYCHAINC_LIBKEYCHAIN_H
-#define SRC_EXTRAS_QTKEYCHAINC_LIBKEYCHAIN_H
+#ifndef EXTRAS_QTKEYCHAIN_LIBKEYCHAIN_H
+#define EXTRAS_QTKEYCHAIN_LIBKEYCHAIN_H
 
 #include <stdbool.h>
 #include <stddef.h>

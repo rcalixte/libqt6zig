@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_KIOC_LIBSKIPDIALOG_H
-#define SRC_EXTRAS_KIOC_LIBSKIPDIALOG_H
+#ifndef EXTRAS_KIO_LIBSKIPDIALOG_H
+#define EXTRAS_KIO_LIBSKIPDIALOG_H
 
 #include <stdbool.h>
 #include <stddef.h>

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRCC_LIBQPAINTERPATH_H
-#define SRCC_LIBQPAINTERPATH_H
+#ifndef LIBQPAINTERPATH_H
+#define LIBQPAINTERPATH_H
 
 #include <stdbool.h>
 #include <stddef.h>

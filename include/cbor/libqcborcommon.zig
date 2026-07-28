@@ -95,7 +95,7 @@ pub const enums = struct {
         pub const Undefined: u8 = 23;
     };
 
-    pub const QCborTag = enum(u64) {};
+    pub const QCborTag = enum(u64) { _ };
 
     pub const QCborKnownTags = enum(i32) {
         pub const DateTimeString: i32 = 0;
@@ -123,7 +123,7 @@ pub const enums = struct {
         pub const Signature: i32 = 55799;
     };
 
-    pub const QCborNegativeInteger = enum(u64) {};
+    pub const QCborNegativeInteger = enum(u64) { _ };
 
     pub const Code = enum(i32) {
         pub const UnknownError: i32 = 1;

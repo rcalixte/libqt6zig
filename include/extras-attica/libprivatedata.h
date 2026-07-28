@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SRC_EXTRAS_ATTICAC_LIBPRIVATEDATA_H
-#define SRC_EXTRAS_ATTICAC_LIBPRIVATEDATA_H
+#ifndef EXTRAS_ATTICA_LIBPRIVATEDATA_H
+#define EXTRAS_ATTICA_LIBPRIVATEDATA_H
 
 #include <stdbool.h>
 #include <stddef.h>
