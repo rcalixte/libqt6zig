@@ -1,4 +1,9 @@
 
+### 6.8.2 rev81 (28 July 2026)
+
+* Revamp header guards and minor tweaks (#155)
+* Extend build environment configuration
+
 ### 6.8.2 rev80 (23 July 2026)
 
 * Improve cross-platform support
