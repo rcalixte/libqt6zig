@@ -35,6 +35,7 @@ These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/
     - [Fedora-based distributions](#fedora-based-distributions)
     - [Arch-based distributions](#arch-based-distributions)
     - [openSUSE-based distributions](#opensuse-based-distributions)
+    - [Flatpak-based environments](#flatpak-based-environments)
   - [macOS (native)](#macos-native)
   - [Windows (native)](#windows-native)
 - [Tools](#tools)
@@ -44,6 +45,7 @@ These bindings are based on the [MIQT bindings for Go](https://github.com/mappu/
     - [Fedora-based](#fedora-based)
     - [Arch-based](#arch-based)
     - [openSUSE-based](#opensuse-based)
+    - [Flatpak](#flatpak)
   - [macOS](#macos)
   - [Windows](#windows)
 - [Usage](#usage)
@@ -64,6 +66,8 @@ Supported platforms
 
 | OS      | Arch   | Linkage (Bindings) | Status  |
 | ------- | ------ | ------------------ | ------- |
+| Flatpak | arm64  | Static             | ✅ Works |
+| Flatpak | x86_64 | Static             | ✅ Works |
 | FreeBSD | arm64  | Static             | ✅ Works |
 | FreeBSD | x86_64 | Static             | ✅ Works |
 | Linux   | arm64  | Static             | ✅ Works |
@@ -253,6 +257,23 @@ Users of openSUSE-based distributions need to __make sure that all packages are 
 > [!NOTE]
 > The `zig` package must be downloaded and installed separately as the version available in the default repositories is too unstable for usage.
 
+#### Flatpak-based environments
+
+These instructions assume that [Flathub is setup](https://flathub.org/setup) on the host system already.
+
+```bash
+flatpak install flathub org.kde.Sdk org.freedesktop.Sdk.Extension.ziglang
+```
+
+To activate a shell in the Flatpak environment, run a command similar to:
+
+```bash
+flatpak run --device=dri --filesystem=home --share=ipc --share=network --socket=session-bus --socket=fallback-x11 --socket=wayland --talk-name=org.kde.StatusNotifierWatcher org.kde.Sdk
+```
+
+> [!INFO]
+> The previous installation command installs the KDE Software Development Kit which provides many of the KDE Frameworks available in the bindings as well as many Qt libraries. Notable exceptions are KTextAddons, Qt PDF, and Qt WebEngine. The Zig SDK Extension provides the Zig toolchain, available by default at `/usr/lib/sdk/ziglang/zig` in the Flatpak environment.
+
 ---
 
 ### macOS (native)
@@ -389,6 +410,15 @@ All of the tools are already installed as dependencies of `qt6-tools-devel` and 
 - `/usr/bin/lupdate6`
 - `/usr/libexec/qt6/rcc`
 - `/usr/libexec/qt6/uic`
+
+#### Flatpak
+
+All of the tools are already installed when using the KDE SDK and available at:
+
+- `/usr/bin/lrelease`
+- `/usr/bin/lupdate`
+- `/usr/lib/libexec/rcc`
+- `/usr/lib/libexec/uic`
 
 ---
 
