@@ -281,7 +281,7 @@ flatpak run --device=dri --filesystem=home --share=ipc --share=network --socket=
 For macOS, currently the Qt 6 framework and select third-party modules are available via [Homebrew](https://brew.sh/). Installation via this method should require no further steps.
 
 ```bash
-brew install qt6 karchive ki18n qscintilla2 qtkeychain
+brew install qt6 karchive ki18n poppler-qt6 qscintilla2 qtkeychain
 ```
 
 > [!IMPORTANT]
