@@ -1,4 +1,8 @@
 
+### 6.8.2 rev82 (9 August 2026)
+
+* **BREAKING CHANGE:** Detect and project default constructors (#156)
+
 ### 6.8.2 rev81 (28 July 2026)
 
 * Revamp header guards and minor tweaks (#155)
