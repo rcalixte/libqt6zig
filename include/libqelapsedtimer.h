@@ -18,9 +18,9 @@ extern "C" {
 typedef struct QElapsedTimer QElapsedTimer;
 #endif
 
-QElapsedTimer* QElapsedTimer_new(const QElapsedTimer* other);
-QElapsedTimer* QElapsedTimer_new2(QElapsedTimer* other);
-QElapsedTimer* QElapsedTimer_new3();
+QElapsedTimer* QElapsedTimer_new();
+QElapsedTimer* QElapsedTimer_new2(const QElapsedTimer* other);
+QElapsedTimer* QElapsedTimer_new3(QElapsedTimer* other);
 void QElapsedTimer_CopyAssign(QElapsedTimer* self, QElapsedTimer* other);
 void QElapsedTimer_MoveAssign(QElapsedTimer* self, QElapsedTimer* other);
 int QElapsedTimer_ClockType();

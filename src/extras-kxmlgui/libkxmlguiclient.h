@@ -99,6 +99,7 @@ void KXMLGUIClient_OnLoadStandardsXmlFile(KXMLGUIClient* self, intptr_t slot);
 void KXMLGUIClient_SuperLoadStandardsXmlFile(KXMLGUIClient* self);
 void KXMLGUIClient_Delete(KXMLGUIClient* self);
 
+KXMLGUIClient__StateChange* KXMLGUIClient__StateChange_new();
 libqt_list /* of libqt_string */ KXMLGUIClient__StateChange_ActionsToEnable(const KXMLGUIClient__StateChange* self);
 void KXMLGUIClient__StateChange_SetActionsToEnable(KXMLGUIClient__StateChange* self, libqt_list /* of libqt_string */ actionsToEnable);
 libqt_list /* of libqt_string */ KXMLGUIClient__StateChange_ActionsToDisable(const KXMLGUIClient__StateChange* self);

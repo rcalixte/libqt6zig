@@ -896,19 +896,19 @@ pub const QTimeZone__OffsetData = extern struct {
 
     /// New constructs a new QTimeZone::OffsetData object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` param1: QTimeZone__OffsetData `
-    ///
-    pub fn New(param1: anytype) QTimeZone__OffsetData {
-        comptime _ = @TypeOf(param1)._is_QTimeZone__OffsetData;
-        return .{ .ptr = qtc.QTimeZone__OffsetData_new(@ptrCast(param1.ptr)) };
+    pub fn New() QTimeZone__OffsetData {
+        return .{ .ptr = qtc.QTimeZone__OffsetData_new() };
     }
 
     /// New2 constructs a new QTimeZone::OffsetData object.
     ///
-    pub fn New2() QTimeZone__OffsetData {
-        return .{ .ptr = qtc.QTimeZone__OffsetData_new2() };
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QTimeZone__OffsetData `
+    ///
+    pub fn New2(param1: anytype) QTimeZone__OffsetData {
+        comptime _ = @TypeOf(param1)._is_QTimeZone__OffsetData;
+        return .{ .ptr = qtc.QTimeZone__OffsetData_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimezone-offsetdata.html#abbreviation-var)

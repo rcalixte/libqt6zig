@@ -1765,19 +1765,19 @@ pub const TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option = extern 
 
     /// New constructs a new TextGrammarCheck::GrammalecteGenerateConfigOptionJob::Option object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` param1: TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option `
-    ///
-    pub fn New(param1: anytype) TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option {
-        comptime _ = @TypeOf(param1)._is_TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option;
-        return .{ .ptr = qtc.TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_new(@ptrCast(param1.ptr)) };
+    pub fn New() TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option {
+        return .{ .ptr = qtc.TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_new() };
     }
 
     /// New2 constructs a new TextGrammarCheck::GrammalecteGenerateConfigOptionJob::Option object.
     ///
-    pub fn New2() TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option {
-        return .{ .ptr = qtc.TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_new2() };
+    /// ## Parameter(s):
+    ///
+    /// ` param1: TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option `
+    ///
+    pub fn New2(param1: anytype) TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option {
+        comptime _ = @TypeOf(param1)._is_TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option;
+        return .{ .ptr = qtc.TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_new2(@ptrCast(param1.ptr)) };
     }
 
     ///

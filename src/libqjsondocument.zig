@@ -19,16 +19,11 @@ pub const QJsonParseError = extern struct {
 
     /// New constructs a new QJsonParseError object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QJsonParseError `
-    ///
-    pub fn New(other: anytype) QJsonParseError {
-        comptime _ = @TypeOf(other)._is_QJsonParseError;
-        return .{ .ptr = qtc.QJsonParseError_new(@ptrCast(other.ptr)) };
+    pub fn New() QJsonParseError {
+        return .{ .ptr = qtc.QJsonParseError_new() };
     }
 
-    /// New2 constructs a new QJsonParseError object and invalidates the source QJsonParseError object.
+    /// New2 constructs a new QJsonParseError object.
     ///
     /// ## Parameter(s):
     ///
@@ -37,6 +32,17 @@ pub const QJsonParseError = extern struct {
     pub fn New2(other: anytype) QJsonParseError {
         comptime _ = @TypeOf(other)._is_QJsonParseError;
         return .{ .ptr = qtc.QJsonParseError_new2(@ptrCast(other.ptr)) };
+    }
+
+    /// New3 constructs a new QJsonParseError object and invalidates the source QJsonParseError object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: QJsonParseError `
+    ///
+    pub fn New3(other: anytype) QJsonParseError {
+        comptime _ = @TypeOf(other)._is_QJsonParseError;
+        return .{ .ptr = qtc.QJsonParseError_new3(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.

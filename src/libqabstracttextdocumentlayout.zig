@@ -2596,19 +2596,19 @@ pub const QAbstractTextDocumentLayout__Selection = extern struct {
 
     /// New constructs a new QAbstractTextDocumentLayout::Selection object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` param1: QAbstractTextDocumentLayout__Selection `
-    ///
-    pub fn New(param1: anytype) QAbstractTextDocumentLayout__Selection {
-        comptime _ = @TypeOf(param1)._is_QAbstractTextDocumentLayout__Selection;
-        return .{ .ptr = qtc.QAbstractTextDocumentLayout__Selection_new(@ptrCast(param1.ptr)) };
+    pub fn New() QAbstractTextDocumentLayout__Selection {
+        return .{ .ptr = qtc.QAbstractTextDocumentLayout__Selection_new() };
     }
 
     /// New2 constructs a new QAbstractTextDocumentLayout::Selection object.
     ///
-    pub fn New2() QAbstractTextDocumentLayout__Selection {
-        return .{ .ptr = qtc.QAbstractTextDocumentLayout__Selection_new2() };
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QAbstractTextDocumentLayout__Selection `
+    ///
+    pub fn New2(param1: anytype) QAbstractTextDocumentLayout__Selection {
+        comptime _ = @TypeOf(param1)._is_QAbstractTextDocumentLayout__Selection;
+        return .{ .ptr = qtc.QAbstractTextDocumentLayout__Selection_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout-selection.html#cursor-var)

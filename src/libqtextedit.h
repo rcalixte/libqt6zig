@@ -405,7 +405,8 @@ void QTextEdit_OnGetDecodedMetricF(const QTextEdit* self, intptr_t slot);
 double QTextEdit_SuperGetDecodedMetricF(const QTextEdit* self, int metricA, int metricB);
 void QTextEdit_Delete(QTextEdit* self);
 
-QTextEdit__ExtraSelection* QTextEdit__ExtraSelection_new(const QTextEdit__ExtraSelection* param1);
+QTextEdit__ExtraSelection* QTextEdit__ExtraSelection_new();
+QTextEdit__ExtraSelection* QTextEdit__ExtraSelection_new2(const QTextEdit__ExtraSelection* param1);
 QTextCursor* QTextEdit__ExtraSelection_Cursor(const QTextEdit__ExtraSelection* self);
 void QTextEdit__ExtraSelection_SetCursor(QTextEdit__ExtraSelection* self, QTextCursor* cursor);
 QTextCharFormat* QTextEdit__ExtraSelection_Format(const QTextEdit__ExtraSelection* self);

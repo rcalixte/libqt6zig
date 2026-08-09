@@ -121,9 +121,9 @@ int QFont_LegacyWeight(const QFont* self);
 void QFont_SetStyleHint2(QFont* self, int param1, int param2);
 void QFont_Delete(QFont* self);
 
-QFont__Tag* QFont__Tag_new(const QFont__Tag* other);
-QFont__Tag* QFont__Tag_new2(QFont__Tag* other);
-QFont__Tag* QFont__Tag_new3();
+QFont__Tag* QFont__Tag_new();
+QFont__Tag* QFont__Tag_new2(const QFont__Tag* other);
+QFont__Tag* QFont__Tag_new3(QFont__Tag* other);
 QFont__Tag* QFont__Tag_new4(const QFont__Tag* param1);
 void QFont__Tag_CopyAssign(QFont__Tag* self, QFont__Tag* other);
 void QFont__Tag_MoveAssign(QFont__Tag* self, QFont__Tag* other);

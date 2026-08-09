@@ -641,6 +641,10 @@ void KXMLGUIClient_Delete(KXMLGUIClient* self) {
     delete self;
 }
 
+KXMLGUIClient__StateChange* KXMLGUIClient__StateChange_new() {
+    return new KXMLGUIClient::StateChange();
+}
+
 libqt_list /* of libqt_string */ KXMLGUIClient__StateChange_ActionsToEnable(const KXMLGUIClient__StateChange* self) {
     QList<QString> actionsToEnable_ret = self->actionsToEnable;
     // Convert QList<> from C++ memory to manually-managed C memory

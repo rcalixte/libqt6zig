@@ -294,13 +294,19 @@ pub const TextTranslator__TranslatorUtil__TranslatorSettings = extern struct {
 
     /// New constructs a new TextTranslator::TranslatorUtil::TranslatorSettings object.
     ///
+    pub fn New() TextTranslator__TranslatorUtil__TranslatorSettings {
+        return .{ .ptr = qtc.TextTranslator__TranslatorUtil__TranslatorSettings_new() };
+    }
+
+    /// New2 constructs a new TextTranslator::TranslatorUtil::TranslatorSettings object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: TextTranslator__TranslatorUtil__TranslatorSettings `
     ///
-    pub fn New(param1: anytype) TextTranslator__TranslatorUtil__TranslatorSettings {
+    pub fn New2(param1: anytype) TextTranslator__TranslatorUtil__TranslatorSettings {
         comptime _ = @TypeOf(param1)._is_TextTranslator__TranslatorUtil__TranslatorSettings;
-        return .{ .ptr = qtc.TextTranslator__TranslatorUtil__TranslatorSettings_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.TextTranslator__TranslatorUtil__TranslatorSettings_new2(@ptrCast(param1.ptr)) };
     }
 
     ///

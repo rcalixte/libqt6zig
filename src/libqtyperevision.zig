@@ -13,16 +13,11 @@ pub const QTypeRevision = extern struct {
 
     /// New constructs a new QTypeRevision object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QTypeRevision `
-    ///
-    pub fn New(other: anytype) QTypeRevision {
-        comptime _ = @TypeOf(other)._is_QTypeRevision;
-        return .{ .ptr = qtc.QTypeRevision_new(@ptrCast(other.ptr)) };
+    pub fn New() QTypeRevision {
+        return .{ .ptr = qtc.QTypeRevision_new() };
     }
 
-    /// New2 constructs a new QTypeRevision object and invalidates the source QTypeRevision object.
+    /// New2 constructs a new QTypeRevision object.
     ///
     /// ## Parameter(s):
     ///
@@ -33,10 +28,15 @@ pub const QTypeRevision = extern struct {
         return .{ .ptr = qtc.QTypeRevision_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QTypeRevision object.
+    /// New3 constructs a new QTypeRevision object and invalidates the source QTypeRevision object.
     ///
-    pub fn New3() QTypeRevision {
-        return .{ .ptr = qtc.QTypeRevision_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QTypeRevision `
+    ///
+    pub fn New3(other: anytype) QTypeRevision {
+        comptime _ = @TypeOf(other)._is_QTypeRevision;
+        return .{ .ptr = qtc.QTypeRevision_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QTypeRevision object.

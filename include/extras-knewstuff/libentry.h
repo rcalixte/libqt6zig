@@ -112,7 +112,8 @@ QImage* KNSCore__Entry_PreviewImage1(const KNSCore__Entry* self, int typeVal);
 void KNSCore__Entry_SetPreviewImage2(KNSCore__Entry* self, const QImage* image, int typeVal);
 void KNSCore__Entry_Delete(KNSCore__Entry* self);
 
-KNSCore__Entry__DownloadLinkInformation* KNSCore__Entry__DownloadLinkInformation_new(const KNSCore__Entry__DownloadLinkInformation* param1);
+KNSCore__Entry__DownloadLinkInformation* KNSCore__Entry__DownloadLinkInformation_new();
+KNSCore__Entry__DownloadLinkInformation* KNSCore__Entry__DownloadLinkInformation_new2(const KNSCore__Entry__DownloadLinkInformation* param1);
 libqt_string KNSCore__Entry__DownloadLinkInformation_Name(const KNSCore__Entry__DownloadLinkInformation* self);
 void KNSCore__Entry__DownloadLinkInformation_SetName(KNSCore__Entry__DownloadLinkInformation* self, libqt_string name);
 libqt_string KNSCore__Entry__DownloadLinkInformation_PriceAmount(const KNSCore__Entry__DownloadLinkInformation* self);

@@ -7,11 +7,15 @@
 #include "libautocorrectionutils.h"
 #include "libautocorrectionutils.hxx"
 
-TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes* TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_new(const TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes* other) {
+TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes* TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_new() {
+    return new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes();
+}
+
+TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes* TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_new2(const TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes* other) {
     return new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes(*other);
 }
 
-TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes* TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_new2(TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes* other) {
+TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes* TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_new3(TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes* other) {
     return new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes(std::move(*other));
 }
 

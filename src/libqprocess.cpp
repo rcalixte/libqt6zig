@@ -1592,13 +1592,19 @@ void QProcess_Delete(QProcess* self) {
 }
 
 #ifndef _WIN32
-QProcess__UnixProcessParameters* QProcess__UnixProcessParameters_new(const QProcess__UnixProcessParameters* other) {
+QProcess__UnixProcessParameters* QProcess__UnixProcessParameters_new() {
+    return new QProcess::UnixProcessParameters();
+}
+#endif
+
+#ifndef _WIN32
+QProcess__UnixProcessParameters* QProcess__UnixProcessParameters_new2(const QProcess__UnixProcessParameters* other) {
     return new QProcess::UnixProcessParameters(*other);
 }
 #endif
 
 #ifndef _WIN32
-QProcess__UnixProcessParameters* QProcess__UnixProcessParameters_new2(QProcess__UnixProcessParameters* other) {
+QProcess__UnixProcessParameters* QProcess__UnixProcessParameters_new3(QProcess__UnixProcessParameters* other) {
     return new QProcess::UnixProcessParameters(std::move(*other));
 }
 #endif

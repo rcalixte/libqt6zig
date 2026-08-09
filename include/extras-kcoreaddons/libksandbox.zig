@@ -68,13 +68,19 @@ pub const KSandbox__ProcessContext = extern struct {
 
     /// New constructs a new KSandbox::ProcessContext object.
     ///
+    pub fn New() KSandbox__ProcessContext {
+        return .{ .ptr = qtc.KSandbox__ProcessContext_new() };
+    }
+
+    /// New2 constructs a new KSandbox::ProcessContext object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: KSandbox__ProcessContext `
     ///
-    pub fn New(param1: anytype) KSandbox__ProcessContext {
+    pub fn New2(param1: anytype) KSandbox__ProcessContext {
         comptime _ = @TypeOf(param1)._is_KSandbox__ProcessContext;
-        return .{ .ptr = qtc.KSandbox__ProcessContext_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.KSandbox__ProcessContext_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### DEPRECATED: Use `Delete` instead

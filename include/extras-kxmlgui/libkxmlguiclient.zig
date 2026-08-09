@@ -1160,6 +1160,12 @@ pub const KXMLGUIClient__StateChange = extern struct {
 
     pub const _is_KXMLGUIClient__StateChange = {};
 
+    /// New constructs a new KXMLGUIClient::StateChange object.
+    ///
+    pub fn New() KXMLGUIClient__StateChange {
+        return .{ .ptr = qtc.KXMLGUIClient__StateChange_new() };
+    }
+
     /// ### [Upstream resources](https://api.kde.org/kxmlguiclient-statechange.html#actionsToEnable-var)
     ///
     /// ## Parameter(s):

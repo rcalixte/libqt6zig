@@ -87,16 +87,11 @@ pub const QAbstractVideoBuffer__MapData = extern struct {
 
     /// New constructs a new QAbstractVideoBuffer::MapData object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QAbstractVideoBuffer__MapData `
-    ///
-    pub fn New(other: anytype) QAbstractVideoBuffer__MapData {
-        comptime _ = @TypeOf(other)._is_QAbstractVideoBuffer__MapData;
-        return .{ .ptr = qtc.QAbstractVideoBuffer__MapData_new(@ptrCast(other.ptr)) };
+    pub fn New() QAbstractVideoBuffer__MapData {
+        return .{ .ptr = qtc.QAbstractVideoBuffer__MapData_new() };
     }
 
-    /// New2 constructs a new QAbstractVideoBuffer::MapData object and invalidates the source QAbstractVideoBuffer::MapData object.
+    /// New2 constructs a new QAbstractVideoBuffer::MapData object.
     ///
     /// ## Parameter(s):
     ///
@@ -105,6 +100,17 @@ pub const QAbstractVideoBuffer__MapData = extern struct {
     pub fn New2(other: anytype) QAbstractVideoBuffer__MapData {
         comptime _ = @TypeOf(other)._is_QAbstractVideoBuffer__MapData;
         return .{ .ptr = qtc.QAbstractVideoBuffer__MapData_new2(@ptrCast(other.ptr)) };
+    }
+
+    /// New3 constructs a new QAbstractVideoBuffer::MapData object and invalidates the source QAbstractVideoBuffer::MapData object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: QAbstractVideoBuffer__MapData `
+    ///
+    pub fn New3(other: anytype) QAbstractVideoBuffer__MapData {
+        comptime _ = @TypeOf(other)._is_QAbstractVideoBuffer__MapData;
+        return .{ .ptr = qtc.QAbstractVideoBuffer__MapData_new3(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.

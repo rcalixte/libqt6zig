@@ -18220,13 +18220,19 @@ pub const QDomDocument__ParseResult = extern struct {
 
     /// New constructs a new QDomDocument::ParseResult object.
     ///
+    pub fn New() QDomDocument__ParseResult {
+        return .{ .ptr = qtc.QDomDocument__ParseResult_new() };
+    }
+
+    /// New2 constructs a new QDomDocument::ParseResult object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: QDomDocument__ParseResult `
     ///
-    pub fn New(param1: anytype) QDomDocument__ParseResult {
+    pub fn New2(param1: anytype) QDomDocument__ParseResult {
         comptime _ = @TypeOf(param1)._is_QDomDocument__ParseResult;
-        return .{ .ptr = qtc.QDomDocument__ParseResult_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.QDomDocument__ParseResult_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument-parseresult.html#errorMessage-var)

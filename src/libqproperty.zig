@@ -49,16 +49,11 @@ pub const QPropertyBindingSourceLocation = extern struct {
 
     /// New constructs a new QPropertyBindingSourceLocation object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QPropertyBindingSourceLocation `
-    ///
-    pub fn New(other: anytype) QPropertyBindingSourceLocation {
-        comptime _ = @TypeOf(other)._is_QPropertyBindingSourceLocation;
-        return .{ .ptr = qtc.QPropertyBindingSourceLocation_new(@ptrCast(other.ptr)) };
+    pub fn New() QPropertyBindingSourceLocation {
+        return .{ .ptr = qtc.QPropertyBindingSourceLocation_new() };
     }
 
-    /// New2 constructs a new QPropertyBindingSourceLocation object and invalidates the source QPropertyBindingSourceLocation object.
+    /// New2 constructs a new QPropertyBindingSourceLocation object.
     ///
     /// ## Parameter(s):
     ///
@@ -69,10 +64,15 @@ pub const QPropertyBindingSourceLocation = extern struct {
         return .{ .ptr = qtc.QPropertyBindingSourceLocation_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QPropertyBindingSourceLocation object.
+    /// New3 constructs a new QPropertyBindingSourceLocation object and invalidates the source QPropertyBindingSourceLocation object.
     ///
-    pub fn New3() QPropertyBindingSourceLocation {
-        return .{ .ptr = qtc.QPropertyBindingSourceLocation_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QPropertyBindingSourceLocation `
+    ///
+    pub fn New3(other: anytype) QPropertyBindingSourceLocation {
+        comptime _ = @TypeOf(other)._is_QPropertyBindingSourceLocation;
+        return .{ .ptr = qtc.QPropertyBindingSourceLocation_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QPropertyBindingSourceLocation object.
@@ -554,16 +554,11 @@ pub const QUntypedBindable = extern struct {
 
     /// New constructs a new QUntypedBindable object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QUntypedBindable `
-    ///
-    pub fn New(other: anytype) QUntypedBindable {
-        comptime _ = @TypeOf(other)._is_QUntypedBindable;
-        return .{ .ptr = qtc.QUntypedBindable_new(@ptrCast(other.ptr)) };
+    pub fn New() QUntypedBindable {
+        return .{ .ptr = qtc.QUntypedBindable_new() };
     }
 
-    /// New2 constructs a new QUntypedBindable object and invalidates the source QUntypedBindable object.
+    /// New2 constructs a new QUntypedBindable object.
     ///
     /// ## Parameter(s):
     ///
@@ -574,10 +569,15 @@ pub const QUntypedBindable = extern struct {
         return .{ .ptr = qtc.QUntypedBindable_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QUntypedBindable object.
+    /// New3 constructs a new QUntypedBindable object and invalidates the source QUntypedBindable object.
     ///
-    pub fn New3() QUntypedBindable {
-        return .{ .ptr = qtc.QUntypedBindable_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QUntypedBindable `
+    ///
+    pub fn New3(other: anytype) QUntypedBindable {
+        comptime _ = @TypeOf(other)._is_QUntypedBindable;
+        return .{ .ptr = qtc.QUntypedBindable_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QUntypedBindable object.

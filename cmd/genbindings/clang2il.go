@@ -373,15 +373,37 @@ func processClassType(node map[string]any, addNamePrefix string) (CppClass, erro
 		visibility = VsPrivate
 	}
 
-	// Check if this is polymorphic
-	if polymorphic, ok := node["isPolymorphic"].(bool); ok && polymorphic {
-		ret.IsPolymorphic = polymorphic
-	}
-
-	// Check if this is an abstract class
 	if definitionData, ok := node["definitionData"].(map[string]any); ok {
-		if isAbstract, ok := definitionData["isAbstract"].(bool); ok && isAbstract {
-			ret.Abstract = true
+		// Check if this is an abstract class
+		ret.Abstract, _ = definitionData["isAbstract"].(bool)
+
+		// Check if this is polymorphic
+		ret.IsPolymorphic, _ = definitionData["isPolymorphic"].(bool)
+
+		hasUserDeclaredConstructor, _ := definitionData["hasUserDeclaredConstructor"].(bool)
+
+		// Add default constructor
+		// @ref https://github.com/mappu/miqt/issues/327
+		if defaultCtor, ok := definitionData["defaultCtor"].(map[string]any); ok {
+
+			var userDeclaredDtor bool
+			if dtor, ok := definitionData["dtor"].(map[string]any); ok {
+				userDeclaredDtor, _ = dtor["userDeclared"].(bool)
+			}
+
+			if userProvided, _ := defaultCtor["userProvided"].(bool); !userProvided && !ret.Abstract && (!hasUserDeclaredConstructor || !userDeclaredDtor) {
+				if nonTrivial, _ := defaultCtor["nonTrivial"].(bool); nonTrivial && !ret.HasEmptyCtor {
+					ret.HasEmptyCtor = true
+					defaultCtorMethod := CppMethod{
+						ReturnType: CppParameter{
+							ParameterType: ret.ClassName,
+							Pointer:       true,
+						},
+						IsStatic: true,
+					}
+					ret.Ctors = append(ret.Ctors, defaultCtorMethod)
+				}
+			}
 		}
 
 		var canConstDefaultInit, canPassInRegisters bool
@@ -394,7 +416,7 @@ func processClassType(node map[string]any, addNamePrefix string) (CppClass, erro
 		if canConstDefaultInit && canPassInRegisters && AllowCtor(ret.ClassName) {
 			// Add copy constructor if trivial
 			if copyCtor, ok := definitionData["copyCtor"].(map[string]any); ok {
-				if trivial, ok := copyCtor["trivial"].(bool); ok && trivial {
+				if trivial, _ := copyCtor["trivial"].(bool); trivial {
 					var hasConstParam, implicitHasConstParam bool
 					if copyCtor["hasConstParam"] != nil {
 						hasConstParam = copyCtor["hasConstParam"].(bool)
@@ -421,7 +443,7 @@ func processClassType(node map[string]any, addNamePrefix string) (CppClass, erro
 
 			// Add move constructor if trivial
 			if moveCtor, ok := definitionData["moveCtor"].(map[string]any); ok {
-				if trivial, ok := moveCtor["trivial"].(bool); ok && trivial {
+				if trivial, _ := moveCtor["trivial"].(bool); trivial {
 					moveCtorMethod := CppMethod{
 						Parameters: []CppParameter{{
 							ParameterName: "other",
@@ -441,7 +463,7 @@ func processClassType(node map[string]any, addNamePrefix string) (CppClass, erro
 
 			// Store assignment operator info for later use
 			if copyAssign, ok := definitionData["copyAssign"].(map[string]any); ok {
-				if trivial, ok := copyAssign["trivial"].(bool); ok && trivial {
+				if trivial, _ := copyAssign["trivial"].(bool); trivial {
 					if _, ok := noCopyAssign[ret.ClassName]; !ok {
 						ret.HasTrivialCopyAssign = trivial
 					}
@@ -449,7 +471,7 @@ func processClassType(node map[string]any, addNamePrefix string) (CppClass, erro
 			}
 
 			if moveAssign, ok := definitionData["moveAssign"].(map[string]any); ok {
-				if trivial, ok := moveAssign["trivial"].(bool); ok && trivial {
+				if trivial, _ := moveAssign["trivial"].(bool); trivial {
 					if _, ok := noMoveAssign[ret.ClassName]; !ok {
 						ret.HasTrivialMoveAssign = trivial
 					}
@@ -574,7 +596,7 @@ nextMethod:
 
 		case "CXXConstructorDecl":
 
-			if isImplicit, ok := node["isImplicit"].(bool); ok && isImplicit {
+			if isImplicit, _ := node["isImplicit"].(bool); isImplicit {
 				// This is an implicit ctor. Therefore the class is constructable
 				// even if we're currently in a `private:` block.
 
@@ -608,6 +630,13 @@ nextMethod:
 				continue
 			}
 
+			if len(mm.Parameters) == 0 {
+				if ret.HasEmptyCtor {
+					continue
+				}
+				ret.HasEmptyCtor = true
+			}
+
 			ret.Ctors = append(ret.Ctors, mm)
 
 		case "CXXDestructorDecl":
@@ -616,7 +645,7 @@ nextMethod:
 			// However if this destructor is private or deleted, we should
 			// not bind it
 
-			if isImplicit, ok := node["isImplicit"].(bool); ok && isImplicit {
+			if isImplicit, _ := node["isImplicit"].(bool); isImplicit {
 				// This is an implicit dtor. Therefore the class is deletable
 				// even if we're currently in a `private:` block.
 				ret.CanDelete = true
@@ -809,11 +838,11 @@ nextMethod:
 // isExplicitlyDeleted checks if this node is marked `= delete`.
 func isExplicitlyDeleted(node map[string]any) bool {
 
-	if explicitlyDeleted, ok := node["explicitlyDeleted"].(bool); ok && explicitlyDeleted {
+	if explicitlyDeleted, _ := node["explicitlyDeleted"].(bool); explicitlyDeleted {
 		return true
 	}
 
-	if explicitlyDefaulted, ok := node["explicitlyDefaulted"].(string); ok && explicitlyDefaulted == "deleted" {
+	if explicitlyDefaulted, _ := node["explicitlyDefaulted"].(string); explicitlyDefaulted == "deleted" {
 		return true
 	}
 
@@ -1050,13 +1079,8 @@ func parseMethod(node map[string]any, mm *CppMethod, className string) error {
 		mm.IsStatic = true
 	}
 
-	if virtual, ok := node["virtual"].(bool); ok && virtual {
-		mm.IsVirtual = true
-	}
-
-	if pure, ok := node["pure"].(bool); ok && pure {
-		mm.IsPureVirtual = true
-	}
+	mm.IsVirtual, _ = node["virtual"].(bool)
+	mm.IsPureVirtual, _ = node["pure"].(bool)
 
 	if methodInner, ok := node["inner"].([]any); ok {
 		paramCounter := 0

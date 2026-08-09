@@ -58,16 +58,16 @@
 #include "libqtablewidget.h"
 #include "libqtablewidget.hxx"
 
-QTableWidgetSelectionRange* QTableWidgetSelectionRange_new(const QTableWidgetSelectionRange* other) {
+QTableWidgetSelectionRange* QTableWidgetSelectionRange_new() {
+    return new QTableWidgetSelectionRange();
+}
+
+QTableWidgetSelectionRange* QTableWidgetSelectionRange_new2(const QTableWidgetSelectionRange* other) {
     return new QTableWidgetSelectionRange(*other);
 }
 
-QTableWidgetSelectionRange* QTableWidgetSelectionRange_new2(QTableWidgetSelectionRange* other) {
+QTableWidgetSelectionRange* QTableWidgetSelectionRange_new3(QTableWidgetSelectionRange* other) {
     return new QTableWidgetSelectionRange(std::move(*other));
-}
-
-QTableWidgetSelectionRange* QTableWidgetSelectionRange_new3() {
-    return new QTableWidgetSelectionRange();
 }
 
 QTableWidgetSelectionRange* QTableWidgetSelectionRange_new4(int top, int left, int bottom, int right) {

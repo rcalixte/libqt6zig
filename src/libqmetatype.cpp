@@ -8,20 +8,20 @@
 #include "libqmetatype.h"
 #include "libqmetatype.hxx"
 
-QMetaType* QMetaType_new(const QMetaType* other) {
+QMetaType* QMetaType_new() {
+    return new QMetaType();
+}
+
+QMetaType* QMetaType_new2(const QMetaType* other) {
     return new QMetaType(*other);
 }
 
-QMetaType* QMetaType_new2(QMetaType* other) {
+QMetaType* QMetaType_new3(QMetaType* other) {
     return new QMetaType(std::move(*other));
 }
 
-QMetaType* QMetaType_new3(int typeVal) {
+QMetaType* QMetaType_new4(int typeVal) {
     return new QMetaType(static_cast<int>(typeVal));
-}
-
-QMetaType* QMetaType_new4() {
-    return new QMetaType();
 }
 
 QMetaType* QMetaType_new5(const QMetaType* param1) {

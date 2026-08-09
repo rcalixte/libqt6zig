@@ -1171,13 +1171,19 @@ pub const KNSCore__Entry__DownloadLinkInformation = extern struct {
 
     /// New constructs a new KNSCore::Entry::DownloadLinkInformation object.
     ///
+    pub fn New() KNSCore__Entry__DownloadLinkInformation {
+        return .{ .ptr = qtc.KNSCore__Entry__DownloadLinkInformation_new() };
+    }
+
+    /// New2 constructs a new KNSCore::Entry::DownloadLinkInformation object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: KNSCore__Entry__DownloadLinkInformation `
     ///
-    pub fn New(param1: anytype) KNSCore__Entry__DownloadLinkInformation {
+    pub fn New2(param1: anytype) KNSCore__Entry__DownloadLinkInformation {
         comptime _ = @TypeOf(param1)._is_KNSCore__Entry__DownloadLinkInformation;
-        return .{ .ptr = qtc.KNSCore__Entry__DownloadLinkInformation_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.KNSCore__Entry__DownloadLinkInformation_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-entry-downloadlinkinformation.html#name-var)

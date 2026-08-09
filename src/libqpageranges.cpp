@@ -88,16 +88,16 @@ void QPageRanges_Delete(QPageRanges* self) {
     delete self;
 }
 
-QPageRanges__Range* QPageRanges__Range_new(const QPageRanges__Range* other) {
+QPageRanges__Range* QPageRanges__Range_new() {
+    return new QPageRanges::Range();
+}
+
+QPageRanges__Range* QPageRanges__Range_new2(const QPageRanges__Range* other) {
     return new QPageRanges::Range(*other);
 }
 
-QPageRanges__Range* QPageRanges__Range_new2(QPageRanges__Range* other) {
+QPageRanges__Range* QPageRanges__Range_new3(QPageRanges__Range* other) {
     return new QPageRanges::Range(std::move(*other));
-}
-
-QPageRanges__Range* QPageRanges__Range_new3() {
-    return new QPageRanges::Range();
 }
 
 QPageRanges__Range* QPageRanges__Range_new4(const QPageRanges__Range* param1) {

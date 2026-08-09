@@ -14,13 +14,19 @@ pub const Attica__Target = extern struct {
 
     /// New constructs a new Attica::Target object.
     ///
+    pub fn New() Attica__Target {
+        return .{ .ptr = qtc.Attica__Target_new() };
+    }
+
+    /// New2 constructs a new Attica::Target object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: Attica__Target `
     ///
-    pub fn New(param1: anytype) Attica__Target {
+    pub fn New2(param1: anytype) Attica__Target {
         comptime _ = @TypeOf(param1)._is_Attica__Target;
-        return .{ .ptr = qtc.Attica__Target_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.Attica__Target_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/attica-target.html#id-var)

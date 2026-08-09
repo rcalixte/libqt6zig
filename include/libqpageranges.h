@@ -39,9 +39,9 @@ int QPageRanges_LastPage(const QPageRanges* self);
 void QPageRanges_Detach(QPageRanges* self);
 void QPageRanges_Delete(QPageRanges* self);
 
-QPageRanges__Range* QPageRanges__Range_new(const QPageRanges__Range* other);
-QPageRanges__Range* QPageRanges__Range_new2(QPageRanges__Range* other);
-QPageRanges__Range* QPageRanges__Range_new3();
+QPageRanges__Range* QPageRanges__Range_new();
+QPageRanges__Range* QPageRanges__Range_new2(const QPageRanges__Range* other);
+QPageRanges__Range* QPageRanges__Range_new3(QPageRanges__Range* other);
 QPageRanges__Range* QPageRanges__Range_new4(const QPageRanges__Range* param1);
 void QPageRanges__Range_CopyAssign(QPageRanges__Range* self, QPageRanges__Range* other);
 void QPageRanges__Range_MoveAssign(QPageRanges__Range* self, QPageRanges__Range* other);

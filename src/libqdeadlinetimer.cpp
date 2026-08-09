@@ -3,16 +3,16 @@
 #include "libqdeadlinetimer.h"
 #include "libqdeadlinetimer.hxx"
 
-QDeadlineTimer* QDeadlineTimer_new(const QDeadlineTimer* other) {
+QDeadlineTimer* QDeadlineTimer_new() {
+    return new QDeadlineTimer();
+}
+
+QDeadlineTimer* QDeadlineTimer_new2(const QDeadlineTimer* other) {
     return new QDeadlineTimer(*other);
 }
 
-QDeadlineTimer* QDeadlineTimer_new2(QDeadlineTimer* other) {
+QDeadlineTimer* QDeadlineTimer_new3(QDeadlineTimer* other) {
     return new QDeadlineTimer(std::move(*other));
-}
-
-QDeadlineTimer* QDeadlineTimer_new3() {
-    return new QDeadlineTimer();
 }
 
 QDeadlineTimer* QDeadlineTimer_new4(int type_) {

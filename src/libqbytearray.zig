@@ -435,19 +435,19 @@ pub const QByteArray__FromBase64Result = extern struct {
 
     /// New constructs a new QByteArray::FromBase64Result object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` param1: QByteArray__FromBase64Result `
-    ///
-    pub fn New(param1: anytype) QByteArray__FromBase64Result {
-        comptime _ = @TypeOf(param1)._is_QByteArray__FromBase64Result;
-        return .{ .ptr = qtc.QByteArray__FromBase64Result_new(@ptrCast(param1.ptr)) };
+    pub fn New() QByteArray__FromBase64Result {
+        return .{ .ptr = qtc.QByteArray__FromBase64Result_new() };
     }
 
     /// New2 constructs a new QByteArray::FromBase64Result object.
     ///
-    pub fn New2() QByteArray__FromBase64Result {
-        return .{ .ptr = qtc.QByteArray__FromBase64Result_new2() };
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QByteArray__FromBase64Result `
+    ///
+    pub fn New2(param1: anytype) QByteArray__FromBase64Result {
+        comptime _ = @TypeOf(param1)._is_QByteArray__FromBase64Result;
+        return .{ .ptr = qtc.QByteArray__FromBase64Result_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbytearray-frombase64result.html#decoded-var)

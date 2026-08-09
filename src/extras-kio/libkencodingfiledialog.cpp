@@ -229,7 +229,11 @@ KEncodingFileDialog__Result* KEncodingFileDialog_GetSaveUrlAndEncoding5(const li
     return new KEncodingFileDialog::Result(KEncodingFileDialog::getSaveUrlAndEncoding(encoding_QString, *startDir, filter_QString, parent, title_QString));
 }
 
-KEncodingFileDialog__Result* KEncodingFileDialog__Result_new(const KEncodingFileDialog__Result* param1) {
+KEncodingFileDialog__Result* KEncodingFileDialog__Result_new() {
+    return new KEncodingFileDialog::Result();
+}
+
+KEncodingFileDialog__Result* KEncodingFileDialog__Result_new2(const KEncodingFileDialog__Result* param1) {
     return new KEncodingFileDialog::Result(*param1);
 }
 

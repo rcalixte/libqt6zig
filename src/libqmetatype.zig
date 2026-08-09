@@ -19,16 +19,11 @@ pub const QMetaType = extern struct {
 
     /// New constructs a new QMetaType object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QMetaType `
-    ///
-    pub fn New(other: anytype) QMetaType {
-        comptime _ = @TypeOf(other)._is_QMetaType;
-        return .{ .ptr = qtc.QMetaType_new(@ptrCast(other.ptr)) };
+    pub fn New() QMetaType {
+        return .{ .ptr = qtc.QMetaType_new() };
     }
 
-    /// New2 constructs a new QMetaType object and invalidates the source QMetaType object.
+    /// New2 constructs a new QMetaType object.
     ///
     /// ## Parameter(s):
     ///
@@ -39,20 +34,25 @@ pub const QMetaType = extern struct {
         return .{ .ptr = qtc.QMetaType_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QMetaType object.
+    /// New3 constructs a new QMetaType object and invalidates the source QMetaType object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: QMetaType `
+    ///
+    pub fn New3(other: anytype) QMetaType {
+        comptime _ = @TypeOf(other)._is_QMetaType;
+        return .{ .ptr = qtc.QMetaType_new3(@ptrCast(other.ptr)) };
+    }
+
+    /// New4 constructs a new QMetaType object.
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New3(typeVal: i32) QMetaType {
-        return .{ .ptr = qtc.QMetaType_new3(@bitCast(typeVal)) };
-    }
-
-    /// New4 constructs a new QMetaType object.
-    ///
-    pub fn New4() QMetaType {
-        return .{ .ptr = qtc.QMetaType_new4() };
+    pub fn New4(typeVal: i32) QMetaType {
+        return .{ .ptr = qtc.QMetaType_new4(@bitCast(typeVal)) };
     }
 
     /// New5 constructs a new QMetaType object.

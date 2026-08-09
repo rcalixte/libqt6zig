@@ -25,7 +25,8 @@ typedef struct Attica__BuildService Attica__BuildService;
 typedef struct Attica__Target Attica__Target;
 #endif
 
-Attica__Target* Attica__Target_new(const Attica__Target* param1);
+Attica__Target* Attica__Target_new();
+Attica__Target* Attica__Target_new2(const Attica__Target* param1);
 libqt_string Attica__Target_Id(const Attica__Target* self);
 void Attica__Target_SetId(Attica__Target* self, libqt_string id);
 libqt_string Attica__Target_Name(const Attica__Target* self);

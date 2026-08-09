@@ -418,7 +418,11 @@ void QIconEngine_Delete(QIconEngine* self) {
     delete self;
 }
 
-QIconEngine__ScaledPixmapArgument* QIconEngine__ScaledPixmapArgument_new(const QIconEngine__ScaledPixmapArgument* param1) {
+QIconEngine__ScaledPixmapArgument* QIconEngine__ScaledPixmapArgument_new() {
+    return new QIconEngine::ScaledPixmapArgument();
+}
+
+QIconEngine__ScaledPixmapArgument* QIconEngine__ScaledPixmapArgument_new2(const QIconEngine__ScaledPixmapArgument* param1) {
     return new QIconEngine::ScaledPixmapArgument(*param1);
 }
 

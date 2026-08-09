@@ -493,12 +493,12 @@ void TextGrammarCheck__GrammalecteGenerateConfigOptionJob_Delete(TextGrammarChec
     delete self;
 }
 
-TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_new(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* param1) {
-    return new TextGrammarCheck::GrammalecteGenerateConfigOptionJob::Option(*param1);
+TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_new() {
+    return new TextGrammarCheck::GrammalecteGenerateConfigOptionJob::Option();
 }
 
-TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_new2() {
-    return new TextGrammarCheck::GrammalecteGenerateConfigOptionJob::Option();
+TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_new2(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* param1) {
+    return new TextGrammarCheck::GrammalecteGenerateConfigOptionJob::Option(*param1);
 }
 
 libqt_string TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option_OptionName(const TextGrammarCheck__GrammalecteGenerateConfigOptionJob__Option* self) {

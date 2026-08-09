@@ -72,7 +72,8 @@ KEncodingFileDialog__Result* KEncodingFileDialog_GetSaveUrlAndEncoding3(const li
 KEncodingFileDialog__Result* KEncodingFileDialog_GetSaveUrlAndEncoding4(const libqt_string encoding, const QUrl* startDir, const libqt_string filter, QWidget* parent);
 KEncodingFileDialog__Result* KEncodingFileDialog_GetSaveUrlAndEncoding5(const libqt_string encoding, const QUrl* startDir, const libqt_string filter, QWidget* parent, const libqt_string title);
 
-KEncodingFileDialog__Result* KEncodingFileDialog__Result_new(const KEncodingFileDialog__Result* param1);
+KEncodingFileDialog__Result* KEncodingFileDialog__Result_new();
+KEncodingFileDialog__Result* KEncodingFileDialog__Result_new2(const KEncodingFileDialog__Result* param1);
 libqt_list /* of libqt_string */ KEncodingFileDialog__Result_FileNames(const KEncodingFileDialog__Result* self);
 void KEncodingFileDialog__Result_SetFileNames(KEncodingFileDialog__Result* self, libqt_list /* of libqt_string */ fileNames);
 libqt_list /* of QUrl* */ KEncodingFileDialog__Result_URLs(const KEncodingFileDialog__Result* self);

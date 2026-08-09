@@ -114,20 +114,20 @@ void QDirListing_Delete(QDirListing* self) {
     delete self;
 }
 
-QDirListing__DirEntry* QDirListing__DirEntry_new(const QDirListing__DirEntry* other) {
+QDirListing__DirEntry* QDirListing__DirEntry_new() {
+    return new QDirListing::DirEntry();
+}
+
+QDirListing__DirEntry* QDirListing__DirEntry_new2(const QDirListing__DirEntry* other) {
     return new QDirListing::DirEntry(*other);
 }
 
-QDirListing__DirEntry* QDirListing__DirEntry_new2(QDirListing__DirEntry* other) {
+QDirListing__DirEntry* QDirListing__DirEntry_new3(QDirListing__DirEntry* other) {
     return new QDirListing::DirEntry(std::move(*other));
 }
 
-QDirListing__DirEntry* QDirListing__DirEntry_new3(const QDirListing__DirEntry* param1) {
+QDirListing__DirEntry* QDirListing__DirEntry_new4(const QDirListing__DirEntry* param1) {
     return new QDirListing::DirEntry(*param1);
-}
-
-QDirListing__DirEntry* QDirListing__DirEntry_new4() {
-    return new QDirListing::DirEntry();
 }
 
 void QDirListing__DirEntry_CopyAssign(QDirListing__DirEntry* self, QDirListing__DirEntry* other) {
@@ -354,7 +354,7 @@ void QDirListing__sentinel_Delete(QDirListing__sentinel* self) {
     delete self;
 }
 
-QDirListing__const_iterator* QDirListing__const_iterator_new2(QDirListing__const_iterator* other) {
+QDirListing__const_iterator* QDirListing__const_iterator_new3(QDirListing__const_iterator* other) {
     return new QDirListing::const_iterator(std::move(*other));
 }
 

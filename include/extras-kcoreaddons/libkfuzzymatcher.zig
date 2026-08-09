@@ -15,16 +15,11 @@ pub const KFuzzyMatcher__Result = extern struct {
 
     /// New constructs a new KFuzzyMatcher::Result object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: KFuzzyMatcher__Result `
-    ///
-    pub fn New(other: anytype) KFuzzyMatcher__Result {
-        comptime _ = @TypeOf(other)._is_KFuzzyMatcher__Result;
-        return .{ .ptr = qtc.KFuzzyMatcher__Result_new(@ptrCast(other.ptr)) };
+    pub fn New() KFuzzyMatcher__Result {
+        return .{ .ptr = qtc.KFuzzyMatcher__Result_new() };
     }
 
-    /// New2 constructs a new KFuzzyMatcher::Result object and invalidates the source KFuzzyMatcher::Result object.
+    /// New2 constructs a new KFuzzyMatcher::Result object.
     ///
     /// ## Parameter(s):
     ///
@@ -33,6 +28,17 @@ pub const KFuzzyMatcher__Result = extern struct {
     pub fn New2(other: anytype) KFuzzyMatcher__Result {
         comptime _ = @TypeOf(other)._is_KFuzzyMatcher__Result;
         return .{ .ptr = qtc.KFuzzyMatcher__Result_new2(@ptrCast(other.ptr)) };
+    }
+
+    /// New3 constructs a new KFuzzyMatcher::Result object and invalidates the source KFuzzyMatcher::Result object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: KFuzzyMatcher__Result `
+    ///
+    pub fn New3(other: anytype) KFuzzyMatcher__Result {
+        comptime _ = @TypeOf(other)._is_KFuzzyMatcher__Result;
+        return .{ .ptr = qtc.KFuzzyMatcher__Result_new3(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.

@@ -25,11 +25,15 @@ void QAbstractVideoBuffer_Delete(QAbstractVideoBuffer* self) {
     delete self;
 }
 
-QAbstractVideoBuffer__MapData* QAbstractVideoBuffer__MapData_new(const QAbstractVideoBuffer__MapData* other) {
+QAbstractVideoBuffer__MapData* QAbstractVideoBuffer__MapData_new() {
+    return new QAbstractVideoBuffer::MapData();
+}
+
+QAbstractVideoBuffer__MapData* QAbstractVideoBuffer__MapData_new2(const QAbstractVideoBuffer__MapData* other) {
     return new QAbstractVideoBuffer::MapData(*other);
 }
 
-QAbstractVideoBuffer__MapData* QAbstractVideoBuffer__MapData_new2(QAbstractVideoBuffer__MapData* other) {
+QAbstractVideoBuffer__MapData* QAbstractVideoBuffer__MapData_new3(QAbstractVideoBuffer__MapData* other) {
     return new QAbstractVideoBuffer::MapData(std::move(*other));
 }
 

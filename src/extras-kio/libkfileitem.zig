@@ -1072,13 +1072,19 @@ pub const KFileItem__MostLocalUrlResult = extern struct {
 
     /// New constructs a new KFileItem::MostLocalUrlResult object.
     ///
+    pub fn New() KFileItem__MostLocalUrlResult {
+        return .{ .ptr = qtc.KFileItem__MostLocalUrlResult_new() };
+    }
+
+    /// New2 constructs a new KFileItem::MostLocalUrlResult object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: KFileItem__MostLocalUrlResult `
     ///
-    pub fn New(param1: anytype) KFileItem__MostLocalUrlResult {
+    pub fn New2(param1: anytype) KFileItem__MostLocalUrlResult {
         comptime _ = @TypeOf(param1)._is_KFileItem__MostLocalUrlResult;
-        return .{ .ptr = qtc.KFileItem__MostLocalUrlResult_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.KFileItem__MostLocalUrlResult_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kfileitem-mostlocalurlresult.html#url-var)

@@ -7,16 +7,16 @@
 #include "libklazylocalizedstring.h"
 #include "libklazylocalizedstring.hxx"
 
-KLazyLocalizedString* KLazyLocalizedString_new(const KLazyLocalizedString* other) {
+KLazyLocalizedString* KLazyLocalizedString_new() {
+    return new KLazyLocalizedString();
+}
+
+KLazyLocalizedString* KLazyLocalizedString_new2(const KLazyLocalizedString* other) {
     return new KLazyLocalizedString(*other);
 }
 
-KLazyLocalizedString* KLazyLocalizedString_new2(KLazyLocalizedString* other) {
+KLazyLocalizedString* KLazyLocalizedString_new3(KLazyLocalizedString* other) {
     return new KLazyLocalizedString(std::move(*other));
-}
-
-KLazyLocalizedString* KLazyLocalizedString_new3() {
-    return new KLazyLocalizedString();
 }
 
 void KLazyLocalizedString_CopyAssign(KLazyLocalizedString* self, KLazyLocalizedString* other) {

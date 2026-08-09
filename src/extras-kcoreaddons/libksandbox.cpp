@@ -25,7 +25,11 @@ void KSandbox_StartHostProcess(QProcess* process, int mode) {
     KSandbox::startHostProcess(*process, static_cast<QProcess::OpenMode>(mode));
 }
 
-KSandbox__ProcessContext* KSandbox__ProcessContext_new(const KSandbox__ProcessContext* param1) {
+KSandbox__ProcessContext* KSandbox__ProcessContext_new() {
+    return new KSandbox::ProcessContext();
+}
+
+KSandbox__ProcessContext* KSandbox__ProcessContext_new2(const KSandbox__ProcessContext* param1) {
     return new KSandbox::ProcessContext(*param1);
 }
 

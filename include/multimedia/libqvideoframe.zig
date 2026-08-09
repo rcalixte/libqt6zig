@@ -581,16 +581,11 @@ pub const QVideoFrame__PaintOptions = extern struct {
 
     /// New constructs a new QVideoFrame::PaintOptions object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QVideoFrame__PaintOptions `
-    ///
-    pub fn New(other: anytype) QVideoFrame__PaintOptions {
-        comptime _ = @TypeOf(other)._is_QVideoFrame__PaintOptions;
-        return .{ .ptr = qtc.QVideoFrame__PaintOptions_new(@ptrCast(other.ptr)) };
+    pub fn New() QVideoFrame__PaintOptions {
+        return .{ .ptr = qtc.QVideoFrame__PaintOptions_new() };
     }
 
-    /// New2 constructs a new QVideoFrame::PaintOptions object and invalidates the source QVideoFrame::PaintOptions object.
+    /// New2 constructs a new QVideoFrame::PaintOptions object.
     ///
     /// ## Parameter(s):
     ///
@@ -599,6 +594,17 @@ pub const QVideoFrame__PaintOptions = extern struct {
     pub fn New2(other: anytype) QVideoFrame__PaintOptions {
         comptime _ = @TypeOf(other)._is_QVideoFrame__PaintOptions;
         return .{ .ptr = qtc.QVideoFrame__PaintOptions_new2(@ptrCast(other.ptr)) };
+    }
+
+    /// New3 constructs a new QVideoFrame::PaintOptions object and invalidates the source QVideoFrame::PaintOptions object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: QVideoFrame__PaintOptions `
+    ///
+    pub fn New3(other: anytype) QVideoFrame__PaintOptions {
+        comptime _ = @TypeOf(other)._is_QVideoFrame__PaintOptions;
+        return .{ .ptr = qtc.QVideoFrame__PaintOptions_new3(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.

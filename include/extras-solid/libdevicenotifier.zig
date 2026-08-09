@@ -1,12 +1,14 @@
 const QtC = @import("qt6zig");
 const qtc = @import("qt6c");
 const QBindingStorage = @import("libqt6").QBindingStorage;
+const QChildEvent = @import("libqt6").QChildEvent;
 const QEvent = @import("libqt6").QEvent;
 const QMetaMethod = @import("libqt6").QMetaMethod;
 const QMetaObject = @import("libqt6").QMetaObject;
 const QMetaObject__Connection = @import("libqt6").QMetaObject__Connection;
 const QObject = @import("libqt6").QObject;
 const QThread = @import("libqt6").QThread;
+const QTimerEvent = @import("libqt6").QTimerEvent;
 const QVariant = @import("libqt6").QVariant;
 const qnamespace_enums = @import("../libqnamespace.zig").enums;
 const qobjectdefs_enums = @import("../libqobjectdefs.zig").enums;
@@ -23,6 +25,12 @@ pub const Solid__DeviceNotifier = extern struct {
     pub const _is_Solid__DeviceNotifier = {};
     pub const _is_QObject = {};
 
+    /// New constructs a new Solid::DeviceNotifier object.
+    ///
+    pub fn New() Solid__DeviceNotifier {
+        return .{ .ptr = qtc.Solid__DeviceNotifier_new() };
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
@@ -31,6 +39,36 @@ pub const Solid__DeviceNotifier = extern struct {
     ///
     pub fn MetaObject(self: Solid__DeviceNotifier) QMetaObject {
         return .{ .ptr = qtc.Solid__DeviceNotifier_MetaObject(@ptrCast(self.ptr)) };
+    }
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` callback: *const fn () callconv(.c) QMetaObject `
+    ///
+    pub fn OnMetaObject(self: Solid__DeviceNotifier, callback: *const fn () callconv(.c) QMetaObject) void {
+        qtc.Solid__DeviceNotifier_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    ///
+    pub const QBaseMetaObject = SuperMetaObject;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
+    ///
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    pub fn SuperMetaObject(self: Solid__DeviceNotifier) QMetaObject {
+        return .{ .ptr = qtc.Solid__DeviceNotifier_SuperMetaObject(@ptrCast(self.ptr)) };
     }
 
     /// ## Parameter(s):
@@ -42,6 +80,35 @@ pub const Solid__DeviceNotifier = extern struct {
     pub fn Metacast(self: Solid__DeviceNotifier, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.Solid__DeviceNotifier_Metacast(@ptrCast(self.ptr), param1_Cstring);
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` callback: *const fn (self: Solid__DeviceNotifier, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
+    ///
+    pub fn OnMetacast(self: Solid__DeviceNotifier, callback: *const fn (Solid__DeviceNotifier, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+        qtc.Solid__DeviceNotifier_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `SuperMetacast` instead
+    ///
+    pub const QBaseMetacast = SuperMetacast;
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` param1: [:0]const u8 `
+    ///
+    pub fn SuperMetacast(self: Solid__DeviceNotifier, param1: [:0]const u8) ?*anyopaque {
+        const param1_Cstring = param1.ptr;
+        return qtc.Solid__DeviceNotifier_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
     /// ## Parameter(s):
@@ -56,6 +123,38 @@ pub const Solid__DeviceNotifier = extern struct {
     ///
     pub fn Metacall(self: Solid__DeviceNotifier, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.Solid__DeviceNotifier_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
+    }
+
+    /// Allows for overriding the related default method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` callback: *const fn (self: Solid__DeviceNotifier, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
+    ///
+    pub fn OnMetacall(self: Solid__DeviceNotifier, callback: *const fn (Solid__DeviceNotifier, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+        qtc.Solid__DeviceNotifier_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// ### DEPRECATED: Use `SuperMetacall` instead
+    ///
+    pub const QBaseMetacall = SuperMetacall;
+
+    /// Base class method implementation
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` param1: qobjectdefs_enums.Call `
+    ///
+    /// ` param2: i32 `
+    ///
+    /// ` param3: *?*anyopaque `
+    ///
+    pub fn SuperMetacall(self: Solid__DeviceNotifier, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+        return qtc.Solid__DeviceNotifier_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
@@ -177,39 +276,6 @@ pub const Solid__DeviceNotifier = extern struct {
         const _ret = allocator.alloc(u8, _str.len) catch @panic("Solid__DeviceNotifier.Tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Solid__DeviceNotifier `
-    ///
-    /// ` event: QEvent `
-    ///
-    pub fn Event(self: Solid__DeviceNotifier, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
-    }
-
-    /// Inherited from QObject
-    ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Solid__DeviceNotifier `
-    ///
-    /// ` watched: QObject `
-    ///
-    /// ` event: QEvent `
-    ///
-    pub fn EventFilter(self: Solid__DeviceNotifier, watched: anytype, event: anytype) bool {
-        comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
     }
 
     /// Inherited from QObject
@@ -983,6 +1049,594 @@ pub const Solid__DeviceNotifier = extern struct {
     ///
     pub fn OnDestroyed1(self: Solid__DeviceNotifier, callback: *const fn (Solid__DeviceNotifier, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` event: QEvent `
+    ///
+    pub fn Event(self: Solid__DeviceNotifier, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.Solid__DeviceNotifier_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    }
+
+    /// ### DEPRECATED: Use `SuperEvent` instead
+    ///
+    pub const QBaseEvent = SuperEvent;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` event: QEvent `
+    ///
+    pub fn SuperEvent(self: Solid__DeviceNotifier, event: anytype) bool {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.Solid__DeviceNotifier_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#event)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier`
+    ///
+    /// ` callback: *const fn (self: Solid__DeviceNotifier, event: QEvent) callconv(.c) bool `
+    ///
+    pub fn OnEvent(self: Solid__DeviceNotifier, callback: *const fn (Solid__DeviceNotifier, QEvent) callconv(.c) bool) void {
+        qtc.Solid__DeviceNotifier_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` watched: QObject `
+    ///
+    /// ` event: QEvent `
+    ///
+    pub fn EventFilter(self: Solid__DeviceNotifier, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.Solid__DeviceNotifier_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+    }
+
+    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    ///
+    pub const QBaseEventFilter = SuperEventFilter;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` watched: QObject `
+    ///
+    /// ` event: QEvent `
+    ///
+    pub fn SuperEventFilter(self: Solid__DeviceNotifier, watched: anytype, event: anytype) bool {
+        comptime _ = @TypeOf(watched)._is_QObject;
+        comptime _ = @TypeOf(event)._is_QEvent;
+        return qtc.Solid__DeviceNotifier_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#eventFilter)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier`
+    ///
+    /// ` callback: *const fn (self: Solid__DeviceNotifier, watched: QObject, event: QEvent) callconv(.c) bool `
+    ///
+    pub fn OnEventFilter(self: Solid__DeviceNotifier, callback: *const fn (Solid__DeviceNotifier, QObject, QEvent) callconv(.c) bool) void {
+        qtc.Solid__DeviceNotifier_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` event: QTimerEvent `
+    ///
+    pub fn TimerEvent(self: Solid__DeviceNotifier, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.Solid__DeviceNotifier_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    }
+
+    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    ///
+    pub const QBaseTimerEvent = SuperTimerEvent;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` event: QTimerEvent `
+    ///
+    pub fn SuperTimerEvent(self: Solid__DeviceNotifier, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QTimerEvent;
+        qtc.Solid__DeviceNotifier_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#timerEvent)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier`
+    ///
+    /// ` callback: *const fn (self: Solid__DeviceNotifier, event: QTimerEvent) callconv(.c) void `
+    ///
+    pub fn OnTimerEvent(self: Solid__DeviceNotifier, callback: *const fn (Solid__DeviceNotifier, QTimerEvent) callconv(.c) void) void {
+        qtc.Solid__DeviceNotifier_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` event: QChildEvent `
+    ///
+    pub fn ChildEvent(self: Solid__DeviceNotifier, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.Solid__DeviceNotifier_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    }
+
+    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    ///
+    pub const QBaseChildEvent = SuperChildEvent;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` event: QChildEvent `
+    ///
+    pub fn SuperChildEvent(self: Solid__DeviceNotifier, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QChildEvent;
+        qtc.Solid__DeviceNotifier_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#childEvent)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier`
+    ///
+    /// ` callback: *const fn (self: Solid__DeviceNotifier, event: QChildEvent) callconv(.c) void `
+    ///
+    pub fn OnChildEvent(self: Solid__DeviceNotifier, callback: *const fn (Solid__DeviceNotifier, QChildEvent) callconv(.c) void) void {
+        qtc.Solid__DeviceNotifier_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` event: QEvent `
+    ///
+    pub fn CustomEvent(self: Solid__DeviceNotifier, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.Solid__DeviceNotifier_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    }
+
+    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    ///
+    pub const QBaseCustomEvent = SuperCustomEvent;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` event: QEvent `
+    ///
+    pub fn SuperCustomEvent(self: Solid__DeviceNotifier, event: anytype) void {
+        comptime _ = @TypeOf(event)._is_QEvent;
+        qtc.Solid__DeviceNotifier_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#customEvent)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier`
+    ///
+    /// ` callback: *const fn (self: Solid__DeviceNotifier, event: QEvent) callconv(.c) void `
+    ///
+    pub fn OnCustomEvent(self: Solid__DeviceNotifier, callback: *const fn (Solid__DeviceNotifier, QEvent) callconv(.c) void) void {
+        qtc.Solid__DeviceNotifier_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` signal: QMetaMethod `
+    ///
+    pub fn ConnectNotify(self: Solid__DeviceNotifier, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.Solid__DeviceNotifier_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
+    }
+
+    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    ///
+    pub const QBaseConnectNotify = SuperConnectNotify;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` signal: QMetaMethod `
+    ///
+    pub fn SuperConnectNotify(self: Solid__DeviceNotifier, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.Solid__DeviceNotifier_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier`
+    ///
+    /// ` callback: *const fn (self: Solid__DeviceNotifier, signal: QMetaMethod) callconv(.c) void `
+    ///
+    pub fn OnConnectNotify(self: Solid__DeviceNotifier, callback: *const fn (Solid__DeviceNotifier, QMetaMethod) callconv(.c) void) void {
+        qtc.Solid__DeviceNotifier_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` signal: QMetaMethod `
+    ///
+    pub fn DisconnectNotify(self: Solid__DeviceNotifier, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.Solid__DeviceNotifier_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
+    }
+
+    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    ///
+    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` signal: QMetaMethod `
+    ///
+    pub fn SuperDisconnectNotify(self: Solid__DeviceNotifier, signal: anytype) void {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        qtc.Solid__DeviceNotifier_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnectNotify)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier`
+    ///
+    /// ` callback: *const fn (self: Solid__DeviceNotifier, signal: QMetaMethod) callconv(.c) void `
+    ///
+    pub fn OnDisconnectNotify(self: Solid__DeviceNotifier, callback: *const fn (Solid__DeviceNotifier, QMetaMethod) callconv(.c) void) void {
+        qtc.Solid__DeviceNotifier_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    pub fn Sender(self: Solid__DeviceNotifier) QObject {
+        return .{ .ptr = qtc.Solid__DeviceNotifier_Sender(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `SuperSender` instead
+    ///
+    pub const QBaseSender = SuperSender;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    pub fn SuperSender(self: Solid__DeviceNotifier) QObject {
+        return .{ .ptr = qtc.Solid__DeviceNotifier_SuperSender(@ptrCast(self.ptr)) };
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#sender)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier`
+    ///
+    /// ` callback: *const fn () callconv(.c) QObject `
+    ///
+    pub fn OnSender(self: Solid__DeviceNotifier, callback: *const fn () callconv(.c) QObject) void {
+        qtc.Solid__DeviceNotifier_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    pub fn SenderSignalIndex(self: Solid__DeviceNotifier) i32 {
+        return qtc.Solid__DeviceNotifier_SenderSignalIndex(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    ///
+    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    pub fn SuperSenderSignalIndex(self: Solid__DeviceNotifier) i32 {
+        return qtc.Solid__DeviceNotifier_SuperSenderSignalIndex(@ptrCast(self.ptr));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#senderSignalIndex)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier`
+    ///
+    /// ` callback: *const fn () callconv(.c) i32 `
+    ///
+    pub fn OnSenderSignalIndex(self: Solid__DeviceNotifier, callback: *const fn () callconv(.c) i32) void {
+        qtc.Solid__DeviceNotifier_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    pub fn Receivers(self: Solid__DeviceNotifier, signal: [:0]const u8) i32 {
+        const signal_Cstring = signal.ptr;
+        return qtc.Solid__DeviceNotifier_Receivers(@ptrCast(self.ptr), signal_Cstring);
+    }
+
+    /// ### DEPRECATED: Use `SuperReceivers` instead
+    ///
+    pub const QBaseReceivers = SuperReceivers;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` signal: [:0]const u8 `
+    ///
+    pub fn SuperReceivers(self: Solid__DeviceNotifier, signal: [:0]const u8) i32 {
+        const signal_Cstring = signal.ptr;
+        return qtc.Solid__DeviceNotifier_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#receivers)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier`
+    ///
+    /// ` callback: *const fn (self: Solid__DeviceNotifier, signal: [*:0]const u8) callconv(.c) i32 `
+    ///
+    pub fn OnReceivers(self: Solid__DeviceNotifier, callback: *const fn (Solid__DeviceNotifier, [*:0]const u8) callconv(.c) i32) void {
+        qtc.Solid__DeviceNotifier_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
+    /// Wrapper to allow calling virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` signal: QMetaMethod `
+    ///
+    pub fn IsSignalConnected(self: Solid__DeviceNotifier, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.Solid__DeviceNotifier_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
+    }
+
+    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    ///
+    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
+    /// Wrapper to allow calling base class virtual or protected method
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Solid__DeviceNotifier `
+    ///
+    /// ` signal: QMetaMethod `
+    ///
+    pub fn SuperIsSignalConnected(self: Solid__DeviceNotifier, signal: anytype) bool {
+        comptime _ = @TypeOf(signal)._is_QMetaMethod;
+        return qtc.Solid__DeviceNotifier_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
+    }
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#isSignalConnected)
+    ///
+    /// Wrapper to allow overriding base class virtual or protected method
+    ///
+    /// ## Parameters:
+    ///
+    /// ` self: Solid__DeviceNotifier`
+    ///
+    /// ` callback: *const fn (self: Solid__DeviceNotifier, signal: QMetaMethod) callconv(.c) bool `
+    ///
+    pub fn OnIsSignalConnected(self: Solid__DeviceNotifier, callback: *const fn (Solid__DeviceNotifier, QMetaMethod) callconv(.c) bool) void {
+        qtc.Solid__DeviceNotifier_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
     /// Inherited from QObject

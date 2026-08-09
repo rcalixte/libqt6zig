@@ -18,9 +18,9 @@ extern "C" {
 typedef struct QTypeRevision QTypeRevision;
 #endif
 
-QTypeRevision* QTypeRevision_new(const QTypeRevision* other);
-QTypeRevision* QTypeRevision_new2(QTypeRevision* other);
-QTypeRevision* QTypeRevision_new3();
+QTypeRevision* QTypeRevision_new();
+QTypeRevision* QTypeRevision_new2(const QTypeRevision* other);
+QTypeRevision* QTypeRevision_new3(QTypeRevision* other);
 QTypeRevision* QTypeRevision_new4(const QTypeRevision* param1);
 void QTypeRevision_CopyAssign(QTypeRevision* self, QTypeRevision* other);
 void QTypeRevision_MoveAssign(QTypeRevision* self, QTypeRevision* other);

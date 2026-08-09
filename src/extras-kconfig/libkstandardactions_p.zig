@@ -16,16 +16,11 @@ pub const KStandardActions__RawStringData = extern struct {
 
     /// New constructs a new KStandardActions::RawStringData object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: KStandardActions__RawStringData `
-    ///
-    pub fn New(other: anytype) KStandardActions__RawStringData {
-        comptime _ = @TypeOf(other)._is_KStandardActions__RawStringData;
-        return .{ .ptr = qtc.KStandardActions__RawStringData_new(@ptrCast(other.ptr)) };
+    pub fn New() KStandardActions__RawStringData {
+        return .{ .ptr = qtc.KStandardActions__RawStringData_new() };
     }
 
-    /// New2 constructs a new KStandardActions::RawStringData object and invalidates the source KStandardActions::RawStringData object.
+    /// New2 constructs a new KStandardActions::RawStringData object.
     ///
     /// ## Parameter(s):
     ///
@@ -36,10 +31,15 @@ pub const KStandardActions__RawStringData = extern struct {
         return .{ .ptr = qtc.KStandardActions__RawStringData_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new KStandardActions::RawStringData object.
+    /// New3 constructs a new KStandardActions::RawStringData object and invalidates the source KStandardActions::RawStringData object.
     ///
-    pub fn New3() KStandardActions__RawStringData {
-        return .{ .ptr = qtc.KStandardActions__RawStringData_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: KStandardActions__RawStringData `
+    ///
+    pub fn New3(other: anytype) KStandardActions__RawStringData {
+        comptime _ = @TypeOf(other)._is_KStandardActions__RawStringData;
+        return .{ .ptr = qtc.KStandardActions__RawStringData_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new KStandardActions::RawStringData object.
@@ -96,13 +96,19 @@ pub const KStandardActions__KStandardActionsInfo = extern struct {
 
     /// New constructs a new KStandardActions::KStandardActionsInfo object.
     ///
+    pub fn New() KStandardActions__KStandardActionsInfo {
+        return .{ .ptr = qtc.KStandardActions__KStandardActionsInfo_new() };
+    }
+
+    /// New2 constructs a new KStandardActions::KStandardActionsInfo object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: KStandardActions__KStandardActionsInfo `
     ///
-    pub fn New(param1: anytype) KStandardActions__KStandardActionsInfo {
+    pub fn New2(param1: anytype) KStandardActions__KStandardActionsInfo {
         comptime _ = @TypeOf(param1)._is_KStandardActions__KStandardActionsInfo;
-        return .{ .ptr = qtc.KStandardActions__KStandardActionsInfo_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.KStandardActions__KStandardActionsInfo_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kstandardactions-kstandardactionsinfo.html#id-var)

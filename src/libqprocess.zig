@@ -4658,16 +4658,11 @@ pub const QProcess__UnixProcessParameters = extern struct {
 
     /// New constructs a new QProcess::UnixProcessParameters object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QProcess__UnixProcessParameters `
-    ///
-    pub fn New(other: anytype) QProcess__UnixProcessParameters {
-        comptime _ = @TypeOf(other)._is_QProcess__UnixProcessParameters;
-        return .{ .ptr = qtc.QProcess__UnixProcessParameters_new(@ptrCast(other.ptr)) };
+    pub fn New() QProcess__UnixProcessParameters {
+        return .{ .ptr = qtc.QProcess__UnixProcessParameters_new() };
     }
 
-    /// New2 constructs a new QProcess::UnixProcessParameters object and invalidates the source QProcess::UnixProcessParameters object.
+    /// New2 constructs a new QProcess::UnixProcessParameters object.
     ///
     /// ## Parameter(s):
     ///
@@ -4676,6 +4671,17 @@ pub const QProcess__UnixProcessParameters = extern struct {
     pub fn New2(other: anytype) QProcess__UnixProcessParameters {
         comptime _ = @TypeOf(other)._is_QProcess__UnixProcessParameters;
         return .{ .ptr = qtc.QProcess__UnixProcessParameters_new2(@ptrCast(other.ptr)) };
+    }
+
+    /// New3 constructs a new QProcess::UnixProcessParameters object and invalidates the source QProcess::UnixProcessParameters object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: QProcess__UnixProcessParameters `
+    ///
+    pub fn New3(other: anytype) QProcess__UnixProcessParameters {
+        comptime _ = @TypeOf(other)._is_QProcess__UnixProcessParameters;
+        return .{ .ptr = qtc.QProcess__UnixProcessParameters_new3(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.

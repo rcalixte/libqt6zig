@@ -2676,22 +2676,22 @@ pub const QItemSelection = extern struct {
 
     /// New constructs a new QItemSelection object.
     ///
+    pub fn New() QItemSelection {
+        return .{ .ptr = qtc.QItemSelection_new() };
+    }
+
+    /// New2 constructs a new QItemSelection object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` topLeft: QModelIndex `
     ///
     /// ` bottomRight: QModelIndex `
     ///
-    pub fn New(topLeft: anytype, bottomRight: anytype) QItemSelection {
+    pub fn New2(topLeft: anytype, bottomRight: anytype) QItemSelection {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
-        return .{ .ptr = qtc.QItemSelection_new(@ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr)) };
-    }
-
-    /// New2 constructs a new QItemSelection object.
-    ///
-    pub fn New2() QItemSelection {
-        return .{ .ptr = qtc.QItemSelection_new2() };
+        return .{ .ptr = qtc.QItemSelection_new2(@ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr)) };
     }
 
     /// New3 constructs a new QItemSelection object.

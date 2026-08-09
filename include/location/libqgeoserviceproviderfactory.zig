@@ -11,6 +11,12 @@ pub const QGeoServiceProviderFactory = extern struct {
 
     pub const _is_QGeoServiceProviderFactory = {};
 
+    /// New constructs a new QGeoServiceProviderFactory object.
+    ///
+    pub fn New() QGeoServiceProviderFactory {
+        return .{ .ptr = qtc.QGeoServiceProviderFactory_new() };
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoserviceproviderfactory.html#operator-eq)
     ///
     /// ## Parameter(s):

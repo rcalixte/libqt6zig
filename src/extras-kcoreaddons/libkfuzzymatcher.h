@@ -26,8 +26,9 @@ typedef struct KFuzzyMatcher__Range KFuzzyMatcher__Range;
 typedef struct KFuzzyMatcher__Result KFuzzyMatcher__Result;
 #endif
 
-KFuzzyMatcher__Result* KFuzzyMatcher__Result_new(const KFuzzyMatcher__Result* other);
-KFuzzyMatcher__Result* KFuzzyMatcher__Result_new2(KFuzzyMatcher__Result* other);
+KFuzzyMatcher__Result* KFuzzyMatcher__Result_new();
+KFuzzyMatcher__Result* KFuzzyMatcher__Result_new2(const KFuzzyMatcher__Result* other);
+KFuzzyMatcher__Result* KFuzzyMatcher__Result_new3(KFuzzyMatcher__Result* other);
 void KFuzzyMatcher__Result_CopyAssign(KFuzzyMatcher__Result* self, KFuzzyMatcher__Result* other);
 void KFuzzyMatcher__Result_MoveAssign(KFuzzyMatcher__Result* self, KFuzzyMatcher__Result* other);
 int KFuzzyMatcher__Result_Score(const KFuzzyMatcher__Result* self);

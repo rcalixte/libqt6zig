@@ -13,16 +13,11 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes = exter
 
     /// New constructs a new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
-    ///
-    pub fn New(other: anytype) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
-        comptime _ = @TypeOf(other)._is_TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes;
-        return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_new(@ptrCast(other.ptr)) };
+    pub fn New() TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+        return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_new() };
     }
 
-    /// New2 constructs a new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object and invalidates the source TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object.
+    /// New2 constructs a new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object.
     ///
     /// ## Parameter(s):
     ///
@@ -31,6 +26,17 @@ pub const TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes = exter
     pub fn New2(other: anytype) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
         comptime _ = @TypeOf(other)._is_TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes;
         return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_new2(@ptrCast(other.ptr)) };
+    }
+
+    /// New3 constructs a new TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object and invalidates the source TextAutoCorrectionCore::AutoCorrectionUtils::TypographicQuotes object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
+    ///
+    pub fn New3(other: anytype) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+        comptime _ = @TypeOf(other)._is_TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes;
+        return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes_new3(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.

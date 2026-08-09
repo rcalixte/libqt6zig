@@ -5988,13 +5988,19 @@ pub const KEncodingFileDialog__Result = extern struct {
 
     /// New constructs a new KEncodingFileDialog::Result object.
     ///
+    pub fn New() KEncodingFileDialog__Result {
+        return .{ .ptr = qtc.KEncodingFileDialog__Result_new() };
+    }
+
+    /// New2 constructs a new KEncodingFileDialog::Result object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: KEncodingFileDialog__Result `
     ///
-    pub fn New(param1: anytype) KEncodingFileDialog__Result {
+    pub fn New2(param1: anytype) KEncodingFileDialog__Result {
         comptime _ = @TypeOf(param1)._is_KEncodingFileDialog__Result;
-        return .{ .ptr = qtc.KEncodingFileDialog__Result_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.KEncodingFileDialog__Result_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#fileNames-var)

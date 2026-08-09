@@ -78,8 +78,8 @@ libqt_string QTimeZone_DisplayName23(const QTimeZone* self, int timeType, int na
 libqt_string QTimeZone_DisplayName32(const QTimeZone* self, int timeType, int nameType, const QLocale* locale);
 void QTimeZone_Delete(QTimeZone* self);
 
-QTimeZone__OffsetData* QTimeZone__OffsetData_new(const QTimeZone__OffsetData* param1);
-QTimeZone__OffsetData* QTimeZone__OffsetData_new2();
+QTimeZone__OffsetData* QTimeZone__OffsetData_new();
+QTimeZone__OffsetData* QTimeZone__OffsetData_new2(const QTimeZone__OffsetData* param1);
 libqt_string QTimeZone__OffsetData_Abbreviation(const QTimeZone__OffsetData* self);
 void QTimeZone__OffsetData_SetAbbreviation(QTimeZone__OffsetData* self, libqt_string abbreviation);
 QDateTime* QTimeZone__OffsetData_AtUtc(const QTimeZone__OffsetData* self);

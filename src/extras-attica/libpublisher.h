@@ -29,7 +29,8 @@ typedef struct Attica__Publisher Attica__Publisher;
 typedef struct Attica__Target Attica__Target;
 #endif
 
-Attica__Field* Attica__Field_new(const Attica__Field* param1);
+Attica__Field* Attica__Field_new();
+Attica__Field* Attica__Field_new2(const Attica__Field* param1);
 libqt_string Attica__Field_Type(const Attica__Field* self);
 void Attica__Field_SetType(Attica__Field* self, libqt_string type);
 libqt_string Attica__Field_Name(const Attica__Field* self);

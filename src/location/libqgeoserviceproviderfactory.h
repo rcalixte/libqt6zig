@@ -18,6 +18,7 @@ extern "C" {
 typedef struct QGeoServiceProviderFactory QGeoServiceProviderFactory;
 #endif
 
+QGeoServiceProviderFactory* QGeoServiceProviderFactory_new();
 void QGeoServiceProviderFactory_OperatorAssign(QGeoServiceProviderFactory* self, const QGeoServiceProviderFactory* param1);
 void QGeoServiceProviderFactory_Delete(QGeoServiceProviderFactory* self);
 

@@ -14,16 +14,11 @@ pub const QMetaContainer = extern struct {
 
     /// New constructs a new QMetaContainer object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QMetaContainer `
-    ///
-    pub fn New(other: anytype) QMetaContainer {
-        comptime _ = @TypeOf(other)._is_QMetaContainer;
-        return .{ .ptr = qtc.QMetaContainer_new(@ptrCast(other.ptr)) };
+    pub fn New() QMetaContainer {
+        return .{ .ptr = qtc.QMetaContainer_new() };
     }
 
-    /// New2 constructs a new QMetaContainer object and invalidates the source QMetaContainer object.
+    /// New2 constructs a new QMetaContainer object.
     ///
     /// ## Parameter(s):
     ///
@@ -34,10 +29,15 @@ pub const QMetaContainer = extern struct {
         return .{ .ptr = qtc.QMetaContainer_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QMetaContainer object.
+    /// New3 constructs a new QMetaContainer object and invalidates the source QMetaContainer object.
     ///
-    pub fn New3() QMetaContainer {
-        return .{ .ptr = qtc.QMetaContainer_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QMetaContainer `
+    ///
+    pub fn New3(other: anytype) QMetaContainer {
+        comptime _ = @TypeOf(other)._is_QMetaContainer;
+        return .{ .ptr = qtc.QMetaContainer_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QMetaContainer object.
@@ -393,16 +393,11 @@ pub const QMetaSequence = extern struct {
 
     /// New constructs a new QMetaSequence object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QMetaSequence `
-    ///
-    pub fn New(other: anytype) QMetaSequence {
-        comptime _ = @TypeOf(other)._is_QMetaSequence;
-        return .{ .ptr = qtc.QMetaSequence_new(@ptrCast(other.ptr)) };
+    pub fn New() QMetaSequence {
+        return .{ .ptr = qtc.QMetaSequence_new() };
     }
 
-    /// New2 constructs a new QMetaSequence object and invalidates the source QMetaSequence object.
+    /// New2 constructs a new QMetaSequence object.
     ///
     /// ## Parameter(s):
     ///
@@ -413,10 +408,15 @@ pub const QMetaSequence = extern struct {
         return .{ .ptr = qtc.QMetaSequence_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QMetaSequence object.
+    /// New3 constructs a new QMetaSequence object and invalidates the source QMetaSequence object.
     ///
-    pub fn New3() QMetaSequence {
-        return .{ .ptr = qtc.QMetaSequence_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QMetaSequence `
+    ///
+    pub fn New3(other: anytype) QMetaSequence {
+        comptime _ = @TypeOf(other)._is_QMetaSequence;
+        return .{ .ptr = qtc.QMetaSequence_new3(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -1167,16 +1167,11 @@ pub const QMetaAssociation = extern struct {
 
     /// New constructs a new QMetaAssociation object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QMetaAssociation `
-    ///
-    pub fn New(other: anytype) QMetaAssociation {
-        comptime _ = @TypeOf(other)._is_QMetaAssociation;
-        return .{ .ptr = qtc.QMetaAssociation_new(@ptrCast(other.ptr)) };
+    pub fn New() QMetaAssociation {
+        return .{ .ptr = qtc.QMetaAssociation_new() };
     }
 
-    /// New2 constructs a new QMetaAssociation object and invalidates the source QMetaAssociation object.
+    /// New2 constructs a new QMetaAssociation object.
     ///
     /// ## Parameter(s):
     ///
@@ -1187,10 +1182,15 @@ pub const QMetaAssociation = extern struct {
         return .{ .ptr = qtc.QMetaAssociation_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QMetaAssociation object.
+    /// New3 constructs a new QMetaAssociation object and invalidates the source QMetaAssociation object.
     ///
-    pub fn New3() QMetaAssociation {
-        return .{ .ptr = qtc.QMetaAssociation_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QMetaAssociation `
+    ///
+    pub fn New3(other: anytype) QMetaAssociation {
+        comptime _ = @TypeOf(other)._is_QMetaAssociation;
+        return .{ .ptr = qtc.QMetaAssociation_new3(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.

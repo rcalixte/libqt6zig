@@ -799,13 +799,19 @@ pub const QIconEngine__ScaledPixmapArgument = extern struct {
 
     /// New constructs a new QIconEngine::ScaledPixmapArgument object.
     ///
+    pub fn New() QIconEngine__ScaledPixmapArgument {
+        return .{ .ptr = qtc.QIconEngine__ScaledPixmapArgument_new() };
+    }
+
+    /// New2 constructs a new QIconEngine::ScaledPixmapArgument object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: QIconEngine__ScaledPixmapArgument `
     ///
-    pub fn New(param1: anytype) QIconEngine__ScaledPixmapArgument {
+    pub fn New2(param1: anytype) QIconEngine__ScaledPixmapArgument {
         comptime _ = @TypeOf(param1)._is_QIconEngine__ScaledPixmapArgument;
-        return .{ .ptr = qtc.QIconEngine__ScaledPixmapArgument_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.QIconEngine__ScaledPixmapArgument_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#size-var)

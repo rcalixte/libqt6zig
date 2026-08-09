@@ -44,7 +44,8 @@ void QWebEngineCookieStore_SetCookie2(QWebEngineCookieStore* self, const QNetwor
 void QWebEngineCookieStore_DeleteCookie2(QWebEngineCookieStore* self, const QNetworkCookie* cookie, const QUrl* origin);
 void QWebEngineCookieStore_Delete(QWebEngineCookieStore* self);
 
-QWebEngineCookieStore__FilterRequest* QWebEngineCookieStore__FilterRequest_new(const QWebEngineCookieStore__FilterRequest* param1);
+QWebEngineCookieStore__FilterRequest* QWebEngineCookieStore__FilterRequest_new();
+QWebEngineCookieStore__FilterRequest* QWebEngineCookieStore__FilterRequest_new2(const QWebEngineCookieStore__FilterRequest* param1);
 QUrl* QWebEngineCookieStore__FilterRequest_FirstPartyUrl(const QWebEngineCookieStore__FilterRequest* self);
 void QWebEngineCookieStore__FilterRequest_SetFirstPartyUrl(QWebEngineCookieStore__FilterRequest* self, QUrl* firstPartyUrl);
 QUrl* QWebEngineCookieStore__FilterRequest_Origin(const QWebEngineCookieStore__FilterRequest* self);

@@ -19,11 +19,15 @@
 #include "libqcborvalue.h"
 #include "libqcborvalue.hxx"
 
-QCborParserError* QCborParserError_new(const QCborParserError* other) {
+QCborParserError* QCborParserError_new() {
+    return new QCborParserError();
+}
+
+QCborParserError* QCborParserError_new2(const QCborParserError* other) {
     return new QCborParserError(*other);
 }
 
-QCborParserError* QCborParserError_new2(QCborParserError* other) {
+QCborParserError* QCborParserError_new3(QCborParserError* other) {
     return new QCborParserError(std::move(*other));
 }
 
