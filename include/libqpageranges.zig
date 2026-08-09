@@ -220,16 +220,11 @@ pub const QPageRanges__Range = extern struct {
 
     /// New constructs a new QPageRanges::Range object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QPageRanges__Range `
-    ///
-    pub fn New(other: anytype) QPageRanges__Range {
-        comptime _ = @TypeOf(other)._is_QPageRanges__Range;
-        return .{ .ptr = qtc.QPageRanges__Range_new(@ptrCast(other.ptr)) };
+    pub fn New() QPageRanges__Range {
+        return .{ .ptr = qtc.QPageRanges__Range_new() };
     }
 
-    /// New2 constructs a new QPageRanges::Range object and invalidates the source QPageRanges::Range object.
+    /// New2 constructs a new QPageRanges::Range object.
     ///
     /// ## Parameter(s):
     ///
@@ -240,10 +235,15 @@ pub const QPageRanges__Range = extern struct {
         return .{ .ptr = qtc.QPageRanges__Range_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QPageRanges::Range object.
+    /// New3 constructs a new QPageRanges::Range object and invalidates the source QPageRanges::Range object.
     ///
-    pub fn New3() QPageRanges__Range {
-        return .{ .ptr = qtc.QPageRanges__Range_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QPageRanges__Range `
+    ///
+    pub fn New3(other: anytype) QPageRanges__Range {
+        comptime _ = @TypeOf(other)._is_QPageRanges__Range;
+        return .{ .ptr = qtc.QPageRanges__Range_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QPageRanges::Range object.

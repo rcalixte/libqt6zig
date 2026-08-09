@@ -49,10 +49,10 @@ QDirListing__const_iterator* QDirListing_ConstBegin(const QDirListing* self);
 QDirListing__sentinel* QDirListing_ConstEnd(const QDirListing* self);
 void QDirListing_Delete(QDirListing* self);
 
-QDirListing__DirEntry* QDirListing__DirEntry_new(const QDirListing__DirEntry* other);
-QDirListing__DirEntry* QDirListing__DirEntry_new2(QDirListing__DirEntry* other);
-QDirListing__DirEntry* QDirListing__DirEntry_new3(const QDirListing__DirEntry* param1);
-QDirListing__DirEntry* QDirListing__DirEntry_new4();
+QDirListing__DirEntry* QDirListing__DirEntry_new();
+QDirListing__DirEntry* QDirListing__DirEntry_new2(const QDirListing__DirEntry* other);
+QDirListing__DirEntry* QDirListing__DirEntry_new3(QDirListing__DirEntry* other);
+QDirListing__DirEntry* QDirListing__DirEntry_new4(const QDirListing__DirEntry* param1);
 void QDirListing__DirEntry_CopyAssign(QDirListing__DirEntry* self, QDirListing__DirEntry* other);
 void QDirListing__DirEntry_MoveAssign(QDirListing__DirEntry* self, QDirListing__DirEntry* other);
 libqt_string QDirListing__DirEntry_FileName(const QDirListing__DirEntry* self);
@@ -91,7 +91,7 @@ void QDirListing__sentinel_CopyAssign(QDirListing__sentinel* self, QDirListing__
 void QDirListing__sentinel_MoveAssign(QDirListing__sentinel* self, QDirListing__sentinel* other);
 void QDirListing__sentinel_Delete(QDirListing__sentinel* self);
 
-QDirListing__const_iterator* QDirListing__const_iterator_new2(QDirListing__const_iterator* other);
+QDirListing__const_iterator* QDirListing__const_iterator_new3(QDirListing__const_iterator* other);
 void QDirListing__const_iterator_MoveAssign(QDirListing__const_iterator* self, QDirListing__const_iterator* other);
 QDirListing__DirEntry* QDirListing__const_iterator_OperatorMultiply(const QDirListing__const_iterator* self);
 QDirListing__const_iterator* QDirListing__const_iterator_OperatorPlusPlus(QDirListing__const_iterator* self);

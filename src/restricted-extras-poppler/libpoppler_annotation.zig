@@ -8333,6 +8333,12 @@ pub const Poppler__HighlightAnnotation__Quad = extern struct {
 
     pub const _is_Poppler__HighlightAnnotation__Quad = {};
 
+    /// New constructs a new Poppler::HighlightAnnotation::Quad object.
+    ///
+    pub fn New() Poppler__HighlightAnnotation__Quad {
+        return .{ .ptr = qtc.Poppler__HighlightAnnotation__Quad_new() };
+    }
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/structPoppler_1_1HighlightAnnotation_1_1Quad.html)
     ///
     /// ## Parameter(s):

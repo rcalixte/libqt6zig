@@ -85,13 +85,19 @@ pub const KIO__OpenWith__AcceptResult = extern struct {
 
     /// New constructs a new KIO::OpenWith::AcceptResult object.
     ///
+    pub fn New() KIO__OpenWith__AcceptResult {
+        return .{ .ptr = qtc.KIO__OpenWith__AcceptResult_new() };
+    }
+
+    /// New2 constructs a new KIO::OpenWith::AcceptResult object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: KIO__OpenWith__AcceptResult `
     ///
-    pub fn New(param1: anytype) KIO__OpenWith__AcceptResult {
+    pub fn New2(param1: anytype) KIO__OpenWith__AcceptResult {
         comptime _ = @TypeOf(param1)._is_KIO__OpenWith__AcceptResult;
-        return .{ .ptr = qtc.KIO__OpenWith__AcceptResult_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.KIO__OpenWith__AcceptResult_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#accept-var)

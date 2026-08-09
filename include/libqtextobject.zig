@@ -3794,6 +3794,12 @@ pub const QTextBlockUserData = extern struct {
 
     pub const _is_QTextBlockUserData = {};
 
+    /// New constructs a new QTextBlockUserData object.
+    ///
+    pub fn New() QTextBlockUserData {
+        return .{ .ptr = qtc.QTextBlockUserData_new() };
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextblockuserdata.html#operator-eq)
     ///
     /// ## Parameter(s):
@@ -4517,16 +4523,11 @@ pub const QTextFrame__iterator = extern struct {
 
     /// New constructs a new QTextFrame::iterator object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QTextFrame__iterator `
-    ///
-    pub fn New(other: anytype) QTextFrame__iterator {
-        comptime _ = @TypeOf(other)._is_QTextFrame__iterator;
-        return .{ .ptr = qtc.QTextFrame__iterator_new(@ptrCast(other.ptr)) };
+    pub fn New() QTextFrame__iterator {
+        return .{ .ptr = qtc.QTextFrame__iterator_new() };
     }
 
-    /// New2 constructs a new QTextFrame::iterator object and invalidates the source QTextFrame::iterator object.
+    /// New2 constructs a new QTextFrame::iterator object.
     ///
     /// ## Parameter(s):
     ///
@@ -4537,10 +4538,15 @@ pub const QTextFrame__iterator = extern struct {
         return .{ .ptr = qtc.QTextFrame__iterator_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QTextFrame::iterator object.
+    /// New3 constructs a new QTextFrame::iterator object and invalidates the source QTextFrame::iterator object.
     ///
-    pub fn New3() QTextFrame__iterator {
-        return .{ .ptr = qtc.QTextFrame__iterator_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QTextFrame__iterator `
+    ///
+    pub fn New3(other: anytype) QTextFrame__iterator {
+        comptime _ = @TypeOf(other)._is_QTextFrame__iterator;
+        return .{ .ptr = qtc.QTextFrame__iterator_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QTextFrame::iterator object.
@@ -4715,16 +4721,11 @@ pub const QTextBlock__iterator = extern struct {
 
     /// New constructs a new QTextBlock::iterator object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QTextBlock__iterator `
-    ///
-    pub fn New(other: anytype) QTextBlock__iterator {
-        comptime _ = @TypeOf(other)._is_QTextBlock__iterator;
-        return .{ .ptr = qtc.QTextBlock__iterator_new(@ptrCast(other.ptr)) };
+    pub fn New() QTextBlock__iterator {
+        return .{ .ptr = qtc.QTextBlock__iterator_new() };
     }
 
-    /// New2 constructs a new QTextBlock::iterator object and invalidates the source QTextBlock::iterator object.
+    /// New2 constructs a new QTextBlock::iterator object.
     ///
     /// ## Parameter(s):
     ///
@@ -4735,10 +4736,15 @@ pub const QTextBlock__iterator = extern struct {
         return .{ .ptr = qtc.QTextBlock__iterator_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QTextBlock::iterator object.
+    /// New3 constructs a new QTextBlock::iterator object and invalidates the source QTextBlock::iterator object.
     ///
-    pub fn New3() QTextBlock__iterator {
-        return .{ .ptr = qtc.QTextBlock__iterator_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QTextBlock__iterator `
+    ///
+    pub fn New3(other: anytype) QTextBlock__iterator {
+        comptime _ = @TypeOf(other)._is_QTextBlock__iterator;
+        return .{ .ptr = qtc.QTextBlock__iterator_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QTextBlock::iterator object.

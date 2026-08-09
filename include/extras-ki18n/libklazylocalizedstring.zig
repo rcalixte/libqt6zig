@@ -17,16 +17,11 @@ pub const KLazyLocalizedString = extern struct {
 
     /// New constructs a new KLazyLocalizedString object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: KLazyLocalizedString `
-    ///
-    pub fn New(other: anytype) KLazyLocalizedString {
-        comptime _ = @TypeOf(other)._is_KLazyLocalizedString;
-        return .{ .ptr = qtc.KLazyLocalizedString_new(@ptrCast(other.ptr)) };
+    pub fn New() KLazyLocalizedString {
+        return .{ .ptr = qtc.KLazyLocalizedString_new() };
     }
 
-    /// New2 constructs a new KLazyLocalizedString object and invalidates the source KLazyLocalizedString object.
+    /// New2 constructs a new KLazyLocalizedString object.
     ///
     /// ## Parameter(s):
     ///
@@ -37,10 +32,15 @@ pub const KLazyLocalizedString = extern struct {
         return .{ .ptr = qtc.KLazyLocalizedString_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new KLazyLocalizedString object.
+    /// New3 constructs a new KLazyLocalizedString object and invalidates the source KLazyLocalizedString object.
     ///
-    pub fn New3() KLazyLocalizedString {
-        return .{ .ptr = qtc.KLazyLocalizedString_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: KLazyLocalizedString `
+    ///
+    pub fn New3(other: anytype) KLazyLocalizedString {
+        comptime _ = @TypeOf(other)._is_KLazyLocalizedString;
+        return .{ .ptr = qtc.KLazyLocalizedString_new3(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.

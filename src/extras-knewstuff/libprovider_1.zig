@@ -3455,13 +3455,19 @@ pub const KNSCore__Provider__CategoryMetadata = extern struct {
 
     /// New constructs a new KNSCore::Provider::CategoryMetadata object.
     ///
+    pub fn New() KNSCore__Provider__CategoryMetadata {
+        return .{ .ptr = qtc.KNSCore__Provider__CategoryMetadata_new() };
+    }
+
+    /// New2 constructs a new KNSCore::Provider::CategoryMetadata object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: KNSCore__Provider__CategoryMetadata `
     ///
-    pub fn New(param1: anytype) KNSCore__Provider__CategoryMetadata {
+    pub fn New2(param1: anytype) KNSCore__Provider__CategoryMetadata {
         comptime _ = @TypeOf(param1)._is_KNSCore__Provider__CategoryMetadata;
-        return .{ .ptr = qtc.KNSCore__Provider__CategoryMetadata_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.KNSCore__Provider__CategoryMetadata_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider-categorymetadata.html#id-var)
@@ -3600,13 +3606,19 @@ pub const KNSCore__Provider__SearchPreset = extern struct {
 
     /// New constructs a new KNSCore::Provider::SearchPreset object.
     ///
+    pub fn New() KNSCore__Provider__SearchPreset {
+        return .{ .ptr = qtc.KNSCore__Provider__SearchPreset_new() };
+    }
+
+    /// New2 constructs a new KNSCore::Provider::SearchPreset object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: KNSCore__Provider__SearchPreset `
     ///
-    pub fn New(param1: anytype) KNSCore__Provider__SearchPreset {
+    pub fn New2(param1: anytype) KNSCore__Provider__SearchPreset {
         comptime _ = @TypeOf(param1)._is_KNSCore__Provider__SearchPreset;
-        return .{ .ptr = qtc.KNSCore__Provider__SearchPreset_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.KNSCore__Provider__SearchPreset_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/knscore-provider-searchpreset.html#request-var)

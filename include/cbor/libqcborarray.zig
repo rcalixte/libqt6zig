@@ -671,19 +671,19 @@ pub const QCborArray__Iterator = extern struct {
 
     /// New constructs a new QCborArray::Iterator object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QCborArray__Iterator `
-    ///
-    pub fn New(other: anytype) QCborArray__Iterator {
-        comptime _ = @TypeOf(other)._is_QCborArray__Iterator;
-        return .{ .ptr = qtc.QCborArray__Iterator_new(@ptrCast(other.ptr)) };
+    pub fn New() QCborArray__Iterator {
+        return .{ .ptr = qtc.QCborArray__Iterator_new() };
     }
 
     /// New2 constructs a new QCborArray::Iterator object.
     ///
-    pub fn New2() QCborArray__Iterator {
-        return .{ .ptr = qtc.QCborArray__Iterator_new2() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QCborArray__Iterator `
+    ///
+    pub fn New2(other: anytype) QCborArray__Iterator {
+        comptime _ = @TypeOf(other)._is_QCborArray__Iterator;
+        return .{ .ptr = qtc.QCborArray__Iterator_new2(@ptrCast(other.ptr)) };
     }
 
     /// New3 constructs a new QCborArray::Iterator object.
@@ -884,19 +884,19 @@ pub const QCborArray__ConstIterator = extern struct {
 
     /// New constructs a new QCborArray::ConstIterator object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QCborArray__ConstIterator `
-    ///
-    pub fn New(other: anytype) QCborArray__ConstIterator {
-        comptime _ = @TypeOf(other)._is_QCborArray__ConstIterator;
-        return .{ .ptr = qtc.QCborArray__ConstIterator_new(@ptrCast(other.ptr)) };
+    pub fn New() QCborArray__ConstIterator {
+        return .{ .ptr = qtc.QCborArray__ConstIterator_new() };
     }
 
     /// New2 constructs a new QCborArray::ConstIterator object.
     ///
-    pub fn New2() QCborArray__ConstIterator {
-        return .{ .ptr = qtc.QCborArray__ConstIterator_new2() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QCborArray__ConstIterator `
+    ///
+    pub fn New2(other: anytype) QCborArray__ConstIterator {
+        comptime _ = @TypeOf(other)._is_QCborArray__ConstIterator;
+        return .{ .ptr = qtc.QCborArray__ConstIterator_new2(@ptrCast(other.ptr)) };
     }
 
     /// New3 constructs a new QCborArray::ConstIterator object.

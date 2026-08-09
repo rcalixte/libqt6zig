@@ -682,16 +682,11 @@ pub const QCalendar__YearMonthDay = extern struct {
 
     /// New constructs a new QCalendar::YearMonthDay object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QCalendar__YearMonthDay `
-    ///
-    pub fn New(other: anytype) QCalendar__YearMonthDay {
-        comptime _ = @TypeOf(other)._is_QCalendar__YearMonthDay;
-        return .{ .ptr = qtc.QCalendar__YearMonthDay_new(@ptrCast(other.ptr)) };
+    pub fn New() QCalendar__YearMonthDay {
+        return .{ .ptr = qtc.QCalendar__YearMonthDay_new() };
     }
 
-    /// New2 constructs a new QCalendar::YearMonthDay object and invalidates the source QCalendar::YearMonthDay object.
+    /// New2 constructs a new QCalendar::YearMonthDay object.
     ///
     /// ## Parameter(s):
     ///
@@ -702,10 +697,15 @@ pub const QCalendar__YearMonthDay = extern struct {
         return .{ .ptr = qtc.QCalendar__YearMonthDay_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QCalendar::YearMonthDay object.
+    /// New3 constructs a new QCalendar::YearMonthDay object and invalidates the source QCalendar::YearMonthDay object.
     ///
-    pub fn New3() QCalendar__YearMonthDay {
-        return .{ .ptr = qtc.QCalendar__YearMonthDay_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QCalendar__YearMonthDay `
+    ///
+    pub fn New3(other: anytype) QCalendar__YearMonthDay {
+        comptime _ = @TypeOf(other)._is_QCalendar__YearMonthDay;
+        return .{ .ptr = qtc.QCalendar__YearMonthDay_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QCalendar::YearMonthDay object.

@@ -22,6 +22,7 @@ typedef struct QWebEngineGlobalSettings QWebEngineGlobalSettings;
 typedef struct QWebEngineGlobalSettings__DnsMode QWebEngineGlobalSettings__DnsMode;
 #endif
 
+QWebEngineGlobalSettings__DnsMode* QWebEngineGlobalSettings__DnsMode_new();
 uint8_t QWebEngineGlobalSettings__DnsMode_SecureMode(const QWebEngineGlobalSettings__DnsMode* self);
 void QWebEngineGlobalSettings__DnsMode_SetSecureMode(QWebEngineGlobalSettings__DnsMode* self, uint8_t secureMode);
 libqt_list /* of libqt_string */ QWebEngineGlobalSettings__DnsMode_ServerTemplates(const QWebEngineGlobalSettings__DnsMode* self);

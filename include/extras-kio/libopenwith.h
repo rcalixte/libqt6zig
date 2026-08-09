@@ -31,7 +31,8 @@ void KIO__OpenWith_CopyAssign(KIO__OpenWith* self, KIO__OpenWith* other);
 void KIO__OpenWith_MoveAssign(KIO__OpenWith* self, KIO__OpenWith* other);
 void KIO__OpenWith_Delete(KIO__OpenWith* self);
 
-KIO__OpenWith__AcceptResult* KIO__OpenWith__AcceptResult_new(const KIO__OpenWith__AcceptResult* param1);
+KIO__OpenWith__AcceptResult* KIO__OpenWith__AcceptResult_new();
+KIO__OpenWith__AcceptResult* KIO__OpenWith__AcceptResult_new2(const KIO__OpenWith__AcceptResult* param1);
 bool KIO__OpenWith__AcceptResult_Accept(const KIO__OpenWith__AcceptResult* self);
 void KIO__OpenWith__AcceptResult_SetAccept(KIO__OpenWith__AcceptResult* self, bool accept);
 libqt_string KIO__OpenWith__AcceptResult_Error(const KIO__OpenWith__AcceptResult* self);

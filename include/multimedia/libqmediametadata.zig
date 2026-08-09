@@ -16,19 +16,19 @@ pub const QMediaMetaData = extern struct {
 
     /// New constructs a new QMediaMetaData object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` param1: QMediaMetaData `
-    ///
-    pub fn New(param1: anytype) QMediaMetaData {
-        comptime _ = @TypeOf(param1)._is_QMediaMetaData;
-        return .{ .ptr = qtc.QMediaMetaData_new(@ptrCast(param1.ptr)) };
+    pub fn New() QMediaMetaData {
+        return .{ .ptr = qtc.QMediaMetaData_new() };
     }
 
     /// New2 constructs a new QMediaMetaData object.
     ///
-    pub fn New2() QMediaMetaData {
-        return .{ .ptr = qtc.QMediaMetaData_new2() };
+    /// ## Parameter(s):
+    ///
+    /// ` param1: QMediaMetaData `
+    ///
+    pub fn New2(param1: anytype) QMediaMetaData {
+        comptime _ = @TypeOf(param1)._is_QMediaMetaData;
+        return .{ .ptr = qtc.QMediaMetaData_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qmediametadata.html#value)

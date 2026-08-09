@@ -14,16 +14,11 @@ pub const KTextEditor__LineRange = extern struct {
 
     /// New constructs a new KTextEditor::LineRange object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: KTextEditor__LineRange `
-    ///
-    pub fn New(other: anytype) KTextEditor__LineRange {
-        comptime _ = @TypeOf(other)._is_KTextEditor__LineRange;
-        return .{ .ptr = qtc.KTextEditor__LineRange_new(@ptrCast(other.ptr)) };
+    pub fn New() KTextEditor__LineRange {
+        return .{ .ptr = qtc.KTextEditor__LineRange_new() };
     }
 
-    /// New2 constructs a new KTextEditor::LineRange object and invalidates the source KTextEditor::LineRange object.
+    /// New2 constructs a new KTextEditor::LineRange object.
     ///
     /// ## Parameter(s):
     ///
@@ -34,10 +29,15 @@ pub const KTextEditor__LineRange = extern struct {
         return .{ .ptr = qtc.KTextEditor__LineRange_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new KTextEditor::LineRange object.
+    /// New3 constructs a new KTextEditor::LineRange object and invalidates the source KTextEditor::LineRange object.
     ///
-    pub fn New3() KTextEditor__LineRange {
-        return .{ .ptr = qtc.KTextEditor__LineRange_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: KTextEditor__LineRange `
+    ///
+    pub fn New3(other: anytype) KTextEditor__LineRange {
+        comptime _ = @TypeOf(other)._is_KTextEditor__LineRange;
+        return .{ .ptr = qtc.KTextEditor__LineRange_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new KTextEditor::LineRange object.

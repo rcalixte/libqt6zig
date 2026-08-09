@@ -14,16 +14,11 @@ pub const QAudioFormat = extern struct {
 
     /// New constructs a new QAudioFormat object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QAudioFormat `
-    ///
-    pub fn New(other: anytype) QAudioFormat {
-        comptime _ = @TypeOf(other)._is_QAudioFormat;
-        return .{ .ptr = qtc.QAudioFormat_new(@ptrCast(other.ptr)) };
+    pub fn New() QAudioFormat {
+        return .{ .ptr = qtc.QAudioFormat_new() };
     }
 
-    /// New2 constructs a new QAudioFormat object and invalidates the source QAudioFormat object.
+    /// New2 constructs a new QAudioFormat object.
     ///
     /// ## Parameter(s):
     ///
@@ -34,10 +29,15 @@ pub const QAudioFormat = extern struct {
         return .{ .ptr = qtc.QAudioFormat_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QAudioFormat object.
+    /// New3 constructs a new QAudioFormat object and invalidates the source QAudioFormat object.
     ///
-    pub fn New3() QAudioFormat {
-        return .{ .ptr = qtc.QAudioFormat_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QAudioFormat `
+    ///
+    pub fn New3(other: anytype) QAudioFormat {
+        comptime _ = @TypeOf(other)._is_QAudioFormat;
+        return .{ .ptr = qtc.QAudioFormat_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QAudioFormat object.

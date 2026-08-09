@@ -11,6 +11,12 @@ pub const QTextToSpeechPlugin = extern struct {
 
     pub const _is_QTextToSpeechPlugin = {};
 
+    /// New constructs a new QTextToSpeechPlugin object.
+    ///
+    pub fn New() QTextToSpeechPlugin {
+        return .{ .ptr = qtc.QTextToSpeechPlugin_new() };
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtexttospeechplugin.html#operator-eq)
     ///
     /// ## Parameter(s):

@@ -137,8 +137,9 @@ void QPaintEngine_OnCreatePixmapFromImage(QPaintEngine* self, intptr_t slot);
 QPixmap* QPaintEngine_SuperCreatePixmapFromImage(QPaintEngine* self, QImage* image, int flags);
 void QPaintEngine_Delete(QPaintEngine* self);
 
-QPaintEngineState* QPaintEngineState_new(const QPaintEngineState* other);
-QPaintEngineState* QPaintEngineState_new2(QPaintEngineState* other);
+QPaintEngineState* QPaintEngineState_new();
+QPaintEngineState* QPaintEngineState_new2(const QPaintEngineState* other);
+QPaintEngineState* QPaintEngineState_new3(QPaintEngineState* other);
 void QPaintEngineState_CopyAssign(QPaintEngineState* self, QPaintEngineState* other);
 void QPaintEngineState_MoveAssign(QPaintEngineState* self, QPaintEngineState* other);
 int QPaintEngineState_State(const QPaintEngineState* self);

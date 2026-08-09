@@ -158,7 +158,11 @@ void TextTranslator__TranslatorUtil_Delete(TextTranslator__TranslatorUtil* self)
     delete self;
 }
 
-TextTranslator__TranslatorUtil__TranslatorSettings* TextTranslator__TranslatorUtil__TranslatorSettings_new(const TextTranslator__TranslatorUtil__TranslatorSettings* param1) {
+TextTranslator__TranslatorUtil__TranslatorSettings* TextTranslator__TranslatorUtil__TranslatorSettings_new() {
+    return new TextTranslator::TranslatorUtil::TranslatorSettings();
+}
+
+TextTranslator__TranslatorUtil__TranslatorSettings* TextTranslator__TranslatorUtil__TranslatorSettings_new2(const TextTranslator__TranslatorUtil__TranslatorSettings* param1) {
     return new TextTranslator::TranslatorUtil::TranslatorSettings(*param1);
 }
 

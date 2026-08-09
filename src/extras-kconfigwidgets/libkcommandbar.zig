@@ -8481,19 +8481,19 @@ pub const KCommandBar__ActionGroup = extern struct {
 
     /// New constructs a new KCommandBar::ActionGroup object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` param1: KCommandBar__ActionGroup `
-    ///
-    pub fn New(param1: anytype) KCommandBar__ActionGroup {
-        comptime _ = @TypeOf(param1)._is_KCommandBar__ActionGroup;
-        return .{ .ptr = qtc.KCommandBar__ActionGroup_new(@ptrCast(param1.ptr)) };
+    pub fn New() KCommandBar__ActionGroup {
+        return .{ .ptr = qtc.KCommandBar__ActionGroup_new() };
     }
 
     /// New2 constructs a new KCommandBar::ActionGroup object.
     ///
-    pub fn New2() KCommandBar__ActionGroup {
-        return .{ .ptr = qtc.KCommandBar__ActionGroup_new2() };
+    /// ## Parameter(s):
+    ///
+    /// ` param1: KCommandBar__ActionGroup `
+    ///
+    pub fn New2(param1: anytype) KCommandBar__ActionGroup {
+        comptime _ = @TypeOf(param1)._is_KCommandBar__ActionGroup;
+        return .{ .ptr = qtc.KCommandBar__ActionGroup_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcommandbar-actiongroup.html#name-var)

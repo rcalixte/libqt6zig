@@ -384,6 +384,7 @@ libqt_string Poppler__Annotation__Popup_Text(const Poppler__Annotation__Popup* s
 void Poppler__Annotation__Popup_SetText(Poppler__Annotation__Popup* self, const libqt_string text);
 void Poppler__Annotation__Popup_Delete(Poppler__Annotation__Popup* self);
 
+Poppler__HighlightAnnotation__Quad* Poppler__HighlightAnnotation__Quad_new();
 bool Poppler__HighlightAnnotation__Quad_CapStart(const Poppler__HighlightAnnotation__Quad* self);
 void Poppler__HighlightAnnotation__Quad_SetCapStart(Poppler__HighlightAnnotation__Quad* self, bool capStart);
 bool Poppler__HighlightAnnotation__Quad_CapEnd(const Poppler__HighlightAnnotation__Quad* self);

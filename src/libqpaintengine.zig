@@ -1522,16 +1522,11 @@ pub const QPaintEngineState = extern struct {
 
     /// New constructs a new QPaintEngineState object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QPaintEngineState `
-    ///
-    pub fn New(other: anytype) QPaintEngineState {
-        comptime _ = @TypeOf(other)._is_QPaintEngineState;
-        return .{ .ptr = qtc.QPaintEngineState_new(@ptrCast(other.ptr)) };
+    pub fn New() QPaintEngineState {
+        return .{ .ptr = qtc.QPaintEngineState_new() };
     }
 
-    /// New2 constructs a new QPaintEngineState object and invalidates the source QPaintEngineState object.
+    /// New2 constructs a new QPaintEngineState object.
     ///
     /// ## Parameter(s):
     ///
@@ -1540,6 +1535,17 @@ pub const QPaintEngineState = extern struct {
     pub fn New2(other: anytype) QPaintEngineState {
         comptime _ = @TypeOf(other)._is_QPaintEngineState;
         return .{ .ptr = qtc.QPaintEngineState_new2(@ptrCast(other.ptr)) };
+    }
+
+    /// New3 constructs a new QPaintEngineState object and invalidates the source QPaintEngineState object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: QPaintEngineState `
+    ///
+    pub fn New3(other: anytype) QPaintEngineState {
+        comptime _ = @TypeOf(other)._is_QPaintEngineState;
+        return .{ .ptr = qtc.QPaintEngineState_new3(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.

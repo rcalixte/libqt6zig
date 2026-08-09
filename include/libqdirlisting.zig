@@ -265,16 +265,11 @@ pub const QDirListing__DirEntry = extern struct {
 
     /// New constructs a new QDirListing::DirEntry object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QDirListing__DirEntry `
-    ///
-    pub fn New(other: anytype) QDirListing__DirEntry {
-        comptime _ = @TypeOf(other)._is_QDirListing__DirEntry;
-        return .{ .ptr = qtc.QDirListing__DirEntry_new(@ptrCast(other.ptr)) };
+    pub fn New() QDirListing__DirEntry {
+        return .{ .ptr = qtc.QDirListing__DirEntry_new() };
     }
 
-    /// New2 constructs a new QDirListing::DirEntry object and invalidates the source QDirListing::DirEntry object.
+    /// New2 constructs a new QDirListing::DirEntry object.
     ///
     /// ## Parameter(s):
     ///
@@ -285,21 +280,26 @@ pub const QDirListing__DirEntry = extern struct {
         return .{ .ptr = qtc.QDirListing__DirEntry_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QDirListing::DirEntry object.
+    /// New3 constructs a new QDirListing::DirEntry object and invalidates the source QDirListing::DirEntry object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: QDirListing__DirEntry `
+    ///
+    pub fn New3(other: anytype) QDirListing__DirEntry {
+        comptime _ = @TypeOf(other)._is_QDirListing__DirEntry;
+        return .{ .ptr = qtc.QDirListing__DirEntry_new3(@ptrCast(other.ptr)) };
+    }
+
+    /// New4 constructs a new QDirListing::DirEntry object.
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QDirListing__DirEntry `
     ///
-    pub fn New3(param1: anytype) QDirListing__DirEntry {
+    pub fn New4(param1: anytype) QDirListing__DirEntry {
         comptime _ = @TypeOf(param1)._is_QDirListing__DirEntry;
-        return .{ .ptr = qtc.QDirListing__DirEntry_new3(@ptrCast(param1.ptr)) };
-    }
-
-    /// New4 constructs a new QDirListing::DirEntry object.
-    ///
-    pub fn New4() QDirListing__DirEntry {
-        return .{ .ptr = qtc.QDirListing__DirEntry_new4() };
+        return .{ .ptr = qtc.QDirListing__DirEntry_new4(@ptrCast(param1.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.
@@ -779,15 +779,15 @@ pub const QDirListing__const_iterator = extern struct {
 
     pub const _is_QDirListing__const_iterator = {};
 
-    /// New2 constructs a new QDirListing::const_iterator object and invalidates the source QDirListing::const_iterator object.
+    /// New3 constructs a new QDirListing::const_iterator object and invalidates the source QDirListing::const_iterator object.
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QDirListing__const_iterator `
     ///
-    pub fn New2(other: anytype) QDirListing__const_iterator {
+    pub fn New3(other: anytype) QDirListing__const_iterator {
         comptime _ = @TypeOf(other)._is_QDirListing__const_iterator;
-        return .{ .ptr = qtc.QDirListing__const_iterator_new2(@ptrCast(other.ptr)) };
+        return .{ .ptr = qtc.QDirListing__const_iterator_new3(@ptrCast(other.ptr)) };
     }
 
     /// MoveAssign moves `other` into `self` and invalidates `other`.

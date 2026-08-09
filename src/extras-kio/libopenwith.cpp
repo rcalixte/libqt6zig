@@ -25,7 +25,11 @@ void KIO__OpenWith_Delete(KIO__OpenWith* self) {
     delete self;
 }
 
-KIO__OpenWith__AcceptResult* KIO__OpenWith__AcceptResult_new(const KIO__OpenWith__AcceptResult* param1) {
+KIO__OpenWith__AcceptResult* KIO__OpenWith__AcceptResult_new() {
+    return new KIO::OpenWith::AcceptResult();
+}
+
+KIO__OpenWith__AcceptResult* KIO__OpenWith__AcceptResult_new2(const KIO__OpenWith__AcceptResult* param1) {
     return new KIO::OpenWith::AcceptResult(*param1);
 }
 

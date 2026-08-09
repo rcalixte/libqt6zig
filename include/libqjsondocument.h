@@ -23,8 +23,9 @@ typedef struct QJsonValue QJsonValue;
 typedef struct QVariant QVariant;
 #endif
 
-QJsonParseError* QJsonParseError_new(const QJsonParseError* other);
-QJsonParseError* QJsonParseError_new2(QJsonParseError* other);
+QJsonParseError* QJsonParseError_new();
+QJsonParseError* QJsonParseError_new2(const QJsonParseError* other);
+QJsonParseError* QJsonParseError_new3(QJsonParseError* other);
 void QJsonParseError_CopyAssign(QJsonParseError* self, QJsonParseError* other);
 void QJsonParseError_MoveAssign(QJsonParseError* self, QJsonParseError* other);
 libqt_string QJsonParseError_ErrorString(const QJsonParseError* self);

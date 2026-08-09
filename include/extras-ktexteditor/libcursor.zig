@@ -14,16 +14,11 @@ pub const KTextEditor__Cursor = extern struct {
 
     /// New constructs a new KTextEditor::Cursor object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: KTextEditor__Cursor `
-    ///
-    pub fn New(other: anytype) KTextEditor__Cursor {
-        comptime _ = @TypeOf(other)._is_KTextEditor__Cursor;
-        return .{ .ptr = qtc.KTextEditor__Cursor_new(@ptrCast(other.ptr)) };
+    pub fn New() KTextEditor__Cursor {
+        return .{ .ptr = qtc.KTextEditor__Cursor_new() };
     }
 
-    /// New2 constructs a new KTextEditor::Cursor object and invalidates the source KTextEditor::Cursor object.
+    /// New2 constructs a new KTextEditor::Cursor object.
     ///
     /// ## Parameter(s):
     ///
@@ -34,10 +29,15 @@ pub const KTextEditor__Cursor = extern struct {
         return .{ .ptr = qtc.KTextEditor__Cursor_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new KTextEditor::Cursor object.
+    /// New3 constructs a new KTextEditor::Cursor object and invalidates the source KTextEditor::Cursor object.
     ///
-    pub fn New3() KTextEditor__Cursor {
-        return .{ .ptr = qtc.KTextEditor__Cursor_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: KTextEditor__Cursor `
+    ///
+    pub fn New3(other: anytype) KTextEditor__Cursor {
+        comptime _ = @TypeOf(other)._is_KTextEditor__Cursor;
+        return .{ .ptr = qtc.KTextEditor__Cursor_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new KTextEditor::Cursor object.

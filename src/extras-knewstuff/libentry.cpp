@@ -541,7 +541,11 @@ void KNSCore__Entry_Delete(KNSCore__Entry* self) {
     delete self;
 }
 
-KNSCore__Entry__DownloadLinkInformation* KNSCore__Entry__DownloadLinkInformation_new(const KNSCore__Entry__DownloadLinkInformation* param1) {
+KNSCore__Entry__DownloadLinkInformation* KNSCore__Entry__DownloadLinkInformation_new() {
+    return new KNSCore::Entry::DownloadLinkInformation();
+}
+
+KNSCore__Entry__DownloadLinkInformation* KNSCore__Entry__DownloadLinkInformation_new2(const KNSCore__Entry__DownloadLinkInformation* param1) {
     return new KNSCore::Entry::DownloadLinkInformation(*param1);
 }
 

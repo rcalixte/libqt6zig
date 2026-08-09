@@ -665,11 +665,15 @@ void QPaintEngine_Delete(QPaintEngine* self) {
     delete self;
 }
 
-QPaintEngineState* QPaintEngineState_new(const QPaintEngineState* other) {
+QPaintEngineState* QPaintEngineState_new() {
+    return new QPaintEngineState();
+}
+
+QPaintEngineState* QPaintEngineState_new2(const QPaintEngineState* other) {
     return new QPaintEngineState(*other);
 }
 
-QPaintEngineState* QPaintEngineState_new2(QPaintEngineState* other) {
+QPaintEngineState* QPaintEngineState_new3(QPaintEngineState* other) {
     return new QPaintEngineState(std::move(*other));
 }
 

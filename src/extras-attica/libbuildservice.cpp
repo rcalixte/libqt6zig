@@ -6,7 +6,11 @@
 #include "libbuildservice.h"
 #include "libbuildservice.hxx"
 
-Attica__Target* Attica__Target_new(const Attica__Target* param1) {
+Attica__Target* Attica__Target_new() {
+    return new Attica::Target();
+}
+
+Attica__Target* Attica__Target_new2(const Attica__Target* param1) {
     return new Attica::Target(*param1);
 }
 

@@ -14,16 +14,11 @@ pub const QElapsedTimer = extern struct {
 
     /// New constructs a new QElapsedTimer object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QElapsedTimer `
-    ///
-    pub fn New(other: anytype) QElapsedTimer {
-        comptime _ = @TypeOf(other)._is_QElapsedTimer;
-        return .{ .ptr = qtc.QElapsedTimer_new(@ptrCast(other.ptr)) };
+    pub fn New() QElapsedTimer {
+        return .{ .ptr = qtc.QElapsedTimer_new() };
     }
 
-    /// New2 constructs a new QElapsedTimer object and invalidates the source QElapsedTimer object.
+    /// New2 constructs a new QElapsedTimer object.
     ///
     /// ## Parameter(s):
     ///
@@ -34,10 +29,15 @@ pub const QElapsedTimer = extern struct {
         return .{ .ptr = qtc.QElapsedTimer_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QElapsedTimer object.
+    /// New3 constructs a new QElapsedTimer object and invalidates the source QElapsedTimer object.
     ///
-    pub fn New3() QElapsedTimer {
-        return .{ .ptr = qtc.QElapsedTimer_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QElapsedTimer `
+    ///
+    pub fn New3(other: anytype) QElapsedTimer {
+        comptime _ = @TypeOf(other)._is_QElapsedTimer;
+        return .{ .ptr = qtc.QElapsedTimer_new3(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.

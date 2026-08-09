@@ -32,8 +32,9 @@ typedef struct QUuid QUuid;
 typedef struct QVariant QVariant;
 #endif
 
-QCborParserError* QCborParserError_new(const QCborParserError* other);
-QCborParserError* QCborParserError_new2(QCborParserError* other);
+QCborParserError* QCborParserError_new();
+QCborParserError* QCborParserError_new2(const QCborParserError* other);
+QCborParserError* QCborParserError_new3(QCborParserError* other);
 void QCborParserError_CopyAssign(QCborParserError* self, QCborParserError* other);
 void QCborParserError_MoveAssign(QCborParserError* self, QCborParserError* other);
 long long QCborParserError_Offset(const QCborParserError* self);

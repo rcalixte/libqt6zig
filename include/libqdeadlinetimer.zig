@@ -15,16 +15,11 @@ pub const QDeadlineTimer = extern struct {
 
     /// New constructs a new QDeadlineTimer object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QDeadlineTimer `
-    ///
-    pub fn New(other: anytype) QDeadlineTimer {
-        comptime _ = @TypeOf(other)._is_QDeadlineTimer;
-        return .{ .ptr = qtc.QDeadlineTimer_new(@ptrCast(other.ptr)) };
+    pub fn New() QDeadlineTimer {
+        return .{ .ptr = qtc.QDeadlineTimer_new() };
     }
 
-    /// New2 constructs a new QDeadlineTimer object and invalidates the source QDeadlineTimer object.
+    /// New2 constructs a new QDeadlineTimer object.
     ///
     /// ## Parameter(s):
     ///
@@ -35,10 +30,15 @@ pub const QDeadlineTimer = extern struct {
         return .{ .ptr = qtc.QDeadlineTimer_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QDeadlineTimer object.
+    /// New3 constructs a new QDeadlineTimer object and invalidates the source QDeadlineTimer object.
     ///
-    pub fn New3() QDeadlineTimer {
-        return .{ .ptr = qtc.QDeadlineTimer_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QDeadlineTimer `
+    ///
+    pub fn New3(other: anytype) QDeadlineTimer {
+        comptime _ = @TypeOf(other)._is_QDeadlineTimer;
+        return .{ .ptr = qtc.QDeadlineTimer_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QDeadlineTimer object.

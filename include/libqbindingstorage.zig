@@ -14,16 +14,11 @@ pub const QBindingStatus = extern struct {
 
     /// New constructs a new QBindingStatus object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QBindingStatus `
-    ///
-    pub fn New(other: anytype) QBindingStatus {
-        comptime _ = @TypeOf(other)._is_QBindingStatus;
-        return .{ .ptr = qtc.QBindingStatus_new(@ptrCast(other.ptr)) };
+    pub fn New() QBindingStatus {
+        return .{ .ptr = qtc.QBindingStatus_new() };
     }
 
-    /// New2 constructs a new QBindingStatus object and invalidates the source QBindingStatus object.
+    /// New2 constructs a new QBindingStatus object.
     ///
     /// ## Parameter(s):
     ///
@@ -32,6 +27,17 @@ pub const QBindingStatus = extern struct {
     pub fn New2(other: anytype) QBindingStatus {
         comptime _ = @TypeOf(other)._is_QBindingStatus;
         return .{ .ptr = qtc.QBindingStatus_new2(@ptrCast(other.ptr)) };
+    }
+
+    /// New3 constructs a new QBindingStatus object and invalidates the source QBindingStatus object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: QBindingStatus `
+    ///
+    pub fn New3(other: anytype) QBindingStatus {
+        comptime _ = @TypeOf(other)._is_QBindingStatus;
+        return .{ .ptr = qtc.QBindingStatus_new3(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.

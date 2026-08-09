@@ -6,16 +6,16 @@
 #include "libqmetacontainer.h"
 #include "libqmetacontainer.hxx"
 
-QMetaContainer* QMetaContainer_new(const QMetaContainer* other) {
+QMetaContainer* QMetaContainer_new() {
+    return new QMetaContainer();
+}
+
+QMetaContainer* QMetaContainer_new2(const QMetaContainer* other) {
     return new QMetaContainer(*other);
 }
 
-QMetaContainer* QMetaContainer_new2(QMetaContainer* other) {
+QMetaContainer* QMetaContainer_new3(QMetaContainer* other) {
     return new QMetaContainer(std::move(*other));
-}
-
-QMetaContainer* QMetaContainer_new3() {
-    return new QMetaContainer();
 }
 
 QMetaContainer* QMetaContainer_new4(const QMetaContainer* param1) {
@@ -130,16 +130,16 @@ void QMetaContainer_Delete(QMetaContainer* self) {
     delete self;
 }
 
-QMetaSequence* QMetaSequence_new(const QMetaSequence* other) {
+QMetaSequence* QMetaSequence_new() {
+    return new QMetaSequence();
+}
+
+QMetaSequence* QMetaSequence_new2(const QMetaSequence* other) {
     return new QMetaSequence(*other);
 }
 
-QMetaSequence* QMetaSequence_new2(QMetaSequence* other) {
+QMetaSequence* QMetaSequence_new3(QMetaSequence* other) {
     return new QMetaSequence(std::move(*other));
-}
-
-QMetaSequence* QMetaSequence_new3() {
-    return new QMetaSequence();
 }
 
 void QMetaSequence_CopyAssign(QMetaSequence* self, QMetaSequence* other) {
@@ -274,16 +274,16 @@ void QMetaSequence_Delete(QMetaSequence* self) {
     delete self;
 }
 
-QMetaAssociation* QMetaAssociation_new(const QMetaAssociation* other) {
+QMetaAssociation* QMetaAssociation_new() {
+    return new QMetaAssociation();
+}
+
+QMetaAssociation* QMetaAssociation_new2(const QMetaAssociation* other) {
     return new QMetaAssociation(*other);
 }
 
-QMetaAssociation* QMetaAssociation_new2(QMetaAssociation* other) {
+QMetaAssociation* QMetaAssociation_new3(QMetaAssociation* other) {
     return new QMetaAssociation(std::move(*other));
-}
-
-QMetaAssociation* QMetaAssociation_new3() {
-    return new QMetaAssociation();
 }
 
 void QMetaAssociation_CopyAssign(QMetaAssociation* self, QMetaAssociation* other) {

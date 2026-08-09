@@ -1190,6 +1190,10 @@ void Poppler__Annotation__Popup_Delete(Poppler__Annotation__Popup* self) {
     delete self;
 }
 
+Poppler__HighlightAnnotation__Quad* Poppler__HighlightAnnotation__Quad_new() {
+    return new Poppler::HighlightAnnotation::Quad();
+}
+
 bool Poppler__HighlightAnnotation__Quad_CapStart(const Poppler__HighlightAnnotation__Quad* self) {
     return self->capStart;
 }

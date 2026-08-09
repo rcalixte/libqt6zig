@@ -7445,13 +7445,19 @@ pub const Konsole__FilterChain = extern struct {
 
     /// New constructs a new Konsole::FilterChain object.
     ///
+    pub fn New() Konsole__FilterChain {
+        return .{ .ptr = qtc.Konsole__FilterChain_new() };
+    }
+
+    /// New2 constructs a new Konsole::FilterChain object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: Konsole__FilterChain `
     ///
-    pub fn New(param1: anytype) Konsole__FilterChain {
+    pub fn New2(param1: anytype) Konsole__FilterChain {
         comptime _ = @TypeOf(param1)._is_Konsole__FilterChain;
-        return .{ .ptr = qtc.Konsole__FilterChain_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.Konsole__FilterChain_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://github.com/lxqt/qtermwidget?tab=readme-ov-file#api)

@@ -1372,16 +1372,11 @@ pub const QFont__Tag = extern struct {
 
     /// New constructs a new QFont::Tag object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QFont__Tag `
-    ///
-    pub fn New(other: anytype) QFont__Tag {
-        comptime _ = @TypeOf(other)._is_QFont__Tag;
-        return .{ .ptr = qtc.QFont__Tag_new(@ptrCast(other.ptr)) };
+    pub fn New() QFont__Tag {
+        return .{ .ptr = qtc.QFont__Tag_new() };
     }
 
-    /// New2 constructs a new QFont::Tag object and invalidates the source QFont::Tag object.
+    /// New2 constructs a new QFont::Tag object.
     ///
     /// ## Parameter(s):
     ///
@@ -1392,10 +1387,15 @@ pub const QFont__Tag = extern struct {
         return .{ .ptr = qtc.QFont__Tag_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QFont::Tag object.
+    /// New3 constructs a new QFont::Tag object and invalidates the source QFont::Tag object.
     ///
-    pub fn New3() QFont__Tag {
-        return .{ .ptr = qtc.QFont__Tag_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QFont__Tag `
+    ///
+    pub fn New3(other: anytype) QFont__Tag {
+        comptime _ = @TypeOf(other)._is_QFont__Tag;
+        return .{ .ptr = qtc.QFont__Tag_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QFont::Tag object.

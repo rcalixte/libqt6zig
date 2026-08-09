@@ -1120,13 +1120,19 @@ pub const QWebEngineCookieStore__FilterRequest = extern struct {
 
     /// New constructs a new QWebEngineCookieStore::FilterRequest object.
     ///
+    pub fn New() QWebEngineCookieStore__FilterRequest {
+        return .{ .ptr = qtc.QWebEngineCookieStore__FilterRequest_new() };
+    }
+
+    /// New2 constructs a new QWebEngineCookieStore::FilterRequest object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: QWebEngineCookieStore__FilterRequest `
     ///
-    pub fn New(param1: anytype) QWebEngineCookieStore__FilterRequest {
+    pub fn New2(param1: anytype) QWebEngineCookieStore__FilterRequest {
         comptime _ = @TypeOf(param1)._is_QWebEngineCookieStore__FilterRequest;
-        return .{ .ptr = qtc.QWebEngineCookieStore__FilterRequest_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.QWebEngineCookieStore__FilterRequest_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecookiestore-filterrequest.html#firstPartyUrl-var)

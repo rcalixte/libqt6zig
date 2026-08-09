@@ -74,9 +74,9 @@ libqt_string QCalendar_WeekDayName3(const QCalendar* self, const QLocale* locale
 libqt_string QCalendar_StandaloneWeekDayName3(const QCalendar* self, const QLocale* locale, int day, int format);
 void QCalendar_Delete(QCalendar* self);
 
-QCalendar__YearMonthDay* QCalendar__YearMonthDay_new(const QCalendar__YearMonthDay* other);
-QCalendar__YearMonthDay* QCalendar__YearMonthDay_new2(QCalendar__YearMonthDay* other);
-QCalendar__YearMonthDay* QCalendar__YearMonthDay_new3();
+QCalendar__YearMonthDay* QCalendar__YearMonthDay_new();
+QCalendar__YearMonthDay* QCalendar__YearMonthDay_new2(const QCalendar__YearMonthDay* other);
+QCalendar__YearMonthDay* QCalendar__YearMonthDay_new3(QCalendar__YearMonthDay* other);
 QCalendar__YearMonthDay* QCalendar__YearMonthDay_new4(int y);
 QCalendar__YearMonthDay* QCalendar__YearMonthDay_new5(int y, int m);
 QCalendar__YearMonthDay* QCalendar__YearMonthDay_new6(int y, int m, int d);

@@ -120,6 +120,7 @@ void QTextFrame_OnIsSignalConnected(const QTextFrame* self, intptr_t slot);
 bool QTextFrame_SuperIsSignalConnected(const QTextFrame* self, const QMetaMethod* signal);
 void QTextFrame_Delete(QTextFrame* self);
 
+QTextBlockUserData* QTextBlockUserData_new();
 void QTextBlockUserData_OperatorAssign(QTextBlockUserData* self, const QTextBlockUserData* param1);
 void QTextBlockUserData_Delete(QTextBlockUserData* self);
 
@@ -181,9 +182,9 @@ libqt_list /* of QGlyphRun* */ QTextFragment_GlyphRuns1(const QTextFragment* sel
 libqt_list /* of QGlyphRun* */ QTextFragment_GlyphRuns2(const QTextFragment* self, int from, int length);
 void QTextFragment_Delete(QTextFragment* self);
 
-QTextFrame__iterator* QTextFrame__iterator_new(const QTextFrame__iterator* other);
-QTextFrame__iterator* QTextFrame__iterator_new2(QTextFrame__iterator* other);
-QTextFrame__iterator* QTextFrame__iterator_new3();
+QTextFrame__iterator* QTextFrame__iterator_new();
+QTextFrame__iterator* QTextFrame__iterator_new2(const QTextFrame__iterator* other);
+QTextFrame__iterator* QTextFrame__iterator_new3(QTextFrame__iterator* other);
 QTextFrame__iterator* QTextFrame__iterator_new4(const QTextFrame__iterator* param1);
 void QTextFrame__iterator_CopyAssign(QTextFrame__iterator* self, QTextFrame__iterator* other);
 void QTextFrame__iterator_MoveAssign(QTextFrame__iterator* self, QTextFrame__iterator* other);
@@ -199,9 +200,9 @@ QTextFrame__iterator* QTextFrame__iterator_OperatorMinusMinus(QTextFrame__iterat
 QTextFrame__iterator* QTextFrame__iterator_OperatorMinusMinus2(QTextFrame__iterator* self, int param1);
 void QTextFrame__iterator_Delete(QTextFrame__iterator* self);
 
-QTextBlock__iterator* QTextBlock__iterator_new(const QTextBlock__iterator* other);
-QTextBlock__iterator* QTextBlock__iterator_new2(QTextBlock__iterator* other);
-QTextBlock__iterator* QTextBlock__iterator_new3();
+QTextBlock__iterator* QTextBlock__iterator_new();
+QTextBlock__iterator* QTextBlock__iterator_new2(const QTextBlock__iterator* other);
+QTextBlock__iterator* QTextBlock__iterator_new3(QTextBlock__iterator* other);
 QTextBlock__iterator* QTextBlock__iterator_new4(const QTextBlock__iterator* param1);
 void QTextBlock__iterator_CopyAssign(QTextBlock__iterator* self, QTextBlock__iterator* other);
 void QTextBlock__iterator_MoveAssign(QTextBlock__iterator* self, QTextBlock__iterator* other);

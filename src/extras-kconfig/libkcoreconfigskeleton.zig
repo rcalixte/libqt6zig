@@ -8277,19 +8277,19 @@ pub const KCoreConfigSkeleton__ItemEnum__Choice = extern struct {
 
     /// New constructs a new KCoreConfigSkeleton::ItemEnum::Choice object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` param1: KCoreConfigSkeleton__ItemEnum__Choice `
-    ///
-    pub fn New(param1: anytype) KCoreConfigSkeleton__ItemEnum__Choice {
-        comptime _ = @TypeOf(param1)._is_KCoreConfigSkeleton__ItemEnum__Choice;
-        return .{ .ptr = qtc.KCoreConfigSkeleton__ItemEnum__Choice_new(@ptrCast(param1.ptr)) };
+    pub fn New() KCoreConfigSkeleton__ItemEnum__Choice {
+        return .{ .ptr = qtc.KCoreConfigSkeleton__ItemEnum__Choice_new() };
     }
 
     /// New2 constructs a new KCoreConfigSkeleton::ItemEnum::Choice object.
     ///
-    pub fn New2() KCoreConfigSkeleton__ItemEnum__Choice {
-        return .{ .ptr = qtc.KCoreConfigSkeleton__ItemEnum__Choice_new2() };
+    /// ## Parameter(s):
+    ///
+    /// ` param1: KCoreConfigSkeleton__ItemEnum__Choice `
+    ///
+    pub fn New2(param1: anytype) KCoreConfigSkeleton__ItemEnum__Choice {
+        comptime _ = @TypeOf(param1)._is_KCoreConfigSkeleton__ItemEnum__Choice;
+        return .{ .ptr = qtc.KCoreConfigSkeleton__ItemEnum__Choice_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton-itemenum-choice.html#name-var)

@@ -342,16 +342,11 @@ pub const QMediaTimeRange__Interval = extern struct {
 
     /// New constructs a new QMediaTimeRange::Interval object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QMediaTimeRange__Interval `
-    ///
-    pub fn New(other: anytype) QMediaTimeRange__Interval {
-        comptime _ = @TypeOf(other)._is_QMediaTimeRange__Interval;
-        return .{ .ptr = qtc.QMediaTimeRange__Interval_new(@ptrCast(other.ptr)) };
+    pub fn New() QMediaTimeRange__Interval {
+        return .{ .ptr = qtc.QMediaTimeRange__Interval_new() };
     }
 
-    /// New2 constructs a new QMediaTimeRange::Interval object and invalidates the source QMediaTimeRange::Interval object.
+    /// New2 constructs a new QMediaTimeRange::Interval object.
     ///
     /// ## Parameter(s):
     ///
@@ -362,10 +357,15 @@ pub const QMediaTimeRange__Interval = extern struct {
         return .{ .ptr = qtc.QMediaTimeRange__Interval_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QMediaTimeRange::Interval object.
+    /// New3 constructs a new QMediaTimeRange::Interval object and invalidates the source QMediaTimeRange::Interval object.
     ///
-    pub fn New3() QMediaTimeRange__Interval {
-        return .{ .ptr = qtc.QMediaTimeRange__Interval_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QMediaTimeRange__Interval `
+    ///
+    pub fn New3(other: anytype) QMediaTimeRange__Interval {
+        comptime _ = @TypeOf(other)._is_QMediaTimeRange__Interval;
+        return .{ .ptr = qtc.QMediaTimeRange__Interval_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QMediaTimeRange::Interval object.

@@ -10,11 +10,15 @@
 #include "libqjsondocument.h"
 #include "libqjsondocument.hxx"
 
-QJsonParseError* QJsonParseError_new(const QJsonParseError* other) {
+QJsonParseError* QJsonParseError_new() {
+    return new QJsonParseError();
+}
+
+QJsonParseError* QJsonParseError_new2(const QJsonParseError* other) {
     return new QJsonParseError(*other);
 }
 
-QJsonParseError* QJsonParseError_new2(QJsonParseError* other) {
+QJsonParseError* QJsonParseError_new3(QJsonParseError* other) {
     return new QJsonParseError(std::move(*other));
 }
 

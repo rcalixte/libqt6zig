@@ -46,8 +46,8 @@ QByteArray__FromBase64Result* QByteArray_FromBase64Encoding2(const libqt_string 
 libqt_string QByteArray_FromBase642(const libqt_string base64, int options);
 libqt_string QByteArray_FromPercentEncoding2(const libqt_string pctEncoded, char percent);
 
-QByteArray__FromBase64Result* QByteArray__FromBase64Result_new(const QByteArray__FromBase64Result* param1);
-QByteArray__FromBase64Result* QByteArray__FromBase64Result_new2();
+QByteArray__FromBase64Result* QByteArray__FromBase64Result_new();
+QByteArray__FromBase64Result* QByteArray__FromBase64Result_new2(const QByteArray__FromBase64Result* param1);
 libqt_string QByteArray__FromBase64Result_Decoded(const QByteArray__FromBase64Result* self);
 void QByteArray__FromBase64Result_SetDecoded(QByteArray__FromBase64Result* self, libqt_string decoded);
 int QByteArray__FromBase64Result_DecodingStatus(const QByteArray__FromBase64Result* self);

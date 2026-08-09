@@ -152,8 +152,8 @@ void QItemSelectionModel_OnIsSignalConnected(const QItemSelectionModel* self, in
 bool QItemSelectionModel_SuperIsSignalConnected(const QItemSelectionModel* self, const QMetaMethod* signal);
 void QItemSelectionModel_Delete(QItemSelectionModel* self);
 
-QItemSelection* QItemSelection_new(const QModelIndex* topLeft, const QModelIndex* bottomRight);
-QItemSelection* QItemSelection_new2();
+QItemSelection* QItemSelection_new();
+QItemSelection* QItemSelection_new2(const QModelIndex* topLeft, const QModelIndex* bottomRight);
 QItemSelection* QItemSelection_new3(const QItemSelection* param1);
 void QItemSelection_Select(QItemSelection* self, const QModelIndex* topLeft, const QModelIndex* bottomRight);
 bool QItemSelection_Contains(const QItemSelection* self, const QModelIndex* index);

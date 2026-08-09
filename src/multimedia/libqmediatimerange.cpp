@@ -126,16 +126,16 @@ void QMediaTimeRange_Delete(QMediaTimeRange* self) {
     delete self;
 }
 
-QMediaTimeRange__Interval* QMediaTimeRange__Interval_new(const QMediaTimeRange__Interval* other) {
+QMediaTimeRange__Interval* QMediaTimeRange__Interval_new() {
+    return new QMediaTimeRange::Interval();
+}
+
+QMediaTimeRange__Interval* QMediaTimeRange__Interval_new2(const QMediaTimeRange__Interval* other) {
     return new QMediaTimeRange::Interval(*other);
 }
 
-QMediaTimeRange__Interval* QMediaTimeRange__Interval_new2(QMediaTimeRange__Interval* other) {
+QMediaTimeRange__Interval* QMediaTimeRange__Interval_new3(QMediaTimeRange__Interval* other) {
     return new QMediaTimeRange::Interval(std::move(*other));
-}
-
-QMediaTimeRange__Interval* QMediaTimeRange__Interval_new3() {
-    return new QMediaTimeRange::Interval();
 }
 
 QMediaTimeRange__Interval* QMediaTimeRange__Interval_new4(long long start, long long end) {

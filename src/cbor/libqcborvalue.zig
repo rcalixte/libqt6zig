@@ -27,16 +27,11 @@ pub const QCborParserError = extern struct {
 
     /// New constructs a new QCborParserError object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QCborParserError `
-    ///
-    pub fn New(other: anytype) QCborParserError {
-        comptime _ = @TypeOf(other)._is_QCborParserError;
-        return .{ .ptr = qtc.QCborParserError_new(@ptrCast(other.ptr)) };
+    pub fn New() QCborParserError {
+        return .{ .ptr = qtc.QCborParserError_new() };
     }
 
-    /// New2 constructs a new QCborParserError object and invalidates the source QCborParserError object.
+    /// New2 constructs a new QCborParserError object.
     ///
     /// ## Parameter(s):
     ///
@@ -45,6 +40,17 @@ pub const QCborParserError = extern struct {
     pub fn New2(other: anytype) QCborParserError {
         comptime _ = @TypeOf(other)._is_QCborParserError;
         return .{ .ptr = qtc.QCborParserError_new2(@ptrCast(other.ptr)) };
+    }
+
+    /// New3 constructs a new QCborParserError object and invalidates the source QCborParserError object.
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` other: QCborParserError `
+    ///
+    pub fn New3(other: anytype) QCborParserError {
+        comptime _ = @TypeOf(other)._is_QCborParserError;
+        return .{ .ptr = qtc.QCborParserError_new3(@ptrCast(other.ptr)) };
     }
 
     /// CopyAssign shallow copies `other` into `self`.

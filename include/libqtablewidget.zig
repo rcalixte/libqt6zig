@@ -95,16 +95,11 @@ pub const QTableWidgetSelectionRange = extern struct {
 
     /// New constructs a new QTableWidgetSelectionRange object.
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` other: QTableWidgetSelectionRange `
-    ///
-    pub fn New(other: anytype) QTableWidgetSelectionRange {
-        comptime _ = @TypeOf(other)._is_QTableWidgetSelectionRange;
-        return .{ .ptr = qtc.QTableWidgetSelectionRange_new(@ptrCast(other.ptr)) };
+    pub fn New() QTableWidgetSelectionRange {
+        return .{ .ptr = qtc.QTableWidgetSelectionRange_new() };
     }
 
-    /// New2 constructs a new QTableWidgetSelectionRange object and invalidates the source QTableWidgetSelectionRange object.
+    /// New2 constructs a new QTableWidgetSelectionRange object.
     ///
     /// ## Parameter(s):
     ///
@@ -115,10 +110,15 @@ pub const QTableWidgetSelectionRange = extern struct {
         return .{ .ptr = qtc.QTableWidgetSelectionRange_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QTableWidgetSelectionRange object.
+    /// New3 constructs a new QTableWidgetSelectionRange object and invalidates the source QTableWidgetSelectionRange object.
     ///
-    pub fn New3() QTableWidgetSelectionRange {
-        return .{ .ptr = qtc.QTableWidgetSelectionRange_new3() };
+    /// ## Parameter(s):
+    ///
+    /// ` other: QTableWidgetSelectionRange `
+    ///
+    pub fn New3(other: anytype) QTableWidgetSelectionRange {
+        comptime _ = @TypeOf(other)._is_QTableWidgetSelectionRange;
+        return .{ .ptr = qtc.QTableWidgetSelectionRange_new3(@ptrCast(other.ptr)) };
     }
 
     /// New4 constructs a new QTableWidgetSelectionRange object.

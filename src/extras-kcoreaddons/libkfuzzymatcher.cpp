@@ -6,11 +6,15 @@
 #include "libkfuzzymatcher.h"
 #include "libkfuzzymatcher.hxx"
 
-KFuzzyMatcher__Result* KFuzzyMatcher__Result_new(const KFuzzyMatcher__Result* other) {
+KFuzzyMatcher__Result* KFuzzyMatcher__Result_new() {
+    return new KFuzzyMatcher::Result();
+}
+
+KFuzzyMatcher__Result* KFuzzyMatcher__Result_new2(const KFuzzyMatcher__Result* other) {
     return new KFuzzyMatcher::Result(*other);
 }
 
-KFuzzyMatcher__Result* KFuzzyMatcher__Result_new2(KFuzzyMatcher__Result* other) {
+KFuzzyMatcher__Result* KFuzzyMatcher__Result_new3(KFuzzyMatcher__Result* other) {
     return new KFuzzyMatcher::Result(std::move(*other));
 }
 

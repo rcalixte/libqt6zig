@@ -7,7 +7,11 @@
 #include "libpublisher.h"
 #include "libpublisher.hxx"
 
-Attica__Field* Attica__Field_new(const Attica__Field* param1) {
+Attica__Field* Attica__Field_new() {
+    return new Attica::Field();
+}
+
+Attica__Field* Attica__Field_new2(const Attica__Field* param1) {
     return new Attica::Field(*param1);
 }
 

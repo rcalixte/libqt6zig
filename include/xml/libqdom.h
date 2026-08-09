@@ -336,7 +336,8 @@ void QDomProcessingInstruction_SetData(QDomProcessingInstruction* self, const li
 int QDomProcessingInstruction_NodeType(const QDomProcessingInstruction* self);
 void QDomProcessingInstruction_Delete(QDomProcessingInstruction* self);
 
-QDomDocument__ParseResult* QDomDocument__ParseResult_new(const QDomDocument__ParseResult* param1);
+QDomDocument__ParseResult* QDomDocument__ParseResult_new();
+QDomDocument__ParseResult* QDomDocument__ParseResult_new2(const QDomDocument__ParseResult* param1);
 libqt_string QDomDocument__ParseResult_ErrorMessage(const QDomDocument__ParseResult* self);
 void QDomDocument__ParseResult_SetErrorMessage(QDomDocument__ParseResult* self, libqt_string errorMessage);
 ptrdiff_t QDomDocument__ParseResult_ErrorLine(const QDomDocument__ParseResult* self);

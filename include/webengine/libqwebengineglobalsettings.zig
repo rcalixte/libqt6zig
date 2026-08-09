@@ -13,6 +13,12 @@ pub const QWebEngineGlobalSettings__DnsMode = extern struct {
 
     pub const _is_QWebEngineGlobalSettings__DnsMode = {};
 
+    /// New constructs a new QWebEngineGlobalSettings::DnsMode object.
+    ///
+    pub fn New() QWebEngineGlobalSettings__DnsMode {
+        return .{ .ptr = qtc.QWebEngineGlobalSettings__DnsMode_new() };
+    }
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineglobalsettings-dnsmode.html#secureMode-var)
     ///
     /// ## Parameter(s):

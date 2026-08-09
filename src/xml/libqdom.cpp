@@ -1469,7 +1469,11 @@ void QDomProcessingInstruction_Delete(QDomProcessingInstruction* self) {
     delete self;
 }
 
-QDomDocument__ParseResult* QDomDocument__ParseResult_new(const QDomDocument__ParseResult* param1) {
+QDomDocument__ParseResult* QDomDocument__ParseResult_new() {
+    return new QDomDocument::ParseResult();
+}
+
+QDomDocument__ParseResult* QDomDocument__ParseResult_new2(const QDomDocument__ParseResult* param1) {
     return new QDomDocument::ParseResult(*param1);
 }
 

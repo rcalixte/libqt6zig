@@ -901,12 +901,12 @@ void QItemSelectionModel_Delete(QItemSelectionModel* self) {
     delete self;
 }
 
-QItemSelection* QItemSelection_new(const QModelIndex* topLeft, const QModelIndex* bottomRight) {
-    return new QItemSelection(*topLeft, *bottomRight);
+QItemSelection* QItemSelection_new() {
+    return new QItemSelection();
 }
 
-QItemSelection* QItemSelection_new2() {
-    return new QItemSelection();
+QItemSelection* QItemSelection_new2(const QModelIndex* topLeft, const QModelIndex* bottomRight) {
+    return new QItemSelection(*topLeft, *bottomRight);
 }
 
 QItemSelection* QItemSelection_new3(const QItemSelection* param1) {

@@ -112,7 +112,8 @@ libqt_list /* of QUrl* */ KFileItemList_UrlList(const KFileItemList* self);
 libqt_list /* of QUrl* */ KFileItemList_TargetUrlList(const KFileItemList* self);
 void KFileItemList_Delete(KFileItemList* self);
 
-KFileItem__MostLocalUrlResult* KFileItem__MostLocalUrlResult_new(const KFileItem__MostLocalUrlResult* param1);
+KFileItem__MostLocalUrlResult* KFileItem__MostLocalUrlResult_new();
+KFileItem__MostLocalUrlResult* KFileItem__MostLocalUrlResult_new2(const KFileItem__MostLocalUrlResult* param1);
 QUrl* KFileItem__MostLocalUrlResult_Url(const KFileItem__MostLocalUrlResult* self);
 void KFileItem__MostLocalUrlResult_SetUrl(KFileItem__MostLocalUrlResult* self, QUrl* url);
 bool KFileItem__MostLocalUrlResult_Local(const KFileItem__MostLocalUrlResult* self);

@@ -10535,13 +10535,19 @@ pub const QTextEdit__ExtraSelection = extern struct {
 
     /// New constructs a new QTextEdit::ExtraSelection object.
     ///
+    pub fn New() QTextEdit__ExtraSelection {
+        return .{ .ptr = qtc.QTextEdit__ExtraSelection_new() };
+    }
+
+    /// New2 constructs a new QTextEdit::ExtraSelection object.
+    ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTextEdit__ExtraSelection `
     ///
-    pub fn New(param1: anytype) QTextEdit__ExtraSelection {
+    pub fn New2(param1: anytype) QTextEdit__ExtraSelection {
         comptime _ = @TypeOf(param1)._is_QTextEdit__ExtraSelection;
-        return .{ .ptr = qtc.QTextEdit__ExtraSelection_new(@ptrCast(param1.ptr)) };
+        return .{ .ptr = qtc.QTextEdit__ExtraSelection_new2(@ptrCast(param1.ptr)) };
     }
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit-extraselection.html#cursor-var)

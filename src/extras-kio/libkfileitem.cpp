@@ -506,7 +506,11 @@ void KFileItemList_Delete(KFileItemList* self) {
     delete self;
 }
 
-KFileItem__MostLocalUrlResult* KFileItem__MostLocalUrlResult_new(const KFileItem__MostLocalUrlResult* param1) {
+KFileItem__MostLocalUrlResult* KFileItem__MostLocalUrlResult_new() {
+    return new KFileItem::MostLocalUrlResult();
+}
+
+KFileItem__MostLocalUrlResult* KFileItem__MostLocalUrlResult_new2(const KFileItem__MostLocalUrlResult* param1) {
     return new KFileItem::MostLocalUrlResult(*param1);
 }
 

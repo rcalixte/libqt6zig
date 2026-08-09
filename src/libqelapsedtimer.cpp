@@ -3,16 +3,16 @@
 #include "libqelapsedtimer.h"
 #include "libqelapsedtimer.hxx"
 
-QElapsedTimer* QElapsedTimer_new(const QElapsedTimer* other) {
+QElapsedTimer* QElapsedTimer_new() {
+    return new QElapsedTimer();
+}
+
+QElapsedTimer* QElapsedTimer_new2(const QElapsedTimer* other) {
     return new QElapsedTimer(*other);
 }
 
-QElapsedTimer* QElapsedTimer_new2(QElapsedTimer* other) {
+QElapsedTimer* QElapsedTimer_new3(QElapsedTimer* other) {
     return new QElapsedTimer(std::move(*other));
-}
-
-QElapsedTimer* QElapsedTimer_new3() {
-    return new QElapsedTimer();
 }
 
 void QElapsedTimer_CopyAssign(QElapsedTimer* self, QElapsedTimer* other) {
