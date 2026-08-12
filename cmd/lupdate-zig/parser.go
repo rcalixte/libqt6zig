@@ -65,20 +65,20 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 				var disambiguation, name, numerus, source string
 				var numerusForms []string
 
-				if strings.HasPrefix(lit, "Translate") || lit == "QBaseTranslate" || lit == "SuperTranslate" {
+				if strings.HasPrefix(lit, "Translate") || strings.HasPrefix(lit, "translate") || lit == "superTranslate" || lit == "SuperTranslate" {
 					if _, tok, _ := s.Scan(); tok != token.LPAREN {
 						continue
 					}
 
 					switch lit {
-					case "QBaseTranslate", "SuperTranslate", "Translate4":
+					case "superTranslate", "SuperTranslate", "Translate4", "translate4":
 						expectedParams = 4
 						expectingNumerus = true
 
-					case "Translate":
+					case "Translate", "translate":
 						expectedParams = 2
 
-					case "Translate3":
+					case "Translate3", "translate3":
 						expectedParams = 3
 
 					default:
@@ -166,7 +166,7 @@ func parse(filePaths []string, options FlagOptions) (string, error) {
 						}
 					}
 
-				} else if lit == "Tr" || lit == "Tr2" || lit == "Tr3" {
+				} else if lit == "Tr" || lit == "Tr2" || lit == "Tr3" || lit == "tr" || lit == "tr2" || lit == "tr3" {
 					name = lastTok
 
 					for i := range contexts {

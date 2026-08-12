@@ -57,13 +57,13 @@ Execution design
    i. Example of valid and supported syntax structure<sup>1</sup>:
 
     ```zig
-    const label_text = QApplication.Translate(allocator, "Context", "Translated string");
+    const label_text = QApplication.translate(allocator, "Context", "Translated string");
     defer allocator.free(label_text);
-    const label = QLabel.New3(label_text);
+    const label = QLabel.new3(label_text);
 
-    const button_text = QPushButton.Tr(allocator, "Translated string");
+    const button_text = QPushButton.tr(allocator, "Translated string");
     defer allocator.free(button_text);
-    const button = QPushButton.New3(button_text);
+    const button = QPushButton.new3(button_text);
     ```
 
 3. Write out the translation file.
