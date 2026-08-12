@@ -64,7 +64,7 @@ func walkWidget(w *UiWidget) {
 			w.Name = "_" + w.Name
 		}
 	} else {
-		w.Name = "_" + zigStructName(w.Class[1:]) + strconv.Itoa(SanitizeObjectCounter)
+		w.Name = "_" + sanitizeLowerName(w.Class[1:]) + strconv.Itoa(SanitizeObjectCounter)
 		notifyUnnamed(w.Class, w.Name)
 		SanitizeObjectCounter++
 	}
@@ -94,7 +94,7 @@ func walkLayout(l *UiLayout) {
 			l.Name = "_" + l.Name
 		}
 	} else {
-		l.Name = "_" + zigStructName(l.Class[1:]) + strconv.Itoa(SanitizeObjectCounter)
+		l.Name = "_" + sanitizeLowerName(l.Class[1:]) + strconv.Itoa(SanitizeObjectCounter)
 		notifyUnnamed(l.Class, l.Name)
 		SanitizeObjectCounter++
 	}
@@ -111,7 +111,7 @@ func walkLayout(l *UiLayout) {
 			}
 			checkSeenAndRename(&l.Items[i].Spacer.Name)
 		} else if l.Items[i].Spacer != nil && l.Items[i].Spacer.Name == "" {
-			l.Items[i].Spacer.Name = "_" + zigStructName("spaceritem") + strconv.Itoa(SanitizeObjectCounter)
+			l.Items[i].Spacer.Name = "_spaceritem" + strconv.Itoa(SanitizeObjectCounter)
 			notifyUnnamed("QSpacerItem", l.Items[i].Spacer.Name)
 			SanitizeObjectCounter++
 		}
@@ -190,16 +190,16 @@ func enumClassToZig(enumClass, enumName string) string {
 	return enumClass
 }
 
-func zigStructName(name string) string {
-	if idx := strings.IndexByte(name, '_'); idx != -1 {
-		return strings.ToLower(name[:idx])
+func sanitizeLowerName(name string) string {
+	if result, _, ok := strings.Cut(name, "_"); ok {
+		return strings.ToLower(result)
 	}
 	return strings.ToLower(name)
 }
 
 func splitToParens(s string) string {
-	if idx := strings.IndexByte(s, '('); idx != -1 {
-		return s[:idx]
+	if result, _, ok := strings.Cut(s, "("); ok {
+		return result
 	}
 	return s
 }

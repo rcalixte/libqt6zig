@@ -79,7 +79,7 @@ func collectClassNames_Widget(u *UiWidget) []string {
 			className = cw
 		}
 		ret = append(ret, u.Name+": qt6."+className)
-		WidgetMap[u.Name] = zigStructName(className)
+		WidgetMap[u.Name] = sanitizeLowerName(className)
 	}
 
 	for _, w := range u.Widgets {
@@ -101,7 +101,7 @@ func collectClassNames_Layout(l *UiLayout) []string {
 
 	if l.Name != "" {
 		ret = append(ret, l.Name+": qt6."+l.Class)
-		WidgetMap[l.Name] = zigStructName(l.Class)
+		WidgetMap[l.Name] = sanitizeLowerName(l.Class)
 	}
 
 	for _, li := range l.Items {
@@ -126,7 +126,7 @@ func writtenString(pre, generate, post string, notr, addComment bool) string {
 
 	var auxiliaryComment string
 	if addComment {
-		auxiliaryComment = " // auxiliary to qt6.QCoreApplication.Translate"
+		auxiliaryComment = " // auxiliary to qt6.QCoreApplication.translate"
 	}
 
 	returnStr := "const text" + strconv.Itoa(TextCounter) + " = " + generate + ";\n"
@@ -151,7 +151,7 @@ func generateString(s *UiString) string {
 
 	context := strconv.Quote(GlobalContext) + ", "
 
-	return "qt6.QCoreApplication.Translate" + suffix + "(allocator, " + context + strconv.Quote(s.Value) + disambiguation + ")"
+	return "qt6.QCoreApplication.translate" + suffix + "(allocator, " + context + strconv.Quote(s.Value) + disambiguation + ")"
 }
 
 func normalizeEnumName(name, val string) string {
@@ -199,17 +199,17 @@ func processPaletteGroup(ret *strings.Builder, targetName string, groupName stri
 func getNewBrush(brushNum, style, red, green, blue, alpha string) string {
 	var newBrush string
 
-	newBrush += "const color" + brushNum + " = qt6.QColor.New13(" + red + ", " + green + ", " + blue + ", " + alpha + ");\n"
-	newBrush += "defer color" + brushNum + ".Delete();\n"
-	newBrush += "const brush" + brushNum + " = qt6.QBrush.New3(color" + brushNum + ");\n"
-	newBrush += "defer brush" + brushNum + ".Delete();\n"
-	newBrush += "brush" + brushNum + ".SetStyle(qt6.qnamespace_enums.BrushStyle." + style + ");\n"
+	newBrush += "const color" + brushNum + " = qt6.QColor.new13(" + red + ", " + green + ", " + blue + ", " + alpha + ");\n"
+	newBrush += "defer color" + brushNum + ".delete();\n"
+	newBrush += "const brush" + brushNum + " = qt6.QBrush.new3(color" + brushNum + ");\n"
+	newBrush += "defer brush" + brushNum + ".delete();\n"
+	newBrush += "brush" + brushNum + ".setStyle(qt6.qnamespace_enums.BrushStyle." + style + ");\n"
 
 	return newBrush
 }
 
 func getSetPaletteBrush(targetName, group, role, brushNum string) string {
-	return targetName + "_palette.SetBrush2(qt6.qpalette_enums.ColorGroup." + group + ", qt6.qpalette_enums.ColorRole." + role + ", brush" + brushNum + ");\n"
+	return targetName + "_palette.setBrush2(qt6.qpalette_enums.ColorGroup." + group + ", qt6.qpalette_enums.ColorRole." + role + ", brush" + brushNum + ");\n"
 }
 
 func newQSize(sizeName *string, isSizeSet *bool) string {
@@ -219,8 +219,8 @@ func newQSize(sizeName *string, isSizeSet *bool) string {
 		*isSizeSet = true
 	}
 
-	newSize := "const " + *sizeName + " = qt6.QSize.New3();\n"
-	newSize += "defer " + *sizeName + ".Delete();\n"
+	newSize := "const " + *sizeName + " = qt6.QSize.new3();\n"
+	newSize += "defer " + *sizeName + ".delete();\n"
 	SizeCounter++
 
 	return newSize
@@ -244,68 +244,68 @@ func renderIcon(iconVal *UiIcon, ret *strings.Builder) string {
 
 		if strings.Contains(theme, "::") {
 			theme = normalizeEnumName(iconName, theme)
-			ret.WriteString("const " + iconName + " = qt6.QIcon.FromTheme3(" + theme + ");\n")
+			ret.WriteString("const " + iconName + " = qt6.QIcon.fromTheme3(" + theme + ");\n")
 		} else if iconVal.ResourceFile != "" {
 			theme = strconv.Quote(theme)
 			ret.WriteString("var " + iconName + ": qt6.QIcon = undefined;\n")
-			ret.WriteString("if (qt6.QIcon.HasThemeIcon(" + theme + ")) {\n")
-			ret.WriteString(iconName + " = qt6.QIcon.FromTheme(" + theme + ");\n")
+			ret.WriteString("if (qt6.QIcon.hasThemeIcon(" + theme + ")) {\n")
+			ret.WriteString(iconName + " = .fromTheme(" + theme + ");\n")
 			ret.WriteString("} else {\n")
-			ret.WriteString(iconName + " = qt6.QIcon.New();\n")
+			ret.WriteString(iconName + " = .new();\n")
 			themeIconCond = true
 		} else {
-			ret.WriteString("const " + iconName + " = qt6.QIcon.FromTheme(" + strconv.Quote(theme) + ");\n")
+			ret.WriteString("const " + iconName + " = qt6.QIcon.fromTheme(" + strconv.Quote(theme) + ");\n")
 		}
 	} else {
-		ret.WriteString("const " + iconName + " = qt6.QIcon.New();\n")
+		ret.WriteString("const " + iconName + " = qt6.QIcon.new();\n")
 	}
 
 	// A base entry is a synonym for NormalOff. Don't need them both
 	if iconVal.NormalOff != nil && *iconVal.NormalOff != "." {
 		ret.WriteString(newQSize(&sizeName, &isSizeSet))
 		isSizeSet = true
-		ret.WriteString(iconName + ".AddFile4(" + strconv.Quote(*iconVal.NormalOff) + ", " + sizeName + ", qt6.qicon_enums.Mode.Normal, qt6.qicon_enums.State.Off);\n")
+		ret.WriteString(iconName + ".addFile4(" + strconv.Quote(*iconVal.NormalOff) + ", " + sizeName + ", qt6.qicon_enums.Mode.Normal, qt6.qicon_enums.State.Off);\n")
 	} else {
 		base := strings.TrimSpace(iconVal.Base)
 		if base != "" && base != "." {
-			ret.WriteString(iconName + ".AddFile(" + strconv.Quote(strings.TrimSpace(iconVal.Base)) + ");\n")
+			ret.WriteString(iconName + ".addFile(" + strconv.Quote(strings.TrimSpace(iconVal.Base)) + ");\n")
 		}
 	}
 
 	if iconVal.NormalOn != nil {
 		ret.WriteString(newQSize(&sizeName, &isSizeSet))
-		ret.WriteString(iconName + ".AddFile4(" + strconv.Quote(*iconVal.NormalOn) + ", " + sizeName + ", qt6.qicon_enums.Mode.Normal, qt6.qicon_enums.State.On);\n")
+		ret.WriteString(iconName + ".addFile4(" + strconv.Quote(*iconVal.NormalOn) + ", " + sizeName + ", qt6.qicon_enums.Mode.Normal, qt6.qicon_enums.State.On);\n")
 	}
 	if iconVal.ActiveOff != nil {
 		ret.WriteString(newQSize(&sizeName, &isSizeSet))
-		ret.WriteString(iconName + ".AddFile4(" + strconv.Quote(*iconVal.ActiveOff) + ", " + sizeName + ", qt6.qicon_enums.Mode.Active, qt6.qicon_enums.State.Off);\n")
+		ret.WriteString(iconName + ".addFile4(" + strconv.Quote(*iconVal.ActiveOff) + ", " + sizeName + ", qt6.qicon_enums.Mode.Active, qt6.qicon_enums.State.Off);\n")
 	}
 	if iconVal.ActiveOn != nil {
 		ret.WriteString(newQSize(&sizeName, &isSizeSet))
-		ret.WriteString(iconName + ".AddFile4(" + strconv.Quote(*iconVal.ActiveOn) + ", " + sizeName + ", qt6.qicon_enums.Mode.Active, qt6.qicon_enums.State.On);\n")
+		ret.WriteString(iconName + ".addFile4(" + strconv.Quote(*iconVal.ActiveOn) + ", " + sizeName + ", qt6.qicon_enums.Mode.Active, qt6.qicon_enums.State.On);\n")
 	}
 	if iconVal.DisabledOff != nil {
 		ret.WriteString(newQSize(&sizeName, &isSizeSet))
-		ret.WriteString(iconName + ".AddFile4(" + strconv.Quote(*iconVal.DisabledOff) + ", " + sizeName + ", qt6.qicon_enums.Mode.Disabled, qt6.qicon_enums.State.Off);\n")
+		ret.WriteString(iconName + ".addFile4(" + strconv.Quote(*iconVal.DisabledOff) + ", " + sizeName + ", qt6.qicon_enums.Mode.Disabled, qt6.qicon_enums.State.Off);\n")
 	}
 	if iconVal.DisabledOn != nil {
 		ret.WriteString(newQSize(&sizeName, &isSizeSet))
-		ret.WriteString(iconName + ".AddFile4(" + strconv.Quote(*iconVal.DisabledOn) + ", " + sizeName + ", qt6.qicon_enums.Mode.Disabled, qt6.qicon_enums.State.On);\n")
+		ret.WriteString(iconName + ".addFile4(" + strconv.Quote(*iconVal.DisabledOn) + ", " + sizeName + ", qt6.qicon_enums.Mode.Disabled, qt6.qicon_enums.State.On);\n")
 	}
 	if iconVal.SelectedOff != nil {
 		ret.WriteString(newQSize(&sizeName, &isSizeSet))
-		ret.WriteString(iconName + ".AddFile4(" + strconv.Quote(*iconVal.SelectedOff) + ", " + sizeName + ", qt6.qicon_enums.Mode.Selected, qt6.qicon_enums.State.Off);\n")
+		ret.WriteString(iconName + ".addFile4(" + strconv.Quote(*iconVal.SelectedOff) + ", " + sizeName + ", qt6.qicon_enums.Mode.Selected, qt6.qicon_enums.State.Off);\n")
 	}
 	if iconVal.SelectedOn != nil {
 		ret.WriteString(newQSize(&sizeName, &isSizeSet))
-		ret.WriteString(iconName + ".AddFile4(" + strconv.Quote(*iconVal.SelectedOn) + ", " + sizeName + ", qt6.qicon_enums.Mode.Selected, qt6.qicon_enums.State.On);\n")
+		ret.WriteString(iconName + ".addFile4(" + strconv.Quote(*iconVal.SelectedOn) + ", " + sizeName + ", qt6.qicon_enums.Mode.Selected, qt6.qicon_enums.State.On);\n")
 	}
 
 	if themeIconCond {
 		ret.WriteString("}\n")
 	}
 
-	ret.WriteString("defer " + iconName + ".Delete();\n")
+	ret.WriteString("defer " + iconName + ".delete();\n")
 
 	return iconName
 }
@@ -318,11 +318,11 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 	contentsMargins := [4]int{defaultMargin, defaultMargin, defaultMargin, defaultMargin} // left, top, right, bottom
 	customContentsMargins := false
 
-	strVariantName := targetName + "_variantStr"
-	numVariantName := targetName + "_variantNum"
-	boolVariantName := targetName + "_variantBool"
-	urlVariantName := targetName + "_variantUrl"
-	enumVariantName := targetName + "_variantEnum"
+	strVariantName := targetName + "_variant_str"
+	numVariantName := targetName + "_variant_num"
+	boolVariantName := targetName + "_variant_bool"
+	urlVariantName := targetName + "_variant_url"
+	enumVariantName := targetName + "_variant_enum"
 
 	for _, prop := range properties {
 		if !alphabeticRegex.MatchString(prop.Name) {
@@ -330,13 +330,13 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			continue
 		}
 
-		setterFunc := ".Set" + strings.ToUpper(string(prop.Name[0])) + prop.Name[1:]
+		setterFunc := ".set" + strings.ToUpper(string(prop.Name[0])) + prop.Name[1:]
 
 		if prop.Name == "geometry" {
 			if targetName == GlobalContext {
-				ret.WriteString("ui." + targetName + ".Resize(" + fmt.Sprintf("%d, %d", prop.RectVal.Width, prop.RectVal.Height) + ");\n")
+				ret.WriteString("ui." + targetName + ".resize(" + fmt.Sprintf("%d, %d", prop.RectVal.Width, prop.RectVal.Height) + ");\n")
 			} else {
-				ret.WriteString("ui." + targetName + ".SetGeometry(" + fmt.Sprintf("%d, %d, %d, %d", prop.RectVal.X, prop.RectVal.Y, prop.RectVal.Width, prop.RectVal.Height) + ");\n")
+				ret.WriteString("ui." + targetName + ".setGeometry(" + fmt.Sprintf("%d, %d, %d, %d", prop.RectVal.X, prop.RectVal.Y, prop.RectVal.Width, prop.RectVal.Height) + ");\n")
 			}
 
 		} else if prop.Name == "leftMargin" {
@@ -361,38 +361,38 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			customContentsMargins = true
 
 		} else if prop.PixmapVal != nil {
-			ret.WriteString("const pixmap" + strconv.Itoa(PixmapCounter) + ` = qt6.QPixmap.New4("` + *prop.PixmapVal + `");` + "\n")
-			ret.WriteString("defer pixmap" + strconv.Itoa(PixmapCounter) + ".Delete();\n")
+			ret.WriteString("const pixmap" + strconv.Itoa(PixmapCounter) + ` = qt6.QPixmap.new4("` + *prop.PixmapVal + `");` + "\n")
+			ret.WriteString("defer pixmap" + strconv.Itoa(PixmapCounter) + ".delete();\n")
 			ret.WriteString("ui." + targetName + setterFunc + "(pixmap" + strconv.Itoa(PixmapCounter) + ");\n")
 			PixmapCounter++
 
 		} else if prop.Name == "buddy" {
-			ret.WriteString("ui." + targetName + ".SetBuddy(ui." + *prop.CStringVal + ");\n")
+			ret.WriteString("ui." + targetName + ".setBuddy(ui." + *prop.CStringVal + ");\n")
 
 		} else if prop.Name == "cursor" {
-			ret.WriteString("const cursor" + strconv.Itoa(CursorCounter) + " = qt6.QCursor.New2(qt6.qnamespace_enums.CursorShape." + *prop.CursorVal + ");\n")
-			ret.WriteString("defer cursor" + strconv.Itoa(CursorCounter) + ".Delete();\n")
-			ret.WriteString("ui." + targetName + ".SetCursor(cursor" + strconv.Itoa(CursorCounter) + ");\n")
+			ret.WriteString("const cursor" + strconv.Itoa(CursorCounter) + " = qt6.QCursor.new2(qt6.qnamespace_enums.CursorShape." + *prop.CursorVal + ");\n")
+			ret.WriteString("defer cursor" + strconv.Itoa(CursorCounter) + ".delete();\n")
+			ret.WriteString("ui." + targetName + ".setCursor(cursor" + strconv.Itoa(CursorCounter) + ");\n")
 			CursorCounter++
 
 		} else if prop.StringVal != nil {
 			//  "windowTitle", "title", "text"
 			if prop.StdSetVal != nil && *prop.StdSetVal != "" {
-				maybeComment := " // auxiliary to qt6.QCoreApplication.Translate"
+				maybeComment := " // auxiliary to qt6.QCoreApplication.translate"
 				if prop.StringVal.Notr {
 					maybeComment = ""
 				}
-				ret.WriteString(writtenString("const "+strVariantName+strconv.Itoa(VariantCounter)+" = qt6.QVariant.New24(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
-				ret.WriteString("defer " + strVariantName + strconv.Itoa(VariantCounter) + ".Delete();" + maybeComment + "\n")
-				ret.WriteString("_ = ui." + targetName + ".SetProperty(" + strconv.Quote(prop.Name) + ", " + strVariantName + strconv.Itoa(VariantCounter) + ");" + maybeComment + "\n")
+				ret.WriteString(writtenString("const "+strVariantName+strconv.Itoa(VariantCounter)+" = qt6.QVariant.new24(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+				ret.WriteString("defer " + strVariantName + strconv.Itoa(VariantCounter) + ".delete();" + maybeComment + "\n")
+				ret.WriteString("_ = ui." + targetName + ".setProperty(" + strconv.Quote(prop.Name) + ", " + strVariantName + strconv.Itoa(VariantCounter) + ");" + maybeComment + "\n")
 				VariantCounter++
 			} else if prop.Name == "shortcut" || prop.Name == "keySequence" {
-				maybeComment := " // auxiliary to qt6.QCoreApplication.Translate"
+				maybeComment := " // auxiliary to qt6.QCoreApplication.translate"
 				if prop.StringVal.Notr {
 					maybeComment = ""
 				}
-				ret.WriteString(writtenString("\nconst "+targetName+"_keySequence = qt6.QKeySequence.New2(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
-				ret.WriteString("defer " + targetName + "_keySequence.Delete();" + maybeComment + "\n")
+				ret.WriteString(writtenString("\nconst "+targetName+"_keySequence = qt6.QKeySequence.new2(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+				ret.WriteString("defer " + targetName + "_keySequence.delete();" + maybeComment + "\n")
 				ret.WriteString("ui." + targetName + setterFunc + "(" + targetName + "_keySequence);" + maybeComment + "\n")
 			} else {
 				ret.WriteString(writtenString("ui."+targetName+setterFunc+"(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
@@ -401,9 +401,9 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 		} else if prop.NumberVal != nil {
 			// "currentIndex"
 			if prop.StdSetVal != nil && *prop.StdSetVal != "" {
-				ret.WriteString("const " + numVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.New6(" + *prop.NumberVal + ");\n")
-				ret.WriteString("defer " + numVariantName + strconv.Itoa(VariantCounter) + ".Delete();\n")
-				ret.WriteString("_ = ui." + targetName + ".SetProperty(" + strconv.Quote(prop.Name) + ", " + numVariantName + strconv.Itoa(VariantCounter) + ");\n")
+				ret.WriteString("const " + numVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.new6(" + *prop.NumberVal + ");\n")
+				ret.WriteString("defer " + numVariantName + strconv.Itoa(VariantCounter) + ".delete();\n")
+				ret.WriteString("_ = ui." + targetName + ".setProperty(" + strconv.Quote(prop.Name) + ", " + numVariantName + strconv.Itoa(VariantCounter) + ");\n")
 				VariantCounter++
 			} else {
 				ret.WriteString("ui." + targetName + setterFunc + "(" + *prop.NumberVal + ");\n")
@@ -412,9 +412,9 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 		} else if prop.BoolVal != nil {
 			// "childrenCollapsible"
 			if prop.StdSetVal != nil && *prop.StdSetVal != "" {
-				ret.WriteString("const " + boolVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.New8(" + strconv.FormatBool(*prop.BoolVal) + ");\n")
-				ret.WriteString("defer " + boolVariantName + strconv.Itoa(VariantCounter) + ".Delete();\n")
-				ret.WriteString("_ = ui." + targetName + ".SetProperty(" + strconv.Quote(prop.Name) + ", " + boolVariantName + strconv.Itoa(VariantCounter) + ");\n")
+				ret.WriteString("const " + boolVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.new8(" + strconv.FormatBool(*prop.BoolVal) + ");\n")
+				ret.WriteString("defer " + boolVariantName + strconv.Itoa(VariantCounter) + ".delete();\n")
+				ret.WriteString("_ = ui." + targetName + ".setProperty(" + strconv.Quote(prop.Name) + ", " + boolVariantName + strconv.Itoa(VariantCounter) + ");\n")
 				VariantCounter++
 			} else {
 				// "tristate"
@@ -428,16 +428,16 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 		} else if prop.EnumVal != nil {
 			// "tabStyle"
 			if prop.StdSetVal != nil && *prop.StdSetVal != "" {
-				ret.WriteString("const " + enumVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.New6(" + normalizeEnumName(prop.Name, *prop.EnumVal) + ");\n")
-				ret.WriteString("defer " + enumVariantName + strconv.Itoa(VariantCounter) + ".Delete();\n")
-				ret.WriteString("_ = ui." + targetName + ".SetProperty(" + strconv.Quote(prop.Name) + ", " + enumVariantName + strconv.Itoa(VariantCounter) + ");\n")
+				ret.WriteString("const " + enumVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.new6(" + normalizeEnumName(prop.Name, *prop.EnumVal) + ");\n")
+				ret.WriteString("defer " + enumVariantName + strconv.Itoa(VariantCounter) + ".delete();\n")
+				ret.WriteString("_ = ui." + targetName + ".setProperty(" + strconv.Quote(prop.Name) + ", " + enumVariantName + strconv.Itoa(VariantCounter) + ");\n")
 				VariantCounter++
 			} else if targetClass == "QFrame" && prop.Name == "orientation" {
 				enumVal := "HLine"
 				if strings.Contains(*prop.EnumVal, "Vertical") {
 					enumVal = "VLine"
 				}
-				ret.WriteString("ui." + targetName + ".SetFrameShape(qt6.qframe_enums.Shape." + enumVal + ");\n")
+				ret.WriteString("ui." + targetName + ".setFrameShape(qt6.qframe_enums.Shape." + enumVal + ");\n")
 			} else {
 				// "QFrame::Shape::Panel"
 				ret.WriteString("ui." + targetName + setterFunc + "(" + normalizeEnumName(prop.Name, *prop.EnumVal) + ");\n")
@@ -457,8 +457,8 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			}
 
 			if prop.Name == "richTextSupport" {
-				ret.WriteString("const " + targetName + "_" + prop.Name + " = " + emit + ";\n")
-				ret.WriteString("ui." + targetName + setterFunc + "(&" + targetName + "_" + prop.Name + ");\n")
+				ret.WriteString("const " + targetName + "_rich_text_support = " + emit + ";\n")
+				ret.WriteString("ui." + targetName + setterFunc + "(&" + targetName + "_rich_text_support);\n")
 			} else {
 				ret.WriteString("ui." + targetName + setterFunc + "(" + emit + ");\n")
 			}
@@ -474,20 +474,20 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			if !ok {
 				sizePolicyNum = strconv.Itoa(SizePolicyCounter)
 				SizePolicyMap[mapKey] = sizePolicyNum
-				ret.WriteString("const sizePolicy" + sizePolicyNum + " = qt6.QSizePolicy.New3();\n")
-				ret.WriteString("defer sizePolicy" + sizePolicyNum + ".Delete();\n")
-				ret.WriteString("sizePolicy" + sizePolicyNum + ".SetHorizontalPolicy(" + normalizeEnumName("", "QSizePolicy::Policy::"+prop.SizePolicyVal.HSizeType) + ");\n")
-				ret.WriteString("sizePolicy" + sizePolicyNum + ".SetVerticalPolicy(" + normalizeEnumName("", "QSizePolicy::Policy::"+prop.SizePolicyVal.VSizeType) + ");\n")
-				ret.WriteString("sizePolicy" + sizePolicyNum + ".SetHorizontalStretch(" + strconv.Itoa(prop.SizePolicyVal.HStretch) + ");\n")
-				ret.WriteString("sizePolicy" + sizePolicyNum + ".SetVerticalStretch(" + strconv.Itoa(prop.SizePolicyVal.VStretch) + ");\n")
+				ret.WriteString("const size_policy" + sizePolicyNum + " = qt6.QSizePolicy.new3();\n")
+				ret.WriteString("defer size_policy" + sizePolicyNum + ".delete();\n")
+				ret.WriteString("size_policy" + sizePolicyNum + ".setHorizontalPolicy(" + normalizeEnumName("", "QSizePolicy::Policy::"+prop.SizePolicyVal.HSizeType) + ");\n")
+				ret.WriteString("size_policy" + sizePolicyNum + ".setVerticalPolicy(" + normalizeEnumName("", "QSizePolicy::Policy::"+prop.SizePolicyVal.VSizeType) + ");\n")
+				ret.WriteString("size_policy" + sizePolicyNum + ".setHorizontalStretch(" + strconv.Itoa(prop.SizePolicyVal.HStretch) + ");\n")
+				ret.WriteString("size_policy" + sizePolicyNum + ".setVerticalStretch(" + strconv.Itoa(prop.SizePolicyVal.VStretch) + ");\n")
 				SizePolicyCounter++
 			}
 
 			targetSP := targetName + "_sp"
-			ret.WriteString("const " + targetSP + " = ui." + targetName + ".SizePolicy();\n")
-			ret.WriteString("defer " + targetSP + ".Delete();\n")
-			ret.WriteString("sizePolicy" + sizePolicyNum + ".SetHeightForWidth(" + targetSP + ".HasHeightForWidth());\n")
-			ret.WriteString("ui." + targetName + ".SetSizePolicy(sizePolicy" + sizePolicyNum + ");\n")
+			ret.WriteString("const " + targetSP + " = ui." + targetName + ".sizePolicy();\n")
+			ret.WriteString("defer " + targetSP + ".delete();\n")
+			ret.WriteString("size_policy" + sizePolicyNum + ".setHeightForWidth(" + targetSP + ".hasHeightForWidth());\n")
+			ret.WriteString("ui." + targetName + ".setSizePolicy(size_policy" + sizePolicyNum + ");\n")
 
 		} else if prop.Name == "font" {
 			fontCounter := FontCounter
@@ -495,47 +495,47 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 
 			fontVal := "font" + strconv.Itoa(fontCounter)
 
-			ret.WriteString("const " + fontVal + " = qt6.QFont.New();\n")
-			ret.WriteString("defer " + fontVal + ".Delete();\n")
+			ret.WriteString("const " + fontVal + " = qt6.QFont.new();\n")
+			ret.WriteString("defer " + fontVal + ".delete();\n")
 
 			if prop.FontVal.Family != nil && *prop.FontVal.Family != "" {
-				ret.WriteString(fontVal + ".SetFamily(" + strconv.Quote(*prop.FontVal.Family) + ");\n")
+				ret.WriteString(fontVal + ".setFamily(" + strconv.Quote(*prop.FontVal.Family) + ");\n")
 			}
 
 			if prop.FontVal.PointSize != nil {
-				ret.WriteString(fontVal + ".SetPointSize(" + strconv.Itoa(*prop.FontVal.PointSize) + ");\n")
+				ret.WriteString(fontVal + ".setPointSize(" + strconv.Itoa(*prop.FontVal.PointSize) + ");\n")
 			}
 
 			if prop.FontVal.Italic != nil {
-				ret.WriteString(fontVal + ".SetItalic(" + strconv.FormatBool(*prop.FontVal.Italic) + ");\n")
+				ret.WriteString(fontVal + ".setItalic(" + strconv.FormatBool(*prop.FontVal.Italic) + ");\n")
 			}
 
 			if prop.FontVal.Bold != nil {
-				ret.WriteString(fontVal + ".SetBold(" + strconv.FormatBool(*prop.FontVal.Bold) + ");\n")
+				ret.WriteString(fontVal + ".setBold(" + strconv.FormatBool(*prop.FontVal.Bold) + ");\n")
 			}
 
 			if prop.FontVal.Underline != nil {
-				ret.WriteString(fontVal + ".SetUnderline(" + strconv.FormatBool(*prop.FontVal.Underline) + ");\n")
+				ret.WriteString(fontVal + ".setUnderline(" + strconv.FormatBool(*prop.FontVal.Underline) + ");\n")
 			}
 
 			if prop.FontVal.StrikeOut != nil {
-				ret.WriteString(fontVal + ".SetStrikeOut(" + strconv.FormatBool(*prop.FontVal.StrikeOut) + ");\n")
+				ret.WriteString(fontVal + ".setStrikeOut(" + strconv.FormatBool(*prop.FontVal.StrikeOut) + ");\n")
 			}
 
 			if prop.FontVal.Weight != nil && *prop.FontVal.Weight != "" {
-				ret.WriteString(fontVal + ".SetWeight(qt6.qfont_enums.Weight." + *prop.FontVal.Weight + ");\n")
+				ret.WriteString(fontVal + ".setWeight(qt6.qfont_enums.Weight." + *prop.FontVal.Weight + ");\n")
 			}
 
 			if prop.FontVal.Antialiasing != nil && *prop.FontVal.Antialiasing != "" {
-				ret.WriteString(fontVal + ".SetStyleStrategy(qt6.qfont_enums.StyleStrategy." + *prop.FontVal.Antialiasing + ");\n")
+				ret.WriteString(fontVal + ".setStyleStrategy(qt6.qfont_enums.StyleStrategy." + *prop.FontVal.Antialiasing + ");\n")
 			}
 
 			if prop.FontVal.Kerning != nil {
-				ret.WriteString(fontVal + ".SetKerning(" + strconv.FormatBool(*prop.FontVal.Kerning) + ");\n")
+				ret.WriteString(fontVal + ".setKerning(" + strconv.FormatBool(*prop.FontVal.Kerning) + ");\n")
 			}
 
 			if prop.FontVal.HintingPreference != nil && *prop.FontVal.HintingPreference != "" {
-				ret.WriteString(fontVal + ".SetHintingPreference(qt6.qfont_enums.HintingPreference." + *prop.FontVal.HintingPreference + ");\n")
+				ret.WriteString(fontVal + ".setHintingPreference(qt6.qfont_enums.HintingPreference." + *prop.FontVal.HintingPreference + ");\n")
 			}
 
 			var maybeOnlyFixed string
@@ -544,12 +544,12 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			} else if !ExtendedFlag && targetClass[0] == 'K' {
 				writeFlagWarning(ret, prop.Name, targetClass)
 			}
-			ret.WriteString("ui." + targetName + ".SetFont(" + fontVal + maybeOnlyFixed + ");\n")
+			ret.WriteString("ui." + targetName + ".setFont(" + fontVal + maybeOnlyFixed + ");\n")
 
 		} else if prop.Name == "iconSize" {
-			ret.WriteString("const " + targetName + "_size" + strconv.Itoa(SizeCounter) + " = qt6.QSize.New4(" + fmt.Sprintf("%d, %d", prop.SizeVal.Width, prop.SizeVal.Height) + ");\n")
-			ret.WriteString("defer " + targetName + "_size" + strconv.Itoa(SizeCounter) + ".Delete();\n")
-			ret.WriteString("ui." + targetName + ".SetIconSize(" + targetName + "_size" + strconv.Itoa(SizeCounter) + ");\n")
+			ret.WriteString("const " + targetName + "_size" + strconv.Itoa(SizeCounter) + " = qt6.QSize.new4(" + fmt.Sprintf("%d, %d", prop.SizeVal.Width, prop.SizeVal.Height) + ");\n")
+			ret.WriteString("defer " + targetName + "_size" + strconv.Itoa(SizeCounter) + ".delete();\n")
+			ret.WriteString("ui." + targetName + ".setIconSize(" + targetName + "_size" + strconv.Itoa(SizeCounter) + ");\n")
 			SizeCounter++
 
 		} else if prop.DoubleVal != nil {
@@ -564,23 +564,23 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 		} else if prop.UrlVal != nil {
 			// "url"
 			if prop.StdSetVal != nil && *prop.StdSetVal != "" {
-				ret.WriteString("const " + urlVariantName + strconv.Itoa(VariantCounter) + "_url = qt6.QUrl.New3(" + strconv.Quote(prop.UrlVal.StringVal.Value) + ");\n")
-				ret.WriteString("defer " + urlVariantName + strconv.Itoa(VariantCounter) + "_url.Delete();\n")
-				ret.WriteString("const " + urlVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.New26(" + urlVariantName + strconv.Itoa(VariantCounter) + "_url);\n")
-				ret.WriteString("defer " + urlVariantName + strconv.Itoa(VariantCounter) + ".Delete();\n")
-				ret.WriteString("_ = ui." + targetName + ".SetProperty(" + strconv.Quote(prop.Name) + ", " + urlVariantName + strconv.Itoa(VariantCounter) + ");\n")
+				ret.WriteString("const " + urlVariantName + strconv.Itoa(VariantCounter) + "_url = qt6.QUrl.new3(" + strconv.Quote(prop.UrlVal.StringVal.Value) + ");\n")
+				ret.WriteString("defer " + urlVariantName + strconv.Itoa(VariantCounter) + "_url.delete();\n")
+				ret.WriteString("const " + urlVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.new26(" + urlVariantName + strconv.Itoa(VariantCounter) + "_url);\n")
+				ret.WriteString("defer " + urlVariantName + strconv.Itoa(VariantCounter) + ".delete();\n")
+				ret.WriteString("_ = ui." + targetName + ".setProperty(" + strconv.Quote(prop.Name) + ", " + urlVariantName + strconv.Itoa(VariantCounter) + ");\n")
 				VariantCounter++
 			}
 
 		} else if prop.Name == "palette" {
-			ret.WriteString("const " + targetName + "_palette = qt6.QPalette.New();\n")
-			ret.WriteString("defer " + targetName + "_palette.Delete();\n")
+			ret.WriteString("const " + targetName + "_palette = qt6.QPalette.new();\n")
+			ret.WriteString("defer " + targetName + "_palette.delete();\n")
 
 			processPaletteGroup(ret, targetName, "Active", prop.PaletteVal.Active.ColorRoles)
 			processPaletteGroup(ret, targetName, "Inactive", prop.PaletteVal.Inactive.ColorRoles)
 			processPaletteGroup(ret, targetName, "Disabled", prop.PaletteVal.Disabled.ColorRoles)
 
-			ret.WriteString("ui." + targetName + ".SetPalette(" + targetName + "_palette);\n")
+			ret.WriteString("ui." + targetName + ".setPalette(" + targetName + "_palette);\n")
 
 		} else if prop.Name == "backgroundBrush" {
 			mapKey := prop.BackgroundBrushVal.Style + " (" + strconv.Itoa(prop.BackgroundBrushVal.Color.Red) + "," + strconv.Itoa(prop.BackgroundBrushVal.Color.Green) + "," + strconv.Itoa(prop.BackgroundBrushVal.Color.Blue) + "," + strconv.Itoa(*prop.BackgroundBrushVal.Color.Alpha) + ")"
@@ -592,12 +592,12 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 				ret.WriteString(getNewBrush(brushNum, prop.BackgroundBrushVal.Style, strconv.Itoa(prop.BackgroundBrushVal.Color.Red), strconv.Itoa(prop.BackgroundBrushVal.Color.Green), strconv.Itoa(prop.BackgroundBrushVal.Color.Blue), strconv.Itoa(*prop.BackgroundBrushVal.Color.Alpha)))
 				BrushCounter++
 			}
-			ret.WriteString("ui." + targetName + ".SetBackgroundBrush(brush" + brushNum + ");\n")
+			ret.WriteString("ui." + targetName + ".setBackgroundBrush(brush" + brushNum + ");\n")
 
 		} else if prop.LocaleVal != nil {
-			ret.WriteString("const locale_" + targetName + " = qt6.QLocale.New3(qt6.qlocale_enums.Language." + prop.LocaleVal.Language + ", qt6.qlocale_enums.Country." + prop.LocaleVal.Country + ");\n")
-			ret.WriteString("defer locale_" + targetName + ".Delete();\n")
-			ret.WriteString("ui." + targetName + ".SetLocale(locale_" + targetName + ");\n")
+			ret.WriteString("const locale_" + targetName + " = qt6.QLocale.new3(qt6.qlocale_enums.Language." + prop.LocaleVal.Language + ", qt6.qlocale_enums.Country." + prop.LocaleVal.Country + ");\n")
+			ret.WriteString("defer locale_" + targetName + ".delete();\n")
+			ret.WriteString("ui." + targetName + ".setLocale(locale_" + targetName + ");\n")
 
 		} else if prop.UIntVal != nil {
 			if !ExtendedFlag {
@@ -610,8 +610,8 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			if !ExtendedFlag {
 				writeFlagWarning(ret, prop.Name, targetClass)
 			} else {
-				ret.WriteString("const " + targetName + "_qchar = qt6.QChar.New4(" + prop.CharVal.Unicode + ");\n")
-				ret.WriteString("defer " + targetName + "_qchar.Delete();\n")
+				ret.WriteString("const " + targetName + "_qchar = qt6.QChar.new4(" + prop.CharVal.Unicode + ");\n")
+				ret.WriteString("defer " + targetName + "_qchar.delete();\n")
 				ret.WriteString("ui." + targetName + setterFunc + "(" + targetName + "_qchar);\n")
 			}
 
@@ -624,8 +624,8 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 				if targetClass == "KDatePicker" {
 					maybeDiscard = "_ = "
 				}
-				ret.WriteString("const " + dateName + " = qt6.QDate.New4(" + strconv.Itoa(prop.DateVal.Year) + ", " + strconv.Itoa(prop.DateVal.Month) + ", " + strconv.Itoa(prop.DateVal.Day) + ");\n")
-				ret.WriteString("defer " + dateName + ".Delete();\n")
+				ret.WriteString("const " + dateName + " = qt6.QDate.new4(" + strconv.Itoa(prop.DateVal.Year) + ", " + strconv.Itoa(prop.DateVal.Month) + ", " + strconv.Itoa(prop.DateVal.Day) + ");\n")
+				ret.WriteString("defer " + dateName + ".delete();\n")
 				ret.WriteString(maybeDiscard + "ui." + targetName + setterFunc + "(" + dateName + ");\n")
 				DateCounter++
 			}
@@ -635,8 +635,8 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 				writeFlagWarning(ret, prop.Name, targetClass)
 			} else {
 				timeName := targetName + "_time" + strconv.Itoa(TimeCounter)
-				ret.WriteString("const " + timeName + " = qt6.QTime.New6(" + strconv.Itoa(prop.TimeVal.Hour) + ", " + strconv.Itoa(prop.TimeVal.Minute) + ", " + strconv.Itoa(prop.TimeVal.Second) + ");\n")
-				ret.WriteString("defer " + timeName + ".Delete();\n")
+				ret.WriteString("const " + timeName + " = qt6.QTime.new6(" + strconv.Itoa(prop.TimeVal.Hour) + ", " + strconv.Itoa(prop.TimeVal.Minute) + ", " + strconv.Itoa(prop.TimeVal.Second) + ");\n")
+				ret.WriteString("defer " + timeName + ".delete();\n")
 				ret.WriteString("ui." + targetName + setterFunc + "(" + timeName + ");\n")
 				TimeCounter++
 			}
@@ -652,8 +652,8 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 					maybeAlpha = ", " + strconv.Itoa(*prop.ColorVal.Alpha)
 				}
 				colorName := targetName + "_color" + strconv.Itoa(ColorCounter)
-				ret.WriteString("const " + colorName + " = qt6.QColor.New" + colorOverload + "(" + strconv.Itoa(prop.ColorVal.Red) + ", " + strconv.Itoa(prop.ColorVal.Green) + ", " + strconv.Itoa(prop.ColorVal.Blue) + maybeAlpha + ");\n")
-				ret.WriteString("defer " + colorName + ".Delete();\n")
+				ret.WriteString("const " + colorName + " = qt6.QColor.new" + colorOverload + "(" + strconv.Itoa(prop.ColorVal.Red) + ", " + strconv.Itoa(prop.ColorVal.Green) + ", " + strconv.Itoa(prop.ColorVal.Blue) + maybeAlpha + ");\n")
+				ret.WriteString("defer " + colorName + ".delete();\n")
 				ret.WriteString("ui." + targetName + setterFunc + "(" + colorName + ");\n")
 				ColorCounter++
 			}
@@ -662,7 +662,7 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 			if !ExtendedFlag && targetClass[0] == 'K' {
 				writeFlagWarning(ret, prop.Name, targetClass)
 			} else {
-				comment := " // auxiliary to qt6.QCoreApplication.Translate\n"
+				comment := " // auxiliary to qt6.QCoreApplication.translate\n"
 				var items []string
 				for i, s := range prop.StringListVal.Strings {
 					itemName := targetName + "_" + prop.Name + strconv.Itoa(i)
@@ -681,7 +681,7 @@ func renderProperties(properties []UiProperty, ret *strings.Builder, targetName,
 	}
 
 	if customContentsMargins {
-		ret.WriteString("ui." + targetName + ".SetContentsMargins(" + fmt.Sprintf("%d, %d, %d, %d", contentsMargins[0], contentsMargins[1], contentsMargins[2], contentsMargins[3]) + ");\n")
+		ret.WriteString("ui." + targetName + ".setContentsMargins(" + fmt.Sprintf("%d, %d, %d, %d", contentsMargins[0], contentsMargins[1], contentsMargins[2], contentsMargins[3]) + ");\n")
 	}
 
 	return nil
@@ -705,12 +705,12 @@ func assignWidgetToLayout(ret *strings.Builder, l *UiLayout, child *UiLayoutItem
 			return
 		}
 
-		// For QFormLayout, it's SetWidget or SetLayout
-		ret.WriteString("ui." + l.Name + ".Set" + noun + "(" + rowPos + ", " + colPos + ", " + widgetName + ");\n")
+		// For QFormLayout, it's setWidget or setLayout
+		ret.WriteString("ui." + l.Name + ".set" + noun + "(" + rowPos + ", " + colPos + ", " + widgetName + ");\n")
 
 	case "QGridLayout":
 		if child.ColSpan != nil || child.RowSpan != nil {
-			// If either are present, use full four-value AddWidget3/AddLayout2
+			// If either are present, use full four-value addWidget3/addLayout2
 			rowSpan := 1
 			if child.RowSpan != nil {
 				rowSpan = *child.RowSpan
@@ -727,22 +727,22 @@ func assignWidgetToLayout(ret *strings.Builder, l *UiLayout, child *UiLayoutItem
 				noun += "2"
 			}
 
-			ret.WriteString("ui." + l.Name + ".Add" + noun + "(" + widgetName + ", " + fmt.Sprintf("%d, %d, %d, %d", *child.Row, *child.Column, rowSpan, colSpan) + ");\n")
+			ret.WriteString("ui." + l.Name + ".add" + noun + "(" + widgetName + ", " + fmt.Sprintf("%d, %d, %d, %d", *child.Row, *child.Column, rowSpan, colSpan) + ");\n")
 
 		} else {
 			// Row and Column are always present in the .ui file
-			// For row/column it's AddWidget2/AddLayout
+			// For row/column it's addWidget2/addLayout
 
 			if noun == "Widget" {
 				noun += "2"
 			}
 
-			ret.WriteString("ui." + l.Name + ".Add" + noun + "(" + widgetName + ", " + fmt.Sprintf("%d, %d", *child.Row, *child.Column) + ");\n")
+			ret.WriteString("ui." + l.Name + ".add" + noun + "(" + widgetName + ", " + fmt.Sprintf("%d, %d", *child.Row, *child.Column) + ");\n")
 		}
 
 	case "QHBoxLayout", "QVBoxLayout":
-		// For box layout it's AddWidget/AddLayout
-		ret.WriteString("\nui." + l.Name + ".Add" + noun + "(" + widgetName + ");\n")
+		// For box layout it's addWidget/addLayout
+		ret.WriteString("\nui." + l.Name + ".add" + noun + "(" + widgetName + ");\n")
 
 	default:
 		ret.WriteString("// UIC: no handler for layout '" + l.Class + "'\n")
@@ -762,21 +762,14 @@ func writeLayoutAttributes(ret *strings.Builder, prop, method string) {
 
 func generateLayout(l *UiLayout, parentName, parentClass string, isNestedLayout bool) (string, error) {
 	var ret strings.Builder
-	var ctor string
-
-	wClassZig := "qt6." + l.Class
 
 	if isNestedLayout {
-		ctor = wClassZig + ".New2"
-
-		ret.WriteString("\nui." + l.Name + " = " + ctor + "();\n")
+		ret.WriteString("\nui." + l.Name + " = .new2();\n")
 	} else {
-		ctor = wClassZig + ".New"
-
-		ret.WriteString("\nui." + l.Name + " = " + ctor + "(" + parentName + ");\n")
+		ret.WriteString("\nui." + l.Name + " = .new(" + parentName + ");\n")
 	}
 
-	ret.WriteString("ui." + l.Name + ".SetObjectName(" + strconv.Quote(l.Name) + ");\n")
+	ret.WriteString("ui." + l.Name + ".setObjectName(" + strconv.Quote(l.Name) + ");\n")
 
 	// Layout->Properties
 
@@ -842,7 +835,7 @@ func generateLayout(l *UiLayout, parentName, parentClass string, isNestedLayout 
 				spacerEnums[0], spacerEnums[1] = spacerEnums[1], spacerEnums[0]
 			}
 
-			ret.WriteString("\nui." + child.Spacer.Name + " = qt6.QSpacerItem.New4(" + fmt.Sprintf("%d, %d, %s, %s", width, height, spacerEnums[0], spacerEnums[1]) + ");\n")
+			ret.WriteString("\nui." + child.Spacer.Name + " = .new4(" + fmt.Sprintf("%d, %d, %s, %s", width, height, spacerEnums[0], spacerEnums[1]) + ");\n")
 			if l.Class == "QFormLayout" {
 				role := "qt6.qformlayout_enums.ItemRole.LabelRole"
 				if *child.Column == 1 {
@@ -851,9 +844,9 @@ func generateLayout(l *UiLayout, parentName, parentClass string, isNestedLayout 
 				if (child.RowSpan != nil && *child.RowSpan > 0) || (child.ColSpan != nil && *child.ColSpan > 0) {
 					role = "qt6.qformlayout_enums.ItemRole.SpanningRole"
 				}
-				ret.WriteString("ui." + l.Name + ".SetItem" + method + "(" + strconv.Itoa(*child.Row) + ", " + role + ", ui." + child.Spacer.Name + ");\n\n")
+				ret.WriteString("ui." + l.Name + ".setItem" + method + "(" + strconv.Itoa(*child.Row) + ", " + role + ", ui." + child.Spacer.Name + ");\n\n")
 			} else {
-				ret.WriteString("ui." + l.Name + ".AddItem" + method + "(ui." + child.Spacer.Name + extraParams + ");\n\n")
+				ret.WriteString("ui." + l.Name + ".addItem" + method + "(ui." + child.Spacer.Name + extraParams + ");\n\n")
 			}
 		}
 
@@ -889,11 +882,11 @@ func generateLayout(l *UiLayout, parentName, parentClass string, isNestedLayout 
 
 	// Layout attributes
 
-	writeLayoutAttributes(&ret, l.Stretch, "ui."+l.Name+".SetStretch(")
-	writeLayoutAttributes(&ret, l.RowStretch, "ui."+l.Name+".SetRowStretch(")
-	writeLayoutAttributes(&ret, l.ColStretch, "ui."+l.Name+".SetColumnStretch(")
-	writeLayoutAttributes(&ret, l.RowMinimumHeight, "ui."+l.Name+".SetRowMinimumHeight(")
-	writeLayoutAttributes(&ret, l.ColMinimumWidth, "ui."+l.Name+".SetColumnMinimumWidth(")
+	writeLayoutAttributes(&ret, l.Stretch, "ui."+l.Name+".setStretch(")
+	writeLayoutAttributes(&ret, l.RowStretch, "ui."+l.Name+".setRowStretch(")
+	writeLayoutAttributes(&ret, l.ColStretch, "ui."+l.Name+".setColumnStretch(")
+	writeLayoutAttributes(&ret, l.RowMinimumHeight, "ui."+l.Name+".setRowMinimumHeight(")
+	writeLayoutAttributes(&ret, l.ColMinimumWidth, "ui."+l.Name+".setColumnMinimumWidth(")
 
 	return ret.String(), nil
 }
@@ -905,23 +898,21 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 	if cw, ok := CustomWidgets[w.Class]; ok && !(ExtendedFlag && isExtendedClass(w.Class)) {
 		wClass = cw
 	}
-	wClassZig := "qt6." + strings.ReplaceAll(wClass, "::", "__")
-	ctor := wClassZig + ".New"
 
 	if w.Class == "QDockWidget" && parentName == "" {
-		ret.WriteString("\nui." + w.Name + " = " + ctor + "3();\n")
+		ret.WriteString("\nui." + w.Name + " = .new3();\n")
 	} else if parentName == "" || parentClass == "QDockWidget" || parentClass == "QScrollArea" ||
 		parentClass == "QStackedWidget" || parentClass == "QTabWidget" ||
 		parentClass == "QToolBox" || parentClass == "QWizard" {
-		ret.WriteString("\nui." + w.Name + " = " + ctor + "2();\n")
+		ret.WriteString("\nui." + w.Name + " = .new2();\n")
 	} else {
 		if ExtendedFlag && w.Class == "KMimeTypeChooser" {
 			parentName = ""
 		}
-		ret.WriteString("\nui." + w.Name + " = " + ctor + "(" + parentName + ");\n")
+		ret.WriteString("\nui." + w.Name + " = .new(" + parentName + ");\n")
 	}
 
-	ret.WriteString("ui." + w.Name + ".SetObjectName(" + strconv.Quote(w.Name) + ");\n")
+	ret.WriteString("ui." + w.Name + ".setObjectName(" + strconv.Quote(w.Name) + ");\n")
 
 	if wClass == "QMenu" {
 		QMenus = append(QMenus, w.Name)
@@ -936,29 +927,29 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 
 	// Attributes
 
-	boolVariantName := w.Name + "_variantBool"
+	boolVariantName := w.Name + "_variant_bool"
 
 	for _, attr := range w.Attributes {
 		if parentClass == "QTabWidget" && attr.Name == "title" {
-			ret.WriteString(writtenString(parentName+".SetTabText("+parentName+".IndexOf(ui."+w.Name+"), ", generateString(attr.StringVal), ");\n", attr.StringVal.Notr, true))
+			ret.WriteString(writtenString(parentName+".setTabText("+parentName+".indexOf(ui."+w.Name+"), ", generateString(attr.StringVal), ");\n", attr.StringVal.Notr, true))
 
 		} else if wClass == "QDockWidget" && parentClass == "QMainWindow" && attr.Name == "dockWidgetArea" {
-			ret.WriteString(parentName + ".AddDockWidget(" + *attr.NumberVal + ", ui." + w.Name + ");  // qt6.qnamespace_enums.DockWidgetArea (" + *attr.NumberVal + ")\n")
+			ret.WriteString(parentName + ".addDockWidget(" + *attr.NumberVal + ", ui." + w.Name + ");  // qt6.qnamespace_enums.DockWidgetArea (" + *attr.NumberVal + ")\n")
 
 		} else if wClass == "QToolBar" && parentClass == "QMainWindow" && attr.Name == "toolBarArea" {
-			ret.WriteString(parentName + ".AddToolBar(" + normalizeEnumName(attr.Name, *attr.EnumVal) + ", ui." + w.Name + ");\n")
+			ret.WriteString(parentName + ".addToolBar(" + normalizeEnumName(attr.Name, *attr.EnumVal) + ", ui." + w.Name + ");\n")
 
 		} else if wClass == "QToolBar" && parentClass == "QMainWindow" && attr.Name == "toolBarBreak" {
 			if attr.BoolVal != nil && *attr.BoolVal {
-				ret.WriteString(parentName + ".AddToolBarBreak();\n")
+				ret.WriteString(parentName + ".addToolBarBreak();\n")
 			}
 
 		} else if parentClass == "QTabWidget" && attr.Name == "icon" {
-			// This will be handled when we call .AddTab() on the parent QTabWidget
+			// This will be handled when we call .addTab() on the parent QTabWidget
 
 		} else if parentClass == "QToolBox" && attr.Name == "label" {
-			ret.WriteString("_ = " + parentName + ".AddItem(ui." + w.Name + ", " + strconv.Quote(attr.StringVal.Value) + ");\n")
-			ret.WriteString(writtenString(parentName+".SetItemText("+parentName+".IndexOf(ui."+w.Name+"), ", generateString(attr.StringVal), ");\n", attr.StringVal.Notr, true))
+			ret.WriteString("_ = " + parentName + ".addItem(ui." + w.Name + ", " + strconv.Quote(attr.StringVal.Value) + ");\n")
+			ret.WriteString(writtenString(parentName+".setItemText("+parentName+".indexOf(ui."+w.Name+"), ", generateString(attr.StringVal), ");\n", attr.StringVal.Notr, true))
 
 		} else if attr.Name == "buttonGroup" {
 			groupName := attr.StringVal.Value
@@ -969,15 +960,15 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 					Name:    groupName,
 					Buttons: []string{w.Name},
 				}
-				ret.WriteString("\nconst " + groupName + " = qt6.QButtonGroup.New2(ui." + GlobalContext + ");\n")
-				ret.WriteString((groupName + ".SetObjectName(" + strconv.Quote(groupName) + ");\n"))
+				ret.WriteString("\nconst " + groupName + " = qt6.QButtonGroup.new2(ui." + GlobalContext + ");\n")
+				ret.WriteString((groupName + ".setObjectName(" + strconv.Quote(groupName) + ");\n"))
 			}
-			ret.WriteString(groupName + ".AddButton(ui." + w.Name + ");\n")
+			ret.WriteString(groupName + ".addButton(ui." + w.Name + ");\n")
 
 		} else if (wClass == "QTableView" || wClass == "QTableWidget") && strings.Contains(attr.Name, "Header") {
-			headerType := "Horizontal"
+			headerType := "horizontal"
 			if strings.HasPrefix(attr.Name, "vertical") {
-				headerType = "Vertical"
+				headerType = "vertical"
 			}
 
 			var viewParam, variantOverrideNum string
@@ -990,29 +981,29 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 				variantOverrideNum = "8"
 			} else if attr.StringVal != nil {
 				viewParam = generateString(attr.StringVal)
-				isTrString = strings.Contains(viewParam, "qt6.QCoreApplication.Translate")
+				isTrString = strings.Contains(viewParam, "qt6.QCoreApplication.translate")
 				variantOverrideNum = "24"
 			} else if attr.EnumVal != nil {
 				viewParam = normalizeEnumName(attr.Name, *attr.EnumVal)
 			}
 
-			headerName := w.Name + "_" + strings.ToLower(headerType) + "_header"
+			headerName := w.Name + "_" + headerType + "_header"
 			if _, ok := TableWidgetMap[headerName]; !ok {
 				TableWidgetMap[headerName] = struct{}{}
 				ret.WriteString("const " + headerName + " = ui." + w.Name + "." + headerType + "Header();\n")
 			}
 
-			methodName := "Set" + strings.TrimPrefix(attr.Name, strings.ToLower(headerType)+"Header")
+			methodName := ".set" + strings.TrimPrefix(attr.Name, headerType+"Header")
 			preStr := headerName + methodName + "("
 			postStr := ");\n"
 			if isTrString {
 				ret.WriteString(writtenString(preStr, viewParam, postStr, true, true))
 			} else if attr.StdSetVal != nil && *attr.StdSetVal != "" {
-				attrName := strings.TrimPrefix(attr.Name, strings.ToLower(headerType)+"Header")
+				attrName := strings.TrimPrefix(attr.Name, headerType+"Header")
 				attrName = strings.ToLower(attrName[0:1]) + attrName[1:]
-				ret.WriteString("const " + boolVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.New" + variantOverrideNum + "(" + strconv.FormatBool(*attr.BoolVal) + ");\n")
-				ret.WriteString("defer " + boolVariantName + strconv.Itoa(VariantCounter) + ".Delete();\n")
-				ret.WriteString("_ = ui." + w.Name + "." + headerType + "Header().SetProperty(" + strconv.Quote(attrName) + ", " + boolVariantName + strconv.Itoa(VariantCounter) + ");\n")
+				ret.WriteString("const " + boolVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.new" + variantOverrideNum + "(" + strconv.FormatBool(*attr.BoolVal) + ");\n")
+				ret.WriteString("defer " + boolVariantName + strconv.Itoa(VariantCounter) + ".delete();\n")
+				ret.WriteString("_ = ui." + w.Name + "." + headerType + "Header().setProperty(" + strconv.Quote(attrName) + ", " + boolVariantName + strconv.Itoa(VariantCounter) + ");\n")
 				VariantCounter++
 			} else {
 				ret.WriteString(preStr + viewParam + postStr)
@@ -1022,20 +1013,20 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 			attrName := strings.TrimPrefix(attr.Name, "header")
 			if attr.StdSetVal != nil && *attr.StdSetVal != "" {
 				attrName = strings.ToLower(attrName[0:1]) + attrName[1:]
-				ret.WriteString("const " + boolVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.New8(" + strconv.FormatBool(*attr.BoolVal) + ");\n")
-				ret.WriteString("defer " + boolVariantName + strconv.Itoa(VariantCounter) + ".Delete();\n")
-				ret.WriteString("_ = ui." + w.Name + ".Header().SetProperty(" + strconv.Quote(attrName) + ", " + boolVariantName + strconv.Itoa(VariantCounter) + ");\n")
+				ret.WriteString("const " + boolVariantName + strconv.Itoa(VariantCounter) + " = qt6.QVariant.new8(" + strconv.FormatBool(*attr.BoolVal) + ");\n")
+				ret.WriteString("defer " + boolVariantName + strconv.Itoa(VariantCounter) + ".delete();\n")
+				ret.WriteString("_ = ui." + w.Name + ".header().setProperty(" + strconv.Quote(attrName) + ", " + boolVariantName + strconv.Itoa(VariantCounter) + ");\n")
 				VariantCounter++
 			} else {
-				ret.WriteString("ui." + w.Name + ".Header().Set" + attrName + "(" + strconv.FormatBool(*attr.BoolVal) + ");\n")
+				ret.WriteString("ui." + w.Name + ".header().set" + attrName + "(" + strconv.FormatBool(*attr.BoolVal) + ");\n")
 			}
 
 		} else if (wClass == "QTreeWidget" || wClass == "QTreeView") && attr.NumberVal != nil {
 			attrName := strings.TrimPrefix(attr.Name, "header")
-			ret.WriteString("ui." + w.Name + ".Header().Set" + attrName + "(" + *attr.NumberVal + ");\n")
+			ret.WriteString("ui." + w.Name + ".header().set" + attrName + "(" + *attr.NumberVal + ");\n")
 
 		} else if attr.Name == "toolTip" {
-			ret.WriteString(writtenString("ui."+w.Name+".SetToolTip(", generateString(attr.StringVal), ");\n", attr.StringVal.Notr, true))
+			ret.WriteString(writtenString("ui."+w.Name+".setToolTip(", generateString(attr.StringVal), ");\n", attr.StringVal.Notr, true))
 
 		} else {
 			ret.WriteString("// UIC: no handler for attribute '" + attr.Name + "' in class " + wClass + "\n")
@@ -1060,47 +1051,46 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 		if parentName != "" {
 			parent = strings.TrimPrefix(parentName, "ui.")
 		}
-		ret.WriteString("\nui." + a.Name + " = qt6.QAction.New4(ui." + parent + ");")
+		ret.WriteString("\nui." + a.Name + " = .new4(ui." + parent + ");")
 
-		ret.WriteString("ui." + a.Name + ".SetObjectName(" + strconv.Quote(a.Name) + ");\n")
+		ret.WriteString("ui." + a.Name + ".setObjectName(" + strconv.Quote(a.Name) + ");\n")
 
 		// QActions are translated in the parent window's context
 		if prop, ok := propertyByName(a.Properties, "text"); ok {
-			ret.WriteString(writtenString("ui."+a.Name+".SetText(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+			ret.WriteString(writtenString("ui."+a.Name+".setText(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
 		}
 
 		if prop, ok := propertyByName(a.Properties, "shortcut"); ok {
-			maybeComment := " // auxiliary to qt6.QCoreApplication.Translate"
+			maybeComment := " // auxiliary to qt6.QCoreApplication.translate"
 			if prop.StringVal.Notr {
 				maybeComment = ""
 			}
-			ret.WriteString(writtenString("\nconst "+a.Name+"Shortcut = qt6.QKeySequence.New2(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
-			ret.WriteString("defer " + a.Name + "Shortcut.Delete();" + maybeComment + "\n")
-			ret.WriteString("ui." + a.Name + ".SetShortcut(" + a.Name + "Shortcut);" + maybeComment + "\n")
+			ret.WriteString(writtenString("\nconst "+a.Name+"_shortcut = qt6.QKeySequence.new2(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+			ret.WriteString("defer " + a.Name + "_shortcut.delete();" + maybeComment + "\n")
+			ret.WriteString("ui." + a.Name + ".setShortcut(" + a.Name + "_shortcut);" + maybeComment + "\n")
 		}
 
 		if prop, ok := propertyByName(a.Properties, "icon"); ok {
 			iconName := renderIcon(prop.IconVal, &ret)
-			ret.WriteString("ui." + a.Name + ".SetIcon(" + iconName + ");\n")
+			ret.WriteString("ui." + a.Name + ".setIcon(" + iconName + ");\n")
 		}
 
 		if prop, ok := propertyByName(a.Properties, "toolTip"); ok {
-			ret.WriteString(writtenString("ui."+a.Name+".SetToolTip(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+			ret.WriteString(writtenString("ui."+a.Name+".setToolTip(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
 		}
 
 		if prop, ok := propertyByName(a.Properties, "visible"); ok {
-			ret.WriteString("ui." + a.Name + ".SetVisible(" + strconv.FormatBool(*prop.BoolVal) + ");\n")
+			ret.WriteString("ui." + a.Name + ".setVisible(" + strconv.FormatBool(*prop.BoolVal) + ");\n")
 		}
 
 		if prop, ok := propertyByName(a.Properties, "menuRole"); ok {
-			ret.WriteString("ui." + a.Name + ".SetMenuRole(" + normalizeEnumName(prop.Name, *prop.EnumVal) + ");\n")
+			ret.WriteString("ui." + a.Name + ".setMenuRole(" + normalizeEnumName(prop.Name, *prop.EnumVal) + ");\n")
 		}
 	}
 
 	// Items
 
 	for itemNo, itm := range w.Items {
-		zStruct := zigStructName(wClass)
 		targetSelf := "ui." + w.Name
 		var isItemClass bool
 
@@ -1108,45 +1098,43 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 		case "QListWidget":
 			targetSelf = "item" + strconv.Itoa(ItemWidgetCounter)
 			isItemClass = true
-			zStruct = "qlistwidgetitem"
-			ret.WriteString("const " + targetSelf + " = qt6." + zStruct + ".New();\n")
-			ret.WriteString("ui." + w.Name + ".InsertItem(" + strconv.Itoa(itemNo) + ", " + targetSelf + ");\n")
+			ret.WriteString("const " + targetSelf + " = qt6.QListWidgetItem.new();\n")
+			ret.WriteString("ui." + w.Name + ".insertItem(" + strconv.Itoa(itemNo) + ", " + targetSelf + ");\n")
 		case "QTreeWidget":
 			targetSelf = "item" + strconv.Itoa(ItemWidgetCounter)
 			isItemClass = true
-			zStruct = "qtreewidgetitem"
-			ret.WriteString("const " + targetSelf + " = qt6." + zStruct + ".New3(ui." + w.Name + ");\n")
+			ret.WriteString("const " + targetSelf + " = qt6.QTreeWidgetItem.new3(ui." + w.Name + ");\n")
 		case "QTableWidget":
 			isItemClass = true
-			zStruct = "qtablewidgetitem"
 		}
 
 		if !isItemClass {
-			ret.WriteString("ui." + w.Name + ".AddItem(" + `"");` + "\n")
+			ret.WriteString("ui." + w.Name + ".addItem(" + `"");` + "\n")
 		}
 
 		// Check for a "text" property and update the item's text
-		// Do this as a 2nd step so that the SetItemText can be trapped for retranslate()
+		// Do this as a 2nd step so that the setItemText can be trapped for retranslate()
 		for _, prop := range itm.Properties {
 			switch prop.Name {
 			case "text":
 				if isItemClass {
 					var maybeItemNo string
-					if zStruct == "qtreewidgetitem" {
+					if wClass == "QTreeWidget" {
+						// QTreeWidgetItem
 						maybeItemNo = ", " + strconv.Itoa(itemNo)
 					}
 					if !prop.StringVal.Notr {
-						ret.WriteString("const " + targetSelf + " = ui." + w.Name + ".Item(" + strconv.Itoa(ItemWidgetCounter) + "); // auxiliary to qt6.QCoreApplication.Translate " + w.Name + " " + zigStructName(wClass) + "\n")
+						ret.WriteString("const " + targetSelf + " = ui." + w.Name + ".item(" + strconv.Itoa(ItemWidgetCounter) + "); // auxiliary to qt6.QCoreApplication.translate " + w.Name + " " + sanitizeLowerName(wClass) + "\n")
 					}
-					ret.WriteString(writtenString(targetSelf+maybeItemNo+".SetText(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+					ret.WriteString(writtenString(targetSelf+maybeItemNo+".setText(", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
 				} else {
-					ret.WriteString(writtenString(targetSelf+".SetItemText("+strconv.Itoa(itemNo)+", ", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
+					ret.WriteString(writtenString(targetSelf+".setItemText("+strconv.Itoa(itemNo)+", ", generateString(prop.StringVal), ");\n", prop.StringVal.Notr, true))
 				}
 			case "icon":
 				iconName := renderIcon(prop.IconVal, &ret)
-				ret.WriteString(targetSelf + ".SetIcon(" + iconName + ");\n")
+				ret.WriteString(targetSelf + ".setIcon(" + iconName + ");\n")
 			case "checkState":
-				ret.WriteString(targetSelf + ".SetCheckState(qt6.qnamespace_enums.CheckState." + *prop.EnumVal + ");\n")
+				ret.WriteString(targetSelf + ".setCheckState(qt6.qnamespace_enums.CheckState." + *prop.EnumVal + ");\n")
 			case "flags":
 				parts := strings.Split(*prop.SetVal, "|")
 				for i, p := range parts {
@@ -1157,7 +1145,7 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 				if len(parts) > 0 {
 					emit = strings.Join(parts, "|")
 				}
-				ret.WriteString(targetSelf + ".SetFlags(" + emit + ");\n")
+				ret.WriteString(targetSelf + ".setFlags(" + emit + ");\n")
 			default:
 				ret.WriteString("// UIC: no handler for item property '" + prop.Name + "'\n")
 			}
@@ -1178,9 +1166,9 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 
 			switch prop.Name {
 			case "text", "toolTip":
-				maybeComment := " // auxiliary to qt6.QCoreApplication.Translate"
+				maybeComment := " // auxiliary to qt6.QCoreApplication.translate"
 				textVal := generateString(prop.StringVal)
-				if !strings.Contains(textVal, "qt6.QCoreApplication.Translate") || prop.StringVal.Notr {
+				if !strings.Contains(textVal, "qt6.QCoreApplication.translate") || prop.StringVal.Notr {
 					maybeComment = ""
 				}
 
@@ -1191,20 +1179,21 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 				switch wClass {
 				case "QTreeWidget":
 					lookupKey = w.Name
-					itemName = "ui_" + w.Name + "Item"
-					setHeaderMethod = "ui." + w.Name + ".SetHeaderItem(" + itemName + ");\n"
-					setItemMethod = writtenString(itemName+".Set"+methodName+"("+colToStr+", ", textVal, ");", prop.StringVal.Notr, maybeComment == "")
-					translateItemMethod = "const " + itemName + " = ui." + w.Name + ".HeaderItem();"
+					itemName = "ui_" + w.Name + "_item"
+					setHeaderMethod = "ui." + w.Name + ".setHeaderItem(" + itemName + ");\n"
+					setItemMethod = writtenString(itemName+".set"+methodName+"("+colToStr+", ", textVal, ");", prop.StringVal.Notr, maybeComment == "")
+					translateItemMethod = "const " + itemName + " = ui." + w.Name + ".headerItem();"
 				default:
 					lookupKey = w.Name + "_" + colToStr
-					itemName = "ui_" + w.Name + "Item" + colToStr
-					setColumnMethod = "ui." + w.Name + ".SetColumnCount(" + strconv.Itoa(len(w.Columns)) + ");\n"
-					setHeaderMethod = "ui." + w.Name + ".SetHorizontalHeaderItem(" + colToStr + ", " + itemName + ");\n"
-					setItemMethod = writtenString(itemName+".Set"+methodName+"(", textVal, ");", prop.StringVal.Notr, maybeComment == "")
-					translateItemMethod = "const " + itemName + " = ui." + w.Name + ".HorizontalHeaderItem(" + colToStr + ");"
+					itemName = "ui_" + w.Name + "_item" + colToStr
+					setColumnMethod = "ui." + w.Name + ".setColumnCount(" + strconv.Itoa(len(w.Columns)) + ");\n"
+					setHeaderMethod = "ui." + w.Name + ".setHorizontalHeaderItem(" + colToStr + ", " + itemName + ");\n"
+					setItemMethod = writtenString(itemName+".set"+methodName+"(", textVal, ");", prop.StringVal.Notr, maybeComment == "")
+					translateItemMethod = "const " + itemName + " = ui." + w.Name + ".horizontalHeaderItem(" + colToStr + ");"
 				}
 
-				newItem := "const " + itemName + " = " + wClassZig + "Item.New();\n"
+				wClassZig := "qt6." + strings.ReplaceAll(wClass, "::", "__")
+				newItem := "const " + itemName + " = " + wClassZig + "Item.new();\n"
 
 				if !isColumnSet && setColumnMethod != "" {
 					ret.WriteString(setColumnMethod)
@@ -1265,68 +1254,73 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 		// The first listed class can be the central widget.
 		// TODO should it be the first child with a layout? But need to handle windows with no layout
 		if wClass == "QMainWindow" && !setCentralWidget {
-			ret.WriteString("\nui." + w.Name + ".SetCentralWidget(ui." + child.Name + ");\n") // Set central widget
+			ret.WriteString("\nui." + w.Name + ".setCentralWidget(ui." + child.Name + ");\n") // Set central widget
 			setCentralWidget = true
 		}
 
 		// QDockWidget and QScrollArea also have something like a central widget
 		if (wClass == "QDockWidget" || wClass == "QScrollArea") && !setCentralWidget {
-			ret.WriteString("ui." + w.Name + ".SetWidget(ui." + child.Name + ");\n") // Set central widget
+			ret.WriteString("ui." + w.Name + ".setWidget(ui." + child.Name + ");\n") // Set central widget
 			setCentralWidget = true
 		}
 
 		if wClass == "QSplitter" || wClass == "QStackedWidget" {
-			// We need to manually AddWidget on every child of QSplitter or QStackedWidget
+			// We need to manually addWidget on every child of QSplitter or QStackedWidget
 			var maybeDiscard string
 			if wClass == "QStackedWidget" {
 				maybeDiscard = "_ = "
 			}
-			ret.WriteString(maybeDiscard + "ui." + w.Name + ".AddWidget(ui." + child.Name + ");\n")
+			ret.WriteString(maybeDiscard + "ui." + w.Name + ".addWidget(ui." + child.Name + ");\n")
 		}
 
 		if wClass == "QMainWindow" && child.Class == "QMenuBar" && !setMenuBar {
-			ret.WriteString("ui." + w.Name + ".SetMenuBar(ui." + child.Name + ");\n")
+			ret.WriteString("ui." + w.Name + ".setMenuBar(ui." + child.Name + ");\n")
 			setMenuBar = true
 		}
 
 		if wClass == "QMainWindow" && child.Class == "QStatusBar" && !setStatusBar {
-			ret.WriteString("ui." + w.Name + ".SetStatusBar(ui." + child.Name + ");\n")
+			ret.WriteString("ui." + w.Name + ".setStatusBar(ui." + child.Name + ");\n")
 			setStatusBar = true
 		}
 
-		// QTabWidget->QTab handling
+		// QTabWidget->addTab handling
 		if wClass == "QTabWidget" {
 			if icon, ok := propertyByName(child.Attributes, "icon"); ok {
 				// addTab() overload with icon
 				iconName := renderIcon(icon.IconVal, &ret)
-				ret.WriteString("\n_ = ui." + w.Name + ".AddTab2(ui." + child.Name + ", " + iconName + `, "");` + "\n")
+				ret.WriteString("\n_ = ui." + w.Name + ".addTab2(ui." + child.Name + ", " + iconName + `, "");` + "\n")
 
 			} else {
 				// addTab() overload without icon
-				ret.WriteString("\n_ = ui." + w.Name + ".AddTab(ui." + child.Name + `, "");` + "\n")
+				ret.WriteString("\n_ = ui." + w.Name + ".addTab(ui." + child.Name + `, "");` + "\n")
 			}
+		}
+
+		// QWizard->QWizardPage handling
+		if w.Class == "QWizard" && child.Class == "QWizardPage" {
+			ret.WriteString("_ = ui." + w.Name + ".addPage(ui." + child.Name + ");\n")
 		}
 
 		// child attributes
 		if prop, ok := propertyByName(child.Attributes, "tabsClosable"); ok {
-			ret.WriteString("ui." + child.Name + ".SetTabsClosable(" + strconv.FormatBool(*prop.BoolVal) + ");\n")
+			ret.WriteString("ui." + child.Name + ".setTabsClosable(" + strconv.FormatBool(*prop.BoolVal) + ");\n")
 		}
 
 		if prop, ok := propertyByName(child.Attributes, "tabBarAutoHide"); ok {
-			ret.WriteString("ui." + child.Name + ".SetTabBarAutoHide(" + strconv.FormatBool(*prop.BoolVal) + ");\n")
+			ret.WriteString("ui." + child.Name + ".setTabBarAutoHide(" + strconv.FormatBool(*prop.BoolVal) + ");\n")
 		}
 
 		if prop, ok := propertyByName(child.Attributes, "orientation"); ok {
-			ret.WriteString("ui." + child.Name + ".SetOrientation(" + normalizeEnumName(prop.Name, *prop.EnumVal) + ");\n")
+			ret.WriteString("ui." + child.Name + ".setOrientation(" + normalizeEnumName(prop.Name, *prop.EnumVal) + ");\n")
 		}
 	}
 
-	// AddActions
+	// addActions
 	// n.b. This must be *after* all children have been constructed, in case we
 	// are adding a direct child
 
 	for _, a := range w.AddActions {
-		action := "ui." + w.Name + ".AddAction(ui." + a.Name + ".MenuAction());\n"
+		action := "ui." + w.Name + ".addAction(ui." + a.Name + ".menuAction());\n"
 
 		isQMenu := false
 		if slices.Contains(QMenus, a.Name) {
@@ -1341,10 +1335,10 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 			storeAction(action, wClass, w.Name)
 		case a.Name == "separator":
 			// TODO how does Qt Designer disambiguate a real QAction with name="separator" ?
-			action = "_ = ui." + w.Name + ".AddSeparator();\n"
+			action = "_ = ui." + w.Name + ".addSeparator();\n"
 			storeAction(action, wClass, w.Name)
 		default:
-			action = "ui." + w.Name + ".AddAction(ui." + a.Name + ");\n"
+			action = "ui." + w.Name + ".addAction(ui." + a.Name + ");\n"
 			storeAction(action, wClass, w.Name)
 		}
 	}
@@ -1359,7 +1353,7 @@ func generateWidget(w UiWidget, parentName, parentClass string) (string, error) 
 				fmt.Println("Warning: Z-order assignment '" + zorder + "' is not a valid widget")
 				continue
 			}
-			ret.WriteString("ui." + zorder + ".Raise();\n")
+			ret.WriteString("ui." + zorder + ".raise();\n")
 		}
 	}
 
@@ -1426,29 +1420,29 @@ func generate(goGenerateArgs string, flagExtraOps UiFlagOptions, u UiFile) ([]by
 	var foundWidgetItem bool
 	var lastParentItem string
 	for _, line := range strings.Split(nest, "\n") {
-		if strings.Contains(line, "qt6.QCoreApplication.Translate") {
+		if strings.Contains(line, "qt6.QCoreApplication.translate") {
 			if strings.Contains(line, "const item") {
 				retLine, parentItem, _ := splitLastWords(line)
 				line = retLine
 				if lastParentItem != parentItem && !foundWidgetItem {
-					sortingBlockBegin := "const " + parentItem + "_sortingEnabled = ui." + parentItem + ".IsSortingEnabled();\n"
-					sortingBlockBegin += "ui." + parentItem + ".SetSortingEnabled(false);"
+					sortingBlockBegin := "const " + parentItem + "_sorting_enabled = ui." + parentItem + ".isSortingEnabled();\n"
+					sortingBlockBegin += "ui." + parentItem + ".setSortingEnabled(false);"
 					translateFunc = append(translateFunc, sortingBlockBegin)
-					sortingBlockEnds = append(sortingBlockEnds, "ui."+parentItem+".SetSortingEnabled("+parentItem+"_sortingEnabled);\n")
+					sortingBlockEnds = append(sortingBlockEnds, "ui."+parentItem+".setSortingEnabled("+parentItem+"_sorting_enabled);\n")
 				}
 				foundWidgetItem = true
 				lastParentItem = parentItem
 			}
 			translateFunc = append(translateFunc, splitTranslationComment(line))
-		} else if strings.Contains(line, ".SetBuddy(") {
+		} else if strings.Contains(line, ".setBuddy(") {
 			setBuddy = append(setBuddy, line)
-		} else if strings.Contains(line, ".SetCurrentRow(") {
+		} else if strings.Contains(line, ".setCurrentRow(") {
 			setCurrentRow = append(setCurrentRow, line)
-		} else if strings.Contains(line, ".SetCurrentIndex(") {
+		} else if strings.Contains(line, ".setCurrentIndex(") {
 			setCurrentIndex = append(setCurrentIndex, line)
-		} else if strings.Contains(line, ".SetDefault(") {
+		} else if strings.Contains(line, ".setDefault(") {
 			setDefault = append(setDefault, line)
-		} else if strings.Contains(line, ".MenuAction(") {
+		} else if strings.Contains(line, ".menuAction(") {
 			menuActions = append(menuActions, line)
 		} else {
 			newFuncBody = append(newFuncBody, line+"\n")
@@ -1492,7 +1486,7 @@ pub const ` + uClass + `Ui = struct {
 
 /// Destroys all the Qt objects for ` + uClass + `Ui and frees the allocated memory
 pub fn destroy(ui: *` + uClass + `Ui, allocator: std.mem.Allocator) void {
-    ui.` + u.Widget.Name + `.Delete();
+    ui.` + u.Widget.Name + `.delete();
     allocator.destroy(ui);
 }`)
 
@@ -1515,7 +1509,7 @@ pub fn create(allocator: std.mem.Allocator) !*` + uClass + `Ui {
 		for i := 0; i < len(tabStops.TabStops)-1; i++ {
 			current := tabStops.TabStops[i].Name
 			next := tabStops.TabStops[i+1].Name
-			ret.WriteString("qt6.QWidget.SetTabOrder(ui." + current + ", ui." + next + ");\n")
+			ret.WriteString("qt6.QWidget.setTabOrder(ui." + current + ", ui." + next + ");\n")
 		}
 	}
 
@@ -1567,7 +1561,7 @@ pub fn create(allocator: std.mem.Allocator) !*` + uClass + `Ui {
 		signal := splitToParens(c.Signal)
 		slot := splitToParens(c.Slot)
 
-		qtZigMethod := "On" + strings.ToUpper(signal[0:1]) + signal[1:]
+		qtZigMethod := "on" + strings.ToUpper(signal[0:1]) + signal[1:]
 
 		ret.WriteString(maybeComment + "ui." + c.Sender + "." + qtZigMethod + "(" + uClass + "UiConnections." + c.Sender + "_" + slot + ");\n")
 	}
