@@ -15,9 +15,13 @@ pub const Threading = struct {
     ///
     /// ` callback: *const fn (context: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn ExecNow(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+    pub fn execNow(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Threading_ExecNow(@ptrCast(context), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `execNow` instead
+    ///
+    pub const ExecNow = execNow;
 
     /// Auto execution in main thread (thread-safe)
     ///
@@ -35,9 +39,13 @@ pub const Threading = struct {
     ///
     /// ` callback: *const fn (context: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn Exec(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+    pub fn exec(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Threading_Exec(@ptrCast(context), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Unique auto execution in main thread (thread-safe)
     ///
@@ -52,9 +60,13 @@ pub const Threading = struct {
     ///
     /// ` callback: *const fn (context: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn ExecUnique(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+    pub fn execUnique(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Threading_ExecUnique(@ptrCast(context), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `execUnique` instead
+    ///
+    pub const ExecUnique = execUnique;
 
     /// Single-shot execution in main thread (thread-safe)
     ///
@@ -68,9 +80,13 @@ pub const Threading = struct {
     ///
     /// ` callback: *const fn (context: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn ExecOnce(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+    pub fn execOnce(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Threading_ExecOnce(@ptrCast(context), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `execOnce` instead
+    ///
+    pub const ExecOnce = execOnce;
 
     /// Non-blocking execution in main thread (thread-safe)
     ///
@@ -86,9 +102,13 @@ pub const Threading = struct {
     ///
     /// ` callback: *const fn (context: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn Async(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+    pub fn async(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Threading_Async(@ptrCast(context), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `async` instead
+    ///
+    pub const Async = async;
 
     /// Unique non-blocking execution in main thread (thread-safe)
     ///
@@ -103,9 +123,13 @@ pub const Threading = struct {
     ///
     /// ` callback: *const fn (context: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn AsyncUnique(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+    pub fn asyncUnique(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Threading_AsyncUnique(@ptrCast(context), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `asyncUnique` instead
+    ///
+    pub const AsyncUnique = asyncUnique;
 
     /// Single-shot non-blocking execution in main thread (thread-safe)
     ///
@@ -119,9 +143,13 @@ pub const Threading = struct {
     ///
     /// ` callback: *const fn (context: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn AsyncOnce(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+    pub fn asyncOnce(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Threading_AsyncOnce(@ptrCast(context), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `asyncOnce` instead
+    ///
+    pub const AsyncOnce = asyncOnce;
 
     /// Unique single-shot non-blocking execution in main thread (thread-safe)
     ///
@@ -136,9 +164,13 @@ pub const Threading = struct {
     ///
     /// ` callback: *const fn (context: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn AsyncUniqueOnce(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+    pub fn asyncUniqueOnce(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Threading_AsyncUniqueOnce(@ptrCast(context), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `asyncUniqueOnce` instead
+    ///
+    pub const AsyncUniqueOnce = asyncUniqueOnce;
 
     /// Blocking execution in main thread (thread-safe)
     ///
@@ -169,9 +201,13 @@ pub const Threading = struct {
     ///
     /// ` callback: *const fn (context: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn Sync(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+    pub fn sync(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Threading_Sync(@ptrCast(context), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sync` instead
+    ///
+    pub const Sync = sync;
 
     /// Unique blocking execution in main thread (thread-safe)
     ///
@@ -187,9 +223,13 @@ pub const Threading = struct {
     ///
     /// ` callback: *const fn (context: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn SyncUnique(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+    pub fn syncUnique(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Threading_SyncUnique(@ptrCast(context), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `syncUnique` instead
+    ///
+    pub const SyncUnique = syncUnique;
 
     /// Single-shot blocking execution in main thread (thread-safe)
     ///
@@ -204,9 +244,13 @@ pub const Threading = struct {
     ///
     /// ` callback: *const fn (context: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn SyncOnce(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+    pub fn syncOnce(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Threading_SyncOnce(@ptrCast(context), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `syncOnce` instead
+    ///
+    pub const SyncOnce = syncOnce;
 
     /// Unique single-shot blocking execution in main thread (thread-safe)
     ///
@@ -222,7 +266,11 @@ pub const Threading = struct {
     ///
     /// ` callback: *const fn (context: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn SyncUniqueOnce(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
+    pub fn syncUniqueOnce(context: ?*anyopaque, callback: *const fn (?*anyopaque) callconv(.c) void) void {
         qtc.Threading_SyncUniqueOnce(@ptrCast(context), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `syncUniqueOnce` instead
+    ///
+    pub const SyncUniqueOnce = syncUniqueOnce;
 };
