@@ -497,13 +497,68 @@ func (nm CppMethod) SafeMethodName() string {
 	)
 	tmp = replacer.Replace(tmp)
 
-	// Also make the first letter uppercase so it becomes public in Go
+	// Also make the first letter uppercase
 	tmp = titleCase(tmp)
 
-	// Replace spaces (e.g. "operator long long" with CamelCase
+	// Replace spaces (e.g. "operator long long" with PascalCase
 	tmp = regexp.MustCompile(" ([a-zA-Z])").ReplaceAllStringFunc(tmp, func(match string) string { return strings.ToUpper(match[1:]) })
 
-	// Also replace any underscore_case with CamelCase
+	// Also replace any snake_case with PascalCase
+	// Only catch lowercase letters in this one, not uppercase, as it causes a
+	// lot of churn for Scintilla
+	tmp = regexp.MustCompile("_([a-z])").ReplaceAllStringFunc(tmp, func(match string) string { return strings.ToUpper(match[1:]) })
+
+	return tmp
+}
+
+func (nm CppMethod) safeMethodName() string {
+	// Strip redundant Qt prefix, we know these are all Qt functions
+	tmp := strings.TrimPrefix(nm.MethodName, "qt_")
+
+	// Operator-overload methods have names not representable in binding
+	// languages. Replace more specific cases first
+	replacer := strings.NewReplacer(
+
+		// "operator " with a trailing space only occurs in conversion operators
+		// Add a fake _ here, but it will be replaced with camelcase in the regex below
+		"operator ", "to ",
+		"::", "__", // e.g. "operator QCborError::Code"
+
+		"==", "Equal",
+		"!=", "NotEqual",
+		">=", "GreaterOrEqual",
+		"<=", "LesserOrEqual",
+		"=", "Assign",
+
+		"<<", "ShiftLeft", // Qt classes use it more for stream functions e.g. in QDataStream
+		">>", "ShiftRight",
+		">", "Greater",
+		"<", "Lesser",
+
+		"+", "Plus",
+		"-", "Minus",
+		"*", "Multiply",
+		"/", "Divide",
+		"%", "Modulo",
+
+		"&&", "LogicalAnd",
+		"||", "LogicalOr",
+		"!", "Not",
+		"&", "BitwiseAnd",
+		"|", "BitwiseOr",
+		"~", "BitwiseXor",
+		"^", "BitwiseNot",
+
+		"->", "PointerDereference",
+		"[]", "Subscript",
+		"()", "Call",
+	)
+	tmp = replacer.Replace(tmp)
+
+	// Replace spaces (e.g. "operator long long" with PascalCase
+	tmp = regexp.MustCompile(" ([a-zA-Z])").ReplaceAllStringFunc(tmp, func(match string) string { return strings.ToUpper(match[1:]) })
+
+	// Also replace any snake_case with PascalCase
 	// Only catch lowercase letters in this one, not uppercase, as it causes a
 	// lot of churn for Scintilla
 	tmp = regexp.MustCompile("_([a-z])").ReplaceAllStringFunc(tmp, func(match string) string { return strings.ToUpper(match[1:]) })
